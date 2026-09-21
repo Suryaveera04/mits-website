@@ -40,6 +40,7 @@ export interface CellDetail {
   members: Member[];
   documents: DocumentLink[];
   events?: CellEvent[];
+  gallery?: string[];
   contacts: ContactInfo[];
   url: string;
 }
@@ -795,11 +796,7 @@ export const cellsDetailData: Record<string, CellDetail> = {
   },
   "swc": {
     "name": "Student Welfare Cell",
-    "aboutText": [
-      "The Student Welfare Cell (SWC) at Madanapalle Institute of Technology & Science functions as a dedicated support system committed to the holistic well-being, social welfare, financial assistance, and personal development of every student.",
-      "The Cell acts as a vital conduit between students and governmental, institutional, and private scholarship agencies, facilitating timely disbursement of financial support to deserving learners.",
-      "Beyond scholarships, SWC supervises student council activities, handles student counseling, coordinates health and insurance benefits, and promotes a nurturing campus climate that enables students to achieve their highest academic and creative potential."
-    ],
+    "aboutText": [],
     "members": [
       {
         "sno": "1",
@@ -839,45 +836,68 @@ export const cellsDetailData: Record<string, CellDetail> = {
     ],
     "documents": [
       {
-        "title": "Office Order - Scholarship Committee - 2025",
-        "href": "https://mits.ac.in/assets/pdf/swc/Scholarship committee - 2025.pdf"
+        "title": "Request Form",
+        "href": "https://mits.ac.in/pdf/2018-19-Request-Form.docx"
       },
       {
-        "title": "JnanaBhumi Scholarships Guidelines",
-        "href": "https://mits.ac.in/pdf/jnanabhumi.pdf"
+        "title": "No Dues Form",
+        "href": "https://mits.ac.in/pdf/No-due-form.doc"
       },
       {
-        "title": "Student Council Constitution & Guidelines",
-        "href": "https://mits.ac.in/pdf/Student-Council.pdf"
+        "title": "Student Affidavit",
+        "href": "https://mits.ac.in/pdf/student-affidavit.pdf"
       },
       {
-        "title": "Minutes of Meeting - Student Welfare Committee",
-        "href": "https://mits.ac.in/pdf/Minuts-of-meeting.pdf"
+        "title": "Parent Affidavit",
+        "href": "https://mits.ac.in/pdf/parent-affidavit.pdf"
       },
       {
-        "title": "Students Qualifying in State/National/International Level Examination",
-        "href": "https://mits.ac.in/public/uploads/scholarship/Exams-gate-(2018-19).pdf"
-      },
-      {
-        "title": "College Fest & Celebrations Report (Ashv - Race of Talent)",
-        "href": "https://mits.ac.in/pdf/Ashv-The-Race-of-Talent.pdf"
+        "title": "Attendance Declaration",
+        "href": "https://mits.ac.in/pdf/DECLARATION-UNDERTAKING-FROM-THE-STUDENT.pdf"
       }
     ],
     "contacts": [
       {
         "name": "Dr. P. Athahar",
         "designation": "Senior Manager – Student Affairs",
-        "address": "Student Welfare Cell, MITS, Madanapalle - 517325",
+        "address": "Madanapalle Institute of Technology & Science, Deemed to be University, Madanapalle-Kadiri Road, kurabalakota Mandal, Madanapalle-517325, Andhra Pradesh, India",
         "phone": "+91-8571-280255",
-        "email": "studentwelfare@mits.ac.in"
+        "email": "sm.studentaffairs@mits.ac.in"
       },
       {
         "name": "Ms. Raga Deepthi",
         "designation": "Assistant Administrative Officer (Students Welfare)",
-        "address": "Student Welfare Cell, MITS, Madanapalle - 517325",
+        "address": "Madanapalle Institute of Technology & Science, Deemed to be University, Madanapalle-Kadiri Road, kurabalakota Mandal, Madanapalle-517325, Andhra Pradesh, India",
         "phone": "+91-8571-280255",
-        "email": "swc@mits.ac.in"
+        "email": "swo@mits.ac.in"
       }
+    ],
+    "gallery": [
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-05-19 at 8.17.02 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-05-19 at 8.55.26 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-05-07 at 10.05.39 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-05-15 at 8.05.06 AM (1).jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-05-07 at 10.05.39 AM (1).jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-05-15 at 8.05.04 AM (1).jpeg",
+      "https://mits.ac.in/public/uploads/gallery/swc-2026.jpg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-01 at 3.41.53 PM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.31 AM (1).jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.31 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.32 AM (1).jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.32 AM (2).jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.32 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.33 AM (1).jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.33 AM (2).jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.33 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.34 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/886a22fa-24a3-4f01-897e-2b7c1fa67cc6.jpg",
+      "https://mits.ac.in/public/uploads/gallery/aa98f6e3-3f9b-471d-942f-1594d8244609.jpg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-03-05 at 2.51.59 PM.jpg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-03-05 at 2.52.01 PM.jpg",
+      "https://mits.ac.in/public/uploads/gallery/111swc.jpg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-03-09 at 3.43.27 PM.jpg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-03-09 at 3.43.28 PM (3).jpg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-03-09 at 3.43.28 PM.jpg"
     ],
     "id": "swc",
     "url": "https://mits.ac.in/swc",
@@ -885,48 +905,76 @@ export const cellsDetailData: Record<string, CellDetail> = {
       {
         "title": "MITS Scholarship Provision & Scope",
         "paragraphs": [
-          "MITS facilitates institutional and state government financial aid covering full and partial tuition fee waivers, merit concessions, and social welfare bursaries.",
-          "State Government Schemes: Full tuition reimbursement via Andhra Pradesh Jnanabhumi Portal (JVD - Vidya Deevena & Vasathi Deevena) for eligible community students.",
-          "National Scholarships: Mentoring and documentation support for National Scholarship Portal (NSP) centrally sponsored schemes, minority welfare funds, and AICTE Pragati & Saksham scholarships.",
-          "MITS Alumni & Philanthropic Grants: Financial endowments provided to students demonstrating exemplary academic merit facing acute socio-economic hardships."
+          "Madanapalle Institute of Technology & Science (MITS), Deemed to be University, firmly believes that education is the greatest enabler of social and economic progress. In pursuit of its mission to promote inclusive excellence, MITS has established a comprehensive scholarship policy designed to support and encourage students from diverse backgrounds, ensuring that financial constraints do not impede access to quality education.",
+          "This policy reflects the University's commitment to provide financial assistance to students with academic potential and economic need, foster inclusion by supporting students from underrepresented, marginalized or economically disadvantaged backgrounds by recognizing their academic achievement with exemplary conduct and holistic development.",
+          "This policy applies to all students admitted to various full-time programs of MITS Deemed to be University and covers institutional, governmental, and externally funded scholarships administered through the University."
         ]
       },
       {
         "title": "MITS Support and Guidance for External Scholarships",
         "paragraphs": [
-          "Dedicated helpdesk for application verification, income and caste certificate attestation, and portal uploads.",
-          "Notification broadcasts for corporate CSR scholarships (Reliance Foundation, Tata Trusts, ONGC, Kotak Kanya, Foundation for Excellence).",
-          "One-on-one counseling on eligibility criteria, interview preparation, and scholarship renewal procedures."
+          "Dedicated Student Affairs Cell: MITS has a Student Affairs Cell whose key role is to support students in finding and applying for scholarships both government-funded and from private/NGO sources.",
+          "Information dissemination: The cell circulates details about scholarships such as those available through the National Scholarship Portal (NSP), AICTE, UGC, Ministry of Minority Affairs (MOMA), SC/ST scholarships, AICTE's Single Girl Child Scholarship, and other schemes like ONGC and private organisations.",
+          "Regular updates: Students receive notifications almost throughout the year when new scholarships or applications open.",
+          "Guidance on eligibility & application process: The cell explains eligibility criteria and correct documentation needed for various schemes.",
+          "Over the years, hundreds of MITS students have benefited from central government and private scholarship schemes through this support system."
         ]
       },
       {
-        "title": "Academic Policy & Extra Co-Curricular Criteria Awards",
+        "title": "Scholarship Awareness & Application Help",
         "paragraphs": [
-          "Annual student excellence felicitation for university rank holders, GATE/CAT qualifiers, and sports winners.",
-          "Special grants and cash awards for students representing MITS at national technical conferences and international symposiums."
+          "Counselling on scholarship choices: Helping students identify which scholarships they are eligible for based on category (e.g., SC/ST, minority, EWS) and academic performance.",
+          "Assistance with online portals: Particularly the National Scholarship Portal (NSP) the central government's unified platform for applying and tracking scholarship applications.",
+          "Circulation of application procedures: Official circulars and directions for how to register, which forms to use, and how to complete applications properly (both fresh and renewal)."
+        ]
+      },
+      {
+        "title": "Eligibility Criteria",
+        "paragraphs": [
+          "To qualify for any scholarship or award under this policy, a student must:",
+          "1. Be a bonafide, full-time student of MITS.",
+          "2. Maintain good scholastic standing.",
+          "3. Exhibit good conduct, discipline, and attendance throughout the academic year.",
+          "4. Submit valid income and merit documents as applicable.",
+          "5. Not simultaneously hold another full scholarship for the same purpose unless permitted by the Scholarship Committee."
         ]
       }
     ],
     "events": [
       {
-        "title": "Annual Scholarship Awareness and JnanaBhumi / NSP Documentation Drive",
-        "href": "https://mits.ac.in/assets/pdf/swc/Scholarship committee - 2025.pdf",
-        "date": "14-08-2025"
+        "title": "An Expert Talk on \"Personal Branding in the Digital Age: The LinkedIn Blueprint\" on 10th April 2026 at the Auditorium.",
+        "href": "https://mits.ac.in/assets/pdf/swc/Personal Branding in the Digital Age The LinkedIn Blueprint.pdf",
+        "date": "10-04-2026"
       },
       {
-        "title": "Ashv: The Race of Talent - National Level Annual Cultural & Technical Fest",
-        "href": "https://mits.ac.in/pdf/Ashv-The-Race-of-Talent.pdf",
-        "date": "28-02-2025"
+        "title": "An Awareness Session on \"Scholarships and Study Abroad Success Strategies\" was organized on 27/02/26.",
+        "href": "https://mits.ac.in/assets/pdf/swc/Scholarships and Study Abroad Success Strategies.pdf",
+        "date": "27-02-2026"
       },
       {
-        "title": "Student Council Investiture & Welfare Interaction Forum",
-        "href": "https://mits.ac.in/pdf/Student-Council.pdf",
-        "date": "19-11-2024"
+        "title": "An Awareness Session on \"University-Specific Private Scholarships for Master's Programs Abroad\" was organized on 23/02/26.",
+        "href": "https://mits.ac.in/assets/pdf/swc/University-Specific Private Scholarships for Master's Programs Abroad .pdf",
+        "date": "23-02-2026"
       },
       {
-        "title": "National Mental Health Day & Student Well-Being Workshop",
-        "href": "https://mits.ac.in/pdf/Minuts-of-meeting.pdf",
-        "date": "10-10-2024"
+        "title": "An Awareness Session on \"Financial Support Options for Indian Students to study abroad\" on 4th February 2026.",
+        "href": "https://mits.ac.in/assets/pdf/swc/Financial Support Options.pdf",
+        "date": "04-02-2026"
+      },
+      {
+        "title": "An Awareness Session about Vidya Lakshmi Educational Loan scheme on 2nd December 2025.",
+        "href": "https://mits.ac.in/assets/pdf/swc/Vidya Lakshmi Educational Loan scheme.pdf",
+        "date": "02-12-2025"
+      },
+      {
+        "title": "An Awareness programme on the National Scholarship Portal (NSP) application process was conducted on 16th November 2025.",
+        "href": "https://mits.ac.in/assets/pdf/swc/NSP Application Process.pdf",
+        "date": "16-11-2025"
+      },
+      {
+        "title": "An Awareness Programme on \"Central and Private Scholarships\" was organized on 15-02-2025.",
+        "href": "https://mits.ac.in/assets/pdf/swc/Awareness Program Report Central and Private Scholarships.pdf",
+        "date": "15-02-2025"
       }
     ]
   },
