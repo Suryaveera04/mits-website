@@ -1,4 +1,4 @@
-﻿// International Relations - MITS Deemed to be University
+// International Relations - MITS Deemed to be University
 // Source: https://mits.ac.in/international-relations
 // All PDFs and images link to official mits.ac.in resources.
 
@@ -1825,13 +1825,13 @@ export const workshopGallery: string[] = [
 ];
 
 export const heroBanners: string[] = [
-  "https://mits.ac.in/public/uploads/internationalrelation/IMG-20210106-WA0006.jpg",
-  "https://mits.ac.in/public/uploads/internationalrelation/IMG-20210106-WA0007.jpg",
-  "https://mits.ac.in/public/uploads/internationalrelation/finland.jpg",
+  "https://mits.ac.in/public/uploads/internationalrelation/DSC_6447.JPG",
+  "https://mits.ac.in/public/uploads/internationalrelation/DSC_9252-min.JPG",
+  "https://mits.ac.in/public/uploads/internationalrelation/c466d28d5c52137b70bc61a2ccea05f7.JPG",
 ];
 
 export const heroBanner =
-  "https://mits.ac.in/public/uploads/internationalrelation/IMG-20210106-WA0006.jpg";
+  "https://mits.ac.in/public/uploads/internationalrelation/DSC_6447.JPG";
 
 export const heroStats = [
   { value: "20+", label: "Global University Partners" },

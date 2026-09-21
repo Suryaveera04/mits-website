@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 import { visualizer } from "rollup-plugin-visualizer";
 import https from "https";
 import crypto from "crypto";
+import fs from "fs";
 
 function solveAESChallenge(html: string): string | null {
   const a = html.match(/\ba=toNumbers\("([0-9a-f]+)"\)/);
@@ -84,6 +85,16 @@ function cmsProxyPlugin() {
     name: "cms-proxy",
     configureServer(server: import("vite").ViteDevServer) {
       server.middlewares.use((req, res, next) => {
+        const cleanUrl = (req.url || "").split("?")[0];
+        if (cleanUrl === "/site.webmanifest" || cleanUrl === "/manifest.json" || cleanUrl === "/university/site.webmanifest" || cleanUrl === "/university/manifest.json") {
+          const manifestPath = path.resolve(__dirname, "public/site.webmanifest");
+          if (fs.existsSync(manifestPath)) {
+            res.setHeader("Content-Type", "application/manifest+json; charset=utf-8");
+            res.statusCode = 200;
+            res.end(fs.readFileSync(manifestPath));
+            return;
+          }
+        }
         if (!req.url?.startsWith("/cms-api")) return next();
         const urlPath = "/backend/public_api" + req.url.slice("/cms-api".length);
         const isImage = req.url.includes("get_content_image.php");

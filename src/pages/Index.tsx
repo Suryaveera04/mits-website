@@ -11,6 +11,7 @@ import CampusLifeSection from "@/components/CampusLifeSection";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import FloatingAutonomousTab from "@/components/FloatingAutonomousTab";
+import AdmissionModal from "@/components/AdmissionModal";
 
 const orgSchema = {
   "@context": "https://schema.org",
@@ -74,6 +75,7 @@ const Index = () => {
         <CampusLifeSection />
       </main>
       <FloatingAutonomousTab />
+      <AdmissionModal />
       <Footer />
     </div>
   );

@@ -12,7 +12,7 @@ const contactCards = [
   { icon: MapPin, title: "Address", lines: ["Madanapalle Institute of Technology & Science", "Deemed to be University", "Madanapalle-Kadiri Road, NH-42, Kurabalakota Mandal, Madanapalle-517325, Andhra Pradesh, India"], accent: "from-[#b30000] to-[#d93030]" },
   { icon: Phone, title: "Phone & WhatsApp", lines: ["Phone: +91-7330803555 / 7330852555", "Landline: +91-8712655132 / 4 / 8", "WhatsApp: +91 7330803555"], accent: "from-[#0f2a44] to-[#1a3d5c]" },
   { icon: Mail, title: "Email Address", lines: ["admissions@mits.ac.in", "principal@mits.ac.in", "info@mits.ac.in"], accent: "from-[#8a6a1a] to-[#caa74d]" },
-  { icon: Clock, title: "Office Hours", lines: ["Mon — Fri: 9:00 AM — 5:00 PM", "Saturday: 9:00 AM — 1:00 PM", "Sunday & Holidays: Closed"], accent: "from-[#7a0000] to-[#b30000]" },
+  { icon: Clock, title: "Office Hours", lines: ["Mon — Fri: 9:00 AM — 5:00 PM", "1st & 3rd Saturdays: 9:00 AM — 5:00 PM", "4th Saturday: 9:00 AM — 1:00 PM (Half Day)", "2nd Saturdays & Sundays: Holiday"], accent: "from-[#7a0000] to-[#b30000]" },
 ];
 
 const departments = [

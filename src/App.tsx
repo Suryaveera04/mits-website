@@ -67,6 +67,7 @@ const CiscoNetworkingAcademy = lazy(() => import("./pages/CiscoNetworkingAcademy
 const CiscoSelfPacedCourses = lazy(() => import("./pages/CiscoSelfPacedCourses"));
 const CurriculumSyllabus = lazy(() => import("./pages/CurriculumSyllabus"));
 const SportsAthletics = lazy(() => import("./pages/SportsAthletics"));
+const VentureStudio = lazy(() => import("./pages/VentureStudio"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -131,6 +132,8 @@ const App = () => (
             <Route path="/cisco-self-paced-courses" element={<CiscoSelfPacedCourses />} />
             <Route path="/campus-life" element={<CampusLife />} />
             <Route path="/campus-life/student-clubs" element={<CampusLifeDetail categoryKey="clubs" />} />
+            <Route path="/studentclub" element={<CampusLifeDetail categoryKey="clubs" />} />
+            <Route path="/student-clubs" element={<CampusLifeDetail categoryKey="clubs" />} />
             <Route path="/campus-life/cultural-life" element={<CampusLifeDetail categoryKey="cultural" />} />
             <Route path="/sports" element={<CampusLifeDetail categoryKey="sports" />} />
             <Route path="/sports-athletics" element={<SportsAthletics />} />
@@ -174,6 +177,8 @@ const App = () => (
             <Route path="/iei" element={<CellDetail overrideId="iei" />} />
             <Route path="/career" element={<Careers />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/Venture-Studio" element={<VentureStudio />} />
+            <Route path="/venture-studio" element={<VentureStudio />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

@@ -61,6 +61,7 @@ const programsByTab: Record<ProgramBucket, SchoolGroup[]> = {
     {
       school: "School of AI & ML",
       courses: [
+        { name: "B.Tech CSE (Artificial Intelligence)", icon: Bot, link: "/department/ai" },
         { name: "B.Tech CSE (AI and ML)", icon: BrainCircuit, link: "/department/aiml" },
         { name: "B.Tech CSE (AI and Data Science)", icon: ChartNoAxesCombined, link: "/department/cseds" },
         { name: "B.Tech CSE (AI and Robotics)", icon: Bot, link: "/department/ai" },

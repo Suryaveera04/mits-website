@@ -285,8 +285,8 @@ const Careers = () => {
               <ScrollReveal delay={0.12}>
                 <div className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
                   <div>
-                    <h3 className="font-display text-xl md:text-2xl font-bold">Applications Invited for Faculty Positions</h3>
-                    <p className="text-slate-300 text-sm mt-1">Submit your CV and credentials to join our distinguished faculty team.</p>
+                    <h3 className="font-display text-xl md:text-2xl font-bold text-amber-300 drop-shadow-sm">Applications Invited for Faculty Positions</h3>
+                    <p className="text-white/90 text-sm mt-1">Submit your CV and credentials to join our distinguished faculty team.</p>
                   </div>
                   <a
                     href="mailto:jobs@mits.ac.in"

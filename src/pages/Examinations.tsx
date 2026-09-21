@@ -542,10 +542,10 @@ const Contact = () => (
   <div>
     <SectionHead icon={Phone} title="Contact the Examination Office" subtitle="For grievances, certificates, verifications and general queries." />
     <div className="rounded-2xl overflow-hidden border border-border shadow-lg bg-gradient-to-br from-card to-card/60">
-      <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground p-6">
-        <p className="text-sm uppercase tracking-wider opacity-80">Controller of Examinations</p>
-        <h3 className="font-display text-2xl md:text-3xl font-bold mt-1">{coeOffice.name}</h3>
-        <p className="opacity-90">{coeOffice.designation}</p>
+      <div className="bg-gradient-to-r from-[#0f2a44] via-[#163a5f] to-[#0f2a44] text-white p-6 border-b border-amber-400/20">
+        <p className="text-xs uppercase tracking-widest text-[#ffd15c] font-bold">Controller of Examinations</p>
+        <h3 className="font-display text-2xl md:text-3xl font-bold mt-1 text-[#ffd15c]">{coeOffice.name}</h3>
+        <p className="text-white/90 text-sm">{coeOffice.designation}</p>
       </div>
       <div className="p-6 space-y-4">
         <div className="flex gap-3"><MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" /><p className="text-sm text-foreground">{coeOffice.address}</p></div>

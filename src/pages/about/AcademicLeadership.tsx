@@ -51,7 +51,9 @@ const AcademicLeadership = () => {
               </div>
               <div className="p-5">
                 <h3
-                  className="text-lg font-bold text-[#0f2a44] group-hover:text-[#caa74d] transition-colors"
+                  className={`text-lg font-bold transition-colors ${
+                    p.slug === "controller-of-examinations" ? "text-[#b8860b] font-extrabold" : "text-[#0f2a44] group-hover:text-[#caa74d]"
+                  }`}
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {p.name}

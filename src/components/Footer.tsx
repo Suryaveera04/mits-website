@@ -22,12 +22,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-11 h-11 rounded-sm bg-white p-1 flex items-center justify-center">
-                <img src={`${import.meta.env.BASE_URL}mits-logo.png`} alt="MITS logo" className="w-full h-full object-contain" />
-              </div>
-              <div>
-                <p className="font-display font-bold text-sm text-white">MITS</p>
-                <p className="font-body text-white/70 text-sm">Madanapalle</p>
+              <div className="h-14 rounded-md bg-white p-1.5 flex items-center justify-center shadow-md">
+                <img src={`${import.meta.env.BASE_URL}mits-official-logo.png`} alt="MITS Official Logo" className="h-full w-auto object-contain" />
               </div>
             </div>
             <p className="font-body text-white/80 text-sm leading-relaxed">
@@ -192,7 +188,6 @@ const Footer = () => {
       <div className="border-t border-white/10 py-6">
         <div className="container mx-auto px-4 text-center flex flex-col md:flex-row items-center justify-between gap-2">
           <p className="font-body text-white/70 text-sm">© 2026 Madanapalle Institute of Technology & Science. All rights reserved.</p>
-          <p className="font-body text-white/50 text-sm">Prepared for institutional quality and accreditation presentation.</p>
         </div>
       </div>
     </footer>

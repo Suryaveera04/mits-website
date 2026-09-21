@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Home as HomeIcon, CheckCircle2, ArrowLeft, ArrowRight, X, ZoomIn, Maximize2, Minimize2 } from "lucide-react";
+import { ChevronRight, Home as HomeIcon, CheckCircle2, ArrowLeft, ArrowRight, X, ZoomIn, Maximize2, Minimize2, Calendar, FileText, ExternalLink, Download, Phone, MapPin, Mail, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { campusLifeData, CampusLifeCategory } from "@/data/galleryData/campusLife";
+import StudentClubsSection from "@/components/StudentClubsSection";
 
 const getLocalUrl = (url: string) => {
   if (!url) return "";
@@ -141,110 +142,119 @@ const CampusLifeDetail = ({ categoryKey }: CampusLifeDetailProps) => {
         </div>
       </div>
 
-      <main className="py-12">
-        {/* Category Hero Banner */}
-        <div className="container mx-auto px-4 mb-16">
-          <div className="relative h-[350px] md:h-[450px] rounded-3xl overflow-hidden shadow-2xl bg-slate-950">
-            {/* Background image */}
-            <img
-              src={getLocalUrl(images[0])}
-              alt={title}
-              className="absolute inset-0 w-full h-full object-cover opacity-80"
-              onContextMenu={(e) => e.preventDefault()}
-            />
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-            
-            {/* Floating details overlay */}
-            <div className="absolute inset-x-0 bottom-0 p-6 md:p-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div className="max-w-2xl">
-                <span className="inline-block px-4 py-1 bg-accent text-accent-foreground rounded-full text-sm font-bold uppercase tracking-wider mb-3">
-                  {stats}
-                </span>
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
-                  {title}
-                </h1>
-              </div>
-              <button
-                onClick={() => navigate(-1)}
-                className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/20 backdrop-blur-md font-semibold text-sm transition-all shrink-0 self-start md:self-end"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Go Back
-              </button>
-            </div>
+      <main className="py-8 md:py-12">
+        {categoryKey === "clubs" ? (
+          <div className="container mx-auto px-4 mb-20">
+            <StudentClubsSection />
           </div>
-        </div>
-
-        {/* Detailed Information & Carousel Showcase */}
-        <div className="container mx-auto px-4 mb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left Description Block */}
-            <div className="lg:col-span-7">
-              <ScrollReveal>
-                <h2 className="font-display text-3xl font-bold text-foreground mb-6">
-                  About <span className="text-primary">{title}</span>
-                </h2>
-                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                  {description}
-                </p>
-
-                <h3 className="font-display text-xl font-bold text-foreground mb-4">
-                  Key Highlights & Activities
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {highlights.map((highlight, index) => (
-                    <div key={index} className="flex gap-3 bg-slate-50 border border-border rounded-xl p-4">
-                      <CheckCircle2 className="w-5 h-5 text-[#b30000] shrink-0 mt-0.5" />
-                      <span className="text-sm font-medium text-slate-700 leading-relaxed">
-                        {highlight}
-                      </span>
-                    </div>
-                  ))}
+        ) : (
+          <>
+            {/* Category Hero Banner */}
+            <div className="container mx-auto px-4 mb-16">
+              <div className="relative h-[350px] md:h-[450px] rounded-3xl overflow-hidden shadow-2xl bg-slate-950">
+                {/* Background image */}
+                <img
+                  src={getLocalUrl(images[0])}
+                  alt={title}
+                  className="absolute inset-0 w-full h-full object-cover opacity-80"
+                  onContextMenu={(e) => e.preventDefault()}
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                
+                {/* Floating details overlay */}
+                <div className="absolute inset-x-0 bottom-0 p-6 md:p-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                  <div className="max-w-2xl">
+                    <span className="inline-block px-4 py-1 bg-accent text-accent-foreground rounded-full text-sm font-bold uppercase tracking-wider mb-3">
+                      {stats}
+                    </span>
+                    <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+                      {title}
+                    </h1>
+                  </div>
+                  <button
+                    onClick={() => navigate(-1)}
+                    className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/20 backdrop-blur-md font-semibold text-sm transition-all shrink-0 self-start md:self-end"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    Go Back
+                  </button>
                 </div>
-              </ScrollReveal>
+              </div>
             </div>
+          </>
+        )}
 
-            {/* Right Photo Carousel */}
-            <div className="lg:col-span-5">
-              <ScrollReveal delay={0.2}>
-                <div className="bg-slate-900 border border-white/10 rounded-3xl p-4 shadow-xl">
-                  <div className="relative h-[300px] md:h-[350px] rounded-2xl overflow-hidden">
-                    <AnimatePresence mode="popLayout">
-                      <motion.img
-                        key={carouselIndex}
-                        src={getLocalUrl(carouselImages[carouselIndex])}
-                        alt="Carousel Slide"
-                        initial={{ opacity: 0, scale: 1.03 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="w-full h-full object-cover"
-                        onContextMenu={(e) => e.preventDefault()}
-                      />
-                    </AnimatePresence>
+        {categoryKey !== "clubs" && (
+          <div className="container mx-auto px-4 mb-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+              {/* Left Description Block */}
+              <div className="lg:col-span-7">
+                <ScrollReveal>
+                  <h2 className="font-display text-3xl font-bold text-foreground mb-6">
+                    About <span className="text-primary">{title}</span>
+                  </h2>
+                  <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                    {description}
+                  </p>
 
-                    {/* Gradient bar at bottom */}
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex justify-between items-center text-white text-sm font-semibold">
-                      <span>Showcase Image {carouselIndex + 1} of {carouselImages.length}</span>
-                      <div className="flex gap-1.5">
-                        {carouselImages.map((_, idx) => (
-                          <button
-                            key={idx}
-                            onClick={() => setCarouselIndex(idx)}
-                            className={`w-2 h-2 rounded-full transition-colors ${
-                              carouselIndex === idx ? "bg-accent" : "bg-white/40"
-                            }`}
-                          />
-                        ))}
+                  <h3 className="font-display text-xl font-bold text-foreground mb-4">
+                    Key Highlights & Activities
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {highlights.map((highlight, index) => (
+                      <div key={index} className="flex gap-3 bg-slate-50 border border-border rounded-xl p-4">
+                        <CheckCircle2 className="w-5 h-5 text-[#b30000] shrink-0 mt-0.5" />
+                        <span className="text-sm font-medium text-slate-700 leading-relaxed">
+                          {highlight}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </ScrollReveal>
+              </div>
+
+              {/* Right Photo Carousel */}
+              <div className="lg:col-span-5">
+                <ScrollReveal delay={0.2}>
+                  <div className="bg-slate-900 border border-white/10 rounded-3xl p-4 shadow-xl">
+                    <div className="relative h-[300px] md:h-[350px] rounded-2xl overflow-hidden">
+                      <AnimatePresence mode="popLayout">
+                        <motion.img
+                          key={carouselIndex}
+                          src={getLocalUrl(carouselImages[carouselIndex])}
+                          alt="Carousel Slide"
+                          initial={{ opacity: 0, scale: 1.03 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.8 }}
+                          className="w-full h-full object-cover"
+                          onContextMenu={(e) => e.preventDefault()}
+                        />
+                      </AnimatePresence>
+
+                      {/* Gradient bar at bottom */}
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex justify-between items-center text-white text-sm font-semibold">
+                        <span>Showcase Image {carouselIndex + 1} of {carouselImages.length}</span>
+                        <div className="flex gap-1.5">
+                          {carouselImages.map((_, idx) => (
+                            <button
+                              key={idx}
+                              onClick={() => setCarouselIndex(idx)}
+                              className={`w-2 h-2 rounded-full transition-colors ${
+                                carouselIndex === idx ? "bg-accent" : "bg-white/40"
+                              }`}
+                            />
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </ScrollReveal>
+                </ScrollReveal>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Media Grid / Gallery */}
         <div className="bg-slate-50 border-y border-border py-20 mb-20">

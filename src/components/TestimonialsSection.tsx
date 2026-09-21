@@ -5,22 +5,28 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const testimonials = [
   {
-    name: "Priya Sharma",
-    role: "B.Tech CSE, 2024",
-    type: "Student",
-    text: "MITS provided me with the perfect platform to grow both academically and personally. The faculty support and industry exposure helped me land my dream job at a top MNC.",
+    name: "C. Sneha",
+    role: "B.Tech CSE (Placed at Wells Fargo — ₹24 LPA)",
+    type: "Alumna",
+    text: "MITS gave me the technical foundation, coding hackathons, and placement bootcamps that directly enabled me to clear competitive technical assessments. The faculty mentorship in machine learning and data structures was indispensable.",
   },
   {
-    name: "Rahul Reddy",
-    role: "Senior Engineer, Global Semiconductor Company",
+    name: "K. Sai Praneeth",
+    role: "B.Tech ECE (Stanford University UIF Fellow)",
+    type: "Student",
+    text: "Being selected as a University Innovation Fellow at Stanford University through MITS transformed how I look at design thinking and systemic challenges. The encouragement from leadership here is unmatched anywhere.",
+  },
+  {
+    name: "R. Haritha",
+    role: "B.Tech AI & Data Science (Placed at Cognizant / TCS Digital)",
+    type: "Student",
+    text: "The state-of-the-art AI labs and practical project exposure at MITS made transition to industry effortless. The guidance through mock interviews and soft-skills sessions gave me immense confidence.",
+  },
+  {
+    name: "M. Dinesh Reddy",
+    role: "MBA (Senior Business Analyst, Deloitte)",
     type: "Alumnus",
-    text: "The research ecosystem at MITS built my problem-solving mindset. Faculty mentorship and technical depth gave me a strong foundation for my professional journey.",
-  },
-  {
-    name: "Ananya Patel",
-    role: "MBA, 2024",
-    type: "Student",
-    text: "The MBA program at MITS is truly transformative. The case-study approach and industry visits gave me practical insights that textbooks alone could never provide.",
+    text: "The case-study pedagogy, corporate MoUs, and executive guest lectures in the Department of Management Studies provided me with a strategic perspective that continues to accelerate my career growth.",
   },
 ];
 

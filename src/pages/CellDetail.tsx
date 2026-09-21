@@ -236,8 +236,7 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
                             <th className="py-3 px-4 text-center w-12">S.No</th>
                             <th className="py-3 px-4 text-left">Name</th>
                             <th className="py-3 px-4 text-left hidden sm:table-cell">Designation</th>
-                            <th className="py-3 px-4 text-left hidden md:table-cell">Position</th>
-                            <th className="py-3 px-4 text-left hidden lg:table-cell">Email</th>
+                            <th className="py-3 px-4 text-left">Position</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-100">
@@ -246,12 +245,11 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
                               <td className="py-3 px-4 text-center text-[#0f2a44]/50 font-medium">{m.sno ?? i + 1}</td>
                               <td className="py-3 px-4 font-semibold text-[#0f2a44]">{m.name}</td>
                               <td className="py-3 px-4 text-[#0f2a44]/70 hidden sm:table-cell">{m.designation}</td>
-                              <td className="py-3 px-4 hidden md:table-cell">
-                                <span className="text-sm bg-[#fff8e6] border border-[#ffd15c]/30 text-[#b31317] px-2 py-0.5 rounded font-semibold">
+                              <td className="py-3 px-4">
+                                <span className="text-sm bg-[#fff8e6] border border-[#ffd15c]/30 text-[#b31317] px-2.5 py-0.5 rounded-full font-semibold inline-block">
                                   {m.position}
                                 </span>
                               </td>
-                              <td className="py-3 px-4 text-[#0f2a44]/60 text-sm hidden lg:table-cell">{m.email}</td>
                             </tr>
                           ))}
                         </tbody>

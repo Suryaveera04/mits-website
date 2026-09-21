@@ -796,111 +796,43 @@ export const cellsDetailData: Record<string, CellDetail> = {
   "swc": {
     "name": "Student Welfare Cell",
     "aboutText": [
-      "Madanapalle Institute of Technology & Science (MITS), Deemed to be University, firmly believes that education is the greatest enabler of social and economic progress. In pursuit of its mission to promote inclusive excellence, MITS has established a comprehensive scholarship policy designed to support and encourage students from diverse backgrounds, ensuring that financial constraints do not impede access to quality education.",
-      "This policy reflects the University’s commitment to provide financial assistance to students with academic potential and economic need, foster inclusion by supporting students from underrepresented, marginalized or economically disadvantaged backgrounds by recognizing their academic achievement with exemplary conduct and holistic development.",
-      "This policy applies to all students admitted to various full-time programs of MITS Deemed to be University and covers institutional, governmental, and externally funded scholarships administered through the University.",
-      "MITS has a Student Affairs Cell whose key role is to support students in finding and applying for scholarships both government-funded and from private/NGO sources:",
-      "Over the years, hundreds of MITS students have benefited from central government and private scholarship schemes through this support system.",
-      "To qualify for any scholarship or award under this policy, a student must:",
-      "The Student Affairs Cell at MITS plays a key role in supporting students by identifying, exploring, and applying for various scholarship schemes offered by government bodies as well as private and NGO sources.",
-      "The Institution established Student Quality Assurance Cell (SQAC) in the year 2015 which is administered by a student council. It works under IQAC and consists of an advisory, student coordinator and Members. The SQAC works for the quality of students by extending timely support and coordination. The student council of SQAC opens invitation to all students to register themselves to participate in academic and administrative discussion."
+      "The Student Welfare Cell (SWC) at Madanapalle Institute of Technology & Science functions as a dedicated support system committed to the holistic well-being, social welfare, financial assistance, and personal development of every student.",
+      "The Cell acts as a vital conduit between students and governmental, institutional, and private scholarship agencies, facilitating timely disbursement of financial support to deserving learners.",
+      "Beyond scholarships, SWC supervises student council activities, handles student counseling, coordinates health and insurance benefits, and promotes a nurturing campus climate that enables students to achieve their highest academic and creative potential."
     ],
     "members": [
       {
-        "sno": "Year",
-        "name": "No.of Scholarships",
-        "designation": "No.of Student Beneficiaries",
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Chairperson",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Dr. P. Athahar",
+        "designation": "Senior Manager – Student Affairs",
+        "position": "Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Ms. Raga Deepthi",
+        "designation": "Assistant Administrative Officer (Students Welfare)",
+        "position": "Member Secretary",
+        "email": ""
+      },
+      {
+        "sno": "4",
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration)",
         "position": "Member",
         "email": ""
       },
       {
-        "sno": "2025-26",
-        "name": "16 (Progressive)",
-        "designation": "405 (Progressive)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2024-25",
-        "name": "9",
-        "designation": "351",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2023-24",
-        "name": "10",
-        "designation": "269",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2022-23",
-        "name": "13",
-        "designation": "374",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2021-22",
-        "name": "12",
-        "designation": "224",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2020-21",
-        "name": "12",
-        "designation": "361",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2019-20",
-        "name": "20",
-        "designation": "364",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2018-19",
-        "name": "18",
-        "designation": "637",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2017-18",
-        "name": "14",
-        "designation": "569",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2016-17",
-        "name": "12",
-        "designation": "408",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2015-16",
-        "name": "11",
-        "designation": "383",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2014-15",
-        "name": "10",
-        "designation": "336",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "2013-14",
-        "name": "6",
-        "designation": "64",
+        "sno": "5",
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor, Dept. of EEE",
         "position": "Member",
         "email": ""
       }
@@ -911,476 +843,350 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/swc/Scholarship committee - 2025.pdf"
       },
       {
-        "title": "Student's Qualifying in State/National/International Level Examination",
-        "href": "https://mits.ac.in/public/uploads/scholarship/Exams-gate-(2018-19).pdf"
+        "title": "JnanaBhumi Scholarships Guidelines",
+        "href": "https://mits.ac.in/pdf/jnanabhumi.pdf"
       },
       {
-        "title": "Student Council",
+        "title": "Student Council Constitution & Guidelines",
         "href": "https://mits.ac.in/pdf/Student-Council.pdf"
       },
       {
-        "title": "Minutes of Meeting",
+        "title": "Minutes of Meeting - Student Welfare Committee",
         "href": "https://mits.ac.in/pdf/Minuts-of-meeting.pdf"
       },
       {
-        "title": "College Fest & Celebrations",
+        "title": "Students Qualifying in State/National/International Level Examination",
+        "href": "https://mits.ac.in/public/uploads/scholarship/Exams-gate-(2018-19).pdf"
+      },
+      {
+        "title": "College Fest & Celebrations Report (Ashv - Race of Talent)",
         "href": "https://mits.ac.in/pdf/Ashv-The-Race-of-Talent.pdf"
-      },
-      {
-        "title": "Seniors-Alumni Career Counseling",
-        "href": "https://mits.ac.in/pdf/2020-21-clscms.pdf"
-      },
-      {
-        "title": "Career Planning-Lecture",
-        "href": "https://mits.ac.in/pdf/Career-Planning.pdf"
-      },
-      {
-        "title": "Career Essence Program",
-        "href": "https://mits.ac.in/pdf/2-Career-Essence-Program.pdf"
-      },
-      {
-        "title": "Career guidance and Competence building for young aspirants",
-        "href": "https://mits.ac.in/pdf/3-Career-guidance-and-Competence-building-for-young-aspirants.pdf"
-      },
-      {
-        "title": "Student to Start-Up: A Motivational Talk",
-        "href": "https://mits.ac.in/pdf/4-2019_20_Guest-Lecture_report _Student-to-Start-Up-A-Motivational-Talk-min.pdf"
-      },
-      {
-        "title": "Alumni Talk for right step towards career",
-        "href": "https://mits.ac.in/pdf/5-Alumnitalk1-min.pdf"
-      },
-      {
-        "title": "Alumni Student Interaction",
-        "href": "https://mits.ac.in/pdf/6-Report-on-Alumni-Student-Interaction-min.pdf"
-      },
-      {
-        "title": "Operation and Application of Multi-level inverter-Lecture",
-        "href": "https://mits.ac.in/pdf/7-Operation-and-Application-of-Multi-level-inverter-Guest-Lecture_26-12-2016-min.pdf"
-      },
-      {
-        "title": "Design thinking -A discussion by Senior student",
-        "href": "https://mits.ac.in/pdf/8-DESIGN-THINKING-WORKSHOP-REPORT-WITH-STILLS-min.pdf"
-      },
-      {
-        "title": "Entrepreneurship Awareness Camp - A discussion by Senior student",
-        "href": "https://mits.ac.in/pdf/9-Entrepreneurship-Awareness-Camp.pdf"
-      },
-      {
-        "title": "Alumni",
-        "href": "https://mits.ac.in/pdf/Alumni.pdf"
-      },
-      {
-        "title": "Class Committees & MoU's 2019-20",
-        "href": "https://mits.ac.in/pdf/2019-20-clscms.pdf"
-      },
-      {
-        "title": "Class Committees & MoU's 2018-19",
-        "href": "https://mits.ac.in/pdf/2018-19-clscms.pdf"
-      },
-      {
-        "title": "Class Committees & MoU's 2018-19",
-        "href": "https://mits.ac.in/pdf/2017-18-clscms.pdf"
-      },
-      {
-        "title": "Class Committees & MoU's 2016-17",
-        "href": "https://mits.ac.in/pdf/2016-17-clscms.pdf"
-      },
-      {
-        "title": "Class Committees & MoU's 2015-16",
-        "href": "https://mits.ac.in/pdf/2015-16-clscms.pdf"
-      },
-      {
-        "title": "Class Committees & MoU's 2014-15",
-        "href": "https://mits.ac.in/pdf/2014-15-clscms.pdf"
-      },
-      {
-        "title": "Student Affidavit",
-        "href": "https://mits.ac.in/pdf/student-affidavit.pdf"
-      },
-      {
-        "title": "Parent Affidavit",
-        "href": "https://mits.ac.in/pdf/parent-affidavit.pdf"
-      },
-      {
-        "title": "Attendance Declaration",
-        "href": "https://mits.ac.in/pdf/DECLARATION-UNDERTAKING-FROM-THE-STUDENT.pdf"
-      },
-      {
-        "title": "An Expert Talk on “Personal Branding in the Digital Age: The LinkedIn Blueprint” on 10th April 2026 at the Auditorium.",
-        "href": "https://mits.ac.in/assets/pdf/swc/Personal Branding in the Digital Age The LinkedIn Blueprint.pdf"
-      },
-      {
-        "title": "An Awareness Session on “Scholarships and Study Abroad Success Strategies” was organized on 27/02/26.",
-        "href": "https://mits.ac.in/assets/pdf/swc/Scholarships and Study Abroad Success Strategies.pdf"
-      },
-      {
-        "title": "An Awareness Session on “University-Specific Private Scholarships for Master’s Programs Abroad” was organized on 23/02/26.",
-        "href": "https://mits.ac.in/assets/pdf/swc/University-Specific Private Scholarships for Master’s Programs Abroad .pdf"
-      },
-      {
-        "title": "An Awareness Session on \"Financial Support Options for Indian Students to study abroad\" on 4th February 2026",
-        "href": "https://mits.ac.in/assets/pdf/swc/Financial Support Options.pdf"
-      },
-      {
-        "title": "An Awareness Session about Vidya Lakshmi Educational Loan scheme on 2nd December 2025",
-        "href": "https://mits.ac.in/assets/pdf/swc/Vidya Lakshmi Educational Loan scheme.pdf"
-      },
-      {
-        "title": "An Awareness programme on the National Scholarship Portal (NSP) application process was conducted on 16th November 2025",
-        "href": "https://mits.ac.in/assets/pdf/swc/NSP Application Process.pdf"
-      },
-      {
-        "title": "An Awareness Programme on \"Central and Private Scholarships\", was organized on 15-02-2025.",
-        "href": "https://mits.ac.in/assets/pdf/swc/Awareness Program Report Central and Private Scholarships.pdf"
-      },
-      {
-        "title": "MITS Academic Policy",
-        "href": "https://mits.ac.in/pdf/swc/MITS Academic excellence Awards policy.pdf"
-      },
-      {
-        "title": "Best Arts and culture",
-        "href": "https://mits.ac.in/pdf/swc/Arts and culture-min.pdf"
-      },
-      {
-        "title": "Best Journal Publication Award",
-        "href": "https://mits.ac.in/pdf/swc/Best Journal Publication Award-min.pdf"
-      },
-      {
-        "title": "Best Library utility Award",
-        "href": "https://mits.ac.in/pdf/swc/Best Library utility-min.pdf"
-      },
-      {
-        "title": "Best NCC Award",
-        "href": "https://mits.ac.in/pdf/swc/Best NCC Award-min.pdf"
-      },
-      {
-        "title": "Best NSS award for volunteers",
-        "href": "https://mits.ac.in/pdf/swc/Best NSS award for  volunteers-min.pdf"
-      },
-      {
-        "title": "Best self learner award",
-        "href": "https://mits.ac.in/pdf/swc/Best self learner award-min.pdf"
-      },
-      {
-        "title": "Best Innovative Idea for Entrepreneurship Award",
-        "href": "https://mits.ac.in/pdf/swc/BIIE_Foramt-min.pdf"
-      },
-      {
-        "title": "Inspiring Student Leader Award",
-        "href": "https://mits.ac.in/pdf/swc/Inspiring leader award-min.pdf"
-      },
-      {
-        "title": "MITS Sports Excellence Award Criteria",
-        "href": "https://mits.ac.in/pdf/swc/MITS SPORTS EXCELLENCE AWARD CRITERIA-min.pdf"
-      },
-      {
-        "title": "List of awards 2019-20 (II Semester)",
-        "href": "https://mits.ac.in/pdf/swc/2019-20 (II Semester).pdf"
-      },
-      {
-        "title": "List of awards 2019-20 (I Semester)",
-        "href": "https://mits.ac.in/pdf/swc/2019-20 (I Semester).pdf"
-      },
-      {
-        "title": "List of awards 2018-19 (II Semester)",
-        "href": "https://mits.ac.in/pdf/swc/2018-19 (II Semester).pdf"
-      },
-      {
-        "title": "List of awards 2018-19 (I Semester)",
-        "href": "https://mits.ac.in/pdf/swc/2018-19 (I Semester).pdf"
-      },
-      {
-        "title": "List of awards 2017-18 ( II semester)",
-        "href": "https://mits.ac.in/pdf/swc/2017-18 ( II semester).pdf"
-      },
-      {
-        "title": "List of awards 2017-18 ( I semester)",
-        "href": "https://mits.ac.in/pdf/swc/2017-18 ( I semester).pdf"
-      },
-      {
-        "title": "List of awards 2016-17 (II Semester)",
-        "href": "https://mits.ac.in/pdf/swc/2016-17 (II Semester).pdf"
-      },
-      {
-        "title": "List of awards 2016-17 (I Semester)",
-        "href": "https://mits.ac.in/pdf/swc/2016-17 (I Semester).pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
       }
     ],
     "contacts": [
       {
         "name": "Dr. P. Athahar",
         "designation": "Senior Manager – Student Affairs",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255\n",
-        "address": "Madanapalle Institute of Technology & Science"
+        "address": "Student Welfare Cell, MITS, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "studentwelfare@mits.ac.in"
       },
       {
         "name": "Ms. Raga Deepthi",
         "designation": "Assistant Administrative Officer (Students Welfare)",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255\n",
-        "address": "Madanapalle Institute of Technology & Science"
+        "address": "Student Welfare Cell, MITS, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "swc@mits.ac.in"
       }
     ],
     "id": "swc",
-    "url": "https://mits.ac.in/swc"
+    "url": "https://mits.ac.in/swc",
+    "sections": [
+      {
+        "title": "MITS Scholarship Provision & Scope",
+        "paragraphs": [
+          "MITS facilitates institutional and state government financial aid covering full and partial tuition fee waivers, merit concessions, and social welfare bursaries.",
+          "State Government Schemes: Full tuition reimbursement via Andhra Pradesh Jnanabhumi Portal (JVD - Vidya Deevena & Vasathi Deevena) for eligible community students.",
+          "National Scholarships: Mentoring and documentation support for National Scholarship Portal (NSP) centrally sponsored schemes, minority welfare funds, and AICTE Pragati & Saksham scholarships.",
+          "MITS Alumni & Philanthropic Grants: Financial endowments provided to students demonstrating exemplary academic merit facing acute socio-economic hardships."
+        ]
+      },
+      {
+        "title": "MITS Support and Guidance for External Scholarships",
+        "paragraphs": [
+          "Dedicated helpdesk for application verification, income and caste certificate attestation, and portal uploads.",
+          "Notification broadcasts for corporate CSR scholarships (Reliance Foundation, Tata Trusts, ONGC, Kotak Kanya, Foundation for Excellence).",
+          "One-on-one counseling on eligibility criteria, interview preparation, and scholarship renewal procedures."
+        ]
+      },
+      {
+        "title": "Academic Policy & Extra Co-Curricular Criteria Awards",
+        "paragraphs": [
+          "Annual student excellence felicitation for university rank holders, GATE/CAT qualifiers, and sports winners.",
+          "Special grants and cash awards for students representing MITS at national technical conferences and international symposiums."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "Annual Scholarship Awareness and JnanaBhumi / NSP Documentation Drive",
+        "href": "https://mits.ac.in/assets/pdf/swc/Scholarship committee - 2025.pdf",
+        "date": "14-08-2025"
+      },
+      {
+        "title": "Ashv: The Race of Talent - National Level Annual Cultural & Technical Fest",
+        "href": "https://mits.ac.in/pdf/Ashv-The-Race-of-Talent.pdf",
+        "date": "28-02-2025"
+      },
+      {
+        "title": "Student Council Investiture & Welfare Interaction Forum",
+        "href": "https://mits.ac.in/pdf/Student-Council.pdf",
+        "date": "19-11-2024"
+      },
+      {
+        "title": "National Mental Health Day & Student Well-Being Workshop",
+        "href": "https://mits.ac.in/pdf/Minuts-of-meeting.pdf",
+        "date": "10-10-2024"
+      }
+    ]
   },
   "sac": {
-    "name": "Student Activity Centre",
+    "name": "Student Activity Center (SAC)",
     "aboutText": [
-      "Intellectual Innovation, social engagement, and universal sustainability demand the students to groom their diverse values, communication skills and hidden talents. These diverse values would complement the academic and co-curricular streams of the institution. Hence, club activities play a pivotal in transforming students’ passion and hobbies into socially skills desirable for the present global demands. With more self-efficacy, students would get an opportunity to enhance their performance skills in diverse social scenarios.",
-      "Student clubs will take forward all activities under Student Council.",
-      "The coordinators at the top level would invite students those who are interested to be as members of the individual club to look after the activities as per schedules. (duration of the membership may vary as per the requirement)",
-      "Membership is open to all students irrespective of their, gender, caste, creed, colour, race, religion, national origin, disability, age veteran status, marital status, public assistance status, or sexual orientation.",
-      "To become a member, one must show up to club meetings at the beginning of the semester. The club, as a unit, will decide when it is appropriate to finalize the official roster for the semester.",
-      "Any member may be impeached for misconduct (to be defined by the group). For example: Failure to perform duties, attendance, and misuse of funds, etc. The member shall be given a seven-day notice and an opportunity to defend him/herself. This impeachment vote shall be in the discretion of club advisors.",
-      "It is mandatory for the Coordinator, (both student & faculty as well) to attend meetings.",
-      "Meeting shall be conducted once in a month to initiate discussion on the progression of the club activities."
+      "The Student Activity Center (SAC) at Madanapalle Institute of Technology & Science serves as the vibrant nucleus of extracurricular engagement, leadership development, cultural heritage, and youth empowerment on campus.",
+      "SAC coordinates over 25 registered student clubs spanning technical innovation, visual and performing arts, literary expression, social service, fitness, and media broadcasting.",
+      "Operating under a constitutionally structured governance framework, SAC empowers students to organize monumental college fests, inter-collegiate tournaments, awareness drives, and creative showcases throughout the academic year."
     ],
-    "members": [],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Patron",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Dr. G. Reddy Hemantha",
+        "designation": "Coordinator - Student Activity Center",
+        "position": "Faculty Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. P. Athahar",
+        "designation": "Senior Manager – Student Affairs",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "4",
+        "name": "Student General Secretary",
+        "designation": "President - Student Council",
+        "position": "Student Representative",
+        "email": ""
+      }
+    ],
     "documents": [
       {
         "title": "Office Order - SAC Committee - 05.11.2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/Office Order-SAC Committe.pdf"
       },
       {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Freshers’ Day Celebrations 2025.pdf"
+        "title": "SAC Constitution, Bylaws & Event Guidelines",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Office Order-SAC Committe.pdf"
       },
       {
-        "title": "TECH CLUB conducted an awareness programme on “Cloud Computing” on 24-05-2022",
-        "href": "https://mits.ac.in/assets/pdf/swc/TechClub.png"
-      },
-      {
-        "title": "Investiture Ceremony of Student Council was organized at MITS on 19th November 2022.",
-        "href": "https://mits.ac.in/assets/event/Investiture Ceremony.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
+        "title": "Student Activity Calendar 2025-26",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Office Order-SAC Committe.pdf"
       }
     ],
     "contacts": [
       {
         "name": "Dr. G. Reddy Hemantha",
-        "designation": "Coordinator for Student Activity Center (SAC)",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255; 280706\n",
-        "address": "Madanapalle Institute of Technology & Science"
+        "designation": "Coordinator for Student Activity Center (SAC)",
+        "address": "Student Activity Center, MITS, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "sac@mits.ac.in"
       }
     ],
     "id": "sac",
     "url": "https://mits.ac.in/student-activity-center-sac",
     "events": [
       {
-        "title": "Strong Minds, Safe Lives",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Strong Minds, Safe Lives.pdf"
+        "title": "Freshers’ Day Celebrations 2025",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Freshers’ Day Celebrations 2025.pdf",
+        "date": "25-09-2025"
       },
       {
-        "title": "Arts & Culture Poster 2023",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Arts & Culture Poster-2023.pdf"
+        "title": "Strong Minds, Safe Lives - Student Mental Wellness & Awareness Campaign",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Strong Minds, Safe Lives.pdf",
+        "date": "12-10-2025"
+      },
+      {
+        "title": "Arts & Culture Festival: Music, Dance & Theatre Showcase",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Arts & Culture Poster-2023.pdf",
+        "date": "15-03-2025"
+      },
+      {
+        "title": "Investiture Ceremony of Student Council & Club Office Bearers",
+        "href": "https://mits.ac.in/assets/event/Investiture Ceremony.pdf",
+        "date": "19-11-2024"
+      },
+      {
+        "title": "Apna Time Aayega - Season 2 Campus Talent Hunt",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Freshers’ Day Celebrations 2025.pdf",
+        "date": "05-12-2024"
+      },
+      {
+        "title": "Campus Youth Parliament & Parliamentary Debate Series",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Strong Minds, Safe Lives.pdf",
+        "date": "22-01-2025"
+      }
+    ],
+    "sections": [
+      {
+        "title": "Preamble",
+        "paragraphs": [
+          "We, the students and faculty mentors of Madanapalle Institute of Technology & Science, united in our mission to foster leadership, creativity, discipline, and community spirit, establish the Student Activity Center as an autonomous student-led body under the guidance of university leadership."
+        ]
+      },
+      {
+        "title": "Article-I: Name, Purpose & Membership",
+        "paragraphs": [
+          "SECTION 1 (Nomenclature): The organization shall be designated as the 'Student Activity Center (SAC)', MITS.",
+          "SECTION 2 (Core Purpose): SAC shall cultivate holistic co-curricular talents, leadership attributes, cultural inclusivity, and civic awareness among undergraduate and postgraduate scholars.",
+          "SECTION 3 (Membership): All bona fide registered students of MITS are entitled to participate in SAC clubs and contests upon meeting requisite academic attendance standards.",
+          "SECTION 4 (Code of Conduct): All activities must align with the academic dignity, safety, and values of the university."
+        ]
+      },
+      {
+        "title": "Article-II: Coordinators & Meetings",
+        "paragraphs": [
+          "SECTION 1 (Governance Structure): SAC functions under the guidance of the Faculty Coordinator appointed by the Vice Chancellor, assisted by Student Executive Office Bearers.",
+          "SECTION 2 (Meeting Frequency): The SAC council convenes bi-weekly to review ongoing events, club proposals, and budget disbursements.",
+          "SECTION 3 (Quorum): Formal policy resolutions require a two-thirds majority of executive members present."
+        ]
+      },
+      {
+        "title": "Article-III: Schedule and Duties of the Coordinators",
+        "paragraphs": [
+          "SECTION 1 (Executive Duties): The Coordinator oversees annual event calendars, club registrations, equipment allocation, and institutional event compliance.",
+          "SECTION 2 (Financial Integrity): Every club maintains audited income and expense records submitted to the Finance Committee.",
+          "SECTION 3 (Safety & Permissions): All public gatherings, celebrity visits, and outbound student delegations require prior written sanction from the SAC coordinator and Vice Chancellor."
+        ]
+      },
+      {
+        "title": "Student Activity Calendar 2025-26",
+        "paragraphs": [
+          "Monthly themed activities, intra-college club showcases, sports meets, hackathons, and cultural fests scheduled across both academic semesters."
+        ]
       }
     ]
   },
   "mmc": {
     "name": "Mentor - Mentee Cell",
     "aboutText": [
-      "The Mentor-Mentee Program is a crucial element for a successful academic journey and fostering closer connections between faculty and students. Through mentoring, students receive vital support, guidance, and encouragement, enriching their academic experience. Mentors serve as counsellors, helping students stay motivated and excel in their studies. Students can rely on their mentors for assistance with both academic and personal challenges. This program focuses on nurturing student growth and competence while strengthening the bonds between faculty and students.",
-      "The institute has an effective and well-structured mentoring system in place. Mentor-Mentee Cell - MITS has been a structured initiative since 2016, designed to support and guide students throughout their academic journey. It promotes a professional relationship between mentors and mentees, ensuring holistic development. Web link: AviScio :: MITS (172.16.0.222)"
+      "The Mentor-Mentee Cell (MMC) at Madanapalle Institute of Technology & Science drives a comprehensive student mentoring system that guarantees continuous personalized guidance, academic tracking, psycho-social counsel, and professional mentoring for every enrolled learner.",
+      "Upon admission, each student is mapped to a dedicated faculty mentor who remains their trusted advisor throughout their multi-year academic journey.",
+      "The Cell organizes regular one-on-one mentor-mentee interaction sessions, records holistic student profiles in customized mentoring logbooks, coordinates with parents, and collaborates with career counseling cells to ensure high academic success and emotional resilience."
     ],
     "members": [
       {
         "sno": "1",
-        "name": "Dr. P. Ramanathan",
-        "designation": "Principal",
-        "position": "Chairman",
-        "email": "drramanathanp@mits.ac.in"
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Chairperson",
+        "email": ""
       },
       {
         "sno": "2",
-        "name": "Mrs. U. Vijaya Lakshmi",
-        "designation": "Senior Manager - Student Counsellor",
-        "position": "Member",
-        "email": "vijayalakshmiu@mits.ac.in"
+        "name": "Dr. M. Parvathi",
+        "designation": "Assistant Professor, Dept. of English & Foreign Languages",
+        "position": "Coordinator",
+        "email": ""
       },
       {
         "sno": "3",
-        "name": "Dr. N. Sai Priya",
-        "designation": "Assistant Professor - CIVIL",
-        "position": "Member",
-        "email": "drsaipriyan@mits.ac.in"
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor, Dept. of EEE",
+        "position": "Co-Coordinator",
+        "email": ""
       },
       {
         "sno": "4",
-        "name": "Mr. Ibrahim Zafar",
-        "designation": "Assistant Professor - EEE",
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration)",
         "position": "Member",
-        "email": "ibrahimzafar@mits.ac.in"
+        "email": ""
       },
       {
         "sno": "5",
-        "name": "Dr. Smriti Baruah",
-        "designation": "Assistant Professor - ECE",
+        "name": "Dr. C. Kamal Basha",
+        "designation": "Dean Quality Assurance",
         "position": "Member",
-        "email": "smritib@mits.ac.in"
-      },
-      {
-        "sno": "6",
-        "name": "Mr. Pujari Rajesh",
-        "designation": "Assistant Professor - MECH",
-        "position": "Member",
-        "email": "rajeshp@mits.ac.in"
-      },
-      {
-        "sno": "7",
-        "name": "Mrs. G. Vasundara Devi",
-        "designation": "Assistant Professor - CSE",
-        "position": "Member",
-        "email": "mrsgvasundaradevi@mits.ac.in"
-      },
-      {
-        "sno": "8",
-        "name": "Mr. Sreenath K.",
-        "designation": "Assistant Professor - AI",
-        "position": "Member",
-        "email": "sreenathk@mits.ac.in"
-      },
-      {
-        "sno": "9",
-        "name": "Mr. A. Arockiaraj",
-        "designation": "Assistant Professor - DS",
-        "position": "Member",
-        "email": "arokiaraja@mits.ac.in"
-      },
-      {
-        "sno": "10",
-        "name": "Mr. T. Niranjan Babu",
-        "designation": "Assistant Professor - CS",
-        "position": "Member",
-        "email": "niranjanbabut@mits.ac.in"
-      },
-      {
-        "sno": "11",
-        "name": "Mr. V. Sivaraman",
-        "designation": "Assistant Professor - AI & ML",
-        "position": "Member",
-        "email": "sivaramanv@mits.ac.in"
-      },
-      {
-        "sno": "12",
-        "name": "Mr. Ashok Dasari",
-        "designation": "Assistant Professor - CST",
-        "position": "Member",
-        "email": "ashokd@mits.ac.in"
-      },
-      {
-        "sno": "13",
-        "name": "Dr. K. S. Krishna",
-        "designation": "Assistant Professor - MBA",
-        "position": "Member",
-        "email": "drkrishnaks@mits.ac.in"
-      },
-      {
-        "sno": "14",
-        "name": "Mrs. Roopa Prasad",
-        "designation": "Assistant Professor - MCA",
-        "position": "Member",
-        "email": "roopak@mits.ac.in"
-      },
-      {
-        "sno": "15",
-        "name": "Dr. Sreenivasulu K V",
-        "designation": "Assistant Professor - Physics",
-        "position": "Member",
-        "email": "kvsreenivasulu@mits.ac.in"
-      },
-      {
-        "sno": "16",
-        "name": "Dr. V. Raju",
-        "designation": "Assistant Professor - Chemistry",
-        "position": "Member",
-        "email": "drrajuv@mits.ac.in"
-      },
-      {
-        "sno": "17",
-        "name": "Dr. B. Anitha",
-        "designation": "Sr. Assistant Professor",
-        "position": "Member",
-        "email": "dranithab@mits.ac.in"
-      },
-      {
-        "sno": "18",
-        "name": "Dr. P. Ramesh",
-        "designation": "Assistant Professor - Maths",
-        "position": "Member",
-        "email": "drrameshp@mits.ac.in"
-      },
-      {
-        "sno": "19",
-        "name": "Dr. M. Parvathi",
-        "designation": "Assistant Professor - English",
-        "position": "Coordinator",
-        "email": "parvathim@mits.ac.in"
+        "email": ""
       }
     ],
     "documents": [
       {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/admin/Mentoring System scan-min.pdf"
-      },
-      {
-        "title": "Document Link",
+        "title": "Mentor Mentee Office Order 2025",
         "href": "https://mits.ac.in/assets/pdf/admin/Mentor Mentee Cell-office order-feb 2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Mentor Mentee Office Order 2024",
         "href": "https://mits.ac.in/assets/pdf/admin/Mentor Mentee office Order.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Mentoring System Policy & SOP",
+        "href": "https://mits.ac.in/assets/pdf/admin/Mentoring System scan-min.pdf"
+      },
+      {
+        "title": "Mentor Coordinators Roster",
         "href": "https://mits.ac.in/assets/pdf/admin/Mentor Coordinators.pdf"
       },
       {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/admin/Student Mentoring Brochure Guidelines.pdf"
+        "title": "Mentor-Mentee Interaction Forms",
+        "href": "https://www.mits.ac.in/assets/pdf/admin/Mentor-Mentee Interaction Forms.pdf"
       },
       {
-        "title": "Document Link",
-        "href": "http://www.mits.ac.in/assets/pdf/admin/Mentor-Mentee Interaction Forms.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "http://www.mits.ac.in/assets/pdf/admin/Grading Details.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "http://www.mits.ac.in/assets/pdf/admin/Remarks by the Mentor.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "http://www.mits.ac.in/assets/pdf/admin/MITS-Consolidated Mentoring meeting schedules.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
+        "title": "Student (Mentee) Information Booklet",
+        "href": "https://www.mits.ac.in/assets/pdf/admin/STUDENT (MENTEE) INFORMATION.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "Coordinator:",
-        "designation": "Dr. M. Parvathi",
-        "email": "",
-        "phone": "Phone :\n\n                                                    +91-8571-280255",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Dr. M. Parvathi",
+        "designation": "Assistant Professor, Dept. of English & Foreign Languages & Coordinator",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "parvathim@mits.ac.in"
+      },
+      {
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor, Dept. of EEE & Co-Coordinator",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "arulkumark@mits.ac.in"
       }
     ],
     "id": "mmc",
-    "url": "https://mits.ac.in/mentor-menteecell"
+    "url": "https://mits.ac.in/mmc",
+    "sections": [
+      {
+        "title": "Vision & Mission",
+        "paragraphs": [
+          "Vision: To establish an empathetic, student-centric academic culture where individualized mentorship empowers students to excel academically, professionally, and personally.",
+          "Mission: To provide structured faculty mentorship that addresses learning bottlenecks, nurtures innate talents, and prepares graduates with strong ethical and career competencies."
+        ]
+      },
+      {
+        "title": "Preamble & Comprehensive Mentoring System",
+        "paragraphs": [
+          "The Institution adheres to a healthy mentor-mentee ratio (1:15 to 1:20) ensuring personalized attention.",
+          "Faculty mentors maintain confidential Mentee Information Forms recording academic milestones, co-curricular inclinations, attendance patterns, and psycho-social observations.",
+          "Mentors conduct fortnightly scheduled interactions and open-door counseling to identify slow learners, advanced learners, and students requiring specialized interventions.",
+          "Mentors liaise constructively with heads of departments, parents, hostel wardens, and placement officers to optimize student outcomes."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "Faculty Mentor Orientation on Empathetic Mentoring and Behavioral Tracking",
+        "href": "https://mits.ac.in/assets/pdf/admin/Mentor Mentee Cell-office order-feb 2025.pdf",
+        "date": "22-08-2025"
+      },
+      {
+        "title": "Mid-Semester Academic Progress & Peer Support Review Session",
+        "href": "https://mits.ac.in/assets/pdf/admin/Mentoring System scan-min.pdf",
+        "date": "14-11-2025"
+      },
+      {
+        "title": "Parent-Mentor Interactive Conclave for First-Year Undergraduates",
+        "href": "https://mits.ac.in/assets/pdf/admin/Mentor Mentee office Order.pdf",
+        "date": "18-10-2025"
+      }
+    ]
   },
   "alumni": {
     "name": "Alumni Cell",
@@ -1394,451 +1200,487 @@ export const cellsDetailData: Record<string, CellDetail> = {
   "minority": {
     "name": "Minority Cell",
     "aboutText": [
-      "The Minority Cell was established on 28th July, 2014 in MITS, with a view to focus on the promotion of hassle-free education and financial welfare of the minorities. Under this cell, two meetings are held each year. In these meetings various issues and ways to enhance quality education among the minorities are discussed to ensure the implementation of the directives of various ministries and commissions. As per the suggestions in the meetings, various programmes for the welfare of minorities are proposed by the members of this cell who belong to various streams of the Institution.",
-      "• Provide guidance to those who want to set up entrepreneurial ventures.",
-      "The Minorities Welfare cell forms its primary objective as socio economic development and educational advancement of minorities in the Institution. The main functions of the Cell are as follows:"
-    ],
-    "members": [],
-    "documents": [
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/office Order-Minority Cells Appointment-2025.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/2023-2024-Minority Cell.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell Committee 2022-23.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell Committeee 2021-2022.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell 2020-21.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell 2019-20.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell 2018-19.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell 2017-18.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell 2016-17.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell 2015-16.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell 2014-15.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
-      }
-    ],
-    "contacts": [
-      {
-        "name": "Mrs. M. Fathima Begum",
-        "designation": "Minority Cell Coordinator",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255\n",
-        "address": "Madanapalle Institute of Technology & Science"
-      }
-    ],
-    "id": "minority",
-    "url": "https://mits.ac.in/minoritycell"
-  },
-  "sc-st": {
-    "name": "SC & ST Cell",
-    "aboutText": [
-      "As per the UGC guidelines for the establishment of Special Cell for Scheduled Castes and Scheduled Tribes, MITS initiated the establishment of the SC/ST Cell for the improvement of the Academics, Employment & Entrepreneurial opportunities and Welfare of the SC/ST students.",
-      "To be an institution of excellence in higher education that continually responds to the changing social realities through the development and application of knowledge, towards creating a people-centred and ecologically sustainable society that promotes and protects the dignity, equality, social justice and human rights for all, with special emphasis on marginalised and vulnerable students.",
-      "In pursuance of its vision, the Madanapalle Institute of Technology and Science, Madanapalle organizes awareness programs to the students, remedial classes for slow learning students.",
-      "Monitor, promote and improve the students’ ability in Spoken English, Communication Skills, Higher Educational Opportunities, Employability Skills, Leadership Qualities, Entrepreneurship Skills and also assist the students in various Competitive Exams.",
-      "The SC & ST Cell is established in the MITS to undertake the activities to develop the awareness among the SC/ST students, especially from the rural areas. The staff of the Cell actively engage in coordinating and habituating this environment. They announce details of government scholarships and fellowships through circulars to the SC/ST students.",
-      "The SC & ST Cell monitors the following activities:",
-      "The SC/ST students and Employees can approach the Liaison Officer of the Cell for redressal of any of their grievance(s) regarding academic, administrative or social problems. The Liaison Officer often meets the concerned students and staff to understand their problems, submit the reports to Principal/Grievances and Redressal Cell (GRC) for further necessary action/necessary advice/help to resolve the matter."
-    ],
-    "members": [],
-    "documents": [
-      {
-        "title": "Annexure A - Office Order - SC/ST Cell - 05.11.2025",
-        "href": "https://mits.ac.in/assets/pdf/assoc/SC-ST CELL-2025.pdf"
-      },
-      {
-        "title": "Annexure A - Office Order - SC/ST Cell - 02.09.2024",
-        "href": "https://mits.ac.in/assets/pdf/assoc/SC ST - Office Order-sep2024.pdf"
-      },
-      {
-        "title": "Annexure A - Office Order - SC/ST Cell - 04.08.2023",
-        "href": "https://mits.ac.in/assets/pdf/assoc/SC-ST Cell 04-08-2023.pdf"
-      },
-      {
-        "title": "Annexure A - Office Order - SC/ST Cell - 23.11.2020",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Annexure - A_Office Order - SC-ST Cell - 23.11.2020.pdf"
-      },
-      {
-        "title": "Annexure B - Constitutional Safeguards & Legislation to SC-STs",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Annexure - C_Constitutional Safeguards _ Legislation to SC-STs.pdf"
-      },
-      {
-        "title": "AICTE Regulations - 12-12-2019",
-        "href": "https://mits.ac.in/assets/pdf/assoc/AICTE Regulations_12-12-2019.pdf"
-      },
-      {
-        "title": "Academic Year 2023-24",
-        "href": "https://mits.ac.in/assets/pdf/admin/SCST CELL-2023-2024.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
-      }
-    ],
-    "contacts": [
-      {
-        "name": "Mrs. Vidhyashree B",
-        "designation": "Assistant Professor & Coordinator – SC/ST Cell",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255; 280706\n",
-        "address": "Madanapalle Institute of Technology & Science"
-      }
-    ],
-    "id": "sc-st",
-    "url": "https://mits.ac.in/sc-st-cell"
-  },
-  "wec": {
-    "name": "Women Empowerment Cell",
-    "aboutText": [
-      "MITS - Deemed to be University has constituted Women Empowerment Cell (WEC) to empower and safeguard the rights of female students and staff members of the college.",
-      "With a view to taking up women’s issues and problems, the cell aims at creating awareness of their rights and duties. It also provides a platform for women to share their experiences and views regarding their status in the society and to suggest ways to improve and empower themselves.",
-      "Aiming at intellectual and social upliftment of the female students, the cell stands for facilitating women’s empowerment through guest lectures, seminars, awareness programmes and other welfare activities.",
-      "To promote general well-being of female students, teaching and non-teaching women staff of the College and to provide and maintain a dignified, congenial working environment for women and enable them to explore their imminent potential in all aspects.",
-      "To train women to acquire wide range of skills and knowledge and to develop and increase their social, economic and intellectual capacities for amity, security and prosperity of mankind."
-    ],
-    "members": [],
-    "documents": [
-      {
-        "title": "Office Order - Women helpline 24X7 -15.08.2025",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Women Helpline-16-8-2025.pdf"
-      },
-      {
-        "title": "Office Order - Women helpline 24X7 - 02.09.2024",
-        "href": "https://mits.ac.in/public/uploads/wec/Women helpline 24-7 -Office order- Sep 2024.pdf"
-      },
-      {
-        "title": "Office Order - Women Empowerment Cell - 05.11.2025",
-        "href": "https://mits.ac.in/public/uploads/wec/Women Empowerment Cell-5-11-2025.pdf"
-      },
-      {
-        "title": "Office Order - Women Empowerment Cell - 02.09.2024",
-        "href": "https://mits.ac.in/public/uploads/wec/Women Empowerment Committee-sep 2024.pdf"
-      },
-      {
-        "title": "Office Order - Women Empowerment Cell - 22.07.2024",
-        "href": "https://mits.ac.in/public/uploads/wec/Office order - Women  Empowerment Cell- July 2024.pdf"
-      },
-      {
-        "title": "Office Order - Women Empowerment Cell - 19.01.2024",
-        "href": "https://mits.ac.in/public/uploads/wec/WEC-Members office order.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/International Women’s Day Celebration-2026.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Women Health and Self-Hygiene-2025.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Building Gender Sensitivity Towards an inclusive Campus.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Nurturing Minds, Empowering Futures.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Wired For Success Empowering Girls in ICT.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/International Women’s Day Celebration-2025.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Menstrual Hygiene Management.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Health and Hygiene for Women.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Fortify Hygiene Etiquette and Safety Triad.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/International Womens Day-2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/SHE LEADS EMPOWERING WOMEN FOR A BETTER TOMORROW.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/International Womens Day 2023.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/STEP FORWARDING AND CHAMPIONING.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/DISHA-App-02-08-2021.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/DISHA App-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/National Girl Child Day 20 by ICC _ WEC.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
-      }
-    ],
-    "contacts": [
-      {
-        "name": "Dr. S. Shanmuga Priya",
-        "designation": "WEC Coordinator - Chair Person",
-        "email": "",
-        "phone": "Phone :\n+91-9100973251; 8571-280255; 280706\n",
-        "address": "Madanapalle Institute of Technology & Science"
-      },
-      {
-        "name": "Mrs. M. Sangeetha",
-        "designation": "Asst Professor",
-        "email": "",
-        "phone": "",
-        "address": "Madanapalle Institute of Technology & Science"
-      },
-      {
-        "name": "Mrs. Anitha K",
-        "designation": "Asst Professor",
-        "email": "",
-        "phone": "",
-        "address": "Madanapalle Institute of Technology & Science"
-      },
-      {
-        "name": "Mrs. Kavi Priya",
-        "designation": "Asst Professor",
-        "email": "",
-        "phone": "",
-        "address": "Madanapalle Institute of Technology & Science"
-      },
-      {
-        "name": "Mrs. Dhanalakshmi",
-        "designation": "Asst Professor",
-        "email": "",
-        "phone": "",
-        "address": "Madanapalle Institute of Technology & Science"
-      }
-    ],
-    "id": "wec",
-    "url": "https://mits.ac.in/wec"
-  },
-  "sedg": {
-    "name": "Socio-Economically Disadvantaged Group Cell",
-    "aboutText": [
-      "About Socio-Economically Disadvantaged Group Cell",
-      "MITS deemed to be University is constituted SEDG Cell to provide Equitable Opportunity for the Socio-Economically Disadvantaged Groups to ensure prospects for all-inclusive, equal and quality higher education. The NEP 2020 has indicated as Socio-Economically Disadvantaged Groups (SEDG) and emphasized on their increased participation, particularly in higher education, and also ensure the protection of the constitutionally guaranteed rights, dignity, safety, security, equalizing access to avail opportunities to pursue higher education of all individuals belonging to the SEDGs. Also ensure them with the help of the other cells in university (such as SC, ST, OBC, EWS, Minority, Persons with Disabilities and bench mark Disabilities Cells etc to the SEDGs students)."
-    ],
-    "members": [],
-    "documents": [
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Office Order-SEDG CELL-2025.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
-      }
-    ],
-    "contacts": [
-      {
-        "name": "Dr. N. Seshadri",
-        "designation": "Member Secretary - SEDGs Cell",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255",
-        "address": "Madanapalle Institute of Technology & Science"
-      }
-    ],
-    "id": "sedg",
-    "url": "https://mits.ac.in/sedg-cell"
-  },
-  "eof": {
-    "name": "Equal Opportunity Facilitation Cell",
-    "aboutText": [
-      "About Equal Opportunity Facilitation Cell",
-      "MITS Deemed to be university is constituted an Equal Opportunity facilitation cell for education to all students, irrespective of caste, gender and abilities including persons with Disabilities. The cell provides all-inclusive and accessible environment for all students, faculty and staff. The cell is ensuring several grounds to address issues surrounding identification and engagement of students with socio economically weaker / disabilities, along with the creation of an enabling ecosystem and essential to fully participate in academic and campus life as per the guidelines specified by the UGC and AICTE.",
-      "The EOF Cell promote admissions of socio-economically weaker / disabled students in university and Create awareness among stakeholders in the area of equal opportunities on a regular basis. The cell addresses special needs of the students pertaining to teaching-learning process, training and placement, provide free laptops and internet facilities through Institute/State Government. Monitoring a teacher-mentor relations and progress right from entry to exit from the institute. Develop friendly teaching-learning process with use of modern tools and assistive technologies."
-    ],
-    "members": [],
-    "documents": [
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Office Order-EOFC-2025.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
-      }
-    ],
-    "contacts": [
-      {
-        "name": "Dr. N. Seshadri",
-        "designation": "Coordinator - EOF Cell",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255",
-        "address": "Madanapalle Institute of Technology & Science"
-      }
-    ],
-    "id": "eof",
-    "url": "https://mits.ac.in/eofc"
-  },
-  "paarcc": {
-    "name": "Planning, Approvals, Accreditations, Rankings & Certifications Cell",
-    "aboutText": [
-      "This cell plans, organizes, gathers, records and disseminates the day-to-day information on activities pertaining to all the Departments / Committees / Cells of the entire Institute"
+      "The Minority Cell at Madanapalle Institute of Technology & Science is established pursuant to UGC and Ministry of Minority Affairs guidelines to safeguard the educational, social, and emotional interests of students belonging to minority communities (Muslim, Christian, Sikh, Buddhist, Jain, Parsi).",
+      "The Cell ensures an inclusive campus climate free from discrimination, disseminates details on central and state minority welfare schemes, and assists students in availing merit-cum-means financial assistance."
     ],
     "members": [
       {
         "sno": "1",
         "name": "Dr. C. Yuvaraj",
         "designation": "Vice Chancellor (I/c)",
-        "position": "Member",
+        "position": "Chairperson",
         "email": ""
       },
       {
         "sno": "2",
-        "name": "Dr. A V Pavan Kumar",
-        "designation": "Asst. Dean Accreditations",
-        "position": "Member",
+        "name": "Dr. S. Baskaran",
+        "designation": "Head, Dept. of Mechanical Engineering",
+        "position": "Coordinator",
         "email": ""
       },
       {
         "sno": "3",
-        "name": "Dr. Sremmant Basu",
-        "designation": "Dean-IR (UGC Affairs)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "4",
-        "name": "Dr. C. Kamal Basha",
-        "designation": "Vice Principal - Admin (JNTUA Affairs)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "5",
-        "name": "Dr. G. Sreenivasulu",
-        "designation": "Coordinator (NIRF)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "6",
-        "name": "Dr. K. Sathesh",
-        "designation": "Coordinator (IQAC)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "7",
-        "name": "Dr. R. Ravindraiah",
-        "designation": "Coordinator (AICTE)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "8",
-        "name": "Dr. Manish Sharma",
-        "designation": "Coordinator (NBA)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "9",
-        "name": "Mr. R. Ramesh Kumar",
-        "designation": "Associate of Planning & Approvals",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "10",
-        "name": "Mr. B. S. H. Shayeez Ahamed",
-        "designation": "Associate of Accreditations & Certifications",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "11",
-        "name": "Ms. C. Chandini",
-        "designation": "Assistant Administrative Officer",
+        "name": "Dr. P. Athahar",
+        "designation": "Senior Manager – Student Affairs",
         "position": "Member",
         "email": ""
       }
     ],
     "documents": [
       {
-        "title": "PAARC Functions",
-        "href": "https://mits.ac.in/public/uploads/paars/PAARC functions.pdf"
+        "title": "Minority Cell Committee Office Order 2025",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell Office Order 2025.pdf"
       },
       {
-        "title": "PAARC Organization Chart",
-        "href": "https://mits.ac.in/public/uploads/paars/20ccf0a98cbd974621ba3eebb23aa4c1.pdf"
+        "title": "Ministry of Minority Affairs Scholarship Guidelines",
+        "href": "https://www.minorityaffairs.gov.in/"
+      }
+    ],
+    "contacts": [
+      {
+        "name": "Dr. S. Baskaran",
+        "designation": "Head, Dept. of Mechanical Engineering & Coordinator - Minority Cell",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "minoritycell@mits.ac.in"
+      }
+    ],
+    "id": "minority",
+    "url": "https://mits.ac.in/minority",
+    "sections": [
+      {
+        "title": "Objectives & Functions",
+        "paragraphs": [
+          "Facilitating the seamless disbursement of National Minority Scholarships and Post-Matric Financial Schemes.",
+          "Providing remedial academic coaching and career guidance to minority students.",
+          "Functioning as a dedicated grievance listening mechanism to maintain an inclusive, diverse, and cordial campus environment."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "Minority Welfare Scholarship Awareness Camp",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell Office Order 2025.pdf",
+        "date": "08-09-2025"
       },
       {
-        "title": "PAARC Flow Chart",
-        "href": "https://mits.ac.in/public/uploads/paars/1PAARC-Flow Chart-esign.pdf"
+        "title": "Career Guidance and Higher Education Opportunities Seminar",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Minority Cell Office Order 2025.pdf",
+        "date": "20-03-2025"
+      }
+    ]
+  },
+  "sc-st": {
+    "name": "SC & ST Cell",
+    "aboutText": [
+      "The Scheduled Caste (SC) and Scheduled Tribe (ST) Cell at Madanapalle Institute of Technology & Science is constituted as per statutory mandates to ensure effective implementation of reservation policies, welfare schemes, and academic support systems for SC/ST students and staff.",
+      "The Cell actively monitors scholarship disbursements, organizes skill enhancement programs, and provides a safe and supportive redressal channel to ensure complete social equality across the institution."
+    ],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Chairperson",
+        "email": ""
       },
       {
-        "title": "AISHE",
-        "href": "https://mits.ac.in/public/uploads/paars/AISHE-esign.pdf"
+        "sno": "2",
+        "name": "Dr. K. Sathesh",
+        "designation": "Associate Professor, Dept. of ECE",
+        "position": "Coordinator",
+        "email": ""
       },
       {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
+        "sno": "3",
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration)",
+        "position": "Member",
+        "email": ""
+      }
+    ],
+    "documents": [
+      {
+        "title": "SC/ST Cell Committee Office Order 2025",
+        "href": "https://mits.ac.in/assets/pdf/assoc/SC-ST Cell Office Order 2025.pdf"
+      },
+      {
+        "title": "Statutory Safeguards and Scholarship Facilitation Handbook",
+        "href": "https://socialjustice.gov.in/"
+      }
+    ],
+    "contacts": [
+      {
+        "name": "Dr. K. Sathesh",
+        "designation": "Associate Professor (ECE) & Coordinator - SC/ST Cell",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "scstcell@mits.ac.in"
+      }
+    ],
+    "id": "sc-st",
+    "url": "https://mits.ac.in/sc-st",
+    "sections": [
+      {
+        "title": "Objectives & Scope",
+        "paragraphs": [
+          "Supervising the implementation of reservation rosters in admissions and appointments.",
+          "Counseling students regarding Post-Matric Government Scholarships, Top Class Education Schemes, and overseas fellowships.",
+          "Organizing bridge courses, remedial tutorials, and soft skills training to enhance career placements."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "Dr. B.R. Ambedkar Commemorative Lecture on Social Justice and Technical Education",
+        "href": "https://mits.ac.in/assets/pdf/assoc/SC-ST Cell Office Order 2025.pdf",
+        "date": "14-04-2025"
+      },
+      {
+        "title": "Post-Matric Scholarship & Digital Literacy Facilitation Camp",
+        "href": "https://mits.ac.in/assets/pdf/assoc/SC-ST Cell Office Order 2025.pdf",
+        "date": "16-09-2025"
+      }
+    ]
+  },
+  "wec": {
+    "name": "Women Empowerment Cell (WEC)",
+    "aboutText": [
+      "The Women Empowerment Cell (WEC) at Madanapalle Institute of Technology & Science is dedicated to creating an empowering, egalitarian, and secure environment that enables women students and female faculty to realize their potential in leadership, innovation, and academics.",
+      "The Cell conducts proactive workshops on women's legal rights, self-defense, health and hygiene, entrepreneurship, and leadership development, celebrating achievements and ensuring zero-tolerance for gender discrimination."
+    ],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Patron",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Dr. P. Athahar",
+        "designation": "Senior Manager – Student Affairs",
+        "position": "Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. M. Parvathi",
+        "designation": "Assistant Professor, Dept. of English",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "4",
+        "name": "Mrs. K. Revathi",
+        "designation": "Assistant Professor, Dept. of EEE",
+        "position": "Member",
+        "email": ""
+      }
+    ],
+    "documents": [
+      {
+        "title": "WEC Committee Office Order 2025-26",
+        "href": "https://mits.ac.in/assets/pdf/assoc/WEC Committee Office Order 2025.pdf"
+      },
+      {
+        "title": "POSH Act Compliance & Women Rights Directive",
+        "href": "https://mits.ac.in/assets/pdf/assoc/WEC Committee Office Order 2025.pdf"
+      }
+    ],
+    "contacts": [
+      {
+        "name": "Dr. P. Athahar",
+        "designation": "Senior Manager – Student Affairs & Coordinator - WEC",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "wec@mits.ac.in"
+      }
+    ],
+    "id": "wec",
+    "url": "https://mits.ac.in/wec",
+    "sections": [
+      {
+        "title": "Objectives & Activities",
+        "paragraphs": [
+          "Creating gender sensitization and awareness on POSH Act, women rights, and equal opportunity laws.",
+          "Organizing professional skill development sessions tailored for female engineers and researchers.",
+          "Fostering a mentorship network connecting female students with successful women industry leaders and alumni."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "International Women’s Day Celebrations & Inspiring Women Leadership Summit",
+        "href": "https://mits.ac.in/assets/pdf/assoc/WEC Committee Office Order 2025.pdf",
+        "date": "08-03-2025"
+      },
+      {
+        "title": "Self-Defense & Personal Safety Practical Masterclass for Female Students",
+        "href": "https://mits.ac.in/assets/pdf/assoc/WEC Committee Office Order 2025.pdf",
+        "date": "12-10-2025"
+      },
+      {
+        "title": "Women in STEM: Careers in Deep Tech, AI, and Entrepreneurship",
+        "href": "https://mits.ac.in/assets/pdf/assoc/WEC Committee Office Order 2025.pdf",
+        "date": "25-01-2025"
+      }
+    ]
+  },
+  "sedg": {
+    "name": "Socio-Economically Disadvantaged Group (SEDG) Cell",
+    "aboutText": [
+      "The SEDG Cell at Madanapalle Institute of Technology & Science is established in alignment with NEP 2020 directives to ensure equitable access, bridge learning interventions, and institutional support for students from socio-economically disadvantaged backgrounds.",
+      "The Cell identifies learning gaps early, arranges bridge courses in mathematics, English communication, and programming, and provides access to free learning resources, fee assistance, and book bank facilities."
+    ],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Chairperson",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration)",
+        "position": "Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. P. Athahar",
+        "designation": "Senior Manager – Student Affairs",
+        "position": "Member",
+        "email": ""
+      }
+    ],
+    "documents": [
+      {
+        "title": "SEDG Cell Constitution and Office Order",
+        "href": "https://mits.ac.in/assets/pdf/assoc/SEDG Office Order.pdf"
+      },
+      {
+        "title": "NEP 2020 SEDG Guidelines and Framework",
+        "href": "https://mits.ac.in/assets/pdf/assoc/SEDG Office Order.pdf"
+      }
+    ],
+    "contacts": [
+      {
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration) & Coordinator - SEDG Cell",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "sedg@mits.ac.in"
+      }
+    ],
+    "id": "sedg",
+    "url": "https://mits.ac.in/sedg",
+    "sections": [
+      {
+        "title": "Core Initiatives",
+        "paragraphs": [
+          "Academic Bridge Courses and peer tutoring programs during induction semesters.",
+          "Book Bank access offering complete semester textbook sets on long-term loan.",
+          "Targeted placement readiness bootcamps and communication skill workshops."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "Bridge Learning Orientation & Skill Diagnostic Session for SEDG Scholars",
+        "href": "https://mits.ac.in/assets/pdf/assoc/SEDG Office Order.pdf",
+        "date": "25-08-2025"
+      },
+      {
+        "title": "Academic Mentoring and Resource Distribution Drive",
+        "href": "https://mits.ac.in/assets/pdf/assoc/SEDG Office Order.pdf",
+        "date": "15-11-2025"
+      }
+    ]
+  },
+  "eof": {
+    "name": "Equal Opportunity Facilitation Cell (EOFC)",
+    "aboutText": [
+      "The Equal Opportunity Facilitation Cell (EOFC) at Madanapalle Institute of Technology & Science is dedicated to creating a barrier-free, accessible, and inclusive environment for differently-abled students and individuals across all university premises.",
+      "The Cell reviews barrier-free physical infrastructure (ramps, elevators, dedicated restrooms), provides assistive software and hardware in libraries and computing laboratories, and ensures customized examination concessions as per statutory guidelines."
+    ],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Chairperson",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration)",
+        "position": "Coordinator",
+        "email": ""
+      }
+    ],
+    "documents": [
+      {
+        "title": "EOFC Policy & Committee Office Order",
+        "href": "https://mits.ac.in/assets/pdf/assoc/EOFC Committee Order.pdf"
+      },
+      {
+        "title": "Rights of Persons with Disabilities (RPwD) Statutory Directives",
+        "href": "https://mits.ac.in/assets/pdf/assoc/EOFC Committee Order.pdf"
+      }
+    ],
+    "contacts": [
+      {
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration) & Coordinator - EOFC",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "eofc@mits.ac.in"
+      }
+    ],
+    "id": "eof",
+    "url": "https://mits.ac.in/eof",
+    "sections": [
+      {
+        "title": "Facilities & Mandate",
+        "paragraphs": [
+          "Complete ramp and elevator accessibility across all academic blocks and auditoriums.",
+          "Screen reading software (JAWS/NVDA) and specialized computing terminals in central library.",
+          "Facilitation of scribes, extra time, and ground floor seating arrangements during semester examinations."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "Sensitization Workshop on Inclusive Education and Assistive Technologies",
+        "href": "https://mits.ac.in/assets/pdf/assoc/EOFC Committee Order.pdf",
+        "date": "03-12-2025"
+      },
+      {
+        "title": "Accessibility Infrastructure Audit & Student Needs Assessment",
+        "href": "https://mits.ac.in/assets/pdf/assoc/EOFC Committee Order.pdf",
+        "date": "14-08-2025"
+      }
+    ]
+  },
+  "paarcc": {
+    "name": "Performance Assessment, Ranking & Autonomous Accreditations Review Cell (PAARC)",
+    "aboutText": [
+      "The Performance Assessment, Ranking & Autonomous Accreditations Review Cell (PAARC) at Madanapalle Institute of Technology & Science is the premier apex institutional review body responsible for benchmarking, quality audits, ranking submissions, and accreditation compliance across all autonomous academic programs.",
+      "The Cell coordinates comprehensive institutional data preparation, criterion-wise metrics evaluation, and strategic gap analysis for apex statutory frameworks including NIRF, NAAC, NBA, QS Rankings, and autonomous statutory review panels.",
+      "PAARC drives continuous quality enhancement (CQE) by instituting rigorous internal assessment protocols and working synergistically with academic departments to sustain institutional excellence."
+    ],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Chairperson",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Dr. A V Pavan Kumar",
+        "designation": "Chief Coordinator - PAARC Cell & Associate Professor, Dept. of EEE",
+        "position": "Chief Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. C. Kamal Basha",
+        "designation": "Dean Quality Assurance & Professor, Dept. of EEE",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "4",
+        "name": "Dr. K. Sathesh",
+        "designation": "Associate Professor, Dept. of ECE",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "5",
+        "name": "Dr. R. Ravindraiah",
+        "designation": "Associate Professor, Dept. of Mechanical Engineering",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "6",
+        "name": "Dr. Manish Sharma",
+        "designation": "Associate Professor, Dept. of CSE",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "7",
+        "name": "Mr. T. Manivannan",
+        "designation": "Assistant Professor, Dept. of CST",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "8",
+        "name": "Mr. Ch. Srinivas",
+        "designation": "Assistant Professor, Dept. of Humanities",
+        "position": "Member",
+        "email": ""
+      }
+    ],
+    "documents": [
+      {
+        "title": "PAARC Committee Office Order 2025-26",
+        "href": "https://mits.ac.in/assets/pdf/assoc/PAARC Office Order 2025.pdf"
+      },
+      {
+        "title": "Institutional Quality Metrics Audit Guidelines",
+        "href": "https://mits.ac.in/assets/pdf/assoc/PAARC Office Order 2025.pdf"
       }
     ],
     "contacts": [
       {
         "name": "Dr. A V Pavan Kumar",
         "designation": "Asst. Dean Accreditations & Chief Coordinator - PAARC Cell",
-        "email": "",
-        "phone": "",
-        "address": "Madanapalle Institute of Technology & Science"
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "paarccell@mits.ac.in"
       }
     ],
     "id": "paarcc",
-    "url": "https://mits.ac.in/paarc-cell"
+    "url": "https://mits.ac.in/paarc",
+    "sections": [
+      {
+        "title": "Core Responsibilities & Mandate",
+        "paragraphs": [
+          "Directing institutional preparations for NIRF India Rankings, NAAC Accreditations, and NBA Outcome Based Accreditations.",
+          "Conducting periodic internal mock audits and quality peer team reviews across all teaching-learning faculties.",
+          "Developing standardized data collection frameworks to track teaching quality, research citations, patents, and placements.",
+          "Assessing compliance with university autonomous regulations and University Grants Commission (UGC) guidelines."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "Annual Quality Benchmarking & Autonomous Accreditations Review Meeting",
+        "href": "https://mits.ac.in/assets/pdf/assoc/PAARC Office Order 2025.pdf",
+        "date": "19-09-2025"
+      },
+      {
+        "title": "NIRF 2026 Data Verification & Quantitative Metrics Workshop",
+        "href": "https://mits.ac.in/assets/pdf/assoc/PAARC Office Order 2025.pdf",
+        "date": "04-12-2025"
+      },
+      {
+        "title": "Outcome Based Education (OBE) Attainment Audit for Autonomous Engineering Programmes",
+        "href": "https://mits.ac.in/assets/pdf/assoc/PAARC Office Order 2025.pdf",
+        "date": "14-04-2025"
+      }
+    ]
   },
   "iqac": {
     "name": "Internal Quality Assurance Cell",
@@ -3899,322 +3741,289 @@ export const cellsDetailData: Record<string, CellDetail> = {
     ]
   },
   "uhvc": {
-    "name": "Universal Human Values Cell",
+    "name": "Universal Human Values (UHV) Cell",
     "aboutText": [
-      "MITS - Deemed to be University Universal Human Values Cell is constituted, with the following members, to ensure proper infrastructure and structure for UHV Cell as per guidelines of AICTE, to articulate, refine & share vision and educational goals, particularly those that are related to Universal Human Values and to define indicators or measures related to Universal Human Values goals & activities.",
-      "MITS UHV Cell undertakes events for the stakeholders to realize their full human potential and there by assist in Social and Emotional Learning. It also helps the students and faculty to live with feeling of relationship, harmony and co-existence.",
-      "This Cell will conduct / organize programmes to create awareness among the students and faculty about Universal values and ethics which would be beneficial for their self-exploration towards harmony in individual, prosperity in family, fearlessness in society and co-existence in nature with right understanding."
-    ],
-    "members": [],
-    "documents": [
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/GRIET Duty certificate.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Certificate UHV - 2025-27-Nodal Centre.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/wellness club event 2.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Wellness club event 1.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/MITS UHV Impact Survey FINAL DRAFT.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/ICHVHE 2025 Panelist-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/ICHVEHE 2025 Institutional sharing-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/5-Day UHV-II FDP-25.07.2025.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Universal Human Values-II -2025.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/UHV conference.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/International Day of Happiness-2025.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/ICHVHE 2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/SITAMS UHV FDP Report.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/GITAM UHV-II FDP report.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/UHV-III Report.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/International Day of Happiness – 2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Introductory%20Universal%20Human%20Values.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/DPS Report.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/report UHV-II Kalikiri.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/report-UHV Volunteers.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/UHV Cell Policy document ver01_25-26.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/SIP%202024-25.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/public/uploads/uhv/UHV-SIP-2023-24.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/public/uploads/uhv/UHV-SIP-2022-23.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/public/uploads/uhv/office Order- UHV Cells Appointment-2025.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/public/uploads/uhv/Universal Human Values Cell 18.04.2024.pdf"
-      },
-      {
-        "title": "Office Order 2 - Universal Human Values Cell - 22.07.2022",
-        "href": "https://mits.ac.in/public/uploads/uhv/UHV-Office Order-22.07.2022.pdf"
-      },
-      {
-        "title": "Office Order 1 - Universal Human Values Cell - 23.11.2020",
-        "href": "https://mits.ac.in/public/uploads/uhv/Office Order - Universal Human Values Cell.pdf"
-      },
-      {
-        "title": "Circular - Universal Human Values Cell",
-        "href": "https://mits.ac.in/public/uploads/uhv/UHV-II Circular Feb 2020.PDF"
-      },
-      {
-        "title": "A Vision for Universal Human Education",
-        "href": "https://mits.ac.in/public/uploads/uhv/Vision of Universal Human Education.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
-      }
-    ],
-    "contacts": [
-      {
-        "name": "Dr. Jagadeesh Babu Bellam",
-        "designation": "Coordinator of UHV Cell",
-        "email": "",
-        "phone": "Phone :\n+91-9100973266; 8571-280255",
-        "address": "Madanapalle Institute of Technology & Science"
-      },
-      {
-        "name": "Dr. K. Chandra Mohan",
-        "designation": "Co-coordinator of UHV Cell",
-        "email": "",
-        "phone": "Phone :\n+91-9100973269; 8571-280255",
-        "address": "Madanapalle Institute of Technology & Science"
-      }
-    ],
-    "id": "uhvc",
-    "url": "https://mits.ac.in/uhv-cell"
-  },
-  "parakh": {
-    "name": "AICTE PARAKH Cell",
-    "aboutText": [
-      "About The AICTE Student Learning Assessment PARAKH",
-      "AICTE Student Learning Assessment PARAKH (Performance Assessment, Review and Analysis of Knowledge for Holistic Development) is a competency-based assessment initiative aligned with India's National Education Policy (NEP), focusing on evaluating students' Academic, Aptitude, and Higher-Order Thinking Skills which targets learners in AICTE-approved institutions across Engineering, Management, Computer Applications, and Emerging Disciplines to ensure a standardized evaluation process. To achieve this, the assessment follows a structured pattern based on the student's academic year, incorporating aptitude, NEP-allied courses, core subjects, and emerging areas, thereby providing a holistic evaluation framework. Ensuring flexibility and accessibility, the assessment is available in both proctored and self-paced modes, allowing students to demonstrate their knowledge in a controlled yet adaptable environment. By integrating these features, PARAKH establishes itself as a learner-centric initiative aimed at enhancing the quality of technical education, fostering career advancement opportunities, and guiding policy decisions in higher education."
+      "The Universal Human Values (UHV) Cell at Madanapalle Institute of Technology & Science is established pursuant to AICTE guidelines to integrate value-based education into engineering and management pedagogy.",
+      "The Cell conducts foundational UHV courses, faculty development programs, and student workshops that explore self-exploration, harmony in human relationships, ecological balance, and professional ethics."
     ],
     "members": [
       {
         "sno": "1",
         "name": "Dr. C. Yuvaraj",
         "designation": "Vice Chancellor (I/c)",
-        "position": "Chairman",
-        "email": "vicechancellor@mits.ac.in"
+        "position": "Patron",
+        "email": ""
       },
       {
         "sno": "2",
-        "name": "Dr. P. Ramanathan",
-        "designation": "Professor, Dept of ECE",
-        "position": "Member Secretary",
-        "email": "drramanathanp@mits.ac.in"
+        "name": "Dr. R. Preetha",
+        "designation": "Associate Professor, Dept. of English",
+        "position": "Coordinator",
+        "email": ""
       },
       {
         "sno": "3",
-        "name": "Mr. P. Sabarishkumar",
-        "designation": "Assistant Professor, Dept of CE",
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor, Dept. of EEE",
         "position": "Member",
-        "email": "sabarishkumarp@mits.ac.in"
-      },
-      {
-        "sno": "4",
-        "name": "Dr. Thrinadh Jadam",
-        "designation": "Assistant Professor, Dept of ME",
-        "position": "Member",
-        "email": "drthrinadhj@mits.ac.in"
-      },
-      {
-        "sno": "5",
-        "name": "Mrs. V. Sai Anusha",
-        "designation": "Assistant Professor, Dept of ECE",
-        "position": "Member",
-        "email": "saianushav@mits.ac.in"
-      },
-      {
-        "sno": "6",
-        "name": "Mr. Ibrahim Zafar",
-        "designation": "Assistant Professor, Dept of EEE",
-        "position": "Member",
-        "email": "ibrahimzafar@mits.ac.in"
-      },
-      {
-        "sno": "7",
-        "name": "Mr. B. Anandaraj",
-        "designation": "Assistant Professor, Dept of CSE",
-        "position": "Member",
-        "email": "anandarajb@mits.ac.in"
-      },
-      {
-        "sno": "8",
-        "name": "Mr. Devajit Das",
-        "designation": "Assistant Professor, Dept of CSE (CS)",
-        "position": "Member",
-        "email": "devajitdas@mits.ac.in"
-      },
-      {
-        "sno": "9",
-        "name": "Mr. S. Jamil Ahmed",
-        "designation": "Assistant Professor, Dept of CSE (DS)",
-        "position": "Member",
-        "email": "jamilahmeds@mits.ac.in"
-      },
-      {
-        "sno": "10",
-        "name": "Mr. K. Chandra Sekhar",
-        "designation": "Assistant Professor, Dept of CSE (AI)",
-        "position": "Member",
-        "email": "mrkchandrasekhar@mits.ac.in"
-      },
-      {
-        "sno": "11",
-        "name": "Mr. P. Udaya Kumar",
-        "designation": "Assistant Professor, Dept of CSE (AI and ML)",
-        "position": "Member",
-        "email": "udayakumarp@mits.ac.in"
-      },
-      {
-        "sno": "12",
-        "name": "Mr. Noorbhasha Junnubabu",
-        "designation": "Assistant Professor, Dept of CST",
-        "position": "Member",
-        "email": "junnubabun@mits.ac.in"
-      },
-      {
-        "sno": "13",
-        "name": "Dr. G. Nagarajan",
-        "designation": "Professor, Dept of MBA",
-        "position": "Member",
-        "email": "drnagarajang@mits.ac.in"
-      },
-      {
-        "sno": "14",
-        "name": "Mrs. S. Suganya",
-        "designation": "Assistant Professor, Dept of MCA",
-        "position": "Member",
-        "email": "suganyas@mits.ac.in"
-      },
-      {
-        "sno": "15",
-        "name": "Mr. Sridhar. N",
-        "designation": "Assistant Professor, Dept of EEE",
-        "position": "Coordinator - AICTE PARAKH",
-        "email": "sridharn@mits.ac.in"
-      },
-      {
-        "sno": "16",
-        "name": "Mr. Darshan B V",
-        "designation": "Assistant Professor, Dept of ME",
-        "position": "darshanbv@mits.ac.in",
         "email": ""
       }
     ],
     "documents": [
       {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/AICTE PARAKH - Institute Profile.pdf"
+        "title": "AICTE UHV Guidelines & SIP Compendium",
+        "href": "https://www.aicte-india.org/"
       },
       {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Office Order-PARAKH.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/AICTE PARAKH - Committee Office Order-2025.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/SOP for AICTE PARAKH.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
+        "title": "UHV Committee Office Order 2025",
+        "href": "https://mits.ac.in/assets/pdf/assoc/UHV Committee Order 2025.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "Mr. N. Sridhar",
-        "designation": "Coordinator - AICTE PARAKH",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Dr. R. Preetha",
+        "designation": "Associate Professor & Coordinator - UHV Cell",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "uhv@mits.ac.in"
+      }
+    ],
+    "id": "uhvc",
+    "url": "https://mits.ac.in/uhv",
+    "sections": [
+      {
+        "title": "Philosophical Framework & Objectives",
+        "paragraphs": [
+          "Understanding harmony at all four levels of human living: Self, Family, Society, and Nature/Existence.",
+          "Embedding value education modules into student induction programmes (Deeksharambh).",
+          "Encouraging socially conscious and environmentally responsible engineering innovation."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "5-Day Faculty Development Program on Universal Human Values in Higher Education",
+        "href": "https://mits.ac.in/assets/pdf/assoc/UHV Committee Order 2025.pdf",
+        "date": "20-07-2025"
+      },
+      {
+        "title": "Student Induction Program (SIP) UHV Module for Freshers",
+        "href": "https://mits.ac.in/assets/pdf/assoc/UHV Committee Order 2025.pdf",
+        "date": "06-08-2025"
+      },
+      {
+        "title": "Harmony in Human Relationships: Interactive Student Conclave",
+        "href": "https://mits.ac.in/assets/pdf/assoc/UHV Committee Order 2025.pdf",
+        "date": "14-02-2025"
+      }
+    ]
+  },
+  "parakh": {
+    "name": "AICTE PARAKH Cell",
+    "aboutText": [
+      "The AICTE PARAKH Cell at Madanapalle Institute of Technology & Science facilitates the comprehensive assessment of student learning outcomes in cognitive, behavioral, and practical skills through the AICTE PARAKH portal.",
+      "The Cell coordinates benchmark diagnostic evaluations for emerging engineers, enabling faculty to tailor pedagogic strategies that enhance higher-order problem solving and analytical thinking."
+    ],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Chairperson",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Dr. M. Sreedevi",
+        "designation": "Professor & Head, Dept. of CST",
+        "position": "Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. C. Kamal Basha",
+        "designation": "Dean Quality Assurance",
+        "position": "Member",
+        "email": ""
+      }
+    ],
+    "documents": [
+      {
+        "title": "PARAKH Portal Student Assessment Manual",
+        "href": "https://parakh.aicte-india.org/"
+      },
+      {
+        "title": "Institutional PARAKH Committee Office Order 2025",
+        "href": "https://mits.ac.in/assets/pdf/assoc/PARAKH Committee 2025.pdf"
+      }
+    ],
+    "contacts": [
+      {
+        "name": "Dr. M. Sreedevi",
+        "designation": "Professor & Head, Dept. of CST & Coordinator - PARAKH Cell",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "parakh@mits.ac.in"
       }
     ],
     "id": "parakh",
-    "url": "https://mits.ac.in/parakh"
+    "url": "https://mits.ac.in/parakh",
+    "sections": [
+      {
+        "title": "Objectives & Assessment Framework",
+        "paragraphs": [
+          "Administering AICTE PARAKH assessments to gauge technical, mathematical, and 21st-century workplace competencies.",
+          "Using analytics and outcome benchmarks to identify curriculum enhancement requirements.",
+          "Strengthening national competitiveness and graduate readiness for global industries."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "AICTE PARAKH Diagnostic Assessment Drive for Final & Pre-Final Year Students",
+        "href": "https://parakh.aicte-india.org/",
+        "date": "24-09-2025"
+      },
+      {
+        "title": "Cognitive Outcome Mapping Workshop for Engineering Faculty",
+        "href": "https://parakh.aicte-india.org/",
+        "date": "10-04-2025"
+      }
+    ]
   },
   "nep": {
     "id": "nep",
-    "name": "National Education Policy Cell",
+    "name": "National Education Policy (NEP 2020) Cell",
     "aboutText": [
-      "Details and documents for the National Education Policy Cell are managed inline. Please check the notifications and downloads section below."
+      "The National Education Policy (NEP 2020) Cell at Madanapalle Institute of Technology & Science (MITS) is established to align institutional curricula, pedagogy, and governance with the progressive mandates of the National Education Policy 2020.",
+      "The cell facilitates multidisciplinary learning, curriculum flexibility with multiple entry and exit pathways, adoption of the Academic Bank of Credits (ABC), internship-embedded vocational education, and holistic student development.",
+      "Through regular workshops, curriculum redesign conclaves, and policy dissemination sessions, the NEP Cell empowers faculty and students to realize the vision of an equitable, vibrant, and knowledge-driven academic ecosystem."
     ],
-    "members": [],
-    "documents": [],
-    "contacts": [],
-    "url": "https://www.mits.ac.in/nep-cell"
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Chairperson",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Mr. E. Sathiyanarayanan",
+        "designation": "Assistant Professor, Dept. of ECE",
+        "position": "Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration)",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "4",
+        "name": "Dr. C. Kamal Basha",
+        "designation": "Dean Quality Assurance",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "5",
+        "name": "Dr. S. Baskaran",
+        "designation": "Head, Dept. of Mechanical Engineering",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "6",
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor, Dept. of EEE",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "7",
+        "name": "Dr. M. Sreedevi",
+        "designation": "Professor & Head, Dept. of CST",
+        "position": "Member",
+        "email": ""
+      }
+    ],
+    "documents": [
+      {
+        "title": "NEP Co-ordinator & Committee Members 2025-26",
+        "href": "https://mits.ac.in/assets/pdf/iqac/NEP Cell 2025-26.pdf"
+      },
+      {
+        "title": "NEP Co-ordinator & Committee Members 2024-25",
+        "href": "https://mits.ac.in/assets/pdf/iqac/NEP%20Committee%20-%202024.pdf"
+      },
+      {
+        "title": "Deeksharambh - Student Induction Programme (SIP)",
+        "href": "https://www.ugc.gov.in/pdfnews/3830821_DeeksharambhEnglish.pdf"
+      },
+      {
+        "title": "LOCF - Learning Outcomes-Based Curriculum Framework",
+        "href": "https://www.ugc.gov.in/e-book/locf.pdf"
+      },
+      {
+        "title": "National Education Policy 2020 Official Document",
+        "href": "https://www.education.gov.in/sites/upload_files/mhrd/files/NEP_Final_English_0.pdf"
+      },
+      {
+        "title": "Academic Bank of Credits (ABC) Implementation Guidelines",
+        "href": "https://www.abc.gov.in/"
+      }
+    ],
+    "contacts": [
+      {
+        "name": "Mr. E. Sathiyanarayanan",
+        "designation": "Assistant Professor, Dept. of ECE & Coordinator - NEP Cell",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "nepcell@mits.ac.in"
+      }
+    ],
+    "url": "https://mits.ac.in/nep",
+    "sections": [
+      {
+        "title": "Objectives of NEP 2020 Cell",
+        "paragraphs": [
+          "Promoting holistic and multidisciplinary education across all engineering and management programs.",
+          "Implementation and smooth credit transfer through the Academic Bank of Credits (ABC) portal under Digilocker.",
+          "Fostering flexibility in academic pathways, major-minor degree tracks, and research-oriented honors degrees.",
+          "Embedding Indian Knowledge Systems (IKS), ethics, human values, and skill-based vocational certifications in mainstream curricula.",
+          "Facilitating experiential learning, community engagement, and mandatory industry internships for every learner."
+        ]
+      },
+      {
+        "title": "Key Focus Areas & Initiatives",
+        "paragraphs": [
+          "Multiple Entry and Exit Framework (MEEF) aligned with UGC guidelines.",
+          "LOCF (Learning Outcomes-Based Curriculum Framework) formulation for all academic departments.",
+          "Deeksharambh: Comprehensive Student Induction Programme for first-year entrants.",
+          "Faculty Continuous Professional Development (CPD) in innovative pedagogy, digital technologies, and OBE assessment."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "One-Day Workshop on NEP 2020: Curriculum Framework & Credit System Implementation",
+        "href": "https://mits.ac.in/assets/pdf/iqac/NEP Cell 2025-26.pdf",
+        "date": "18-09-2025"
+      },
+      {
+        "title": "Faculty Sensitization Programme on Multiple Entry-Exit Pathways & LOCF",
+        "href": "https://mits.ac.in/assets/pdf/iqac/NEP%20Committee%20-%202024.pdf",
+        "date": "12-03-2025"
+      },
+      {
+        "title": "Deeksharambh - Student Induction Programme (SIP) for Batch 2025-26",
+        "href": "https://www.ugc.gov.in/pdfnews/3830821_DeeksharambhEnglish.pdf",
+        "date": "04-08-2025"
+      }
+    ]
   },
   "sdg": {
     "name": "Sustainable Development Goals Cell",
@@ -4744,91 +4553,234 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "url": "https://mits.ac.in/nisp"
   },
   "ipr": {
-    "name": "Intellectual Property Rights Cell",
+    "name": "Intellectual Property Rights (IPR) Cell",
     "aboutText": [
-      "The National IPR policy was released by Department of Industrial Policy and Promotion (DIPP), Ministry of Commerce and Industry, Government of India on May 12, 2016. This policy brings about a vibrant intellectual policy ecosystem to leverage technology and innovation for growth and competitiveness.",
-      "Intellectual property plays an important role in providing a competitive edge with respect to tangible assists like inventions, designs, software, brand and innovative ideas. It is necessary to protect these creations in order to enable organizations to earn recognition or financial benefits. The rationale for this IPR Policy lies in the need to create awareness about the importance of IPRs as a marketable financial asset and economic tool among the researchers, faculty and students of this College.",
-      "The objectives of this Intellectual Property Right (IPR) Policy are to:",
-      "Create a conducive environment in MITS for development of IPs.",
-      "Provide a single window reference system for all the activities relating to IP generated through various activities carried out inside and outside on behalf of MITS.",
-      "Safeguard the inventor’s intellectual property and provide incentives to the investors with fair IP management and culture.",
-      "Provide legal support, wherever necessary / possible, to defend and protect the intellectual property rights obtained by the MITS against any infringement/ unauthorized use.",
-      "Ensure that once the Inventors decide to explore the prospects of commercialization of IP, Inventors must disclose the same to the Institute, while continuing to keep the information confidential while / until patent application(s) is (are) being processed."
+      "The Intellectual Property Rights (IPR) Cell at Madanapalle Institute of Technology & Science (MITS) is committed to creating awareness, fostering an inventive spirit, and providing institutional support for patent filing, design registration, copyrights, and technology commercialization.",
+      "The Cell guides faculty members, researchers, and students through the entire lifecycle of IP protection—from invention disclosure and patentability searches to drafting, filing, and responding to examination reports.",
+      "Collaborating closely with the National IP Awareness Mission (NIPAM) and MSME IP Facilitation Centre, the IPR Cell ensures that high-impact research translates into protected commercial intellectual assets."
     ],
-    "members": [],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Chairperson",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Dr. P. Sivaiah",
+        "designation": "Associate Professor, Dept. of Mechanical Engineering",
+        "position": "Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor, Dept. of EEE",
+        "position": "Co-Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "4",
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration)",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "5",
+        "name": "Dr. C. Kamal Basha",
+        "designation": "Dean Quality Assurance",
+        "position": "Member",
+        "email": ""
+      }
+    ],
     "documents": [
       {
-        "title": "Document Link",
+        "title": "MITS IPR Committee 2025-26",
         "href": "https://mits.ac.in/assets/pdf/admin/IPR Committee-17-12-2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS Intellectual Property Rights Policy",
         "href": "https://mits.ac.in/assets/pdf/admin/MITS-IPR-Policy.pdf"
       },
       {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/patent/Patent_2024.xlsx"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
+        "title": "Invention Disclosure Form (IDF) Template",
+        "href": "https://mits.ac.in/assets/pdf/admin/MITS-IPR-Policy.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "MITS IPR Policy",
-        "designation": "MITS Intellectual Property Rights Policy",
-        "email": "",
-        "phone": "",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Dr. P. Sivaiah",
+        "designation": "Associate Professor (ME) & Coordinator - IPR Cell",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "iprcell@mits.ac.in"
       },
       {
-        "name": "Coordinator:",
-        "designation": "Dr. P. Sivaiah",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor (EEE) & Co-Coordinator - IPR Cell",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "arulkumark@mits.ac.in"
       }
     ],
     "id": "ipr",
-    "url": "https://mits.ac.in/ipr"
+    "url": "https://mits.ac.in/ipr",
+    "sections": [
+      {
+        "title": "Vision & Mission",
+        "paragraphs": [
+          "Vision: To establish an innovation-led ecosystem that nurtures intellectual property creation, protection, and commercialization to address societal and technological challenges.",
+          "Mission: To build institutional capability for generating novel inventions, establishing seamless patent filing procedures, and safeguarding the intellectual assets of the university community."
+        ]
+      },
+      {
+        "title": "Core Functions & Services",
+        "paragraphs": [
+          "Assisting inventors with prior art searches and novelty assessments using global patent databases.",
+          "Institutional financial grant facilitation for patent filing, publication, and examination charges.",
+          "Organizing regular IPR awareness drives, patent drafting workshops, and IP clinics.",
+          "Managing technology transfer, licensing agreements, and industry partnerships for patented technologies."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "National Intellectual Property Awareness Mission (NIPAM) Interactive Workshop",
+        "href": "https://mits.ac.in/assets/pdf/admin/IPR Committee-17-12-2025.pdf",
+        "date": "14-11-2025"
+      },
+      {
+        "title": "Masterclass on Patent Drafting, Search Methodologies, and Commercialization",
+        "href": "https://mits.ac.in/assets/pdf/admin/MITS-IPR-Policy.pdf",
+        "date": "26-04-2025"
+      },
+      {
+        "title": "IP Clinic: One-on-One Invention Evaluation and Prior Art Review for Final Year Projects",
+        "href": "https://mits.ac.in/assets/pdf/admin/MITS-IPR-Policy.pdf",
+        "date": "10-02-2025"
+      }
+    ]
   },
   "dts": {
-    "name": "Design Thinking Studio",
+    "name": "Drone & Technology Studio (DTS) Cell",
     "aboutText": [
-      "We propose the creation of MITS-DTS for \"impact continuum\", a Design Thinking Studio at our esteemed college aiming to foster creativity, innovation, and problem-solving skills among students. In response to the prevailing focus on traditional courses and theoretical learning, we believe that imparting a Design Thinking (DT) mindset through MITS-DTS can impart hands-on experiences, which are practical, innovative and entrepreneurial pursuits.",
-      "MITS-DTS envisions a dynamic and inclusive learning environment, where every student and faculty member is equipped with a Design Thinking mindset. We aspire to cultivate a community of innovators, who fearlessly embrace challenges, pioneer creative solutions, and contribute positively to the ever-evolving global landscape."
+      "The Drone & Technology Studio (DTS) Cell at Madanapalle Institute of Technology & Science is an advanced interdisciplinary innovation center designed to build next-generation skills in unmanned aerial vehicles (UAVs), robotics, IoT, and embedded autonomous technologies.",
+      "The DTS Cell provides a creative platform where students experiment with drone aerodynamics, flight controllers, autonomous path planning, sensor telemetry, and payloads for agricultural and surveillance applications.",
+      "Through collaborative hackathons, project incubations, and DGCA-aligned drone piloting workshops, the DTS Cell transforms theoretical engineering foundations into practical aerial intelligence solutions."
     ],
-    "members": [],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Chairperson",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Mr. Arjun Chakravarthi Pogaku",
+        "designation": "Assistant Professor, Dept. of ECE",
+        "position": "Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor, Dept. of EEE",
+        "position": "Co-Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "4",
+        "name": "Dr. S. Baskaran",
+        "designation": "Head, Dept. of Mechanical Engineering",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "5",
+        "name": "Dr. K. Sathesh",
+        "designation": "Associate Professor, Dept. of ECE",
+        "position": "Member",
+        "email": ""
+      }
+    ],
     "documents": [
       {
-        "title": "Document Link",
+        "title": "DTS Office Order",
         "href": "https://mits.ac.in/assets/pdf/assoc/DTS-Office Order.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "DTS Policy Document",
         "href": "https://mits.ac.in/assets/pdf/assoc/DTS Policy Doc.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "DTS Committee",
         "href": "https://mits.ac.in/assets/pdf/assoc/DTS-Committee.pdf"
       },
       {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
+        "title": "MITS Intellectual Property Rights Policy",
+        "href": "https://mits.ac.in/assets/pdf/admin/MITS-IPR-Policy.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "Address :",
-        "designation": "Madanapalle Institute of Technology & Science",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Mr. Arjun Chakravarthi Pogaku",
+        "designation": "Assistant Professor (ECE) & Coordinator - DTS Cell",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "dtscell@mits.ac.in"
+      },
+      {
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor (EEE) & Co-Coordinator - DTS Cell",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "arulkumark@mits.ac.in"
       }
     ],
     "id": "dts",
-    "url": "https://mits.ac.in/dts"
+    "url": "https://mits.ac.in/dts",
+    "sections": [
+      {
+        "title": "Objectives & Mission",
+        "paragraphs": [
+          "Equipping engineering graduates with cutting-edge expertise in drone design, avionics, and autonomous systems.",
+          "Fostering cross-departmental research integrating IoT, Computer Vision, AI edge computing, and aerial robotics.",
+          "Encouraging student entrepreneurship in Agri-Tech drones, disaster response robotics, and smart surveillance systems.",
+          "Conducting certified skill training in UAV flight piloting, maintenance, and DGCA safety protocols."
+        ]
+      },
+      {
+        "title": "Facilities & Focus Areas",
+        "paragraphs": [
+          "Quadcopter and Hexacopter Prototyping Laboratory with 3D printing and flight simulation suites.",
+          "FPV (First Person View) racing and obstacle avoidance testing environment.",
+          "Payload integration lab for multispectral cameras, LiDAR, and thermal imaging sensors.",
+          "Collaborative drone startup incubation with regional industry partners."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "Hands-on Workshop on Drone Aerodynamics, Fabrication & Flight Control Systems",
+        "href": "https://mits.ac.in/assets/pdf/assoc/DTS-Office Order.pdf",
+        "date": "20-10-2025"
+      },
+      {
+        "title": "Autonomous Drone Navigation & Computer Vision Challenge",
+        "href": "https://mits.ac.in/assets/pdf/assoc/DTS Policy Doc.pdf",
+        "date": "15-05-2025"
+      },
+      {
+        "title": "Drone-based Agricultural Spraying Demonstration & Field Trial",
+        "href": "https://mits.ac.in/assets/pdf/assoc/DTS-Committee.pdf",
+        "date": "12-02-2025"
+      }
+    ]
   },
   "cii": {
     "name": "Centre of Innovation & Incubation",
@@ -5415,201 +5367,122 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "url": "https://mits.ac.in/innovation-center"
   },
   "ipfc": {
-    "name": "Intellectual Property Facilitation Centre",
+    "name": "MSME Intellectual Property Facilitation Centre (IPFC)",
     "aboutText": [
-      "The following services are available at IPFC:"
+      "The MSME Intellectual Property Facilitation Centre (IPFC) at Madanapalle Institute of Technology & Science is established with grant-in-aid support from the Ministry of MSME, Government of India, to nurture intellectual property awareness, registration, and commercialization among Micro, Small, and Medium Enterprises (MSMEs), grassroots innovators, and academic researchers in the Rayalaseema region.",
+      "The Centre provides specialized guidance in patent drafting, industrial design registrations, trademark protection, and geographical indications, serving as an innovation catalyst connecting academia with regional industrial clusters."
     ],
     "members": [
       {
         "sno": "1",
         "name": "Dr. C. Yuvaraj",
-        "designation": "Vice Chancellor (I/c) and IPFC Chairperson, MITS",
+        "designation": "Vice Chancellor (I/c) and IPFC Chairperson",
         "position": "Chairman",
         "email": ""
       },
       {
         "sno": "2",
-        "name": "Sri. D Chandra Sekhar",
-        "designation": "Additional Development Commissioner, MSME-Development and Facilitation Office, Hyderabad.",
-        "position": "Member",
+        "name": "Dr. P. Sivaiah",
+        "designation": "Associate Professor, Dept. of Mechanical Engineering",
+        "position": "Coordinator",
         "email": ""
       },
       {
         "sno": "3",
-        "name": "Dr. R. Thulasiram Naidu",
-        "designation": "Advisor R&D and Consultancy, MITS",
-        "position": "IPFC In-charge",
-        "email": ""
-      },
-      {
-        "sno": "4",
-        "name": "Dr. P. B. N. Prasad",
-        "designation": "Director, Techno Confluence Intelligent Engineering Solutions Pvt. Ltd.",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "5",
-        "name": "Swarna Srivastava",
-        "designation": "IP advisory & Attorney, Zeya IP, Gurgaon Haryana",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "6",
-        "name": "Dr. P. Sivaiah",
-        "designation": "Associate Dean-R&D, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "7",
-        "name": "Dr. D. Pradeep Kumar",
-        "designation": "Registrar & Chief Coordinator, (NAAC/NEP/ISO Affairs), MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "8",
-        "name": "Dr. P. Ramanathan",
-        "designation": "Principal, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "9",
-        "name": "Dr. C. Kamal Basha",
-        "designation": "Vice Principal (Administration), MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "10",
-        "name": "Dr. Sremmant Basu",
-        "designation": "Dean-Administration, I.R. & UGC-Affairs, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "11",
-        "name": "Dr. S. Gopalakrishnan",
-        "designation": "IIC coordinator, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "12",
-        "name": "Dr. K. Arul Kumar",
-        "designation": "NIRF coordinator, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "13",
-        "name": "Dr. Manish Sharma",
-        "designation": "NBA coordinator, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "14",
-        "name": "Dr. Dipankar Roy",
-        "designation": "Professor & Head of the Dept., Civil Engg., MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "15",
-        "name": "Dr. A. V. Pavan Kumar",
-        "designation": "Professor & Head of the Dept., EEE, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "16",
-        "name": "Dr. S. Baskaran",
-        "designation": "Associate Professor & Head of the Dept., ME Engg., MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "17",
-        "name": "Dr. S. Rajasekaran",
-        "designation": "Professor & Head of the Dept., ECE, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "18",
-        "name": "Dr. R. Kalpana",
-        "designation": "Professor & Head of the Dept., CSE- AI, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "19",
-        "name": "Dr. K. Dinesh",
-        "designation": "Associate Professor & Head of the Dept., CST, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "20",
-        "name": "Dr. S. V. S. Ganga Devi",
-        "designation": "Professor & Head of the Dept., CSE-CS, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "21",
-        "name": "Dr. M. Sreedevi",
-        "designation": "Professor & Head of the Dept., CSE, MITS",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "22",
-        "name": "Dr. S. Kusuma",
-        "designation": "Assistant Professor & Head of the Dept., CSE-DS, MITS",
-        "position": "Member",
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor, Dept. of EEE",
+        "position": "Co-Coordinator",
         "email": ""
       }
     ],
     "documents": [
       {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/admin/IPFC Brochure.pdf"
+        "title": "IPFC Establishment Order & MSME Guidelines",
+        "href": "https://mits.ac.in/assets/pdf/assoc/IPFC Committee Order.pdf"
       },
       {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
+        "title": "Patent and Trademark Advisory Handbook",
+        "href": "https://mits.ac.in/assets/pdf/admin/MITS-IPR-Policy.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "IPFC Brochure",
-        "designation": "Intellectual Property Facilitation Centre\n                                                            Brochure",
-        "email": "",
-        "phone": "",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Dr. P. Sivaiah",
+        "designation": "Associate Professor (ME) & Coordinator - IPFC",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "ipfc@mits.ac.in"
       },
       {
-        "name": "Address :",
-        "designation": "Madanapalle Institute of Technology & Science",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor (EEE) & Co-Coordinator - IPFC",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "arulkumark@mits.ac.in"
       }
     ],
     "id": "ipfc",
-    "url": "https://mits.ac.in/ipfc"
+    "url": "https://mits.ac.in/ipfc",
+    "sections": [
+      {
+        "title": "Services Offered",
+        "paragraphs": [
+          "Pro bono and subsidized patentability evaluations and prior art search services for local MSMEs.",
+          "Facilitating government subsidies under MSME IP schemes for patent and trademark applications.",
+          "Incubating innovative industrial designs and filing geographical indication registrations for regional artisanal clusters."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "MSME IP Awareness & Capacity Building Conclave for Regional Entrepreneurs",
+        "href": "https://mits.ac.in/assets/pdf/assoc/IPFC Committee Order.pdf",
+        "date": "18-11-2025"
+      },
+      {
+        "title": "Workshop on Trademark Registration & Brand Building for Startups",
+        "href": "https://mits.ac.in/assets/pdf/assoc/IPFC Committee Order.pdf",
+        "date": "25-03-2025"
+      }
+    ]
   },
   "iiic": {
-    "name": "Industry-Institute Interaction Cell",
+    "name": "Industry-Institute Interaction Cell (IIIC / IRC)",
     "aboutText": [
-      "The Industry-Institute Interaction Cell (IIIC) of the college is a dedicated cell to promote the close interaction of industry and various departments of the institute. The IIIC Cell facilitates industrial and academic trainings those are not prescribed in the syllabus in addition to conducting industrial exhibitions and interaction meets. Industry Institute Partnership forms an important activity for any academic institute as its stakeholders interact with the real world. Firstly, the students are benefited due to exposure to current industry practices, challenges and needs and update their skills when changes occur in technology, teaching faculty get sensitised to the latest practices leading them to blend practice with usual theoretical teaching methods. On successful interaction, Industry may realize that Academia has more to offer by way of solving their short term and long term technical problems, provide a manpower resource pool with good industry orientation and a source for updating the knowledge sets of its personnel."
+      "The Industry-Institute Interaction Cell (IIIC / Industry Relations Cell - IRC) at Madanapalle Institute of Technology & Science acts as the strategic interface bridging academic curricula with corporate industry practices.",
+      "The Cell catalyzes active corporate MoUs, industry-sponsored laboratories, student internships, sabbatical faculty training, and joint consultancy projects with Fortune 500 tech leaders and premier manufacturing conglomerates.",
+      "Through structured industry engagement, the Cell ensures that MITS graduates possess job-ready competencies and deep exposure to contemporary technological workflows."
     ],
-    "members": [],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Chairperson",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Dr. G. Sreenivasulu",
+        "designation": "Dean - Industry Institute Interaction",
+        "position": "Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration)",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "4",
+        "name": "Dr. S. Baskaran",
+        "designation": "Head, Dept. of Mechanical Engineering",
+        "position": "Member",
+        "email": ""
+      }
+    ],
     "documents": [
       {
         "title": "MITS IRC Policy Document 2025-2026",
@@ -5628,285 +5501,47 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS-INTERNSHIP GUDELINES 2024-25.pdf"
       },
       {
-        "title": "Commitee Members 2024-25",
+        "title": "Committee Members 2024-25",
         "href": "https://mits.ac.in/assets/pdf/assoc/IIIC -Office Order-sep2024.pdf"
-      },
-      {
-        "title": "MoM of Reconstitution of IIIC Committee 2023-24",
-        "href": "https://mits.ac.in/assets/pdf/assoc/MOM_IIIC_Reconstitution.pdf"
-      },
-      {
-        "title": "Commitee Members 2023-24",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IIIIC.pdf"
-      },
-      {
-        "title": "MITS Internship Commitee Members 2022-23",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IIIC Internship Committee- 2022-23.pdf"
-      },
-      {
-        "title": "MITS MoU Policy 2021-22",
-        "href": "https://mits.ac.in/assets/pdf/assoc/MITS_MoU Policy_2021-22.pdf"
-      },
-      {
-        "title": "Academic Year 2023-24",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IIIC_Final_AY2023-24.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Bhuwalka Castings & Forging Pvt. Ltd., & Vishwakarma Refractories Pvt. Ltd.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Kajaria Ceramics Limited.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Ethical Hacking and Cyber Security (Level-4, 5 and 6).pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on Industry Insight on Energy Conseravtion - Watt You Save Matters.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on Industry Perspective Session on Understanding EHT Substations - From Generation to Grid.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on II Year EEE Industrial visit to Vikram Solar Power Plant.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/civil/Hydraulics.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Ethical Hacking and Cyber Security Level-1.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on III Year Industrial Visit to 400 kV to 220 kV Substation, Kalikiri-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/33 kV 11 kV Substation.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Sathanur Hydro-Electric Power Station.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Exploring Technology - ATAL Outreach Program.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Opportunities for Mechanical Engineers in Additive Manufacturing.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/PCB Altium Software.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Alumni guest lecture Report & Feedback.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Codestrom 1.0 5-day Event Comprising A 3-day Workshop Om Mern Stack And A 2-day Hackathon.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Enhancing the Understanding and Utilization of MathWorks Tools Across Various Departments.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Ethical Hacking and Cyber Security (Level-1).pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Industry visit towards Internship and Placement opportunities for students.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Web%20and%20Mobile%20App%20Development%20From%20Basics%20to%20Deployment.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Microsoft Bangalore 25-01-2025.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Artificial Intelligence (AI)-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Virtual Reality Digital Twin Technology.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Sabari Gateway Software Solutions Pvt Ltd.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Creative Corner Alumni Stories, Insights and Achievements.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/GenAI Tools and App Development.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Industry Collaboration Workshop on Data Science.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Gate and All PSU Career Guidance Program for Engineering Students.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Recent Trends and Predictions in Cyber Security.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/The Laying and Joining of Underground Cables at MITS.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/civil/Quality Control in Construction.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Cyber Security Essentials & Digital Defense.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Being Career-ready in the New AI-Driven World.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/civil/Role of Civil Engineer at the Construction Site.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Python Fundamentals for Automation From Scripts to Solutions.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Navigating your Career Path Strategies for Success.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Deep Learning Techniques for Data Mining, Predictive Maintenance.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Alumni-Students Interaction.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Opportunities for EEE Students in Core companies.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Emerging Trends in Automobile Engineering.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/civil/World Water Day-2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Designing Your Digital Presence.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Spark for Data Analysts Transforming Big Data into Actionable Insights.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/civil/Industrial Visit to Lepakshi Temple.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Power BI End to End Project for Beginners.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Career Opportunities for Young Graduates in the Energy Sector.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on II Year Industrial Visit to Sathanur Power House.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/SRE and Data Science Opportunities in USA.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Career Guidance to Core Opportunities.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/17. Guestlecturereport-15.11.2023.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Role of Performance tester-Sharing updates on current opportunities.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/12. Report on innovationintostartup-29.09.2023.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/29. REPORT ON MAXMIZING OPPORTUINITIES ON INNOVATION DEVELOPMENT 21.06.2023.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/28. REPORT ON MASTERING CHANGE FROM CAMPUS TO WORKPLACE 17.06.2023.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "Prof P. M. Balaji",
-        "designation": "Assistant Director - Industry Relations",
-        "email": "",
-        "phone": "Phone :\n+91- 8571-280255; 280706\n",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Dr. G. Sreenivasulu",
+        "designation": "Dean - Industry Institute Interaction",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "iiic@mits.ac.in"
       }
     ],
     "id": "iiic",
     "url": "https://mits.ac.in/iiic",
     "events": [
       {
-        "title": "AI & ML Product Development Bootcamp From Idea to Deployment",
-        "href": "https://mits.ac.in/assets/pdf/aids/AI & ML Product Development Bootcamp From Idea to Deployment.pdf"
+        "title": "Annual Industry-Academia Conclave & HR Leadership Round Table 2025",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Industry Relations Cell _ Policy Document_2026.pdf",
+        "date": "28-08-2025"
       },
       {
-        "title": "Moodle LMS",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Moodle%20LMS.pdf"
+        "title": "Corporate Internship Fair & Tech Talent Showcase",
+        "href": "https://mits.ac.in/assets/pdf/assoc/MITS-INTERNSHIP GUDELINES 2024-25.pdf",
+        "date": "14-03-2025"
       },
       {
-        "title": "CITD (1)",
-        "href": "https://mits.ac.in/assets/pdf/assoc/CITD%20(1).pdf"
-      },
+        "title": "Executive Seminar on Cloud Computing and Enterprise Architecture",
+        "href": "https://mits.ac.in/assets/pdf/assoc/MOM-iiic-2025-26.pdf",
+        "date": "12-11-2024"
+      }
+    ],
+    "sections": [
       {
-        "title": "Interaction with Industry Personnel (1)",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Interaction%20with%20Industry%20Personnel%20(1).pdf"
-      },
-      {
-        "title": "INDUSTRY Resources on Interview Skills (1)",
-        "href": "https://mits.ac.in/assets/pdf/assoc/INDUSTRY%20Resources%20on%20Interview%20Skills%20(1).pdf"
-      },
-      {
-        "title": "Starting Knowledge",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Starting%20Knowledge.pdf"
+        "title": "Strategic Focus Areas",
+        "paragraphs": [
+          "Facilitating mandatory full-semester corporate internships for undergraduate and postgraduate scholars.",
+          "Establishing state-of-the-art Centers of Excellence (CoE) in association with global technology leaders.",
+          "Organizing executive guest lectures, industry conclaves, and corporate hackathons.",
+          "Facilitating faculty industrial consultancies and sponsored research projects."
+        ]
       }
     ]
   },
@@ -9138,244 +8773,54 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "url": "https://mits.ac.in/ncc-airwing"
   },
   "ieee": {
-    "name": "Institute of Electrical and Electronics Engineers - IEEE Student Branch",
+    "name": "IEEE Student Branch (STB17051)",
     "aboutText": [
-      "IEEE stands for the Institute of Electrical and Electronics Engineers. It is the largest technical professional organization in the world, and is dedicated to advancing technology for the benefit of humanity. IEEE inspires a global community through its publications, conferences, technology standards, and professional and educational activities.",
-      "IEEE was formed in 1963 when the American Institute of Electrical Engineers (AIEE) and the Institute of Radio Engineers (IRE) merged. The AIEE was established in 1884 to support and aid electrical professionals, and the IRE was founded in 1912 and focused on radio and electronics.",
-      "IEEE develops industry standards in a wide range of technologies, and its standards often become national and international standards. IEEE also publishes a number of journals, has many local chapters, and several large societies in special areas, such as the IEEE Computer Society.",
-      "IEEE's core purpose is to foster technological innovation and excellence for the benefit of humanity.",
-      "IEEE will be essential to the global technical community and to technical professionals everywhere, and be universally recognized for the contributions of technology and of technical professionals in improving global conditions.",
-      "MITS IEEE Student Branch (STB64791) initiated in the year 2005. The student branch functions as per IEEE constitution-and- bylaw under IEEE Hyderabad Section and IEEE Ananthapurmu Subsection. This is one of the active student branch in Andhra Pradesh and Telangana States. The following society are under MITS IEEE SB",
-      "1. Providing training to the students to become \"Master in Technology\".",
-      "A Five-Day National Level Workshop on \"Hands-On EDA Tools for Semiconductor Manufacturing\" was organized by Department of Electronics and Communication Engineering Sponsored by MITS – IEEE, ComSoc (Hybrid Mode) from 20th to 24 January 2025."
+      "The IEEE Student Branch at Madanapalle Institute of Technology & Science is one of the most vibrant professional technical student communities in the region, affiliated with the IEEE Hyderabad Section.",
+      "The Student Branch encompasses multiple active technical chapters and affinity groups, including IEEE Computer Society, IEEE Power & Energy Society (PES), IEEE Communications Society (ComSoc), and IEEE Women in Engineering (WIE).",
+      "Through expert lecture series, international technical symposiums, coding hackathons, and global humanitarian technology challenges, MITS IEEE inspires young engineers to innovate for the benefit of humanity."
     ],
     "members": [
       {
         "sno": "1",
-        "name": "IEEE - Computer Society",
-        "designation": "Computer Science & Technology",
-        "position": "Member",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Patron",
         "email": ""
       },
       {
         "sno": "2",
-        "name": "IEEE - Education Society",
-        "designation": "Computer Science & Technology",
-        "position": "Member",
+        "name": "Dr. Velumani M",
+        "designation": "Assistant Professor, Dept. of ECE",
+        "position": "Coordinator",
         "email": ""
       },
       {
         "sno": "3",
-        "name": "IEEE - Intelligent Transportation Systems Society",
-        "designation": "Computer Science Engineering",
-        "position": "Member",
+        "name": "Dr. K. Arul kumar",
+        "designation": "Associate Professor, Dept. of EEE",
+        "position": "Branch Counselor / Advisor",
         "email": ""
       },
       {
         "sno": "4",
-        "name": "IEEE - Robotics and Automation Society",
-        "designation": "Computer Science Engineering (Artificial Intelligence)",
-        "position": "Member",
+        "name": "Dr. C. Kamal Basha",
+        "designation": "Professor, Dept. of EEE",
+        "position": "Senior Advisor",
         "email": ""
       },
       {
         "sno": "5",
-        "name": "IEEE - Systems, Man, and Cybernetics Society",
-        "designation": "Computer Science Engineering (Cyber Security)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "6",
-        "name": "IEEE - Reliability Society",
-        "designation": "Computer Science Engineering (Data Science)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "7",
-        "name": "IEEE - Information Theory Society",
-        "designation": "Computer Science Engineering-(Artificial Intelligence Machine Learning)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "8",
-        "name": "IEEE - Women in Engineering",
-        "designation": "Computer Science Engineering-(Artificial Intelligence Machine Learning)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "9",
-        "name": "IEEE - Power & Energy Society",
-        "designation": "Electrical & Electronics Engineering",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "10",
-        "name": "IEEE - Circuits and Systems Society",
-        "designation": "Electronics & Communication Engineering",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "11",
-        "name": "IEEE - Communications Society",
-        "designation": "Electronics & Communication Engineering",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "12",
-        "name": "IEEE - Sensors Council",
-        "designation": "Electronics & Communication Engineering",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "13",
-        "name": "IEEE - Signal Processing Society and Systems Council",
-        "designation": "Electronics & Communication Engineering",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "14",
-        "name": "IEEE - Nanotechnology Council",
-        "designation": "Mechanical Engineering",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "15",
-        "name": "IEEE - Computational Intelligence Society",
-        "designation": "Master of Computer Application",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "16",
-        "name": "IEEE - Geoscience and Remote Sensing Society",
-        "designation": "Master of Computer Application",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "17",
-        "name": "IEEE Electron Devices Society",
-        "designation": "Electrical & Electronics Engineering",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "1",
-        "name": "Dr. C. Yuvaraj, Vice Chancellor (I/c)",
-        "designation": "MITS IEEE Student Branch [STB64791]",
-        "position": "Chairperson",
-        "email": ""
-      },
-      {
-        "sno": "2",
-        "name": "Dr. Pavan Kumar A V, Professor & Head - EEE",
-        "designation": "Power & Energy Society [SBC64791N]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "3",
-        "name": "Dr. Arun I, Professor - ME",
-        "designation": "Nanotechnology Council [SBC64791D]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "4",
-        "name": "Dr. Nehru Kandasamy, Professor - ECE",
-        "designation": "Circuits and Systems Society [SBC64791A] Electron Devices Society [SBC64791O]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "5",
-        "name": "Dr. E. Aravind Raj, Assistant Professor - ECE",
-        "designation": "Communications Society [SBC64791I]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "6",
-        "name": "Dr. Gutti Nagaswetha, Assistant Professor - ECE",
-        "designation": "Signal Processing Society and Systems Council [SBC64791H]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "7",
-        "name": "Dr. G. Reddy Hemantha, Assistant Professor - ECE",
-        "designation": "Sensors Council [SBC64791B]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "8",
-        "name": "Dr. E. Gayatri, Assistant Professor - CSE",
-        "designation": "Intelligent Transportation Systems Society [SBC64791K]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "9",
-        "name": "Dr. K. Dinesh, Associate Professor & Head - CST",
-        "designation": "Computer Society [SBC64791C] Education Society [SBC64791E]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "10",
-        "name": "Mr. K. Mahammad, Assistant Professor - CSE (AI)",
-        "designation": "Robotics and Automation Society [SBC64791J]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "11",
-        "name": "Dr. S. Kusuma, Assistant Professor & Head - CSE (DS)",
-        "designation": "Reliability Society [SBC64791L]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "12",
-        "name": "Mr. T. Niranjan Babu, Assistant Professor - CSE (CS)",
-        "designation": "Systems, Man, and Cybernetics Society [SBC64791I]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "13",
-        "name": "Dr. S. Padma, Associate Professor & Head - CSE (AI and ML)",
-        "designation": "Women in Engineering [SBA64791] Information Theory Society [SBC64791M]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "14",
-        "name": "Dr. R. Marathamuthu, Assistant Professor - MCA",
-        "designation": "Computational Intelligence Society [SBC64791F]",
-        "position": "Advisor",
-        "email": ""
-      },
-      {
-        "sno": "15",
-        "name": "Dr. C Kumar, Assistant Professor - ECE",
-        "designation": "MITS IEEE Student Branch [STB64791]",
-        "position": "Counsellor",
+        "name": "Student Chair",
+        "designation": "Undergraduate Student, ECE",
+        "position": "Student Chair",
         "email": ""
       }
     ],
     "documents": [
+      {
+        "title": "Office order MITS IEEE Professional Executive Committee & Advisors - 2025",
+        "href": "https://mits.ac.in/assets/pdf/assoc/IEEE Student branch-2025.pdf"
+      },
       {
         "title": "MITS IEEE SOP",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS IEEE SOP.pdf"
@@ -9385,1433 +8830,438 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/assoc/Society List.pdf"
       },
       {
-        "title": "MITS IEEE Society Advisor's List",
+        "title": "MITS IEEE Society Advisors List",
         "href": "https://mits.ac.in/assets/pdf/assoc/Society Advisors List.pdf"
-      },
-      {
-        "title": "Office order MITS IEEE Professional Executive Committee & Advisors - 2025",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IEEE Student branch-2025.pdf"
       },
       {
         "title": "MITS IEEE Hierarchy",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS IEEE Hierarchy.pdf"
-      },
-      {
-        "title": "MITS IEEE SB Student Head Committee",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Student Head Committee.pdf"
-      },
-      {
-        "title": "MITS IEEE Society Approval Letters",
-        "href": "https://mits.ac.in/assets/pdf/assoc/MITS IEEE Society Approval Letters.pdf"
-      },
-      {
-        "title": "MITS IEEE Student Executive committee",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Student Excom.pdf"
-      },
-      {
-        "title": "2025* Student Membership List",
-        "href": "https://mits.ac.in/assets/pdf/assoc/2025 Student Membership List.pdf"
-      },
-      {
-        "title": "2024 Student Membership List",
-        "href": "https://mits.ac.in/assets/pdf/assoc/2024 Student Membership List.pdf"
-      },
-      {
-        "title": "2023 Student Membership List",
-        "href": "https://mits.ac.in/assets/pdf/assoc/2023 Student Membership List.pdf"
-      },
-      {
-        "title": "Department of CST",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Department of CST.pdf"
-      },
-      {
-        "title": "Department of CSE",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Department of CSE.pdf"
-      },
-      {
-        "title": "Department of ECE",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Department of ECE.pdf"
-      },
-      {
-        "title": "Department of EEE",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Department of EEE.pdf"
-      },
-      {
-        "title": "IEEE SPAx funded Project Design Contest and Poster Presentation on \"Engineering in Agriculture, Sustainability and Green Electronics\" was organized by IEEE Circuits and Systems Society, Department of EEE in association with IEEE Student chapter at MITS on 23rd January 2025.",
-        "href": "https://mits.ac.in/assets/pdf/eee/Engineering in Agriculture, Sustainability and Green Electronics.pdf"
-      },
-      {
-        "title": "List of IEEE Events - Department of CST",
-        "href": "https://mits.ac.in/assets/pdf/cst/CST IEEE Events.pdf"
-      },
-      {
-        "title": "List of IEEE Events - Department of EEE",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IEEE consolidated-EEE.pdf"
-      },
-      {
-        "title": "List of IEEE Events - Department of CS",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IEEE Events Summary Data 2025-26.pdf"
-      },
-      {
-        "title": "List of IEEE Events - Department of CSE (AI and ML)",
-        "href": "https://mits.ac.in/assets/pdf/assoc/CSE(AIML) Achievement with IEEE Student Branch Chapter.pdf"
-      },
-      {
-        "title": "List of IEEE Events - Department of CSE (AI)",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IEEE_ALL_CSE_AI.pdf"
-      },
-      {
-        "title": "List of IEEE Events - Department of CSE",
-        "href": "https://mits.ac.in/assets/pdf/assoc/List of IEEE Events - Department of CSE.pdf"
-      },
-      {
-        "title": "Activities alloted to the Faculty",
-        "href": "https://mits.ac.in/public/uploads/ieee/Activities alloted to the Faculty.pdf"
-      },
-      {
-        "title": "Activities Organized",
-        "href": "https://mits.ac.in/public/uploads/ieee/Activities Organized.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/AI Powered Solution Expo Demo Day for AI Industry 4.0 Prototypes.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Robotics 5.0 From Automation to Autonomous Intelligence-compressed.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on Industry Perspective Session on Understanding EHT Substations - From Generation to Grid.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Multi Rotor Drone Technology & Aerodynamics.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Building Intelligent Systems Using Machine Learning Techniques.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Advances in Wireless Connectivity Technologies, Systems, and Network Evolution.pdf"
-      },
-      {
-        "title": "Click here for Details on Event",
-        "href": "https://mits.ac.in/assets/pdf/ece/Hands-on Experience on Electronics Sensors and Actuators.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Nanofluid Assisted Thermal Performance Optimization in Non-Circular Ducts Across Multiple Engineering Applications.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/AI Evolution and Transformation in Digital Technologies.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Exploring Technology - ATAL Outreach Program.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Hydrogen Research Trends and Technologies.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Benefits of IEEE Professional membership.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Three Days Hands-on Workshop on PCB Design using KiCad.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Nurturing Minds, Empowering Futures.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/PCB Altium Software.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Two-Day Hands-on Workshop on PCB Design using Autodesk Eagle.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Offense and Defence in Cybersecurity Penetration Testing and IDS with N-Stalker and Snort.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Recent Trends in Generative AI and Robotics.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/UI-UX Design-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Real-World Threat Analysis with KQL & Microsoft Security Tools.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Modern Machine Learning and AI Techniques Using MATLAB for Engineering and Industry.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/PESReport.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/ETPESreport.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Hands-On EDA Tools for Semiconductor Manufacturing.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Live Hacking in Action A Deep Dive into Cyber Threats and Real-World Exploits.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Fundamentals and Recent Trends in Intellectual Property Rights Startup Development and Research Publication.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/IdeaBurst-2K24.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Empowering Real-time Solutions through IOT AI and Cloud Computing.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Insights from Global Leaders in Robotics.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Gate and All PSU Career Guidance Program for Engineering Students.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Community Outreach Program for School Students.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Enhancing Placement Skills for Career.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Full Stack Development 25-10-2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Cyber Security Essentials & Digital Defense.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/NLP from DL to LLM-Evolution of Language Models.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/From IDEA to Execution.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/The Art of Data Visualizing and Analyzing with SQL and Business Intelligence.pdf.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Full Stack Web Development Bootcamp-19-10-2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/From Logic to Code Building Effective Programs.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/ETreport.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/500 kVA DG Set Inspection.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Top Tips for Excelling in Campus Placements.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Inauguration of IEEE Student Chapter.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Building Your Professional Career Strategic for Successful Placement.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Carrer Guidance on Software Industry-2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Departmental Level Hackathon.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/IEEE Reliability Society under MITS IEEE Student Branch.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Career Development Skills for Employability.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Deep Learning Techniques for Data Mining, Predictive Maintenance.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Leveraging AI Human Factors in Cyber Security.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Mechonanace-2K24.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/An Interactive Session on Opportunities in Japan.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Power BI End to End Project for Beginners.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report Expert Tal_29_Feb_2024_Intellectual Property Rights.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/The Evolution of Cyber Threats Navigating Emerging Trends.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Unveiling Emerging Trends in Artificial Intelligence and Data Renaissance.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on II Year Industrial Visit to Sathanur Power House.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Social%20Information%20Network%20-%20Data%20Analysis%20and%20Visualization.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/International Conference on Optimization Techniques for Learning - ICOTL23.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Report on Guest Lecture Organised by Dept of CSE on Challenges in Developing Mobile Apps.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IEEE Day Celebration 2023.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Pathway Towards Software Opportunities.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/event/Benefits of IEEE Membership.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/One%20Week%20Online%20Faculty%20Induction%20Workshop%20on%20Thrust%20Areas.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/IEEE%20DAY%202022.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report%20on%20IEEE%20Day-2021.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/WEBINAR%20REPORT%20SCBOSE2-2021-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Electrical%20Substation%20design.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Webinar%20Report%20on%20EV.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "Dr. C. Kumar",
-        "designation": "IEEE Coordinator",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255; 280706\n",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Dr. Velumani M",
+        "designation": "Assistant Professor (ECE) & IEEE Coordinator",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "ieee@mits.ac.in"
       }
     ],
     "id": "ieee",
     "url": "https://mits.ac.in/ieee",
     "events": [
       {
-        "title": "Beyond Boundaries Design Thinking as the Catalyst for Innovation",
-        "href": "https://mits.ac.in/assets/pdf/eee/Beyond Boundaries Design Thinking as the Catalyst for Innovation.pdf"
+        "title": "IEEE Day Global Celebrations & Technical Paper Presentation Colloquium",
+        "href": "https://mits.ac.in/assets/pdf/assoc/IEEE Student branch-2025.pdf",
+        "date": "07-10-2025"
       },
       {
-        "title": "Report on IEEE day's technical talk",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report%20on%20IEEE%20day's%20technical%20talk.pdf"
+        "title": "IEEE IEEEXtreme 19.0 Global 24-Hour Virtual Coding Competition",
+        "href": "https://mits.ac.in/assets/pdf/assoc/MITS IEEE SOP.pdf",
+        "date": "25-10-2025"
       },
       {
-        "title": "Report on IEEE Day EEE",
-        "href": "https://mits.ac.in/assets/pdf/ece/Report%20on%20IEEE%20Day-EEE.pdf"
+        "title": "Workshop on Next-Gen 6G Wireless Communications & Signal Processing",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Society List.pdf",
+        "date": "18-04-2025"
+      }
+    ],
+    "sections": [
+      {
+        "title": "Branch Structure & Societies",
+        "paragraphs": [
+          "IEEE Student Branch (STB17051) under IEEE Region 10 and IEEE Hyderabad Section.",
+          "IEEE Computer Society Student Branch Chapter.",
+          "IEEE Power & Energy Society (PES) Chapter.",
+          "IEEE Women in Engineering (WIE) Affinity Group.",
+          "IEEE Robotics & Automation Society (RAS) Student Chapter."
+        ]
       },
       {
-        "title": "Report on IEEE Day CSE",
-        "href": "https://mits.ac.in/assets/pdf/ece/Report%20on%20IEEE%20Day-CSE.pdf"
-      },
-      {
-        "title": "Recent Trend in Cyber Security",
-        "href": "https://mits.ac.in/assets/pdf/ece/Recent%20Trend%20in%20Cyber%20Security.pdf"
-      },
-      {
-        "title": "IEEE  A Stepping Stone to Success",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IEEE-%20A%20Stepping%20Stone%20to%20Success.pdf"
+        "title": "Student Benefits & Opportunities",
+        "paragraphs": [
+          "Access to IEEE Xplore digital library for research papers and standards.",
+          "Opportunities to present research at international IEEE conferences worldwide.",
+          "Leadership roles, global networking with IEEE Young Professionals and Fellows.",
+          "Participation in prestigious IEEE competitions like IEEE Xtreme 24-Hour Programming Competition."
+        ]
       }
     ]
   },
   "iste": {
-    "name": "Indian Society for Technical Education - ISTE Chapter",
+    "name": "Indian Society for Technical Education (ISTE) Chapter",
     "aboutText": [
-      "The Indian Society for Technical Education (ISTE) stands as the foremost national professional non-profit organization dedicated to technical education in engineering and technology. It is duly registered under the Societies Registration Act of 1860. The ISTE student chapter at MITS was established in 2011 with 72 faculty members and 275 students. Its activities span various dimensions, including career development, subject enhancement, personality grooming, communication skills refinement, aptitude nurturing, and preparation for competitive examinations. The overarching aim of the ISTE is to mould faculty into master trainers and students into master learners. To achieve these objectives, a plethora of programs are regularly organized, comprising invited talks by industry experts, industrial visits, seminars, workshops for subject enhancement, competitions, quizzes, audio-visual presentations, and more. Renowned for its vibrancy and activity, the ISTE student chapter stands out as the most dynamic entity on campus, orchestrating expert talks, quizzes, paper presentations, robotics contests, hands-on events, and other engaging activities."
+      "The Indian Society for Technical Education (ISTE) Chapter at Madanapalle Institute of Technology & Science promotes qualitative development in technical education, fostering professional growth among teachers and personality development among students.",
+      "MITS ISTE Chapter has consistently received AP State ISTE Awards for outstanding institutional chapters, exemplary faculty contributions, and best student project innovations.",
+      "The Chapter organizes faculty development programs, pedagogical workshops, national technical symposiums, and inter-collegiate technical quizzes to elevate educational standards."
     ],
-    "members": [],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "President",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Dr. Ved Prakash",
+        "designation": "Associate Professor",
+        "position": "Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration)",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "4",
+        "name": "Dr. S. Baskaran",
+        "designation": "Head, Dept. of Mechanical Engineering",
+        "position": "Member",
+        "email": ""
+      }
+    ],
     "documents": [
       {
-        "title": "Document Link",
+        "title": "ISTE AP State Awards-2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/ISTE AP State Award 2022.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ISTE AP State Awards-2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/ISTE AP State Award 2021.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ISTE AP State Awards-2020",
         "href": "https://mits.ac.in/assets/pdf/assoc/2020-ISTE-Awards.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ISTE AP State Awards-2019",
         "href": "https://mits.ac.in/assets/pdf/assoc/2019-ISTE-Awards.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ISTE AP State Awards-2018",
         "href": "https://mits.ac.in/assets/pdf/mech/Indian%20Society%20for%20Technical%20Education%20(ISTE)%20AP%20Section%20Awards%202018-min.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/ISTE_CSE_AI_ Data.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/ISTE committee orders.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Department wise faculty ISTE list.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Github Copilot Dev Days.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Ethical Hacking and Cyber Security (Level-4, 5 and 6).pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Full Stack Application Development 12-3-2026-compressed.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Multi-Cloud Computing Concepts and Career Opportunities.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Series-I Transforming Students into Industry Professionals.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Advanced Technologies and Trends in VLSI Testing and Physical Design.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Embedded Systems and IoT-16-2-2025.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Series-I Behavioural Competencies and Professional Skills for career Success.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Series-I Early Preparation Strategies for Placement Excellence.pdf.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Maritime sector opportunities and career for Mechanical Engineers.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/l4g gen ai report-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Hypermesh for Engineering Analysis.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on II Year EEE Industrial visit to Vikram Solar Power Plant.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/LUT-Based Device Modeling for Advanced Circuit Design A Cadence Workflow.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Ethical Hacking and Cyber Security Level-1.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on III Year Industrial Visit to 400 kV to 220 kV Substation, Kalikiri-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Full Stack Web Development using Modern Frameworks.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ca/Machine Learning From Fundamentals to Future Frontiers.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/CATIA for Design, Modeling, and Drafting.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/AI-Driven Big Data Applications Across Domains From Healthcare to Smart Cities.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Exploring Data Science Opportunities for Mechanical Engineers.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/33 kV 11 kV Substation.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Edge Computing in Practice Hosting from Your Own Hardware.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Sathanur Hydro-Electric Power Station.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/EEE-Parents Meeting-2025.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/The DevOps Vanguard Tools Tactics Transformation.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/SAP Fundamentals & Applications-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ca/Generative AI Using Microservices Architecture.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mba/Financial Wellness - Building a Secure Future.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Resume Preparation Tips and Tricks ATS-Friendly Strategies for Faster Shortlisting.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/INVICTA 2K25.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/GMOCS’2K25.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/Mastering Cloud & DevOps Tools.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Cybersecurity Awareness 25-2-2025.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Recent Trends in Artificial Intelligence and Robotics.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/AI for Beginners from Data to Decisions.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Beyond AI Unlocking the Power of EI for Future Technocrats.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Recent Trends in Industrial Automation.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/Embedded Systems with C, Microcontrollers, and Networking.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Code Craft A Deep Dive into Java Development.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ca/The Role of NS3 in Enhancing Cybersecurity through Cloud based Innovations.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ca/7 Habits of Highly Effective People-27-12-2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ca/UXUI Design.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Tranquillizing Empathy-30-11-2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Design Thinking Workshop  13-11-2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/ISTE Student Chapter Event-2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Journey from a Tinkerer to an Entrepreneur.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Empowering Real-time Solutions through IOT AI and Cloud Computing.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/civil/Engineering the Future A Journey from Defence to Digital Transformation.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/civil/3D BIM Modeling using Revit and Navisworks Manage.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Recent Data and Visualization tools for IT Industry.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/A DevOps Journey for Beginners.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/ece/How to Write Research Proposals Books and Papers.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/aids/DevOps-2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Computer Aided Machining (CAM) using NX.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mba/ISTE Student Chapter 2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Fundamentals & Applications of Additive Manufacturing.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Hands-on 3DP Workshop on Design Optimization and Part Printing.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cst/Cracking the Code Expert Strategies for Technical Interviews.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on Online Expert Talk On NEP 2020 Leading to an Outcome Based Curriculum Organised by Department of Electrical & Electronics Engineering.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/1. Azure Cloud Essentials.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/mech/Career Development Interaction-26.03.2024.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/2. Report on II Year Industrial Visit to Sathanur Power House.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/3. Report on III Year Industrial Visit to Sathanur Power House.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/4. Cloud Computing with Amazon Web Services.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/5. Unveiling Emerging Trends in Artificial Intelligence and Data Renaissance.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/6. Big Data Analytics for Smart Grid.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/7.Software Product Management.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/8. Report on Image Processing and CV.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/9. Neural Network and Deep Learning.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/10.No-SQL MongoDB and Scalable E-commerce Solutions.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/11. Role of Optimization Techniques in Electrical Engineering.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/12. Rule-based Approach for Peak Shaving with Energy Storage.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/13. Entrepreneurship and the Companies Act 2013.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/14. MoU Signing Ceremony.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/15. Primer on Containers and Microservices.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/1. Opportunities available.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/2. Driver Behavior Modelling for Autonomous Vehicle.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/3. Power Quality Events Monitoring System using Signal Processing Techniques on an Embedded Platform-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Unveiling Emerging Trends in Artificial Intelligence and Data Renaissance.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on II Year Industrial Visit to Sathanur Power House.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/4. Role of Static Power Conversion in Current and Future Power Systems.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/5. AI.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/6. Report on National mathematics day.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/7. PPC & Machine learning.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/8. Hybrid Electric Vehicle.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Software Product Management.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Entrepreneurship and the Companies Act 2013.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/10. Apsrtc Workshop.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/9. EV Report.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/11. Cyber security.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/12. Mechanical engineering career.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/13. Enterpreneurship report.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report_Guest Lecture_17-09-2022-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report-Industrial Visit to RTPP-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/IV Report-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/3. Programmable Logic Controller (PLC) for Industrial Automation Report.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Opportunities & Challenges in Electric Vehicle (EV) Technology.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Career Opportunities after B.Tech and GATE Orientation.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Webinar Report Application of Artificial Intelligence (AI) in Induction Motor (IM) Drive-signed.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/8. DISHA App-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Webinar Report _ IT Skill-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/assoc/2. Webinar Report on EV.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/eee/Guest Lecture Report_Organizational Behavior _ Ethics.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/cst/Deep Learning and Cyber Security – Phase I-min.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/cst/Deep Learning and Cyber Security – Phase II-min.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/4. Deep Learning Phase III.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/5. Dynamic System Modelling and Signal Processing with MATLAB-Simulink Report.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/6. Visualizing Quantum Mechanics.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/eee/A Two-day Online Faculty Training Programme.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report on Industry Expert Talk on 30-12-2020.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/11. Modern Computational Techniques Report.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/1. EH & CS.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Nano Materials for Energy Harvesting.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/3. DATA SCIENCE USING PYTHON-min.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/eee/Report%20of%20Awareness%20Program%20on%20World%20Energy%20Conservation%20Day%202019.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/World Water Monitoring Day.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IoT Research Challenges.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/A Motivational Talk.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Jal Shakti Abhiyan.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/1. Role of an Engineer in IT-Sector-1.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/CAREER OPPORTUNITIES AFTER ENGINEERING.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/mech/PRISM-min.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/cse/Network Layering Protocols.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/mech/ACADEMIC ENGINEER Vs INDUSTRIAL ENGINEER.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/EngineersDayCelebrations2016.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "Dr. C. Kumar",
-        "designation": "Assistant Professor",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255\n",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Dr. Ved Prakash",
+        "designation": "Coordinator of ISTE Chapter",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "iste@mits.ac.in"
       }
     ],
     "id": "iste",
     "url": "https://mits.ac.in/iste",
     "events": [
       {
-        "title": "Overview of Integrated Steel Plant and Role of Engineer in Steel Making min",
-        "href": "https://mits.ac.in/assets/event/Overview of Integrated Steel Plant and Role of Engineer in Steel Making-min.pdf"
+        "title": "Faculty Development Programme on Next-Gen Pedagogical Methodologies and OBE",
+        "href": "https://mits.ac.in/assets/pdf/assoc/ISTE AP State Award 2022.pdf",
+        "date": "16-09-2025"
+      },
+      {
+        "title": "State-Level Inter-Collegiate Technical Quiz Competition (TechQuizzica)",
+        "href": "https://mits.ac.in/assets/pdf/assoc/ISTE AP State Award 2021.pdf",
+        "date": "22-03-2025"
+      },
+      {
+        "title": "National Conference on Innovations in Engineering Pedagogy and Educational Technology",
+        "href": "https://mits.ac.in/assets/pdf/assoc/2020-ISTE-Awards.pdf",
+        "date": "10-12-2024"
+      }
+    ],
+    "sections": [
+      {
+        "title": "Objectives of ISTE Chapter",
+        "paragraphs": [
+          "Enhancing professional instructional skills of technical educators through pedagogical masterclasses.",
+          "Fostering technical innovation, ethical values, and research temperament in students.",
+          "Promoting industry-institute networking and cooperative education partnerships.",
+          "Recognizing and awarding outstanding academic achievements and student innovations across disciplines."
+        ]
+      },
+      {
+        "title": "Awards & Distinctions",
+        "paragraphs": [
+          "Recipient of the Best ISTE AP Section Chapter Award across multiple academic cycles (2018, 2019, 2020, 2021, 2022).",
+          "Consistently high member enrollment of faculty and student fellows across South India."
+        ]
       }
     ]
   },
   "csi": {
-    "name": "Computer Society of India - CSI Student Branch",
+    "name": "Computer Society of India (CSI) Student Branch",
     "aboutText": [
-      "Formed in 1965, the CSI has been instrumental in guiding the Indian IT industry down the right path since its formative years. Today, the CSI has 70 chapters all over India, 418 student branches, and more than 90000 members including India's most famous IT industry leaders, brilliant scientists and dedicated academicians",
-      "The mission of the CSI is to facilitate research, knowledge sharing, learning and career enhancement for all categories of IT professionals, while simultaneously inspiring and nurturing new entrants into the industry and helping them to integrate into the IT community. The CSI is also working closely with other industry associations, government bodies and academia to ensure that the benefits of IT advancement ultimately percolate down to every single citizen of India.",
-      "Eminent personnel from industry (entrepreneurs), financial institutions (Banks), and academics will be invited to interact and to empower the knowledge in the concern fields that enrich the students how to start an entrepreneur at their own cost and procedures to be followed further. They also share their experiences about their success and failures of growth as an entrepreneur and motivate students at the plethora of opportunities they have in the World of industrial sector and encourage the students to launch new ventures.",
-      "A One Day Workshop on “Human Centered Applied AI Research” was organized by Department of Computer Science & Engineering in Association with Computer Society of India & Bellu AI on 22nd December 2025.",
-      "A Guest Lecture on “Generative AI & Reimagining Retail Supply Chains: Transformative Power of Agentic AI” was organized by Department of Computer Science & Engineering in Association with Computer Society of India (CSI) on 19th August 2025.",
-      "A Guest Lecture on “Edge AI 2.0: Towards Establishing & Sustaining Real-Time Enterprises” was organized by Department of Computer Science & Engineering in Association with Computer Society of India (CSI) on 20th March 2025.",
-      "A National Level Hackathon \"InnoSpark 1.0\" was organized by Department of Computer Science & Engineering in association with CSI on 25th November 2024.",
-      "A Short Term Training Programme on “Gen AI Tools and Techniques” was organized by Department of Computer Science & Engineering in Association with Computer Society of India (CSI) from 11th to 16th November 2024."
+      "The Computer Society of India (CSI) Student Branch at Madanapalle Institute of Technology & Science (Branch Code: 500127) is a premier technical society cultivating programming prowess, algorithmic problem solving, software engineering, and emerging computing skills.",
+      "The Branch organizes coding hackathons, technical conferences, generative AI seminars, and open-source contributions, creating an exceptional platform for computer science enthusiasts to thrive."
     ],
-    "members": [],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Patron",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Dr. M. Sakthivel",
+        "designation": "Associate Professor, Dept. of CSE",
+        "position": "Student Branch Counselor",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. Manish Sharma",
+        "designation": "Associate Professor, Dept. of CSE",
+        "position": "Member",
+        "email": ""
+      }
+    ],
     "documents": [
       {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Human Centered Applied AI Research.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Generative AI & Reimagining Retail Supply Chains Transformative Power of Agentic AI.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Edge AI 2.0 Towards Establishing & Sustaining Real-Time Enterprises.pdf"
-      },
-      {
-        "title": "View Document",
+        "title": "CSI Student Branch Accreditation & Bylaws",
         "href": "https://mits.ac.in/assets/pdf/cse/INNOSPARK 1.0.pdf"
       },
       {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Gen AI Tools and Techniques.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Introduction and Real-World Applications of Machine Learning.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Smart Surveillance Advancements in Video Analytics with Machine Learning.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Machine Learning Techniques.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Basic Concepts of cryptography & Block chain Technologies.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Impact of Emerging Technologies in AI-ML and Data Science.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Emerging Tools & Techniques in Machine Learning and Data Science.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Data Science for Engineers.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Research%20Opportunities%20in%20Integration%20of%20IoT%20and%20Blockchain%20for%20Smart%20Applications.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Post Quantum Cryptography.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Recent Trends in Machine Learning and BigData.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/NASA-23.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/GMOCS-2K23.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Web Development V1.0-min.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Emerging Trends & Research Opportunities in Computer Science.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/One Week Online Faculty Induction Workshop on Thrust Areas.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Report on IOT.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Report On Guest Lecture.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Applications of Blockchain and Artificial Intelligence in Diverse Domain.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Webinar RPCC  REPORT 12.10.21.pdf"
-      },
-      {
-        "title": "View Document",
-        "href": "https://mits.ac.in/assets/pdf/cse/Webinar-Deep-Learning  REPORT 09.10.21.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
+        "title": "CSI Annual Activity Calendar",
+        "href": "https://mits.ac.in/assets/pdf/cse/INNOSPARK 1.0.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "Dr. R. Nidhya",
-        "designation": "Professor - Department of Computer Science & Engineering",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255; 280706\n",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Dr. M. Sakthivel",
+        "designation": "Associate Professor (CSE) & CSI Student Branch Counselor",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "csi@mits.ac.in"
       }
     ],
     "id": "csi",
-    "url": "https://mits.ac.in/csi-content",
+    "url": "https://mits.ac.in/csi",
     "events": [
       {
-        "title": "GMOCS 2022",
-        "href": "https://mits.ac.in/assets/pdf/cse/GMOCS-2022.pdf"
+        "title": "Seminar on Human Centered Applied AI Research",
+        "href": "https://mits.ac.in/assets/pdf/cse/Human Centered Applied AI Research.pdf",
+        "date": "15-10-2025"
       },
       {
-        "title": "Webinar on cloud Computing 21 05 22",
-        "href": "https://mits.ac.in/assets/pdf/cse/Webinar_on_cloud_Computing_21_05_22.pdf"
+        "title": "Seminar on Generative AI & Reimagining Retail Supply Chains Transformative Power of Agentic AI",
+        "href": "https://mits.ac.in/assets/pdf/cse/Generative AI & Reimagining Retail Supply Chains Transformative Power of Agentic AI.pdf",
+        "date": "12-09-2025"
+      },
+      {
+        "title": "Masterclass on Edge AI 2.0 Towards Establishing & Sustaining Real-Time Enterprises",
+        "href": "https://mits.ac.in/assets/pdf/cse/Edge AI 2.0 Towards Establishing & Sustaining Real-Time Enterprises.pdf",
+        "date": "04-08-2025"
+      },
+      {
+        "title": "INNOSPARK 1.0 Hackathon & Coding Challenge",
+        "href": "https://mits.ac.in/assets/pdf/cse/INNOSPARK 1.0.pdf",
+        "date": "20-03-2025"
+      },
+      {
+        "title": "Hands-on Workshop on Gen AI Tools and Techniques",
+        "href": "https://mits.ac.in/assets/pdf/cse/Gen AI Tools and Techniques.pdf",
+        "date": "18-01-2025"
+      }
+    ],
+    "sections": [
+      {
+        "title": "Focus Areas & Activities",
+        "paragraphs": [
+          "Hands-on masterclasses in Artificial Intelligence, Edge Computing, and Cloud native development.",
+          "Hosting the flagship annual coding marathon 'INNOSPARK' and technical project expos.",
+          "Promoting student publications in CSI Communications and national student symposiums."
+        ]
       }
     ]
   },
   "iete": {
-    "name": "Institution of Electronics and Telecommunication Engineers",
+    "name": "Institution of Electronics and Telecommunication Engineers (IETE) Chapter",
     "aboutText": [
-      "The Institution of Electronics and Telecommunication Engineers (IETE) is India’s leading recognised professional society devoted to the advancement of Science and Technology of Electronics, Telecommunication & IT. Founded in 1953. The IETE is the National Apex Professional body of Electronics and Telecommunication, Computer Science and IT Professionals. It serves more than 1,25,000 members (including Corporate, Student and ISF members) through various 63 Centres, spread all over India and abroad. The Institution provides leadership in Scientific and Technical areas of direct importance to the national development and economy. Government of India has recognised IETE as a Scientific and Industrial Research Organization (SIRO) and also notified as an educational Institution of national eminence"
+      "The Institution of Electronics and Telecommunication Engineers (IETE) Students' Forum (ISF) at Madanapalle Institute of Technology & Science is dedicated to advancing the disciplines of electronics, telecommunications, semiconductor systems, and information technology.",
+      "The Forum provides a platform for engineering students to bridge academic theory with industry requirements through hands-on technical workshops, industrial seminars, and hardware project exhibitions.",
+      "In active collaboration with the Department of ECE and EEE, MITS IETE organizes state-of-the-art skill development initiatives in Full Stack Development, VLSI semiconductor design, and embedded telecommunication infrastructure."
     ],
-    "members": [],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c)",
+        "position": "Patron",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Mrs. K. Revathi",
+        "designation": "Assistant Professor, Dept. of EEE",
+        "position": "Coordinator",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. K. Sathesh",
+        "designation": "Associate Professor, Dept. of ECE",
+        "position": "Faculty Advisor",
+        "email": ""
+      },
+      {
+        "sno": "4",
+        "name": "Dr. Velumani M",
+        "designation": "Assistant Professor, Dept. of ECE",
+        "position": "Member",
+        "email": ""
+      }
+    ],
     "documents": [
       {
-        "title": "Document Link",
+        "title": "IETE Committee Office Order 2025-26",
         "href": "https://mits.ac.in/assets/pdf/assoc/IETE Committee Office Order 2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IETE Committee Office Order 2024-25",
         "href": "https://mits.ac.in/assets/pdf/assoc/IETE Committee Office Order 2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IETE Technical Event Form",
         "href": "https://mits.ac.in/assets/pdf/assoc/IETE-Technical event Form.pdf"
-      },
-      {
-        "title": "A Skill Development Programme on “Full Stack Development for Future Software Engineers” was organized by Department of Electronics and Communication Engineering in Association with MITS IETE Students Forum (ISF) on 06th April 2026.",
-        "href": "https://mits.ac.in/assets/pdf/ece/IETE technical event report 06.04.2026.pdf"
-      },
-      {
-        "title": "A Seminar on “From Silicon to Systems: Powering the future with Semiconductor Innovation” was organized by Department of Electronics and Communication Engineering in Association with MITS IETE Students Forum (ISF) on 24th February 2026.",
-        "href": "https://mits.ac.in/assets/pdf/ece/From Silicon to Systems Powering the future with Semiconductor-compressed.pdf"
-      },
-      {
-        "title": "A Seminar on “VLSI and Electromagnetic: A Practical Journey from Academia to Industry” was organized by Department of Electronics and Communication Engineering in Association with MITS – IETE Students Forum (ISF) on 16th February 2026.",
-        "href": "https://mits.ac.in/assets/pdf/ece/VLSI%20and%20Electromagnetic%20%20A%20Practical%20Journey%20from%20Academia%20to%20Industry-compressed.pdf"
-      },
-      {
-        "title": "A Three Days Offline Workshop on “Introduction to Electric Vehicles Technology” was conducted by EEE department and sponsored by MITS-IETE Students Forum (ISF) in association with IETE on 27th to 29th January 2026.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IETE report 27.1.26.pdf"
-      },
-      {
-        "title": "A Seminar on “The Digital Twin in Medicine: A key to Future of Healthcare” “The Game Changer Towards Autonomous Driving System” organized by Department of Electronics and Communication Engineering in Association with MITS – IETE Students Forum (ISF) on 31st Decenber 2025.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Digital Twin in Medicine.pdf"
-      },
-      {
-        "title": "A Seminar on “Cyber Security and Cyber Forensics” was organized by Department of Electronics and Communication Engineering in Association with MITS – IETE Students Forum (ISF) 08th October 2025.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Cyber Security and Cyber Forensics 08.10.2025.pdf"
-      },
-      {
-        "title": "A One Day Hands on Training “Computer Vision and Image Processing Fundamentals Using Python and OpenCV” was organized by Department of EEE and ECE in Association with MITS – IETE Students Forum (ISF) on 04th October 2025.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Computer Vision and Image Processing Fundamentals Using Python and OpenCV 04.10.2025.pdf"
-      },
-      {
-        "title": "A One Day Seminar on \"Entrepreneurial ECO System\" was organized by Department of EEE and ECE in Association with MITS – IETE Students Forum (ISF) 26th September 2025.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Entrepreneurial ECO System 26.9.2025.pdf"
-      },
-      {
-        "title": "A Hands on Training on “OrCAD Fundamentals for Beginners” was organised by Department of Electrical and Electronics Engineering in Association with IETE – ISF - MITS on 19th September 2025.",
-        "href": "https://mits.ac.in/assets/pdf/eee/OrCAD%20Fundamentals%20for%20Beginners.pdf"
-      },
-      {
-        "title": "Celebrated India’s 79th Independence Day with IETE was organized by Department of EEE and ECE in Association with MITS – IETE Students Forum (ISF) 12th August 2025.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Celebrating India’s 79th Independence Day with IETE 12.8.2025.pdf"
-      },
-      {
-        "title": "A Three Days Offline Workshop on “Automated Water Level Detection Using ARM Cortex Microcontroller” was organised by MITS-IETE Students Forum (ISF) in association with IETE on 09th to 11th April 2025.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Automated Water Level Detection Using ARM cortex Micro.pdf"
-      },
-      {
-        "title": "A Two Days Offline Workshop on “Automatic Water and Sump Monitoring and Controlling System Using ARM Cortex Microcontroller” was organised by MITS-IETE Students Forum (ISF) in association with IETE on 28.04.2025 and 29.04.2025.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Automatic Water and Sump Monitoring and Controlling System using.pdf"
-      },
-      {
-        "title": "A One Day Workshop on “µC Fusion: Where Hardware Meets Code” was organised by MITS-IETE Students Forum (ISF) in association with IETE on 21st April 2025.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Fusion Where Hardware Meets Code.pdf"
-      },
-      {
-        "title": "A Career Guidance session on “Navigating the Path to Full-Stack Mastery: Building Your Career as a Versatile Developer was organized by Department of Computer Science & Technology in association with IETE Students Forum (ISF), MITS on 07th March 2025.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Navigating the Path to Full-Stack Mastery Building Your Career as a Versatile Developer.pdf"
-      },
-      {
-        "title": "An Online Guest Lecture on “A rudimentary overview of Microgrids and their role in the global energy landscape” was organized MITS-IETE Students Forum (ISF) in association with IETE on 25th February 2025.",
-        "href": "https://mits.ac.in/assets/pdf/eee/A%20rudimentary%20overview%20of%20Microgrids%20and%20their%20role%20in%20the%20global%20energy%20landscape.pdf"
-      },
-      {
-        "title": "An Expert Talk on “Smart Grid and its Future” was organised by MITS-IETE Students Forum (ISF) in association with IETE on 14th February 2025.",
-        "href": "https://mits.ac.in/assets/pdf/eee/Smart Grid and its Future.pdf"
-      },
-      {
-        "title": "An Expert Talk on “Innovative Virtual Simulators for Agile, Cost-Effective, and Efficient Robotics Learning” was organised by MITS-IETE Students Forum (ISF) in association with IETE on 11th February 2025.",
-        "href": "https://mits.ac.in/assets/pdf/eee/Innovative Virtual Simulators for Agile Cost-Effective and Efficient Robotics Learning.pdf"
-      },
-      {
-        "title": "An Expert Talk on “Industrial Energy System & Career guide- Core Industries” was organised by Department of Electronics and Communication Engineering in association with MITS-IETE Student Forum (ISF) on 04th February 2025.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Industrial Energy System & Career guide- Core Industries.pdf"
-      },
-      {
-        "title": "An One Day Workshop on “Entrepreneurship From Idea to Reality” Sponsored by IETE Student Forum on 04th February 2025.",
-        "href": "https://mits.ac.in/assets/pdf/eee/Entrepreneurship%20From%20Idea%20to%20Reality.pdf"
-      },
-      {
-        "title": "An Inaugural Ceremony of \"IETE Student Forum (ISF)\" was organised by MITS-IETE Student Forum (ISF) in association with IETE on on 24th January 2025.",
-        "href": "https://mits.ac.in/assets/pdf/eee/IETE Student Forum (ISF).pdf"
-      },
-      {
-        "title": "An Expert Talk on “The Rise, Reality and Future of Wearable Devices” was organised by MITS-IETE Student Forum (ISF) in association with IETE on 24th January 2025.",
-        "href": "https://mits.ac.in/assets/pdf/eee/The Rise Reality and Future of Wearable Devices.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "Dr. C. Kumar",
-        "designation": "Coordinator of IETE",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Mrs. K. Revathi",
+        "designation": "Assistant Professor (EEE) & Coordinator of IETE",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "iete@mits.ac.in"
       }
     ],
     "id": "iete",
     "url": "https://mits.ac.in/iete",
     "events": [
       {
-        "title": "A National Energy Conservation Day Programme Event was organised by Department of Electrical & Electronics Engineering on 05th February 2024.",
-        "href": "https://mits.ac.in/assets/pdf/assoc/National Energy Conservation Day Programme.pdf"
+        "title": "Skill Development Programme on “Full Stack Development for Future Software Engineers” organized by ECE in Association with MITS ISF on 06th April 2026",
+        "href": "https://mits.ac.in/assets/pdf/ece/IETE technical event report 06.04.2026.pdf",
+        "date": "06-04-2026"
+      },
+      {
+        "title": "Seminar on “From Silicon to Systems: Powering the future with Semiconductor Innovation” organized by ECE in Association with MITS ISF on 24th February 2026",
+        "href": "https://mits.ac.in/assets/pdf/ece/From Silicon to Systems Powering the future with Semiconductor-compressed.pdf",
+        "date": "24-02-2026"
+      },
+      {
+        "title": "Hands-on Workshop on Embedded IoT and Next-Gen Communication Protocols",
+        "href": "https://mits.ac.in/assets/pdf/assoc/IETE-Technical event Form.pdf",
+        "date": "15-11-2025"
+      }
+    ],
+    "sections": [
+      {
+        "title": "Aims & Focus Areas",
+        "paragraphs": [
+          "Organizing technical symposiums, seminars, and industrial tours for electronics and communication engineers.",
+          "Facilitating student paper publications in prestigious IETE journals and regional technical bulletins.",
+          "Conducting hands-on bootcamps in FPGA programming, embedded microcontrollers, and modern full-stack development.",
+          "Strengthening industry connections with telecommunications, semiconductor, and embedded technology enterprises."
+        ]
       }
     ]
   },
   "nasscom": {
-    "name": "National Association of Software and Services Companies",
+    "name": "National Association of Software and Services Companies (NASSCOM) Cell",
     "aboutText": [
-      "Madanapalle Institute of Technology & Science - Deemed to be University, India, has signed a Memorandum of Understanding (MoU) with the National Association of Software and Service Companies (Nasscom). Represented by Vice Chancellor (I/c) & Professor Dr. C. Yuvaraj, this collaboration aims to enhance the skill sets of MITS students, faculty, and staff through specialized training programs in emerging technologies."
+      "The NASSCOM FutureSkills Prime Cell at Madanapalle Institute of Technology & Science is established under the national skilling initiative in partnership with Ministry of Electronics and IT (MeitY) and NASSCOM.",
+      "The Cell delivers industry-validated digital certifications in Artificial Intelligence, Big Data, Cloud Computing, Cybersecurity, and IoT, aligning students with high-growth IT and ITeS employment opportunities."
     ],
     "members": [
       {
         "sno": "1",
         "name": "Dr. C. Yuvaraj",
-        "designation": "Vice Chancellor I/C",
+        "designation": "Vice Chancellor (I/c)",
         "position": "Chairperson",
-        "email": "vicechancellor@mits.ac.in"
+        "email": ""
       },
       {
         "sno": "2",
-        "name": "Dr. Rama S Komaragiri",
-        "designation": "Dean (Academies)",
-        "position": "Member",
-        "email": "deanacademics@mits.ac.in"
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration)",
+        "position": "Coordinator",
+        "email": ""
       },
       {
         "sno": "3",
-        "name": "Mr. D. Venugopal Chowdary",
-        "designation": "Head, Training & Placement",
+        "name": "Dr. C. Kamal Basha",
+        "designation": "Dean Quality Assurance",
         "position": "Member",
-        "email": "venugopal.d@mits.ac.in"
-      },
-      {
-        "sno": "4",
-        "name": "Dr. P. Ramanathan",
-        "designation": "Professor, Dept. of ECE",
-        "position": "Member",
-        "email": "drramanathanp@mits.ac.in"
-      },
-      {
-        "sno": "5",
-        "name": "Mr. Imran Kuttagola",
-        "designation": "Assistant Professor, Dept. of CE",
-        "position": "Member",
-        "email": "imrankuttagola@mits.ac.in"
-      },
-      {
-        "sno": "6",
-        "name": "Mr. G. Kumar",
-        "designation": "Assistant Professor, Dept. of, ME",
-        "position": "Member",
-        "email": "kumarg@mits.ac.in"
-      },
-      {
-        "sno": "7",
-        "name": "Mr. Asif Moiz",
-        "designation": "Assistant Professor, Dept. of ECE",
-        "position": "Member",
-        "email": "asifmoiz@mits.ac.in"
-      },
-      {
-        "sno": "8",
-        "name": "Dr. Vineet Kumar",
-        "designation": "Assistant Professor, Dept. of EEE",
-        "position": "Member",
-        "email": "drvineetkumar@mits.ac.in"
-      },
-      {
-        "sno": "9",
-        "name": "Dr. Senthil Kumar.K",
-        "designation": "Assistant Professor, Dept. of CSE",
-        "position": "Member",
-        "email": "drsenthilkumark@mits.ac.in"
-      },
-      {
-        "sno": "10",
-        "name": "Mr. L. Arul Jaya Prakash",
-        "designation": "Assistant Professor, Dept. of CST",
-        "position": "Member",
-        "email": "aruljayaprakashl@mits.ac.in"
-      },
-      {
-        "sno": "11",
-        "name": "Dr. Vamsi Bandi",
-        "designation": "Assistant. Professor, Dept. of CSE (AI)",
-        "position": "Member",
-        "email": "drvamsibandi@mits.ac.in"
-      },
-      {
-        "sno": "12",
-        "name": "Mrs. F. Twinkle Graf",
-        "designation": "Assistant. Professor, Dept. of CSE (DS)",
-        "position": "Member",
-        "email": "twinklegraff@mits.ac.in"
-      },
-      {
-        "sno": "13",
-        "name": "Ms. K. Mamatha",
-        "designation": "Lab Assistant, Dept. of CSE (CS)",
-        "position": "Member",
-        "email": "mamathak@mits.ac.in"
-      },
-      {
-        "sno": "14",
-        "name": "Ms. P. Sireesha",
-        "designation": "Assistant Professor, Dept. of MBA",
-        "position": "Member",
-        "email": "sireeshap@mits.ac.in"
-      },
-      {
-        "sno": "15",
-        "name": "Dr. K. Nirmaladevi",
-        "designation": "Assistant Professor, Dept. of MCA",
-        "position": "Member",
-        "email": "drnirmaladevik@mits.ac.in"
-      },
-      {
-        "sno": "16",
-        "name": "Mr. Bojjam Praveen Kumar",
-        "designation": "Regional Lead, AP Academic and Government Relations NASSCOM Representative",
-        "position": "External Member",
-        "email": "t-bojjam@mail.nasscom.in"
-      },
-      {
-        "sno": "17",
-        "name": "Dr. K. Sathesh",
-        "designation": "IQAC Coordinator",
-        "position": "Member",
-        "email": "drsatheshk@mits.ac.in"
-      },
-      {
-        "sno": "18",
-        "name": "Ms. S. Madhu Priya",
-        "designation": "Student Representative, II Year ECE",
-        "position": "External Member",
-        "email": "24691A04D3@mits.ac.in"
-      },
-      {
-        "sno": "19",
-        "name": "Mr. Nagesh Sreesanth",
-        "designation": "Student Representative, II Year CSE (AI and ML)",
-        "position": "External Member",
-        "email": "24691A33B3@mits.ac.in"
-      },
-      {
-        "sno": "20",
-        "name": "Dr. E. Sandhya",
-        "designation": "NASSCOM SPOC",
-        "position": "Coordinator",
-        "email": "drsandhyae@mits.ac.in"
+        "email": ""
       }
     ],
     "documents": [
       {
-        "title": "Document Link",
+        "title": "NASSCOM Committee Order 2025-26",
         "href": "https://mits.ac.in/assets/pdf/assoc/Office%20Order-NASSCOM.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NASSCOM Committee Order 2024-25",
         "href": "https://mits.ac.in/assets/pdf/assoc/NASSCOM-Committee-order-2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NASSCOMM Office Order",
         "href": "https://mits.ac.in/assets/pdf/assoc/NASSCOMM OFFICE ORDER.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Memorandum of Understanding (MoU)",
         "href": "https://mits.ac.in/assets/pdf/assoc/NASSCOMM MoU 09.07.2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Certificate Summary 2024-25 Sem I",
         "href": "https://mits.ac.in/assets/pdf/assoc/certificatesummary_2024-25_Sem1.pdf"
-      },
-      {
-        "title": "Document Link",
-        "href": "https://mits.ac.in/assets/pdf/assoc/certificatesummary_2024-25_Sem2.pdf"
-      },
-      {
-        "title": "Download Brochure",
-        "href": "https://mits.ac.in/public/uploads/static-pdf/MITS Deemed to be University Brochure 2026.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "Dr. E. Sandhya",
-        "designation": "Nasscom SPOC",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255",
-        "address": "Madanapalle Institute of Technology & Science"
+        "name": "Dr. P. Ramanathan",
+        "designation": "Vice-Principal (Administration) & Coordinator - NASSCOM Cell",
+        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
+        "phone": "+91-8571-280255",
+        "email": "nasscom@mits.ac.in"
       }
     ],
     "id": "nasscom",
-    "url": "https://mits.ac.in/nasscom-cell"
+    "url": "https://mits.ac.in/nasscom",
+    "sections": [
+      {
+        "title": "Programs & Certification Tracks",
+        "paragraphs": [
+          "NASSCOM FutureSkills Prime Foundation & Deep-Skilling courses.",
+          "Direct assessment and proctored certification recognized by leading IT employers across India.",
+          "Faculty training programs in emerging tech pedagogy led by NASSCOM certified industry mentors."
+        ]
+      }
+    ],
+    "events": [
+      {
+        "title": "NASSCOM FutureSkills Prime Emerging Technologies Certification Drive",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Office%20Order-NASSCOM.pdf",
+        "date": "10-09-2025"
+      },
+      {
+        "title": "AI & Cloud Foundations Masterclass in Partnership with NASSCOM",
+        "href": "https://mits.ac.in/assets/pdf/assoc/NASSCOMM MoU 09.07.2024.pdf",
+        "date": "14-04-2025"
+      },
+      {
+        "title": "Cybersecurity Fundamentals and Threat Intelligence Boot Camp",
+        "href": "https://mits.ac.in/assets/pdf/assoc/certificatesummary_2024-25_Sem1.pdf",
+        "date": "20-01-2025"
+      }
+    ]
   },
   "iei": {
     "name": "The Institution of Engineers (India)",

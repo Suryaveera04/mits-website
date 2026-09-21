@@ -5,7 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { getDepartmentByKey, type FacultyMember } from "@/data/departmentData";
-import { getFacultyProfile, type FacultyProfile, type FacultySection } from "@/data/facultyProfiles";
+import { facultyProfiles, getFacultyProfile, type FacultyProfile, type FacultySection } from "@/data/facultyProfiles";
+import { departmentHeads, deansList } from "@/data/aboutData";
 import { slugifyFaculty } from "@/lib/facultySlug";
 import { useFacultyData } from "@/hooks/useFacultyData";
 import {
@@ -237,26 +238,65 @@ const FacultyProfilePage = () => {
     const liveDeptFaculty = getFacultyByDept(deptKey || "");
     const effectiveDeptFaculty = liveDeptFaculty.length > 0 ? liveDeptFaculty : dept.faculty;
 
-    // 2. Find faculty member by slug
+    // 2. Find faculty member by slug in department list
     let idx = effectiveDeptFaculty.findIndex((f) => slugifyFaculty(f.name) === slug);
     let f = idx >= 0 ? effectiveDeptFaculty[idx] : undefined;
+
+    // If not found in department list, check static facultyProfiles for this department
+    const staticDeptProfiles = facultyProfiles[deptKey || ""] || {};
+    const staticProfileMatch = Object.entries(staticDeptProfiles).find(
+      ([key, prof]) => slugifyFaculty(prof.name) === slug || slugifyFaculty(key) === slug
+    );
+    const staticProfile = staticProfileMatch ? staticProfileMatch[1] : undefined;
 
     // If not found in current department list, attempt global slug search
     const raw = getRawFacultyBySlug(slug, deptKey);
     const liveProfile = getFacultyProfileBySlug(deptKey || "", slug);
 
-    if (!f && liveProfile) {
-      f = {
-        name: liveProfile.name,
-        designation: liveProfile.designation,
-        qualification: "Ph.D.",
-        email: liveProfile.email,
-        image: liveProfile.image,
-      };
+    // If still not found, check department heads or deans list
+    const headMatch = departmentHeads.find(
+      (h) => h.deptKey === deptKey && slugifyFaculty(h.name) === slug
+    );
+    const deanMatch = deansList.find(
+      (d) => d.deptKey === deptKey && d.facultyName && slugifyFaculty(d.facultyName) === slug
+    );
+
+    if (!f) {
+      if (liveProfile) {
+        f = {
+          name: liveProfile.name,
+          designation: liveProfile.designation,
+          qualification: "Ph.D.",
+          email: liveProfile.email,
+          image: liveProfile.image,
+        };
+      } else if (staticProfile) {
+        f = {
+          name: staticProfile.name,
+          designation: staticProfile.designation,
+          qualification: "Ph.D.",
+          email: staticProfile.email,
+          image: staticProfile.image,
+        };
+      } else if (headMatch) {
+        f = {
+          name: headMatch.name,
+          designation: `Head of Department — ${headMatch.department}`,
+          qualification: "Ph.D.",
+          image: headMatch.image,
+        };
+      } else if (deanMatch) {
+        f = {
+          name: deanMatch.facultyName || deanMatch.name,
+          designation: deanMatch.designation,
+          qualification: deanMatch.qualification || "Ph.D.",
+          image: deanMatch.image,
+        };
+      }
     }
 
-    // 3. Resolve rich profile: live API profile -> static getFacultyProfile -> buildFromFacultyMember
-    const rich = liveProfile || getFacultyProfile(deptKey || "", f?.name || "");
+    // 3. Resolve rich profile: live API profile -> static Profile -> static getFacultyProfile -> buildFromFacultyMember
+    const rich = liveProfile || staticProfile || getFacultyProfile(deptKey || "", f?.name || "");
     const merged: FacultyProfile | undefined = rich
       ? { ...rich, image: rich.image || f?.image, email: rich.email || f?.email }
       : f ? buildFromFacultyMember(f) : undefined;

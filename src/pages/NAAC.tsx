@@ -43,23 +43,19 @@ import {
 
 type SectionKey =
   | "overview"
-  | "highlights"
-  | "cycle1"
-  | "ssr"
+  | "cycle"
+  | "reassessment"
   | "criteria"
   | "dvv-ep"
-  | "aishe"
-  | "certificate";
+  | "aishe";
 
 const sections: { key: SectionKey; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
-  { key: "overview", label: "Overview", icon: BookOpen },
-  { key: "highlights", label: "Highlights", icon: Sparkles },
-  { key: "cycle1", label: "Cycle 1 (2020)", icon: Trophy },
-  { key: "ssr", label: "SSR", icon: ClipboardList },
-  { key: "criteria", label: "Criteria 1–7", icon: ScrollText },
-  { key: "dvv-ep", label: "DVV / Extended Profile", icon: GraduationCap },
+  { key: "overview", label: "Home", icon: BookOpen },
+  { key: "cycle", label: "Cycle", icon: Award },
+  { key: "reassessment", label: "REASSESSMENT 2020 - Cycle 1", icon: Trophy },
+  { key: "criteria", label: "DVV Quantitative Metrics (Criteria 1–7)", icon: ScrollText },
+  { key: "dvv-ep", label: "DVV Extended Profile", icon: GraduationCap },
   { key: "aishe", label: "AISHE Reports", icon: Building2 },
-  { key: "certificate", label: "Certificate", icon: Award },
 ];
 
 const DocCard = ({ doc, highlight }: { doc: DocLink; highlight?: boolean }) => {
@@ -218,6 +214,16 @@ const NAAC = () => {
                       </button>
                     );
                   })}
+                  <Link
+                    to="/iqac"
+                    className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-body font-semibold text-[#b31317] hover:bg-[#b31317]/10 transition-all border border-[#b31317]/20 mt-2"
+                  >
+                    <span className="flex items-center gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      IQAC Portal
+                    </span>
+                    <span className="text-xs bg-[#b31317] text-white px-2 py-0.5 rounded font-bold">Visit</span>
+                  </Link>
                 </nav>
               </div>
 
@@ -363,58 +369,25 @@ const NAAC = () => {
                   </section>
                 )}
 
-                {active === "highlights" && (
+                {active === "cycle" && (
                   <section>
                     <SectionHeader
-                      eyebrow="At a Glance"
-                      title="Accreditation Highlights"
-                      description="Key institutional metrics that underpin MITS' NAAC accreditation status."
+                      eyebrow="NAAC Cycle"
+                      title="Cycle Accreditation Records"
+                      description="Core institutional accreditation records including NAAC Certificate, Peer Team Report, Institutional SSR, and Peer Team Visit Video."
                     />
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                      {highlights.map((h, i) => (
-                        <motion.div
-                          key={h.label}
-                          initial={{ opacity: 0, y: 16 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: i * 0.07 }}
-                          className="relative overflow-hidden rounded-2xl bg-white border border-[#0f2a44]/10 p-6 shadow-sm"
-                        >
-                          <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-[#caa74d]/30 to-transparent" />
-                          <p className="font-body text-sm uppercase tracking-[0.18em] text-primary/60">
-                            {h.label}
-                          </p>
-                          <p className="font-display text-4xl font-bold text-[#0f2a44] mt-2">{h.value}</p>
-                          <p className="font-body text-sm text-primary/70 mt-2">{h.note}</p>
-                        </motion.div>
-                      ))}
-                    </div>
+                    <DocGrid docs={filter(accreditationCore)} />
                   </section>
                 )}
 
-                {active === "cycle1" && (
+                {active === "reassessment" && (
                   <section>
                     <SectionHeader
                       eyebrow="Cycle 1"
-                      title="Reassessment 2020 — Cycle 1 Documents"
-                      description="Complete documentation set submitted and issued during the first cycle of NAAC accreditation."
+                      title="REASSESSMENT 2020 — Cycle 1"
+                      description="Complete documentation set submitted and issued during the Reassessment 2020 Cycle 1 of NAAC accreditation."
                     />
                     <DocGrid docs={filter(cycle1Documents)} />
-                  </section>
-                )}
-
-                {active === "ssr" && (
-                  <section>
-                    <SectionHeader
-                      eyebrow="Self Study Report"
-                      title="SSR & IIQA"
-                      description="The Self Study Report (SSR) and Institutional Information for Quality Assessment (IIQA) submitted to NAAC."
-                    />
-                    <DocGrid
-                      docs={filter([
-                        { title: "MITS Updated SSR", url: accreditationCore[2].url, type: "pdf" },
-                        ...cycle1Documents.filter((d) => /SSR|IIQA/i.test(d.title)),
-                      ])}
-                    />
                   </section>
                 )}
 

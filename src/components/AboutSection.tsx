@@ -129,10 +129,10 @@ const AboutSection = () => {
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
-              {/* 27+ badge  -  pinned top-left, always on top */}
+              {/* 28+ badge  -  pinned top-left, always on top */}
               <div className="absolute top-0 left-0 bg-primary rounded-md px-5 py-4 shadow-xl hidden md:block z-10 transition-all duration-300 hover:-translate-y-1 hover:bg-accent group/badge">
-                <p className="text-accent font-display text-3xl font-bold leading-none group-hover/badge:text-accent-foreground">27+</p>
-                <p className="text-primary-foreground/80 text-sm mt-1 group-hover/badge:text-accent-foreground/80">Years of Excellence</p>
+                <p className="text-accent font-display text-3xl font-bold leading-none group-hover/badge:text-accent-foreground">28+</p>
+                <p className="text-primary-foreground/80 text-sm mt-1 group-hover/badge:text-accent-foreground/80">Years of Academic Excellence</p>
               </div>
 
               {/* Carousel viewport */}

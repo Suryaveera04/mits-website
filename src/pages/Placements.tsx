@@ -601,22 +601,16 @@ const Placements = () => {
       <main className="pt-24 md:pt-28 lg:pt-28">
         {/* Hero Section - Enhanced */}
         <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-          {/* Background: 3 placement images blurred collage */}
-          <div className="absolute inset-0 grid grid-cols-3 h-full">
-            <div className="overflow-hidden">
-              <img src={`${BASE}placement-pictures/image 1.jpg`} alt="" className="w-full h-full object-cover object-top" />
-            </div>
-            <div className="overflow-hidden">
-              <img src={`${BASE}placement-pictures/image 2.jpg`} alt="" className="w-full h-full object-cover object-top" />
-            </div>
-            <div className="overflow-hidden">
-              <img src={`${BASE}placement-pictures/image 3.jpeg`} alt="" className="w-full h-full object-cover object-top" />
-            </div>
+          {/* Background: Sharp high-res placement hero image */}
+          <div className="absolute inset-0 overflow-hidden">
+            <img
+              src={`${BASE}Hero-Section/image-5.jpg`}
+              alt="MITS Placements Drive"
+              className="w-full h-full object-cover object-center"
+            />
           </div>
-          {/* Blur + dark blend */}
-          <div className="absolute inset-0 backdrop-blur-sm" />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-primary/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          {/* Crisp dark gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/65 to-black/90" />
           
           {/* Animated Decorative Elements */}
           <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-pulse" />
