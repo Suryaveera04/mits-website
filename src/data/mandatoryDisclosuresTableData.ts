@@ -64,12 +64,12 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
   {
     "sno": "12",
     "title": "Finance Committee (DTBU) 2025-26",
-    "href": "https://mits.ac.in/university-finance-committee"
+    "href": "/university-finance-committee"
   },
   {
     "sno": "13",
     "title": "Finance Committee 2015-16 to 2025-26",
-    "href": "https://mits.ac.in/finance-committee"
+    "href": "/finance-committee"
   },
   {
     "sno": "14",

@@ -346,8 +346,8 @@ export const mandatoryDisclosures: DisclosureCategory[] = [
       { label: "Minutes of Governing Council Meeting 2014–2026", url: "/bog" },
       { label: "Minutes of Academic Council Meeting 2014–2026", url: "/minutes-ac" },
       { label: "Delegation of Financial Power", url: "https://mits.ac.in/assets/pdf/admin/DELEGATION%20OF%20FINANCIAL-POWER.pdf" },
-      { label: "Finance Committee (DTBU) 2025–26", url: "https://mits.ac.in/university-finance-committee" },
-      { label: "Finance Committee 2015–16 to 2025–26", url: "https://mits.ac.in/finance-committee" },
+      { label: "Finance Committee (DTBU) 2025–26", url: "/university-finance-committee" },
+      { label: "Finance Committee 2015–16 to 2025–26", url: "/finance-committee" },
     ],
   },
   {

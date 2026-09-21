@@ -82,8 +82,18 @@ const MandatoryDisclosures = () => {
               {filteredTableDocs.map((doc) => {
                 const isInternalBog = doc.href.includes("/bog");
                 const isInternalMinutesAc = doc.href.includes("/minutes-ac");
-                const targetUrl = isInternalBog ? "/bog" : isInternalMinutesAc ? "/minutes-ac" : doc.href;
-                const isInternal = isInternalBog || isInternalMinutesAc;
+                const isInternalUniversityFC = doc.href.includes("/university-finance-committee");
+                const isInternalFC = doc.href.includes("/finance-committee") && !doc.href.includes("/university-finance-committee");
+                const isInternal = doc.href.startsWith("/") || isInternalBog || isInternalMinutesAc || isInternalUniversityFC || isInternalFC;
+                const targetUrl = isInternalUniversityFC
+                  ? "/university-finance-committee"
+                  : isInternalFC
+                  ? "/finance-committee"
+                  : isInternalBog
+                  ? "/bog"
+                  : isInternalMinutesAc
+                  ? "/minutes-ac"
+                  : doc.href;
 
                 return (
                   <tr key={doc.sno} className="hover:bg-amber-50/30 transition-colors">

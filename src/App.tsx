@@ -41,6 +41,8 @@ const Organogram = lazy(() => import("./pages/about/Organogram"));
 const MandatoryDisclosures = lazy(() => import("./pages/about/MandatoryDisclosures"));
 const BogPage = lazy(() => import("./pages/about/BogPage"));
 const MinutesAcPage = lazy(() => import("./pages/about/MinutesAcPage"));
+const UniversityFinanceCommitteePage = lazy(() => import("./pages/about/UniversityFinanceCommitteePage"));
+const FinanceCommitteePage = lazy(() => import("./pages/about/FinanceCommitteePage"));
 const NIRF = lazy(() => import("./pages/NIRF"));
 const NAAC = lazy(() => import("./pages/NAAC"));
 const IQAC = lazy(() => import("./pages/IQAC"));
@@ -112,6 +114,10 @@ const App = () => (
             <Route path="/about/mandatory-disclosures" element={<MandatoryDisclosures />} />
             <Route path="/bog" element={<BogPage />} />
             <Route path="/minutes-ac" element={<MinutesAcPage />} />
+            <Route path="/university-finance-committee" element={<UniversityFinanceCommitteePage />} />
+            <Route path="/finance-committee" element={<FinanceCommitteePage />} />
+            <Route path="/about/university-finance-committee" element={<UniversityFinanceCommitteePage />} />
+            <Route path="/about/finance-committee" element={<FinanceCommitteePage />} />
             <Route path="/academics" element={<Academics />} />
             <Route path="/academic-regulations" element={<AcademicRegulations />} />
             <Route path="/curriculum-academic-syllabus" element={<CurriculumSyllabus />} />
