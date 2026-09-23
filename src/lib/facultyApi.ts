@@ -147,12 +147,12 @@ export function mapApiDeptToDeptKey(code?: string, name?: string): string {
   const n = (name || "").toUpperCase().trim();
 
   // 1. Exact Department Code Checks
+  if (c === "CSE-AIML" || c === "AIML" || c === "AI&ML" || c === "AI-ML" || c.includes("AIML")) return "aiml";
+  if (c === "CSE-AIDS" || c === "CSE-DS" || c === "AIDS" || c === "DS") return "cseds";
+  if (c === "CSE-AI" || c === "AI") return "ai";
   if (c === "CSE") return "cse";
   if (c === "CST") return "cse";
-  if (c === "CSE-AI" || c === "AI") return "ai";
-  if (c === "AIML") return "aiml";
   if (c === "CSE-CS") return "csecs";
-  if (c === "CSE-DS") return "cseds";
   if (c === "ECE") return "ece";
   if (c === "EEE") return "eee";
   if (c === "CE" || c === "CIVIL") return "ce";
@@ -164,12 +164,12 @@ export function mapApiDeptToDeptKey(code?: string, name?: string): string {
   if (c === "CTO" || c === "ADMIN") return "admin";
 
   // 2. Exact / Partial Department Name Checks
+  if (n.includes("MACHINE LEARNING") || n.includes("AIML") || n.includes("AI & ML") || n.includes("AI AND ML")) return "aiml";
+  if (n.includes("DATA SCIENCE") || n.includes("AIDS")) return "cseds";
+  if (n.includes("ARTIFICIAL INTELLIGENCE")) return "ai";
   if (n.includes("ELECTRICAL AND ELECTRONICS") || n.includes("ELECTRICAL & ELECTRONICS")) return "eee";
   if (n.includes("ELECTRONICS & COMMUNICATION") || n.includes("ELECTRONICS AND COMMUNICATION")) return "ece";
   if (n.includes("CYBER SECURITY")) return "csecs";
-  if (n.includes("DATA SCIENCE")) return "cseds";
-  if (n.includes("ARTIFICIAL INTELLIGENCE")) return "ai";
-  if (n.includes("MACHINE LEARNING")) return "aiml";
   if (n.includes("COMPUTER SCIENCE AND TECHNOLOGY")) return "cse";
   if (n.includes("COMPUTER SCIENCE")) return "cse";
   if (n.includes("CIVIL")) return "ce";

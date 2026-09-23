@@ -21,9 +21,11 @@ describe("Faculty API & Department Segregation", () => {
     expect(mapApiDeptToDeptKey("CST")).toBe("cse");
     expect(mapApiDeptToDeptKey("CSE-AI")).toBe("ai");
     expect(mapApiDeptToDeptKey("AI")).toBe("ai");
+    expect(mapApiDeptToDeptKey("CSE-AIML")).toBe("aiml");
     expect(mapApiDeptToDeptKey("AIML")).toBe("aiml");
     expect(mapApiDeptToDeptKey("CSE-CS")).toBe("csecs");
     expect(mapApiDeptToDeptKey("CSE-DS")).toBe("cseds");
+    expect(mapApiDeptToDeptKey("CSE-AIDS")).toBe("cseds");
     expect(mapApiDeptToDeptKey("CHY")).toBe("bsh");
     expect(mapApiDeptToDeptKey("PHY")).toBe("bsh");
     expect(mapApiDeptToDeptKey("EFL")).toBe("bsh");
@@ -37,6 +39,8 @@ describe("Faculty API & Department Segregation", () => {
     expect(mapApiDeptToDeptKey(undefined, "MECHANICAL ENGINEERING")).toBe("me");
     expect(mapApiDeptToDeptKey(undefined, "MASTER OF COMPUTER APPLICATIONS")).toBe("mca");
     expect(mapApiDeptToDeptKey(undefined, "COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE)")).toBe("ai");
+    expect(mapApiDeptToDeptKey(undefined, "COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)")).toBe("aiml");
+    expect(mapApiDeptToDeptKey(undefined, "COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND DATA SCIENCE)")).toBe("cseds");
     expect(mapApiDeptToDeptKey(undefined, "COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY)")).toBe("csecs");
     expect(mapApiDeptToDeptKey(undefined, "CHEMISTRY")).toBe("bsh");
     expect(mapApiDeptToDeptKey(undefined, "PHYSICS")).toBe("bsh");
