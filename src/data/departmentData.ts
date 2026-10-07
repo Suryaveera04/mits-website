@@ -199,6 +199,7 @@ export interface DepartmentMoreSubTab {
   label: string;
   externalUrl?: string;
   directPdf?: boolean;
+  subItems?: DepartmentMoreSubTab[];
 }
 
 export interface DoctoralScholar {
@@ -227,6 +228,20 @@ export interface MoreDocumentGroup {
   documents: MoreDocumentItem[];
 }
 
+export interface ObeSurveyCategory {
+  title: string;
+  links: { title: string; url: string }[];
+}
+
+export interface ObeData {
+  title: string;
+  subTabs: { id: string; label: string }[];
+  posPsosPeosImage?: string;
+  surveys?: ObeSurveyCategory[];
+  remedialClasses?: { title: string; url: string }[];
+  copoAttainment?: { title: string; url: string }[];
+}
+
 export interface DepartmentMoreData {
   subTabs: DepartmentMoreSubTab[];
   mentorMentee?: MentorMenteeGroup[];
@@ -235,6 +250,7 @@ export interface DepartmentMoreData {
   doctoral?: DoctoralData;
   feedback?: MoreDocumentGroup;
   innovativeTeaching?: MoreDocumentGroup;
+  obe?: ObeData;
 }
 
 export interface UnderGraduateTimeTableItem {
@@ -3559,6 +3575,16 @@ export const cseMoreData: DepartmentMoreData = {
       label: "Innovative Teaching Approach",
       externalUrl: "https://mits.ac.in/assets/pdf/cse/cse-Innovations%20by%20the%20Faculty%20in%20Teaching%20and%20Learning.pdf",
       directPdf: true
+    },
+    {
+      id: "obe",
+      label: "OBE",
+      subItems: [
+        { id: "pos-psos-peos", label: "POs, PSOs, and PEOs" },
+        { id: "surveys", label: "Survey" },
+        { id: "remedial-classes", label: "Remedial Classes" },
+        { id: "copo-attainment", label: "CO-PO Attainment" }
+      ]
     }
   ],
   doctoral: {
@@ -3627,6 +3653,150 @@ export const cseMoreData: DepartmentMoreData = {
       {
         title: "Innovations by the Faculty in Teaching and Learning",
         url: "https://mits.ac.in/assets/pdf/cse/cse-Innovations%20by%20the%20Faculty%20in%20Teaching%20and%20Learning.pdf"
+      }
+    ]
+  },
+  obe: {
+    title: "Outcome Based Education (OBE)",
+    subTabs: [
+      { id: "pos-psos-peos", label: "POs, PSOs & PEOs" },
+      { id: "surveys", label: "Surveys" },
+      { id: "remedial-classes", label: "Remedial Classes" },
+      { id: "copo-attainment", label: "CO-PO Attainment" }
+    ],
+    posPsosPeosImage: "https://mits.ac.in/public/uploads/event/pso-po-peo.jpg",
+    surveys: [
+      {
+        title: "Course Exit Survey",
+        links: [
+          {
+            title: "Course Exit Survey 2020-24",
+            url: "https://mits.ac.in/assets/pdf/cse/Course%20Exit%20Survey%202020-24.pdf"
+          },
+          {
+            title: "Course Exit Survey 2019-23",
+            url: "https://mits.ac.in/assets/pdf/cse/Course%20Exit%20Survey%202019-23.pdf"
+          },
+          {
+            title: "Course Exit Survey 2018-22",
+            url: "https://mits.ac.in/assets/pdf/cse/Course%20Exit%20Survey%202018-22.pdf"
+          }
+        ]
+      },
+      {
+        title: "Graduate Exit Survey",
+        links: [
+          {
+            title: "Graduate Exit Survey 2020-24",
+            url: "https://mits.ac.in/assets/pdf/cse/2020-24%20Graduate%20Exit%20Survey.pdf"
+          },
+          {
+            title: "Graduate Exit Survey 2019-23",
+            url: "https://mits.ac.in/assets/pdf/cse/2019-23%20Graduate%20Exit%20Survey.pdf"
+          },
+          {
+            title: "Graduate Exit Survey 2018-22",
+            url: "https://mits.ac.in/assets/pdf/cse/2018-22%20Graduate%20Exit%20Survey.pdf"
+          }
+        ]
+      },
+      {
+        title: "Employer Survey",
+        links: [
+          {
+            title: "Employer Survey 2020-24",
+            url: "https://mits.ac.in/assets/pdf/cse/2020-24%20Graduate%20Exit%20Survey.pdf"
+          },
+          {
+            title: "Employer Survey 2019-23",
+            url: "https://mits.ac.in/assets/pdf/cse/2019-23%20Graduate%20Exit%20Survey.pdf"
+          },
+          {
+            title: "Employer Survey 2018-22",
+            url: "https://mits.ac.in/assets/pdf/cse/2018-22%20Graduate%20Exit%20Survey.pdf"
+          }
+        ]
+      },
+      {
+        title: "Alumni Survey",
+        links: [
+          {
+            title: "Alumni Survey 2020-24",
+            url: "https://mits.ac.in/assets/pdf/cse/2020-24%20Graduate%20Exit%20Survey.pdf"
+          },
+          {
+            title: "Alumni Survey 2019-23",
+            url: "https://mits.ac.in/assets/pdf/cse/2019-23%20Graduate%20Exit%20Survey.pdf"
+          },
+          {
+            title: "Alumni Survey 2018-22",
+            url: "https://mits.ac.in/assets/pdf/cse/2018-22%20Graduate%20Exit%20Survey.pdf"
+          }
+        ]
+      }
+    ],
+    remedialClasses: [
+      {
+        title: "AY 2025-2026 Even Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202025-2026%20Even%C2%A0Sem.pdf"
+      },
+      {
+        title: "AY 2025-2026 Odd Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202025-26%20Remedial%20class%20schedule%20(odd%20sem)-compressed.pdf"
+      },
+      {
+        title: "AY 2024-2025 Even Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202024-25%20Sem%20II%20Remedial%20schedule.pdf"
+      },
+      {
+        title: "AY 2024-2025 Odd Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202024-25%20Sem%20I%20Remedial%20schedule.pdf"
+      },
+      {
+        title: "AY 2023-2024 Even Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202023-24%20Even%20Sem.pdf"
+      },
+      {
+        title: "AY 2023-2024 Odd Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202023-24%20Odd%20Sem.pdf"
+      },
+      {
+        title: "AY 2022-2023 Even Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202022-23%20Even%20Sem.pdf"
+      },
+      {
+        title: "AY 2022-2023 Odd Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202022-23%20Odd%20Sem.pdf"
+      },
+      {
+        title: "AY 2021-2022 Even Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202021-22%20Even%20Sem.pdf"
+      },
+      {
+        title: "AY 2021-2022 Odd Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202021-22%20Odd%20Sem.pdf"
+      },
+      {
+        title: "AY 2019-2020 Even Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202019-20%20Sem-1%20Remedial%20Class%20TT.pdf"
+      },
+      {
+        title: "AY 2019-2020 Odd Sem",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202019-20%20Sem-2%20Remedial%20Class%20TT.pdf"
+      }
+    ],
+    copoAttainment: [
+      {
+        title: "CO-PO Attainment (2020-2024) Batch",
+        url: "https://mits.ac.in/assets/pdf/cse/Overall%20Attainment%202020-24.pdf"
+      },
+      {
+        title: "CO-PO Attainment (2019-2023) Batch",
+        url: "https://mits.ac.in/assets/pdf/cse/Overall%20Attainment%202019-23.pdf"
+      },
+      {
+        title: "CO-PO Attainment (2018-2022) Batch",
+        url: "https://mits.ac.in/assets/pdf/cse/Overall%20Attainment%202018-22.pdf"
       }
     ]
   }

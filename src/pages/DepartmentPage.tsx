@@ -111,6 +111,9 @@ const DepartmentPage = () => {
   const [activeMoreTab, setActiveMoreTab] = useState<string>("mentor-mentee");
   const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
   const [moreHovered, setMoreHovered] = useState(false);
+  const [activeObeSubTab, setActiveObeSubTab] = useState<string>("pos-psos-peos");
+  const [obeHovered, setObeHovered] = useState(false);
+  const [obeDropdownOpen, setObeDropdownOpen] = useState(false);
   const [syllabusFilter, setSyllabusFilter] = useState("all");
   const [syllabusSearch, setSyllabusSearch] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -251,8 +254,25 @@ const DepartmentPage = () => {
       setActiveSection("more");
       setActiveMoreTab("innovative-teaching");
       setMoreDropdownOpen(true);
+    } else if (pathParts.includes("obe") || lastPart === "obe") {
+      setActiveSection("more");
+      setActiveMoreTab("obe");
+      setMoreDropdownOpen(true);
+      setObeDropdownOpen(true);
+      if (lastPart === "pos-psos-peos" || lastPart === "surveys" || lastPart === "remedial-classes" || lastPart === "copo-attainment") {
+        setActiveObeSubTab(lastPart);
+      }
+    } else if (lastPart === "pos-psos-peos" || lastPart === "surveys" || lastPart === "remedial-classes" || lastPart === "copo-attainment") {
+      setActiveSection("more");
+      setActiveMoreTab("obe");
+      setActiveObeSubTab(lastPart);
+      setMoreDropdownOpen(true);
+      setObeDropdownOpen(true);
     } else if (lastPart === "more") {
       setActiveSection("more");
+      if (deptKey === "cse") {
+        setActiveMoreTab("doctoral");
+      }
       setMoreDropdownOpen(true);
     } else if (lastPart === "bos" || lastPart === "board-of-studies") {
       setActiveSection("about");
@@ -396,6 +416,20 @@ const DepartmentPage = () => {
     setMobileMenuOpen(false);
     const basePath = `/department/${deptKey}`;
     navigate(`${basePath}/${tabId}`, { replace: true });
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 10);
+  };
+
+  const handleObeSubItemClick = (subTabId: string) => {
+    setActiveSection("more");
+    setActiveMoreTab("obe");
+    setActiveObeSubTab(subTabId);
+    setMoreDropdownOpen(true);
+    setObeDropdownOpen(true);
+    setMobileMenuOpen(false);
+    const basePath = `/department/${deptKey}`;
+    navigate(`${basePath}/obe/${subTabId}`, { replace: true });
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 10);
@@ -613,20 +647,64 @@ const DepartmentPage = () => {
                     </button>
                     {isDropdownOpen && (
                       <div className="bg-muted/30 pl-9 pr-4 py-1 space-y-1">
-                        {item.subItems.map(sub => (
-                          <button
-                            key={sub.id}
-                            onClick={() => handleSubClick(sub.id, sub.externalUrl)}
-                            className={`w-full flex items-center justify-between py-1.5 text-xs transition-colors ${
-                              isParentActive && activeSubTab === sub.id
-                                ? "text-primary font-bold"
-                                : "text-muted-foreground hover:text-primary"
-                            }`}
-                          >
-                            <span>{sub.label}</span>
-                            <ChevronRight className="w-3 h-3" />
-                          </button>
-                        ))}
+                        {item.subItems.map(sub => {
+                          const hasNested = !!(sub.subItems && sub.subItems.length > 0);
+                          const isSubActive = isParentActive && activeSubTab === sub.id;
+
+                          if (hasNested) {
+                            return (
+                              <div key={sub.id} className="space-y-1">
+                                <button
+                                  onClick={() => {
+                                    handleSubClick(sub.id, sub.externalUrl);
+                                    setObeDropdownOpen(prev => !prev);
+                                  }}
+                                  className={`w-full flex items-center justify-between py-1.5 text-xs transition-colors ${
+                                    isSubActive
+                                      ? "text-primary font-bold"
+                                      : "text-muted-foreground hover:text-primary"
+                                  }`}
+                                >
+                                  <span>{sub.label}</span>
+                                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${obeDropdownOpen ? "rotate-180 text-primary" : ""}`} />
+                                </button>
+                                {obeDropdownOpen && (
+                                  <div className="pl-4 py-1 space-y-1 border-l-2 border-primary/40 ml-2">
+                                    {sub.subItems!.map(nested => (
+                                      <button
+                                        key={nested.id}
+                                        onClick={() => handleObeSubItemClick(nested.id)}
+                                        className={`w-full flex items-center justify-between py-1 text-[11px] transition-colors text-left ${
+                                          isSubActive && activeObeSubTab === nested.id
+                                            ? "text-primary font-bold"
+                                            : "text-muted-foreground hover:text-primary"
+                                        }`}
+                                      >
+                                        <span>{nested.label}</span>
+                                        <ChevronRight className="w-2.5 h-2.5 text-primary/70" />
+                                      </button>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          }
+
+                          return (
+                            <button
+                              key={sub.id}
+                              onClick={() => handleSubClick(sub.id, sub.externalUrl)}
+                              className={`w-full flex items-center justify-between py-1.5 text-xs transition-colors ${
+                                isSubActive
+                                  ? "text-primary font-bold"
+                                  : "text-muted-foreground hover:text-primary"
+                              }`}
+                            >
+                              <span>{sub.label}</span>
+                              <ChevronRight className="w-3 h-3" />
+                            </button>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
@@ -708,6 +786,102 @@ const DepartmentPage = () => {
                           <div className="bg-muted/30 border-y border-border/40 py-1 space-y-0.5">
                             {item.subItems.map(sub => {
                               const isSubActive = isParentActive && activeSubTab === sub.id;
+                              const hasNested = !!(sub.subItems && sub.subItems.length > 0);
+
+                              if (hasNested) {
+                                return (
+                                  <div
+                                    key={sub.id}
+                                    className="relative group/nested"
+                                    onMouseEnter={() => {
+                                      if (sub.id === "obe") setObeHovered(true);
+                                    }}
+                                    onMouseLeave={() => {
+                                      if (sub.id === "obe") setObeHovered(false);
+                                    }}
+                                  >
+                                    <button
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleSubClick(sub.id, sub.externalUrl);
+                                        if (sub.id === "obe") {
+                                          setObeDropdownOpen(prev => !prev);
+                                        }
+                                      }}
+                                      className={`w-full flex items-center justify-between pl-10 pr-4 py-2 text-xs transition-colors ${
+                                        isSubActive
+                                          ? "text-primary font-bold bg-primary/10"
+                                          : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                                      }`}
+                                    >
+                                      <span>{sub.label}</span>
+                                      <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isSubActive ? "text-primary font-bold" : "text-muted-foreground/60"} ${(sub.id === "obe" && obeHovered) ? "translate-x-0.5 text-primary" : ""}`} />
+                                    </button>
+
+                                    {/* Flyout Submenu to the RIGHT on Hover or when active - matching user screenshot */}
+                                    {sub.id === "obe" && obeHovered && (
+                                      <div
+                                        onMouseEnter={() => setObeHovered(true)}
+                                        onMouseLeave={() => setObeHovered(false)}
+                                        className="absolute left-full top-0 ml-2 w-56 bg-card border border-border shadow-xl rounded-xl py-1.5 z-50 animate-in fade-in slide-in-from-left-2 duration-150"
+                                      >
+                                        <div className="px-3 py-1.5 text-[11px] font-bold text-muted-foreground uppercase tracking-wider border-b border-border/50 mb-1 flex items-center justify-between">
+                                          <span>{sub.label}</span>
+                                          <span className="text-[10px] text-primary font-bold">OBE</span>
+                                        </div>
+                                        {sub.subItems!.map(nested => {
+                                          const isNestedActive = isSubActive && activeObeSubTab === nested.id;
+                                          return (
+                                            <button
+                                              key={nested.id}
+                                              onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleObeSubItemClick(nested.id);
+                                                setObeHovered(false);
+                                              }}
+                                              className={`w-full flex items-center justify-between px-3 py-2 text-xs font-medium transition-colors text-left ${
+                                                isNestedActive
+                                                  ? "text-primary bg-primary/10 font-bold"
+                                                  : "text-secondary hover:text-primary hover:bg-primary/5"
+                                              }`}
+                                            >
+                                              <span>{nested.label}</span>
+                                              <ChevronRight className="w-3.5 h-3.5 text-primary/70 shrink-0 ml-2" />
+                                            </button>
+                                          );
+                                        })}
+                                      </div>
+                                    )}
+
+                                    {/* Inline accordion when clicked */}
+                                    {sub.id === "obe" && obeDropdownOpen && (
+                                      <div className="bg-muted/40 border-l-2 border-primary/40 ml-12 py-1 space-y-0.5">
+                                        {sub.subItems!.map(nested => {
+                                          const isNestedActive = isSubActive && activeObeSubTab === nested.id;
+                                          return (
+                                            <button
+                                              key={nested.id}
+                                              onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleObeSubItemClick(nested.id);
+                                              }}
+                                              className={`w-full flex items-center justify-between px-3 py-1.5 text-[11px] transition-colors text-left ${
+                                                isNestedActive
+                                                  ? "text-primary font-bold bg-primary/10"
+                                                  : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                                              }`}
+                                            >
+                                              <span>{nested.label}</span>
+                                              <ChevronRight className={`w-3 h-3 ${isNestedActive ? "text-primary" : "text-muted-foreground/40"}`} />
+                                            </button>
+                                          );
+                                        })}
+                                      </div>
+                                    )}
+                                  </div>
+                                );
+                              }
+
                               return (
                                 <button
                                   key={sub.id}
@@ -737,6 +911,70 @@ const DepartmentPage = () => {
                             </div>
                             {item.subItems.map(sub => {
                               const isSubActive = isParentActive && activeSubTab === sub.id;
+                              const hasNested = !!(sub.subItems && sub.subItems.length > 0);
+
+                              if (hasNested) {
+                                return (
+                                  <div
+                                    key={sub.id}
+                                    className="relative group/nestedhover"
+                                    onMouseEnter={() => {
+                                      if (sub.id === "obe") setObeHovered(true);
+                                    }}
+                                    onMouseLeave={() => {
+                                      if (sub.id === "obe") setObeHovered(false);
+                                    }}
+                                  >
+                                    <button
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleSubClick(sub.id, sub.externalUrl);
+                                        setHovered(false);
+                                      }}
+                                      className={`w-full flex items-center justify-between px-3 py-2 text-xs font-medium transition-colors text-left ${
+                                        isSubActive
+                                          ? "text-primary bg-primary/10 font-bold"
+                                          : "text-secondary hover:text-primary hover:bg-primary/5"
+                                      }`}
+                                    >
+                                      <span>{sub.label}</span>
+                                      <ChevronRight className="w-3.5 h-3.5 text-primary/70" />
+                                    </button>
+
+                                    {sub.id === "obe" && obeHovered && (
+                                      <div
+                                        onMouseEnter={() => setObeHovered(true)}
+                                        onMouseLeave={() => setObeHovered(false)}
+                                        className="absolute left-full top-0 ml-1.5 w-56 bg-card border border-border shadow-xl rounded-xl py-1.5 z-50 animate-in fade-in slide-in-from-left-2 duration-150"
+                                      >
+                                        <div className="px-3 py-1.5 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider border-b border-border/50 mb-1">
+                                          {sub.label}
+                                        </div>
+                                        {sub.subItems!.map(nested => (
+                                          <button
+                                            key={nested.id}
+                                            onClick={(e) => {
+                                              e.stopPropagation();
+                                              handleObeSubItemClick(nested.id);
+                                              setHovered(false);
+                                              setObeHovered(false);
+                                            }}
+                                            className={`w-full flex items-center justify-between px-3 py-2 text-xs font-medium transition-colors text-left ${
+                                              isSubActive && activeObeSubTab === nested.id
+                                                ? "text-primary bg-primary/10 font-bold"
+                                                : "text-secondary hover:text-primary hover:bg-primary/5"
+                                            }`}
+                                          >
+                                            <span>{nested.label}</span>
+                                            <ChevronRight className="w-3.5 h-3.5 text-primary/70 shrink-0 ml-2" />
+                                          </button>
+                                        ))}
+                                      </div>
+                                    )}
+                                  </div>
+                                );
+                              }
+
                               return (
                                 <button
                                   key={sub.id}
@@ -2272,6 +2510,8 @@ const DepartmentPage = () => {
                       <span>Stakeholder <span className="text-primary">Feedback</span></span>
                     ) : activeMoreTab === "innovative-teaching" ? (
                       <span>Innovative <span className="text-primary">Teaching Approach</span></span>
+                    ) : activeMoreTab === "obe" ? (
+                      <span>Outcome Based Education <span className="text-primary">(OBE)</span></span>
                     ) : (
                       <span>More <span className="text-primary">Information</span></span>
                     )}
@@ -2590,6 +2830,169 @@ const DepartmentPage = () => {
                         <p className="font-semibold text-base text-secondary">Innovative teaching details will be uploaded soon.</p>
                       </Card>
                     )}
+                  </div>
+                ) : activeMoreTab === "obe" ? (
+                  <div className="space-y-6">
+                    {/* OBE Top Tabs Switcher - matches screenshot exactly */}
+                    <div className="flex flex-wrap items-center gap-2.5 mb-6">
+                      {[
+                        { id: "pos-psos-peos", label: "POs, PSOs & PEOs" },
+                        { id: "surveys", label: "Surveys" },
+                        { id: "remedial-classes", label: "Remedial Classes" },
+                        { id: "copo-attainment", label: "CO-PO Attainment" }
+                      ].map((tab) => {
+                        const isActive = activeObeSubTab === tab.id;
+                        return (
+                          <button
+                            key={tab.id}
+                            onClick={() => {
+                              setActiveObeSubTab(tab.id);
+                              navigate(`/department/${deptKey}/obe/${tab.id}`, { replace: true });
+                            }}
+                            className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 border ${
+                              isActive
+                                ? "bg-primary text-white border-primary shadow-sm"
+                                : "bg-background text-primary border-primary/70 hover:bg-primary/5 hover:border-primary"
+                            }`}
+                          >
+                            {tab.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Content Section based on activeObeSubTab */}
+                    {activeObeSubTab === "pos-psos-peos" ? (
+                      <div className="w-full flex justify-center bg-card rounded-xl border border-border/80 p-2 sm:p-4 shadow-xs overflow-hidden">
+                        <img
+                          src={moreData.obe?.posPsosPeosImage || "https://mits.ac.in/public/uploads/event/pso-po-peo.jpg"}
+                          alt="POs, PSOs & PEOs"
+                          className="w-full h-auto object-contain block max-w-5xl rounded-lg"
+                          loading="lazy"
+                        />
+                      </div>
+                    ) : activeObeSubTab === "surveys" ? (
+                      <div className="space-y-6">
+                        <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                          <div className="space-y-8">
+                            <div className="border-b border-border/60 pb-4">
+                              <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                                Surveys
+                              </h3>
+                              <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                                Feedback surveys collected across students, graduates, employers, and alumni
+                              </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6">
+                              {moreData.obe?.surveys?.map((cat, cIdx) => (
+                                <div key={cIdx} className="bg-muted/20 border border-border/70 rounded-xl p-5 space-y-3">
+                                  <h4 className="text-base sm:text-lg font-bold text-secondary flex items-center gap-2">
+                                    <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+                                    {cat.title}
+                                  </h4>
+                                  <div className="space-y-2.5 pl-1">
+                                    {cat.links.map((link, lIdx) => (
+                                      <a
+                                        key={lIdx}
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-sm"
+                                      >
+                                        <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                          <ChevronRight className="w-2.5 h-2.5 stroke-[3]" />
+                                        </div>
+                                        <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
+                                          {link.title}
+                                        </span>
+                                      </a>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </Card>
+                      </div>
+                    ) : activeObeSubTab === "remedial-classes" ? (
+                      <div className="space-y-6">
+                        <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                          <div className="space-y-6">
+                            <div className="border-b border-border/60 pb-4">
+                              <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                                Remedial Classes
+                              </h3>
+                              <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                                Academic remedial schedules and timetables across odd and even semesters
+                              </p>
+                            </div>
+
+                            <div className="grid sm:grid-cols-2 gap-3">
+                              {moreData.obe?.remedialClasses?.map((item, rIdx) => (
+                                <a
+                                  key={rIdx}
+                                  href={item.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="group flex items-center justify-between p-3.5 rounded-xl border border-border/70 bg-muted/20 hover:bg-primary/5 hover:border-primary/40 transition-all text-secondary hover:text-primary shadow-2xs"
+                                >
+                                  <div className="flex items-center gap-3 min-w-0">
+                                    <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                                      <FileText className="w-4 h-4" />
+                                    </div>
+                                    <span className="font-semibold text-xs sm:text-sm truncate text-secondary group-hover:text-primary">
+                                      {item.title}
+                                    </span>
+                                  </div>
+                                  <Download className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 ml-2 transition-transform group-hover:translate-y-0.5" />
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </Card>
+                      </div>
+                    ) : activeObeSubTab === "copo-attainment" ? (
+                      <div className="space-y-6">
+                        <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                          <div className="space-y-6">
+                            <div className="border-b border-border/60 pb-4">
+                              <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                                CO-PO Attainment
+                              </h3>
+                              <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                                Course Outcome & Program Outcome batch-wise attainment evaluation reports
+                              </p>
+                            </div>
+
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                              {moreData.obe?.copoAttainment?.map((item, aIdx) => (
+                                <a
+                                  key={aIdx}
+                                  href={item.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="group flex flex-col justify-between p-5 rounded-xl border border-border/70 bg-muted/20 hover:bg-primary/5 hover:border-primary/40 transition-all text-secondary hover:text-primary shadow-2xs"
+                                >
+                                  <div className="space-y-2">
+                                    <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                      <FileText className="w-5 h-5" />
+                                    </div>
+                                    <h4 className="font-bold text-sm sm:text-base text-secondary group-hover:text-primary pt-2">
+                                      {item.title}
+                                    </h4>
+                                  </div>
+                                  <div className="flex items-center gap-1.5 text-xs text-primary font-semibold mt-4 pt-3 border-t border-border/50">
+                                    <span>View Attainment Report</span>
+                                    <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                                  </div>
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </Card>
+                      </div>
+                    ) : null}
                   </div>
                 ) : null}
               </motion.div>

@@ -164,6 +164,8 @@ const App = () => (
             <Route path="/department/:deptKey" element={<DepartmentPage />} />
             <Route path="/department/:deptKey/faculty/:slug" element={<FacultyProfilePage />} />
             <Route path="/department/:deptKey/:section" element={<DepartmentPage />} />
+            <Route path="/department/:deptKey/:section/:subSection" element={<DepartmentPage />} />
+            <Route path="/department/:deptKey/:section/:subSection/:subTab" element={<DepartmentPage />} />
             <Route path="/mits-radio" element={<MitsRadio />} />
             <Route path="/terms-conditions-policy" element={<TermsConditionsPolicy />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
