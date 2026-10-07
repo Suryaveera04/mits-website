@@ -140,6 +140,7 @@ export interface DepartmentData {
   underGraduate?: UnderGraduateData;
   more?: DepartmentMoreData;
   topTabs?: DepartmentTopTab[];
+  goals?: string[];
 }
 
 export interface DepartmentTopTabDoc {
@@ -231,9 +232,16 @@ export interface SyllabusTable {
   rows: SyllabusRow[];
 }
 
+export interface UnderGraduateSection {
+  title: string;
+  description?: string;
+  points?: string[];
+}
+
 export interface UnderGraduateData {
   programTitle: string;
   programOverview: string;
+  sections?: UnderGraduateSection[];
   syllabusTables?: SyllabusTable[];
   subTabs?: { id: string; label: string }[];
   timeTables?: UnderGraduateTimeTableGroup[];
@@ -1563,12 +1571,18 @@ percentage: "92%", avgPackage: "INR 5.5 LPA", highestPackage: "INR 15 LPA", recr
     shortName: "CSE-AI",
     established: "2020",
     bannerImage: deptImg("ai"),
-    about: "The Department of Artificial Intelligence offers 4-year degree in Artificial Intelligence, which is established in the year 2020. The course is flexible and has been structured to meet the evolving needs of the IT industry. The College Academic Council, Board of Studies of the department strive to provide quality education and most advanced curriculum and syllabus to make the students industry ready and excel in the contemporary business world. B. Tech. in Artificial Intelligence (AI) is an undergraduate programme with advanced learning solutions imparting knowledge of advanced innovations like Artificial Intelligence, Machine Learning and Deep Learning. The main goal of artificial intelligence (AI) is to program computers to use example data or experience to solve a real-life / real-time problem.",
+    about: "The Department of Artificial Intelligence offers 4-year degree in Artificial Intelligence, which is established in the year 2020. The course is flexible and has been structured to meet the evolving needs of the IT industry. The College Academic Council, Board of Studies of the department strive to provide quality education and most advanced curriculum and syllabus to make the students industry ready and excel in the contemporary business world.\n\nB. Tech. in Artificial Intelligence (AI) is an undergraduate programme with advanced learning solutions imparting knowledge of advanced innovations like Artificial Intelligence, Machine Learning and Deep Learning. The main goal of artificial intelligence (AI) is to program computers to use example data or experience to solve a real-life / real-time problem.",
+    goals: [
+      "To maintain a high standard of education through outstanding teaching innovative curriculum and research training that reflect the changing needs of society.",
+      "To attract highly motivated students with enthusiasm, attitude and interest in Artificial Intelligence.",
+      "To pursue excellence in research and technology transfer.",
+      "To increase the public awareness of departmental activities and the Artificial Intelligence profession."
+    ],
     vision: "To develop socially responsible, globally competent and skilled professionals with ethics through education and research in the field of Artificial intelligence.",
     mission: [
-      "M1: To educate the students in fundamental principles of Mathematics, Statistics and Artificial Intelligence with the required infrastructure and well qualified faculty.",
-      "M2: To provide state-of-the art computing laboratory facilities for strengthening innovation, research & development.",
-      "M3: To motivate students to emerge as entrepreneurs with self-learning abilities, team spirit and leadership qualities through continuous industry-institute interaction."
+      "To educate the students in fundamental principles of Mathematics, Statistics and Artificial Intelligence with the required infrastructure and well qualified faculty.",
+      "To provide state-of-the art computing laboratory facilities for strengthening innovation, research & development.",
+      "To motivate students to emerge as entrepreneurs with self-learning abilities, team spirit and leadership qualities through continuous industry-institute interaction."
     ],
     nbaAccredited: false,
     hod: { name: "Dr. R. Kalpana", designation: "Professor & Head", qualification: "Ph.D. (Anna University)", image: "https://mits.ac.in/public/uploads/faculty/Dr. R. Kalpana.JPG", profileUrl: "https://mits.ac.in/facultyprofile/80" },
@@ -2746,6 +2760,277 @@ export const aimlUnderGraduateData: UnderGraduateData = {
   ]
 };
 
+export const aiUnderGraduateData: UnderGraduateData = {
+  programTitle: "Bachelor of Technology (B.Tech) Program",
+  programOverview:
+    "The Department of Computer Science & Engineering (Artificial Intelligence) offers B.Tech program designed to equip the students with cutting-edge AI, Machine Learning, Deep Learning and Data Science skills. The curriculum combines strong foundational courses with advanced AI-driven specializations, preparing students for industry, research, and innovation.",
+  subTabs: [
+    { id: "ug", label: "UG Overview" },
+    { id: "course-syllabus", label: "Course Syllabus" },
+    { id: "timetable", label: "Timetable" }
+  ],
+  sections: [
+    {
+      title: "Curriculum",
+      description:
+        "The B.Tech program follows a structured R20 & R23 Curriculum, balancing core Computer Science Fundamentals with AI-focused subjects.",
+      points: [
+        "First Year: Foundational courses in Mathematics, Physics, Chemistry, and Programming.",
+        "Second Year: Core computer science subjects like Data Structures, Operating Systems, and Algorithms, alongside AI Fundamentals.",
+        "Third Year: Specialized courses in Machine Learning, Deep Learning, Big Data Analytics, and Computer Networks.",
+        "Fourth Year: Advanced electives, industry-driven projects, and mandatory internships for real-world exposure.",
+        "The program includes hands-on labs, research opportunities, and skill-oriented courses to ensure students graduate with industry-ready expertise."
+      ]
+    },
+    {
+      title: "Department Information",
+      description:
+        "Established in 2020, the Department of Computer Science & Engineering (Artificial Intelligence) has been focussing on AI-driven innovations, interdisciplinary learning, and industry collaborations. The curriculum is flexible and industry-relevant, ensuring students gain strong analytical, programming, and problem-solving skills required in today’s AI-driven world."
+    },
+    {
+      title: "Department Activities",
+      description:
+        "The Department actively organizes faculty development programs (FDPs), Student Term Training Program (STTP), Expert Talks, Workshops, Hackathons, and Industry Collaborations to enhance academic and professional growth.",
+      points: [
+        "Industry Engagements: MoUs with leading AI firms, industry-driven internships, and guest lectures.",
+        "Student Development: Hands-on workshops in Cloud Computing, DevOps, UI/UX, NLP, Robotics, and AI applications.",
+        "Research & Conferences: Hosting national conferences, technical symposiums, and AI innovation challenges."
+      ]
+    },
+    {
+      title: "Computer Lab",
+      description:
+        "The Department boasts a state-of-the-art computer lab with high-performance systems and advanced software tools for AI research and development.",
+      points: [
+        "Model: Mantra Momentum 4599 Tower Work Station (MSI)",
+        "Processor: Intel i7, 12th Generation",
+        "RAM: 32GB DDR4",
+        "HDD: 2 TB SATA + 500 GB SSD",
+        "Graphic card: NVIDIA 12GB",
+        "Monitor: Samsung 22’’ LED",
+        "Keyboard & Mouse: Logitech",
+        "Licensed & Open-Source Software (Python, Jupyter Notebook, MongoDB, Hadoop, Spark, IntelliJ, Anaconda Navigator etc.).",
+        "Dedicated AI, ML, DL, and Big Data Labs for hands-on learning.",
+        "CISCO Networking Infrastructure with high-speed internet connectivity.",
+        "Smart Classroom Integration with EPSON LCD Projector & Delta 20 kVA UPS for uninterrupted learning.",
+        "The lab provides an ideal environment for students to develop AI applications, conduct research, and work on real-world projects in AI domain."
+      ]
+    }
+  ],
+  timeTables: [
+    {
+      groupTitle: "Master Time Tables",
+      items: [
+        {
+          title: "B.Tech II Year 2025-26 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/B.%20Tech%20II%20Year%202025-26%20I%20Semester%20Timetable-AI.pdf",
+          academicYear: "2025-26",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech III Year 2025-26 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/B.%20Tech%20III%20Year%202025-26%20I%20Semester%20Timetable-AI.pdf",
+          academicYear: "2025-26",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech IV Year 2025-26 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/B.%20Tech%20IV%20Year%202025-26%20I%20Semester%20Timetable-AI.pdf",
+          academicYear: "2025-26",
+          category: "Master Timetable"
+        }
+      ]
+    },
+    {
+      groupTitle: "Individual Faculty Time Tables",
+      items: [
+        {
+          title: "Individual Faculty Timetables",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/CAI-Faculty%20Individual%20Time%20Tables%20(2024-25).pdf",
+          academicYear: "2024-25",
+          category: "Faculty Timetable"
+        }
+      ]
+    }
+  ],
+  syllabusTables: [
+    {
+      title: "AI - B.Tech I Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Communicative English", type: "Theory", credits: "2" },
+        { sno: "2", name: "Linear Algebra and Calculus", type: "Theory", credits: "3" },
+        { sno: "3", name: "Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "Basic Civil and Mechanical Engineering", type: "Theory", credits: "3" },
+        { sno: "5", name: "Introduction to Programming", type: "Theory", credits: "3" },
+        { sno: "6", name: "Communicative English Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Chemistry Laboratory", type: "Lab", credits: "1" },
+        { sno: "8", name: "Computer Programming Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "10", name: "Health and Wellness, Yoga and Sports", type: "Activity", credits: "0.5" }
+      ]
+    },
+    {
+      title: "AI - B.Tech I Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Differential Equations and Vector Calculus", type: "Theory", credits: "3" },
+        { sno: "2", name: "Engineering Physics", type: "Theory", credits: "3" },
+        { sno: "3", name: "Basic Electrical and Electronics Engineering", type: "Theory", credits: "3" },
+        { sno: "4", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "5", name: "Data Structures", type: "Theory", credits: "3" },
+        { sno: "6", name: "Engineering Physics Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Electrical and Electronics Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "IT Workshop", type: "Lab", credits: "1" },
+        { sno: "9", name: "Data Structures Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "10", name: "NSS / NCC / Scouts and Guides / Community Service", type: "Activity", credits: "0.5" }
+      ]
+    },
+    {
+      title: "AI - B.Tech II Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Universal Human Values", type: "Theory", credits: "3" },
+        { sno: "2", name: "Economics and Financial Accounting For Engineers", type: "Theory", credits: "2" },
+        { sno: "3", name: "Probability and Statistics for Computer Science", type: "Theory", credits: "3" },
+        { sno: "4", name: "Principles of Artificial Intelligence", type: "Theory", credits: "3" },
+        { sno: "5", name: "Advanced Data Structures and Algorithms Analysis", type: "Theory", credits: "3" },
+        { sno: "6", name: "Database Management Systems", type: "Theory", credits: "3" },
+        { sno: "7", name: "Advanced Data Structures and Algorithms Analysis Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Database Management Systems Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Python programming", type: "Theory", credits: "2" }
+      ]
+    },
+    {
+      title: "AI - B.Tech II Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Discrete Mathematical Structures", type: "Theory", credits: "3" },
+        { sno: "2", name: "Digital Logic and Computer Organization", type: "Theory", credits: "3" },
+        { sno: "3", name: "Innovation and Incubation Courses", type: "Theory", credits: "2" },
+        { sno: "4", name: "Machine Learning", type: "Theory", credits: "3" },
+        { sno: "5", name: "Object-Oriented Programming Through JAVA", type: "Theory", credits: "3" },
+        { sno: "6", name: "Artificial Intelligence and Machine Learning Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Object-Oriented Programming Through JAVA Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Full Stack Development-1", type: "Lab", credits: "2" },
+        { sno: "9", name: "Environmental Science", type: "Theory", credits: "1.5" }
+      ]
+    },
+    {
+      title: "AI - B.Tech I Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Engineering Calculus", type: "Theory", credits: "3" },
+        { sno: "2", name: "Applied Physics", type: "Theory", credits: "4" },
+        { sno: "3", name: "Basic Electrical Engineering", type: "Theory", credits: "3" },
+        { sno: "4", name: "Programming for Problem Solving (Python)", type: "Theory", credits: "3.5" },
+        { sno: "5", name: "English for Professional Purposes Laboratory", type: "Theory", credits: "1" },
+        { sno: "6", name: "Physics Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Electrical Engineering Laboratory", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "AI - B.Tech I Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional English", type: "Theory", credits: "3" },
+        { sno: "2", name: "Linear Algebra", type: "Theory", credits: "3" },
+        { sno: "3", name: "Engineering Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "C Programming and Data Structures", type: "Theory", credits: "3" },
+        { sno: "5", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "6", name: "Chemistry Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "C Programming and Data Structures Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Engineering and IT Workshop", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "AI - B.Tech II Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Probability and Statistics for Computer Science", type: "Theory", credits: "3" },
+        { sno: "2", name: "Computer System Architecture", type: "Theory", credits: "3" },
+        { sno: "3", name: "Data Structures using Python", type: "Theory", credits: "3" },
+        { sno: "4", name: "Object Oriented Programming - JAVA", type: "Theory", credits: "3" },
+        { sno: "5", name: "Fundamentals of Artificial Intelligence", type: "Theory", credits: "3" },
+        { sno: "6", name: "Data Structures using Python Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Object Oriented Programming - JAVA Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Fundamentals of Artificial Intelligence Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – I (Refer Annexure - IV)", type: "Skill", credits: "2" },
+        { sno: "10", name: "Environmental Science", type: "Theory", credits: "0" }
+      ]
+    },
+    {
+      title: "AI - B.Tech II Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Economics and Financial Accounting for Engineers", type: "Theory", credits: "3" },
+        { sno: "2", name: "Discrete Mathematical Structures", type: "Theory", credits: "3" },
+        { sno: "3", name: "Operating Systems Fundamentals", type: "Theory", credits: "3" },
+        { sno: "4", name: "AI Tools, Techniques and Applications", type: "Theory", credits: "3" },
+        { sno: "5", name: "Design and Analysis of Algorithms", type: "Theory", credits: "3" },
+        { sno: "6", name: "Operating Systems Fundamentals Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "AI Tools, Techniques and Applications Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Design and Analysis of Algorithms Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – II (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "10", name: "Indian Constitution", type: "Theory", credits: "0" }
+      ]
+    },
+    {
+      title: "AI - B.Tech III Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Computer Networks", type: "Theory", credits: "3" },
+        { sno: "2", name: "Database Management Systems", type: "Theory", credits: "3" },
+        { sno: "3", name: "Machine Learning", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-1", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-1", type: "Theory", credits: "3" },
+        { sno: "6", name: "Database Management Systems Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Machine Learning Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Skill Oriented Course – III (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "9", name: "Disaster Management", type: "Lab", credits: "0" },
+        { sno: "10", name: "Summer Internship-1*", type: "Theory", credits: "1.5" }
+      ]
+    },
+    {
+      title: "AI - B.Tech III Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Big Data Analytics", type: "Theory", credits: "3" },
+        { sno: "2", name: "Deep Learning", type: "Theory", credits: "3" },
+        { sno: "3", name: "Data Science", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-II", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-II", type: "Theory", credits: "3" },
+        { sno: "6", name: "Big Data Analytics Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Deep Learning Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Data Science Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – IV (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "10", name: "Universal Human Values", type: "Theory", credits: "0" }
+      ]
+    },
+    {
+      title: "AI - B.Tech IV Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional Elective-III", type: "Theory", credits: "3" },
+        { sno: "2", name: "Professional Elective-IV", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective-V", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-III", type: "Theory", credits: "3" },
+        { sno: "5", name: "Open Elective-IV", type: "Theory", credits: "3" },
+        { sno: "6", name: "Open Elective-V (Taken from Humanities & Social Science)", type: "Theory", credits: "3" },
+        { sno: "7", name: "Skill Oriented Course – V (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "8", name: "Summer Internship-2 *", type: "Project", credits: "3" }
+      ]
+    },
+    {
+      title: "AI - B.Tech IV Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Project Work, Seminar and Internship in Industry (6 months)", type: "Project", credits: "12" }
+      ]
+    }
+  ]
+};
+
 /**
  * Returns undergraduate program and syllabus data for any department.
  */
@@ -2754,8 +3039,11 @@ export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subjec
   if (dept && dept.underGraduate) {
     return dept.underGraduate;
   }
-  if (deptKey === "aiml" || deptKey === "cse-ai-ml" || deptKey === "ai") {
+  if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
     return aimlUnderGraduateData;
+  }
+  if (deptKey === "ai" || deptKey === "cai") {
+    return aiUnderGraduateData;
   }
 
   const semMap = new Map<number, Subject[]>();
@@ -2902,6 +3190,18 @@ export const aimlMoreData: DepartmentMoreData = {
   ]
 };
 
+export const aiMoreData: DepartmentMoreData = {
+  subTabs: [
+    {
+      id: "stock-register",
+      label: "Stock Register",
+      externalUrl: "https://mits.ac.in/assets/pdf/stock-registers/CAI%20Stock%20Register.pdf",
+      directPdf: true
+    }
+  ],
+  mentorMentee: []
+};
+
 /**
  * Returns customized "More" section data (Mentor & Mentee, Minor, etc.) for any department.
  */
@@ -2910,8 +3210,11 @@ export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   if (dept && dept.more) {
     return dept.more;
   }
-  if (deptKey === "aiml" || deptKey === "cse-ai-ml" || deptKey === "ai") {
+  if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
     return aimlMoreData;
+  }
+  if (deptKey === "ai" || deptKey === "cai") {
+    return aiMoreData;
   }
   return {
     subTabs: [
@@ -3027,6 +3330,59 @@ export const aimlTopTabs: DepartmentTopTab[] = [
   }
 ];
 
+export const aiTopTabs: DepartmentTopTab[] = [
+  {
+    id: "department",
+    label: "Department"
+  },
+  {
+    id: "bos",
+    label: "BoS",
+    title: "Board Of Studies",
+    documents: [
+      {
+        title: "BoS 2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/c113d7cb15132aba80706010f82e7817.pdf"
+      },
+      {
+        title: "BoS 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/4b0edb027df8d3f8c3c0c53679b5ff5b.pdf"
+      },
+      {
+        title: "BoS 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/e57c7d32d03795ae813663ab993ac412.pdf"
+      },
+      {
+        title: "BoS 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/b66ec423059e5e8476426f058da9536b.pdf"
+      }
+    ]
+  },
+  {
+    id: "iaab",
+    label: "IAAB",
+    title: "Industry Alumni Advisory Board",
+    documents: [
+      {
+        title: "IAAB-2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/ffb04bfeb3972fec2a32218964aecb15.pdf"
+      },
+      {
+        title: "IAAB-2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/b5ef510df20d8ba93b350f86473e9689.pdf"
+      },
+      {
+        title: "IAAB-2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/52c2fac94f88759c92531be99044a0af.pdf"
+      },
+      {
+        title: "IAAB-2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/b9210ea109ba406fe9241d5b62e6cdcf.pdf"
+      }
+    ]
+  }
+];
+
 /**
  * Returns top tabs data (Department, BoS, IAAB, Magazine, etc.) for any department.
  */
@@ -3035,8 +3391,11 @@ export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | unde
   if (dept && dept.topTabs && dept.topTabs.length > 0) {
     return dept.topTabs;
   }
-  if (deptKey === "aiml" || deptKey === "cse-ai-ml" || deptKey === "ai") {
+  if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
     return aimlTopTabs;
+  }
+  if (deptKey === "ai" || deptKey === "cai") {
+    return aiTopTabs;
   }
   return undefined;
 }

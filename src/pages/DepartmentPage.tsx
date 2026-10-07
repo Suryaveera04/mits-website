@@ -155,10 +155,18 @@ const DepartmentPage = () => {
   const specializations = useMemo(() => {
     if (!ugData.syllabusTables || ugData.syllabusTables.length === 0) return [];
     const specs = new Set<string>();
-    ugData.syllabusTables.forEach(t => {
-      if (t.title.includes("AI & ML") || t.title.includes("AI&ML")) specs.add("CSE (AI & ML)");
-      else if (t.title.includes("Networks")) specs.add("CSE (Networks)");
-    });
+    const hasAimL = ugData.syllabusTables.some(t => t.title.includes("AI & ML") || t.title.includes("AI&ML"));
+    const hasNetworks = ugData.syllabusTables.some(t => t.title.includes("Networks"));
+    const hasR23 = ugData.syllabusTables.some(t => t.title.includes("R23"));
+    const hasR20 = ugData.syllabusTables.some(t => t.title.includes("R20"));
+
+    if (hasAimL || hasNetworks) {
+      if (hasAimL) specs.add("CSE (AI & ML)");
+      if (hasNetworks) specs.add("CSE (Networks)");
+    } else if (hasR23 && hasR20) {
+      specs.add("R23 Scheme");
+      specs.add("R20 Scheme");
+    }
     return Array.from(specs);
   }, [ugData.syllabusTables]);
 
@@ -779,7 +787,25 @@ const DepartmentPage = () => {
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6 mt-8">
+                    <div className={`grid gap-6 mt-8 ${dept.goals && dept.goals.length > 0 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
+                      {dept.goals && dept.goals.length > 0 && (
+                        <Card className="h-full border-l-4 border-l-amber-500">
+                          <CardContent className="p-6">
+                            <div className="flex items-center gap-2 mb-3">
+                              <Trophy className="w-5 h-5 text-amber-500" />
+                              <h3 className="font-bold text-lg text-secondary">Goals</h3>
+                            </div>
+                            <ul className="space-y-2">
+                              {dept.goals.map((g, i) => (
+                                <li key={i} className="text-muted-foreground text-sm flex gap-2">
+                                  <span className="text-amber-500 font-bold shrink-0">•</span>
+                                  <span>{g}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </CardContent>
+                        </Card>
+                      )}
                       <Card className="h-full border-l-4 border-l-primary">
                         <CardContent className="p-6">
                           <div className="flex items-center gap-2 mb-3">
@@ -1037,7 +1063,9 @@ const DepartmentPage = () => {
 
                           {/* Regulation indicator */}
                           <div className="text-xs font-semibold text-muted-foreground px-3.5 py-2 bg-muted/30 border border-border/70 rounded-xl shrink-0">
-                            Academic Regulation: <span className="text-primary font-bold">R23 Autonomous Scheme</span>
+                            Academic Regulation: <span className="text-primary font-bold">
+                              {syllabusFilter === "R20 Scheme" ? "R20 Autonomous Scheme" : syllabusFilter === "R23 Scheme" ? "R23 Autonomous Scheme" : (ugData.syllabusTables.some(t => t.title.includes("R20")) ? "R23 & R20 Schemes" : "R23 Autonomous Scheme")}
+                            </span>
                           </div>
                         </div>
 
@@ -1058,8 +1086,15 @@ const DepartmentPage = () => {
                               All Schemes ({ugData.syllabusTables.length})
                             </button>
                             {specializations.map((spec) => {
-                              const cleanSpec = spec.toLowerCase().replace("cse", "").replace(/[()]/g, "").trim();
-                              const count = ugData.syllabusTables?.filter(t => t.title.toLowerCase().includes(cleanSpec)).length || 0;
+                              let count = 0;
+                              if (spec.includes("R23")) {
+                                count = ugData.syllabusTables?.filter(t => t.title.includes("R23")).length || 0;
+                              } else if (spec.includes("R20")) {
+                                count = ugData.syllabusTables?.filter(t => t.title.includes("R20")).length || 0;
+                              } else {
+                                const cleanSpec = spec.toLowerCase().replace("cse", "").replace(/[()]/g, "").trim();
+                                count = ugData.syllabusTables?.filter(t => t.title.toLowerCase().includes(cleanSpec)).length || 0;
+                              }
                               return (
                                 <button
                                   key={spec}
@@ -1093,6 +1128,12 @@ const DepartmentPage = () => {
                       // Filter tables by stream
                       const filteredTables = ugData.syllabusTables.filter((table) => {
                         if (syllabusFilter === "all") return true;
+                        if (syllabusFilter === "R23 Scheme" || syllabusFilter === "R23") {
+                          return table.title.includes("R23");
+                        }
+                        if (syllabusFilter === "R20 Scheme" || syllabusFilter === "R20") {
+                          return table.title.includes("R20");
+                        }
                         const cleanSpec = syllabusFilter.toLowerCase().replace("cse", "").replace(/[()]/g, "").trim();
                         return table.title.toLowerCase().includes(cleanSpec);
                       });
@@ -1149,7 +1190,7 @@ const DepartmentPage = () => {
                                 </div>
                                 <div className="flex items-center gap-2 shrink-0">
                                   <span className="px-2.5 py-1 bg-card border border-border text-secondary rounded-full text-xs font-bold">
-                                    R23
+                                    {table.title.includes("R20") ? "R20" : "R23"}
                                   </span>
                                   <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold shadow-xs">
                                     Total: {calculateTableCredits(table.rows)} Credits
@@ -1226,7 +1267,9 @@ const DepartmentPage = () => {
                           </div>
                           <div className="bg-muted/20 border border-border/70 rounded-xl p-4">
                             <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider block mb-1">Regulation</span>
-                            <span className="text-sm font-bold text-secondary">R23 Autonomous Scheme</span>
+                            <span className="text-sm font-bold text-secondary">
+                              {ugData.syllabusTables?.some(t => t.title.includes("R20")) ? "R23 & R20 Schemes" : "R23 Autonomous Scheme"}
+                            </span>
                           </div>
                           <div className="bg-muted/20 border border-border/70 rounded-xl p-4">
                             <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider block mb-1">Curriculum</span>
@@ -1241,6 +1284,37 @@ const DepartmentPage = () => {
                         </div>
                       </CardContent>
                     </Card>
+
+                    {/* Additional Department Sections (Curriculum, Dept Info, Activities, Computer Lab) */}
+                    {ugData.sections && ugData.sections.length > 0 && (
+                      <div className="grid md:grid-cols-2 gap-6">
+                        {ugData.sections.map((sec, sIdx) => (
+                          <Card key={sIdx} className="border border-border/80 shadow-xs bg-card">
+                            <CardContent className="p-6 space-y-3">
+                              <h4 className="text-lg font-bold text-secondary flex items-center gap-2">
+                                <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                                {sec.title}
+                              </h4>
+                              {sec.description && (
+                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                  {sec.description}
+                                </p>
+                              )}
+                              {sec.points && sec.points.length > 0 && (
+                                <ul className="space-y-2">
+                                  {sec.points.map((pt, pIdx) => (
+                                    <li key={pIdx} className="text-muted-foreground text-sm flex gap-2">
+                                      <span className="text-primary font-bold shrink-0">•</span>
+                                      <span className="leading-relaxed">{pt}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )}
             </motion.div>
