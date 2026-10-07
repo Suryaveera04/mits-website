@@ -141,6 +141,7 @@ export interface DepartmentData {
   more?: DepartmentMoreData;
   topTabs?: DepartmentTopTab[];
   goals?: string[];
+  isUnderUpdate?: boolean;
 }
 
 export interface DepartmentTopTabDoc {
@@ -306,7 +307,7 @@ const deptImg = (key: string) => `${BASE}departments/${key}.jpg`;
 export const departmentsData: Record<string, DepartmentData> = {
   cse: {
     key: "cse",
-    name: "Computer Science and Engineering",
+    name: "Computer Science & Engineering",
     shortName: "CSE",
     established: "1998",
     bannerImage: deptImg("cse"),
@@ -324,7 +325,7 @@ export const departmentsData: Record<string, DepartmentData> = {
       description: "The department follows an outcome-based education (OBE) framework integrated with experiential learning methodologies.",
       points: ["Project-based learning with industry problems", "NPTEL, Coursera & edX integrated MOOCs", "Hackathons and coding competitions", "Industry mentorship programs", "IBM, Microsoft, Accenture certification tracks"]
     },
-    courses: ["B.Tech in Computer Science and Engineering", "M.Tech in Computer Science and Engineering", "Ph.D. in Computer Science and Engineering"],
+    courses: ["Computer Science & Engineering", "Computer Science and Engineering"],
     contactInfo: { email: "csehod@mits.ac.in", phone: "+91-9160020784; 8571-280255; 280706" },
     faculty: [
       /*
@@ -830,7 +831,7 @@ percentage: "98%",
       ]
     },
     courses: [
-      "B.Tech in Bioinformatics"
+      "Bioinformatics"
     ],
     contactInfo: {
       email: "admissions@mits.ac.in",
@@ -914,7 +915,7 @@ percentage: "85%",
       description: "The department emphasizes practical learning with site visits, surveying camps, and hands-on laboratory sessions.",
       points: ["Site visits and field surveys", "BIM-integrated design projects", "Industry guest lectures", "Sustainability-focused curriculum", "Geotechnical field testing"]
     },
-    courses: ["B.Tech in Civil Engineering"],
+    courses: ["Civil Engineering", "Construction Engineering and Management"],
     contactInfo: { email: "civilhod@mits.ac.in", phone: "+91-9100973371; 8571-280255; 280706" },
     faculty: [
       /*
@@ -1018,7 +1019,7 @@ percentage: "80%", avgPackage: "₹4.5 LPA", highestPackage: "₹9 LPA", recruit
 
   eee: {
     key: "eee",
-    name: "Electrical & Electronics Engineering",
+    name: "Electrical and Electronics Engineering",
     shortName: "EEE",
     established: "1998",
     bannerImage: deptImg("eee"),
@@ -1033,7 +1034,7 @@ percentage: "80%", avgPackage: "₹4.5 LPA", highestPackage: "₹9 LPA", recruit
     hod: { name: "Dr. Manavaalan Gunasekaran", designation: "Assoc. Professor & Head", qualification: "Ph.D. (IIT, Kanpur)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Manavaalan Gunasekaran.JPG", profileUrl: "https://mits.ac.in/facultyprofile/931" },
     achievements: { consultancyAmount: "₹8+ Lakhs", researchProjects: "6+", patents: "3+", publications: "80+" },
     teachingApproach: { description: "Hands-on approach with emphasis on renewable energy projects and smart grid technologies.", points: ["Power systems simulation labs", "Renewable energy installations", "Industry visits to power plants", "Smart grid research projects", "NPTEL certification courses"] },
-    courses: ["B.Tech in Electrical & Electronics Engineering"],
+    courses: ["Electrical and Electronics Engineering", "Electric Vehicle Technology"],
     contactInfo: { email: "hod_eee@mits.ac.in", phone: "+91-8571-280255" },
 faculty: [
       /*
@@ -1150,7 +1151,7 @@ percentage: "85%", avgPackage: "₹4.5 LPA", highestPackage: "₹10 LPA", recrui
     hod: { name: "Dr. S. Baskaran", designation: "Assoc. Professor & Head", qualification: "Ph.D. (NIT, Tiruchirappalli)", image: "https://mits.ac.in/public/uploads/faculty/DR S BASKARAN.JPG", profileUrl: "https://mits.ac.in/facultyprofile/306" },
     achievements: { consultancyAmount: "₹12+ Lakhs", researchProjects: "10+", patents: "4+", publications: "120+" },
     teachingApproach: { description: "Emphasis on hands-on training through workshops, CAD/CAM labs, and industry-oriented projects.", points: ["Advanced CAD/CAM training", "Manufacturing workshop practice", "Industry visits", "Design competitions", "ANSYS simulation projects"] },
-    courses: ["B.Tech in Mechanical Engineering"],
+    courses: ["Mechanical Engineering", "Automation and Robotics"],
     contactInfo: { email: "mehod@mits.ac.in", phone: "+91-8571-280255" },
     faculty: [
       /*
@@ -1268,7 +1269,7 @@ percentage: "88%", avgPackage: "₹5 LPA", highestPackage: "₹11 LPA", recruite
 
   ece: {
     key: "ece",
-    name: "Electronics & Communication Engineering",
+    name: "Electronics & Communication Engg",
     shortName: "ECE",
     established: "2005",
     bannerImage: deptImg("ece"),
@@ -1283,7 +1284,7 @@ percentage: "88%", avgPackage: "₹5 LPA", highestPackage: "₹11 LPA", recruite
     hod: { name: "Dr. S. Rajasekaran", designation: "Professor & Head", qualification: "Ph.D. (Anna University, Chennai)", image: "public/uploads/faculty/f8983b3c4255e5b248d9b51eb8f62e38.jpeg", profileUrl: "https://mits.ac.in/facultyprofile/173" },
     achievements: { consultancyAmount: "₹15+ Lakhs", researchProjects: "12+", patents: "8+", publications: "150+" },
     teachingApproach: { description: "The department integrates simulation-based learning with hands-on hardware projects.", points: ["VLSI design with Cadence tools", "IoT prototyping with Arduino/Raspberry Pi", "PCB design and fabrication", "Communication system simulation", "MATLAB & Simulink projects"] },
-    courses: ["B.Tech in Electronics & Communication Engineering"],
+    courses: ["Electronics & Communication Engg", "VLSI Design and Embedded Systems"],
     contactInfo: { email: "hod_ece@mits.ac.in", phone: "+91-8571-280255" },
     faculty: [
       /*
@@ -1409,7 +1410,7 @@ percentage: "90%", avgPackage: "₹5 LPA", highestPackage: "₹12 LPA", recruite
 
   cseds: {
     key: "cseds",
-    name: "CSE - Data Science",
+    name: "Computer Science and Engineering (Artificial Intelligence and Data Science)",
     shortName: "CSE-DS",
     established: "2020",
     bannerImage: deptImg("csd"),
@@ -1420,7 +1421,7 @@ percentage: "90%", avgPackage: "₹5 LPA", highestPackage: "₹12 LPA", recruite
     hod: { name: "Dr. S. Kusuma", designation: "Asst. Professor & Head", qualification: "Ph.D. (VIT University)", image: "https://mits.ac.in/public/uploads/faculty/c9fcfd6e1946a61df27003a2c31fbb64.JPG", profileUrl: "https://mits.ac.in/facultyprofile/98" },
     achievements: { consultancyAmount: "INR 5+ Lakhs", researchProjects: "6+", patents: "4+", publications: "60+" },
     teachingApproach: { description: "Data-centric approach with Kaggle competitions, industry datasets, and hands-on ML projects.", points: ["Kaggle competition participation", "Industry dataset projects", "Python & R programming labs", "Tableau & Power BI training", "AWS/GCP cloud analytics"] },
-    courses: ["B.Tech in CSE - Data Science"],
+    courses: ["Computer Science and Engineering (Artificial Intelligence and Data Science)"],
     contactInfo: { email: "dshod@mits.ac.in", phone: "+91-8571-280255" },
     faculty: [
       /*
@@ -1519,7 +1520,7 @@ percentage: "2023-24: 50 offers out of 62 eligible", avgPackage: "As per placeme
 
   csecs: {
     key: "csecs",
-    name: "CSE - Cyber Security",
+    name: "Computer Science and Engineering (Cyber Security)",
     shortName: "CSE-CS",
     established: "2020",
     bannerImage: deptImg("csc"),
@@ -1530,7 +1531,7 @@ percentage: "2023-24: 50 offers out of 62 eligible", avgPackage: "As per placeme
     hod: { name: "Dr. Brahm Prakash", designation: "Assoc. Professor & Head", qualification: "Ph.D. (IKG Punjab Technical University)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Brahm Prakash.JPG", profileUrl: "https://mits.ac.in/facultyprofile/1085" },
     achievements: { consultancyAmount: "INR 3+ Lakhs", researchProjects: "4+", patents: "2+", publications: "40+" },
     teachingApproach: { description: "Practice-oriented curriculum with CTF competitions, ethical hacking labs, and security audits.", points: ["Capture The Flag competitions", "Ethical hacking practical labs", "Network penetration testing", "Security certifications (CEH, CompTIA)", "Cyber forensics workshops"] },
-    courses: ["B.Tech in CSE - Cyber Security"],
+    courses: ["Computer Science and Engineering (Cyber Security)"],
     contactInfo: { email: "cshod@mits.ac.in", phone: "+91-9100973396; 8571-280255; 280706" },
     faculty: [
       /*
@@ -1620,7 +1621,7 @@ percentage: "92%", avgPackage: "INR 5.5 LPA", highestPackage: "INR 15 LPA", recr
 
   ai: {
     key: "ai",
-    name: "Computer Science and Engineering - Artificial Intelligence",
+    name: "Computer Science and Engineering (Artificial Intelligence)",
     shortName: "CSE-AI",
     established: "2020",
     bannerImage: deptImg("ai"),
@@ -1641,7 +1642,7 @@ percentage: "92%", avgPackage: "INR 5.5 LPA", highestPackage: "INR 15 LPA", recr
     hod: { name: "Dr. R. Kalpana", designation: "Professor & Head", qualification: "Ph.D. (Anna University)", image: "https://mits.ac.in/public/uploads/faculty/Dr. R. Kalpana.JPG", profileUrl: "https://mits.ac.in/facultyprofile/80" },
     achievements: { consultancyAmount: "₹8+ Lakhs", researchProjects: "8+", patents: "6+", publications: "80+" },
     teachingApproach: { description: "Research-driven approach with GPU cluster access, Kaggle competitions, and generative AI projects.", points: ["GPU cluster computing access", "Kaggle & competitive ML", "Generative AI hands-on projects", "Industry capstone projects", "Research paper writing workshops"] },
-    courses: ["B.Tech in Artificial Intelligence"],
+    courses: ["Computer Science and Engineering (Artificial Intelligence)"],
     contactInfo: { email: "aihod@mits.ac.in", phone: "+91-8571-280255" },
     faculty: [
       /*
@@ -1931,7 +1932,7 @@ percentage: "96%", avgPackage: "₹8 LPA", highestPackage: "₹20 LPA", recruite
     hod: { name: "Dr. S. Padma", designation: "Assoc. Professor & Head", qualification: "Ph.D. (Bharathiar University)", image: "https://mits.ac.in/public/uploads/faculty/Dr. S. Padma.JPG", profileUrl: "https://mits.ac.in/facultyprofile/144" },
     achievements: { consultancyAmount: "₹8+ Lakhs", researchProjects: "8+", patents: "6+", publications: "80+" },
     teachingApproach: { description: "Research-driven approach with GPU cluster access, Kaggle competitions, and generative AI projects.", points: ["GPU cluster computing access", "Kaggle & competitive ML", "Generative AI hands-on projects", "Industry capstone projects", "Research paper writing workshops"] },
-    courses: ["B.Tech in Artificial Intelligence and Machine Learning","M.Tech in Artificial Intelligence and Machine Learning"],
+    courses: ["Computer Science and Engineering (Artificial Intelligence and Machine Learning)"],
     contactInfo: { email: "aimlhod@mits.ac.in", phone: "+91-9154291788; 8571-280255; 280706" },
     faculty: [
       /*
@@ -2272,7 +2273,7 @@ percentage: "96%", avgPackage: "₹8 LPA", highestPackage: "₹20 LPA", recruite
 
   mca: {
     key: "mca",
-    name: "Computer Applications",
+    name: "Master of Computer Applications",
     shortName: "MCA",
     established: "2004",
     bannerImage: deptImg("mca"),
@@ -2287,7 +2288,7 @@ percentage: "96%", avgPackage: "₹8 LPA", highestPackage: "₹20 LPA", recruite
     hod: { name: "Dr. N. Naveen Kumar", designation: "Professor & Head", qualification: "Ph.D. (S V University, Tirupathi)", image: "https://mits.ac.in/public/uploads/faculty/Naveen Kumar.JPG", profileUrl: "https://mits.ac.in/facultyprofile/254" },
     achievements: { consultancyAmount: "₹6+ Lakhs", researchProjects: "6+", patents: "4+", publications: "90+" },
     teachingApproach: { description: "Outcome-based teaching with industry projects, case studies, and research-oriented labs.", points: ["Industry-oriented mini and major projects", "Hands-on training in full-stack and enterprise development", "Research paper and patent mentoring", "Guest lectures from IT professionals", "Internship-integrated learning"] },
-    courses: ["Bachelor of Computer Applications", "Master of Computer Applications"],
+    courses: ["Master of Computer Applications"],
     contactInfo: { email: "mcahod@mits.ac.in", phone: "+91-8571-280255" },
     faculty: [
       /*
@@ -2383,7 +2384,7 @@ percentage: "95%", avgPackage: "₹8 LPA", highestPackage: "₹14 LPA", recruite
 
   mba: {
     key: "mba",
-    name: "Management Studies",
+    name: "MBA",
     shortName: "MBA",
     established: "2004",
     bannerImage: deptImg("mba"),
@@ -2394,7 +2395,7 @@ percentage: "95%", avgPackage: "₹8 LPA", highestPackage: "₹14 LPA", recruite
     hod: { name: "Dr. Bhanu Sree Reddy", designation: "Professor & Dean-School of Management", qualification: "Ph.D. (Sri Venkateswara University)", image: "https://mits.ac.in/public/uploads/faculty/Bhanu Sree Reddy.JPG", profileUrl: "https://mits.ac.in/facultyprofile/701" },
     achievements: { consultancyAmount: "₹5+ Lakhs", researchProjects: "4+", patents: "0", publications: "50+" },
     teachingApproach: { description: "Case-study based pedagogy with industry mentorship and live consulting projects.", points: ["Harvard case study methodology", "Industry mentorship programs", "Business simulation exercises", "National case competitions", "Live consulting projects"] },
-    courses: ["Bachelor of Business Administration", "Master of Business Administration"],
+    courses: ["MBA"],
     contactInfo: { email: "mbahod@mits.ac.in", phone: "+91-8571-280255" },
     faculty: [
       /*
@@ -2643,6 +2644,171 @@ percentage: "N/A", avgPackage: "N/A", highestPackage: "N/A", recruiters: []
       { title: "Department of Physics - BOS 2023-24", url: "https://mits.ac.in/public/uploads/departments/Physics%20BoS%202023-2024.pdf" },
       { title: "Department of Chemistry - BOS 2024-25", url: "https://mits.ac.in/public/uploads/departments/R23_Chemistry_AY-2024-25.pdf" }
     ],
+  },
+
+  bba: {
+    key: "bba",
+    name: "BBA",
+    shortName: "BBA",
+    established: "2020",
+    bannerImage: deptImg("bba"),
+    isUnderUpdate: true,
+    about: "The Department of Business Administration (BBA) provides foundational business, leadership, and management education aligned with contemporary industry requirements.",
+    vision: "To develop ethically grounded, innovative business leaders and entrepreneurs equipped for the dynamic global economy.",
+    mission: [
+      "To provide high quality undergraduate business management education with practical application.",
+      "To foster analytical, leadership, and entrepreneurial capabilities through experiential learning."
+    ],
+    nbaAccredited: false,
+    hod: {
+      name: "Dr. P. Bhanu Sree Reddy",
+      designation: "Professor & Dean, Management Studies",
+      qualification: "Ph.D.",
+      image: "https://mits.ac.in/public/uploads/faculty/Dr. P. Bhanu Sree Reddy.JPG",
+      profileUrl: "https://mits.ac.in/facultyprofile/339"
+    },
+    achievements: {
+      consultancyAmount: "N/A",
+      researchProjects: "N/A",
+      patents: "N/A",
+      publications: "N/A"
+    },
+    teachingApproach: {
+      description: "Interactive case studies, industry seminars, and practical management exercises.",
+      points: ["Case study analysis", "Business presentations", "Industry interactions"]
+    },
+    courses: ["BBA"],
+    contactInfo: {
+      email: "bbahod@mits.ac.in",
+      phone: "+91-8571-280255"
+    },
+    faculty: [],
+    detailedAchievements: [],
+    facilities: [],
+    patents: [],
+    publications: [],
+    consultancy: [],
+    events: [],
+    mous: [],
+    placement: {
+      percentage: "N/A",
+      avgPackage: "N/A",
+      highestPackage: "N/A",
+      recruiters: []
+    },
+    studentProjects: [],
+    subjects: [],
+    documents: []
+  },
+
+  bca: {
+    key: "bca",
+    name: "BCA",
+    shortName: "BCA",
+    established: "2020",
+    bannerImage: deptImg("bca"),
+    isUnderUpdate: true,
+    about: "The Department of Computer Applications (BCA) provides foundational and advanced education in computer applications, programming, and software systems.",
+    vision: "To deliver top quality computing education and foster skilled software professionals capable of meeting IT industry challenges.",
+    mission: [
+      "To impart comprehensive knowledge of software development, web applications, and database management.",
+      "To cultivate practical problem-solving skills and professional ethics in future computer specialists."
+    ],
+    nbaAccredited: false,
+    hod: {
+      name: "Dr. N. Naveen Kumar",
+      designation: "Assoc. Professor & Head",
+      qualification: "Ph.D.",
+      image: "https://mits.ac.in/public/uploads/faculty/Dr. N. Naveen Kumar.JPG",
+      profileUrl: "https://mits.ac.in/facultyprofile/272"
+    },
+    achievements: {
+      consultancyAmount: "N/A",
+      researchProjects: "N/A",
+      patents: "N/A",
+      publications: "N/A"
+    },
+    teachingApproach: {
+      description: "Hands-on software development laboratory sessions and practical computing projects.",
+      points: ["Practical programming labs", "Project-based learning", "Industry tool workshops"]
+    },
+    courses: ["BCA"],
+    contactInfo: {
+      email: "bcahod@mits.ac.in",
+      phone: "+91-8571-280255"
+    },
+    faculty: [],
+    detailedAchievements: [],
+    facilities: [],
+    patents: [],
+    publications: [],
+    consultancy: [],
+    events: [],
+    mous: [],
+    placement: {
+      percentage: "N/A",
+      avgPackage: "N/A",
+      highestPackage: "N/A",
+      recruiters: []
+    },
+    studentProjects: [],
+    subjects: [],
+    documents: []
+  },
+
+  cser: {
+    key: "cser",
+    name: "Computer Science and Engineering with Specialisation in Artificial Intelligence and Robotics",
+    shortName: "CSE-AIR",
+    established: "2022",
+    bannerImage: deptImg("ai"),
+    isUnderUpdate: true,
+    about: "The Department of Computer Science and Engineering with Specialisation in Artificial Intelligence and Robotics offers undergraduate education focusing on intelligent robotics, machine learning, autonomous systems, and advanced computing paradigms.",
+    vision: "To be a center of excellence in Artificial Intelligence and Robotics, producing competent engineers and innovators.",
+    mission: [
+      "To impart foundational and modern education in artificial intelligence, automation, and intelligent robotics.",
+      "To foster practical and research capabilities in intelligent robotic systems and autonomous technologies."
+    ],
+    nbaAccredited: false,
+    hod: {
+      name: "Dr. R. Kalpana",
+      designation: "Professor & Head",
+      qualification: "Ph.D. (Anna University)",
+      image: "https://mits.ac.in/public/uploads/faculty/Dr. R. Kalpana.JPG",
+      profileUrl: "https://mits.ac.in/facultyprofile/80"
+    },
+    achievements: {
+      consultancyAmount: "N/A",
+      researchProjects: "N/A",
+      patents: "N/A",
+      publications: "N/A"
+    },
+    teachingApproach: {
+      description: "Hands-on robotics laboratory sessions, sensor integration, and machine learning application projects.",
+      points: ["Robotics and automation lab", "AI and machine learning applications", "Autonomous system design"]
+    },
+    courses: ["Computer Science and Engineering with Specialisation in Artificial Intelligence and Robotics"],
+    contactInfo: {
+      email: "aihod@mits.ac.in",
+      phone: "+91-8571-280255"
+    },
+    faculty: [],
+    detailedAchievements: [],
+    facilities: [],
+    patents: [],
+    publications: [],
+    consultancy: [],
+    events: [],
+    mous: [],
+    placement: {
+      percentage: "N/A",
+      avgPackage: "N/A",
+      highestPackage: "N/A",
+      recruiters: []
+    },
+    studentProjects: [],
+    subjects: [],
+    documents: []
   },
 };
 

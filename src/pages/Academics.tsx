@@ -11,25 +11,43 @@ const BASE = import.meta.env.BASE_URL;
 const schools = [
   {
     name: "School of AI & ML",
-    depts: ["Artificial Intelligence", "AI and Machine Learning", "CSE (AI and Data Science)", "CSE (AI and Robotics)"],
+    depts: [
+      "Computer Science and Engineering (Artificial Intelligence)",
+      "Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
+      "Computer Science and Engineering (Artificial Intelligence and Data Science)",
+      "Computer Science and Engineering with Specialisation in Artificial Intelligence and Robotics"
+    ],
     icon: Brain,
   },
   {
     name: "School of Computing",
-    depts: ["Computer Science and Engineering", "CSE (Cyber Security)", "BCA", "MCA"],
+    depts: [
+      "Computer Science & Engineering",
+      "Computer Science and Engineering (Cyber Security)",
+      "BCA",
+      "Master of Computer Applications"
+    ],
     icon: Monitor,
   },
   {
     name: "School of Engineering",
-    depts: ["Civil Engineering", "Electrical & Electronics Engineering", "Mechanical Engineering", "Electronics & Communication Engineering", "Bioinformatics"],
+    depts: [
+      "Bioinformatics",
+      "Civil Engineering",
+      "Electrical and Electronics Engineering",
+      "Electronics & Communication Engg",
+      "Mechanical Engineering"
+    ],
     icon: Building2,
   },
   {
     name: "School of Management",
-    depts: ["BBA", "MBA"],
+    depts: [
+      "BBA",
+      "MBA"
+    ],
     icon: Users,
   }
-  
 ];
 
 const features = [
@@ -129,7 +147,7 @@ const Academics = () => {
             </ScrollReveal>
             <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-                { label: "Undergraduate", count: "11 Programs", icon: GraduationCap },
+                { label: "Undergraduate", count: "12 Programs", icon: GraduationCap },
                 { label: "Postgraduate", count: "8 Programs", icon: BookOpen },
                 { label: "PhD", count: "10+ Disciplines", icon: Microscope },
               ].map((item, i) => (

@@ -1051,6 +1051,19 @@ const DepartmentPage = () => {
 
                 {activeTopTab === "department" ? (
                   <>
+                    {dept.isUnderUpdate && (
+                      <div className="mb-6 p-4 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-900 dark:text-amber-200 flex items-start gap-3">
+                        <Sparkles className="w-5 h-5 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+                        <div>
+                          <p className="font-semibold text-sm sm:text-base">
+                            Department Portal Update Notice
+                          </p>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                            This department page is currently being updated. Detailed curriculum, faculty profiles, and laboratory facilities will be available shortly.
+                          </p>
+                        </div>
+                      </div>
+                    )}
                     <div className="grid md:grid-cols-3 gap-6">
                       <div className="md:col-span-2">
                         <h2 className="text-2xl font-bold text-secondary mb-4" style={{ fontFamily: "var(--font-display)" }}>About Us</h2>
@@ -2074,7 +2087,10 @@ const DepartmentPage = () => {
                 transition={{ duration: 0.3 }}
               >
                 <h2 className="text-2xl font-bold text-secondary mb-6" style={{ fontFamily: "var(--font-display)" }}>Facilities</h2>
-                <div className="grid md:grid-cols-2 gap-6">
+                {dept.facilities.length === 0 ? (
+                  <p className="text-muted-foreground text-sm">Facility details will be updated soon.</p>
+                ) : (
+                  <div className="grid md:grid-cols-2 gap-6">
                   {dept.facilities.map((f, i) => (
                     <Card key={i} className="hover:shadow-lg transition-all duration-300">
                       <CardContent className="p-5">
@@ -2097,6 +2113,7 @@ const DepartmentPage = () => {
                     </Card>
                   ))}
                 </div>
+                )}
               </motion.div>
             )}
 

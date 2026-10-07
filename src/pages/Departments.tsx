@@ -16,6 +16,7 @@ const THEME = {
   lightGray: "#f8f9fa"
 };
 const deptImages: Record<string, string> = {
+  ce:       `${BASE}departments/civil.jpg`,
   eee:      `${BASE}departments/eee.jpg`,
   me:       `${BASE}departments/mech.jpg`,
   ece:      `${BASE}departments/ece.jpg`,
@@ -29,6 +30,7 @@ const deptImages: Record<string, string> = {
   mba:      `${BASE}departments/mba.jpg`,
   aiml:     `${BASE}departments/ai&ml.jpg`,
   ai:       `${BASE}departments/ai.jpg`,
+  cser:     `${BASE}departments/ai.jpg`,
   bsh:      `${BASE}Hero-Section/image%206.jpg`,
 };
 
@@ -60,7 +62,7 @@ const schools = [
       },
       {
         key: "eee",
-        name: "Electrical & Electronics Engineering",
+        name: "Electrical and Electronics Engineering",
         shortName: "EEE",
         established: "2007",
         description: "Focus on power systems, renewable energy, and power electronics",
@@ -96,7 +98,7 @@ const schools = [
       },
       {
         key: "ece",
-        name: "Electronics & Communication Engineering",
+        name: "Electronics & Communication Engg",
         shortName: "ECE",
         established: "2005",
         description: "Specialization in 5G networks, IoT, and embedded systems",
@@ -139,7 +141,7 @@ const schools = [
     departments: [
       {
         key: "cse",
-        name: "Computer Science and Engineering",
+        name: "Computer Science & Engineering",
         shortName: "CSE",
         established: "2005",
         description: "Focus on AI, Machine Learning, Cloud Computing, and Cybersecurity",
@@ -156,26 +158,8 @@ const schools = [
         externalLink: "https://www.mits.ac.in/department/9",
       },
       {
-        key: "cseds",
-        name: "CSE - Data Science",
-        shortName: "CSE-DS",
-        established: "2019",
-        description: "Specialized curriculum in data analytics and machine learning",
-        highlights: ["Industry projects with data-driven companies", "Advanced data visualization labs", "Research in predictive analytics", "95% placement rate with ₹16 LPA avg"],
-        facilities: ["Big data analytics laboratory", "Data visualization center", "Machine learning research lab", "Statistical computing facility"],
-        courses: ["Statistics for Data Science", "Machine Learning", "Big Data Technologies", "Data Visualization"],
-        faculty: 14,
-        students: 360,
-        specialization: ["Data Analytics", "Machine Learning", "Big Data", "Business Intelligence"],
-        areas: ["Data Analytics", "Big Data", "ML"],
-        labHighlights: ["Big Data Lab", "Data Viz Center", "ML Research Lab"],
-        placementStrength: "95% | ₹16 LPA Avg",
-        mission: "To develop data-driven problem solvers equipped with analytical skills for the modern data economy.",
-        externalLink: "http://www.mits.ac.in/department/26",
-      },
-      {
         key: "csecs",
-        name: "CSE - Cyber Security",
+        name: "Computer Science and Engineering\n(Cyber Security)",
         shortName: "CSE-CS",
         established: "2020",
         description: "Hands-on training in ethical hacking and penetration testing",
@@ -192,14 +176,32 @@ const schools = [
         externalLink: "http://www.mits.ac.in/department/27",
       },
       {
+        key: "bca",
+        name: "BCA",
+        shortName: "BCA",
+        established: "2020",
+        description: "Foundational and modern curriculum in programming and software development",
+        highlights: ["Hands-on programming labs", "Web and cloud technologies", "Software development projects", "Strong placement opportunities"],
+        facilities: ["Programming lab", "Web development lab", "Database systems lab"],
+        courses: ["BCA"],
+        faculty: 6,
+        students: 120,
+        specialization: ["Web Development", "Cloud Computing", "Database Systems", "Software Engineering"],
+        areas: ["Programming", "Web Dev", "Databases"],
+        labHighlights: ["Software Lab", "Cloud Lab"],
+        placementStrength: "Industry Ready",
+        mission: "To produce competent computer application specialists equipped with industry-demanded technical skills.",
+        externalLink: "https://mits.ac.in",
+      },
+      {
         key: "mca",
-        name: "Computer Applications",
+        name: "Master of Computer Applications",
         shortName: "MCA",
         established: "2006",
         description: "Advanced postgraduate curriculum in computing",
         highlights: ["Research and industry project opportunities", "Strong alumni network in top IT companies", "Specializations in AI, cloud", "95% placement rate with ₹14 LPA avg"],
         facilities: ["Advanced computing research lab", "Enterprise software development center", "AI and cloud computing lab", "Industry collaboration center"],
-        courses: ["Bachelor of Computer Applications", "Master of Computer Applications"],
+        courses: ["Master of Computer Applications"],
         faculty: 10,
         students: 120,
         specialization: ["Enterprise Software", "AI & Cloud", "Data Science", "Software Architecture"],
@@ -218,14 +220,32 @@ const schools = [
     borderColor: "border-l-amber-500",
     departments: [
       {
+        key: "bba",
+        name: "BBA",
+        shortName: "BBA",
+        established: "2020",
+        description: "Undergraduate education in business foundations, leadership, and entrepreneurship",
+        highlights: ["Case study based pedagogy", "Industry seminars and webinars", "Entrepreneurship incubation", "Strong business foundation"],
+        facilities: ["Business analytics lab", "Discussion rooms", "Seminar hall"],
+        courses: ["BBA"],
+        faculty: 6,
+        students: 120,
+        specialization: ["Marketing", "Finance", "Human Resource", "General Management"],
+        areas: ["Management", "Marketing", "Finance"],
+        labHighlights: ["Analytics Lab", "Discussion Center"],
+        placementStrength: "Industry Ready",
+        mission: "To cultivate aspiring business leaders and entrepreneurs with practical managerial skills.",
+        externalLink: "https://mits.ac.in",
+      },
+      {
         key: "mba",
-        name: "Management Studies",
+        name: "MBA",
         shortName: "MBA",
         established: "2008",
         description: "AICTE approved MBA program with industry mentorship",
         highlights: ["Industry mentorship and live consulting projects", "National case competitions", "Strong corporate recruitment network", "90% placement rate with ₹12 LPA avg"],
         facilities: ["Advanced business analytics lab", "Bloomberg terminal and finance center", "Leadership development center", "Digital business innovation lab"],
-        courses: ["Bachelor of Business Administration", "Master of Business Administration"],
+        courses: ["MBA"],
         faculty: 12,
         students: 120,
         specialization: ["Finance", "Marketing", "Operations", "Business Analytics"],
@@ -233,8 +253,7 @@ const schools = [
         labHighlights: ["Bloomberg Lab", "Analytics Center", "Leadership Lab"],
         placementStrength: "90% | ₹12 LPA Avg",
         mission: "To cultivate strategic thinkers and ethical business leaders for global environments.",
- 
-       externalLink: "http://www.mits.ac.in/department/5",
+        externalLink: "http://www.mits.ac.in/department/5",
       }
     ]
   },
@@ -246,7 +265,7 @@ const schools = [
     departments: [
       {
         key: "aiml",
-        name: "Artificial Intelligence and\nMachine Learning",
+        name: "Computer Science and Engineering\n(Artificial Intelligence and Machine Learning)",
         shortName: "AI and ML",
         established: "2020",
         description: "Cutting-edge curriculum in deep learning, NLP, and computer vision",
@@ -263,8 +282,26 @@ const schools = [
         externalLink: "https://mits.ac.in/cse-ai-ml",
       },
       {
+        key: "cseds",
+        name: "Computer Science and Engineering\n(Artificial Intelligence and Data Science)",
+        shortName: "CSE-DS",
+        established: "2019",
+        description: "Specialized curriculum in data analytics and machine learning",
+        highlights: ["Industry projects with data-driven companies", "Advanced data visualization labs", "Research in predictive analytics", "95% placement rate with ₹16 LPA avg"],
+        facilities: ["Big data analytics laboratory", "Data visualization center", "Machine learning research lab", "Statistical computing facility"],
+        courses: ["Statistics for Data Science", "Machine Learning", "Big Data Technologies", "Data Visualization"],
+        faculty: 14,
+        students: 360,
+        specialization: ["Data Analytics", "Machine Learning", "Big Data", "Business Intelligence"],
+        areas: ["Data Analytics", "Big Data", "ML"],
+        labHighlights: ["Big Data Lab", "Data Viz Center", "ML Research Lab"],
+        placementStrength: "95% | ₹16 LPA Avg",
+        mission: "To develop data-driven problem solvers equipped with analytical skills for the modern data economy.",
+        externalLink: "http://www.mits.ac.in/department/26",
+      },
+      {
         key: "ai",
-        name: "Artificial Intelligence",
+        name: "Computer Science and Engineering\n(Artificial Intelligence)",
         shortName: "AI",
         established: "2021",
         description: "Strong theoretical foundation in AI algorithms and logic",
@@ -279,6 +316,24 @@ const schools = [
         placementStrength: "94% | ₹18 LPA Avg",
         mission: "To train students in the theoretical and applied foundations of artificial intelligence.",
         externalLink: "https://www.mits.ac.in/department/28",
+      },
+      {
+        key: "cser",
+        name: "Computer Science and Engineering with\nSpecialisation in Artificial Intelligence and Robotics",
+        shortName: "CSE-AIR",
+        established: "2022",
+        description: "Specialized engineering curriculum at the confluence of AI, machine learning, and robotics",
+        highlights: ["Robotics and automation lab access", "Autonomous systems projects", "Industry sensor & control interfaces", "High growth career opportunities"],
+        facilities: ["Robotics laboratory", "AI algorithms simulation lab", "Microcontroller and embedded lab"],
+        courses: ["Robotics & Automation", "Artificial Intelligence", "Sensors & Actuators", "Autonomous Systems"],
+        faculty: 8,
+        students: 180,
+        specialization: ["Robotics", "Autonomous Systems", "Machine Intelligence", "Control Systems"],
+        areas: ["Robotics", "AI", "Automation"],
+        labHighlights: ["Robotics Lab", "AI Sim Lab"],
+        placementStrength: "Industry Ready",
+        mission: "To train skilled engineers in robotics and artificial intelligence capable of engineering next-generation autonomous systems.",
+        externalLink: "https://mits.ac.in",
       }
     ]
   },
@@ -371,14 +426,14 @@ const Departments = () => {
 
             {/* Department Name - Centered (default state) */}
             <div className="absolute inset-0 flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300 p-4">
-              <h3 className="font-display text-lg md:text-xl font-bold text-white text-center drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] whitespace-pre-line">
+              <h3 className="font-display text-base md:text-lg font-bold text-white text-center drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] whitespace-pre-line leading-snug">
                 {dept.name}
               </h3>
             </div>
 
             {/* Hover Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <h3 className="font-display text-lg md:text-xl font-bold text-white text-center mb-2 drop-shadow-md whitespace-pre-line w-full">
+              <h3 className="font-display text-base md:text-lg font-bold text-white text-center mb-2 drop-shadow-md whitespace-pre-line leading-snug w-full">
                 {dept.name}
               </h3>
               <p className="text-white/90 text-xs md:text-sm text-center mb-4 line-clamp-3 mx-auto w-full">

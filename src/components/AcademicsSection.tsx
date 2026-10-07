@@ -61,61 +61,61 @@ const programsByTab: Record<ProgramBucket, SchoolGroup[]> = {
     {
       school: "School of AI & ML",
       courses: [
-        { name: "B.Tech CSE (Artificial Intelligence)", icon: Bot, link: "/department/ai" },
-        { name: "B.Tech CSE (AI and ML)", icon: BrainCircuit, link: "/department/aiml" },
-        { name: "B.Tech CSE (AI and Data Science)", icon: ChartNoAxesCombined, link: "/department/cseds" },
-        { name: "B.Tech CSE (AI and Robotics)", icon: Bot, link: "/department/ai" },
+        { name: "Computer Science and Engineering (Artificial Intelligence)", icon: Bot, link: "/department/ai" },
+        { name: "Computer Science and Engineering (Artificial Intelligence and Machine Learning)", icon: BrainCircuit, link: "/department/aiml" },
+        { name: "Computer Science and Engineering (Artificial Intelligence and Data Science)", icon: ChartNoAxesCombined, link: "/department/cseds" },
+        { name: "Computer Science and Engineering with Specialisation in Artificial Intelligence and Robotics", icon: Bot, link: "/department/cser" },
       ],
     },
     {
       school: "School of Computing",
       courses: [
-        { name: "B.Tech Computer Science and Engineering", icon: Cpu, link: "/department/cse" },
-        { name: "B.Tech CSE (Cyber Security)", icon: ShieldCheck, link: "/department/csecs" },
-        { name: "BCA - Bachelor of Computer Applications", icon: Monitor, link: "/department/mca" },
+        { name: "Computer Science & Engineering", icon: Cpu, link: "/department/cse" },
+        { name: "Computer Science and Engineering (Cyber Security)", icon: ShieldCheck, link: "/department/csecs" },
+        { name: "BCA", icon: Monitor, link: "/department/bca" },
       ],
     },
     {
       school: "School of Engineering",
       courses: [
-        { name: "B.Tech in Civil Engineering", icon: HardHat, link: "/department/ce" },
-        { name: "B.Tech in Electrical & Electronics Engineering", icon: Zap, link: "/department/eee" },
-        { name: "B.Tech in Mechanical Engineering", icon: Cog, link: "/department/me" },
-        { name: "B.Tech in Electronics & Communication Engineering", icon: CircuitBoard, link: "/department/ece" },
-        { name: "B.Tech in Bioinformatics", icon: Dna, link: "/department/bioinfo" },
+        { name: "Bioinformatics", icon: Dna, link: "/department/bioinfo" },
+        { name: "Civil Engineering", icon: HardHat, link: "/department/ce" },
+        { name: "Electrical and Electronics Engineering", icon: Zap, link: "/department/eee" },
+        { name: "Electronics & Communication Engg", icon: CircuitBoard, link: "/department/ece" },
+        { name: "Mechanical Engineering", icon: Cog, link: "/department/me" },
       ],
     },
     {
       school: "School of Management",
-      courses: [{ name: "BBA - Bachelor of Business Administration", icon: BriefcaseBusiness, link: "/department/mba" }],
+      courses: [{ name: "BBA", icon: BriefcaseBusiness, link: "/department/bba" }],
     },
   ],
   pg: [
     {
       school: "School of AI & ML",
       courses: [
-        { name: "M.Tech CSE (AI and ML)", icon: Sparkles },
+        { name: "Computer Science and Engineering (Artificial Intelligence and Machine Learning)", icon: Sparkles, link: "/department/aiml" },
       ],
     },
     {
       school: "School of Computing",
       courses: [
-        { name: "M.Tech Computer Science and Engineering", icon: Network },
-        { name: "MCA - Master of Computer Applications", icon: Code2, link: "/department/mca" },
+        { name: "Computer Science and Engineering", icon: Network, link: "/department/cse" },
+        { name: "Master of Computer Applications", icon: Code2, link: "/department/mca" },
       ],
     },
     {
       school: "School of Engineering",
       courses: [
-        { name: "M.Tech Civil Engineering (Construction Engineering & Management)", icon: Construction },
-        { name: "M.Tech Automation and Robotics", icon: Rocket },
-        { name: "M.Tech Electric Vehicle Technology", icon: Gauge },
-        { name: "M.Tech VLSI Design & Embedded Systems", icon: Cable },
+        { name: "Construction Engineering and Management", icon: Construction, link: "/department/ce" },
+        { name: "Automation and Robotics", icon: Rocket, link: "/department/me" },
+        { name: "Electric Vehicle Technology", icon: Gauge, link: "/department/eee" },
+        { name: "VLSI Design and Embedded Systems", icon: Cable, link: "/department/ece" },
       ],
     },
     {
       school: "School of Management",
-      courses: [{ name: "MBA - Master of Business Administration", icon: Landmark, link: "/department/mba" }],
+      courses: [{ name: "MBA", icon: Landmark, link: "/department/mba" }],
     },
   ],
   phd: [
@@ -308,7 +308,7 @@ const AcademicsSection = () => {
                                 }
                           }
                           whileTap={shouldReduceMotion ? undefined : { scale: 0.995 }}
-                          className="group relative overflow-hidden rounded-2xl border border-[#dde2e9] bg-[#f3f5f8] shadow-[0_6px_18px_rgba(15,42,68,0.09)] px-4 py-3.5 flex items-center gap-3.5 transition-shadow duration-300 hover:shadow-[0_16px_30px_rgba(15,42,68,0.16)]"
+                          className="group relative overflow-hidden rounded-2xl border border-[#dde2e9] bg-[#f3f5f8] shadow-[0_6px_18px_rgba(15,42,68,0.09)] px-4 py-3.5 flex items-center gap-3.5 min-h-[80px] h-full transition-shadow duration-300 hover:shadow-[0_16px_30px_rgba(15,42,68,0.16)]"
                         >
                           {course.link && (
                             <Link to={course.link} className="absolute inset-0 z-20" aria-label={course.name} />
