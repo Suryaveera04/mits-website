@@ -152,6 +152,7 @@ export interface DepartmentTopTab {
   id: string;
   label: string;
   title?: string;
+  description?: string;
   documents?: DepartmentTopTabDoc[];
 }
 
@@ -200,11 +201,40 @@ export interface DepartmentMoreSubTab {
   directPdf?: boolean;
 }
 
+export interface DoctoralScholar {
+  sno: string;
+  name: string;
+  guide: string;
+  dateOfJoining: string;
+  researchTitle: string;
+}
+
+export interface DoctoralData {
+  title: string;
+  description: string;
+  batchTitle?: string;
+  scholars?: DoctoralScholar[];
+}
+
+export interface MoreDocumentItem {
+  title: string;
+  url: string;
+}
+
+export interface MoreDocumentGroup {
+  groupTitle: string;
+  description?: string;
+  documents: MoreDocumentItem[];
+}
+
 export interface DepartmentMoreData {
   subTabs: DepartmentMoreSubTab[];
-  mentorMentee: MentorMenteeGroup[];
+  mentorMentee?: MentorMenteeGroup[];
   minor?: MinorDegreeData;
   interdisciplinaryProjects?: InterdisciplinaryProjectGroup[];
+  doctoral?: DoctoralData;
+  feedback?: MoreDocumentGroup;
+  innovativeTeaching?: MoreDocumentGroup;
 }
 
 export interface UnderGraduateTimeTableItem {
@@ -247,6 +277,13 @@ export interface UnderGraduateData {
   timeTables?: UnderGraduateTimeTableGroup[];
 }
 
+export interface PostGraduateData {
+  programTitle: string;
+  programOverview?: string;
+  subTabs?: { id: string; label: string }[];
+  syllabusTables?: SyllabusTable[];
+}
+
 // Helper to get dept image
 const deptImg = (key: string) => `${BASE}departments/${key}.jpg`;
 
@@ -257,12 +294,12 @@ export const departmentsData: Record<string, DepartmentData> = {
     shortName: "CSE",
     established: "1998",
     bannerImage: deptImg("cse"),
-    about: "The Department of Computer Science and Engineering was established in 1998 and has been playing a vital role in producing value-based professionals. The department offers 4-year undergraduate program and 2-year postgraduate program to cater the ever-challenging needs of technical excellence in the emerging areas of Computer Science and Engineering. The course is designed in a flexible and structured way to meet the evolving needs of the IT industry. The CSE department has eminent faculty with rich academic and industry exposure who have pursued Masters/Ph.D. Degree from prestigious institutions like NITs, IITs, and Central Universities within India and abroad. Many research activities in the domain of Artificial Intelligence (AI) and Machine Learning (ML) are under progress. The department has good interactions and MoUs with leading Industries for technology domain Training & Development. The Department is accredited by NBA (National Board of Accreditation) of All India Council for Technical Education (AICTE), New Delhi.",
-    vision: "To excel in technical education and research in area of Computer Science and Engineering and to provide expert, proficient and Knowledgeable individuals with high enthusiasm to meet the Societal challenges.",
+    about: "The Department of Computer Science & Engineering was established in 1998 and has been playing a vital role in producing value-based professionals. The department offers 4-year undergraduate program and 2-year postgraduate program to cater the ever-challenging needs of technical excellence in the emerging areas of Computer Science & Engineering. The course is designed in a flexible and structured way to meet the evolving needs of the IT industry. The CSE department has eminent faculty  with rich academic and industry exposure who have pursued Masters/Ph.D. Degree from prestigious institutions like NITs, IITs, and Central Universities within India and abroad. Many research activities in the domain of Artificial Intelligence (AI) and Machine Learning (ML) are under progress. The department has good interactions and MoUs with leading Industries for technology domain Training & Development.\n\nThe Department regularly organizes Symposia, Exhibitions, Conferences, Seminars and Workshops for students , Faculty and to  Research Scholars who belong to various Technical Educational Institutions, and Industries all over India.\nCSE students got placement offers in various top MNCs like TCS, Infosys, IBM, Tech Mahindra, Accenture, Mind Tree etc., with a package  of more than 4.5 Lakhs to 24 LPA. The department also offers training in certification programs and encourages students in self-learning with MooCs such as NPTEL, Microsoft, Coursera, edX, etc. The students can become the members of CSI, IEEE, ISTE, ACM, etc and can participate in various activities through these professional bodies.\n\nThe Department is committed to encourage students/researchers to carry out innovative research in the field of Computer Science & Engineering, keeping excellence in focus and deliver quality services to match the needs of the technical education system, industry and society. The research outcomes are presented/published in National / International Conferences / Journals.\n\nThe Department is accredited by NBA (National Board of Accreditation) of All India Council for Technical Education (AICTE), New Delhi.",
+    vision: "To advance Computer Science & Engineering through excellence in education, research, innovation, and community engagement by creating knowledge, developing globally competent professionals, and delivering sustainable technological solutions for the benefit of society.",
     mission: [
-      "To provide an open environment to the students and faculty that promotes professional and personal growth.",
-      "To impart strong theoretical and practical background across the computer science discipline with an emphasis on software development and research.",
-      "To inculcate the skills necessary to continue their education after graduation, as well as for the societal needs."
+      "To provide a dynamic and outcome-based learning environment through a contemporary curriculum, experiential learning, state-of-the-art infrastructure, and competent faculty that nurtures strong foundations, critical thinking, and lifelong learning in Computer Science and Engineering.",
+      "To foster research, innovation, interdisciplinary collaboration, and entrepreneurship by promoting knowledge creation, emerging technologies, industry partnerships, consultancy, and doctoral research to address contemporary technological and societal challenges.",
+      "To nurture ethical, socially responsible, and globally competent professionals with leadership, communication, and entrepreneurial skills who contribute sustainable technological solutions for the advancement of society."
     ],
     nbaAccredited: true,
     hod: { name: "Dr. M. Sreedevi", designation: "Professor & Head", qualification: "Ph.D. (S V University)", image: "https://mits.ac.in/public/uploads/faculty/Dr. M. Sreedavi.JPG", profileUrl: "https://mits.ac.in/facultyprofile/140" },
@@ -3031,6 +3068,308 @@ export const aiUnderGraduateData: UnderGraduateData = {
   ]
 };
 
+export const cseUnderGraduateData: UnderGraduateData = {
+  programTitle: "Bachelor of Technology (B.Tech) Program",
+  programOverview:
+    "The Department has the best undergraduate program required for the IT industry . The course curriculum for the undergraduate program gives the flexibility to the students to prepare for advanced specializations. The department commits to offer a set of electives so that students can plan their academic program in advance. The course structure provides a right mix of compulsory and elective courses.",
+  sections: [
+    {
+      title: "Curriculum",
+      description:
+        "The B.Tech Program is divided into two distinct parts. A student has to go through a common program called Core Curriculum. Most of the core curriculum is completed within the first four semesters. The last four semesters have many professional courses, can initiate the student towards the topics in Computer Science & Engineering. The Core Curriculum consists of a package of compulsory courses in Physics, Chemistry, Mathematics, Engineering Sciences and Technical Arts.\n\nThe Professional Curriculum consists of courses and Project Work. There are some compulsory courses along with a significant number of professional electives as well."
+    },
+    {
+      title: "Department Information",
+      description:
+        "Department of Computer Science & Engineering offers 4-year degree, which was established in the year 1998. The course is flexible and has been structured to meet the evolving needs of the IT industry. The Department is offering M.Tech - (C.S.E) for the academic year 2024-- 2025."
+    },
+    {
+      title: "Department Activities",
+      points: [
+        "To train up the students to enhance their managerial skills on par with the industry",
+        "Conducting IT games & classes to boost up the creative thoughts and to improve their personality"
+      ]
+    },
+    {
+      title: "Computer Lab",
+      description:
+        "The computer center is located in three floor circular building with centralized A/c and it is equipped with 575 P – IV systems with latest configuration and 3 servers. Internet facility is provided to all the students with an independent workstation."
+    }
+  ],
+  subTabs: [
+    { id: "ug", label: "UG" },
+    { id: "course-syllabus", label: "Course Syllabus" },
+    { id: "timetable", label: "Timetable" }
+  ],
+  timeTables: [
+    {
+      groupTitle: "Master Time Tables",
+      items: [
+        {
+          title: "B.Tech III Year 2026-27 II Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/B.Tech%20III%20Year%202026-27%20II%20Semester%20Timetable.pdf",
+          academicYear: "2026-27",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech IV Year 2026-27 II Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/B.Tech%20IV%20Year%202026-27%20II%20Semester%20Timetable.pdf",
+          academicYear: "2026-27",
+          category: "Master Timetable"
+        },
+        {
+          title: "M.Tech I Year 2025-26 II Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/I%20M.Tech%20II%20Sem%202025-26%20Time%20Table.pdf",
+          academicYear: "2025-26",
+          category: "Master Timetable"
+        },
+        {
+          title: "M.Tech II Year 2025-26 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/M.Tech%20II%20Year%202025-26%20I%20Semester%20Timetable.pdf",
+          academicYear: "2025-26",
+          category: "Master Timetable"
+        }
+      ]
+    },
+    {
+      groupTitle: "Individual Faculty Time Tables",
+      items: [
+        {
+          title: "Individual Faculty Timetables",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/Individual%20Time%20Tables%20CSE%202025.pdf",
+          academicYear: "2024-25",
+          category: "Faculty Timetable"
+        }
+      ]
+    }
+  ],
+  syllabusTables: [
+    {
+      title: "CSE - First Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Linear Algebra and Calculus", type: "Theory", credits: "3" },
+        { sno: "2", name: "Engineering Physics", type: "Theory", credits: "3" },
+        { sno: "3", name: "Basic Electrical and Electronics Engineering", type: "Theory", credits: "3" },
+        { sno: "4", name: "Introduction to Programming", type: "Theory", credits: "3" },
+        { sno: "5", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "6", name: "Engineering Physics Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Electrical and Electronics Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Computer Programming Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "IT Workshop", type: "Lab", credits: "1" },
+        { sno: "10", name: "NSS / NCC / Scouts and Guides / Community Service", type: "Audit", credits: "0.5" }
+      ]
+    },
+    {
+      title: "CSE - First Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Communicative English", type: "Theory", credits: "2" },
+        { sno: "2", name: "Differential Equations and Vector Calculus", type: "Theory", credits: "3" },
+        { sno: "3", name: "Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "Basic Civil and Mechanical Engineering", type: "Theory", credits: "3" },
+        { sno: "5", name: "Data Structures", type: "Theory", credits: "3" },
+        { sno: "6", name: "Communicative English Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Chemistry Laboratory", type: "Lab", credits: "1" },
+        { sno: "8", name: "Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Data Structures Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "10", name: "Health and Wellness, Yoga and Sports", type: "Audit", credits: "0.5" }
+      ]
+    },
+    {
+      title: "CSE - Second Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Universal Human Values", type: "Theory", credits: "3" },
+        { sno: "2", name: "Probability and Statistics for Computer Science", type: "Theory", credits: "3" },
+        { sno: "3", name: "Digital Logic and Computer Organization", type: "Theory", credits: "3" },
+        { sno: "4", name: "Advanced Data Structures and Algorithm Analysis", type: "Theory", credits: "3" },
+        { sno: "5", name: "Object Oriented Programming Through Java", type: "Theory", credits: "3" },
+        { sno: "6", name: "Advanced Data Structures and Algorithm Analysis Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Object Oriented Programming Through Java Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Python Programming", type: "Lab", credits: "2" },
+        { sno: "9", name: "Environmental Science", type: "Theory", credits: "-" }
+      ]
+    },
+    {
+      title: "CSE - Second Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Economics and Financial Accounting For Engineers", type: "Theory", credits: "2" },
+        { sno: "2", name: "Discrete Mathematical Structures", type: "Theory", credits: "3" },
+        { sno: "3", name: "Innovation and Incubation Courses", type: "Theory", credits: "2" },
+        { sno: "4", name: "Database Management Systems", type: "Theory", credits: "3" },
+        { sno: "5", name: "Operating Systems", type: "Theory", credits: "3" },
+        { sno: "6", name: "Software Engineering", type: "Theory", credits: "3" },
+        { sno: "7", name: "Database Management Systems Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Operating Systems Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Full Stack Development - 1", type: "Theory", credits: "2" }
+      ]
+    },
+    {
+      title: "CSE - First Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Engineering Calculus", type: "Theory", credits: "4" },
+        { sno: "2", name: "Applied Physics", type: "Theory", credits: "4" },
+        { sno: "3", name: "Basic Electrical Engineering", type: "Theory", credits: "4" },
+        { sno: "4", name: "Programming for Problem Solving (Python)", type: "Theory", credits: "3.5" },
+        { sno: "5", name: "English for Professional Purposes Laboratory", type: "Lab", credits: "1" },
+        { sno: "6", name: "Physics Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Electrical Engineering Laboratory", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "CSE - First Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional English", type: "Theory", credits: "3" },
+        { sno: "2", name: "Linear Algebra", type: "Theory", credits: "3" },
+        { sno: "3", name: "Engineering Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "C Programming and Data Structures", type: "Theory", credits: "3" },
+        { sno: "5", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "6", name: "Chemistry Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "C Programming and Data Structures Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Engineering and IT Workshop", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "CSE - Second Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Probability Models and Statistics", type: "Theory", credits: "3" },
+        { sno: "2", name: "Computer System Architecture", type: "Theory", credits: "3" },
+        { sno: "3", name: "Data Structures", type: "Theory", credits: "3" },
+        { sno: "4", name: "Object Oriented Programming using C++", type: "Theory", credits: "3" },
+        { sno: "5", name: "Database Management System", type: "Theory", credits: "3" },
+        { sno: "6", name: "Data Structures Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Object Oriented Programming using JAVA Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Database Management System Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – I", type: "Skill", credits: "0" },
+        { sno: "10", name: "Environmental Science", type: "Audit", credits: "0" }
+      ]
+    },
+    {
+      title: "CSE - Second Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Economics and Financial Accounting for Engineers", type: "Theory", credits: "3" },
+        { sno: "2", name: "Discrete Mathematical Structures", type: "Theory", credits: "3" },
+        { sno: "3", name: "Operating Systems Fundamentals", type: "Theory", credits: "3" },
+        { sno: "4", name: "JAVA Programming", type: "Theory", credits: "3" },
+        { sno: "5", name: "Design and Analysis of Algorithms", type: "Theory", credits: "3" },
+        { sno: "6", name: "Operating Systems Fundamentals Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "JAVA Programming Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Design and Analysis of Algorithms Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – II", type: "Skill", credits: "2" },
+        { sno: "10", name: "Indian Constitution", type: "Audit", credits: "0" }
+      ]
+    },
+    {
+      title: "CSE - Third Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Formal Language and Automata Theory", type: "Theory", credits: "3" },
+        { sno: "2", name: "Computer Networks", type: "Theory", credits: "3" },
+        { sno: "3", name: "Machine Learning", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-I", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-I", type: "Theory", credits: "3" },
+        { sno: "6", name: "Computer Networks Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Computer Networks Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Skill Oriented Course – III", type: "Lab", credits: "2" },
+        { sno: "9", name: "Disaster Management", type: "Audit", credits: "0" },
+        { sno: "10", name: "Summer Internship-1*", type: "Project", credits: "1.5" }
+      ]
+    },
+    {
+      title: "CSE - Third Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Compiler Design", type: "Theory", credits: "3" },
+        { sno: "2", name: "Internet of Things", type: "Theory", credits: "3" },
+        { sno: "3", name: "Software Engineering", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-II", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-II", type: "Theory", credits: "3" },
+        { sno: "6", name: "Compiler Design Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Internet of Things Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Software Engineering Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – IV", type: "Lab", credits: "2" },
+        { sno: "10", name: "Universal Human Values", type: "Theory", credits: "0/3" }
+      ]
+    },
+    {
+      title: "CSE - Fourth Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional Elective-III", type: "Theory", credits: "3" },
+        { sno: "2", name: "Professional Elective-IV", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective-V", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-III", type: "Theory", credits: "3" },
+        { sno: "5", name: "Open Elective-IV", type: "Theory", credits: "3" },
+        { sno: "6", name: "Open Elective-V (Taken from Humanities & Social Science)", type: "Theory", credits: "3" },
+        { sno: "7", name: "Skill Oriented Course - V", type: "Lab", credits: "2" },
+        { sno: "8", name: "Summer Internship-2*", type: "Project", credits: "3" }
+      ]
+    },
+    {
+      title: "CSE - Fourth Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Project Work / Internship", type: "Project", credits: "12" }
+      ]
+    }
+  ]
+};
+
+export const csePostGraduateData: PostGraduateData = {
+  programTitle: "Master of Technology (M.Tech) Program",
+  programOverview:
+    "The Department of Computer Science & Engineering offers M.Tech in Computer Science & Engineering. The curriculum is structured to provide advanced research, specialization, and comprehensive laboratory training in modern computing paradigms.",
+  subTabs: [
+    { id: "pg-course-syllabus", label: "Course Syllabus" }
+  ],
+  syllabusTables: [
+    {
+      title: "M.Tech - First Year I Semester - R24",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Advanced Data Structures and Algorithms", type: "Theory", credits: "3" },
+        { sno: "2", name: "Advanced Databases", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective – I", type: "Theory", credits: "3" },
+        { sno: "4", name: "Professional Elective – II", type: "Theory", credits: "3" },
+        { sno: "5", name: "Advanced Data Structures and Algorithms Laboratory", type: "Lab", credits: "2" },
+        { sno: "6", name: "Advanced Databases Laboratory", type: "Lab", credits: "2" },
+        { sno: "7", name: "Research Methodology and IPR", type: "Lab", credits: "2" },
+        { sno: "8", name: "Audit Course - I", type: "Theory", credits: "0" }
+      ]
+    },
+    {
+      title: "M.Tech - First Year II Semester - R24",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Deep Learning and its Applications", type: "Theory", credits: "3" },
+        { sno: "2", name: "Advanced Computer Networks", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective – III", type: "Theory", credits: "3" },
+        { sno: "4", name: "Professional Elective – IV", type: "Theory", credits: "3" },
+        { sno: "5", name: "Deep Learning and its Applications Laboratory", type: "Lab", credits: "2" },
+        { sno: "6", name: "Advanced Computer Networks Laboratory", type: "Lab", credits: "2" },
+        { sno: "7", name: "Technical Seminar", type: "Lab", credits: "2" },
+        { sno: "8", name: "Audit Course – II", type: "Theory", credits: "0" }
+      ]
+    }
+  ]
+};
+
+/**
+ * Returns postgraduate program and syllabus data for any department.
+ */
+export function getDepartmentPostGraduate(deptKey: string): PostGraduateData | undefined {
+  if (deptKey === "cse") {
+    return csePostGraduateData;
+  }
+  return undefined;
+}
+
 /**
  * Returns undergraduate program and syllabus data for any department.
  */
@@ -3044,6 +3383,9 @@ export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subjec
   }
   if (deptKey === "ai" || deptKey === "cai") {
     return aiUnderGraduateData;
+  }
+  if (deptKey === "cse") {
+    return cseUnderGraduateData;
   }
 
   const semMap = new Map<number, Subject[]>();
@@ -3202,6 +3544,94 @@ export const aiMoreData: DepartmentMoreData = {
   mentorMentee: []
 };
 
+export const cseMoreData: DepartmentMoreData = {
+  subTabs: [
+    { id: "doctoral", label: "Doctoral" },
+    {
+      id: "stock-register",
+      label: "Stock Register",
+      externalUrl: "https://mits.ac.in/assets/pdf/stock-registers/CSE%20Stock%20Register.pdf",
+      directPdf: true
+    },
+    { id: "feedback", label: "Feedback" },
+    {
+      id: "innovative-teaching",
+      label: "Innovative Teaching Approach",
+      externalUrl: "https://mits.ac.in/assets/pdf/cse/cse-Innovations%20by%20the%20Faculty%20in%20Teaching%20and%20Learning.pdf",
+      directPdf: true
+    }
+  ],
+  doctoral: {
+    title: "Doctoral Programs",
+    description:
+      "Computer Science & Engineering department is one of the recognized research centres for doctoral programs affiliated to JNTU Anatapur since 2013. Full time research scholars of doctoral programs are working under guidance of highly qualified faculty with strong inclination towards research and development of innovative technologies like Machine Learning, Artificial Intelligence, Computer Networks & Security, Data Mining, Big Data and IoT etc...",
+    batchTitle: "Full-Time Research Scholars Details 2015-2016 Batch",
+    scholars: [
+      {
+        sno: "1",
+        name: "Y. Harinath",
+        guide: "Dr. A. Suresh Babu",
+        dateOfJoining: "06-06-2016",
+        researchTitle: "Enabling trust worthiness of users in symmetric searchable encryption schemes over cloud data"
+      }
+    ]
+  },
+  feedback: {
+    groupTitle: "Feedback from Stakeholders",
+    documents: [
+      {
+        title: "StakeHolder Feedback 2025-26",
+        url: "https://mits.ac.in/public/uploads/surveys/MITS%20CSE%20Feedback%20Analysis%20Report%2025-26.pdf"
+      },
+      {
+        title: "StakeHolder Feedback 2024-25",
+        url: "https://mits.ac.in/public/uploads/surveys/CSE%20Stackholder%2024-25.pdf"
+      },
+      {
+        title: "StakeHolder Feedback 2023-24",
+        url: "https://mits.ac.in/public/uploads/surveys/Stakeholder-Feedback%202023-24.pdf"
+      },
+      {
+        title: "StakeHolder Feedback 2022-23",
+        url: "https://mits.ac.in/public/uploads/surveys/Stakeholder-Feedback%202022-23.pdf"
+      },
+      {
+        title: "StakeHolder Feedback 2021-22",
+        url: "https://mits.ac.in/public/uploads/surveys/StakeHolder%20Feedback%202021-22.pdf"
+      },
+      {
+        title: "StakeHolder Feedback 2020-21",
+        url: "https://mits.ac.in/public/uploads/surveys/20-21%20analysis-min.pdf"
+      },
+      {
+        title: "StakeHolder Feedback 2019-20",
+        url: "https://mits.ac.in/public/uploads/surveys/19-20%20analysis-min.pdf"
+      },
+      {
+        title: "StakeHolder Feedback 2018-19",
+        url: "https://mits.ac.in/public/uploads/surveys/18-19%20analysis%20proof%20-%20scanned.pdf"
+      },
+      {
+        title: "StakeHolder Feedback 2017-18",
+        url: "https://mits.ac.in/public/uploads/surveys/17-18%20analysis%20proof%20-%20scanned.pdf"
+      },
+      {
+        title: "StakeHolder Feedback 2016-17",
+        url: "https://mits.ac.in/public/uploads/surveys/16-17%20analysis%20proof%20-%20scanned.pdf"
+      }
+    ]
+  },
+  innovativeTeaching: {
+    groupTitle: "Innovative Teaching & Learning",
+    documents: [
+      {
+        title: "Innovations by the Faculty in Teaching and Learning",
+        url: "https://mits.ac.in/assets/pdf/cse/cse-Innovations%20by%20the%20Faculty%20in%20Teaching%20and%20Learning.pdf"
+      }
+    ]
+  }
+};
+
 /**
  * Returns customized "More" section data (Mentor & Mentee, Minor, etc.) for any department.
  */
@@ -3215,6 +3645,9 @@ export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   }
   if (deptKey === "ai" || deptKey === "cai") {
     return aiMoreData;
+  }
+  if (deptKey === "cse") {
+    return cseMoreData;
   }
   return {
     subTabs: [
@@ -3383,6 +3816,350 @@ export const aiTopTabs: DepartmentTopTab[] = [
   }
 ];
 
+export const cseTopTabs: DepartmentTopTab[] = [
+  {
+    id: "department",
+    label: "Department"
+  },
+  {
+    id: "faculty-list",
+    label: "Faculty List",
+    title: "Faculty List",
+    documents: [
+      {
+        title: "Faculty List for the Academic Year 2024-25",
+        url: "https://mits.ac.in/assets/pdf/cse/CSE%20CAY%202024-25.pdf"
+      },
+      {
+        title: "Faculty List for the Academic Year 2023-24",
+        url: "https://mits.ac.in/assets/pdf/cse/Faculty%20List%20Ay%202023-%2024.pdf"
+      },
+      {
+        title: "Faculty List for the Academic Year 2022-23",
+        url: "https://mits.ac.in/assets/pdf/cse/Faculty%20List%20Ay%202022%20-%2023.pdf"
+      }
+    ]
+  },
+  {
+    id: "placement-statistics",
+    label: "Placement Statistics",
+    title: "Placement Statistics",
+    documents: [
+      {
+        title: "Placement Statistics for the Academic Year 2023-24",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202023-24%20Placement%20Statistics.pdf"
+      },
+      {
+        title: "Placement Statistics for the Academic Year 2022-23",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202022-23%20Placement%20Statistics.pdf"
+      },
+      {
+        title: "Placement Statistics for the Academic Year 2021-22",
+        url: "https://mits.ac.in/assets/pdf/cse/AY%202021-22%20Placement%20Statistics.pdf"
+      }
+    ]
+  },
+  {
+    id: "bos",
+    label: "BOS",
+    title: "Board Of Studies",
+    description:
+      "Department’s Board of Studies (BoS) is a statutory body which is primarily responsible for compiling the curricula for all the courses offered by the Department and for regularly revising the syllabi for keeping it up to date with the changing trends. In addition, BoS also reviews the progress of the Department in terms of academics and research and suggests strategies for continuous improvement. The BoS comprises of senior faculty of the Department and experts from Industry and Peer Institutions. The external members in the current Bo of the Department are:",
+    documents: [
+      {
+        title: "BoS DTBU 2026-27",
+        url: "https://mits.ac.in/public/uploads/departments/6f1a51faea534758791cd8595b2c6e5d.pdf"
+      },
+      {
+        title: "BoS 2026-27",
+        url: "https://mits.ac.in/public/uploads/departments/ef8aafaa47ffe68b8c369f2218580501.pdf"
+      },
+      {
+        title: "BoS DTBU 2026-27",
+        url: "https://mits.ac.in/public/uploads/departments/d80f20ec59b18943d4032bce53cf0a1d.pdf"
+      },
+      {
+        title: "BOS 2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/ace641c64a92a3b2249bf63ea83894eb.pdf"
+      },
+      {
+        title: "BOS 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/b3eb1bb0eeb2ed4149b1683e2e47d27d.pdf"
+      },
+      {
+        title: "BOS 2023-24 (R23 Regulation)",
+        url: "https://mits.ac.in/public/uploads/departments/b68a5b83f70320fe6c5a1ee64467d402.pdf"
+      },
+      {
+        title: "BOS 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/5641b43636c24484dddcab88db2d298e.pdf"
+      },
+      {
+        title: "BOS 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/db5a4fc06b6f2c8cde62582ce795951d.pdf"
+      },
+      {
+        title: "BOS 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/7dc7c5081bbedffca60be57bdd828502.pdf"
+      },
+      {
+        title: "BOS 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/24b9e0f1c4a49a4756db0ef84e8b76a9.pdf"
+      },
+      {
+        title: "BOS 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/8efc6ad6b68d340219812d7326929134.pdf"
+      },
+      {
+        title: "BOS 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/03f983eb04e03f0b6d8e90b1f33c76e6.pdf"
+      },
+      {
+        title: "BOS 2017-18",
+        url: "https://mits.ac.in/public/uploads/departments/44747954fe3bb16772cfeabf9b054198.pdf"
+      },
+      {
+        title: "BOS 2016-17",
+        url: "https://mits.ac.in/public/uploads/departments/b06dc948589428a3d91c9b6fd5a42b1a.pdf"
+      },
+      {
+        title: "BOS 2015-16",
+        url: "https://mits.ac.in/public/uploads/departments/0440941328c9e537fb3116f2f5d708da.pdf"
+      },
+      {
+        title: "BOS 2014-15",
+        url: "https://mits.ac.in/public/uploads/departments/898e9961375d23e0daddbad58ccbcd76.pdf"
+      }
+    ]
+  },
+  {
+    id: "iaab",
+    label: "IAAB",
+    title: "Industry Alumni Advisory Board",
+    description:
+      "The Department constituted an advisory board with experts from the Industry and department alumni to seek guidance on strategic planning and functioning of the Department especially with regards to academic aspects like curriculum development and teaching and learning processes. The current external members of the IAAB are:",
+    documents: [
+      {
+        title: "IAAB DTBU 2026-27",
+        url: "https://mits.ac.in/public/uploads/departments/2ac3489c08a46c40a368e7594b6f39bd.pdf"
+      },
+      {
+        title: "IAAB 2026-27",
+        url: "https://mits.ac.in/public/uploads/departments/94e8517d1079f756607ec35e05202a88.pdf"
+      },
+      {
+        title: "IAAB 2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/404112e8a4e7e487c048b7c3e5bf48c8.pdf"
+      },
+      {
+        title: "IAAB 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/387e0b7cb3b9344bf276565797acb84f.pdf"
+      },
+      {
+        title: "IAAB 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/312657dc4992e72fa74a6220a20edc99.pdf"
+      },
+      {
+        title: "IAAB 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/0959470f53f0ba9a4594ffb5ea8cd612.pdf"
+      },
+      {
+        title: "IAAB 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/ed8da59057682733c4dd382728623752.pdf"
+      },
+      {
+        title: "IAAB 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/608508e84f2b8e222dd8f3691861281c.pdf"
+      },
+      {
+        title: "IAAB 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/b732fe014cadb7ce310de92838fc13c7.pdf"
+      },
+      {
+        title: "IAAB 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/aa2eaa7a87477d03ab28c526c2e70dae.pdf"
+      },
+      {
+        title: "IAAB 2017-18",
+        url: "https://mits.ac.in/public/uploads/departments/94173c59083bffae0a262e4891581405.pdf"
+      }
+    ]
+  },
+  {
+    id: "pac",
+    label: "PAC",
+    title: "Programme Assessment Committee",
+    documents: [
+      {
+        title: "PAC 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/17cc877f1fd7adf7fd742301e55ef8cf.pdf"
+      },
+      {
+        title: "PAC 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/8af7ce2b2d8462918052e23590a817bd.pdf"
+      },
+      {
+        title: "PAC 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/319373a456505e1258284ff8297cb93b.pdf"
+      },
+      {
+        title: "PAC 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/a1aafe6a2c8b10745b4d310ece81e2cb.pdf"
+      },
+      {
+        title: "PAC 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/1109c3c57886322cca7e7480e8247fbf.pdf"
+      },
+      {
+        title: "PAC 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/26b16af2bddc6a910d00a72c60b32011.pdf"
+      },
+      {
+        title: "PAC 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/7cd82edf2aad13550ce507aa414eab6e.pdf"
+      },
+      {
+        title: "PAC 2017-18",
+        url: "https://mits.ac.in/public/uploads/departments/186f548e253243e63eb84a22611eaf31.pdf"
+      }
+    ]
+  },
+  {
+    id: "magazine",
+    label: "Magazine - Techera",
+    title: "Magazine - Techera",
+    documents: [
+      {
+        title: "Techera 2024",
+        url: "https://mits.ac.in/public/uploads/departments/b746e8ac58629fb858149e7626d8d54a.pdf"
+      },
+      {
+        title: "Techera 2023",
+        url: "https://mits.ac.in/public/uploads/departments/4e46123f24e9d0ad934eeca0a6c125d5.pdf"
+      },
+      {
+        title: "Techera 2022",
+        url: "https://mits.ac.in/public/uploads/departments/858b5e38736a2bda28f42ff2676cf158.pdf"
+      },
+      {
+        title: "Techera 2021",
+        url: "https://mits.ac.in/public/uploads/departments/58837c0bd659429f2b7f824166324c59.pdf"
+      },
+      {
+        title: "Techera 2020",
+        url: "https://mits.ac.in/public/uploads/departments/11cb246f24a1fc5ca82c658de3da1d15.pdf"
+      },
+      {
+        title: "Techera 2019",
+        url: "https://mits.ac.in/public/uploads/departments/0ab0175c5f4eba71c8983e865751a8f8.pdf"
+      },
+      {
+        title: "Techera 2018",
+        url: "https://mits.ac.in/public/uploads/departments/516d97c6a580d7a61b4e0cc7c9414aa1.pdf"
+      },
+      {
+        title: "Techera 2017",
+        url: "https://mits.ac.in/public/uploads/departments/7a32ea89844f716739889f5ab92ca731.pdf"
+      },
+      {
+        title: "Techera 2016",
+        url: "https://mits.ac.in/public/uploads/departments/be624b2c0526d47e17bc256fc90d9212.pdf"
+      }
+    ]
+  },
+  {
+    id: "news-bulletin",
+    label: "News Bulletin",
+    title: "Bulletin",
+    documents: [
+      {
+        title: "Bulletin 2025-26 (Issue 1)",
+        url: "https://mits.ac.in/public/uploads/departments/2025_-_26_Issue_-_1%20News%20Bulletin-compressed.pdf"
+      },
+      {
+        title: "Bulletin 2024-25 (Issue 2)",
+        url: "https://mits.ac.in/public/uploads/departments/2024_-_25_Issue_-_2.pdf"
+      },
+      {
+        title: "Bulletin 2024-25 (Issue 1)",
+        url: "https://mits.ac.in/public/uploads/departments/27ae2b85a432a1607fc24738aa863be2.pdf"
+      },
+      {
+        title: "Bulletin 2023-24 (Issue 4)",
+        url: "https://mits.ac.in/assets/pdf/cse/2023%20-%2024%20Issue%20-%204.pdf"
+      },
+      {
+        title: "Bulletin 2023-24 (Issue 3)",
+        url: "https://mits.ac.in/assets/pdf/cse/2023%20-%2024%20Issue%20-%203.pdf"
+      },
+      {
+        title: "Bulletin 2023-24 (Issue 2)",
+        url: "https://mits.ac.in/assets/pdf/cse/2023%20-%2024%20Issue%20-%202.pdf"
+      },
+      {
+        title: "Bulletin 2023-24 (Issue 1)",
+        url: "https://mits.ac.in/assets/pdf/cse/2023%20-%2024%20Issue%20-%201.pdf"
+      },
+      {
+        title: "Bulletin 2022-23 (Issue 4)",
+        url: "https://mits.ac.in/assets/pdf/cse/2022-23%20Issue-4.pdf"
+      },
+      {
+        title: "Bulletin 2022-23 (Issue 3)",
+        url: "https://mits.ac.in/assets/pdf/cse/2022-23%20Issue-3.pdf"
+      },
+      {
+        title: "Bulletin 2022-23 (Issue 2)",
+        url: "https://mits.ac.in/assets/pdf/cse/2022-23%20Issue-2.pdf"
+      },
+      {
+        title: "Bulletin 2022-23 (Issue 1)",
+        url: "https://mits.ac.in/assets/pdf/cse/2022-23%20Issue-1.pdf"
+      },
+      {
+        title: "Bulletin 2021-22 (Issue 4)",
+        url: "https://mits.ac.in/assets/pdf/cse/2021-2022%20Issue-4.pdf"
+      },
+      {
+        title: "Bulletin 2021-22 (Issue 3)",
+        url: "https://mits.ac.in/assets/pdf/cse/2021-2022%20Issue-3.pdf"
+      },
+      {
+        title: "Bulletin 2021-22 (Issue 2)",
+        url: "https://mits.ac.in/assets/pdf/cse/2021-2022%20Issue-2.pdf"
+      },
+      {
+        title: "Bulletin 2021-22 (Issue 1)",
+        url: "https://mits.ac.in/assets/pdf/cse/2021-2022%20Issue-1.pdf"
+      },
+      {
+        title: "Bulletin 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/ea464ac239a9710758eb321dd181695a.pdf"
+      },
+      {
+        title: "Bulletin 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/a6afa94fff30c7e7ef118e134822db62.pdf"
+      },
+      {
+        title: "Bulletin 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/e42205c53a0b057c7287b0dbcdc3dde2.pdf"
+      },
+      {
+        title: "Bulletin 2017-18",
+        url: "https://mits.ac.in/public/uploads/departments/568780197c9ddd581429ae5f44dd34de.pdf"
+      },
+      {
+        title: "Bulletin 2016-17",
+        url: "https://mits.ac.in/public/uploads/departments/a61e1925a8150641ca0382e196b3b07f.pdf"
+      },
+      {
+        title: "Bulletin 2015-16",
+        url: "https://mits.ac.in/public/uploads/departments/b01d9b74cfbf0e8694988febf3b0d39b.pdf"
+      }
+    ]
+  }
+];
+
 /**
  * Returns top tabs data (Department, BoS, IAAB, Magazine, etc.) for any department.
  */
@@ -3396,6 +4173,9 @@ export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | unde
   }
   if (deptKey === "ai" || deptKey === "cai") {
     return aiTopTabs;
+  }
+  if (deptKey === "cse") {
+    return cseTopTabs;
   }
   return undefined;
 }

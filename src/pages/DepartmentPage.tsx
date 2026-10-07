@@ -31,7 +31,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { getDepartmentByKey, getDepartmentUnderGraduate, getDepartmentMore, getDepartmentTopTabs } from "@/data/departmentData";
+import { getDepartmentByKey, getDepartmentUnderGraduate, getDepartmentPostGraduate, getDepartmentMore, getDepartmentTopTabs } from "@/data/departmentData";
 import { Card, CardContent } from "@/components/ui/card";
 import InlineFacultyProfile from "@/components/InlineFacultyProfile";
 import { getFacultyProfile, type FacultyProfile } from "@/data/facultyProfiles";
@@ -104,6 +104,10 @@ const DepartmentPage = () => {
   const [activeUgTab, setActiveUgTab] = useState<string>("ug");
   const [ugDropdownOpen, setUgDropdownOpen] = useState(false);
   const [ugHovered, setUgHovered] = useState(false);
+  const [activePgTab, setActivePgTab] = useState<string>("pg-course-syllabus");
+  const [pgDropdownOpen, setPgDropdownOpen] = useState(false);
+  const [pgHovered, setPgHovered] = useState(false);
+  const [pgSearch, setPgSearch] = useState("");
   const [activeMoreTab, setActiveMoreTab] = useState<string>("mentor-mentee");
   const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
   const [moreHovered, setMoreHovered] = useState(false);
@@ -123,34 +127,47 @@ const DepartmentPage = () => {
   const [activeTopTab, setActiveTopTab] = useState<string>("department");
   const dept = getDepartmentByKey(deptKey || "");
   const ugData = getDepartmentUnderGraduate(deptKey || "", dept?.subjects || []);
+  const pgData = getDepartmentPostGraduate(deptKey || "");
   const moreData = getDepartmentMore(deptKey || "");
   const topTabs = getDepartmentTopTabs(deptKey || "");
   const { data: cms, loading: cmsLoading } = useDeptCMSData(deptKey || "");
   const { getFacultyByDept, getFacultyProfileBySlug, getDepartmentHod, loading: facultyLoading, refresh: refreshFaculty } = useFacultyData();
 
   const currentSidebarItems = useMemo(() => {
-    return sidebarItems.map(item => {
+    const items: SidebarItem[] = [];
+    sidebarItems.forEach(item => {
       if (item.id === "under-graduate") {
-        return {
+        items.push({
           ...item,
           subItems: ugData.subTabs || [
             { id: "ug", label: "UG" },
             { id: "course-syllabus", label: "Course Syllabus" },
           ]
-        };
-      }
-      if (item.id === "more") {
-        return {
+        });
+        if (pgData) {
+          items.push({
+            id: "post-graduate",
+            label: "Post Graduate",
+            icon: GraduationCap,
+            subItems: pgData.subTabs || [
+              { id: "pg-course-syllabus", label: "Course Syllabus" }
+            ]
+          });
+        }
+      } else if (item.id === "more") {
+        items.push({
           ...item,
           subItems: moreData.subTabs || [
             { id: "mentor-mentee", label: "Mentor & Mentee" },
             { id: "minor", label: "Minor" },
           ]
-        };
+        });
+      } else {
+        items.push(item);
       }
-      return item;
     });
-  }, [ugData.subTabs, moreData.subTabs]);
+    return items;
+  }, [ugData.subTabs, pgData, moreData.subTabs]);
 
   const specializations = useMemo(() => {
     if (!ugData.syllabusTables || ugData.syllabusTables.length === 0) return [];
@@ -206,6 +223,10 @@ const DepartmentPage = () => {
     } else if (lastPart === "under-graduate") {
       setActiveSection("under-graduate");
       setUgDropdownOpen(true);
+    } else if (lastPart === "post-graduate" || lastPart === "pg" || lastPart === "pg-course-syllabus") {
+      setActiveSection("post-graduate");
+      setActivePgTab("pg-course-syllabus");
+      setPgDropdownOpen(true);
     } else if (lastPart === "mentor-mentee" || lastPart === "mentor-and-mentee" || lastPart === "mentee") {
       setActiveSection("more");
       setActiveMoreTab("mentor-mentee");
@@ -217,6 +238,18 @@ const DepartmentPage = () => {
     } else if (lastPart === "interdisciplinary-projects" || lastPart === "interdisciplinary") {
       setActiveSection("more");
       setActiveMoreTab("interdisciplinary-projects");
+      setMoreDropdownOpen(true);
+    } else if (lastPart === "doctoral") {
+      setActiveSection("more");
+      setActiveMoreTab("doctoral");
+      setMoreDropdownOpen(true);
+    } else if (lastPart === "feedback") {
+      setActiveSection("more");
+      setActiveMoreTab("feedback");
+      setMoreDropdownOpen(true);
+    } else if (lastPart === "innovative-teaching") {
+      setActiveSection("more");
+      setActiveMoreTab("innovative-teaching");
       setMoreDropdownOpen(true);
     } else if (lastPart === "more") {
       setActiveSection("more");
@@ -252,6 +285,10 @@ const DepartmentPage = () => {
       } else if (hash === "under-graduate") {
         setActiveSection("under-graduate");
         setUgDropdownOpen(true);
+      } else if (hash === "post-graduate" || hash === "pg" || hash === "pg-course-syllabus") {
+        setActiveSection("post-graduate");
+        setActivePgTab("pg-course-syllabus");
+        setPgDropdownOpen(true);
       } else if (hash === "mentor-mentee" || hash === "mentors") {
         setActiveSection("more");
         setActiveMoreTab("mentor-mentee");
@@ -263,6 +300,18 @@ const DepartmentPage = () => {
       } else if (hash === "interdisciplinary-projects" || hash === "interdisciplinary") {
         setActiveSection("more");
         setActiveMoreTab("interdisciplinary-projects");
+        setMoreDropdownOpen(true);
+      } else if (hash === "doctoral") {
+        setActiveSection("more");
+        setActiveMoreTab("doctoral");
+        setMoreDropdownOpen(true);
+      } else if (hash === "feedback") {
+        setActiveSection("more");
+        setActiveMoreTab("feedback");
+        setMoreDropdownOpen(true);
+      } else if (hash === "innovative-teaching") {
+        setActiveSection("more");
+        setActiveMoreTab("innovative-teaching");
         setMoreDropdownOpen(true);
       } else if (hash === "more") {
         setActiveSection("more");
@@ -320,6 +369,22 @@ const DepartmentPage = () => {
     }, 10);
   };
 
+  const handlePgSubItemClick = (tabId: string, externalUrl?: string) => {
+    if (externalUrl) {
+      window.open(externalUrl, "_blank", "noopener,noreferrer");
+      return;
+    }
+    setActiveSection("post-graduate");
+    setActivePgTab(tabId);
+    setPgDropdownOpen(true);
+    setMobileMenuOpen(false);
+    const basePath = `/department/${deptKey}`;
+    navigate(`${basePath}/${tabId}`, { replace: true });
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 10);
+  };
+
   const handleMoreSubItemClick = (tabId: string, externalUrl?: string) => {
     if (externalUrl) {
       window.open(externalUrl, "_blank", "noopener,noreferrer");
@@ -341,12 +406,19 @@ const DepartmentPage = () => {
     setMobileMenuOpen(false);
     if (sectionId === "under-graduate") {
       setUgDropdownOpen(true);
+      setPgDropdownOpen(false);
+      setMoreDropdownOpen(false);
+    } else if (sectionId === "post-graduate") {
+      setPgDropdownOpen(true);
+      setUgDropdownOpen(false);
       setMoreDropdownOpen(false);
     } else if (sectionId === "more") {
       setMoreDropdownOpen(true);
       setUgDropdownOpen(false);
+      setPgDropdownOpen(false);
     } else {
       setUgDropdownOpen(false);
+      setPgDropdownOpen(false);
       setMoreDropdownOpen(false);
     }
     const basePath = `/department/${deptKey}`;
@@ -512,9 +584,10 @@ const DepartmentPage = () => {
               if (item.subItems) {
                 const isParentActive = activeSection === item.id;
                 const isUg = item.id === "under-graduate";
-                const isDropdownOpen = isUg ? ugDropdownOpen : moreDropdownOpen;
-                const activeSubTab = isUg ? activeUgTab : activeMoreTab;
-                const handleSubClick = isUg ? handleUgSubItemClick : handleMoreSubItemClick;
+                const isPg = item.id === "post-graduate";
+                const isDropdownOpen = isUg ? ugDropdownOpen : isPg ? pgDropdownOpen : moreDropdownOpen;
+                const activeSubTab = isUg ? activeUgTab : isPg ? activePgTab : activeMoreTab;
+                const handleSubClick = isUg ? handleUgSubItemClick : isPg ? handlePgSubItemClick : handleMoreSubItemClick;
 
                 return (
                   <div key={item.id} className="border-b border-border/40">
@@ -524,6 +597,7 @@ const DepartmentPage = () => {
                           handleSectionChange(item.id);
                         } else {
                           if (isUg) setUgDropdownOpen(prev => !prev);
+                          else if (isPg) setPgDropdownOpen(prev => !prev);
                           else setMoreDropdownOpen(prev => !prev);
                         }
                       }}
@@ -588,11 +662,12 @@ const DepartmentPage = () => {
                   if (item.subItems) {
                     const isParentActive = activeSection === item.id;
                     const isUg = item.id === "under-graduate";
-                    const isDropdownOpen = isUg ? ugDropdownOpen : moreDropdownOpen;
-                    const isHovered = isUg ? ugHovered : moreHovered;
-                    const setHovered = isUg ? setUgHovered : setMoreHovered;
-                    const activeSubTab = isUg ? activeUgTab : activeMoreTab;
-                    const handleSubClick = isUg ? handleUgSubItemClick : handleMoreSubItemClick;
+                    const isPg = item.id === "post-graduate";
+                    const isDropdownOpen = isUg ? ugDropdownOpen : isPg ? pgDropdownOpen : moreDropdownOpen;
+                    const isHovered = isUg ? ugHovered : isPg ? pgHovered : moreHovered;
+                    const setHovered = isUg ? setUgHovered : isPg ? setPgHovered : setMoreHovered;
+                    const activeSubTab = isUg ? activeUgTab : isPg ? activePgTab : activeMoreTab;
+                    const handleSubClick = isUg ? handleUgSubItemClick : isPg ? handlePgSubItemClick : handleMoreSubItemClick;
 
                     return (
                       <div
@@ -607,6 +682,7 @@ const DepartmentPage = () => {
                               handleSectionChange(item.id);
                             } else {
                               if (isUg) setUgDropdownOpen(prev => !prev);
+                              else if (isPg) setPgDropdownOpen(prev => !prev);
                               else setMoreDropdownOpen(prev => !prev);
                             }
                           }}
@@ -713,19 +789,19 @@ const DepartmentPage = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Modern Segmented Tab Switcher (Department, BoS, IAAB, Magazine) */}
+                {/* Modern Tab Switcher (Department, BoS, IAAB, Magazine, etc.) */}
                 {topTabs && topTabs.length > 1 && (
-                  <div className="inline-flex flex-wrap items-center gap-1.5 p-1 bg-muted/40 border border-border/60 rounded-xl mb-6">
+                  <div className="flex flex-wrap items-center gap-2 mb-6">
                     {topTabs.map((tab) => {
                       const isActive = activeTopTab === tab.id;
                       return (
                         <button
                           key={tab.id}
                           onClick={() => handleTopTabClick(tab.id)}
-                          className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
+                          className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg border transition-all duration-200 cursor-pointer ${
                             isActive
-                              ? "bg-primary text-white shadow-xs"
-                              : "text-muted-foreground hover:text-primary hover:bg-card/80"
+                              ? "bg-primary text-white border-primary shadow-xs"
+                              : "bg-card text-primary border-primary/80 hover:bg-primary/10 hover:border-primary"
                           }`}
                         >
                           {tab.label}
@@ -740,7 +816,11 @@ const DepartmentPage = () => {
                     <div className="grid md:grid-cols-3 gap-6">
                       <div className="md:col-span-2">
                         <h2 className="text-2xl font-bold text-secondary mb-4" style={{ fontFamily: "var(--font-display)" }}>About Us</h2>
-                        <p className="text-muted-foreground leading-relaxed">{dept.about}</p>
+                        <div className="space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
+                          {dept.about.split("\n\n").map((para, pIdx) => (
+                            <p key={pIdx}>{para.trim()}</p>
+                          ))}
+                        </div>
                       </div>
                       <div>
                         <Card className="overflow-hidden border-2 border-primary/10 group hover:border-primary/30 transition-all duration-300 shadow-sm hover:shadow-md">
@@ -920,6 +1000,12 @@ const DepartmentPage = () => {
                               <h3 className="text-xl font-bold text-secondary tracking-tight">
                                 {currentTab.title || currentTab.label}
                               </h3>
+
+                              {currentTab.description && (
+                                <p className="text-sm text-muted-foreground leading-relaxed">
+                                  {currentTab.description}
+                                </p>
+                              )}
 
                               <div className="space-y-3 pl-1">
                                 {currentTab.documents.map((doc, dIdx) => (
@@ -1319,6 +1405,149 @@ const DepartmentPage = () => {
                 )}
             </motion.div>
           )}
+
+            {activeSection === "post-graduate" && pgData && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-6"
+              >
+                {/* Header Card */}
+                <Card className="border border-border/80 shadow-xs overflow-hidden bg-card">
+                  <div className="bg-muted/30 border-b border-border/70 p-6 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                        <GraduationCap className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <span className="text-xs uppercase font-bold tracking-widest text-primary">Post Graduate Program</span>
+                        <h3 className="text-xl sm:text-2xl font-bold text-secondary mt-0.5" style={{ fontFamily: "var(--font-display)" }}>
+                          {pgData.programTitle}
+                        </h3>
+                      </div>
+                    </div>
+                    <span className="hidden sm:inline-block px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold shadow-xs">
+                      R24 Autonomous Scheme
+                    </span>
+                  </div>
+                </Card>
+
+                {/* Sub-tabs if more than 1 */}
+                {pgData.subTabs && pgData.subTabs.length > 1 && (
+                  <div className="flex flex-wrap items-center gap-2">
+                    {pgData.subTabs.map((sub) => {
+                      const isActive = activePgTab === sub.id;
+                      return (
+                        <button
+                          key={sub.id}
+                          onClick={() => handlePgSubItemClick(sub.id, sub.externalUrl)}
+                          className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg border transition-all duration-200 cursor-pointer ${
+                            isActive
+                              ? "bg-primary text-white border-primary shadow-xs"
+                              : "bg-card text-primary border-primary/80 hover:bg-primary/10 hover:border-primary"
+                          }`}
+                        >
+                          {sub.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Search & Syllabus Tables */}
+                <div className="space-y-6">
+                  <div className="bg-muted/20 border border-border/70 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div className="relative flex-1 max-w-md">
+                      <Search className="w-4 h-4 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
+                      <input
+                        type="text"
+                        value={pgSearch}
+                        onChange={(e) => setPgSearch(e.target.value)}
+                        placeholder="Search PG subjects by name or type..."
+                        className="w-full pl-9 pr-3 py-2 bg-card border border-border rounded-lg text-xs sm:text-sm text-secondary placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                      />
+                    </div>
+                    {pgSearch && (
+                      <button
+                        onClick={() => setPgSearch("")}
+                        className="text-xs font-bold text-primary hover:underline self-start sm:self-center"
+                      >
+                        Clear Search
+                      </button>
+                    )}
+                  </div>
+
+                  <div className="space-y-6">
+                    {pgData.syllabusTables.map((table, tIdx) => {
+                      const matchingRows = table.rows.filter((r) =>
+                        pgSearch
+                          ? r.name.toLowerCase().includes(pgSearch.toLowerCase()) ||
+                            r.type.toLowerCase().includes(pgSearch.toLowerCase())
+                          : true
+                      );
+                      if (pgSearch && matchingRows.length === 0) return null;
+
+                      return (
+                        <div key={tIdx} className="bg-card border border-border/80 rounded-2xl shadow-xs overflow-hidden">
+                          <div className="bg-muted/30 border-b border-border/70 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div>
+                              <h3 className="text-base sm:text-lg font-bold text-secondary">
+                                {table.title}
+                              </h3>
+                              <div className="flex items-center gap-2 text-xs text-muted-foreground mt-0.5">
+                                <span>Curriculum Matrix</span>
+                                <span>•</span>
+                                <span>{table.rows.length} Subjects</span>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2 shrink-0">
+                              <span className="px-2.5 py-1 bg-card border border-border text-secondary rounded-full text-xs font-bold">
+                                R24
+                              </span>
+                              <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold shadow-xs">
+                                Total: {calculateTableCredits(table.rows)} Credits
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm border-collapse text-left">
+                              <thead>
+                                <tr className="bg-muted/40 text-secondary border-b border-border text-xs uppercase font-bold tracking-wider divide-x divide-border/60">
+                                  <th className="py-3.5 px-4 text-center w-16">S.No</th>
+                                  <th className="py-3.5 px-6">Name of the Subject</th>
+                                  <th className="py-3.5 px-4 text-center w-36">Theory / Lab</th>
+                                  <th className="py-3.5 px-4 text-center w-28">Credits</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-border/60">
+                                {matchingRows.map((row, rIdx) => (
+                                  <tr key={rIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
+                                    <td className="py-3.5 px-4 text-center font-medium text-muted-foreground text-xs">
+                                      {row.sno}
+                                    </td>
+                                    <td className="py-3.5 px-6 font-semibold text-secondary">
+                                      {row.name}
+                                    </td>
+                                    <td className="py-3.5 px-4 text-center text-sm font-medium text-muted-foreground">
+                                      {row.type}
+                                    </td>
+                                    <td className="py-3.5 px-4 text-center text-sm font-bold text-secondary">
+                                      {row.credits}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </motion.div>
+            )}
 
             {activeSection === "faculty" && (
               <motion.div
@@ -2037,6 +2266,12 @@ const DepartmentPage = () => {
                       <span>Mentor & <span className="text-primary">Mentee</span></span>
                     ) : activeMoreTab === "interdisciplinary-projects" ? (
                       <span>Interdisciplinary <span className="text-primary">Projects</span></span>
+                    ) : activeMoreTab === "doctoral" ? (
+                      <span>Doctoral <span className="text-primary">Program</span></span>
+                    ) : activeMoreTab === "feedback" ? (
+                      <span>Stakeholder <span className="text-primary">Feedback</span></span>
+                    ) : activeMoreTab === "innovative-teaching" ? (
+                      <span>Innovative <span className="text-primary">Teaching Approach</span></span>
                     ) : (
                       <span>More <span className="text-primary">Information</span></span>
                     )}
@@ -2218,6 +2453,141 @@ const DepartmentPage = () => {
                       <Card className="p-10 text-center text-muted-foreground bg-card">
                         <Layers className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
                         <p className="font-semibold text-base text-secondary">Interdisciplinary project details will be uploaded soon.</p>
+                      </Card>
+                    )}
+                  </div>
+                ) : activeMoreTab === "doctoral" ? (
+                  <div className="space-y-6">
+                    {moreData.doctoral ? (
+                      <Card className="border border-border/80 shadow-xs overflow-hidden bg-card">
+                        <div className="bg-muted/30 border-b border-border/70 p-6 sm:p-8">
+                          <span className="text-xs uppercase font-bold tracking-widest text-primary">Research & Ph.D</span>
+                          <h3 className="text-2xl sm:text-3xl font-bold text-secondary mt-0.5" style={{ fontFamily: "var(--font-display)" }}>
+                            {moreData.doctoral.title}
+                          </h3>
+                          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base mt-3">
+                            {moreData.doctoral.description}
+                          </p>
+                        </div>
+
+                        {moreData.doctoral.scholars && moreData.doctoral.scholars.length > 0 && (
+                          <div className="p-6 sm:p-8 space-y-4">
+                            {moreData.doctoral.batchTitle && (
+                              <h4 className="text-base sm:text-lg font-bold text-secondary">
+                                {moreData.doctoral.batchTitle}
+                              </h4>
+                            )}
+                            <div className="overflow-x-auto rounded-xl border border-border">
+                              <table className="w-full text-sm border-collapse text-left">
+                                <thead>
+                                  <tr className="bg-muted/40 text-secondary border-b border-border text-xs uppercase font-bold tracking-wider divide-x divide-border/60">
+                                    <th className="py-3 px-3 text-center w-14">S.No</th>
+                                    <th className="py-3 px-4">Research Scholar</th>
+                                    <th className="py-3 px-4">Research Guide</th>
+                                    <th className="py-3 px-4 text-center w-36">Date of Joining</th>
+                                    <th className="py-3 px-6">Research Title / Area</th>
+                                  </tr>
+                                </thead>
+                                <tbody className="divide-y divide-border/60">
+                                  {moreData.doctoral.scholars.map((sch, sIdx) => (
+                                    <tr key={sIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
+                                      <td className="py-3 px-3 text-center font-medium text-muted-foreground text-xs">
+                                        {sch.sno}
+                                      </td>
+                                      <td className="py-3 px-4 font-semibold text-secondary">
+                                        {sch.name}
+                                      </td>
+                                      <td className="py-3 px-4 text-muted-foreground font-medium">
+                                        {sch.guide}
+                                      </td>
+                                      <td className="py-3 px-4 text-center text-xs text-muted-foreground font-medium">
+                                        {sch.dateOfJoining}
+                                      </td>
+                                      <td className="py-3 px-6 text-sm text-secondary">
+                                        {sch.researchTitle}
+                                      </td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        )}
+                      </Card>
+                    ) : (
+                      <Card className="p-10 text-center text-muted-foreground bg-card">
+                        <GraduationCap className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
+                        <p className="font-semibold text-base text-secondary">Doctoral program details will be updated soon.</p>
+                      </Card>
+                    )}
+                  </div>
+                ) : activeMoreTab === "feedback" ? (
+                  <div className="space-y-6">
+                    {moreData.feedback && moreData.feedback.documents.length > 0 ? (
+                      <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                        <div className="space-y-6">
+                          <h3 className="text-xl font-bold text-secondary tracking-tight">
+                            {moreData.feedback.groupTitle}
+                          </h3>
+                          <div className="space-y-3 pl-1">
+                            {moreData.feedback.documents.map((doc, dIdx) => (
+                              <a
+                                key={dIdx}
+                                href={doc.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                              >
+                                <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                  <ChevronRight className="w-3 h-3 stroke-[3]" />
+                                </div>
+                                <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
+                                  {doc.title}
+                                </span>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </Card>
+                    ) : (
+                      <Card className="p-10 text-center text-muted-foreground bg-card">
+                        <FileText className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
+                        <p className="font-semibold text-base text-secondary">Feedback analysis reports will be uploaded soon.</p>
+                      </Card>
+                    )}
+                  </div>
+                ) : activeMoreTab === "innovative-teaching" ? (
+                  <div className="space-y-6">
+                    {moreData.innovativeTeaching && moreData.innovativeTeaching.documents.length > 0 ? (
+                      <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                        <div className="space-y-6">
+                          <h3 className="text-xl font-bold text-secondary tracking-tight">
+                            {moreData.innovativeTeaching.groupTitle}
+                          </h3>
+                          <div className="space-y-3 pl-1">
+                            {moreData.innovativeTeaching.documents.map((doc, dIdx) => (
+                              <a
+                                key={dIdx}
+                                href={doc.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                              >
+                                <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                  <ChevronRight className="w-3 h-3 stroke-[3]" />
+                                </div>
+                                <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
+                                  {doc.title}
+                                </span>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </Card>
+                    ) : (
+                      <Card className="p-10 text-center text-muted-foreground bg-card">
+                        <Lightbulb className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
+                        <p className="font-semibold text-base text-secondary">Innovative teaching details will be uploaded soon.</p>
                       </Card>
                     )}
                   </div>
