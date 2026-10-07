@@ -3,13 +3,65 @@ import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import SEO from "@/components/SEO";
-import { Award, BookOpen, Building2, GraduationCap, History, Landmark, Shield, Star, Target, Eye, Users, MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { Award, BookOpen, Building2, ExternalLink, GraduationCap, History, Landmark, Shield, ShieldCheck, Star, Target, Eye, Users, MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { leadershipProfiles, type LeadershipProfile } from "@/data/aboutData";
 
 const BASE = import.meta.env.BASE_URL;
+
+const EomsLogo = ({ className = "w-8 h-8" }: { className?: string }) => (
+  <svg
+    viewBox="0 0 48 48"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    aria-label="ISO 21001:2018 EOMS Certified Logo"
+  >
+    <circle cx="24" cy="24" r="22" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 2" opacity="0.45" />
+    <circle cx="24" cy="24" r="19" stroke="currentColor" strokeWidth="1.75" />
+    <text
+      x="24"
+      y="18"
+      textAnchor="middle"
+      fill="currentColor"
+      fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      fontSize="9"
+      fontWeight="900"
+      letterSpacing="1"
+    >
+      ISO
+    </text>
+    <line x1="11" y1="21.5" x2="37" y2="21.5" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+    <polygon points="24,20 25.5,21.5 24,23 22.5,21.5" fill="currentColor" />
+    <text
+      x="24"
+      y="31"
+      textAnchor="middle"
+      fill="currentColor"
+      fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      fontSize="8"
+      fontWeight="800"
+      letterSpacing="0.5"
+    >
+      21001
+    </text>
+    <text
+      x="24"
+      y="38"
+      textAnchor="middle"
+      fill="currentColor"
+      fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      fontSize="5"
+      fontWeight="700"
+      letterSpacing="1.2"
+      opacity="0.9"
+    >
+      EOMS
+    </text>
+  </svg>
+);
 
 const achievements = [
   { icon: Award, title: "NAAC A+ Accredited", desc: "Highest grade by the National Assessment and Accreditation Council." },
@@ -20,13 +72,14 @@ const achievements = [
   { icon: GraduationCap, title: "Deemed to be University", desc: "Declared as Deemed to be University u/s 3 of UGC Act, 1956." },
 ];
 
-const institutionalKeys = ["chancellor", "pro-chancellor"];
+const institutionalKeys = ["chancellor", "pro-chancellor", "Executive Director"];
 const academicKeys = [
   "vice-chancellor",
   "registrar",
   "controller-of-examinations",
   "ombudsperson",
 ];
+
 
 const institutional = institutionalKeys.map((k) => leadershipProfiles[k]).filter((p): p is LeadershipProfile => Boolean(p));
 const academic = academicKeys.map((k) => leadershipProfiles[k]).filter((p): p is LeadershipProfile => Boolean(p));
@@ -135,14 +188,20 @@ const About = () => {
                   <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">Our History</h2>
                 </div>
                 <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-                  Established in 1998, Madanapalle Institute of Technology & Science (MITS) was founded under the aegis of the Ratakonda Ranga Reddy Educational Academy. Over the past 27 years, MITS has evolved from a regional engineering college into a Deemed to be University, recognized by UGC.
+                  Madanapalle Institute of Technology & Science (MITS) was established in 1998 in the scenic and serene surroundings of Madanapalle. The institute is ideally situated on a spacious 26.17-acre campus in the Madanapalle–Anantapur Highway (NH-42), near Angallu, approximately 10 km from Madanapalle.
+                  <br></br>
+                  MITS was founded under the Ratakonda Ranga Reddy Educational Academy, under the leadership of Late Sri N. Krishna Kumar, M.S. (U.S.A.), the then President, and Dr. N. Vijaya Bhaskar Choudary, Ph.D. the visionary leader of the Academy.<br></br>
+
+                  With 28 years of academic excellence, MITS has earned NAAC A+ accreditation and NBA recognition for its programs. In recognition of its quality standards and contributions to higher education, the Government of India has conferred MITS the status of a Deemed to be University under Section 3 of the UGC Act, 1956. vide Notification No. 9-1/2025-U.3(A) dated 15th July, 2025.
+
+                  MITS - Deemed to be University is now governed by the visionary and proactive leadership of Dr. N. Vijaya Bhaskar Choudary, the founder and Chancellor. Redefining the education in the international standard, MITS Deemed to be University, now continues to strive with a total commitment and dedication to establish the institution as one of the foremost centers of academic excellence in India. With well-defined strategies and action plans that align with the evolving needs of the globe, MITS Deemed to be University has set forth its educational Odyssey.
                 </p>
-                <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+                {/* <p className="text-muted-foreground text-lg leading-relaxed mb-4">
                   The institution is located in Madanapalle, Annamayya District, Andhra Pradesh, nestled in the scenic Horsely Hills region. MITS has consistently expanded its academic offerings and research capabilities, earning NAAC A+ accreditation and NBA recognition for multiple programs.
-                </p>
-                <p className="text-muted-foreground text-lg leading-relaxed">
+                </p> */}
+                {/* <p className="text-muted-foreground text-lg leading-relaxed">
                   Today, MITS serves over 12,000 students across 4 schools — Engineering, Computing, Management, and Science — with 600+ faculty members and a growing network of global academic and industry partners.
-                </p>
+                </p> */}
               </ScrollReveal>
               <ScrollReveal direction="right">
                 <img
@@ -155,38 +214,107 @@ const About = () => {
           </div>
         </section>
 
-        {/* Vision & Mission */}
+        {/* Vision, Mission & EOMS Policy */}
         <section className="py-20 bg-muted">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-7xl">
             <ScrollReveal>
               <div className="text-center mb-14">
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Vision & Mission</h2>
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Vision, Mission &amp; EOMS Policy</h2>
               </div>
             </ScrollReveal>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+            {/* Top row: Vision & Mission side-by-side */}
+            <div className="grid md:grid-cols-2 gap-8 mb-8 items-stretch">
               <ScrollReveal direction="left">
-                <div className="bg-card border border-border rounded-xl p-8 shadow-sm h-full">
-                  <div className="w-14 h-14 rounded-lg bg-primary flex items-center justify-center mb-5">
-                    <Eye className="w-7 h-7 text-primary-foreground" />
+                <div className="bg-card border border-border rounded-xl p-8 md:p-10 shadow-sm h-full flex flex-col justify-between hover:shadow-md transition-shadow">
+                  <div>
+                    <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-5 shrink-0 shadow-sm">
+                      <Eye className="w-7 h-7 text-primary-foreground" />
+                    </div>
+                    <h3 className="font-display text-2xl font-bold text-card-foreground mb-4">Vision</h3>
+                    <p className="text-muted-foreground leading-relaxed text-justify text-base">
+                      To serve our region, nation and world through academic excellence, research relevance, and community engagement while emphasizing the importance of the individuals.
+                    </p>
                   </div>
-                  <h3 className="font-display text-2xl font-bold text-card-foreground mb-3">Vision</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    To be a globally respected institution known for innovation, ethics, and future-ready education that empowers learners to become responsible citizens and leaders.
-                  </p>
                 </div>
               </ScrollReveal>
+
               <ScrollReveal direction="right">
-                <div className="bg-card border border-border rounded-xl p-8 shadow-sm h-full">
-                  <div className="w-14 h-14 rounded-lg bg-accent flex items-center justify-center mb-5">
-                    <Target className="w-7 h-7 text-accent-foreground" />
+                <div className="bg-card border border-border rounded-xl p-8 md:p-10 shadow-sm h-full flex flex-col justify-between hover:shadow-md transition-shadow">
+                  <div>
+                    <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-5 shrink-0 shadow-sm">
+                      <Target className="w-7 h-7 text-accent-foreground" />
+                    </div>
+                    <h3 className="font-display text-2xl font-bold text-card-foreground mb-4">Mission</h3>
+                    <p className="text-muted-foreground leading-relaxed text-justify text-base">
+                      The MITS - Deemed to be University is committed to providing a dynamic and inclusive learning environment that nurtures intellectual curiosity, promotes critical thinking, and cultivates ethical leadership. Our mission is to empower students with the knowledge, skills, and values necessary to thrive in a rapidly changing global society.
+                    </p>
                   </div>
-                  <h3 className="font-display text-2xl font-bold text-card-foreground mb-3">Mission</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    To serve the region, nation, and world through academic excellence, research relevance, and community engagement while fostering an environment of holistic learning.
-                  </p>
                 </div>
               </ScrollReveal>
             </div>
+
+            {/* Bottom row: EOMS Policy full width */}
+            <ScrollReveal direction="up" delay={0.1}>
+              <div className="bg-card border border-border rounded-xl p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow w-full">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-border/60">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center shrink-0 shadow-sm text-secondary-foreground">
+                      <EomsLogo className="w-8 h-8" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-2xl font-bold text-card-foreground">EOMS Policy</h3>
+                      <p className="text-xs sm:text-sm font-medium text-muted-foreground mt-0.5">
+                        Educational Organizations Management System &bull; ISO 21001:2018
+                      </p>
+                    </div>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-secondary/10 text-secondary border border-secondary/20 self-start sm:self-auto">
+                    <ShieldCheck className="w-4 h-4 text-primary" />
+                    <span>ISO 21001:2018 Certified</span>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <p className="text-muted-foreground leading-relaxed text-justify text-base">
+                    Madanapalle Institute of Technology &amp; Science (MITS) Deemed to be University is committed to bring out and nurture the talents and skills of youth in the fields of Engineering and Management to cater to the challenging needs of Society and Industry by
+                  </p>
+
+                  <ul className="space-y-2.5 my-4">
+                    {[
+                      "Contributing to the Academic standards and overall knowledge development of the Students",
+                      "Providing excellent Infrastructure and a conducive learning environment",
+                      "Enhancing the competence of Faculty and promoting R & D Programs",
+                      "Collaborating with Institutions and Industries",
+                      "Ensuring continual improvement of Educational Organizations Management System",
+                    ].map((point, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-muted-foreground leading-relaxed text-justify text-base">
+                        <span className="w-2 h-2 rounded-full bg-primary mt-2.5 shrink-0" />
+                        <span className="flex-1">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="text-muted-foreground leading-relaxed text-justify text-base">
+                    We identify, understand, and address the needs and expectations of all Stakeholders and are committed to complying with all applicable statutory and regulatory requirements and to fulfilling our social responsibilities towards the Community and Society at large. Further, we are dedicated to safeguarding Intellectual Property through appropriate policies, practices and respect for Innovations and Research outcomes.
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-border/60 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <span className="text-muted-foreground font-medium">
+                    Internal Quality Assurance Cell (IQAC) &bull; Educational Organizations Management System
+                  </span>
+                  <a
+                    href="https://mits.ac.in/public/uploads/naac/EOMS%20Policy.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline"
+                  >
+                    Official Policy PDF <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
