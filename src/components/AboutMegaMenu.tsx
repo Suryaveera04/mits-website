@@ -82,13 +82,13 @@ const AboutMegaMenu = ({ open, onClose }: Props) => {
           <img
             src={l.image}
             alt={l.name}
-            className="w-9 h-9 rounded-full object-cover border border-border"
+            className="w-9 h-9 rounded-full object-cover border border-border shrink-0"
           />
-          <div className="min-w-0">
-            <p className="text-[11px] font-semibold text-secondary leading-tight truncate group-hover:text-primary">
-              {l.name.replace(/^Dr\. |Sri\. |Prof\. /, "")}
+          <div className="min-w-0 flex-1">
+            <p className="text-[11px] font-semibold text-secondary leading-tight line-clamp-2 group-hover:text-primary">
+              {l.name}
             </p>
-            <p className="text-[9px] text-secondary/60 uppercase tracking-wider truncate">
+            <p className="text-[9px] text-secondary/60 uppercase tracking-wider truncate mt-0.5">
               {l.designation}
             </p>
           </div>
