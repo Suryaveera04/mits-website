@@ -71,24 +71,24 @@ const AboutMegaMenu = ({ open, onClose }: Props) => {
   ].map((s) => leadershipProfiles[s]);
 
   const renderLeaderGrid = (leaders: typeof institutionalLeaders) => (
-    <div className="grid grid-cols-2 gap-2">
+    <div className="grid grid-cols-2 gap-2 text-left">
       {leaders.map((l) => (
         <Link
           key={l.slug}
           to={`/about/leadership/${l.slug}`}
           onClick={onClose}
-          className="flex items-center gap-2 p-2 rounded-md hover:bg-primary/5 transition-colors group"
+          className="flex items-center gap-2 p-2 rounded-md hover:bg-primary/5 transition-colors group text-left"
         >
           <img
             src={l.image}
             alt={l.name}
             className="w-9 h-9 rounded-full object-cover border border-border shrink-0"
           />
-          <div className="min-w-0 flex-1">
-            <p className="text-[11px] font-semibold text-secondary leading-tight line-clamp-2 group-hover:text-primary">
+          <div className="min-w-0 flex-1 text-left">
+            <p className="text-left text-[11px] font-semibold text-secondary leading-snug line-clamp-2 group-hover:text-primary [text-align:left]">
               {l.name}
             </p>
-            <p className="text-[9px] text-secondary/60 uppercase tracking-wider truncate mt-0.5">
+            <p className="text-left text-[9px] text-secondary/60 uppercase tracking-wider truncate mt-0.5 [text-align:left]">
               {l.designation}
             </p>
           </div>
@@ -189,7 +189,7 @@ const AboutMegaMenu = ({ open, onClose }: Props) => {
                         >
                           {preview.title}
                         </h3>
-                        <p className="text-sm text-secondary/70 leading-relaxed mb-4">
+                        <p className="text-left text-sm text-secondary/70 leading-relaxed mb-4 [text-align:left]">
                           {preview.body}
                         </p>
                         {hovered === "leadership" && renderLeaderGrid(institutionalLeaders)}
