@@ -196,13 +196,7 @@ const About = () => {
 
                   MITS - Deemed to be University is now governed by the visionary and proactive leadership of Dr. N. Vijaya Bhaskar Choudary, the founder and Chancellor. Redefining the education in the international standard, MITS Deemed to be University, now continues to strive with a total commitment and dedication to establish the institution as one of the foremost centers of academic excellence in India. With well-defined strategies and action plans that align with the evolving needs of the globe, MITS Deemed to be University has set forth its educational Odyssey.
                 </p>
-                {/* <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-                  The institution is located in Madanapalle, Annamayya District, Andhra Pradesh, nestled in the scenic Horsely Hills region. MITS has consistently expanded its academic offerings and research capabilities, earning NAAC A+ accreditation and NBA recognition for multiple programs.
-                </p> */}
-                {/* <p className="text-muted-foreground text-lg leading-relaxed">
-                  Today, MITS serves over 12,000 students across 4 schools — Engineering, Computing, Management, and Science — with 600+ faculty members and a growing network of global academic and industry partners.
-                </p> */}
-              </ScrollReveal>
+                </ScrollReveal>
               <ScrollReveal direction="right">
                 <img
                   src={`${BASE}Hero-Section/image%201.JPG`}
