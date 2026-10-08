@@ -252,6 +252,7 @@ export interface DepartmentMoreData {
   feedback?: MoreDocumentGroup;
   innovativeTeaching?: MoreDocumentGroup;
   obe?: ObeData;
+  labPdfUrl?: string;
 }
 
 export interface UnderGraduateTimeTableItem {
@@ -1414,14 +1415,31 @@ percentage: "90%", avgPackage: "₹5 LPA", highestPackage: "₹12 LPA", recruite
     shortName: "CSE-DS",
     established: "2020",
     bannerImage: deptImg("csd"),
-    about: "The Department of CSE - Data Science was established in 2019, offering specialized curriculum in data analytics, machine learning, and big data technologies. The program prepares students for the modern data-driven economy.",
-    vision: "To be a center of excellence in data science education producing data-driven problem solvers.",
-    mission: ["To provide comprehensive education in data science and analytics.", "To promote research in machine learning and big data.", "To develop skilled professionals for the data economy."],
+    about: "The Department of Computer Science and Engineering in Data Science offers 4-year degree in Data Science, which is established in the year 2020. The courses are flexible and have been structured to meet the evolving needs of the IT industry. The College Academic Council and  Board of Studies of the department strive to provide quality education with the  most advanced curriculum and syllabus to make the students industry ready and excel in the contemporary business world.\n\nB. Tech. in Data Science is an undergraduate programme with advanced learning solutions to impart the  knowledge of advanced innovations like Artificial Intelligence, Data Science, Machine Learning and Deep Learning.",
+    vision: "To become recognized data science centre, emphasizing academic excellence, pioneering research, and data driven solutions, contributing significantly to global technological advancement and socio-economic development.",
+    mission: [
+      "To foster a culture that empowers students with state-of-the-art laboratories and learned faculty to compete in the data driven world.",
+      "To provide a dynamic atmosphere for data-driven exploration in collaboration with global industry and research organization, encouraging innovation and entrepreneurship.",
+      "To nurture inter-disciplinary and project-based learning among students along with professional ethics to serve the society."
+    ],
     nbaAccredited: false,
     hod: { name: "Dr. S. Kusuma", designation: "Asst. Professor & Head", qualification: "Ph.D. (VIT University)", image: "https://mits.ac.in/public/uploads/faculty/c9fcfd6e1946a61df27003a2c31fbb64.JPG", profileUrl: "https://mits.ac.in/facultyprofile/98" },
     achievements: { consultancyAmount: "INR 5+ Lakhs", researchProjects: "6+", patents: "4+", publications: "60+" },
-    teachingApproach: { description: "Data-centric approach with Kaggle competitions, industry datasets, and hands-on ML projects.", points: ["Kaggle competition participation", "Industry dataset projects", "Python & R programming labs", "Tableau & Power BI training", "AWS/GCP cloud analytics"] },
-    courses: ["Computer Science and Engineering (Artificial Intelligence and Data Science)"],
+    goals: [
+      "To maintain a high standard of education through outstanding teaching innovative curriculum and research training that reflect the changing needs of society.",
+      "To attract highly motivated students with enthusiasm, attitude and interest in Artificial Intelligence and Data Science.",
+      "To pursue excellence in research and technology transfer.",
+      "To increase the public awareness of departmental activities and the Artificial Intelligence & Data Science profession."
+    ],
+    teachingApproach: {
+      description: "To maintain a high standard of education through outstanding teaching innovative curriculum and research training that reflect the changing needs of society.",
+      points: [
+        "To attract highly motivated students with enthusiasm, attitude and interest in Artificial Intelligence and Data Science.",
+        "To pursue excellence in research and technology transfer.",
+        "To increase the public awareness of departmental activities and the Artificial Intelligence & Data Science profession."
+      ]
+    },
+    courses: ["B.Tech in CSE - Data Science"],
     contactInfo: { email: "dshod@mits.ac.in", phone: "+91-8571-280255" },
     faculty: [
       /*
@@ -2816,7 +2834,12 @@ percentage: "N/A", avgPackage: "N/A", highestPackage: "N/A", recruiters: []
 export const getAllDepartmentKeys = () => Object.keys(departmentsData);
 
 // Helper to find department by key
-export const getDepartmentByKey = (key: string): DepartmentData | undefined => departmentsData[key];
+export const getDepartmentByKey = (key: string): DepartmentData | undefined => {
+  if (departmentsData[key]) return departmentsData[key];
+  if (key === "cse-ds" || key === "csd" || key === "ds") return departmentsData.cseds;
+  if (key === "cse-ai-ml" || key === "cai") return departmentsData.aiml;
+  return undefined;
+};
 
 export const aimlUnderGraduateData: UnderGraduateData = {
   programTitle: "Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)",
@@ -3555,6 +3578,246 @@ export function getDepartmentPostGraduate(deptKey: string): PostGraduateData | u
 /**
  * Returns undergraduate program and syllabus data for any department.
  */
+export const csedsUnderGraduateData: UnderGraduateData = {
+  programTitle: "Bachelor of Technology (B.Tech) Program",
+  programOverview:
+    "The Department has the best undergraduate program required for the IT industry. The course curriculum for the undergraduate program gives the flexibility to the students to prepare for advanced specializations. The department commits to offer a set of electives so that students can plan their academic program in advance. The course structure provides a right mix of compulsory and elective courses.",
+  subTabs: [
+    { id: "ug", label: "UG" },
+    { id: "course-syllabus", label: "Course Syllabus" },
+    { id: "timetable", label: "Timetable" }
+  ],
+  sections: [
+    {
+      title: "Curriculum",
+      description:
+        "The B.Tech Program is divided into two distinct parts. A student has to go through a common program called Core Curriculum. Most of the core curriculum is completed in the first four semesters. The last four semesters have a large number of professional courses, that initiates the student to acquire the knowledge in the field of Artificial Intelligence and Data Science. The Core Curriculum consists of a package of compulsory courses in Physics, Chemistry, Mathematics, Engineering Sciences and Technical Arts.\n\nThe Professional Curriculum consists of courses and Project Work. There are some compulsory courses, but there is a significant number of professional electives as well."
+    },
+    {
+      title: "Department Activities",
+      description:
+        "“To train up the students to increase their managerial skills on par with Industry. Conducting IT games to bring up the creative thoughts and conducting classes to improve their personality”."
+    },
+    {
+      title: "Computer Lab",
+      description:
+        "The computer center is located in three floor circular building with centralized A/c and it is equipped with 575 P – IV systems with latest configuration and 3 servers. Internet facility is provided to all the students. Each student is provided with an independent workstation."
+    }
+  ],
+  syllabusTables: [
+    {
+      title: "Data Science - B.Tech I Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Communicative English", type: "Theory", credits: "2" },
+        { sno: "2", name: "Linear Algebra and Calculus", type: "Theory", credits: "3" },
+        { sno: "3", name: "Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "Basic Civil and Mechanical Engineering", type: "Theory", credits: "3" },
+        { sno: "5", name: "Introduction to Programming", type: "Theory", credits: "3" },
+        { sno: "6", name: "Communicative English Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Chemistry Laboratory", type: "Lab", credits: "1" },
+        { sno: "8", name: "Computer Programming Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "10", name: "Health and Wellness, Yoga and Sports", type: "Activity", credits: "0.5" }
+      ]
+    },
+    {
+      title: "Data Science - B.Tech I Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Differential Equations and Vector Calculus", type: "Theory", credits: "3" },
+        { sno: "2", name: "Engineering Physics", type: "Theory", credits: "3" },
+        { sno: "3", name: "Basic Electrical and Electronics Engineering", type: "Theory", credits: "3" },
+        { sno: "4", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "5", name: "Data Structures", type: "Theory", credits: "3" },
+        { sno: "6", name: "Engineering Physics Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Electrical and Electronics Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "IT Workshop", type: "Lab", credits: "1" },
+        { sno: "9", name: "Data Structures Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "10", name: "NSS / NCC / Scouts and Guides / Community Service", type: "Activity", credits: "0.5" }
+      ]
+    },
+    {
+      title: "Data Science - B.Tech II Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Universal Human Values", type: "Theory", credits: "3" },
+        { sno: "2", name: "Economics and Financial Accounting For Engineers", type: "Theory", credits: "2" },
+        { sno: "3", name: "Probability and Statistics for Computer Science", type: "Theory", credits: "3" },
+        { sno: "4", name: "Database Systems", type: "Theory", credits: "3" },
+        { sno: "5", name: "Design and Analysis of Algorithms", type: "Theory", credits: "3" },
+        { sno: "6", name: "JAVA Programming", type: "Theory", credits: "3" },
+        { sno: "7", name: "Database Systems Laboratory", type: "Lab", credits: "3" },
+        { sno: "8", name: "JAVA Programming Laboratory", type: "Lab", credits: "3" },
+        { sno: "9", name: "Python Programming", type: "Theory", credits: "3" }
+      ]
+    },
+    {
+      title: "Data Science - B.Tech II Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Discrete Mathematical Structures", type: "Theory", credits: "3" },
+        { sno: "2", name: "Digital Logic and Computer Organization", type: "Theory", credits: "3" },
+        { sno: "3", name: "Innovation and Incubation Courses", type: "Theory", credits: "2" },
+        { sno: "4", name: "Introduction to Data Science", type: "Theory", credits: "3" },
+        { sno: "5", name: "Data Engineering", type: "Theory", credits: "3" },
+        { sno: "6", name: "Data Science Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Data Engineering Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Exploratory Data Analysis with Python", type: "Lab", credits: "2" },
+        { sno: "9", name: "Environmental Science", type: "Lab", credits: "-" }
+      ]
+    },
+    {
+      title: "Data Science - B.Tech I Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Engineering Calculus", type: "Theory", credits: "3" },
+        { sno: "2", name: "Applied Physics", type: "Theory", credits: "4" },
+        { sno: "3", name: "Basic Electrical Engineering", type: "Theory", credits: "3" },
+        { sno: "4", name: "Programming for Problem Solving (Python)", type: "Theory", credits: "3.5" },
+        { sno: "5", name: "English for Professional Purposes Laboratory", type: "Theory", credits: "1" },
+        { sno: "6", name: "Physics Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Electrical Engineering Laboratory", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "Data Science - B.Tech I Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional English", type: "Theory", credits: "3" },
+        { sno: "2", name: "Linear Algebra", type: "Theory", credits: "3" },
+        { sno: "3", name: "Engineering Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "C Programming and Data Structures", type: "Theory", credits: "3" },
+        { sno: "5", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "6", name: "Chemistry Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "C Programming and Data Structures Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Engineering and IT Workshop", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "Data Science - B.Tech II Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Probability and Statistics for Computer Science", type: "Theory", credits: "3" },
+        { sno: "2", name: "Computer System Architecture", type: "Theory", credits: "3" },
+        { sno: "3", name: "Data Structures using Python", type: "Theory", credits: "3" },
+        { sno: "4", name: "Object Oriented Programming - JAVA", type: "Theory", credits: "3" },
+        { sno: "5", name: "Fundamentals of Artificial Intelligence", type: "Theory", credits: "3" },
+        { sno: "6", name: "Data Structures using Python Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Object Oriented Programming - JAVA Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Fundamentals of Artificial Intelligence Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – I (Refer Annexure - IV)", type: "Skill", credits: "2" },
+        { sno: "10", name: "Environmental Science", type: "Audit", credits: "0" }
+      ]
+    },
+    {
+      title: "Data Science - B.Tech II Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Economics and Financial Accounting for Engineers", type: "Theory", credits: "3" },
+        { sno: "2", name: "Discrete Mathematical Structures", type: "Theory", credits: "3" },
+        { sno: "3", name: "Operating Systems Fundamentals", type: "Theory", credits: "3" },
+        { sno: "4", name: "Python for Data Science", type: "Theory", credits: "3" },
+        { sno: "5", name: "Design and Analysis of Algorithms", type: "Theory", credits: "3" },
+        { sno: "6", name: "Operating Systems Fundamentals Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Python for Data Science Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Design and Analysis of Algorithms Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – II (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "10", name: "Indian Constitution", type: "Audit", credits: "0" }
+      ]
+    },
+    {
+      title: "Data Science - B.Tech III Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Database Management System", type: "Theory", credits: "3" },
+        { sno: "2", name: "Data Visualization", type: "Theory", credits: "3" },
+        { sno: "3", name: "Machine Learning", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-1", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-1", type: "Theory", credits: "3" },
+        { sno: "6", name: "Data Visualization Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Machine Learning Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Skill Oriented Course – III (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "9", name: "Disaster Management", type: "Lab", credits: "0" },
+        { sno: "10", name: "Summer Internship-1*", type: "Theory", credits: "1.5" }
+      ]
+    },
+    {
+      title: "Data Science - B.Tech III Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Big Data Analytics", type: "Theory", credits: "3" },
+        { sno: "2", name: "Deep Learning", type: "Theory", credits: "3" },
+        { sno: "3", name: "Computer Networks", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-II", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-II", type: "Theory", credits: "3" },
+        { sno: "6", name: "Big Data Analytics Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Deep Learning Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Computer Networks Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – IV (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "10", name: "Universal Human Values", type: "Theory", credits: "0" }
+      ]
+    },
+    {
+      title: "Data Science - B.Tech IV Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional Elective-III", type: "Theory", credits: "3" },
+        { sno: "2", name: "Professional Elective-IV", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective-V", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-III", type: "Theory", credits: "3" },
+        { sno: "5", name: "Open Elective-IV", type: "Theory", credits: "3" },
+        { sno: "6", name: "Open Elective-V (Taken from Humanities & Social Science)", type: "Theory", credits: "3" },
+        { sno: "7", name: "Skill Oriented Course – V (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "8", name: "Summer Internship-2 *", type: "Project", credits: "3" }
+      ]
+    },
+    {
+      title: "Data Science - B.Tech IV Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Project Work, Seminar and Internship in Industry (6 months)", type: "Project", credits: "12" }
+      ]
+    }
+  ],
+  timeTables: [
+    {
+      groupTitle: "Master Time Tables",
+      items: [
+        {
+          title: "B.Tech II Year 2026-27 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/DS-B.Tech%20II%20Year%202026-27%20I%20Semester%20Timetable.pdf",
+          academicYear: "2026-27",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech III Year 2026-27 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/DS-B.Tech%20III%20Year%202026-27%20I%20Semester%20Timetable.pdf",
+          academicYear: "2026-27",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech IV Year 2026-27 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/DS-B.Tech%20IV%20Year%202026-27%20I%20Semester%20Timetable.pdf",
+          academicYear: "2026-27",
+          category: "Master Timetable"
+        }
+      ]
+    },
+    {
+      groupTitle: "Individual Faculty Time Tables",
+      items: [
+        {
+          title: "Individual Faculty Timetables",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/CSE-DS-Individual%20Time%20Table-2025.pdf",
+          academicYear: "2025",
+          category: "Faculty Timetable"
+        }
+      ]
+    }
+  ]
+};
+
 export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subject[] = []): UnderGraduateData {
   const dept = departmentsData[deptKey];
   if (dept && dept.underGraduate) {
@@ -3568,6 +3831,9 @@ export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subjec
   }
   if (deptKey === "cse") {
     return cseUnderGraduateData;
+  }
+  if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
+    return csedsUnderGraduateData;
   }
 
   const semMap = new Map<number, Subject[]>();
@@ -3968,6 +4234,43 @@ export const cseMoreData: DepartmentMoreData = {
   }
 };
 
+export const csedsMoreData: DepartmentMoreData = {
+  subTabs: [
+    {
+      id: "lab",
+      label: "Lab",
+      externalUrl: "https://mits.ac.in/public/uploads/departments/DS_Lab%20Softwares.pdf",
+      directPdf: true
+    },
+    {
+      id: "mentor-mentee",
+      label: "Mentor & Mentee"
+    },
+    {
+      id: "stock-register",
+      label: "Stock Register",
+      externalUrl: "https://mits.ac.in/assets/pdf/stock-registers/CSD%20Stock%20Register.pdf",
+      directPdf: true
+    }
+  ],
+  labPdfUrl: "https://mits.ac.in/public/uploads/departments/DS_Lab%20Softwares.pdf",
+  mentorMentee: [
+    {
+      groupTitle: "Mentor & Mentee Name List",
+      items: [
+        {
+          title: "Mentor & Mentee Name List - AY 2024-25",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/CSE-DS-Mentor%20Mentee%20Name%20List-AY%2024-25.pdf"
+        },
+        {
+          title: "Mentor & Mentee Name List - AY 2023-24",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/2023-24%20Mentor-Mentee-Datscience.pdf"
+        }
+      ]
+    }
+  ]
+};
+
 /**
  * Returns customized "More" section data (Mentor & Mentee, Minor, etc.) for any department.
  */
@@ -3975,6 +4278,9 @@ export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   const dept = departmentsData[deptKey];
   if (dept && dept.more) {
     return dept.more;
+  }
+  if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
+    return csedsMoreData;
   }
   if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
     return aimlMoreData;
@@ -4496,6 +4802,66 @@ export const cseTopTabs: DepartmentTopTab[] = [
   }
 ];
 
+export const csedsTopTabs: DepartmentTopTab[] = [
+  {
+    id: "department",
+    label: "Department"
+  },
+  {
+    id: "bos",
+    label: "BoS",
+    title: "Board Of Studies",
+    documents: [
+      {
+        title: "BoS DTBU 2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/134cb472d81ed7a3efdf49d4f9830ed4.pdf"
+      },
+      {
+        title: "BoS 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/61632879672f9d1af4e7af1e07014ba4.pdf"
+      },
+      {
+        title: "BOS 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/8e2ac6507446d7928d610d94aeabf592.pdf"
+      },
+      {
+        title: "BOS 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/9450470e4976e0513cf4e7d63925118a.pdf"
+      },
+      {
+        title: "BOS 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/02063e190daa75eec000c9f58efd85f9.pdf"
+      },
+      {
+        title: "BOS 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/f75721dd6dad2037e3657e9c8c59235a.pdf"
+      }
+    ]
+  },
+  {
+    id: "iaab",
+    label: "IAAB",
+    title: "Industry Alumni Advisory Board",
+    documents: [
+      {
+        title: "IAAB 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/f39c719768296dd86e7ac93a5b42475f.pdf"
+      }
+    ]
+  },
+  {
+    id: "magazine",
+    label: "Magazine",
+    title: "Magazine",
+    documents: [
+      {
+        title: "MAGDATAZINE - 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/a4baf88bf27ad0d2e296b8217cbc57fa.pdf"
+      }
+    ]
+  }
+];
+
 /**
  * Returns top tabs data (Department, BoS, IAAB, Magazine, etc.) for any department.
  */
@@ -4503,6 +4869,9 @@ export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | unde
   const dept = departmentsData[deptKey];
   if (dept && dept.topTabs && dept.topTabs.length > 0) {
     return dept.topTabs;
+  }
+  if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
+    return csedsTopTabs;
   }
   if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
     return aimlTopTabs;
@@ -4515,6 +4884,7 @@ export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | unde
   }
   return undefined;
 }
+
 
 
 

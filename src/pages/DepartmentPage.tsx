@@ -230,6 +230,10 @@ const DepartmentPage = () => {
       setActiveSection("post-graduate");
       setActivePgTab("pg-course-syllabus");
       setPgDropdownOpen(true);
+    } else if (lastPart === "lab") {
+      setActiveSection("more");
+      setActiveMoreTab("lab");
+      setMoreDropdownOpen(true);
     } else if (lastPart === "mentor-mentee" || lastPart === "mentor-and-mentee" || lastPart === "mentee") {
       setActiveSection("more");
       setActiveMoreTab("mentor-mentee");
@@ -272,6 +276,8 @@ const DepartmentPage = () => {
       setActiveSection("more");
       if (deptKey === "cse") {
         setActiveMoreTab("doctoral");
+      } else if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
+        setActiveMoreTab("lab");
       }
       setMoreDropdownOpen(true);
     } else if (lastPart === "bos" || lastPart === "board-of-studies") {
@@ -2515,7 +2521,11 @@ const DepartmentPage = () => {
                 <div className="pb-4 border-b border-border/60">
                   <h2 className="text-2xl sm:text-3xl font-bold text-secondary flex items-center gap-2.5" style={{ fontFamily: "var(--font-display)" }}>
                     <Layers className="w-7 h-7 text-primary" />
-                    {activeMoreTab === "minor" ? (
+                    {activeMoreTab === "lab" ? (
+                      <span>Department <span className="text-primary">Lab</span></span>
+                    ) : activeMoreTab === "stock-register" ? (
+                      <span>Stock <span className="text-primary">Register</span></span>
+                    ) : activeMoreTab === "minor" ? (
                       <span>Minor <span className="text-primary">Degree</span></span>
                     ) : activeMoreTab === "mentor-mentee" ? (
                       <span>Mentor & <span className="text-primary">Mentee</span></span>
@@ -2536,7 +2546,43 @@ const DepartmentPage = () => {
                 </div>
 
                 {/* Content Area */}
-                {activeMoreTab === "mentor-mentee" ? (
+                {activeMoreTab === "lab" ? (
+                  <div className="space-y-6">
+                    {moreData.labPdfUrl ? (
+                      <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
+                        <div className="p-4 sm:p-6 bg-muted/20 border-b border-border/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                          <div>
+                            <h3 className="text-xl font-bold text-secondary">Department Laboratories & Software</h3>
+                            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                              State-of-the-art laboratory infrastructure, configurations, and licensed software
+                            </p>
+                          </div>
+                          <a
+                            href={moreData.labPdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm shadow-xs transition-colors shrink-0 self-start sm:self-center"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                            <span>Open Full Document</span>
+                          </a>
+                        </div>
+                        <div className="p-4 sm:p-6">
+                          <iframe
+                            src={moreData.labPdfUrl}
+                            title="Department Laboratories and Software"
+                            className="w-full h-[750px] rounded-lg border border-border shadow-xs"
+                          />
+                        </div>
+                      </Card>
+                    ) : (
+                      <Card className="p-10 text-center text-muted-foreground bg-card">
+                        <Layers className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
+                        <p className="font-semibold text-base text-secondary">Department laboratory details will be updated soon.</p>
+                      </Card>
+                    )}
+                  </div>
+                ) : activeMoreTab === "mentor-mentee" ? (
                   <div className="space-y-6">
                     {moreData.mentorMentee && moreData.mentorMentee.length > 0 ? (
                       <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
