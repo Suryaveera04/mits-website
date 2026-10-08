@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, User } from "lucide-react";
 import { aboutSections, leadershipProfiles } from "@/data/aboutData";
 
 const BASE = import.meta.env.BASE_URL;
@@ -19,7 +19,7 @@ const previewMap: Record<string, { title: string; body: string; image: string }>
   },
   "academic-leadership": {
     title: "Academic Leadership",
-    body: "Vice-Chancellor, Registrar, Controller of Examinations and Ombudsperson supporting academic governance.",
+    body: "Vice-Chancellor, Registrar, Additional Registrar, Controller of Examinations and Ombudsperson supporting academic governance.",
     image: `${BASE}Hero-Section/image-2.jpg`,
   },
   deans: {
@@ -63,12 +63,10 @@ const AboutMegaMenu = ({ open, onClose }: Props) => {
   const [hovered, setHovered] = useState<string>("leadership");
   const preview = previewMap[hovered] ?? previewMap.leadership;
   const institutionalLeaders = ["chancellor", "pro-chancellor"].map((s) => leadershipProfiles[s]);
-  const academicLeaders = [
-    "vice-chancellor",
-    "registrar",
-    "controller-of-examinations",
-    "ombudsperson",
-  ].map((s) => leadershipProfiles[s]);
+  const vc = leadershipProfiles["vice-chancellor"];
+  const registrar = leadershipProfiles["registrar"];
+  const coe = leadershipProfiles["controller-of-examinations"];
+  const ombudsperson = leadershipProfiles["ombudsperson"];
 
   const renderLeaderGrid = (leaders: typeof institutionalLeaders) => (
     <div className="grid grid-cols-2 gap-2 text-left">
@@ -94,6 +92,115 @@ const AboutMegaMenu = ({ open, onClose }: Props) => {
           </div>
         </Link>
       ))}
+    </div>
+  );
+
+  const renderAcademicLeaderGrid = () => (
+    <div className="grid grid-cols-2 gap-2 text-left">
+      {/* 1. Vice-Chancellor */}
+      {vc && (
+        <Link
+          key={vc.slug}
+          to={`/about/leadership/${vc.slug}`}
+          onClick={onClose}
+          className="flex items-center gap-2 p-2 rounded-md hover:bg-primary/5 transition-colors group text-left"
+        >
+          <img
+            src={vc.image}
+            alt={vc.name}
+            className="w-9 h-9 rounded-full object-cover border border-border shrink-0"
+          />
+          <div className="min-w-0 flex-1 text-left">
+            <p className="text-left text-[11px] font-semibold text-secondary leading-snug line-clamp-2 group-hover:text-primary [text-align:left]">
+              {vc.name}
+            </p>
+            <p className="text-left text-[9px] text-secondary/60 uppercase tracking-wider truncate mt-0.5 [text-align:left]">
+              {vc.designation}
+            </p>
+          </div>
+        </Link>
+      )}
+
+      {/* 2. Registrar */}
+      {registrar && (
+        <Link
+          key={registrar.slug}
+          to={`/about/leadership/${registrar.slug}`}
+          onClick={onClose}
+          className="flex items-center gap-2 p-2 rounded-md hover:bg-primary/5 transition-colors group text-left"
+        >
+          <img
+            src={registrar.image}
+            alt={registrar.name}
+            className="w-9 h-9 rounded-full object-cover border border-border shrink-0"
+          />
+          <div className="min-w-0 flex-1 text-left">
+            <p className="text-left text-[11px] font-semibold text-secondary leading-snug line-clamp-2 group-hover:text-primary [text-align:left]">
+              {registrar.name}
+            </p>
+            <p className="text-left text-[9px] text-secondary/60 uppercase tracking-wider truncate mt-0.5 [text-align:left]">
+              {registrar.designation}
+            </p>
+          </div>
+        </Link>
+      )}
+
+      {/* 3. Controller of Examinations */}
+      {coe && (
+        <Link
+          key={coe.slug}
+          to={`/about/leadership/${coe.slug}`}
+          onClick={onClose}
+          className="flex items-center gap-2 p-2 rounded-md hover:bg-primary/5 transition-colors group text-left"
+        >
+          <img
+            src={coe.image}
+            alt={coe.name}
+            className="w-9 h-9 rounded-full object-cover border border-border shrink-0"
+          />
+          <div className="min-w-0 flex-1 text-left">
+            <p className="text-left text-[11px] font-semibold text-secondary leading-snug line-clamp-2 group-hover:text-primary [text-align:left]">
+              {coe.name}
+            </p>
+            <p className="text-left text-[9px] text-secondary/60 uppercase tracking-wider truncate mt-0.5 [text-align:left]">
+              {coe.designation}
+            </p>
+          </div>
+        </Link>
+      )}
+
+      {/* 4. Additional Registrar (No link, no photo, blank data, matching style) */}
+      <div className="flex items-center gap-2 p-2 rounded-md text-left select-none">
+        <div className="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center border border-border shrink-0">
+          <User className="w-4 h-4 text-secondary/50" />
+        </div>
+        <div className="min-w-0 flex-1 text-left">
+          <p className="text-left text-[11px] font-semibold text-secondary leading-snug line-clamp-2 [text-align:left]">
+            ADDITIONAL REGISTRAR
+          </p>
+        </div>
+      </div>
+
+      {/* 5. Ombudsperson (Name removed, only OMBUDSPERSON, identical look and color to remaining ones) */}
+      {ombudsperson && (
+        <Link
+          key={ombudsperson.slug}
+          to={`/about/leadership/${ombudsperson.slug}`}
+          onClick={onClose}
+          className="flex items-center gap-2 p-2 rounded-md hover:bg-primary/5 transition-colors group text-left"
+        >
+          <img
+            src={ombudsperson.image}
+            alt="OMBUDSPERSON"
+            className="w-9 h-9 rounded-full object-cover border border-border shrink-0"
+          />
+          <div className="min-w-0 flex-1 text-left">
+            <p className="text-left text-[11px] font-semibold text-secondary leading-snug line-clamp-2 group-hover:text-primary [text-align:left]">
+              OMBUDSPERSON
+            </p>
+          </div>
+        </Link>
+      )}
     </div>
   );
 
@@ -193,7 +300,7 @@ const AboutMegaMenu = ({ open, onClose }: Props) => {
                           {preview.body}
                         </p>
                         {hovered === "leadership" && renderLeaderGrid(institutionalLeaders)}
-                        {hovered === "academic-leadership" && renderLeaderGrid(academicLeaders)}
+                        {hovered === "academic-leadership" && renderAcademicLeaderGrid()}
                         {hovered === "important-links" && (
                           <div className="flex flex-col gap-1.5 mt-2">
                             {[

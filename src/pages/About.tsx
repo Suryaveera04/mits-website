@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import SEO from "@/components/SEO";
-import { Award, BookOpen, Building2, ExternalLink, GraduationCap, History, Landmark, Shield, ShieldCheck, Star, Target, Eye, Users, MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { Award, BookOpen, Building2, ExternalLink, GraduationCap, History, Landmark, Shield, ShieldCheck, Star, Target, Eye, Users, MapPin, Phone, Mail, Clock, Send, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
@@ -73,16 +73,12 @@ const achievements = [
 ];
 
 const institutionalKeys = ["chancellor", "pro-chancellor", "Executive Director"];
-const academicKeys = [
-  "vice-chancellor",
-  "registrar",
-  "controller-of-examinations",
-  "ombudsperson",
-];
-
-
 const institutional = institutionalKeys.map((k) => leadershipProfiles[k]).filter((p): p is LeadershipProfile => Boolean(p));
-const academic = academicKeys.map((k) => leadershipProfiles[k]).filter((p): p is LeadershipProfile => Boolean(p));
+
+const vc = leadershipProfiles["vice-chancellor"];
+const registrar = leadershipProfiles["registrar"];
+const coe = leadershipProfiles["controller-of-examinations"];
+const ombudsperson = leadershipProfiles["ombudsperson"];
 
 const infrastructure = [
   { icon: Building2, title: "26.17-acre Campus", desc: "26.17-acre campus with modern academic blocks and amenities." },
@@ -356,23 +352,90 @@ const About = () => {
                 </div>
               </ScrollReveal>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {academic.map((person, i) => (
-                  <ScrollReveal key={person.slug} delay={i * 0.06}>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                {/* 1. Vice-Chancellor */}
+                {vc && (
+                  <ScrollReveal delay={0}>
                     <Link
-                      to={`/about/leadership/${person.slug}`}
+                      to={`/about/leadership/${vc.slug}`}
                       className="group block bg-card border border-border rounded-xl p-6 shadow-sm text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col"
                     >
                       <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center mb-4 overflow-hidden">
-                        <img src={person.image} alt={person.name} className="w-full h-full object-cover" />
+                        <img src={vc.image} alt={vc.name} className="w-full h-full object-cover" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-display text-lg font-bold text-card-foreground mb-1 min-h-[3rem] flex items-center justify-center">{person.name}</h4>
-                        <p className="text-primary font-semibold text-sm mb-2">{person.designation}</p>
+                        <h4 className="font-display text-lg font-bold text-card-foreground mb-1 min-h-[3rem] flex items-center justify-center">{vc.name}</h4>
+                        <p className="text-primary font-semibold text-sm mb-2">{vc.designation}</p>
                       </div>
                     </Link>
                   </ScrollReveal>
-                ))}
+                )}
+
+                {/* 2. Registrar */}
+                {registrar && (
+                  <ScrollReveal delay={0.06}>
+                    <Link
+                      to={`/about/leadership/${registrar.slug}`}
+                      className="group block bg-card border border-border rounded-xl p-6 shadow-sm text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col"
+                    >
+                      <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src={registrar.image} alt={registrar.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-display text-lg font-bold text-card-foreground mb-1 min-h-[3rem] flex items-center justify-center">{registrar.name}</h4>
+                        <p className="text-primary font-semibold text-sm mb-2">{registrar.designation}</p>
+                      </div>
+                    </Link>
+                  </ScrollReveal>
+                )}
+
+                {/* 3. Additional Registrar (No link, neutral avatar placeholder, blank data) */}
+                <ScrollReveal delay={0.12}>
+                  <div className="block bg-card border border-border rounded-xl p-6 shadow-sm text-center h-full flex flex-col select-none">
+                    <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center mb-4">
+                      <User className="w-8 h-8 text-secondary/40" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-display text-lg font-bold text-card-foreground mb-1 min-h-[3rem] flex items-center justify-center">Additional Registrar</h4>
+                      <p className="text-secondary/40 font-semibold text-sm mb-2">—</p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+
+                {/* 4. Controller of Examinations */}
+                {coe && (
+                  <ScrollReveal delay={0.18}>
+                    <Link
+                      to={`/about/leadership/${coe.slug}`}
+                      className="group block bg-card border border-border rounded-xl p-6 shadow-sm text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col"
+                    >
+                      <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src={coe.image} alt={coe.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-display text-lg font-bold text-card-foreground mb-1 min-h-[3rem] flex items-center justify-center">{coe.name}</h4>
+                        <p className="text-primary font-semibold text-sm mb-2">{coe.designation}</p>
+                      </div>
+                    </Link>
+                  </ScrollReveal>
+                )}
+
+                {/* 5. Ombudsperson (Name removed, only OMBUDSPERSON, identical look and color) */}
+                {ombudsperson && (
+                  <ScrollReveal delay={0.24}>
+                    <Link
+                      to={`/about/leadership/${ombudsperson.slug}`}
+                      className="group block bg-card border border-border rounded-xl p-6 shadow-sm text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col"
+                    >
+                      <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src={ombudsperson.image} alt="OMBUDSPERSON" className="w-full h-full object-cover" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-display text-lg font-bold text-card-foreground mb-1 min-h-[3rem] flex items-center justify-center uppercase">OMBUDSPERSON</h4>
+                      </div>
+                    </Link>
+                  </ScrollReveal>
+                )}
               </div>
             </div>
           </div>
