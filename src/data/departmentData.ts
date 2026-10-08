@@ -251,6 +251,7 @@ export interface DepartmentMoreData {
   doctoral?: DoctoralData;
   feedback?: MoreDocumentGroup;
   innovativeTeaching?: MoreDocumentGroup;
+  studentProjects?: MoreDocumentGroup;
   obe?: ObeData;
   labPdfUrl?: string;
 }
@@ -1542,14 +1543,32 @@ percentage: "2023-24: 50 offers out of 62 eligible", avgPackage: "As per placeme
     shortName: "CSE-CS",
     established: "2020",
     bannerImage: deptImg("csc"),
-    about: "The Department of CSE - Cyber Security was established in 2020 with a focus on ethical hacking, network security, digital forensics, and cloud security. The program integrates industry certifications for comprehensive cybersecurity education.",
-    vision: "To produce cybersecurity professionals capable of protecting digital infrastructure and ensuring information security.",
-    mission: ["To provide comprehensive education in cybersecurity.", "To promote hands-on training in ethical hacking and penetration testing.", "To develop security professionals with industry certifications."],
+    about: "The Department of Computer Science and Engineering (Cyber Security) was established in 2020 with an initial intake of 60 students, which increased to 120 in 2023 and further expanded to 180 in 2024. The Department offers an undergraduate programme in Computer Science and Engineering (Cyber Security), designed to produce competent professionals equipped with strong theoretical foundations and practical skills to secure modern software and hardware systems. The B.Tech. programme emphasizes advanced learning in areas such as ethical hacking, artificial intelligence, and web and data security.\n\nThe Department is supported by robust infrastructural facilities that enable high-quality education aligned with current industry needs. It has a team of well-qualified and experienced faculty members with significant academic and industry expertise. To foster continuous learning and skill enhancement among students and faculty, the Department regularly organizes Faculty Development Programmes (FDPs), seminars, workshops, and technical symposiums.",
+    vision: "Building globally competent, ethically responsible, and industry-ready cyber security professionals and technologists, serving the society by securing the digital world, addressing cyber threats through excellence in cyber security education, research and innovation.",
+    mission: [
+      "M1: To provide quality education on Cyber Security threats and technologies through industry oriented curriculum, modern teaching-learning practices, advanced laboratories and experiential learning.",
+      "M2: To promote research, innovation, and industry collaboration in emerging domains of Cyber Security for developing skilled professionals capable of addressing real-world cyber threats.",
+      "M3: To inculcate ethical values, awareness on cyber laws, leadership qualities, lifelong learning, and social responsibility among students for building a secure and sustainable digital society."
+    ],
     nbaAccredited: false,
     hod: { name: "Dr. Brahm Prakash", designation: "Assoc. Professor & Head", qualification: "Ph.D. (IKG Punjab Technical University)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Brahm Prakash.JPG", profileUrl: "https://mits.ac.in/facultyprofile/1085" },
     achievements: { consultancyAmount: "INR 3+ Lakhs", researchProjects: "4+", patents: "2+", publications: "40+" },
-    teachingApproach: { description: "Practice-oriented curriculum with CTF competitions, ethical hacking labs, and security audits.", points: ["Capture The Flag competitions", "Ethical hacking practical labs", "Network penetration testing", "Security certifications (CEH, CompTIA)", "Cyber forensics workshops"] },
-    courses: ["Computer Science and Engineering (Cyber Security)"],
+    goals: [
+      "To uphold a high standard of education by delivering outstanding teaching, fostering an innovative curriculum, and providing research training that reflects the evolving needs of society.",
+      "To attract highly motivated students who demonstrate enthusiasm, a positive attitude, and a strong interest in Artificial Intelligence and Data Science.",
+      "To pursue excellence in research and promote effective technology transfer.",
+      "To enhance public awareness of departmental activities and promote a deeper understanding of the Artificial Intelligence and Data Science profession."
+    ],
+    teachingApproach: {
+      description: "With its revolutionary approach to education, multidisciplinary research, and emphasis on diligent collaboration, MITS fosters a conducive environment for students to broaden their perspectives. Students arrive with bright ideas, and MITS empowers them to transform those ideas into thoughtful, effective leadership that contributes to a better global society by positively impacting lives.\n\nTo another century of expanding minds and leading the world forward.",
+      points: [
+        "To uphold a high standard of education by delivering outstanding teaching, fostering an innovative curriculum, and providing research training that reflects the evolving needs of society.",
+        "To attract highly motivated students who demonstrate enthusiasm, a positive attitude, and a strong interest in Artificial Intelligence and Data Science.",
+        "To pursue excellence in research and promote effective technology transfer.",
+        "To enhance public awareness of departmental activities and promote a deeper understanding of the Artificial Intelligence and Data Science profession."
+      ]
+    },
+    courses: ["B.Tech in Computer Science and Engineering (Cyber Security)"],
     contactInfo: { email: "cshod@mits.ac.in", phone: "+91-9100973396; 8571-280255; 280706" },
     faculty: [
       /*
@@ -2838,6 +2857,7 @@ export const getDepartmentByKey = (key: string): DepartmentData | undefined => {
   if (departmentsData[key]) return departmentsData[key];
   if (key === "cse-ds" || key === "csd" || key === "ds") return departmentsData.cseds;
   if (key === "cse-ai-ml" || key === "cai") return departmentsData.aiml;
+  if (key === "cse-cs" || key === "csc" || key === "cs" || key === "cyber-security" || key === "csec") return departmentsData.csecs;
   return undefined;
 };
 
@@ -3818,6 +3838,251 @@ export const csedsUnderGraduateData: UnderGraduateData = {
   ]
 };
 
+export const csecsUnderGraduateData: UnderGraduateData = {
+  programTitle: "Bachelor of Technology (B.Tech) - Computer Science & Engineering (Cyber Security)",
+  programOverview:
+    "The Department of Computer Science & Engineering in Cyber Security was established in 2020. The course offers 4-year degree, which is flexible and has been structured to meet the evolving needs of the IT industry. The course curriculum for the undergraduate program gives the flexibility to the students to prepare for advanced specializations. The department commits to offer a set of electives so that students can plan their academic program in advance. The course structure provides a right mix of compulsory and elective courses.",
+  sections: [
+    {
+      title: "Curriculum",
+      description:
+        "The B.Tech Program is divided into two distinct parts. Every student has to go through a common program called Core Curriculum. Most of the core curriculum is completed within the first four semesters. The last four semesters have many professional courses, that initiate the student towards the topics in Computer Science & Engineering. The Core Curriculum consists of compulsory courses in Physics, Chemistry, Mathematics, Engineering Sciences and Technical Arts.\n\nThe Professional Curriculum consists of courses and Project Work. There are some compulsory courses along with a significant number of professional electives as well."
+    },
+    {
+      title: "Department Information",
+      description:
+        "Department of Computer Science & Engineering in Cyber Security was established in 2020. The course offers 4-year degree, which is flexible and has been structured to meet the evolving needs of the IT industry."
+    },
+    {
+      title: "Department Activities",
+      description:
+        "“To train the students to enhance their managerial skills on par with Industry the department conducts IT games and special classes on regular basis to trigger the creative thoughts of the students and to improve their personality.”"
+    },
+    {
+      title: "Computer Lab",
+      description:
+        "The Cyber Security Computer Lab is located at South Block First Floor building with centralized A/c and it is equipped with 73 Systems with the latest Processor of i7 13th Generation with RAM 32GB DDR5, 1TB NVMe M.2 SSD, 8GB NVIDIA T1000 Graphic Card and HP-21.5” FHD Monitor. Internet facility is provided to all the students with an independent workstation."
+    }
+  ],
+  subTabs: [
+    { id: "ug", label: "UG" },
+    { id: "course-syllabus", label: "Course Syllabus" },
+    { id: "timetable", label: "Timetable" }
+  ],
+  syllabusTables: [
+    {
+      title: "Cyber Security - First Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Communicative English", type: "Theory", credits: "2" },
+        { sno: "2", name: "Linear Algebra and Calculus", type: "Theory", credits: "3" },
+        { sno: "3", name: "Engineering Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "Basic Civil and Mechanical Engineering", type: "Theory", credits: "3" },
+        { sno: "5", name: "Introduction to Programming", type: "Theory", credits: "3" },
+        { sno: "6", name: "Communicative English Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Engineering Chemistry Laboratory", type: "Lab", credits: "1" },
+        { sno: "8", name: "Computer Programming Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "10", name: "Health and Wellness, Yoga and Sports", type: "Audit", credits: "0.5" }
+      ]
+    },
+    {
+      title: "Cyber Security - First Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Differential Equations and Vector Calculus", type: "Theory", credits: "3" },
+        { sno: "2", name: "Engineering Physics", type: "Theory", credits: "3" },
+        { sno: "3", name: "Basic Electrical and Electronics Engineering", type: "Theory", credits: "3" },
+        { sno: "4", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "5", name: "Data Structures", type: "Theory", credits: "3" },
+        { sno: "6", name: "Engineering Physics Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Electrical and Electronics Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "IT Workshop", type: "Lab", credits: "1" },
+        { sno: "9", name: "Data Structures Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "10", name: "NSS / NCC / Scouts and Guides / Community Service", type: "Audit", credits: "0.5" }
+      ]
+    },
+    {
+      title: "Cyber Security - Second Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Universal Human Values", type: "Theory", credits: "3" },
+        { sno: "2", name: "Economics and Financial Accounting For Engineers", type: "Theory", credits: "2" },
+        { sno: "3", name: "Discrete Mathematical Structures", type: "Theory", credits: "3" },
+        { sno: "4", name: "Digital Logic and Computer Organization", type: "Theory", credits: "3" },
+        { sno: "5", name: "Advanced Data Structures and Algorithm Analysis", type: "Theory", credits: "3" },
+        { sno: "6", name: "Database Management Systems", type: "Theory", credits: "3" },
+        { sno: "7", name: "Advanced Data Structures and Algorithm Analysis Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Database Management Systems Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Python programming", type: "Theory", credits: "2" }
+      ]
+    },
+    {
+      title: "Cyber Security - Second Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Probability and Statistics for Computer Science", type: "Theory", credits: "3" },
+        { sno: "2", name: "Innovation and Incubation Courses", type: "Theory", credits: "2" },
+        { sno: "3", name: "Object-Oriented Programming Through JAVA", type: "Theory", credits: "3" },
+        { sno: "4", name: "Operating Systems", type: "Theory", credits: "3" },
+        { sno: "5", name: "Computer Networks", type: "Theory", credits: "3" },
+        { sno: "6", name: "Object-Oriented Programming Through JAVA Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Computer Networks Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Full Stack Development-1", type: "Lab", credits: "2" },
+        { sno: "9", name: "Environmental Science", type: "Theory", credits: "0" }
+      ]
+    },
+    {
+      title: "Cyber Security - B.Tech I Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Engineering Calculus", type: "Theory", credits: "4" },
+        { sno: "2", name: "Applied Physics", type: "Theory", credits: "4" },
+        { sno: "3", name: "Basic Electrical Engineering", type: "Theory", credits: "4" },
+        { sno: "4", name: "Programming for Problem Solving (Python)", type: "Theory", credits: "3.5" },
+        { sno: "5", name: "English for Professional Purposes Laboratory", type: "Theory", credits: "1" },
+        { sno: "6", name: "Physics Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Electrical Engineering Laboratory", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "Cyber Security - B.Tech I Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional English", type: "Theory", credits: "3" },
+        { sno: "2", name: "Linear Algebra", type: "Theory", credits: "3" },
+        { sno: "3", name: "Engineering Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "C Programming and Data Structures", type: "Theory", credits: "3" },
+        { sno: "5", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "6", name: "Chemistry Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "C Programming and Data Structures Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Engineering and IT Workshop", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "Cyber Security - B.Tech II Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Probability and Statistics for Computer Science", type: "Theory", credits: "3" },
+        { sno: "2", name: "Computer System Architecture", type: "Theory", credits: "3" },
+        { sno: "3", name: "Data Structures using Python", type: "Theory", credits: "3" },
+        { sno: "4", name: "Object Oriented Programming using C++", type: "Theory", credits: "3" },
+        { sno: "5", name: "Data Structures using Python Laboratory", type: "Theory", credits: "3" },
+        { sno: "6", name: "Data Structures using Python Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Object Oriented Programming using C++ Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Database Fundamentals for Security Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – I (Refer Annexure - IV)", type: "Skill", credits: "2" },
+        { sno: "10", name: "Environmental Science", type: "Audit", credits: "0" }
+      ]
+    },
+    {
+      title: "Cyber Security - B.Tech II Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Economics and Financial Accounting for Engineers", type: "Theory", credits: "3" },
+        { sno: "2", name: "Discrete Mathematical Structures", type: "Theory", credits: "3" },
+        { sno: "3", name: "Operating System Fundamentals for Security", type: "Theory", credits: "3" },
+        { sno: "4", name: "JAVA Programming", type: "Theory", credits: "3" },
+        { sno: "5", name: "Design and Analysis of Algorithms", type: "Theory", credits: "3" },
+        { sno: "6", name: "Operating System Fundamentals for Security Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "JAVA Programming Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Design and Analysis of Algorithms Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – II (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "10", name: "Indian Constitution", type: "Audit", credits: "0" }
+      ]
+    },
+    {
+      title: "Cyber Security - B.Tech III Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Automata Theory and Compiler Design", type: "Theory", credits: "3" },
+        { sno: "2", name: "Computer Networks", type: "Theory", credits: "3" },
+        { sno: "3", name: "Software Engineering", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-1", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-1", type: "Theory", credits: "3" },
+        { sno: "6", name: "Computer Networks Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Software Engineering Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Skill Oriented Course – III (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "9", name: "Disaster Management", type: "Lab", credits: "0" },
+        { sno: "10", name: "Summer Internship-1*", type: "Theory", credits: "1.5" }
+      ]
+    },
+    {
+      title: "Cyber Security - B.Tech III Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Cloud Computing", type: "Theory", credits: "3" },
+        { sno: "2", name: "Foundation of Cryptography", type: "Theory", credits: "3" },
+        { sno: "3", name: "AI Tools, Techniques and Applications", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-2", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-2", type: "Theory", credits: "3" },
+        { sno: "6", name: "Cloud Computing Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Cryptography Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "AI Tools, Techniques and Applications Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – IV (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "10", name: "Universal Human Values", type: "Theory", credits: "0" }
+      ]
+    },
+    {
+      title: "Cyber Security - B.Tech IV Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional Elective-III", type: "Theory", credits: "3" },
+        { sno: "2", name: "Professional Elective-IV", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective-V", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-III", type: "Theory", credits: "3" },
+        { sno: "5", name: "Open Elective-IV", type: "Theory", credits: "3" },
+        { sno: "6", name: "Open Elective-V (Taken from Humanities & Social Science)", type: "Theory", credits: "3" },
+        { sno: "7", name: "Skill Oriented Course – V (Refer Annexure - IV)", type: "Lab", credits: "2" },
+        { sno: "8", name: "Summer Internship-2 *", type: "Project", credits: "3" }
+      ]
+    },
+    {
+      title: "Cyber Security - B.Tech IV Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Project Work, Seminar and Internship in Industry (6 months)", type: "Project", credits: "12" }
+      ]
+    }
+  ],
+  timeTables: [
+    {
+      groupTitle: "Master Time Tables",
+      items: [
+        {
+          title: "B.Tech II Year 2025-26 II Semester (CSE-Cyber Security) Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/B.Tech%20II%20Year%202025-26%20II%20Semester%20(CSE-Cyber%20Security)%20Timetable.pdf",
+          academicYear: "2025-26",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech III Year 2025-26 II Semester (CSE-Cyber Security) Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/B.Tech%20III%20Year%202025-26%20II%20Semester%20(CSE-Cyber%20Security)%20Timetable.pdf",
+          academicYear: "2025-26",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech IV Year 2025-26 II Semester (CSE-Cyber Security) Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/B.Tech%20IV%20Year%202025-26%20II%20Semester%20(CSE-Cyber%20Security)%20Timetable.pdf",
+          academicYear: "2025-26",
+          category: "Master Timetable"
+        }
+      ]
+    },
+    {
+      groupTitle: "Individual Faculty Time Tables",
+      items: [
+        {
+          title: "Individual Faculty Timetables",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cse/II%20SEM%202024-25%20Faculty%20Individual%20Workload%20Cyber%20Security.pdf",
+          academicYear: "2024-25",
+          category: "Faculty Timetable"
+        }
+      ]
+    }
+  ]
+};
+
 export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subject[] = []): UnderGraduateData {
   const dept = departmentsData[deptKey];
   if (dept && dept.underGraduate) {
@@ -3834,6 +4099,9 @@ export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subjec
   }
   if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
     return csedsUnderGraduateData;
+  }
+  if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
+    return csecsUnderGraduateData;
   }
 
   const semMap = new Map<number, Subject[]>();
@@ -4271,6 +4539,141 @@ export const csedsMoreData: DepartmentMoreData = {
   ]
 };
 
+export const csecsMoreData: DepartmentMoreData = {
+  subTabs: [
+    {
+      id: "stock-register",
+      label: "Stock Register",
+      externalUrl: "https://mits.ac.in/assets/pdf/stock-registers/CS%20Stock%20register.pdf",
+      directPdf: true
+    },
+    {
+      id: "surveys",
+      label: "Surveys"
+    },
+    {
+      id: "mentor-mentee",
+      label: "Mentor & Mentee"
+    },
+    {
+      id: "student-innovative-projects",
+      label: "Student Innovative Projects"
+    }
+  ],
+  mentorMentee: [
+    {
+      groupTitle: "Mentor & Mentee Name List",
+      items: [
+        {
+          title: "2025-26 - Mentor & Mentee",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/CSE-CS%20Mentor-Mentee%20list%202025-26.pdf",
+          academicYear: "2025-26"
+        },
+        {
+          title: "2024-25 - Mentor & Mentee",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/CSE-CS%20Mentor-Mentee%20list%202024-25.pdf",
+          academicYear: "2024-25"
+        },
+        {
+          title: "2023-24 - Mentor & Mentee",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/CSE(CS)%20Mentor-%20Mentee%20List%202023-24.pdf",
+          academicYear: "2023-24"
+        }
+      ]
+    }
+  ],
+  studentProjects: {
+    groupTitle: "Student Innovative Projects",
+    description: "Year-wise student innovative project documents and technical implementation reports",
+    documents: [
+      {
+        title: "Student Innovative Projects 2024-2025",
+        url: "https://mits.ac.in/assets/pdf/cse/Student%20Innovative%20Projects%202024-25.pdf"
+      },
+      {
+        title: "Student Innovative Projects 2023-2024",
+        url: "https://mits.ac.in/assets/pdf/cse/Student%20Innovative%20Projects%202023-24.pdf"
+      },
+      {
+        title: "Student Innovative Projects 2022-2023",
+        url: "https://mits.ac.in/assets/pdf/cse/Student%20Innovative%20Projects%202022-23.pdf"
+      }
+    ]
+  },
+  obe: {
+    title: "Surveys",
+    subTabs: [{ id: "surveys", label: "Surveys" }],
+    surveys: [
+      {
+        title: "Surveys from Stakeholders",
+        links: [
+          {
+            title: "Academic Year 2023-24 Action Taken",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202023-24%20ACTION%20TAKEN.pdf"
+          },
+          {
+            title: "Academic Year 2023-24 Faculty Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202023-24%20FACULTY%20FEEDBACK.pdf"
+          },
+          {
+            title: "Academic Year 2023-24 Parents Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202023-24%20PARENTS%20FEEDBACK.pdf"
+          },
+          {
+            title: "Academic Year 2023-24 Students Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202023-24%20STUDENTS%20FEEDBACK.pdf"
+          },
+          {
+            title: "Academic Year 2022-23 Action Taken",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202022-23%20ACTION%20TAKEN.pdf"
+          },
+          {
+            title: "Academic Year 2022-23 Faculty Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202022-23%20FACULTY%20FEEDBACK.pdf"
+          },
+          {
+            title: "Academic Year 2022-23 Parents Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202022-23%20PARENTS%20FEEDBACK.pdf"
+          },
+          {
+            title: "Academic Year 2022-23 Students Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202022-23%20STUDENTS%20FEEDBACK.pdf"
+          },
+          {
+            title: "Academic Year 2021-22 Action Taken",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202021-22%20ACTION%20TAKEN.pdf"
+          },
+          {
+            title: "Academic Year 2021-22 Faculty Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202021-22%20FACULTY%20FEEDBACK.pdf"
+          },
+          {
+            title: "Academic Year 2021-22 Parents Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202021-22%20PARENTS%20FEEDBACK.pdf"
+          },
+          {
+            title: "Academic Year 2021-22 Students Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/CS-AY%202021-22%20STUDENTS%20FEEDBACK.pdf"
+          }
+        ]
+      },
+      {
+        title: "Feedback Surveys",
+        links: [
+          {
+            title: "2022-23 Feedback Survey",
+            url: "https://mits.ac.in/public/uploads/surveys/C.S.E(CS)%20Survey%20A.Y-%202022-2023.pdf"
+          },
+          {
+            title: "2021-22 Feedback Survey",
+            url: "https://mits.ac.in/public/uploads/surveys/C.S.E(CS)%20Survey%20A.Y-%202021-2022.pdf"
+          }
+        ]
+      }
+    ]
+  }
+};
+
 /**
  * Returns customized "More" section data (Mentor & Mentee, Minor, etc.) for any department.
  */
@@ -4281,6 +4684,9 @@ export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   }
   if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
     return csedsMoreData;
+  }
+  if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
+    return csecsMoreData;
   }
   if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
     return aimlMoreData;
@@ -4862,6 +5268,82 @@ export const csedsTopTabs: DepartmentTopTab[] = [
   }
 ];
 
+export const csecsTopTabs: DepartmentTopTab[] = [
+  {
+    id: "department",
+    label: "Department"
+  },
+  {
+    id: "bos",
+    label: "BoS",
+    title: "Board Of Studies",
+    documents: [
+      {
+        title: "BoS DTBU 2026-27",
+        url: "https://mits.ac.in/public/uploads/departments/51cab881f9f2e9d2bc8abddd458b6006.pdf"
+      },
+      {
+        title: "BOS 2026-27",
+        url: "https://mits.ac.in/public/uploads/departments/7bde38c598e37f72108157a9e9c44fd1.pdf"
+      },
+      {
+        title: "BoS DTBU 2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/ff1445758c7e035a46406f1ad1313fc6.pdf"
+      },
+      {
+        title: "BOS 2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/4d63589b6b4b722a7d486b5ed5985382.pdf"
+      },
+      {
+        title: "BOS 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/03b27e1585986fca75424e237fb45ce4.pdf"
+      },
+      {
+        title: "BOS 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/7e9cec49f47012365841f5d20e7b6b33.pdf"
+      }
+    ]
+  },
+  {
+    id: "iaab",
+    label: "IAAB",
+    title: "Industry Alumni Advisory Board",
+    documents: [
+      {
+        title: "IAAB DTBU 2026-27",
+        url: "https://mits.ac.in/public/uploads/departments/0778d382f9441cd8654b1b2bf2c2fb10.pdf"
+      },
+      {
+        title: "IAAB 2026-27",
+        url: "https://mits.ac.in/public/uploads/departments/635e24a74ac78b5d756d852091cc4af3.pdf"
+      },
+      {
+        title: "IAAB 2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/42577665d2b14fd0d4a8bcb325c6b965.pdf"
+      },
+      {
+        title: "IAAB 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/2f0b622ec2924391faa7bfc764d9aecb.pdf"
+      },
+      {
+        title: "IAAB 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/c73c91341e78ec3ff782903061f85ad2.pdf"
+      }
+    ]
+  },
+  {
+    id: "dcs",
+    label: "DCS",
+    title: "Department Curriculum / Advisory Committee",
+    documents: [
+      {
+        title: "DCS",
+        url: "https://mits.ac.in/public/uploads/departments/97c521a394e52a5f7a5ade9e25962315.pdf"
+      }
+    ]
+  }
+];
+
 /**
  * Returns top tabs data (Department, BoS, IAAB, Magazine, etc.) for any department.
  */
@@ -4872,6 +5354,9 @@ export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | unde
   }
   if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
     return csedsTopTabs;
+  }
+  if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
+    return csecsTopTabs;
   }
   if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
     return aimlTopTabs;

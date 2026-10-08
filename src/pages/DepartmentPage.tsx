@@ -238,6 +238,10 @@ const DepartmentPage = () => {
       setActiveSection("more");
       setActiveMoreTab("mentor-mentee");
       setMoreDropdownOpen(true);
+    } else if (lastPart === "student-innovative-projects" || lastPart === "student-projects" || lastPart === "innovative-projects") {
+      setActiveSection("more");
+      setActiveMoreTab("student-innovative-projects");
+      setMoreDropdownOpen(true);
     } else if (lastPart === "minor" || lastPart === "minor-degree") {
       setActiveSection("more");
       setActiveMoreTab("minor");
@@ -278,6 +282,8 @@ const DepartmentPage = () => {
         setActiveMoreTab("doctoral");
       } else if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
         setActiveMoreTab("lab");
+      } else if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
+        setActiveMoreTab("surveys");
       }
       setMoreDropdownOpen(true);
     } else if (lastPart === "bos" || lastPart === "board-of-studies") {
@@ -286,6 +292,9 @@ const DepartmentPage = () => {
     } else if (lastPart === "iaab") {
       setActiveSection("about");
       setActiveTopTab("iaab");
+    } else if (lastPart === "dcs") {
+      setActiveSection("about");
+      setActiveTopTab("dcs");
     } else if (lastPart === "magazine" || lastPart === "magazines") {
       setActiveSection("about");
       setActiveTopTab("magazine");
@@ -2525,6 +2534,10 @@ const DepartmentPage = () => {
                       <span>Department <span className="text-primary">Lab</span></span>
                     ) : activeMoreTab === "stock-register" ? (
                       <span>Stock <span className="text-primary">Register</span></span>
+                    ) : activeMoreTab === "student-innovative-projects" ? (
+                      <span>Student <span className="text-primary">Innovative Projects</span></span>
+                    ) : activeMoreTab === "surveys" ? (
+                      <span>Stakeholder <span className="text-primary">Surveys</span></span>
                     ) : activeMoreTab === "minor" ? (
                       <span>Minor <span className="text-primary">Degree</span></span>
                     ) : activeMoreTab === "mentor-mentee" ? (
@@ -2893,6 +2906,96 @@ const DepartmentPage = () => {
                         <p className="font-semibold text-base text-secondary">Innovative teaching details will be uploaded soon.</p>
                       </Card>
                     )}
+                  </div>
+                ) : activeMoreTab === "student-innovative-projects" ? (
+                  <div className="space-y-6">
+                    {moreData.studentProjects && moreData.studentProjects.documents.length > 0 ? (
+                      <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="text-xl font-bold text-secondary tracking-tight">
+                              {moreData.studentProjects.groupTitle}
+                            </h3>
+                            {moreData.studentProjects.description && (
+                              <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                                {moreData.studentProjects.description}
+                              </p>
+                            )}
+                          </div>
+                          <div className="space-y-3 pl-1">
+                            {moreData.studentProjects.documents.map((doc, dIdx) => (
+                              <a
+                                key={dIdx}
+                                href={doc.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                              >
+                                <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                  <ChevronRight className="w-3 h-3 stroke-[3]" />
+                                </div>
+                                <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
+                                  {doc.title}
+                                </span>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </Card>
+                    ) : (
+                      <Card className="p-10 text-center text-muted-foreground bg-card">
+                        <Lightbulb className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
+                        <p className="font-semibold text-base text-secondary">Student innovative projects will be uploaded soon.</p>
+                      </Card>
+                    )}
+                  </div>
+                ) : activeMoreTab === "surveys" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-8">
+                        <div className="border-b border-border/60 pb-4">
+                          <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                            Surveys from Stakeholders
+                          </h3>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                            Feedback surveys collected across students, parents, faculty, and stakeholders
+                          </p>
+                        </div>
+
+                        {moreData.obe?.surveys && moreData.obe.surveys.length > 0 ? (
+                          <div className="grid md:grid-cols-2 gap-6">
+                            {moreData.obe.surveys.map((cat, cIdx) => (
+                              <div key={cIdx} className="bg-muted/20 border border-border/70 rounded-xl p-5 space-y-3">
+                                <h4 className="text-base sm:text-lg font-bold text-secondary flex items-center gap-2">
+                                  <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+                                  {cat.title}
+                                </h4>
+                                <div className="space-y-2.5 pl-1">
+                                  {cat.links.map((link, lIdx) => (
+                                    <a
+                                      key={lIdx}
+                                      href={link.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-xs sm:text-sm"
+                                    >
+                                      <div className="w-4 h-4 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                                        <ChevronRight className="w-3 h-3 stroke-[2.5]" />
+                                      </div>
+                                      <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors truncate">
+                                        {link.title}
+                                      </span>
+                                    </a>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="text-center text-muted-foreground py-8">No survey records available at this time.</p>
+                        )}
+                      </div>
+                    </Card>
                   </div>
                 ) : activeMoreTab === "obe" ? (
                   <div className="space-y-6">
