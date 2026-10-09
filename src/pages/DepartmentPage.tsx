@@ -25,7 +25,7 @@
  *    - To filter them (e.g., show HOD at the top), the data file already places HOD as the first item,
  *      which is the best practice.
  */
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, Fragment } from "react";
 import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
@@ -209,6 +209,155 @@ const DepartmentPage = () => {
       navigate('/departments', { replace: true });
       return;
     }
+    if (location.hash) {
+      const hash = location.hash.replace('#', '');
+      if (hash === "tab150" || hash === "civil-engineering-notes" || hash === "notes") {
+        setActiveSection("more");
+        setActiveMoreTab("civil-engineering-notes");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab151" || hash === "course-attainment") {
+        setActiveSection("more");
+        setActiveMoreTab("course-attainment");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab119" || hash === "alumni") {
+        setActiveSection("more");
+        setActiveMoreTab("alumni");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab31" || hash === "surveys") {
+        setActiveSection("more");
+        setActiveMoreTab("surveys");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab-7" || hash === "tab7" || hash === "lab") {
+        setActiveSection("more");
+        setActiveMoreTab("lab");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "ug" || hash === "ug-tab20") {
+        setActiveSection("under-graduate");
+        setActiveUgTab("ug");
+        setUgDropdownOpen(true);
+        return;
+      }
+      if (hash === "course-syllabus" || hash === "ug-tab50" || hash === "syllabus") {
+        setActiveSection("under-graduate");
+        setActiveUgTab("course-syllabus");
+        setUgDropdownOpen(true);
+        return;
+      }
+      if (hash === "timetable" || hash === "time-table" || hash === "ug-tab60") {
+        setActiveSection("under-graduate");
+        setActiveUgTab("timetable");
+        setUgDropdownOpen(true);
+        return;
+      }
+      if (hash === "under-graduate") {
+        setActiveSection("under-graduate");
+        setUgDropdownOpen(true);
+        return;
+      }
+      if (hash === "post-graduate" || hash === "pg" || hash === "pg-course-syllabus") {
+        setActiveSection("post-graduate");
+        setActivePgTab("pg-course-syllabus");
+        setPgDropdownOpen(true);
+        return;
+      }
+      if (hash === "mentor-mentee" || hash === "mentors") {
+        setActiveSection("more");
+        setActiveMoreTab("mentor-mentee");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "minor") {
+        setActiveSection("more");
+        setActiveMoreTab("minor");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "interdisciplinary-projects" || hash === "interdisciplinary") {
+        setActiveSection("more");
+        setActiveMoreTab("interdisciplinary-projects");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "doctoral") {
+        setActiveSection("more");
+        setActiveMoreTab("doctoral");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "feedback") {
+        setActiveSection("more");
+        setActiveMoreTab("feedback");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "innovative-teaching") {
+        setActiveSection("more");
+        setActiveMoreTab("innovative-teaching");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "stock-register") {
+        setActiveSection("more");
+        setActiveMoreTab("stock-register");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "faculty-list") {
+        setActiveSection("about");
+        setActiveTopTab("faculty-list");
+        return;
+      }
+      if (hash === "bos" || hash === "board-of-studies") {
+        setActiveSection("about");
+        setActiveTopTab("bos");
+        return;
+      }
+      if (hash === "dab") {
+        setActiveSection("about");
+        setActiveTopTab("dab");
+        return;
+      }
+      if (hash === "pac") {
+        setActiveSection("about");
+        setActiveTopTab("pac");
+        return;
+      }
+      if (hash === "newsletter") {
+        setActiveSection("about");
+        setActiveTopTab("newsletter");
+        return;
+      }
+      if (hash === "iaab") {
+        setActiveSection("about");
+        setActiveTopTab("iaab");
+        return;
+      }
+      if (hash === "magazine") {
+        setActiveSection("about");
+        setActiveTopTab("magazine");
+        return;
+      }
+      if (hash === "department") {
+        setActiveSection("about");
+        setActiveTopTab("department");
+        return;
+      }
+      if (hash && sidebarItems.some(item => item.id === hash)) {
+        setActiveSection(hash);
+        return;
+      }
+    }
+
     const pathParts = location.pathname.split('/');
     const lastPart = pathParts[pathParts.length - 1];
     if (lastPart === "ug") {
@@ -230,15 +379,15 @@ const DepartmentPage = () => {
       setActiveSection("post-graduate");
       setActivePgTab("pg-course-syllabus");
       setPgDropdownOpen(true);
-    } else if (lastPart === "lab") {
+    } else if (lastPart === "tab-7" || lastPart === "tab7" || lastPart === "lab") {
       setActiveSection("more");
       setActiveMoreTab("lab");
       setMoreDropdownOpen(true);
-    } else if (lastPart === "civil-engineering-notes" || lastPart === "notes") {
+    } else if (lastPart === "tab150" || lastPart === "civil-engineering-notes" || lastPart === "notes") {
       setActiveSection("more");
       setActiveMoreTab("civil-engineering-notes");
       setMoreDropdownOpen(true);
-    } else if (lastPart === "course-attainment") {
+    } else if (lastPart === "tab151" || lastPart === "course-attainment") {
       setActiveSection("more");
       setActiveMoreTab("course-attainment");
       setMoreDropdownOpen(true);
@@ -246,7 +395,7 @@ const DepartmentPage = () => {
       setActiveSection("more");
       setActiveMoreTab("stock-register");
       setMoreDropdownOpen(true);
-    } else if (lastPart === "alumni") {
+    } else if (lastPart === "tab119" || lastPart === "alumni") {
       setActiveSection("more");
       setActiveMoreTab("alumni");
       setMoreDropdownOpen(true);
@@ -292,7 +441,7 @@ const DepartmentPage = () => {
       setActiveObeSubTab(lastPart);
       setMoreDropdownOpen(true);
       setObeDropdownOpen(true);
-    } else if (lastPart === "surveys") {
+    } else if (lastPart === "surveys" || lastPart === "tab31") {
       setActiveSection("more");
       if (deptKey === "cse") {
         setActiveMoreTab("obe");
@@ -310,8 +459,8 @@ const DepartmentPage = () => {
         setActiveMoreTab("lab");
       } else if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
         setActiveMoreTab("surveys");
-      } else if (deptKey === "ce" || deptKey === "civil") {
-        setActiveMoreTab("lab");
+      } else if (deptKey === "ce" || deptKey === "civil" || deptKey === "6") {
+        setActiveMoreTab("civil-engineering-notes");
       }
       setMoreDropdownOpen(true);
     } else if (lastPart === "faculty-list") {
@@ -343,97 +492,6 @@ const DepartmentPage = () => {
       setActiveTopTab("department");
     } else if (lastPart && sidebarItems.some(item => item.id === lastPart)) {
       setActiveSection(lastPart);
-    } else if (location.hash) {
-      const hash = location.hash.replace('#', '');
-      if (hash === "ug" || hash === "ug-tab20") {
-        setActiveSection("under-graduate");
-        setActiveUgTab("ug");
-        setUgDropdownOpen(true);
-      } else if (hash === "course-syllabus" || hash === "ug-tab50" || hash === "syllabus") {
-        setActiveSection("under-graduate");
-        setActiveUgTab("course-syllabus");
-        setUgDropdownOpen(true);
-      } else if (hash === "timetable" || hash === "time-table" || hash === "ug-tab60") {
-        setActiveSection("under-graduate");
-        setActiveUgTab("timetable");
-        setUgDropdownOpen(true);
-      } else if (hash === "under-graduate") {
-        setActiveSection("under-graduate");
-        setUgDropdownOpen(true);
-      } else if (hash === "post-graduate" || hash === "pg" || hash === "pg-course-syllabus") {
-        setActiveSection("post-graduate");
-        setActivePgTab("pg-course-syllabus");
-        setPgDropdownOpen(true);
-      } else if (hash === "mentor-mentee" || hash === "mentors") {
-        setActiveSection("more");
-        setActiveMoreTab("mentor-mentee");
-        setMoreDropdownOpen(true);
-      } else if (hash === "minor") {
-        setActiveSection("more");
-        setActiveMoreTab("minor");
-        setMoreDropdownOpen(true);
-      } else if (hash === "interdisciplinary-projects" || hash === "interdisciplinary") {
-        setActiveSection("more");
-        setActiveMoreTab("interdisciplinary-projects");
-        setMoreDropdownOpen(true);
-      } else if (hash === "doctoral") {
-        setActiveSection("more");
-        setActiveMoreTab("doctoral");
-        setMoreDropdownOpen(true);
-      } else if (hash === "feedback") {
-        setActiveSection("more");
-        setActiveMoreTab("feedback");
-        setMoreDropdownOpen(true);
-      } else if (hash === "innovative-teaching") {
-        setActiveSection("more");
-        setActiveMoreTab("innovative-teaching");
-        setMoreDropdownOpen(true);
-      } else if (hash === "more") {
-        setActiveSection("more");
-        setMoreDropdownOpen(true);
-      } else if (hash === "civil-engineering-notes" || hash === "notes") {
-        setActiveSection("more");
-        setActiveMoreTab("civil-engineering-notes");
-        setMoreDropdownOpen(true);
-      } else if (hash === "course-attainment") {
-        setActiveSection("more");
-        setActiveMoreTab("course-attainment");
-        setMoreDropdownOpen(true);
-      } else if (hash === "stock-register") {
-        setActiveSection("more");
-        setActiveMoreTab("stock-register");
-        setMoreDropdownOpen(true);
-      } else if (hash === "alumni") {
-        setActiveSection("more");
-        setActiveMoreTab("alumni");
-        setMoreDropdownOpen(true);
-      } else if (hash === "faculty-list") {
-        setActiveSection("about");
-        setActiveTopTab("faculty-list");
-      } else if (hash === "bos" || hash === "board-of-studies") {
-        setActiveSection("about");
-        setActiveTopTab("bos");
-      } else if (hash === "dab") {
-        setActiveSection("about");
-        setActiveTopTab("dab");
-      } else if (hash === "pac") {
-        setActiveSection("about");
-        setActiveTopTab("pac");
-      } else if (hash === "newsletter") {
-        setActiveSection("about");
-        setActiveTopTab("newsletter");
-      } else if (hash === "iaab") {
-        setActiveSection("about");
-        setActiveTopTab("iaab");
-      } else if (hash === "magazine") {
-        setActiveSection("about");
-        setActiveTopTab("magazine");
-      } else if (hash === "department") {
-        setActiveSection("about");
-        setActiveTopTab("department");
-      } else if (hash && sidebarItems.some(item => item.id === hash)) {
-        setActiveSection(hash);
-      }
     }
     // Deep-link: ?faculty=Name auto-opens that faculty's profile
     const params = new URLSearchParams(location.search);
@@ -2632,6 +2690,35 @@ const DepartmentPage = () => {
                   </h2>
                 </div>
 
+                {/* Modern Tab Switcher for More subtabs */}
+                {moreData.subTabs && moreData.subTabs.length > 1 && (
+                  <div className="flex flex-wrap items-center gap-2 mb-6">
+                    {moreData.subTabs.map((tab) => {
+                      const isActive = activeMoreTab === tab.id;
+                      return (
+                        <button
+                          key={tab.id}
+                          onClick={() => {
+                            if (tab.externalUrl && tab.directPdf) {
+                              window.open(tab.externalUrl, "_blank", "noopener,noreferrer");
+                              return;
+                            }
+                            setActiveMoreTab(tab.id);
+                            navigate(`/department/${deptKey}/more/${tab.id}`, { replace: true });
+                          }}
+                          className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg border transition-all duration-200 cursor-pointer ${
+                            isActive
+                              ? "bg-primary text-white border-primary shadow-xs"
+                              : "bg-card text-primary border-primary/80 hover:bg-primary/10 hover:border-primary"
+                          }`}
+                        >
+                          {tab.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+
                 {/* Content Area */}
                 {activeMoreTab === "lab" ? (
                   <div className="space-y-6">
@@ -2674,122 +2761,123 @@ const DepartmentPage = () => {
                     {moreData.civilNotes ? (
                       <>
                         {/* FDP Section */}
-                        <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
-                          <div className="bg-muted/30 border-b border-border/70 p-6 sm:p-8">
-                            <span className="text-xs uppercase font-bold tracking-widest text-primary">Faculty Development Programme</span>
-                            <h3 className="text-xl sm:text-2xl font-bold text-secondary mt-1" style={{ fontFamily: "var(--font-display)" }}>
-                              {moreData.civilNotes.fdpTitle}
+                        <div className="space-y-4">
+                          <div className="text-center space-y-1 mb-6">
+                            <h3 className="text-xl sm:text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                              Department of Civil Engineering
                             </h3>
+                            <h4 className="text-lg sm:text-xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                              Five-Day Faculty Development Programme (Hybrid Mode)
+                            </h4>
+                            <h4 className="text-lg sm:text-xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                              “AICE 2025: Advances in Intelligent Civil Engineering”
+                            </h4>
                           </div>
-                          <div className="p-6 sm:p-8">
-                            <div className="overflow-x-auto rounded-xl border border-border">
-                              <table className="w-full text-sm border-collapse text-left">
-                                <thead>
-                                  <tr className="bg-muted/40 text-secondary border-b border-border text-xs uppercase font-bold tracking-wider divide-x divide-border/60">
-                                    <th className="py-3 px-3 text-center w-14">S.No</th>
-                                    <th className="py-3 px-4 w-56">Schedule</th>
-                                    <th className="py-3 px-4">Resource Person</th>
-                                    <th className="py-3 px-6">Topic</th>
-                                    <th className="py-3 px-4 text-center w-36">Recording</th>
-                                  </tr>
-                                </thead>
-                                <tbody className="divide-y divide-border/60">
-                                  {moreData.civilNotes.fdpSessions.map((session, sIdx) => (
-                                    <tr key={sIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
-                                      <td className="py-3 px-3 text-center font-medium text-muted-foreground text-xs">
-                                        {session.sno}
-                                      </td>
-                                      <td className="py-3 px-4 text-xs font-semibold text-secondary">
+
+                          <div className="overflow-x-auto rounded-lg border border-border bg-card shadow-xs">
+                            <table className="w-full text-sm border-collapse text-left">
+                              <thead>
+                                <tr className="border-b border-border text-red-700 font-bold divide-x divide-border bg-muted/20">
+                                  <th className="py-3 px-3 text-center w-16 text-red-700 font-bold">S.No.</th>
+                                  <th className="py-3 px-6 text-center text-red-700 font-bold">Resource Person</th>
+                                  <th className="py-3 px-6 text-center text-red-700 font-bold w-80">Link</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-border">
+                                {moreData.civilNotes.fdpSessions.map((session, sIdx) => (
+                                  <Fragment key={sIdx}>
+                                    <tr className="bg-muted/10 border-t border-b border-border">
+                                      <td colSpan={3} className="py-2.5 px-4 text-center font-bold text-red-600 text-sm">
                                         {session.dateSchedule}
                                       </td>
-                                      <td className="py-3 px-4 font-medium text-secondary text-xs sm:text-sm">
-                                        {session.resourcePerson}
+                                    </tr>
+                                    <tr className="divide-x divide-border hover:bg-muted/10 transition-colors">
+                                      <td className="py-4 px-3 text-center font-bold text-red-600 align-top">
+                                        {session.sno}
                                       </td>
-                                      <td className="py-3 px-6 text-xs sm:text-sm text-muted-foreground">
-                                        {session.topic}
+                                      <td className="py-4 px-6 align-top space-y-1">
+                                        <p className="font-bold text-red-800 dark:text-red-400 text-sm sm:text-base">
+                                          {session.resourcePerson.split(",")[0]}
+                                        </p>
+                                        <p className="text-red-900/80 dark:text-red-300/80 text-xs sm:text-sm">
+                                          {session.resourcePerson.split(",").slice(1).join(",").trim()}
+                                        </p>
+                                        <p className="text-red-900/90 dark:text-red-200 text-xs sm:text-sm pt-1">
+                                          <span className="font-bold text-red-800 dark:text-red-400">Topic: </span>
+                                          {session.topic}
+                                        </p>
                                       </td>
-                                      <td className="py-3 px-4 text-center">
+                                      <td className="py-4 px-6 align-middle text-center">
                                         <a
                                           href={session.link}
                                           target="_blank"
                                           rel="noopener noreferrer"
-                                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-semibold shadow-xs transition-colors"
+                                          className="text-blue-700 hover:text-blue-900 dark:text-blue-400 underline break-all text-xs sm:text-sm font-medium"
                                         >
-                                          <span>YouTube Live</span>
-                                          <ExternalLink className="w-3 h-3" />
+                                          {session.link}
                                         </a>
                                       </td>
                                     </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
+                                  </Fragment>
+                                ))}
+                              </tbody>
+                            </table>
                           </div>
-                        </Card>
+                        </div>
 
                         {/* Course Materials */}
-                        <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
-                          <div className="bg-muted/30 border-b border-border/70 p-6 sm:p-8">
-                            <span className="text-xs uppercase font-bold tracking-widest text-primary">Academic Resources</span>
-                            <h3 className="text-xl sm:text-2xl font-bold text-secondary mt-1" style={{ fontFamily: "var(--font-display)" }}>
-                              Course Materials & Lecture Notes
-                            </h3>
-                          </div>
-                          <div className="p-6 sm:p-8">
-                            <div className="overflow-x-auto rounded-xl border border-border">
-                              <table className="w-full text-sm border-collapse text-left">
-                                <thead>
-                                  <tr className="bg-muted/40 text-secondary border-b border-border text-xs uppercase font-bold tracking-wider divide-x divide-border/60">
-                                    <th className="py-3 px-3 text-center w-14">S.No</th>
-                                    <th className="py-3 px-4 w-48">Course Name</th>
-                                    <th className="py-3 px-6">Topic Name</th>
-                                    <th className="py-3 px-4 text-center w-36">Material</th>
-                                    <th className="py-3 px-4 text-center w-36">Feedback</th>
-                                  </tr>
-                                </thead>
-                                <tbody className="divide-y divide-border/60">
-                                  {moreData.civilNotes.materials.map((mat, mIdx) => (
-                                    <tr key={mIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
-                                      <td className="py-3 px-3 text-center font-medium text-muted-foreground text-xs">
-                                        {mat.sno}
-                                      </td>
-                                      <td className="py-3 px-4 font-semibold text-secondary text-xs sm:text-sm">
-                                        {mat.courseName}
-                                      </td>
-                                      <td className="py-3 px-6 text-xs sm:text-sm text-muted-foreground">
-                                        {mat.topicName}
-                                      </td>
-                                      <td className="py-3 px-4 text-center">
+                        <div className="space-y-4 pt-6">
+                          <div className="overflow-x-auto rounded-lg border border-border bg-card shadow-xs">
+                            <table className="w-full text-sm border-collapse text-left">
+                              <thead>
+                                <tr className="bg-[#8B0000] text-white border-b border-border font-bold divide-x divide-white/20">
+                                  <th className="py-3.5 px-3 text-center w-16">S.No</th>
+                                  <th className="py-3.5 px-4 w-44">Course Name</th>
+                                  <th className="py-3.5 px-6">Topic Name</th>
+                                  <th className="py-3.5 px-6">Course Material</th>
+                                  <th className="py-3.5 px-6">Feedback</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-border">
+                                {moreData.civilNotes.materials.map((mat, mIdx) => (
+                                  <tr key={mIdx} className="divide-x divide-border hover:bg-muted/10 transition-colors">
+                                    <td className="py-3.5 px-3 text-center font-medium text-secondary">
+                                      {mat.sno}
+                                    </td>
+                                    <td className="py-3.5 px-4 font-semibold text-secondary">
+                                      {mat.courseName}
+                                    </td>
+                                    <td className="py-3.5 px-6 text-secondary">
+                                      {mat.topicName}
+                                    </td>
+                                    <td className="py-3.5 px-6">
+                                      <a
+                                        href={mat.materialUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-blue-700 hover:text-blue-900 dark:text-blue-400 underline break-all text-xs sm:text-sm"
+                                      >
+                                        {mat.materialUrl}
+                                      </a>
+                                    </td>
+                                    <td className="py-3.5 px-6">
+                                      {mat.feedbackUrl && (
                                         <a
-                                          href={mat.materialUrl}
+                                          href={mat.feedbackUrl}
                                           target="_blank"
                                           rel="noopener noreferrer"
-                                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary hover:bg-primary/90 text-white text-xs font-semibold shadow-xs transition-colors"
+                                          className="text-blue-700 hover:text-blue-900 dark:text-blue-400 underline break-all text-xs sm:text-sm"
                                         >
-                                          <FileText className="w-3.5 h-3.5" />
-                                          <span>View PDF</span>
+                                          {mat.feedbackUrl}
                                         </a>
-                                      </td>
-                                      <td className="py-3 px-4 text-center">
-                                        {mat.feedbackUrl && (
-                                          <a
-                                            href={mat.feedbackUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-muted border border-border hover:bg-primary/10 hover:border-primary/40 text-primary text-xs font-semibold transition-colors"
-                                          >
-                                            <span>Feedback</span>
-                                            <ExternalLink className="w-3 h-3" />
-                                          </a>
-                                        )}
-                                      </td>
-                                    </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
+                                      )}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
                           </div>
-                        </Card>
+                        </div>
                       </>
                     ) : (
                       <Card className="p-10 text-center text-muted-foreground bg-card">
@@ -2802,37 +2890,28 @@ const DepartmentPage = () => {
                   <div className="space-y-6">
                     <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
                       <div className="space-y-6">
-                        <div className="border-b border-border/60 pb-4">
-                          <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
-                            Course Attainment Reports
+                        <div className="border-b border-border/60 pb-3">
+                          <h3 className="text-xl sm:text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                            Course Attainment
                           </h3>
-                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
-                            Batch-wise course outcome & program outcome evaluation documents
-                          </p>
                         </div>
 
                         {moreData.courseAttainment && moreData.courseAttainment.length > 0 ? (
-                          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                          <div className="space-y-3 pl-1">
                             {moreData.courseAttainment.map((item, aIdx) => (
                               <a
                                 key={aIdx}
                                 href={item.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex flex-col justify-between p-5 rounded-xl border border-border/70 bg-muted/20 hover:bg-primary/5 hover:border-primary/40 transition-all text-secondary hover:text-primary shadow-2xs"
+                                className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
                               >
-                                <div className="space-y-2">
-                                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <FileText className="w-5 h-5" />
-                                  </div>
-                                  <h4 className="font-bold text-sm sm:text-base text-secondary group-hover:text-primary pt-2">
-                                    {item.title}
-                                  </h4>
+                                <div className="w-4.5 h-4.5 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                  <ChevronRight className="w-3 h-3 stroke-[3]" />
                                 </div>
-                                <div className="flex items-center gap-1.5 text-xs text-primary font-semibold mt-4 pt-3 border-t border-border/50">
-                                  <span>View Attainment Report</span>
-                                  <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                                </div>
+                                <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
+                                  {item.title}
+                                </span>
                               </a>
                             ))}
                           </div>
@@ -2846,38 +2925,35 @@ const DepartmentPage = () => {
                   <div className="space-y-6">
                     <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
                       <div className="space-y-8">
-                        <div className="border-b border-border/60 pb-4">
-                          <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
-                            Alumni Interaction & Guest Lectures
-                          </h3>
-                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
-                            Distinguished alumni lectures, career guidance sessions, and event reports
-                          </p>
-                        </div>
-
                         {moreData.alumniEvents && moreData.alumniEvents.length > 0 ? (
                           <div className="space-y-8">
                             {moreData.alumniEvents.map((group, gIdx) => (
                               <div key={gIdx} className="space-y-4">
-                                <h4 className="text-lg font-bold text-secondary tracking-tight border-b border-border/50 pb-2">
+                                <h3 className="text-xl sm:text-2xl font-bold text-secondary tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
                                   {group.groupTitle}
-                                </h4>
-                                <div className="space-y-3 pl-1">
+                                </h3>
+                                <div className="space-y-5 pl-1">
                                   {group.documents.map((doc, dIdx) => (
-                                    <a
-                                      key={dIdx}
-                                      href={doc.url}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
-                                    >
-                                      <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
-                                        <ChevronRight className="w-3 h-3 stroke-[3]" />
+                                    <div key={dIdx} className="space-y-1">
+                                      <div className="flex items-start gap-2.5">
+                                        <div className="w-4 h-4 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 mt-0.5 shadow-xs">
+                                          <ChevronRight className="w-2.5 h-2.5 stroke-[3]" />
+                                        </div>
+                                        <span className="font-semibold text-secondary text-sm sm:text-base leading-snug">
+                                          {doc.title}
+                                        </span>
                                       </div>
-                                      <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
-                                        {doc.title}
-                                      </span>
-                                    </a>
+                                      <div className="pl-6.5">
+                                        <a
+                                          href={doc.url}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="text-xs sm:text-sm text-muted-foreground hover:text-primary hover:underline transition-colors inline-flex items-center gap-1 font-medium"
+                                        >
+                                          Click here for Report on Event
+                                        </a>
+                                      </div>
+                                    </div>
                                   ))}
                                 </div>
                               </div>
@@ -3285,38 +3361,41 @@ const DepartmentPage = () => {
                           </p>
                         </div>
 
-                        {moreData.obe?.surveys && moreData.obe.surveys.length > 0 ? (
-                          <div className="grid md:grid-cols-2 gap-6">
-                            {moreData.obe.surveys.map((cat, cIdx) => (
-                              <div key={cIdx} className="bg-muted/20 border border-border/70 rounded-xl p-5 space-y-3">
-                                <h4 className="text-base sm:text-lg font-bold text-secondary flex items-center gap-2">
-                                  <div className="w-2.5 h-2.5 rounded-full bg-primary" />
-                                  {cat.title}
-                                </h4>
-                                <div className="space-y-2.5 pl-1">
-                                  {cat.links.map((link, lIdx) => (
-                                    <a
-                                      key={lIdx}
-                                      href={link.url}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-xs sm:text-sm"
-                                    >
-                                      <div className="w-4 h-4 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
-                                        <ChevronRight className="w-3 h-3 stroke-[2.5]" />
-                                      </div>
-                                      <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors truncate">
-                                        {link.title}
-                                      </span>
-                                    </a>
-                                  ))}
+                        {(() => {
+                          const surveysList = moreData.surveys || moreData.obe?.surveys;
+                          return surveysList && surveysList.length > 0 ? (
+                            <div className="grid md:grid-cols-2 gap-6">
+                              {surveysList.map((cat, cIdx) => (
+                                <div key={cIdx} className="bg-muted/20 border border-border/70 rounded-xl p-5 space-y-3">
+                                  <h4 className="text-base sm:text-lg font-bold text-secondary flex items-center gap-2">
+                                    <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+                                    {cat.title}
+                                  </h4>
+                                  <div className="space-y-2.5 pl-1">
+                                    {cat.links.map((link, lIdx) => (
+                                      <a
+                                        key={lIdx}
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-xs sm:text-sm"
+                                      >
+                                        <div className="w-4 h-4 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                                          <ChevronRight className="w-3 h-3 stroke-[2.5]" />
+                                        </div>
+                                        <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors truncate">
+                                          {link.title}
+                                        </span>
+                                      </a>
+                                    ))}
+                                  </div>
                                 </div>
-                              </div>
-                            ))}
-                          </div>
-                        ) : (
-                          <p className="text-center text-muted-foreground py-8">No survey records available at this time.</p>
-                        )}
+                              ))}
+                            </div>
+                          ) : (
+                            <p className="text-center text-muted-foreground py-8">No survey records available at this time.</p>
+                          );
+                        })()}
                       </div>
                     </Card>
                   </div>

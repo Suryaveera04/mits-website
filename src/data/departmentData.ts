@@ -276,6 +276,7 @@ export interface DepartmentMoreData {
   innovativeTeaching?: MoreDocumentGroup;
   studentProjects?: MoreDocumentGroup;
   obe?: ObeData;
+  surveys?: ObeSurveyCategory[];
   labPdfUrl?: string;
   civilNotes?: CivilNotesData;
   courseAttainment?: MoreDocumentItem[];
@@ -2889,7 +2890,7 @@ export const getDepartmentByKey = (key: string): DepartmentData | undefined => {
   if (key === "cse-ds" || key === "csd" || key === "ds") return departmentsData.cseds;
   if (key === "cse-ai-ml" || key === "cai") return departmentsData.aiml;
   if (key === "cse-cs" || key === "csc" || key === "cs" || key === "cyber-security" || key === "csec") return departmentsData.csecs;
-  if (key === "civil" || key === "ce") return departmentsData.ce;
+  if (key === "civil" || key === "ce" || key === "6") return departmentsData.ce;
   return undefined;
 };
 
@@ -4215,7 +4216,7 @@ export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subjec
   if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
     return csecsUnderGraduateData;
   }
-  if (deptKey === "ce" || deptKey === "civil") {
+  if (deptKey === "ce" || deptKey === "civil" || deptKey === "6") {
     return ceUnderGraduateData;
   }
 
@@ -4812,8 +4813,7 @@ export const ceMoreData: DepartmentMoreData = {
     {
       id: "stock-register",
       label: "Stock Register",
-      externalUrl: "https://mits.ac.in/assets/pdf/stock-registers/Civil%20Stock%20Register.pdf",
-      directPdf: true
+      externalUrl: "https://mits.ac.in/assets/pdf/stock-registers/Civil%20Stock%20Register.pdf"
     },
     {
       id: "surveys",
@@ -5012,49 +5012,45 @@ export const ceMoreData: DepartmentMoreData = {
       ]
     }
   ],
-  obe: {
-    title: "Surveys",
-    subTabs: [{ id: "surveys", label: "Surveys" }],
-    surveys: [
-      {
-        title: "Surveys from Stakeholders",
-        links: [
-          {
-            title: "2024-25 Academic Year Surveys",
-            url: "https://mits.ac.in/assets/pdf/civil/AY%202024-25.pdf"
-          },
-          {
-            title: "2023-24 Academic Year Surveys",
-            url: "https://mits.ac.in/assets/pdf/civil/AY%202023-24.pdf"
-          },
-          {
-            title: "2022-23 Academic Year Surveys",
-            url: "https://mits.ac.in/assets/pdf/civil/AY%202022-23.pdf"
-          },
-          {
-            title: "2019-20 Academic Year Surveys from Employer Feedback",
-            url: "https://mits.ac.in/public/uploads/surveys/employer%20feedback.pdf"
-          },
-          {
-            title: "2019-20 Academic Year Surveys from Faculty Feedback",
-            url: "https://mits.ac.in/public/uploads/surveys/faculty%20feedback.pdf"
-          },
-          {
-            title: "2019-20 Academic Year Surveys from Parent Feedback",
-            url: "https://mits.ac.in/public/uploads/surveys/parent%20feedback.pdf"
-          },
-          {
-            title: "2019-20 Academic Year Surveys from Curriculum by Students",
-            url: "https://mits.ac.in/public/uploads/surveys/curriculum%20by%20students.pdf"
-          },
-          {
-            title: "2019-20 Academic Year Surveys from Alumni 2019",
-            url: "https://mits.ac.in/public/uploads/surveys/alumni%202019.pdf"
-          }
-        ]
-      }
-    ]
-  },
+  surveys: [
+    {
+      title: "Surveys from Stakeholders",
+      links: [
+        {
+          title: "2024-25 Academic Year Surveys",
+          url: "https://mits.ac.in/assets/pdf/civil/AY%202024-25.pdf"
+        },
+        {
+          title: "2023-24 Academic Year Surveys",
+          url: "https://mits.ac.in/assets/pdf/civil/AY%202023-24.pdf"
+        },
+        {
+          title: "2022-23 Academic Year Surveys",
+          url: "https://mits.ac.in/assets/pdf/civil/AY%202022-23.pdf"
+        },
+        {
+          title: "2019-20 Academic Year Surveys from Employer Feedback",
+          url: "https://mits.ac.in/public/uploads/surveys/employer%20feedback.pdf"
+        },
+        {
+          title: "2019-20 Academic Year Surveys from Faculty Feedback",
+          url: "https://mits.ac.in/public/uploads/surveys/faculty%20feedback.pdf"
+        },
+        {
+          title: "2019-20 Academic Year Surveys from Parent Feedback",
+          url: "https://mits.ac.in/public/uploads/surveys/parent%20feedback.pdf"
+        },
+        {
+          title: "2019-20 Academic Year Surveys from Curriculum by Students",
+          url: "https://mits.ac.in/public/uploads/surveys/curriculum%20by%20students.pdf"
+        },
+        {
+          title: "2019-20 Academic Year Surveys from Alumni 2019",
+          url: "https://mits.ac.in/public/uploads/surveys/alumni%202019.pdf"
+        }
+      ]
+    }
+  ],
   alumniEvents: [
     {
       groupTitle: "Academic Year 2024-25",
@@ -5120,7 +5116,7 @@ export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
     return csecsMoreData;
   }
-  if (deptKey === "ce" || deptKey === "civil") {
+  if (deptKey === "ce" || deptKey === "civil" || deptKey === "6") {
     return ceMoreData;
   }
   if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
@@ -5964,7 +5960,7 @@ export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | unde
   if (dept && dept.topTabs && dept.topTabs.length > 0) {
     return dept.topTabs;
   }
-  if (deptKey === "ce" || deptKey === "civil") {
+  if (deptKey === "ce" || deptKey === "civil" || deptKey === "6") {
     return ceTopTabs;
   }
   if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
