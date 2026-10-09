@@ -216,22 +216,22 @@ const DepartmentPage = () => {
         setActiveTopTab("department");
         return;
       }
-      if (hash === "sub-tab-264" || hash === "faculty-list") {
+      if (hash === "sub-tab-264" || hash === "sub-tab-228" || hash === "faculty-list") {
         setActiveSection("about");
         setActiveTopTab("faculty-list");
         return;
       }
-      if (hash === "sub-tab-29" || hash === "bos" || hash === "board-of-studies") {
+      if (hash === "sub-tab-29" || hash === "sub-tab-267" || hash === "bos" || hash === "board-of-studies") {
         setActiveSection("about");
         setActiveTopTab("bos");
         return;
       }
-      if (hash === "sub-tab-211" || hash === "iaab") {
+      if (hash === "sub-tab-211" || hash === "sub-tab-268" || hash === "iaab") {
         setActiveSection("about");
         setActiveTopTab("iaab");
         return;
       }
-      if (hash === "sub-tab-212" || hash === "pac") {
+      if (hash === "sub-tab-212" || hash === "sub-tab-269" || hash === "pac") {
         setActiveSection("about");
         setActiveTopTab("pac");
         return;
@@ -278,15 +278,102 @@ const DepartmentPage = () => {
         setMoreDropdownOpen(true);
         return;
       }
-      if (hash === "tab88" || hash === "tab31" || hash === "surveys") {
+      if (hash === "tab41" || hash === "phd" || hash === "doctoral") {
+        setActiveSection("more");
+        setActiveMoreTab("phd");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab47" || hash === "newsletters") {
+        setActiveSection("more");
+        setActiveMoreTab("newsletters");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      const isMechDept = deptKey === "me" || deptKey === "mech" || deptKey === "mechanical" || deptKey === "mechanical-engineering" || deptKey === "8";
+      if (hash === "tab89" || hash === "tab88") {
         setActiveSection("more");
         setActiveMoreTab("surveys");
         setMoreDropdownOpen(true);
         return;
       }
-      if (hash === "tab113" || hash === "timetable" || hash === "time-table" || hash === "ug-tab60") {
+      if (hash === "tab133" || hash === "innovative-teaching") {
+        setActiveSection("more");
+        setActiveMoreTab("innovative-teaching");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "ug-tab11" || hash === "ug-obe") {
+        setActiveSection("under-graduate");
+        setActiveUgTab("obe");
+        setUgDropdownOpen(true);
+        return;
+      }
+      if (hash === "ug-tab12") {
+        setActiveSection("under-graduate");
+        setActiveUgTab("course-syllabus");
+        setUgDropdownOpen(true);
+        return;
+      }
+      if (hash === "ug-tab23" || hash === "minors") {
+        setActiveSection("under-graduate");
+        setActiveUgTab("minors");
+        setUgDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab113" || hash === "ug-tab15" || hash === "timetable" || hash === "time-table" || hash === "ug-tab60") {
         setActiveSection("under-graduate");
         setActiveUgTab("timetable");
+        setUgDropdownOpen(true);
+        return;
+      }
+      if (hash === "ug-tab17" || hash === "remedial-classes") {
+        if (isMechDept) {
+          setActiveSection("under-graduate");
+          setActiveUgTab("remedial-classes");
+          setUgDropdownOpen(true);
+        } else {
+          setActiveSection("more");
+          setActiveMoreTab("obe");
+          setActiveObeSubTab("remedial-classes");
+          setMoreDropdownOpen(true);
+          setObeDropdownOpen(true);
+        }
+        return;
+      }
+      if (hash === "ug-tab18") {
+        setActiveSection("under-graduate");
+        setActiveUgTab("surveys");
+        setUgDropdownOpen(true);
+        return;
+      }
+      if (hash === "surveys" || hash === "tab31") {
+        if (isMechDept) {
+          if (activeSection === "more") {
+            setActiveSection("more");
+            setActiveMoreTab("surveys");
+            setMoreDropdownOpen(true);
+          } else {
+            setActiveSection("under-graduate");
+            setActiveUgTab("surveys");
+            setUgDropdownOpen(true);
+          }
+        } else if (deptKey === "cse") {
+          setActiveSection("more");
+          setActiveMoreTab("obe");
+          setActiveObeSubTab("surveys");
+          setMoreDropdownOpen(true);
+          setObeDropdownOpen(true);
+        } else {
+          setActiveSection("more");
+          setActiveMoreTab("surveys");
+          setMoreDropdownOpen(true);
+        }
+        return;
+      }
+      if (hash === "ug-tab54" || hash === "btech-me") {
+        setActiveSection("under-graduate");
+        setActiveUgTab("ug");
         setUgDropdownOpen(true);
         return;
       }
@@ -303,10 +390,16 @@ const DepartmentPage = () => {
         return;
       }
       if (hash === "tab-19" || hash === "obe") {
-        setActiveSection("more");
-        setActiveMoreTab("obe");
-        setMoreDropdownOpen(true);
-        setObeDropdownOpen(true);
+        if (isMechDept || ugData.subTabs?.some(t => t.id === "obe")) {
+          setActiveSection("under-graduate");
+          setActiveUgTab("obe");
+          setUgDropdownOpen(true);
+        } else {
+          setActiveSection("more");
+          setActiveMoreTab("obe");
+          setMoreDropdownOpen(true);
+          setObeDropdownOpen(true);
+        }
         return;
       }
       if (hash === "tab150" || hash === "civil-engineering-notes" || hash === "notes") {
@@ -359,13 +452,7 @@ const DepartmentPage = () => {
         setObeDropdownOpen(true);
         return;
       }
-      if (hash === "obe") {
-        setActiveSection("more");
-        setActiveMoreTab("obe");
-        setMoreDropdownOpen(true);
-        setObeDropdownOpen(true);
-        return;
-      }
+
       if (hash === "tab-7" || hash === "tab7" || hash === "lab") {
         setActiveSection("more");
         setActiveMoreTab("lab");
@@ -491,7 +578,48 @@ const DepartmentPage = () => {
 
     const pathParts = location.pathname.split('/');
     const lastPart = pathParts[pathParts.length - 1];
-    if (lastPart === "ug") {
+    const isMech = deptKey === "me" || deptKey === "mech" || deptKey === "mechanical" || deptKey === "mechanical-engineering" || deptKey === "8";
+
+    // Handle explicit /ug/ subroutes
+    if (pathParts.includes("ug") || pathParts.includes("under-graduate")) {
+      setActiveSection("under-graduate");
+      setUgDropdownOpen(true);
+      if (lastPart === "ug" || lastPart === "under-graduate" || lastPart === "btech-me") {
+        setActiveUgTab("ug");
+      } else {
+        setActiveUgTab(lastPart);
+      }
+      return;
+    }
+
+    // Handle explicit /more/ subroutes
+    if (pathParts.includes("more")) {
+      setActiveSection("more");
+      setMoreDropdownOpen(true);
+      if (lastPart === "more") {
+        if (isMech) {
+          setActiveMoreTab("phd");
+        } else if (deptKey === "cse") {
+          setActiveMoreTab("doctoral");
+        } else if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
+          setActiveMoreTab("lab");
+        } else if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
+          setActiveMoreTab("surveys");
+        } else if (deptKey === "ce" || deptKey === "civil" || deptKey === "6") {
+          setActiveMoreTab("civil-engineering-notes");
+        } else if (deptKey === "eee" || deptKey === "electrical-electronics-engineering" || deptKey === "electrical-and-electronics-engineering" || deptKey === "ee" || deptKey === "2") {
+          setActiveMoreTab("stock-register");
+        } else {
+          setActiveMoreTab("mentor-mentee");
+        }
+      } else {
+        setActiveMoreTab(lastPart);
+      }
+      return;
+    }
+
+    // Direct / fallback route matching
+    if (lastPart === "ug" || lastPart === "btech-me") {
       setActiveSection("under-graduate");
       setActiveUgTab("ug");
       setUgDropdownOpen(true);
@@ -503,6 +631,63 @@ const DepartmentPage = () => {
       setActiveSection("under-graduate");
       setActiveUgTab("timetable");
       setUgDropdownOpen(true);
+    } else if (lastPart === "minors") {
+      setActiveSection("under-graduate");
+      setActiveUgTab("minors");
+      setUgDropdownOpen(true);
+    } else if (lastPart === "remedial-classes") {
+      if (isMech) {
+        setActiveSection("under-graduate");
+        setActiveUgTab("remedial-classes");
+        setUgDropdownOpen(true);
+      } else {
+        setActiveSection("more");
+        setActiveMoreTab("obe");
+        setActiveObeSubTab("remedial-classes");
+        setMoreDropdownOpen(true);
+        setObeDropdownOpen(true);
+      }
+    } else if (lastPart === "obe") {
+      if (isMech || ugData.subTabs?.some(t => t.id === "obe")) {
+        setActiveSection("under-graduate");
+        setActiveUgTab("obe");
+        setUgDropdownOpen(true);
+      } else {
+        setActiveSection("more");
+        setActiveMoreTab("obe");
+        setMoreDropdownOpen(true);
+        setObeDropdownOpen(true);
+      }
+    } else if (lastPart === "surveys" || lastPart === "tab31") {
+      if (isMech) {
+        if (activeSection === "more") {
+          setActiveSection("more");
+          setActiveMoreTab("surveys");
+          setMoreDropdownOpen(true);
+        } else {
+          setActiveSection("under-graduate");
+          setActiveUgTab("surveys");
+          setUgDropdownOpen(true);
+        }
+      } else if (deptKey === "cse") {
+        setActiveSection("more");
+        setActiveMoreTab("obe");
+        setActiveObeSubTab("surveys");
+        setMoreDropdownOpen(true);
+        setObeDropdownOpen(true);
+      } else {
+        setActiveSection("more");
+        setActiveMoreTab("surveys");
+        setMoreDropdownOpen(true);
+      }
+    } else if (lastPart === "phd") {
+      setActiveSection("more");
+      setActiveMoreTab("phd");
+      setMoreDropdownOpen(true);
+    } else if (lastPart === "newsletters") {
+      setActiveSection("more");
+      setActiveMoreTab("newsletters");
+      setMoreDropdownOpen(true);
     } else if (lastPart === "under-graduate") {
       setActiveSection("under-graduate");
       setUgDropdownOpen(true);
@@ -548,7 +733,7 @@ const DepartmentPage = () => {
       setMoreDropdownOpen(true);
     } else if (lastPart === "doctoral") {
       setActiveSection("more");
-      setActiveMoreTab("doctoral");
+      setActiveMoreTab(isMech ? "phd" : "doctoral");
       setMoreDropdownOpen(true);
     } else if (lastPart === "feedback") {
       setActiveSection("more");
@@ -558,7 +743,7 @@ const DepartmentPage = () => {
       setActiveSection("more");
       setActiveMoreTab("innovative-teaching");
       setMoreDropdownOpen(true);
-    } else if (pathParts.includes("obe") || lastPart === "obe") {
+    } else if (pathParts.includes("obe") && !isMech) {
       setActiveSection("more");
       setActiveMoreTab("obe");
       setMoreDropdownOpen(true);
@@ -566,36 +751,12 @@ const DepartmentPage = () => {
       if (lastPart === "pos-psos-peos" || lastPart === "surveys" || lastPart === "remedial-classes" || lastPart === "graduate-exit-survey" || lastPart === "copo-attainment") {
         setActiveObeSubTab(lastPart);
       }
-    } else if (lastPart === "pos-psos-peos" || lastPart === "remedial-classes" || lastPart === "graduate-exit-survey" || lastPart === "copo-attainment") {
+    } else if (lastPart === "pos-psos-peos" || lastPart === "graduate-exit-survey" || lastPart === "copo-attainment") {
       setActiveSection("more");
       setActiveMoreTab("obe");
       setActiveObeSubTab(lastPart);
       setMoreDropdownOpen(true);
       setObeDropdownOpen(true);
-    } else if (lastPart === "surveys" || lastPart === "tab31") {
-      setActiveSection("more");
-      if (deptKey === "cse") {
-        setActiveMoreTab("obe");
-        setActiveObeSubTab("surveys");
-        setObeDropdownOpen(true);
-      } else {
-        setActiveMoreTab("surveys");
-      }
-      setMoreDropdownOpen(true);
-    } else if (lastPart === "more") {
-      setActiveSection("more");
-      if (deptKey === "cse") {
-        setActiveMoreTab("doctoral");
-      } else if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
-        setActiveMoreTab("lab");
-      } else if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
-        setActiveMoreTab("surveys");
-      } else if (deptKey === "ce" || deptKey === "civil" || deptKey === "6") {
-        setActiveMoreTab("civil-engineering-notes");
-      } else if (deptKey === "eee" || deptKey === "electrical-electronics-engineering" || deptKey === "electrical-and-electronics-engineering" || deptKey === "ee" || deptKey === "2") {
-        setActiveMoreTab("stock-register");
-      }
-      setMoreDropdownOpen(true);
     } else if (lastPart === "faculty-list") {
       setActiveSection("about");
       setActiveTopTab("faculty-list");
@@ -653,11 +814,12 @@ const DepartmentPage = () => {
 
   const handleUgSubItemClick = (tabId: string) => {
     setActiveSection("under-graduate");
-    setActiveUgTab(tabId);
+    setActiveUgTab(tabId === "btech-me" ? "ug" : tabId);
     setUgDropdownOpen(true);
     setMobileMenuOpen(false);
     const basePath = `/department/${deptKey}`;
-    navigate(`${basePath}/${tabId}`, { replace: true });
+    const targetTab = tabId === "btech-me" ? "ug" : tabId;
+    navigate(`${basePath}/ug/${targetTab}`, { replace: true });
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 10);
@@ -689,7 +851,7 @@ const DepartmentPage = () => {
     setMoreDropdownOpen(true);
     setMobileMenuOpen(false);
     const basePath = `/department/${deptKey}`;
-    navigate(`${basePath}/${tabId}`, { replace: true });
+    navigate(`${basePath}/more/${tabId}`, { replace: true });
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 10);
@@ -1893,6 +2055,288 @@ const DepartmentPage = () => {
                       );
                     })()}
                   </div>
+) : activeUgTab === "minors" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-6">
+                        <div className="border-b border-border/60 pb-4">
+                          <span className="text-xs uppercase font-bold tracking-widest text-primary">Curriculum Extension</span>
+                          <h3 className="text-2xl font-bold text-secondary mt-1" style={{ fontFamily: "var(--font-display)" }}>
+                            Minor Degree Programs in Mechanical Engineering
+                          </h3>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                            Specialized interdisciplinary tracks offered for eligible engineering students
+                          </p>
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          {[
+                            { title: "Electric Vehicles", url: "https://mits.ac.in/public/uploads/departments/919392f73cd23d6650d080fb121023b4.pdf" },
+                            { title: "Energy Engineering Stream", url: "https://mits.ac.in/public/uploads/departments/075e45f7e8cdcdfe428057d65c72bde3.pdf" },
+                            { title: "Mechatronics", url: "https://mits.ac.in/public/uploads/departments/dfa65dade7a5110f9d7684714c844a29.pdf" },
+                            { title: "Digital Manufacturing", url: "https://mits.ac.in/public/uploads/departments/1d9510b49c9d75dec874c8de3e6a950f.pdf" },
+                            { title: "Nano Technology", url: "https://mits.ac.in/public/uploads/departments/89f1f1685bbda15330340d531907ae10.pdf" },
+                          ].map((item, idx) => (
+                            <a
+                              key={idx}
+                              href={item.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group flex items-center justify-between p-4 rounded-xl border border-border/70 bg-muted/20 hover:bg-primary/5 hover:border-primary/40 transition-all text-secondary hover:text-primary shadow-2xs"
+                            >
+                              <div className="flex items-center gap-3.5 min-w-0">
+                                <div className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                                  <FileText className="w-5 h-5" />
+                                </div>
+                                <span className="font-semibold text-sm truncate text-secondary group-hover:text-primary">
+                                  {item.title}
+                                </span>
+                              </div>
+                              <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeUgTab === "remedial-classes" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-6">
+                        <div className="border-b border-border/60 pb-4">
+                          <span className="text-xs uppercase font-bold tracking-widest text-primary">Academic Support</span>
+                          <h3 className="text-2xl font-bold text-secondary mt-1" style={{ fontFamily: "var(--font-display)" }}>
+                            Remedial Classes
+                          </h3>
+                          <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                            Department provides ample support to the students falling behind in academics by conducting remedial classes. It is mandatory for students scoring less than 40% of marks in a course during sessional exams to attend these remedial classes scheduled after regular hours. Teachers revise topics covered in class and solve problems to improve comprehension.
+                          </p>
+                        </div>
+                        <div className="space-y-3">
+                          <h4 className="font-bold text-secondary text-base">Schedule of Remedial Classes</h4>
+                          <div className="grid sm:grid-cols-3 gap-4 pt-1">
+                            {[
+                              { title: "Remedial Classes 2022-23", url: "https://mits.ac.in/public/uploads/departments/8f3bb0539a86f50ff2b86f47c20372e1.pdf" },
+                              { title: "Remedial Classes 2021-22", url: "https://mits.ac.in/public/uploads/departments/520005687bdc92802f3b34f8fc6eaa1c.PDF" },
+                              { title: "Remedial Classes 2020-21", url: "https://mits.ac.in/public/uploads/departments/f143055a2be9b3392c98efa4adba006f.PDF" },
+                            ].map((item, idx) => (
+                              <a
+                                key={idx}
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-center justify-between p-4 rounded-xl border border-border/70 bg-muted/20 hover:bg-primary/5 hover:border-primary/40 transition-all text-secondary hover:text-primary shadow-2xs"
+                              >
+                                <div className="flex items-center gap-3 min-w-0">
+                                  <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <FileText className="w-4 h-4" />
+                                  </div>
+                                  <span className="font-semibold text-xs sm:text-sm truncate text-secondary group-hover:text-primary">
+                                    {item.title}
+                                  </span>
+                                </div>
+                                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeUgTab === "surveys" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-6">
+                        <div className="border-b border-border/60 pb-4">
+                          <span className="text-xs uppercase font-bold tracking-widest text-primary">Stakeholder Feedback</span>
+                          <h3 className="text-2xl font-bold text-secondary mt-1" style={{ fontFamily: "var(--font-display)" }}>
+                            Feedback Surveys
+                          </h3>
+                          <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                            Department continuously collects feedback from all its stakeholders by way of periodic surveys. Prominent among these surveys are:
+                          </p>
+                          <ul className="grid sm:grid-cols-2 gap-2 mt-3 pl-1 text-sm text-secondary">
+                            {[
+                              "Graduate Exit Survey",
+                              "Student Survey",
+                              "Faculty Survey",
+                              "Alumni Survey",
+                              "Employer Survey",
+                              "Parents Survey",
+                            ].map((surveyName, sIdx) => (
+                              <li key={sIdx} className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                                <span>{surveyName}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                            The responses received from these surveys are duly compiled and analysed to assess the level to which the Department was able to meet the expectations of its stakeholders and to identify the areas in which improvements are called for by them.
+                          </p>
+                          <p className="text-xs font-semibold text-secondary mt-2">
+                            Given below is a compilation of analysis reports from Graduate Exit Surveys, followed by the same of surveys conducted for other stakeholders:
+                          </p>
+                        </div>
+                        <div className="space-y-3">
+                          <h4 className="font-bold text-secondary text-base">Analysis Reports</h4>
+                          <div className="grid sm:grid-cols-3 gap-4 pt-1">
+                            {[
+                              { title: "Report on Analysis of Feedback Survey", url: "https://mits.ac.in/public/uploads/departments/993e45ec0db8d610ce579113821848fa.PDF" },
+                              { title: "Report on Analysis of Surveys collected from Stakeholders", url: "https://mits.ac.in/public/uploads/departments/cb9639eaa4f1f14cad0ffeb0bcc98c08.pdf" },
+                              { title: "Report on Analysis of Graduate Exit Survey", url: "https://mits.ac.in/public/uploads/departments/10a2055f14815e0e66b29f6d4ccf5802.pdf" },
+                            ].map((item, idx) => (
+                              <a
+                                key={idx}
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-center justify-between p-4 rounded-xl border border-border/70 bg-muted/20 hover:bg-primary/5 hover:border-primary/40 transition-all text-secondary hover:text-primary shadow-2xs"
+                              >
+                                <div className="flex items-center gap-3 min-w-0">
+                                  <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <FileText className="w-4 h-4" />
+                                  </div>
+                                  <span className="font-semibold text-xs sm:text-sm truncate text-secondary group-hover:text-primary">
+                                    {item.title}
+                                  </span>
+                                </div>
+                                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeUgTab === "obe" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-6">
+                        <div className="border-b border-border/60 pb-4">
+                          <span className="text-xs uppercase font-bold tracking-widest text-primary">Academic Framework</span>
+                          <h3 className="text-2xl font-bold text-secondary mt-1" style={{ fontFamily: "var(--font-display)" }}>
+                            Outcome Based Education (OBE)
+                          </h3>
+                          <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                            As per the philosophy of OBE, expected outcomes from the students at different stages during their time in the program are articulated ahead of time and all the academic activities are planned and implemented such that they all contribute to the attainment of these outcomes. The curriculum of the program, teaching and learning processes, infrastructural facilities and the co-curricular and extra-curricular activities are all planned and organized with the overall objectives in mind.
+                          </p>
+                        </div>
+
+                        {/* OBE Flowchart Image */}
+                        <div className="rounded-xl border border-border bg-card p-4 flex justify-center shadow-xs overflow-hidden">
+                          <img
+                            src={`${import.meta.env.BASE_URL}departments/mech_obe_flowchart.png`}
+                            alt="Outcome Based Education Process Flowchart"
+                            className="max-w-full h-auto rounded-lg"
+                          />
+                        </div>
+
+                        {/* PEOs */}
+                        <div className="space-y-3">
+                          <h4 className="font-bold text-secondary text-lg flex items-center gap-2">
+                            <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                            Programme Educational Objectives (PEOs)
+                          </h4>
+                          <p className="text-xs sm:text-sm text-muted-foreground">
+                            The graduates, within 4-5 years of completing the course, will:
+                          </p>
+                          <div className="space-y-2.5 pl-1">
+                            {[
+                              { code: "PEO1", desc: "Build a thriving career in mechanical engineering and allied disciplines." },
+                              { code: "PEO2", desc: "Design and produce products by the optimum methods for the benefit of the society while working in a team with ethical values." },
+                              { code: "PEO3", desc: "Engage in continuous learning to adapt to the socio-economic-technological developments and pursue higher studies." },
+                            ].map((peo, idx) => (
+                              <div key={idx} className="flex items-start gap-3 text-sm p-3 rounded-lg border border-border/60 bg-muted/10">
+                                <span className="font-bold text-primary shrink-0 px-2 py-0.5 rounded bg-primary/10 text-xs mt-0.5">
+                                  {peo.code}
+                                </span>
+                                <span className="text-muted-foreground leading-relaxed">{peo.desc}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* PSOs */}
+                        <div className="space-y-3 pt-3 border-t border-border/60">
+                          <h4 className="font-bold text-secondary text-lg flex items-center gap-2">
+                            <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                            Programme Specific Outcomes (PSOs)
+                          </h4>
+                          <div className="space-y-2.5 pl-1">
+                            {[
+                              { code: "PSO1", desc: "Apply concepts and principles from Applied Mechanics to design, develop and evaluate mechanical systems for a specified purpose." },
+                              { code: "PSO2", desc: "Employ governing laws of thermodynamics, fluid flow and heat transfer for design and analysis of thermo-fluid systems." },
+                              { code: "PSO3", desc: "Utilize the knowledge and learning of materials and manufacturing sciences to design, plan and monitor production operations in an Industry." },
+                            ].map((pso, idx) => (
+                              <div key={idx} className="flex items-start gap-3 text-sm p-3 rounded-lg border border-border/60 bg-muted/10">
+                                <span className="font-bold text-primary shrink-0 px-2 py-0.5 rounded bg-primary/10 text-xs mt-0.5">
+                                  {pso.code}
+                                </span>
+                                <span className="text-muted-foreground leading-relaxed">{pso.desc}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* POs */}
+                        <div className="space-y-3 pt-3 border-t border-border/60">
+                          <h4 className="font-bold text-secondary text-lg flex items-center gap-2">
+                            <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                            Programme Outcomes (POs)
+                          </h4>
+                          <div className="space-y-2 pl-1">
+                            {[
+                              { code: "PO1", title: "Engineering Knowledge", desc: "Apply the knowledge of mathematics, science, engineering fundamentals and an engineering specialization to the solution of complex engineering problems." },
+                              { code: "PO2", title: "Problem Analysis", desc: "Identify, formulate, review research literature, and analyze complex engineering problems reaching substantiated conclusions using first principles of mathematics, natural sciences and Engineering sciences." },
+                              { code: "PO3", title: "Design/Development of solutions", desc: "Design solutions for complex engineering problems and design system components or processes that meet the specified needs with appropriate consideration for the public health and safety, and the cultural, societal, and environmental considerations." },
+                              { code: "PO4", title: "Conduct investigations of complex problems", desc: "Use research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of the information to provide valid conclusions." },
+                              { code: "PO5", title: "Modern tool usage", desc: "Create, select, and apply appropriate techniques, resources, and modern engineering and IT tools including prediction and modeling to complex engineering activities with an understanding of the limitations." },
+                              { code: "PO6", title: "The engineer and society", desc: "Apply reasoning informed by the contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to the professional engineering practice." },
+                              { code: "PO7", title: "Environment and sustainability", desc: "Understand the impact of the professional engineering solutions in societal and environmental contexts, and demonstrate the knowledge of, and need for sustainable development." },
+                              { code: "PO8", title: "Ethics", desc: "Apply ethical principles and commit to professional ethics and responsibilities and norms of the engineering practice." },
+                              { code: "PO9", title: "Individual and team work", desc: "Function effectively as an individual and as a member or leader in diverse teams, and in multidisciplinary settings." },
+                              { code: "PO10", title: "Communication", desc: "Communicate effectively on complex engineering activities with the engineering community and with society at large, such as, being able to comprehend and write effective reports and design documentation, make effective presentations, and give and receive clear instructions." },
+                              { code: "PO11", title: "Project management and finance", desc: "Demonstrate knowledge and understanding of the engineering management principles and apply these to one's own work, as a member and leader in a team, to manage projects and in multidisciplinary environments." },
+                              { code: "PO12", title: "Life-long learning", desc: "Recognize the need for and have the preparation and ability to engage in independent and lifelong learning in the broadest context of technological change." },
+                            ].map((po, idx) => (
+                              <div key={idx} className="flex items-start gap-3 text-sm p-3 rounded-lg border border-border/60 bg-muted/10">
+                                <span className="font-bold text-primary shrink-0 px-2 py-0.5 rounded bg-primary/10 text-xs mt-0.5">
+                                  {po.code}
+                                </span>
+                                <div>
+                                  <strong className="text-secondary font-semibold">{po.title}: </strong>
+                                  <span className="text-muted-foreground leading-relaxed">{po.desc}</span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Attainment PDF */}
+                        <div className="pt-4 border-t border-border/60 space-y-3">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div>
+                              <h4 className="font-bold text-secondary text-base">Attainment of POs/PSOs in Recent Academic Years</h4>
+                              <p className="text-xs text-muted-foreground mt-0.5">Final attainment calculated from course evaluations and surveys</p>
+                            </div>
+                            <a
+                              href="https://mits.ac.in/public/uploads/departments/c52c25e47e50af2b7466d11e6e61fd51.pdf"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-white font-semibold text-xs sm:text-sm hover:bg-primary/90 transition-colors shadow-2xs self-start sm:self-center"
+                            >
+                              <ExternalLink className="w-4 h-4" />
+                              <span>View Attainment Report</span>
+                            </a>
+                          </div>
+                          <iframe
+                            src="https://mits.ac.in/public/uploads/departments/c52c25e47e50af2b7466d11e6e61fd51.pdf"
+                            title="Attainment of POs/PSOs"
+                            className="w-full h-[600px] rounded-xl border border-border shadow-xs mt-2"
+                          />
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
                 ) : (
                   <div className="space-y-6">
                     {/* Program Overview Card */}
@@ -2856,8 +3300,10 @@ const DepartmentPage = () => {
                       <span>Mentor & <span className="text-primary">Mentee</span></span>
                     ) : activeMoreTab === "interdisciplinary-projects" ? (
                       <span>Interdisciplinary <span className="text-primary">Projects</span></span>
-                    ) : activeMoreTab === "doctoral" ? (
-                      <span>Doctoral <span className="text-primary">Program</span></span>
+                    ) : activeMoreTab === "doctoral" || activeMoreTab === "phd" ? (
+                      <span>Doctoral Research <span className="text-primary">(Ph.D)</span></span>
+                    ) : activeMoreTab === "newsletters" ? (
+                      <span>Department <span className="text-primary">Newsletters</span></span>
                     ) : activeMoreTab === "feedback" ? (
                       <span>Stakeholder <span className="text-primary">Feedback</span></span>
                     ) : activeMoreTab === "innovative-teaching" ? (
@@ -3358,7 +3804,7 @@ const DepartmentPage = () => {
                       </Card>
                     )}
                   </div>
-                ) : activeMoreTab === "doctoral" ? (
+                ) : activeMoreTab === "doctoral" || activeMoreTab === "phd" ? (
                   <div className="space-y-6">
                     {moreData.doctoral ? (
                       <Card className="border border-border/80 shadow-xs overflow-hidden bg-card">
@@ -3367,12 +3813,60 @@ const DepartmentPage = () => {
                           <h3 className="text-2xl sm:text-3xl font-bold text-secondary mt-0.5" style={{ fontFamily: "var(--font-display)" }}>
                             {moreData.doctoral.title}
                           </h3>
-                          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base mt-3">
+                          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base mt-3 text-justify">
                             {moreData.doctoral.description}
                           </p>
                         </div>
 
-                        {moreData.doctoral.scholars && moreData.doctoral.scholars.length > 0 && (
+                        {moreData.doctoral.batches && moreData.doctoral.batches.length > 0 ? (
+                          <div className="p-6 sm:p-8 space-y-8">
+                            {moreData.doctoral.batches.map((batch, bIdx) => (
+                              <div key={bIdx} className="space-y-3">
+                                <h4 className="text-base sm:text-lg font-bold text-secondary">
+                                  {batch.batchTitle}
+                                </h4>
+                                <div className="overflow-x-auto rounded-xl border border-border shadow-xs">
+                                  <table className="w-full text-sm border-collapse text-left">
+                                    <thead>
+                                      <tr className="bg-[#800000] text-white border-b border-[#800000] text-xs uppercase font-bold tracking-wider">
+                                        <th className="py-3 px-3 text-center w-14">S.No</th>
+                                        <th className="py-3 px-4">Scholar Name</th>
+                                        <th className="py-3 px-4">Guide Name</th>
+                                        <th className="py-3 px-4">Co-Guide from JNTUA College of Engineering, Anantapur</th>
+                                        <th className="py-3 px-4 text-center w-36">Date of Admission</th>
+                                        <th className="py-3 px-6">Area of Research</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-border/60">
+                                      {batch.scholars.map((sch, sIdx) => (
+                                        <tr key={sIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
+                                          <td className="py-3 px-3 text-center font-medium text-muted-foreground text-xs">
+                                            {sch.sno}
+                                          </td>
+                                          <td className="py-3 px-4 font-semibold text-secondary">
+                                            {sch.name}
+                                          </td>
+                                          <td className="py-3 px-4 text-muted-foreground font-medium">
+                                            {sch.guide}
+                                          </td>
+                                          <td className="py-3 px-4 text-muted-foreground font-medium whitespace-pre-line text-xs sm:text-sm">
+                                            {sch.coGuide || "-"}
+                                          </td>
+                                          <td className="py-3 px-4 text-center text-xs text-muted-foreground font-medium">
+                                            {sch.dateOfJoining}
+                                          </td>
+                                          <td className="py-3 px-6 text-sm text-secondary">
+                                            {sch.researchTitle}
+                                          </td>
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        ) : moreData.doctoral.scholars && moreData.doctoral.scholars.length > 0 ? (
                           <div className="p-6 sm:p-8 space-y-4">
                             {moreData.doctoral.batchTitle && (
                               <h4 className="text-base sm:text-lg font-bold text-secondary">
@@ -3382,11 +3876,11 @@ const DepartmentPage = () => {
                             <div className="overflow-x-auto rounded-xl border border-border">
                               <table className="w-full text-sm border-collapse text-left">
                                 <thead>
-                                  <tr className="bg-muted/40 text-secondary border-b border-border text-xs uppercase font-bold tracking-wider divide-x divide-border/60">
+                                  <tr className="bg-[#800000] text-white border-b border-[#800000] text-xs uppercase font-bold tracking-wider">
                                     <th className="py-3 px-3 text-center w-14">S.No</th>
                                     <th className="py-3 px-4">Research Scholar</th>
-                                    <th className="py-3 px-4">Research Guide</th>
-                                    <th className="py-3 px-4 text-center w-36">Date of Joining</th>
+                                    <th className="py-3 px-4">Research Guide & Co-Guide</th>
+                                    <th className="py-3 px-4 text-center w-36">Date of Admission</th>
                                     <th className="py-3 px-6">Research Title / Area</th>
                                   </tr>
                                 </thead>
@@ -3414,12 +3908,47 @@ const DepartmentPage = () => {
                               </table>
                             </div>
                           </div>
-                        )}
+                        ) : null}
                       </Card>
                     ) : (
                       <Card className="p-10 text-center text-muted-foreground bg-card">
                         <GraduationCap className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
                         <p className="font-semibold text-base text-secondary">Doctoral program details will be updated soon.</p>
+                      </Card>
+                    )}
+                  </div>
+                ) : activeMoreTab === "newsletters" ? (
+                  <div className="space-y-6">
+                    {(moreData.studentProjects || moreData.feedback) ? (
+                      <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                        <div className="space-y-6">
+                          <h3 className="text-xl font-bold text-secondary tracking-tight">
+                            Department Newsletters
+                          </h3>
+                          <div className="space-y-3 pl-1">
+                            {((moreData.studentProjects?.documents) || (moreData.feedback?.documents) || []).map((doc, dIdx) => (
+                              <a
+                                key={dIdx}
+                                href={doc.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                              >
+                                <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                  <ChevronRight className="w-3 h-3 stroke-[3]" />
+                                </div>
+                                <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
+                                  {doc.title}
+                                </span>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </Card>
+                    ) : (
+                      <Card className="p-10 text-center text-muted-foreground bg-card">
+                        <FileText className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
+                        <p className="font-semibold text-base text-secondary">Department Newsletters will be uploaded soon.</p>
                       </Card>
                     )}
                   </div>
@@ -3460,12 +3989,62 @@ const DepartmentPage = () => {
                   </div>
                 ) : activeMoreTab === "innovative-teaching" ? (
                   <div className="space-y-6">
-                    {moreData.innovativeTeaching && moreData.innovativeTeaching.documents.length > 0 ? (
-                      <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
-                        <div className="space-y-6">
-                          <h3 className="text-xl font-bold text-secondary tracking-tight">
-                            {moreData.innovativeTeaching.groupTitle}
-                          </h3>
+                    {moreData.innovativeTeaching ? (
+                      <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
+                        {moreData.innovativeTeaching.description && (
+                          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base text-justify">
+                            {moreData.innovativeTeaching.description}
+                          </p>
+                        )}
+
+                        <h3 className="text-xl sm:text-2xl font-bold text-secondary tracking-tight pt-2">
+                          {moreData.innovativeTeaching.tableTitle || moreData.innovativeTeaching.groupTitle}
+                        </h3>
+
+                        {moreData.innovativeTeaching.tableItems && moreData.innovativeTeaching.tableItems.length > 0 ? (
+                          <div className="overflow-x-auto rounded-xl border border-border shadow-xs">
+                            <table className="w-full text-sm border-collapse text-left">
+                              <thead>
+                                <tr className="bg-[#800000] text-white border-b border-[#800000] text-xs uppercase font-bold tracking-wider">
+                                  <th className="py-3 px-3 text-center w-16">Sl. No.</th>
+                                  <th className="py-3 px-4">Course Code & Name</th>
+                                  <th className="py-3 px-4">Name of the Faculty</th>
+                                  <th className="py-3 px-6">Innovative Details</th>
+                                  <th className="py-3 px-4 text-center">Link</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-border/60">
+                                {moreData.innovativeTeaching.tableItems.map((item, idx) => (
+                                  <tr key={idx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
+                                    <td className="py-3 px-3 text-center font-medium text-muted-foreground text-xs">
+                                      {item.sno}
+                                    </td>
+                                    <td className="py-3 px-4 font-semibold text-secondary whitespace-nowrap">
+                                      {item.courseCodeAndName}
+                                    </td>
+                                    <td className="py-3 px-4 text-muted-foreground font-medium whitespace-nowrap">
+                                      {item.facultyName}
+                                    </td>
+                                    <td className="py-3 px-6 text-sm text-muted-foreground leading-relaxed">
+                                      {item.innovativeDetails}
+                                    </td>
+                                    <td className="py-3 px-4 text-center">
+                                      <a
+                                        href={item.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white font-medium text-xs transition-colors"
+                                      >
+                                        <ExternalLink className="w-3.5 h-3.5" />
+                                        <span>View Resource</span>
+                                      </a>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        ) : moreData.innovativeTeaching.documents && moreData.innovativeTeaching.documents.length > 0 ? (
                           <div className="space-y-3 pl-1">
                             {moreData.innovativeTeaching.documents.map((doc, dIdx) => (
                               <a
@@ -3484,7 +4063,29 @@ const DepartmentPage = () => {
                               </a>
                             ))}
                           </div>
-                        </div>
+                        ) : null}
+
+                        {moreData.innovativeTeaching.critiqueReviewText && (
+                          <div className="pt-4 border-t border-border/60 space-y-2">
+                            <h4 className="text-lg font-bold text-secondary">Critique Review:</h4>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              {moreData.innovativeTeaching.critiqueReviewText}
+                            </p>
+                            {moreData.innovativeTeaching.critiqueReviewLink && (
+                              <div className="pt-1">
+                                <a
+                                  href={moreData.innovativeTeaching.critiqueReviewLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-white font-semibold text-xs sm:text-sm hover:bg-primary/90 transition-colors shadow-2xs"
+                                >
+                                  <ExternalLink className="w-4 h-4" />
+                                  <span>Submit Critique Feedback Form</span>
+                                </a>
+                              </div>
+                            )}
+                          </div>
+                        )}
                       </Card>
                     ) : (
                       <Card className="p-10 text-center text-muted-foreground bg-card">

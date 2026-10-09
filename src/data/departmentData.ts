@@ -216,8 +216,14 @@ export interface DoctoralScholar {
   sno: string;
   name: string;
   guide: string;
+  coGuide?: string;
   dateOfJoining: string;
   researchTitle: string;
+}
+
+export interface DoctoralBatch {
+  batchTitle: string;
+  scholars: DoctoralScholar[];
 }
 
 export interface DoctoralData {
@@ -225,6 +231,7 @@ export interface DoctoralData {
   description: string;
   batchTitle?: string;
   scholars?: DoctoralScholar[];
+  batches?: DoctoralBatch[];
 }
 
 export interface MoreDocumentItem {
@@ -232,10 +239,22 @@ export interface MoreDocumentItem {
   url: string;
 }
 
+export interface InnovativeTeachingTableItem {
+  sno: string | number;
+  courseCodeAndName: string;
+  facultyName: string;
+  innovativeDetails: string;
+  link: string;
+}
+
 export interface MoreDocumentGroup {
   groupTitle: string;
   description?: string;
   documents: MoreDocumentItem[];
+  tableTitle?: string;
+  tableItems?: InnovativeTeachingTableItem[];
+  critiqueReviewText?: string;
+  critiqueReviewLink?: string;
 }
 
 export interface ObeSurveyCategory {
@@ -1190,12 +1209,18 @@ percentage: "85%", avgPackage: "₹4.5 LPA", highestPackage: "₹10 LPA", recrui
     shortName: "ME",
     established: "1998",
     bannerImage: deptImg("mech"),
-    about: "The Department of Mechanical Engineering was started in 1998 and currently offers a B.Tech programme in Mechanical Engineering. The programme has received continuous NBA accreditation cycles including Tier-I accreditation. The department has strong academic governance through AC and BoS, a thriving R&D ecosystem with funded projects and consultancy, and modern industry-linked laboratories established with core companies such as Siemens and Dassault Systems. The department focuses on employability, innovation, and research-driven learning aligned with present industrial demands.",
-    vision: "To be a centre of excellence in Mechanical Engineering that develops quality human resources contributing to technological and socio-economic development.",
+    about: "The Department of Mechanical Engineering was started at the inception of the institution in the year 1998. The department is currently offering one UG program (B.Tech in Mechanical Engineering) with an intake of 60. The B.Tech. program has been continuously accredited by the National Board of Accreditation (NBA) since 2013 and is accredited under Tier I in 2019 with a score of 715 out of 1000. Subsequently, the program received NBA accreditation in 2022 under Tier I and is accredited again in 2025 for the period 2025–28. The College Academic Council and the Department Board of Studies strive hard to provide quality education with the most advanced curriculum to make the students industry ready and excel in today’s technologically intensive careers. The alumni of the department have been successfully building the remarkable careers in Mechanical engineering and allied disciplines.\n\nThe Department has a thriving research program with externally funded projects worth a total of more than Rs. 1.75 Crore. Faculty are engaged in providing engineering consultancy for industrial entities. The research output from the department, in terms of quality journal publications and patents, has been steadily increasing in recent years. The students of the Department benefit from this thriving R&D culture ,which provides them with an exposure to the state-of-the-art research facilities and cutting-edge technologies.\n\nThe Department is endowed with highly qualified and experienced faculty who have obtained their Doctoral degrees from eminent institution in India like IITs, NITs. The department is well equipped with modern industry laboratories which are established with the support of core engineering companies like Siemens and Dassault Systems. The industry related labs strive to improve the employability of the students in core companies.\n\nSince its inception, the department has been striving to take forward the vision and mission of the institution by making specific contributions in promoting education and research in the broad field of Mechanical Engineering.",
+    goals: [
+      "To maintain a high standard of mechanical engineering education through outstanding teaching innovative curriculum and research training that reflect the changing needs of society.",
+      "To attract highly motivated students with enthusiasm, attitude and interest in Mechanical Engineering.",
+      "To pursue excellence in research and technology transfer.",
+      "To increase the public awareness of departmental activities and the Mechanical Engineering profession."
+    ],
+    vision: "\"To be a globally recognized center of excellence in Mechanical Engineering through academic excellence, research, innovation, international collaborations, and community engagement, nurturing competent, ethical, and socially responsible engineers for sustainable technological advancement and the holistic development of society and the nation.\"",
     mission: [
-      "To provide globally competent mechanical engineers through experienced and committed faculty.",
-      "To nurture graduates with scientific temperament, rational thinking, and humanistic approach for career excellence.",
-      "To promote excellence in teaching and research through collaborative activities."
+      "M1: Academic Excellence and Inclusive Learning - To provide inclusive, value-based, and outcome-driven education that fosters intellectual curiosity, critical thinking, ethical leadership, and lifelong learning, enabling at least 90% of graduates to achieve academic excellence, professional competence, and successful career progression in Mechanical Engineering.",
+      "M2: Research, Innovation, and Industry Engagement - To promote research, innovation, entrepreneurship, startup incubation, and technology commercialization through strong collaborations with industry and academia, integrating Industry 4.0, Industry 5.0, Artificial Intelligence, Digital Manufacturing, IoT, and Smart Manufacturing into teaching, research, and professional practice.",
+      "M3: Sustainable Development and Societal Impact - To cultivate socially responsible engineers by promoting community outreach, extension activities, rural technology initiatives, SDG-based projects, environmental sustainability, and ethical professional practices that contribute to the holistic development of society and the nation."
     ],
     nbaAccredited: true,
     hod: { name: "Dr. S. Baskaran", designation: "Assoc. Professor & Head", qualification: "Ph.D. (NIT, Tiruchirappalli)", image: "https://mits.ac.in/public/uploads/faculty/DR S BASKARAN.JPG", profileUrl: "https://mits.ac.in/facultyprofile/306" },
@@ -4458,6 +4483,852 @@ export const eeeUnderGraduateData: UnderGraduateData = {
   ]
 };
 
+export const meUnderGraduateData: UnderGraduateData = {
+  "programTitle": "Bachelor of Technology (B.Tech) - Mechanical Engineering",
+  "programOverview": "Bachelor of Technology (B.Tech.) in Mechanical Engineering is the flagship program of the Department which was started in the year 1998. This program is designed to lay a strong foundation for students to build a successful career or pursue higher education in the Mechanical Engineering and allied fields. The program is administered strictly according to the tenets of Outcome Based Education (OBE) and it has been continuously accredited by NBA since the year 2013. The program curriculum is regularly updated and evolved considering of the guidelines given by All India Council for Technical Education (AICTE) and American Society for Mechanical Engineers (ASME), and the syllabi is also designed in accordance with the syllabi of competitive examinations for Mechanical Engineering like GATE and IES.",
+  "sections": [
+    {
+      "title": "Salient Features of the Programme",
+      "points": [
+        "Industry related labs, established in the Department with help from Siemens and Dassault Systemes, add immense value to the UG programme by aiding targeted employability training for the students.",
+        "Students benefit from the experience and expertise of the highly qualified faculty who are all engaged in research and development.",
+        "Scholarship programme titled SHARP incentivizes the student participation in faculty research thus their enrichment with valuable work experience while still on campus.",
+        "Unique aspects of the programme include emphasis on MOOCS, self-learning, and internships which are all incorporated into the curriculum.",
+        "Ample support is provided to the students to ensure their timely academic progress and to facilitate the realization of their potential.",
+        "Initiatives like make up classes and remedial classes are in place to assist the students falling behind in their academic performance.",
+        "Co-curricular and extra-curricular activities are conducted to galvanize the performing students towards higher achievement."
+      ]
+    },
+    {
+      "title": "Co-curricular & Extra-curricular Activities",
+      "points": [
+        "Employability training in Siemens Lab and Dassault Systemes Lab",
+        "Training for competitive exams and core placements",
+        "Industry visits",
+        "Guest lectures",
+        "Seminars",
+        "Workshops",
+        "Symposium with project expos",
+        "Conferences"
+      ]
+    }
+  ],
+  "subTabs": [
+    {
+      "id": "ug",
+      "label": "UG Overview"
+    },
+    {
+      "id": "course-syllabus",
+      "label": "Course syllabus"
+    },
+    {
+      "id": "minors",
+      "label": "Minors"
+    },
+    {
+      "id": "timetable",
+      "label": "Time Tables"
+    },
+    {
+      "id": "remedial-classes",
+      "label": "Remedial Classes"
+    },
+    {
+      "id": "surveys",
+      "label": "Surveys"
+    },
+    {
+      "id": "obe",
+      "label": "OBE"
+    }
+  ],
+  "timeTables": [
+    {
+      "groupTitle": "Master Timetables",
+      "items": [
+        {
+          "title": "B.Tech II Year 2025-26 I Semester Timetable",
+          "pdfUrl": "https://mits.ac.in/assets/pdf/mech/B.Tech%20II%20Year%202025-26%20I%20Semester%20Timetable.pdf",
+          "academicYear": "2025-26"
+        },
+        {
+          "title": "B.Tech III Year 2025-26 I Semester Timetable",
+          "pdfUrl": "https://mits.ac.in/assets/pdf/mech/B.Tech%20III%20Year%202025-26%20I%20Semester%20Timetable.pdf",
+          "academicYear": "2025-26"
+        },
+        {
+          "title": "B.Tech IV Year 2025-26 I Semester Timetable",
+          "pdfUrl": "https://mits.ac.in/assets/pdf/mech/B.Tech%20IV%20Year%202025-26%20I%20Semester%20Timetable.pdf",
+          "academicYear": "2025-26"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Individual Faculty Timetables",
+      "items": [
+        {
+          "title": "Individual Faculty Timetables 2025-2026",
+          "pdfUrl": "https://mits.ac.in/assets/pdf/mech/FACULTY%20TT%202025-2026.pdf",
+          "academicYear": "2025-26"
+        }
+      ]
+    }
+  ],
+  "syllabusTables": [
+    {
+      "title": "First Year I Semester - R23",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "Communicative English",
+          "type": "Theory",
+          "credits": "2"
+        },
+        {
+          "sno": "2",
+          "name": "Linear Algebra and Calculus",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "3",
+          "name": "Engineering Chemistry",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "4",
+          "name": "Basic Civil and Mechanical Engineering",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "5",
+          "name": "Introduction to Programming",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "6",
+          "name": "Communicative English Laboratory",
+          "type": "Lab",
+          "credits": "1"
+        },
+        {
+          "sno": "7",
+          "name": "Engineering Chemistry Laboratory",
+          "type": "Lab",
+          "credits": "1"
+        },
+        {
+          "sno": "8",
+          "name": "Computer Programming Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "9",
+          "name": "Engineering Workshop",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "10",
+          "name": "Health and Wellness, Yoga and Sports",
+          "type": "",
+          "credits": "0.5"
+        }
+      ]
+    },
+    {
+      "title": "First Year II Semester - R23",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "Differential Equations and Vector Calculus",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "2",
+          "name": "Engineering Physics",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "3",
+          "name": "Basic Electrical and Electronics Engineering",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "4",
+          "name": "Engineering Graphics",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "5",
+          "name": "Engineering Mechanics",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "6",
+          "name": "Engineering Physics Laboratory",
+          "type": "Lab",
+          "credits": "1"
+        },
+        {
+          "sno": "7",
+          "name": "Electrical and Electronics Engineering Workshop",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "8",
+          "name": "IT Workshop",
+          "type": "Lab",
+          "credits": "1"
+        },
+        {
+          "sno": "9",
+          "name": "Engineering Mechanics Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "10",
+          "name": "NSS / NCC / Scouts and Guides / Community Service",
+          "type": "",
+          "credits": "0.5"
+        }
+      ]
+    },
+    {
+      "title": "Second Year I Semester - R23",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "Universal Human Values",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "2",
+          "name": "Numerical Methods",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "3",
+          "name": "Thermodynamics",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "4",
+          "name": "Mechanics of Solids",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "5",
+          "name": "Materials Science and Engineering",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "6",
+          "name": "Mechanics of Solids and Materials Science Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "7",
+          "name": "Computer Aided Machine Drawing Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "8",
+          "name": "Soft Skills",
+          "type": "Lab",
+          "credits": "2"
+        },
+        {
+          "sno": "9",
+          "name": "Environmental Science",
+          "type": "Theory",
+          "credits": "0"
+        }
+      ]
+    },
+    {
+      "title": "Second Year II Semester - R23",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "Economics and Financial Accounting For Engineers",
+          "type": "Theory",
+          "credits": "2"
+        },
+        {
+          "sno": "2",
+          "name": "Probability and Statistics for Engineers",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "3",
+          "name": "Innovation and Incubation Courses",
+          "type": "Theory",
+          "credits": "2"
+        },
+        {
+          "sno": "4",
+          "name": "Manufacturing Technology - I",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "5",
+          "name": "Fluid Mechanics and Hydraulic Machines",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "6",
+          "name": "Theory of Machines",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "7",
+          "name": "Fluid Mechanics and Hydraulic Machines Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "8",
+          "name": "Manufacturing Technology - I Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "9",
+          "name": "Python Programming",
+          "type": "Theory",
+          "credits": "2"
+        }
+      ]
+    },
+    {
+      "title": "First Year I Semester - R20",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "Professional English",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "2",
+          "name": "Engineering Calculus",
+          "type": "Theory",
+          "credits": "4"
+        },
+        {
+          "sno": "3",
+          "name": "Engineering Chemistry",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "4",
+          "name": "Engineering Graphics",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "5",
+          "name": "Programming for Problem Solving (Python)",
+          "type": "Theory",
+          "credits": "3.5"
+        },
+        {
+          "sno": "6",
+          "name": "Chemistry Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "7",
+          "name": "Workshop Practice",
+          "type": "Lab",
+          "credits": "1.5"
+        }
+      ]
+    },
+    {
+      "title": "First Year II Semester - R20",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "Linear Algebra and Differential Equations",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "2",
+          "name": "Engineering Physics",
+          "type": "Theory",
+          "credits": "4"
+        },
+        {
+          "sno": "3",
+          "name": "Basic Electrical Engineering",
+          "type": "Theory",
+          "credits": "4"
+        },
+        {
+          "sno": "4",
+          "name": "C Programming and Data Structures",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "5",
+          "name": "English for Professional Purposes Laboratory",
+          "type": "Lab",
+          "credits": "1"
+        },
+        {
+          "sno": "6",
+          "name": "Physics Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "7",
+          "name": "Electrical Engineering Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "8",
+          "name": "C Programming and Data Structures Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        }
+      ]
+    },
+    {
+      "title": "Second Year I Semester - R20",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "Numerical Methods",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "2",
+          "name": "Engineering Mechanics",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "3",
+          "name": "Basic Thermodynamics",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "4",
+          "name": "Materials Science and Engineering",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "5",
+          "name": "Fluid Mechanics and Hydraulic Machinery",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "6",
+          "name": "Materials Science and Engineering Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "7",
+          "name": "Fluid Mechanics and Hydraulic Machinery Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "8",
+          "name": "3-D Modelling Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "9",
+          "name": "Skill Oriented Course-I",
+          "type": "Theory",
+          "credits": "2"
+        },
+        {
+          "sno": "9",
+          "name": "Skill Oriented Course-I",
+          "type": "Theory",
+          "credits": "2"
+        },
+        {
+          "sno": "10",
+          "name": "Environmental Science",
+          "type": "Theory",
+          "credits": "0"
+        }
+      ]
+    },
+    {
+      "title": "Second Year II Semester - R20",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "Economics and Financial Accounting for Engineers",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "2",
+          "name": "Probability and Statistics",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "3",
+          "name": "Mechanics of Solids",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "4",
+          "name": "Theory of Machines",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "5",
+          "name": "Manufacturing Technology-I",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "6",
+          "name": "Manufacturing Technology-I Laboratory",
+          "type": "Theory",
+          "credits": "1.5"
+        },
+        {
+          "sno": "7",
+          "name": "Mechanics of Solids Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "8",
+          "name": "Dynamics & Electrical Machines Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "9",
+          "name": "Skill Oriented Course \u2013 II",
+          "type": "Lab",
+          "credits": "2"
+        },
+        {
+          "sno": "10",
+          "name": "Indian Constitution",
+          "type": "Theory",
+          "credits": "0"
+        }
+      ]
+    },
+    {
+      "title": "Third Year I Semester - R20",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "Design of Machine Elements",
+          "type": "Theory & Lab",
+          "credits": "3"
+        },
+        {
+          "sno": "2",
+          "name": "Manufacturing Technology-II",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "3",
+          "name": "Heat Transfer",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "4",
+          "name": "Open Elective-I",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "5",
+          "name": "Professional Elective-I",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "6",
+          "name": "Manufacturing Technology-II Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "7",
+          "name": "Thermal Engineering Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "8",
+          "name": "Skill Oriented Course-III",
+          "type": "Lab",
+          "credits": "2"
+        },
+        {
+          "sno": "9",
+          "name": "Disaster Management",
+          "type": "Lab",
+          "credits": "0"
+        },
+        {
+          "sno": "10",
+          "name": "Summer Internship-I*",
+          "type": "Theory",
+          "credits": "1.5"
+        }
+      ]
+    },
+    {
+      "title": "Third Year II Semester - R20",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "CAD/ CAM",
+          "type": "Theory",
+          "credits": "2"
+        },
+        {
+          "sno": "2",
+          "name": "Automation and Robotics",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "3",
+          "name": "Machine Learning for Mechanical Engineers",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "4",
+          "name": "Open Elective-II",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "5",
+          "name": "Professional Elective-II",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "6",
+          "name": "CAD/ CAM Laboratory",
+          "type": "Theory",
+          "credits": "1.5"
+        },
+        {
+          "sno": "7",
+          "name": "Robotics Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "8",
+          "name": "Engineering Metrology and Measurements Laboratory",
+          "type": "Lab",
+          "credits": "1.5"
+        },
+        {
+          "sno": "9",
+          "name": "Skill Oriented Course-IV",
+          "type": "Lab",
+          "credits": "2"
+        },
+        {
+          "sno": "10",
+          "name": "Universal Human Values",
+          "type": "Theory",
+          "credits": "0/3"
+        }
+      ]
+    },
+    {
+      "title": "Fourth Year I Semester - R20",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "Professional Elective-III",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "2",
+          "name": "Professional Elective-IV",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "3",
+          "name": "Professional Elective-V",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "4",
+          "name": "Open Elective-III",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "5",
+          "name": "Open Elective-IV",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "6",
+          "name": "Open Elective-V (Taken from Humanities & Social Science)",
+          "type": "Theory",
+          "credits": "3"
+        },
+        {
+          "sno": "7",
+          "name": "Skill Oriented Course - V",
+          "type": "Lab",
+          "credits": "2"
+        },
+        {
+          "sno": "8",
+          "name": "Summer Internship-2*",
+          "type": "-",
+          "credits": "3"
+        }
+      ]
+    },
+    {
+      "title": "Fourth Year II Semester - R20",
+      "headers": [
+        "S.No",
+        "Name of the Subject",
+        "Theory/Lab",
+        "Credits"
+      ],
+      "rows": [
+        {
+          "sno": "1",
+          "name": "Project Work / Internship",
+          "type": "-",
+          "credits": "12"
+        }
+      ]
+    }
+  ]
+};
+
 export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subject[] = []): UnderGraduateData {
   const dept = departmentsData[deptKey];
   if (dept && dept.underGraduate) {
@@ -4483,6 +5354,9 @@ export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subjec
   }
   if (deptKey === "eee" || deptKey === "electrical-electronics-engineering" || deptKey === "electrical-and-electronics-engineering" || deptKey === "ee" || deptKey === "2") {
     return eeeUnderGraduateData;
+  }
+  if (deptKey === "me" || deptKey === "mech" || deptKey === "mechanical" || deptKey === "mechanical-engineering" || deptKey === "8") {
+    return meUnderGraduateData;
   }
 
   const semMap = new Map<number, Subject[]>();
@@ -5592,6 +6466,190 @@ export const eeeMoreData: DepartmentMoreData = {
   }
 };
 
+export const meMoreData: DepartmentMoreData = {
+  "subTabs": [
+    {
+      "id": "phd",
+      "label": "PhD"
+    },
+    {
+      "id": "newsletters",
+      "label": "Newsletters"
+    },
+    {
+      "id": "stock-register",
+      "label": "Stock Register"
+    },
+    {
+      "id": "surveys",
+      "label": "Survey"
+    },
+    {
+      "id": "innovative-teaching",
+      "label": "Innovation in Teaching-Learning Process"
+    }
+  ],
+  "stockRegisterPdfUrl": "https://mits.ac.in/assets/pdf/stock-registers/Mechanical%20Stock%20Register.pdf",
+  "doctoral": {
+    "title": "Doctoral",
+    "description": "There is provision for research scholars to conduct their doctoral research at the Department of Mechanical Engineering at MITS through its Recognized Research Centre under JNTUA, Anantapuramu. The scholars can benefit from the intellectual wealth of highly qualified and experienced faculty of the Department with the advanced facilities for research. Given below is a list of scholars who are working under the guidance of the Department faculty towards PhD degree from JNTUA.",
+    "batches": [
+      {
+        "batchTitle": "Full-Time Research Scholars Details 2014-2015 Batch",
+        "scholars": [
+          {
+            "sno": "1",
+            "name": "V. Chengal Reddy",
+            "guide": "Dr. G. Harinath Gowd",
+            "coGuide": "Prof. MLS. Deva Kumar, Professor, Dept. of ME, JNTUA College of Engineering, Anantapuramu",
+            "dateOfJoining": "21-04-2015",
+            "researchTitle": "Laser Beam Machining"
+          }
+        ]
+      },
+      {
+        "batchTitle": "Full-Time Research Scholars Details 2015-2016 Batch",
+        "scholars": [
+          {
+            "sno": "1",
+            "name": "T. Siva Prasad",
+            "guide": "Dr. C. Yuvaraj",
+            "coGuide": "Dr. K. Prahlada Rao, Principal, JNTUA College of Engineering, Ananthapuramu",
+            "dateOfJoining": "2015-16",
+            "researchTitle": "Composite Materials"
+          },
+          {
+            "sno": "2",
+            "name": "H. Raghavendra",
+            "guide": "Dr. P. Suryanarayana Raju",
+            "coGuide": "Dr. K. Hemachandra Reddy, Professor, Dept. of ME, JNTUA College of Engineering, Ananthapuramu",
+            "dateOfJoining": "2015-16",
+            "researchTitle": "Renewable Energy"
+          },
+          {
+            "sno": "3",
+            "name": "Bazani Shaik",
+            "guide": "Dr. G. Harinath Gowd",
+            "coGuide": "Prof. B. Durga Prasad, Professor, Dept. of ME, JNTUA College of Engineering, Ananthapuramu",
+            "dateOfJoining": "2015-16",
+            "researchTitle": "Friction Stir process"
+          }
+        ]
+      }
+    ]
+  },
+  "studentProjects": {
+    "groupTitle": "Newsletters",
+    "documents": [
+      {
+        "title": "Newsletter 2024 - Issue 4",
+        "url": "https://mits.ac.in/assets/pdf/mech/Newsletter 2024-Issue 4.pdf"
+      },
+      {
+        "title": "Newsletter 2024 - Issue 3",
+        "url": "https://mits.ac.in/assets/pdf/mech/Newsletter 2024-Issue 3.pdf"
+      },
+      {
+        "title": "Newsletter 2024 - Issue 2",
+        "url": "https://mits.ac.in/assets/pdf/mech/Newsletter 2024-Issue 2.pdf"
+      },
+      {
+        "title": "Newsletter 2024 - Issue 1",
+        "url": "https://mits.ac.in/assets/pdf/mech/Newsletter 2024-issue 1.pdf"
+      },
+      {
+        "title": "Newsletter 2023 - Issue 4",
+        "url": "https://mits.ac.in/assets/pdf/mech/2023 NewsLetter issue 4.pdf"
+      },
+      {
+        "title": "Newsletter 2023 - Issue 3",
+        "url": "https://mits.ac.in/assets/pdf/mech/2023 NewsLetter Issue 3.pdf"
+      },
+      {
+        "title": "Newsletter 2023 - Issue 2",
+        "url": "https://mits.ac.in/assets/pdf/mech/2023 NewsLetter Issue 2.pdf"
+      },
+      {
+        "title": "Newsletter 2023 - Issue 1",
+        "url": "https://mits.ac.in/assets/pdf/mech/2023 NewsLetter Issue 1.pdf"
+      },
+      {
+        "title": "Newsletter 2022",
+        "url": "https://mits.ac.in/assets/pdf/mech/NEWSLETTER 2022.pdf"
+      }
+    ]
+  },
+  "surveys": [
+    {
+      "title": "Surveys from Stakeholders",
+      "links": [
+        {
+          "title": "Stake Holder Feedback (A.Y. 2025-26)",
+          "url": "https://mits.ac.in/assets/pdf/mech/2025-26 Mech Feedback.pdf"
+        },
+        {
+          "title": "Stake Holder Feedback (A.Y. 2024-25)",
+          "url": "https://mits.ac.in/assets/pdf/mech/2024-25 Mech Feedback.pdf"
+        },
+        {
+          "title": "Stake Holder Feedback (A.Y. 2023-24)",
+          "url": "https://mits.ac.in/assets/pdf/mech/2023-24 Mech Feedback.pdf"
+        },
+        {
+          "title": "Stake Holder Feedback (A.Y. 2022-23)",
+          "url": "https://mits.ac.in/assets/pdf/mech/2022-23 Mech Feedback.pdf"
+        },
+        {
+          "title": "Stake Holder Feedback (A.Y. 2021-22)",
+          "url": "https://mits.ac.in/assets/pdf/mech/2021-22 Mech Feedback.pdf"
+        },
+        {
+          "title": "Stake Holder Feedback (A.Y. 2020-21)",
+          "url": "https://mits.ac.in/public/uploads/surveys/fdsurvey.PDF"
+        }
+      ]
+    }
+  ],
+  "innovativeTeaching": {
+    "groupTitle": "Innovation in Teaching-Learning Process",
+    "description": "The Department of Mechanical Engineering delivers a dynamic, student-focused education through modern, tech-enabled classrooms and innovative teaching methods. Critical thinking, teamwork, and practical skills are cultivated through teaching methodologies such as Project-Based Learning, Flipped Classrooms, Blended Learning, and Collaborative Learning. Real-world challenges are prepared for by students through project-based learning, case studies, industrial problem-solving, and participation in technical events. Further enrichment of the learning experience is provided by online platforms like NPTEL, MOOCs, and SWAYAM.",
+    "tableTitle": "Innovation in Teaching-Learning Process",
+    "tableItems": [
+      {
+        "sno": 1,
+        "courseCodeAndName": "20ME101 – Engineering Graphics",
+        "facultyName": "Dr. Anantha Raman L.",
+        "innovativeDetails": "Developed Tutorial video to draw engineering drawings using AutoCAD",
+        "link": "https://mitsacin-my.sharepoint.com/:u:/g/personal/dhrubajitsarma_mits_ac_in/EZGygMdVDghDjJM8Y0tUyp8BWyajC3nsWpRRt8Dj9pt2xQ?e=w8dhPf"
+      },
+      {
+        "sno": 2,
+        "courseCodeAndName": "20ME114 – Machine Learning for Mechanical Engineers",
+        "facultyName": "Dr. S. Baskaran",
+        "innovativeDetails": "Developed Case Studies with Python Codes on various Machine Learning Algorithms",
+        "link": "https://mitsacin-my.sharepoint.com/:u:/g/personal/dhrubajitsarma_mits_ac_in/EQ5b4GYNWHxMnnRCgeDeNnoBFa2WSJL60T5jowloj1ftlg?e=6UD8sU"
+      },
+      {
+        "sno": 3,
+        "courseCodeAndName": "20ME203 – Fluid Mechanics and Hydraulic Machinery Laboratory",
+        "facultyName": "Dr. Bageerathan T.",
+        "innovativeDetails": "Developed Python Codes for Laboratory Observations and Numerical Calculations",
+        "link": "https://mitsacin-my.sharepoint.com/:u:/g/personal/dhrubajitsarma_mits_ac_in/EYjxxXUbDPBBv0LBbz4nkPEBGDFKvWxV3Sw4km5lrchwTw?e=SQc3eP"
+      },
+      {
+        "sno": 4,
+        "courseCodeAndName": "20ME211 – Robotics Laboratory",
+        "facultyName": "Dr. Anantha Raman L.",
+        "innovativeDetails": "Developed Codes and Algorithms for IoT Automation using Python & TinkerCAD",
+        "link": "https://mitsacin-my.sharepoint.com/:u:/g/personal/dhrubajitsarma_mits_ac_in/ERSkP-jxUzpEsb2TKggXch4BXFC03ByTIzEC2531t44HZw?e=BjyBUG"
+      }
+    ],
+    "critiqueReviewText": "To ensure the highest quality and academic rigor, the course coordinator(s) request faculty and student review through the provided link.",
+    "critiqueReviewLink": "https://forms.office.com/r/n5AAfZEHEX",
+    "documents": []
+  }
+};
+
 export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   const dept = departmentsData[deptKey];
   if (dept && dept.more) {
@@ -5608,6 +6666,9 @@ export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   }
   if (deptKey === "eee" || deptKey === "electrical-electronics-engineering" || deptKey === "electrical-and-electronics-engineering" || deptKey === "ee" || deptKey === "2") {
     return eeeMoreData;
+  }
+  if (deptKey === "me" || deptKey === "mech" || deptKey === "mechanical" || deptKey === "mechanical-engineering" || deptKey === "8") {
+    return meMoreData;
   }
   if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
     return aimlMoreData;
@@ -6775,6 +7836,237 @@ export const eeeTopTabs: DepartmentTopTab[] = [
   }
 ];
 
+export const meTopTabs: DepartmentTopTab[] = [
+  {
+    "id": "department",
+    "label": "Department"
+  },
+  {
+    "id": "faculty-list",
+    "label": "Faculty List",
+    "title": "Faculty List",
+    "documents": [
+      {
+        "title": "Faculty List for the Academic Year 2024-25",
+        "url": "https://mits.ac.in/public/uploads/departments/4715af8e6a43fe8dfdc8ef6c72de286f.pdf"
+      },
+      {
+        "title": "Faculty List for the Academic Year 2023-24",
+        "url": "https://mits.ac.in/public/uploads/departments/57b286c04591787e070adfde8465d653.pdf"
+      },
+      {
+        "title": "Faculty List for the Academic Year 2022-23",
+        "url": "https://mits.ac.in/public/uploads/departments/e0e3087439772f87fcbb1d83a4ad814e.pdf"
+      }
+    ]
+  },
+  {
+    "id": "bos",
+    "label": "BoS",
+    "title": "Board of Studies",
+    "description": "Department\u2019s Board of Studies (BoS) is a statutory body which is primarily responsible for compiling the curricula for all the courses offered by the Department and for regularly revising the syllabi for keeping it up to date with the changing trends. In addition, BoS also reviews the progress of the Department in terms of academics and research and suggests strategies for continuous improvement. The BoS comprises of senior faculty of the Department and experts from Industry and Peer Institutions. The external members in the current Bo of the Department are:",
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. S. Baskaran(BoS - Chairman)",
+        "designation": "Assoc. Professor & Head of the Department, ME"
+      },
+      {
+        "sno": "2",
+        "name": "Dr. B. Durga Prasad(JNTUA University Nominee)",
+        "designation": "Professor, Mechanical Department, JNTUA CEA, Ananthapuramu."
+      },
+      {
+        "sno": "3",
+        "name": "Dr. E. Anil Kumar(Subject Expert)",
+        "designation": "Professor, Mechanical Engineering, IIT, Tirupati."
+      },
+      {
+        "sno": "4",
+        "name": "Dr. B. Venkatesham(Subject Expert)",
+        "designation": "Professor, Mechanical and Aerospace Engineering, IIT, Hyderabad."
+      },
+      {
+        "sno": "5",
+        "name": "Mr. Kashinath M Patnasetty(Industry Expert)",
+        "designation": "Head, VAS Application Support Ace Designers Limited, Bangalore."
+      },
+      {
+        "sno": "6",
+        "name": "Mr. Anand Swaroop Donepudi(Alumni)",
+        "designation": "Product and Application Engineer CBRE South Asia Pvt. Ltd.,"
+      }
+    ],
+    "documents": [
+      {
+        "title": "BOS 2024-25",
+        "url": "https://mits.ac.in/public/uploads/departments/e24f944adcb19447e4b42ed17e83ab04.pdf"
+      },
+      {
+        "title": "BOS 2023-24 (R23)",
+        "url": "https://mits.ac.in/public/uploads/departments/a344a8249472535c6700ff90a39acf50.pdf"
+      },
+      {
+        "title": "BOS 2023-24",
+        "url": "https://mits.ac.in/public/uploads/departments/585f6d68bfedf9844672a53fe30f8c29.pdf"
+      },
+      {
+        "title": "BOS 2022-23",
+        "url": "https://mits.ac.in/public/uploads/departments/5c365ff5e562f985268e73c669710c86.pdf"
+      },
+      {
+        "title": "BOS 2021-22",
+        "url": "https://mits.ac.in/public/uploads/departments/16d7a897423c9bb4e52eaa8ec55a4073.pdf"
+      },
+      {
+        "title": "BOS 2020-21",
+        "url": "https://mits.ac.in/public/uploads/departments/d0a2803be431cc23a6383b3d2d100320.pdf"
+      },
+      {
+        "title": "BOS 2019-20",
+        "url": "https://mits.ac.in/public/uploads/departments/ce21685429487c73b5c97ec25c721fb5.pdf"
+      },
+      {
+        "title": "BOS 2018-19",
+        "url": "https://mits.ac.in/public/uploads/departments/afd2025244e4f8e8ec54191ceb2f3997.pdf"
+      },
+      {
+        "title": "BOS 2017-18",
+        "url": "https://mits.ac.in/public/uploads/departments/94015127a15c7ccb09d2a3b937a48b40.pdf"
+      },
+      {
+        "title": "BOS 2016-17",
+        "url": "https://mits.ac.in/public/uploads/departments/e155b6d17f3626998a6a4578cc277b00.pdf"
+      },
+      {
+        "title": "BoS 2015-16",
+        "url": "https://mits.ac.in/public/uploads/departments/d331268a3371d754f30bb27a588adb03.pdf"
+      },
+      {
+        "title": "BoS 2014-15",
+        "url": "https://mits.ac.in/public/uploads/departments/074bd16ef26b2d661b000446f580a7b9.pdf"
+      }
+    ]
+  },
+  {
+    "id": "iaab",
+    "label": "IAAB",
+    "title": "Industry Alumni Advisory Board",
+    "description": "The Department constituted an advisory board with experts from the Industry and department alumni to seek guidance on strategic planning and functioning of the Department especially with regards to academic aspects like curriculum development and teaching and learning processes. The current external members of the IAAB are:",
+    "members": [
+      {
+        "sno": "1",
+        "name": "Mr. M. Hari Prasad(Industry Expert)",
+        "designation": "Former Scientist, Aeronautical Development Establishment (ADE), Bangalore"
+      },
+      {
+        "sno": "2",
+        "name": "Dr. R. Thundil Karuppa Raj(Academic Expert)",
+        "designation": "Professor, Automotive Engineering, VIT, Vellore"
+      },
+      {
+        "sno": "3",
+        "name": "Mr. M. Venkata Satyanarayana",
+        "designation": "MITS Alumni, Principal Engineer \u2013 R&D, Sahajanand Medical Technologies, Surat"
+      },
+      {
+        "sno": "4",
+        "name": "Mr. Anand Swaroop Donepudi",
+        "designation": "MITS Alumni"
+      }
+    ],
+    "documents": [
+      {
+        "title": "IAAB 2024-25",
+        "url": "https://mits.ac.in/public/uploads/departments/3a98077bfb1d9689a33ce475cf2551a7.pdf"
+      },
+      {
+        "title": "IAAB 2023-24",
+        "url": "https://mits.ac.in/public/uploads/departments/e6449ac35adb10d33769360a1bfd768d.pdf"
+      },
+      {
+        "title": "IAAB 2022-23",
+        "url": "https://mits.ac.in/public/uploads/departments/e0b464f6cb9e0bce945672b700743c67.pdf"
+      },
+      {
+        "title": "IAAB 2021-22",
+        "url": "https://mits.ac.in/public/uploads/departments/7f3a7ea927ff773e4a37a45526b3b976.pdf"
+      },
+      {
+        "title": "IAAB 2020-21",
+        "url": "https://mits.ac.in/public/uploads/departments/7dba9972ce0fa2726bd56f892c87bfdb.pdf"
+      },
+      {
+        "title": "IAAB 2019-20",
+        "url": "https://mits.ac.in/public/uploads/departments/2cad3eb9f0d212f1599f0a0288ddba9f.pdf"
+      },
+      {
+        "title": "IAAB 2018-19",
+        "url": "https://mits.ac.in/public/uploads/departments/5f2b057e6cf4a3f5cd3eace02b0ae4aa.pdf"
+      }
+    ]
+  },
+  {
+    "id": "pac",
+    "label": "PAC",
+    "title": "Program Assessment Committee",
+    "documents": [
+      {
+        "title": "PAC 2024-25",
+        "url": "https://mits.ac.in/assets/pdf/mech/PAC 2024-25 M2.pdf"
+      },
+      {
+        "title": "PAC 2024-25",
+        "url": "https://mits.ac.in/assets/pdf/mech/PAC 2024-25 M1.pdf"
+      },
+      {
+        "title": "PAC 2023-24",
+        "url": "https://mits.ac.in/assets/pdf/mech/PAC 2023-24 M2.pdf"
+      },
+      {
+        "title": "PAC 2023-24",
+        "url": "https://mits.ac.in/assets/pdf/mech/PAC 2023-24 M1.pdf"
+      },
+      {
+        "title": "PAC 2022-23",
+        "url": "https://mits.ac.in/assets/pdf/mech/PAC 2022-23 M2.pdf"
+      },
+      {
+        "title": "PAC 2022-23",
+        "url": "https://mits.ac.in/assets/pdf/mech/PAC 2022-23 M1.pdf"
+      },
+      {
+        "title": "PAC 2021-22",
+        "url": "https://mits.ac.in/assets/pdf/mech/PAC 2021-22 M2.pdf"
+      },
+      {
+        "title": "PAC 2021-22",
+        "url": "https://mits.ac.in/public/uploads/departments/0b3ad6b1ee544b404eb26e234c9f988f.pdf"
+      },
+      {
+        "title": "PAC 2020-21",
+        "url": "https://mits.ac.in/public/uploads/departments/23156e74aacc9979a1cd9cdf89c96eb5.pdf"
+      },
+      {
+        "title": "PAC 2019-20",
+        "url": "https://mits.ac.in/public/uploads/departments/01e6f9f2a6d95fd015b934b7dec13fee.pdf"
+      },
+      {
+        "title": "PAC 2018-19",
+        "url": "https://mits.ac.in/public/uploads/departments/fcd3d2091fe2c2a91bcd94f4f017f2c2.pdf"
+      },
+      {
+        "title": "PAC 2017-18",
+        "url": "https://mits.ac.in/public/uploads/departments/30e6c0c0c0910e04d138200efdc14ac1.pdf"
+      },
+      {
+        "title": "PAC 2016-17",
+        "url": "https://mits.ac.in/public/uploads/departments/a259ae782d3351e9495d5dbe89622782.pdf"
+      }
+    ]
+  }
+];
+
 export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | undefined {
   const dept = departmentsData[deptKey];
   if (dept && dept.topTabs && dept.topTabs.length > 0) {
@@ -6785,6 +8077,9 @@ export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | unde
   }
   if (deptKey === "eee" || deptKey === "electrical-electronics-engineering" || deptKey === "electrical-and-electronics-engineering" || deptKey === "ee" || deptKey === "2") {
     return eeeTopTabs;
+  }
+  if (deptKey === "me" || deptKey === "mech" || deptKey === "mechanical" || deptKey === "mechanical-engineering" || deptKey === "8") {
+    return meTopTabs;
   }
   if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
     return csedsTopTabs;
