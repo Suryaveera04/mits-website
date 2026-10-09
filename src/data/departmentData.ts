@@ -149,11 +149,20 @@ export interface DepartmentTopTabDoc {
   url: string;
 }
 
+export interface DepartmentTopTabMember {
+  sno: string;
+  name: string;
+  composition?: string;
+  designation: string;
+}
+
 export interface DepartmentTopTab {
   id: string;
   label: string;
   title?: string;
   description?: string;
+  points?: string[];
+  members?: DepartmentTopTabMember[];
   documents?: DepartmentTopTabDoc[];
 }
 
@@ -238,8 +247,10 @@ export interface ObeData {
   title: string;
   subTabs: { id: string; label: string }[];
   posPsosPeosImage?: string;
+  posPsosPeosPdfUrl?: string;
   surveys?: ObeSurveyCategory[];
   remedialClasses?: { title: string; url: string }[];
+  graduateExitSurvey?: { title: string; url: string }[];
   copoAttainment?: { title: string; url: string }[];
 }
 
@@ -281,6 +292,7 @@ export interface DepartmentMoreData {
   civilNotes?: CivilNotesData;
   courseAttainment?: MoreDocumentItem[];
   alumniEvents?: MoreDocumentGroup[];
+  stockRegisterPdfUrl?: string;
 }
 
 export interface UnderGraduateTimeTableItem {
@@ -1061,12 +1073,12 @@ percentage: "80%", avgPackage: "₹4.5 LPA", highestPackage: "₹9 LPA", recruit
     shortName: "EEE",
     established: "1998",
     bannerImage: deptImg("eee"),
-    about: "The Department of Electrical & Electronics Engineering was established in 1998 and offers an undergraduate programme in EEE with strong foundations in power systems, control systems, power electronics, digital signal processing, robotics and emerging electrical domains such as renewable power generation, smart grids, and electric/hybrid vehicles. The programme has been continuously accredited and re-accredited by NBA, including Tier-I accreditation cycles. The department regularly conducts seminars, workshops, guest lectures, and technical symposiums, and sustains active research, consultancy, publications, and patents to support industry and societal needs.",
-    vision: "To become a department recognized for quality education in Electrical & Electronics Engineering, with research proficiency and ethics, to meet the challenges of society.",
+    about: "The Department of Electrical and Electronics Engineering was established in the year 1998 and has been playing a vital role in producing value-based professionals ever since. The department offers an undergraduate program in Electrical and Electronics Engineering with an intake of 60 to cater to the ever-challenging needs of technical excellence in all areas such as Power systems, Control Systems, Power Electronics, Digital Signal Processing, Robotics & Drones, and also in the emerging areas of electrical engineering such as Renewable Power Generation, Smart Grids, Electric & Hybrid Vehicles. The B.Tech. program under the department has been continuously accredited and re-accredited by the National Board of Accreditation (NBA) since 2013 and Under Tier-I in 2019. The most recent NBA accreditation, in 2022, was under TIER I and is accredited again in 2025 for the period 2025–28.\n\nThe Department conducts regular seminars, guest lectures, workshops and technical symposiums on latest technologies for the benefit of student and faculty community.\n\nThe College Academic Council (AC) and Board of Studies (BoS) of the department strive to provide quality education with the most advanced curriculum for both UG and PG programmes with a vision to provide quality education to the students and make them excel in the domain of Electrical and Electronics Engineering.\n\nWith research proficiency, deep sense of commitment and ethics, the Department has a thriving research program with externally funded projects. Faculty are also engaged in providing engineering consultancy for industrial entities. The research output in terms of quality journal publications and patents, has been steadily increasing in recent years. The students of the department benefit from this thriving R&D culture which provides them with an exposure to the state of the art research facilities and cutting-edge technologies to meet the industry requirements and challenges of society.",
+    vision: "“To become a Department recognized for its ability to provide quality education to the students and make them excel in the domain of Electrical and Electronics Engineering, with research proficiency and ethics, to meet the challenges of society.”",
     mission: [
-      "To impart quality education and advancements in programme studies to produce engineers with scientific temperament and moral values in EEE.",
-      "To create and develop a research culture with deep commitment so industries can adopt research outcomes.",
-      "To enhance technical dexterity so graduates can find domain-appropriate solutions for societal welfare."
+      "M1: To impart quality education and advancements in program of studies for producing engineers with scientific temperament and moral values in the field of Electrical and Electronics Engineering.",
+      "M2: To create and develop research culture with deep sense of commitment, so as to enable the industries to adopt the research outputs.",
+      "M3: To enhance the technical dexterity, so as to find the suitable solutions in their respective domain, for welfare of the society."
     ],
     nbaAccredited: true,
     hod: { name: "Dr. Manavaalan Gunasekaran", designation: "Assoc. Professor & Head", qualification: "Ph.D. (IIT, Kanpur)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Manavaalan Gunasekaran.JPG", profileUrl: "https://mits.ac.in/facultyprofile/931" },
@@ -2891,6 +2903,7 @@ export const getDepartmentByKey = (key: string): DepartmentData | undefined => {
   if (key === "cse-ai-ml" || key === "cai") return departmentsData.aiml;
   if (key === "cse-cs" || key === "csc" || key === "cs" || key === "cyber-security" || key === "csec") return departmentsData.csecs;
   if (key === "civil" || key === "ce" || key === "6") return departmentsData.ce;
+  if (key === "eee" || key === "electrical-electronics-engineering" || key === "electrical-and-electronics-engineering" || key === "ee" || key === "2") return departmentsData.eee;
   return undefined;
 };
 
@@ -4196,6 +4209,255 @@ export const ceUnderGraduateData: UnderGraduateData = {
   ]
 };
 
+export const eeeUnderGraduateData: UnderGraduateData = {
+  programTitle: "Bachelor of Technology (B.Tech) - Electrical and Electronics Engineering",
+  programOverview:
+    "The Department has designed its undergraduate programme to meet the industry requirements. The curriculum of the undergraduate programme provides the flexibility to students to learn advanced specializations. The department commits to offer a set of electives so that the students can plan their academic programme in advance. The course structure provides a right combination of compulsory and elective courses.",
+  sections: [
+    {
+      title: "Curriculum",
+      description:
+        "The B. Tech. Programme is divided into two distinct parts. A student has to go through a common programme called Core Curriculum. Most of the core curriculum is completed in the First four semesters. The last four semesters consists of more number of professional courses, for the students to become familiar with the concept of Electrical and Electronics Engineering. The Core Curriculum consists of a package of compulsory courses in Physics, Chemistry, Mathematics, Engineering Sciences and Technical Arts.\n\nThe Professional Curriculum consists of courses and Project Work. There are some compulsory courses, along with a significant number of professional electives as well."
+    }
+  ],
+  subTabs: [
+    { id: "ug", label: "UG" },
+    { id: "course-syllabus", label: "Course Syllabus" },
+    { id: "timetable", label: "Timetables" }
+  ],
+  timeTables: [
+    {
+      groupTitle: "Master Time Tables",
+      items: [
+        {
+          title: "B.Tech II Year 2026-27 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/eee/B.Tech%20II%20Year%202026-27%20I%20Semester%20Timetable.pdf",
+          academicYear: "2026-27",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech III Year 2026-27 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/eee/B.Tech%20III%20Year%202026-27%20I%20Semester%20Timetable.pdf",
+          academicYear: "2026-27",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech IV Year 2026-27 II Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/eee/B.Tech%20IV%20Year%202026-27%20I%20Semester%20Timetable.pdf",
+          academicYear: "2026-27",
+          category: "Master Timetable"
+        }
+      ]
+    },
+    {
+      groupTitle: "Individual Faculty Time Tables",
+      items: [
+        {
+          title: "Individual Faculty Timetables",
+          pdfUrl: "https://mits.ac.in/assets/pdf/eee/Individual%20TT_EEE%20%2021.09.2026.pdf",
+          category: "Faculty Timetable"
+        }
+      ]
+    },
+    {
+      groupTitle: "Academic Regulations and Course Structure & Syllabi for B.Tech Programme",
+      items: [
+        {
+          title: "UGC-Autonomous Syllabi (R20) For B.Tech Electrical & Electronics Engineering",
+          pdfUrl: "https://mits.ac.in/ugc-autonomous-exam-portal.html",
+          category: "Academic Regulations"
+        },
+        {
+          title: "UGC-Autonomous Syllabi (R18) For B.Tech Electrical & Electronics Engineering",
+          pdfUrl: "https://mits.ac.in/ugc-autonomous-exam-portal.html",
+          category: "Academic Regulations"
+        },
+        {
+          title: "UGC-Autonomous Syllabi (R14) For B.Tech Electrical & Electronics Engineering",
+          pdfUrl: "https://mits.ac.in/ugc-autonomous-exam-portal.html",
+          category: "Academic Regulations"
+        }
+      ]
+    }
+  ],
+  syllabusTables: [
+    {
+      title: "First Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Linear Algebra and Calculus", type: "Theory", credits: "2" },
+        { sno: "2", name: "Engineering Physics", type: "Theory", credits: "3" },
+        { sno: "3", name: "Basic Electrical and Electronics Engineering", type: "Theory", credits: "3" },
+        { sno: "4", name: "Introduction to Programming", type: "Theory", credits: "3" },
+        { sno: "5", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "6", name: "Engineering Physics Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Electrical and Electronics Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Computer Programming Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "IT Workshop", type: "Lab", credits: "1" },
+        { sno: "10", name: "NSS / NCC / Scouts and Guides / Community Service", type: "Mandatory Course", credits: "0.5" }
+      ]
+    },
+    {
+      title: "First Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Communicative English", type: "Theory", credits: "2" },
+        { sno: "2", name: "Differential Equations and Vector Calculus", type: "Theory", credits: "3" },
+        { sno: "3", name: "Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "Basic Civil and Mechanical Engineering", type: "Theory", credits: "3" },
+        { sno: "5", name: "Electrical Circuits Analysis - I", type: "Theory", credits: "3" },
+        { sno: "6", name: "Communicative English Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Chemistry Laboratory", type: "Lab", credits: "1" },
+        { sno: "8", name: "Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Electrical Circuits Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "10", name: "Health and Wellness, Yoga and Sports", type: "Mandatory Course", credits: "0.5" }
+      ]
+    },
+    {
+      title: "Second Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Universal Human Values", type: "Theory", credits: "3" },
+        { sno: "2", name: "Complex Variables and Transforms", type: "Theory", credits: "3" },
+        { sno: "3", name: "Electromagnetic Field Theory", type: "Theory", credits: "3" },
+        { sno: "4", name: "Electrical Circuit Analysis - II", type: "Theory", credits: "3" },
+        { sno: "5", name: "DC Machines and Transformers", type: "Theory", credits: "3" },
+        { sno: "6", name: "Electrical Circuit Analysis and Simulation Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "DC Machines and Transformers Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Data Structures", type: "Theory", credits: "2" },
+        { sno: "9", name: "Environmental Science", type: "Theory", credits: "0" }
+      ]
+    },
+    {
+      title: "Second Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Economics and Financial Accounting For Engineers", type: "Theory", credits: "2" },
+        { sno: "2", name: "Innovation and Incubation Courses", type: "Theory", credits: "2" },
+        { sno: "3", name: "Analog Circuits", type: "Theory", credits: "3" },
+        { sno: "4", name: "Power Systems - I", type: "Theory", credits: "3" },
+        { sno: "5", name: "Induction and Synchronous Machines", type: "Theory", credits: "3" },
+        { sno: "6", name: "Control Systems", type: "Theory", credits: "3" },
+        { sno: "7", name: "Induction and Synchronous Machines Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Control Systems Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Python Programming", type: "Lab", credits: "2" }
+      ]
+    },
+    {
+      title: "First Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional English", type: "Theory", credits: "3" },
+        { sno: "2", name: "Calculus and Differential Equations", type: "Theory", credits: "4" },
+        { sno: "3", name: "Engineering Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "5", name: "Programming for Problem Solving (Python)", type: "Lab", credits: "3.5" },
+        { sno: "6", name: "Chemistry Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Workshop Practice", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "First Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Linear Algebra and Transform Calculus", type: "Theory", credits: "3" },
+        { sno: "2", name: "Applied Physics", type: "Theory", credits: "3" },
+        { sno: "3", name: "Basic Electrical Engineering", type: "Theory", credits: "4" },
+        { sno: "4", name: "C Programming and Data Structures", type: "Theory", credits: "3" },
+        { sno: "5", name: "English for Professional Purposes Laboratory", type: "Theory", credits: "1" },
+        { sno: "6", name: "Physics Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Electrical Engineering Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "C Programming and Data Structures Laboratory", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "Second Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Economics and Financial Accounting for Engineers", type: "Theory", credits: "3" },
+        { sno: "2", name: "Numerical Methods", type: "Theory", credits: "3" },
+        { sno: "3", name: "Electrical Circuit Analysis", type: "Theory", credits: "4" },
+        { sno: "4", name: "Analog Electronics", type: "Theory", credits: "3" },
+        { sno: "5", name: "DC Machines and Transformers", type: "Theory", credits: "3" },
+        { sno: "6", name: "Electrical Circuits and Simulation Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Analog Electronics Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "DC Machines and Transformers Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course – I", type: "Skill Oriented Course", credits: "2" },
+        { sno: "10", name: "Indian Constitution", type: "Mandatory Course", credits: "0" }
+      ]
+    },
+    {
+      title: "Second Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Probability And Statistics For Engineers", type: "Theory", credits: "3" },
+        { sno: "2", name: "Electromagnetic Fields", type: "Theory", credits: "3" },
+        { sno: "3", name: "Digital Electronics", type: "Theory", credits: "3" },
+        { sno: "4", name: "Induction and Synchronous Machines", type: "Theory", credits: "3" },
+        { sno: "5", name: "Control Systems", type: "Theory", credits: "3" },
+        { sno: "6", name: "Digital Electronics Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Induction and Synchronous Machines Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Control Systems Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course - II", type: "Skill Oriented Course", credits: "2" },
+        { sno: "10", name: "Environmental Science", type: "Mandatory Course", credits: "0" }
+      ]
+    },
+    {
+      title: "Third Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Power Systems – I", type: "Theory", credits: "3" },
+        { sno: "2", name: "Power Electronics", type: "Theory", credits: "3" },
+        { sno: "3", name: "Micro-controllers and Interfacing", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-I", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-I", type: "Theory", credits: "3" },
+        { sno: "6", name: "Power System – I Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Micro-controllers and Interfacing Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Skill Oriented Course - III", type: "Lab", credits: "2" },
+        { sno: "9", name: "Universal Human Values", type: "Mandatory Course", credits: "0" },
+        { sno: "10", name: "Summer Internship-1*", type: "Theory", credits: "1.5" }
+      ]
+    },
+    {
+      title: "Third Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Measurements and Transducers", type: "Theory", credits: "3" },
+        { sno: "2", name: "Signals and Systems", type: "Theory", credits: "3" },
+        { sno: "3", name: "Power Systems – II (Analysis)", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-II", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-II", type: "Theory", credits: "3" },
+        { sno: "6", name: "Measurements and Transducers Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Power Systems – II Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Power Electronics Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course - IV", type: "Lab", credits: "2" },
+        { sno: "10", name: "Disaster Management", type: "Theory", credits: "0" }
+      ]
+    },
+    {
+      title: "Fourth Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional Elective-III", type: "Theory", credits: "3" },
+        { sno: "2", name: "Professional Elective-IV", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective-V", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-III", type: "Theory", credits: "3" },
+        { sno: "5", name: "Open Elective-IV", type: "Theory", credits: "3" },
+        { sno: "6", name: "Open Elective-V (Taken from Humanities & Social Science)", type: "Theory", credits: "3" },
+        { sno: "7", name: "Skill Oriented Course - V", type: "Lab", credits: "2" },
+        { sno: "8", name: "Summer Internship-2*", type: "Mandatory Course", credits: "3" }
+      ]
+    },
+    {
+      title: "Fourth Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Project Work / Internship", type: "Mandatory Course", credits: "12" }
+      ]
+    }
+  ]
+};
+
 export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subject[] = []): UnderGraduateData {
   const dept = departmentsData[deptKey];
   if (dept && dept.underGraduate) {
@@ -4218,6 +4480,9 @@ export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subjec
   }
   if (deptKey === "ce" || deptKey === "civil" || deptKey === "6") {
     return ceUnderGraduateData;
+  }
+  if (deptKey === "eee" || deptKey === "electrical-electronics-engineering" || deptKey === "electrical-and-electronics-engineering" || deptKey === "ee" || deptKey === "2") {
+    return eeeUnderGraduateData;
   }
 
   const semMap = new Map<number, Subject[]>();
@@ -5102,9 +5367,231 @@ export const ceMoreData: DepartmentMoreData = {
   ]
 };
 
-/**
- * Returns customized "More" section data (Mentor & Mentee, Minor, etc.) for any department.
- */
+export const eeeMoreData: DepartmentMoreData = {
+  subTabs: [
+    { id: "stock-register", label: "Stock Register" },
+    { id: "mentor-mentee", label: "Mentor & Mentee" },
+    { id: "surveys", label: "Surveys" },
+    { id: "obe", label: "OBE" }
+  ],
+  stockRegisterPdfUrl: "https://mits.ac.in/assets/pdf/stock-registers/EEE%20Stock%20Register.pdf",
+  mentorMentee: [
+    {
+      groupTitle: "Academic Year Wise Mentor & Mentee Lists",
+      items: [
+        {
+          title: "Mentor and Mentees 2025-26",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/Mentor%20Mentee%202025-26.pdf",
+          academicYear: "2025-26"
+        },
+        {
+          title: "Mentor and Mentees 2024-25",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/EEE%20Mentor%20Mentee%202024-25.pdf",
+          academicYear: "2024-25"
+        },
+        {
+          title: "Mentor and Mentees 2023-24",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/401b27dcbef50037379294bb75550a1c.pdf",
+          academicYear: "2023-24"
+        },
+        {
+          title: "Mentor and Mentees 2022-23",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/ebd489871342a31286a2092b694bdbbe.pdf",
+          academicYear: "2022-23"
+        },
+        {
+          title: "Mentor and Mentees 2021-22",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/0279c5241ae0f4475d14bfc6a0c14462.pdf",
+          academicYear: "2021-22"
+        },
+        {
+          title: "Mentor and Mentees 2020-21",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/a8a7d201c0a9b2404250e3df76819ad4.pdf",
+          academicYear: "2020-21"
+        },
+        {
+          title: "Mentor and Mentees 2019-20",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/bd0be3316f68455f8ce5ef405c9ad134.pdf",
+          academicYear: "2019-20"
+        },
+        {
+          title: "Mentor and Mentees 2017-18 & 2018-19",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/c424695fa33ca84ef4ac09bf2fd93ff6.pdf",
+          academicYear: "2017-19"
+        }
+      ]
+    }
+  ],
+  surveys: [
+    {
+      title: "Surveys from Stakeholders",
+      links: [
+        {
+          title: "Feedback 2025-26",
+          url: "https://mits.ac.in/public/uploads/surveys/EEE%20survey%202025-26.pdf"
+        },
+        {
+          title: "Feedback 2024-25",
+          url: "https://mits.ac.in/public/uploads/surveys/EEE%20survey%202024-25.pdf"
+        },
+        {
+          title: "Feedback 2023-24",
+          url: "https://mits.ac.in/public/uploads/surveys/2023-24%20Stakeholder.pdf"
+        },
+        {
+          title: "Feedback 2022-23",
+          url: "https://mits.ac.in/public/uploads/surveys/stake%20holders%20feedback%20EEE%202022-23.pdf"
+        },
+        {
+          title: "Feedback 2021-22",
+          url: "https://mits.ac.in/public/uploads/surveys/stake%20holders%20feedback%20EEE%202021-22.pdf"
+        },
+        {
+          title: "Feedback 2020-21",
+          url: "https://mits.ac.in/public/uploads/surveys/stake%20holders%20feedback%20EEE%202020-21.pdf"
+        },
+        {
+          title: "Feedback 2019-20",
+          url: "https://mits.ac.in/public/uploads/surveys/stake%20holders%20feedback%20EEE%202019-20.pdf"
+        },
+        {
+          title: "Feedback 2018-19",
+          url: "https://mits.ac.in/public/uploads/surveys/Stake%20holders%20feedback%202018-19.pdf"
+        },
+        {
+          title: "Feedback 2017-18",
+          url: "https://mits.ac.in/public/uploads/surveys/Stake%20Holders%20feedback%202017-18.pdf"
+        }
+      ]
+    },
+    {
+      title: "Action Taken Report",
+      links: [
+        {
+          title: "Action Taken Report 2025-26",
+          url: "https://mits.ac.in/public/uploads/surveys/2025-26%20ATR.pdf"
+        }
+      ]
+    }
+  ],
+  obe: {
+    title: "Outcome Based Education (OBE)",
+    subTabs: [
+      { id: "pos-psos-peos", label: "PEOs, POs & PSOs" },
+      { id: "remedial-classes", label: "Remedial Class Timetables" },
+      { id: "graduate-exit-survey", label: "Graduate Exit Survey" },
+      { id: "copo-attainment", label: "CO-PO Attainment" }
+    ],
+    posPsosPeosPdfUrl: "https://mits.ac.in/public/uploads/courseattainment/2.%20POs,%20PEOs%20and%20PSOs%20-%20EEE-compressed.pdf",
+    remedialClasses: [
+      {
+        title: "EEE - Remedial Class Timetable for the Academic Year 2025-26",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE%20-%20Remedial%20Class%20Timetable%20for%20the%20Academic%20Year%202025-26-compressed.pdf"
+      },
+      {
+        title: "EEE - Remedial Class Timetable for the Academic Year 2024-25",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE%20-%20Remedial%20Class%20Timetable%20for%20the%20Academic%20Year%202024-25-compressed.pdf"
+      },
+      {
+        title: "EEE - Remedial Class Timetable for the Academic Year 2023-24",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE_Remedial%20Class%20Timetable_AY%202023-24.pdf"
+      },
+      {
+        title: "EEE - Remedial Class Timetable for the Academic Year 2022-23",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE_Remedial%20Class%20Timetable_AY%202022-23.pdf"
+      },
+      {
+        title: "EEE - Remedial Class Timetable for the Academic Year 2021-22",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE_Remedial%20Class%20Timetable_AY%202021-22.pdf"
+      },
+      {
+        title: "EEE - Remedial Class Timetable for the Academic Year 2020-21",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE_Remedial%20Class%20Timetable_AY%202020-21.pdf"
+      },
+      {
+        title: "EEE - Remedial Class Timetable for the Academic Years 2014-20",
+        url: "https://mits.ac.in/assets/pdf/eee/Remedial%20Timetable.pdf"
+      }
+    ],
+    graduateExitSurvey: [
+      {
+        title: "Graduate Exit Survey 2026",
+        url: "https://mits.ac.in/assets/pdf/eee/Graduate%20Survey%202026.pdf"
+      },
+      {
+        title: "Graduate Exit Survey 2025",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE%20Graduate%20Exit%20Survey%202025.pdf"
+      },
+      {
+        title: "Graduate Exit Survey 2024",
+        url: "https://mits.ac.in/assets/pdf/eee/Graduate%202024.pdf"
+      },
+      {
+        title: "Graduate Exit Survey 2023",
+        url: "https://mits.ac.in/assets/pdf/eee/Graduate%202023.pdf"
+      },
+      {
+        title: "Graduate Exit Survey 2022",
+        url: "https://mits.ac.in/assets/pdf/eee/Graduate%20exit%20survey%202022.pdf"
+      },
+      {
+        title: "Graduate Exit Survey 2021",
+        url: "https://mits.ac.in/assets/pdf/eee/Graduate%20exit%20survey%202021.pdf"
+      },
+      {
+        title: "Graduate Exit Survey 2020",
+        url: "https://mits.ac.in/assets/pdf/eee/Graduate%20exit%20survey%202020.pdf"
+      },
+      {
+        title: "Graduate Exit Survey 2019",
+        url: "https://mits.ac.in/assets/pdf/eee/Graduate%20exit%20survey%202019.pdf"
+      },
+      {
+        title: "Graduate Exit Survey 2018",
+        url: "https://mits.ac.in/assets/pdf/eee/Graduate%20Exit%20Survey%202018.pdf"
+      },
+      {
+        title: "Graduate Exit Survey 2017",
+        url: "https://mits.ac.in/assets/pdf/eee/Graduate%20Exit%20Survey%202017.pdf"
+      }
+    ],
+    copoAttainment: [
+      {
+        title: "CO-PO Attainment 2021-25 Batch",
+        url: "https://mits.ac.in/assets/pdf/eee/CO-PO%20Attainment%202021-25%20Batch.pdf"
+      },
+      {
+        title: "CO-PO Attainment 2020-24 Batch",
+        url: "https://mits.ac.in/assets/pdf/eee/CO-PO%20Attainment%202020-24%20Batch.pdf"
+      },
+      {
+        title: "CO-PO Attainment 2019-23 Batch",
+        url: "https://mits.ac.in/assets/pdf/eee/CO-PO%20Attainment%202019-23%20Batch.pdf"
+      },
+      {
+        title: "CO-PO Attainment 2018-22 Batch",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE%202018-22%20Batch%20CO-PO%20attainment.pdf"
+      },
+      {
+        title: "CO-PO Attainment 2017-21 Batch",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE%202017-21%20Batch%20CO-PO%20attainment.pdf"
+      },
+      {
+        title: "CO-PO Attainment 2016-20 Batch",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE%202016%20-%2020%20Batch%20CO-PO%20attainment.pdf"
+      },
+      {
+        title: "CO-PO Attainment 2015-19 Batch",
+        url: "https://mits.ac.in/assets/pdf/eee/CO-PO-2015-19.pdf"
+      },
+      {
+        title: "CO-PO Attainment 2014-18 Batch",
+        url: "https://mits.ac.in/assets/pdf/eee/CO-PO-2014-18.pdf"
+      }
+    ]
+  }
+};
+
 export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   const dept = departmentsData[deptKey];
   if (dept && dept.more) {
@@ -5118,6 +5605,9 @@ export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   }
   if (deptKey === "ce" || deptKey === "civil" || deptKey === "6") {
     return ceMoreData;
+  }
+  if (deptKey === "eee" || deptKey === "electrical-electronics-engineering" || deptKey === "electrical-and-electronics-engineering" || deptKey === "ee" || deptKey === "2") {
+    return eeeMoreData;
   }
   if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
     return aimlMoreData;
@@ -5952,9 +6442,339 @@ export const ceTopTabs: DepartmentTopTab[] = [
   }
 ];
 
-/**
- * Returns top tabs data (Department, BoS, IAAB, Magazine, etc.) for any department.
- */
+export const eeeTopTabs: DepartmentTopTab[] = [
+  {
+    id: "department",
+    label: "Department"
+  },
+  {
+    id: "faculty-list",
+    label: "Faculty List",
+    title: "Faculty List",
+    documents: [
+      {
+        title: "Faculty List for the Academic Year 2024-25",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE%20Faculty%20List%20AY%202024-25.pdf"
+      },
+      {
+        title: "Faculty List for the Academic Year 2023-24",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE%20Faculty%20List%20AY%202023-24.pdf"
+      },
+      {
+        title: "Faculty List for the Academic Year 2022-23",
+        url: "https://mits.ac.in/assets/pdf/eee/EEE%20Faculty%20List%20AY%202022-23.pdf"
+      }
+    ]
+  },
+  {
+    id: "bos",
+    label: "BoS",
+    title: "Board of Studies",
+    description: "Department’s Board of Studies (BoS) is a statutory body which is primarily responsible for compiling the curriculum for all the courses offered by the Department and for regularly revising the syllabi for keeping it up to date with the changing trends. The Board of Studies (BoS) meeting is conducted every year and the agenda of the meeting focuses on the following points.",
+    points: [
+      "Prepare syllabi for various courses keeping in view the Mission & Vision of the Department, interest of the stakeholders, industry and national requirement for consideration.",
+      "Different methodologies for innovative teaching and evaluation techniques.",
+      "Coordinate research, teaching and other academic activities in the department."
+    ],
+    members: [
+      {
+        sno: "1",
+        name: "Prof. Dr. P. S. Nagendra Rao",
+        composition: "Expert in subject nominated by academic council",
+        designation: "Professor, Dept of Electrical Engineering, IISc, Bangalore (Retd), IIT Dharwad (Visiting Professor)"
+      },
+      {
+        sno: "2",
+        name: "Dr. K. Siva Kumar",
+        composition: "Expert in subject nominated by academic council",
+        designation: "Professor, Dept. of EE, IIT - Hyd"
+      },
+      {
+        sno: "3",
+        name: "Dr. R. Kiranmayi",
+        composition: "Expert nominated by the Vice-Chancellor",
+        designation: "Director, Foreign Affairs & Alumni Matters and Professor, EEE Department, JNTUA CEA"
+      },
+      {
+        sno: "4",
+        name: "Dr. Balakrishna P",
+        composition: "Expert from Industry.",
+        designation: "Senior Engineer - Emerging Technologies, GE Grid Solutions, Hyderabad, T.S."
+      },
+      {
+        sno: "5",
+        name: "Ms. B. R. Sushma",
+        composition: "Member-Meritorious Alumnus",
+        designation: "Scientist, DRDO, Bangalore."
+      }
+    ],
+    documents: [
+      {
+        title: "BoS DTBU 2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/731c6de00e50600f614706ca4d6c740a.pdf"
+      },
+      {
+        title: "BoS 2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/995645838ce4a60d761c4a4c41b31439.pdf"
+      },
+      {
+        title: "BoS 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/4a25f001eaec2b41f0fc56d2d64b01c9.pdf"
+      },
+      {
+        title: "BoS 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/1b9743c7eaa3e95b4cd060da7c9fbeaa.pdf"
+      },
+      {
+        title: "BoS 2023-24 (R23 Regulation)",
+        url: "https://mits.ac.in/public/uploads/departments/ac9db5d30535286a039f327795c840b2.pdf"
+      },
+      {
+        title: "BoS 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/a28c5ea54db0faf41d60e32bea857ddc.pdf"
+      },
+      {
+        title: "BoS 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/c931672fec6d0f112fb051bdfd2a2fe4.pdf"
+      },
+      {
+        title: "BoS 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/a21d97dc807d35dc1058c8ea31b02b35.pdf"
+      },
+      {
+        title: "BoS 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/34028d4539fbcf8a629cc4205face2b7.pdf"
+      },
+      {
+        title: "BoS 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/4cbb046df53d3e0cf58fbe79703cd96d.pdf"
+      },
+      {
+        title: "BoS 2017-18",
+        url: "https://mits.ac.in/public/uploads/departments/c69a8c4c059d03bca6eebda3d1f5cf30.pdf"
+      },
+      {
+        title: "BoS 2016-17",
+        url: "https://mits.ac.in/public/uploads/departments/785f513f750031e8b548cc592a98c020.pdf"
+      },
+      {
+        title: "BoS 2015-16",
+        url: "https://mits.ac.in/public/uploads/departments/aaedb95985294a69836b3801889a3bda.pdf"
+      },
+      {
+        title: "BoS 2014-15",
+        url: "https://mits.ac.in/public/uploads/departments/b1b3eba43bab42024b291f0aee156a6e.pdf"
+      }
+    ]
+  },
+  {
+    id: "iaab",
+    label: "IAAB",
+    title: "Industry Alumni Advisory Board",
+    description: "Industry Alumni Advisory Board (IAAB) is constituted with industry experts and alumni of the department. IAAB meeting is held in every year and the following points are discussed during the meeting.",
+    points: [
+      "Various aspects to fill the gaps in the curriculum to meet industrial expectations.",
+      "Different methodologies for innovative teaching and learning to improve employability skills.",
+      "Suggest to promote industry internship and project based learning activities to bridge the gap between theory and practical knowledge."
+    ],
+    members: [
+      {
+        sno: "1",
+        name: "Mr. Vishnu Charan Thippana",
+        designation: "Deputy General Manager, TATA Projects, Hyderabad"
+      },
+      {
+        sno: "2",
+        name: "Dr. Vinay Kumar T",
+        designation: "Assistant Professor Gr-I, Department of Electrical Engineering, National Institute of Technology, Warangal, T. S."
+      }
+    ],
+    documents: [
+      {
+        title: "IAAB 2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/a5881c4bf65c0c1b0f53228bd1ef3e7d.pdf"
+      },
+      {
+        title: "IAAB 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/d97989abc0a5294a42357bfb39585f87.pdf"
+      },
+      {
+        title: "IAAB 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/a1ee151669594bb22da1319f2b2bbe47.pdf"
+      },
+      {
+        title: "IAAB 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/0cd4f05d5f8bf8838555ee82d3227ab1.pdf"
+      },
+      {
+        title: "IAAB 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/34acb085b3ada1e954f4b66b048f3bb6.pdf"
+      },
+      {
+        title: "IAAB 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/be4a18da761d2727dd9db341d3e626b2.pdf"
+      },
+      {
+        title: "IAAB 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/984d560e713f2ea3557cd8159da27acd.pdf"
+      },
+      {
+        title: "IAAB 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/535b1f5e32c0a97397b923a30ff8c419.pdf"
+      },
+      {
+        title: "IAAB 2017-18",
+        url: "https://mits.ac.in/public/uploads/departments/a11da7c423089fc25e8b542e72d80dfc.pdf"
+      },
+      {
+        title: "IAAB 2016-17",
+        url: "https://mits.ac.in/public/uploads/departments/88fefe2ea0157d7e09139cf7ae3a1b88.pdf"
+      },
+      {
+        title: "IAAB 2015-16",
+        url: "https://mits.ac.in/public/uploads/departments/21de38fd8fcc632e2e33b1988c8e160c.pdf"
+      },
+      {
+        title: "IAAB 2014-15",
+        url: "https://mits.ac.in/public/uploads/departments/7a0aa987b1e61c6b6623385abde7e618.pdf"
+      }
+    ]
+  },
+  {
+    id: "pac",
+    label: "PAC",
+    title: "PAC",
+    documents: [
+      {
+        title: "PAC 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/3864c5980a1139e71dab37c19cce41d1.pdf"
+      },
+      {
+        title: "PAC 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/8d191204b9cd9660e2547ed219b38b6e.pdf"
+      },
+      {
+        title: "PAC 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/23a227cb9da0011aa0778afd74c9d6b2.pdf"
+      },
+      {
+        title: "PAC 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/15a45ac97a940567a77b32e368901df0.pdf"
+      },
+      {
+        title: "PAC 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/c7fffa57f37e6f860e632ef9b0e13f03.pdf"
+      },
+      {
+        title: "PAC 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/1385034918639d60f85eb0faa4bf8c03.pdf"
+      },
+      {
+        title: "PAC 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/c4151ab59d4a74723e5d4086422a757e.pdf"
+      },
+      {
+        title: "PAC 2017-18",
+        url: "https://mits.ac.in/public/uploads/departments/07b29ab1cc0d2731c28dad3e46f2feca.pdf"
+      },
+      {
+        title: "PAC 2016-17",
+        url: "https://mits.ac.in/public/uploads/departments/9086415ed35966cd487d24ee858f889e.pdf"
+      },
+      {
+        title: "PAC 2015-16",
+        url: "https://mits.ac.in/public/uploads/departments/0cebf0f467447a2235fd8cf1160883db.pdf"
+      }
+    ]
+  },
+  {
+    id: "dab",
+    label: "DAB",
+    title: "DAB",
+    documents: [
+      {
+        title: "DAB 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/4db64137c0ac43cea7dc96df560df7cc.pdf"
+      },
+      {
+        title: "DAB 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/fa59016818005b227b5f8e2ad5de7a5d.pdf"
+      },
+      {
+        title: "DAB 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/ff8c5a166131376f343db29fd9321c70.pdf"
+      },
+      {
+        title: "DAB 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/f27f74c298bff7de05fdac8176fea447.pdf"
+      },
+      {
+        title: "DAB 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/1d6d771ad0448a6a878acef68bcaf699.pdf"
+      },
+      {
+        title: "DAB 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/1ae5bf8f2b8d010a6d6899f2c088dddc.pdf"
+      },
+      {
+        title: "DAB 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/45683adf375ba77f91f3bd27640755ce.pdf"
+      },
+      {
+        title: "DAB 2017-18",
+        url: "https://mits.ac.in/public/uploads/departments/ad538c33ba681a608338059d9e2ff183.pdf"
+      },
+      {
+        title: "DAB 2016-17",
+        url: "https://mits.ac.in/public/uploads/departments/51dc3f0440af95174ef68e2e207cfff0.pdf"
+      }
+    ]
+  },
+  {
+    id: "newsletter",
+    label: "News Letters",
+    title: "News Letters",
+    documents: [
+      {
+        title: "News Letter 2024",
+        url: "https://mits.ac.in/public/uploads/departments/a1b978fa72c7aa97631874c4e854b978.pdf"
+      },
+      {
+        title: "News Letter 2023",
+        url: "https://mits.ac.in/public/uploads/departments/aa969f147b80763f2b295a87f6f9e041.pdf"
+      },
+      {
+        title: "News Letter 2022",
+        url: "https://mits.ac.in/public/uploads/departments/3d2b9ff688980b5b92f49d7620b6f597.pdf"
+      },
+      {
+        title: "News Letter 2021",
+        url: "https://mits.ac.in/public/uploads/departments/9f7a03c4ae68283581ef4b33bc34f6dc.pdf"
+      },
+      {
+        title: "News Letter 2020",
+        url: "https://mits.ac.in/public/uploads/departments/eae123f1b4e16c4e788bac6f7a73104a.pdf"
+      },
+      {
+        title: "News Letter 2019",
+        url: "https://mits.ac.in/public/uploads/departments/306fa41079a6407a34b6481ca253c969.pdf"
+      },
+      {
+        title: "News Letter 2018",
+        url: "https://mits.ac.in/public/uploads/departments/30e7eca71158f2b2f4142860ab83d7e9.pdf"
+      },
+      {
+        title: "News Letter 2017",
+        url: "https://mits.ac.in/public/uploads/departments/aa0a805ea155f595bf8803a106aeb7bb.pdf"
+      },
+      {
+        title: "News Letter 2016",
+        url: "https://mits.ac.in/public/uploads/departments/5fbb833b962b8853ec5cdd25ce1800f4.pdf"
+      }
+    ]
+  }
+];
+
 export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | undefined {
   const dept = departmentsData[deptKey];
   if (dept && dept.topTabs && dept.topTabs.length > 0) {
@@ -5962,6 +6782,9 @@ export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | unde
   }
   if (deptKey === "ce" || deptKey === "civil" || deptKey === "6") {
     return ceTopTabs;
+  }
+  if (deptKey === "eee" || deptKey === "electrical-electronics-engineering" || deptKey === "electrical-and-electronics-engineering" || deptKey === "ee" || deptKey === "2") {
+    return eeeTopTabs;
   }
   if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
     return csedsTopTabs;

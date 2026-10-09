@@ -211,6 +211,104 @@ const DepartmentPage = () => {
     }
     if (location.hash) {
       const hash = location.hash.replace('#', '');
+      if (hash === "tab-1" || hash === "sub-tab-1") {
+        setActiveSection("about");
+        setActiveTopTab("department");
+        return;
+      }
+      if (hash === "sub-tab-264" || hash === "faculty-list") {
+        setActiveSection("about");
+        setActiveTopTab("faculty-list");
+        return;
+      }
+      if (hash === "sub-tab-29" || hash === "bos" || hash === "board-of-studies") {
+        setActiveSection("about");
+        setActiveTopTab("bos");
+        return;
+      }
+      if (hash === "sub-tab-211" || hash === "iaab") {
+        setActiveSection("about");
+        setActiveTopTab("iaab");
+        return;
+      }
+      if (hash === "sub-tab-212" || hash === "pac") {
+        setActiveSection("about");
+        setActiveTopTab("pac");
+        return;
+      }
+      if (hash === "sub-tab-213" || hash === "dab") {
+        setActiveSection("about");
+        setActiveTopTab("dab");
+        return;
+      }
+      if (hash === "sub-tab-237" || hash === "newsletter" || hash === "news-letters") {
+        setActiveSection("about");
+        setActiveTopTab("newsletter");
+        return;
+      }
+      if (hash === "tab-2") {
+        setActiveSection("under-graduate");
+        setActiveUgTab("ug");
+        setUgDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab-3") {
+        setActiveSection("faculty");
+        return;
+      }
+      if (hash === "tab-14") {
+        setActiveSection("events");
+        return;
+      }
+      if (hash === "tab-8") {
+        setActiveSection("achievements");
+        return;
+      }
+      if (hash === "tab-9") {
+        setActiveSection("publications");
+        return;
+      }
+      if (hash === "tab57") {
+        setActiveSection("consultancy");
+        return;
+      }
+      if (hash === "tab72") {
+        setActiveSection("more");
+        setActiveMoreTab("mentor-mentee");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab88" || hash === "tab31" || hash === "surveys") {
+        setActiveSection("more");
+        setActiveMoreTab("surveys");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab113" || hash === "timetable" || hash === "time-table" || hash === "ug-tab60") {
+        setActiveSection("under-graduate");
+        setActiveUgTab("timetable");
+        setUgDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab137") {
+        setActiveSection("projects");
+        return;
+      }
+      if (hash === "tab-15") {
+        setActiveSection("placement");
+        return;
+      }
+      if (hash === "tab-17") {
+        setActiveSection("facilities");
+        return;
+      }
+      if (hash === "tab-19" || hash === "obe") {
+        setActiveSection("more");
+        setActiveMoreTab("obe");
+        setMoreDropdownOpen(true);
+        setObeDropdownOpen(true);
+        return;
+      }
       if (hash === "tab150" || hash === "civil-engineering-notes" || hash === "notes") {
         setActiveSection("more");
         setActiveMoreTab("civil-engineering-notes");
@@ -229,10 +327,43 @@ const DepartmentPage = () => {
         setMoreDropdownOpen(true);
         return;
       }
-      if (hash === "tab31" || hash === "surveys") {
+      if (hash === "event-tab10" || hash === "pos-psos-peos" || hash === "peos") {
         setActiveSection("more");
-        setActiveMoreTab("surveys");
+        setActiveMoreTab("obe");
+        setActiveObeSubTab("pos-psos-peos");
         setMoreDropdownOpen(true);
+        setObeDropdownOpen(true);
+        return;
+      }
+      if (hash === "event-tab11" || hash === "remedial-classes" || hash === "remedial") {
+        setActiveSection("more");
+        setActiveMoreTab("obe");
+        setActiveObeSubTab("remedial-classes");
+        setMoreDropdownOpen(true);
+        setObeDropdownOpen(true);
+        return;
+      }
+      if (hash === "event-tab12" || hash === "graduate-exit-survey" || hash === "exit-survey") {
+        setActiveSection("more");
+        setActiveMoreTab("obe");
+        setActiveObeSubTab("graduate-exit-survey");
+        setMoreDropdownOpen(true);
+        setObeDropdownOpen(true);
+        return;
+      }
+      if (hash === "event-tab13" || hash === "event-tab14" || hash === "copo-attainment" || hash === "copo") {
+        setActiveSection("more");
+        setActiveMoreTab("obe");
+        setActiveObeSubTab("copo-attainment");
+        setMoreDropdownOpen(true);
+        setObeDropdownOpen(true);
+        return;
+      }
+      if (hash === "obe") {
+        setActiveSection("more");
+        setActiveMoreTab("obe");
+        setMoreDropdownOpen(true);
+        setObeDropdownOpen(true);
         return;
       }
       if (hash === "tab-7" || hash === "tab7" || hash === "lab") {
@@ -432,10 +563,10 @@ const DepartmentPage = () => {
       setActiveMoreTab("obe");
       setMoreDropdownOpen(true);
       setObeDropdownOpen(true);
-      if (lastPart === "pos-psos-peos" || lastPart === "surveys" || lastPart === "remedial-classes" || lastPart === "copo-attainment") {
+      if (lastPart === "pos-psos-peos" || lastPart === "surveys" || lastPart === "remedial-classes" || lastPart === "graduate-exit-survey" || lastPart === "copo-attainment") {
         setActiveObeSubTab(lastPart);
       }
-    } else if (lastPart === "pos-psos-peos" || lastPart === "remedial-classes" || lastPart === "copo-attainment") {
+    } else if (lastPart === "pos-psos-peos" || lastPart === "remedial-classes" || lastPart === "graduate-exit-survey" || lastPart === "copo-attainment") {
       setActiveSection("more");
       setActiveMoreTab("obe");
       setActiveObeSubTab(lastPart);
@@ -461,6 +592,8 @@ const DepartmentPage = () => {
         setActiveMoreTab("surveys");
       } else if (deptKey === "ce" || deptKey === "civil" || deptKey === "6") {
         setActiveMoreTab("civil-engineering-notes");
+      } else if (deptKey === "eee" || deptKey === "electrical-electronics-engineering" || deptKey === "electrical-and-electronics-engineering" || deptKey === "ee" || deptKey === "2") {
+        setActiveMoreTab("stock-register");
       }
       setMoreDropdownOpen(true);
     } else if (lastPart === "faculty-list") {
@@ -1399,7 +1532,54 @@ const DepartmentPage = () => {
                                 </p>
                               )}
 
-                              <div className="space-y-3 pl-1">
+                              {currentTab.points && currentTab.points.length > 0 && (
+                                <div className="space-y-2.5 my-3 pl-1">
+                                  {currentTab.points.map((pt, pIdx) => (
+                                    <div key={pIdx} className="flex items-start gap-3 text-sm text-secondary">
+                                      <span className="w-5 h-5 rounded-full bg-primary/10 text-primary font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                                        {pIdx + 1}
+                                      </span>
+                                      <span className="leading-relaxed">{pt}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+
+                              {currentTab.members && currentTab.members.length > 0 && (
+                                <div className="space-y-3 my-5">
+                                  <h4 className="font-semibold text-sm sm:text-base text-secondary">
+                                    The external members of the current department {currentTab.label} are:
+                                  </h4>
+                                  <div className="overflow-x-auto rounded-lg border border-border bg-card shadow-xs">
+                                    <table className="w-full text-sm border-collapse text-left">
+                                      <thead>
+                                        <tr className="border-b border-border bg-muted/40 text-secondary font-bold divide-x divide-border">
+                                          <th className="py-3 px-3 text-center w-16">S.No</th>
+                                          <th className="py-3 px-4">{currentTab.id === "iaab" ? "Name of the Expert" : "Name of the member"}</th>
+                                          {currentTab.members.some(m => m.composition) && (
+                                            <th className="py-3 px-4">Composition as per UGC Autonomous Guidelines</th>
+                                          )}
+                                          <th className="py-3 px-4">{currentTab.id === "iaab" ? "Affiliation" : "Designation & Address"}</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-border">
+                                        {currentTab.members.map((member, mIdx) => (
+                                          <tr key={mIdx} className="divide-x divide-border hover:bg-muted/10 transition-colors">
+                                            <td className="py-3 px-3 text-center font-medium text-secondary">{member.sno}</td>
+                                            <td className="py-3 px-4 font-semibold text-secondary">{member.name}</td>
+                                            {currentTab.members.some(m => m.composition) && (
+                                              <td className="py-3 px-4 text-muted-foreground">{member.composition || "-"}</td>
+                                            )}
+                                            <td className="py-3 px-4 text-secondary">{member.designation}</td>
+                                          </tr>
+                                        ))}
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              )}
+
+                              <div className="space-y-3 pl-1 pt-2">
                                 {currentTab.documents.map((doc, dIdx) => (
                                   <a
                                     key={dIdx}
@@ -2967,32 +3147,39 @@ const DepartmentPage = () => {
                   </div>
                 ) : activeMoreTab === "stock-register" ? (
                   <div className="space-y-6">
-                    <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
-                      <div className="p-4 sm:p-6 bg-muted/20 border-b border-border/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <div>
-                          <h3 className="text-xl font-bold text-secondary">Department Stock Register</h3>
-                          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
-                            Equipment, instruments, and laboratory inventory register records
-                          </p>
-                        </div>
-                        <a
-                          href="https://mits.ac.in/assets/pdf/stock-registers/Civil%20Stock%20Register.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm shadow-xs transition-colors shrink-0 self-start sm:self-center"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          <span>Open Full Document</span>
-                        </a>
-                      </div>
-                      <div className="p-4 sm:p-6">
-                        <iframe
-                          src="https://mits.ac.in/assets/pdf/stock-registers/Civil%20Stock%20Register.pdf"
-                          title="Department Stock Register"
-                          className="w-full h-[750px] rounded-lg border border-border shadow-xs"
-                        />
-                      </div>
-                    </Card>
+                    {(() => {
+                      const stockPdf = moreData.stockRegisterPdfUrl || (deptKey === "ce" || deptKey === "civil" || deptKey === "6"
+                        ? "https://mits.ac.in/assets/pdf/stock-registers/Civil%20Stock%20Register.pdf"
+                        : "https://mits.ac.in/assets/pdf/stock-registers/EEE%20Stock%20Register.pdf");
+                      return (
+                        <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
+                          <div className="p-4 sm:p-6 bg-muted/20 border-b border-border/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div>
+                              <h3 className="text-xl font-bold text-secondary">Department Stock Register</h3>
+                              <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                                Equipment, instruments, and laboratory inventory register records
+                              </p>
+                            </div>
+                            <a
+                              href={stockPdf}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm shadow-xs transition-colors shrink-0 self-start sm:self-center"
+                            >
+                              <ExternalLink className="w-4 h-4" />
+                              <span>Open Full Document</span>
+                            </a>
+                          </div>
+                          <div className="p-4 sm:p-6">
+                            <iframe
+                              src={stockPdf}
+                              title="Department Stock Register"
+                              className="w-full h-[750px] rounded-lg border border-border shadow-xs"
+                            />
+                          </div>
+                        </Card>
+                      );
+                    })()}
                   </div>
                 ) : activeMoreTab === "mentor-mentee" ? (
                   <div className="space-y-6">
@@ -3354,10 +3541,10 @@ const DepartmentPage = () => {
                       <div className="space-y-8">
                         <div className="border-b border-border/60 pb-4">
                           <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
-                            Surveys from Stakeholders
+                            Surveys
                           </h3>
                           <p className="text-xs sm:text-sm text-muted-foreground mt-1">
-                            Feedback surveys collected across students, parents, faculty, and stakeholders
+                            Feedback surveys and Action Taken Reports from stakeholders
                           </p>
                         </div>
 
@@ -3403,12 +3590,12 @@ const DepartmentPage = () => {
                   <div className="space-y-6">
                     {/* OBE Top Tabs Switcher - matches screenshot exactly */}
                     <div className="flex flex-wrap items-center gap-2.5 mb-6">
-                      {[
+                      {(moreData.obe?.subTabs || [
                         { id: "pos-psos-peos", label: "POs, PSOs & PEOs" },
                         { id: "surveys", label: "Surveys" },
                         { id: "remedial-classes", label: "Remedial Classes" },
                         { id: "copo-attainment", label: "CO-PO Attainment" }
-                      ].map((tab) => {
+                      ]).map((tab) => {
                         const isActive = activeObeSubTab === tab.id;
                         return (
                           <button
@@ -3431,14 +3618,45 @@ const DepartmentPage = () => {
 
                     {/* Content Section based on activeObeSubTab */}
                     {activeObeSubTab === "pos-psos-peos" ? (
-                      <div className="w-full flex justify-center bg-card rounded-xl border border-border/80 p-2 sm:p-4 shadow-xs overflow-hidden">
-                        <img
-                          src={moreData.obe?.posPsosPeosImage || "https://mits.ac.in/public/uploads/event/pso-po-peo.jpg"}
-                          alt="POs, PSOs & PEOs"
-                          className="w-full h-auto object-contain block max-w-5xl rounded-lg"
-                          loading="lazy"
-                        />
-                      </div>
+                      moreData.obe?.posPsosPeosPdfUrl ? (
+                        <div className="space-y-6">
+                          <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
+                            <div className="p-4 sm:p-6 bg-muted/20 border-b border-border/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                              <div>
+                                <h3 className="text-xl font-bold text-secondary">PEOs, POs & PSOs</h3>
+                                <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                                  Program Educational Objectives, Program Outcomes and Program Specific Outcomes
+                                </p>
+                              </div>
+                              <a
+                                href={moreData.obe.posPsosPeosPdfUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm shadow-xs transition-colors shrink-0 self-start sm:self-center"
+                              >
+                                <ExternalLink className="w-4 h-4" />
+                                <span>Open Full Document</span>
+                              </a>
+                            </div>
+                            <div className="p-4 sm:p-6">
+                              <iframe
+                                src={moreData.obe.posPsosPeosPdfUrl}
+                                title="PEOs, POs & PSOs"
+                                className="w-full h-[750px] rounded-lg border border-border shadow-xs"
+                              />
+                            </div>
+                          </Card>
+                        </div>
+                      ) : (
+                        <div className="w-full flex justify-center bg-card rounded-xl border border-border/80 p-2 sm:p-4 shadow-xs overflow-hidden">
+                          <img
+                            src={moreData.obe?.posPsosPeosImage || "https://mits.ac.in/public/uploads/event/pso-po-peo.jpg"}
+                            alt="POs, PSOs & PEOs"
+                            className="w-full h-auto object-contain block max-w-5xl rounded-lg"
+                            loading="lazy"
+                          />
+                        </div>
+                      )
                     ) : activeObeSubTab === "surveys" ? (
                       <div className="space-y-6">
                         <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
@@ -3514,6 +3732,46 @@ const DepartmentPage = () => {
                                     </span>
                                   </div>
                                   <Download className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 ml-2 transition-transform group-hover:translate-y-0.5" />
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </Card>
+                      </div>
+                    ) : activeObeSubTab === "graduate-exit-survey" ? (
+                      <div className="space-y-6">
+                        <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                          <div className="space-y-6">
+                            <div className="border-b border-border/60 pb-4">
+                              <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                                Graduate Exit Survey
+                              </h3>
+                              <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                                Graduate exit survey feedback analysis reports across graduating batches
+                              </p>
+                            </div>
+
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                              {moreData.obe?.graduateExitSurvey?.map((item, gIdx) => (
+                                <a
+                                  key={gIdx}
+                                  href={item.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="group flex flex-col justify-between p-5 rounded-xl border border-border/70 bg-muted/20 hover:bg-primary/5 hover:border-primary/40 transition-all text-secondary hover:text-primary shadow-2xs"
+                                >
+                                  <div className="space-y-2">
+                                    <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                      <FileText className="w-5 h-5" />
+                                    </div>
+                                    <h4 className="font-bold text-sm sm:text-base text-secondary group-hover:text-primary pt-2">
+                                      {item.title}
+                                    </h4>
+                                  </div>
+                                  <div className="flex items-center gap-1.5 text-xs text-primary font-semibold mt-4 pt-3 border-t border-border/50">
+                                    <span>View Analysis Report</span>
+                                    <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                                  </div>
                                 </a>
                               ))}
                             </div>
