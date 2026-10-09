@@ -234,6 +234,22 @@ const DepartmentPage = () => {
       setActiveSection("more");
       setActiveMoreTab("lab");
       setMoreDropdownOpen(true);
+    } else if (lastPart === "civil-engineering-notes" || lastPart === "notes") {
+      setActiveSection("more");
+      setActiveMoreTab("civil-engineering-notes");
+      setMoreDropdownOpen(true);
+    } else if (lastPart === "course-attainment") {
+      setActiveSection("more");
+      setActiveMoreTab("course-attainment");
+      setMoreDropdownOpen(true);
+    } else if (lastPart === "stock-register") {
+      setActiveSection("more");
+      setActiveMoreTab("stock-register");
+      setMoreDropdownOpen(true);
+    } else if (lastPart === "alumni") {
+      setActiveSection("more");
+      setActiveMoreTab("alumni");
+      setMoreDropdownOpen(true);
     } else if (lastPart === "mentor-mentee" || lastPart === "mentor-and-mentee" || lastPart === "mentee") {
       setActiveSection("more");
       setActiveMoreTab("mentor-mentee");
@@ -270,12 +286,22 @@ const DepartmentPage = () => {
       if (lastPart === "pos-psos-peos" || lastPart === "surveys" || lastPart === "remedial-classes" || lastPart === "copo-attainment") {
         setActiveObeSubTab(lastPart);
       }
-    } else if (lastPart === "pos-psos-peos" || lastPart === "surveys" || lastPart === "remedial-classes" || lastPart === "copo-attainment") {
+    } else if (lastPart === "pos-psos-peos" || lastPart === "remedial-classes" || lastPart === "copo-attainment") {
       setActiveSection("more");
       setActiveMoreTab("obe");
       setActiveObeSubTab(lastPart);
       setMoreDropdownOpen(true);
       setObeDropdownOpen(true);
+    } else if (lastPart === "surveys") {
+      setActiveSection("more");
+      if (deptKey === "cse") {
+        setActiveMoreTab("obe");
+        setActiveObeSubTab("surveys");
+        setObeDropdownOpen(true);
+      } else {
+        setActiveMoreTab("surveys");
+      }
+      setMoreDropdownOpen(true);
     } else if (lastPart === "more") {
       setActiveSection("more");
       if (deptKey === "cse") {
@@ -284,11 +310,25 @@ const DepartmentPage = () => {
         setActiveMoreTab("lab");
       } else if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
         setActiveMoreTab("surveys");
+      } else if (deptKey === "ce" || deptKey === "civil") {
+        setActiveMoreTab("lab");
       }
       setMoreDropdownOpen(true);
+    } else if (lastPart === "faculty-list") {
+      setActiveSection("about");
+      setActiveTopTab("faculty-list");
     } else if (lastPart === "bos" || lastPart === "board-of-studies") {
       setActiveSection("about");
       setActiveTopTab("bos");
+    } else if (lastPart === "dab") {
+      setActiveSection("about");
+      setActiveTopTab("dab");
+    } else if (lastPart === "pac") {
+      setActiveSection("about");
+      setActiveTopTab("pac");
+    } else if (lastPart === "newsletter") {
+      setActiveSection("about");
+      setActiveTopTab("newsletter");
     } else if (lastPart === "iaab") {
       setActiveSection("about");
       setActiveTopTab("iaab");
@@ -351,9 +391,37 @@ const DepartmentPage = () => {
       } else if (hash === "more") {
         setActiveSection("more");
         setMoreDropdownOpen(true);
+      } else if (hash === "civil-engineering-notes" || hash === "notes") {
+        setActiveSection("more");
+        setActiveMoreTab("civil-engineering-notes");
+        setMoreDropdownOpen(true);
+      } else if (hash === "course-attainment") {
+        setActiveSection("more");
+        setActiveMoreTab("course-attainment");
+        setMoreDropdownOpen(true);
+      } else if (hash === "stock-register") {
+        setActiveSection("more");
+        setActiveMoreTab("stock-register");
+        setMoreDropdownOpen(true);
+      } else if (hash === "alumni") {
+        setActiveSection("more");
+        setActiveMoreTab("alumni");
+        setMoreDropdownOpen(true);
+      } else if (hash === "faculty-list") {
+        setActiveSection("about");
+        setActiveTopTab("faculty-list");
       } else if (hash === "bos" || hash === "board-of-studies") {
         setActiveSection("about");
         setActiveTopTab("bos");
+      } else if (hash === "dab") {
+        setActiveSection("about");
+        setActiveTopTab("dab");
+      } else if (hash === "pac") {
+        setActiveSection("about");
+        setActiveTopTab("pac");
+      } else if (hash === "newsletter") {
+        setActiveSection("about");
+        setActiveTopTab("newsletter");
       } else if (hash === "iaab") {
         setActiveSection("about");
         setActiveTopTab("iaab");
@@ -2532,6 +2600,12 @@ const DepartmentPage = () => {
                     <Layers className="w-7 h-7 text-primary" />
                     {activeMoreTab === "lab" ? (
                       <span>Department <span className="text-primary">Lab</span></span>
+                    ) : activeMoreTab === "civil-engineering-notes" ? (
+                      <span>Civil Engineering <span className="text-primary">Notes</span></span>
+                    ) : activeMoreTab === "course-attainment" ? (
+                      <span>Course <span className="text-primary">Attainment</span></span>
+                    ) : activeMoreTab === "alumni" ? (
+                      <span>Alumni <span className="text-primary">Guest Lectures & Interaction</span></span>
                     ) : activeMoreTab === "stock-register" ? (
                       <span>Stock <span className="text-primary">Register</span></span>
                     ) : activeMoreTab === "student-innovative-projects" ? (
@@ -2594,6 +2668,255 @@ const DepartmentPage = () => {
                         <p className="font-semibold text-base text-secondary">Department laboratory details will be updated soon.</p>
                       </Card>
                     )}
+                  </div>
+                ) : activeMoreTab === "civil-engineering-notes" ? (
+                  <div className="space-y-8">
+                    {moreData.civilNotes ? (
+                      <>
+                        {/* FDP Section */}
+                        <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
+                          <div className="bg-muted/30 border-b border-border/70 p-6 sm:p-8">
+                            <span className="text-xs uppercase font-bold tracking-widest text-primary">Faculty Development Programme</span>
+                            <h3 className="text-xl sm:text-2xl font-bold text-secondary mt-1" style={{ fontFamily: "var(--font-display)" }}>
+                              {moreData.civilNotes.fdpTitle}
+                            </h3>
+                          </div>
+                          <div className="p-6 sm:p-8">
+                            <div className="overflow-x-auto rounded-xl border border-border">
+                              <table className="w-full text-sm border-collapse text-left">
+                                <thead>
+                                  <tr className="bg-muted/40 text-secondary border-b border-border text-xs uppercase font-bold tracking-wider divide-x divide-border/60">
+                                    <th className="py-3 px-3 text-center w-14">S.No</th>
+                                    <th className="py-3 px-4 w-56">Schedule</th>
+                                    <th className="py-3 px-4">Resource Person</th>
+                                    <th className="py-3 px-6">Topic</th>
+                                    <th className="py-3 px-4 text-center w-36">Recording</th>
+                                  </tr>
+                                </thead>
+                                <tbody className="divide-y divide-border/60">
+                                  {moreData.civilNotes.fdpSessions.map((session, sIdx) => (
+                                    <tr key={sIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
+                                      <td className="py-3 px-3 text-center font-medium text-muted-foreground text-xs">
+                                        {session.sno}
+                                      </td>
+                                      <td className="py-3 px-4 text-xs font-semibold text-secondary">
+                                        {session.dateSchedule}
+                                      </td>
+                                      <td className="py-3 px-4 font-medium text-secondary text-xs sm:text-sm">
+                                        {session.resourcePerson}
+                                      </td>
+                                      <td className="py-3 px-6 text-xs sm:text-sm text-muted-foreground">
+                                        {session.topic}
+                                      </td>
+                                      <td className="py-3 px-4 text-center">
+                                        <a
+                                          href={session.link}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-semibold shadow-xs transition-colors"
+                                        >
+                                          <span>YouTube Live</span>
+                                          <ExternalLink className="w-3 h-3" />
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </Card>
+
+                        {/* Course Materials */}
+                        <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
+                          <div className="bg-muted/30 border-b border-border/70 p-6 sm:p-8">
+                            <span className="text-xs uppercase font-bold tracking-widest text-primary">Academic Resources</span>
+                            <h3 className="text-xl sm:text-2xl font-bold text-secondary mt-1" style={{ fontFamily: "var(--font-display)" }}>
+                              Course Materials & Lecture Notes
+                            </h3>
+                          </div>
+                          <div className="p-6 sm:p-8">
+                            <div className="overflow-x-auto rounded-xl border border-border">
+                              <table className="w-full text-sm border-collapse text-left">
+                                <thead>
+                                  <tr className="bg-muted/40 text-secondary border-b border-border text-xs uppercase font-bold tracking-wider divide-x divide-border/60">
+                                    <th className="py-3 px-3 text-center w-14">S.No</th>
+                                    <th className="py-3 px-4 w-48">Course Name</th>
+                                    <th className="py-3 px-6">Topic Name</th>
+                                    <th className="py-3 px-4 text-center w-36">Material</th>
+                                    <th className="py-3 px-4 text-center w-36">Feedback</th>
+                                  </tr>
+                                </thead>
+                                <tbody className="divide-y divide-border/60">
+                                  {moreData.civilNotes.materials.map((mat, mIdx) => (
+                                    <tr key={mIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
+                                      <td className="py-3 px-3 text-center font-medium text-muted-foreground text-xs">
+                                        {mat.sno}
+                                      </td>
+                                      <td className="py-3 px-4 font-semibold text-secondary text-xs sm:text-sm">
+                                        {mat.courseName}
+                                      </td>
+                                      <td className="py-3 px-6 text-xs sm:text-sm text-muted-foreground">
+                                        {mat.topicName}
+                                      </td>
+                                      <td className="py-3 px-4 text-center">
+                                        <a
+                                          href={mat.materialUrl}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary hover:bg-primary/90 text-white text-xs font-semibold shadow-xs transition-colors"
+                                        >
+                                          <FileText className="w-3.5 h-3.5" />
+                                          <span>View PDF</span>
+                                        </a>
+                                      </td>
+                                      <td className="py-3 px-4 text-center">
+                                        {mat.feedbackUrl && (
+                                          <a
+                                            href={mat.feedbackUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-muted border border-border hover:bg-primary/10 hover:border-primary/40 text-primary text-xs font-semibold transition-colors"
+                                          >
+                                            <span>Feedback</span>
+                                            <ExternalLink className="w-3 h-3" />
+                                          </a>
+                                        )}
+                                      </td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </Card>
+                      </>
+                    ) : (
+                      <Card className="p-10 text-center text-muted-foreground bg-card">
+                        <FileText className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
+                        <p className="font-semibold text-base text-secondary">Civil engineering notes will be uploaded soon.</p>
+                      </Card>
+                    )}
+                  </div>
+                ) : activeMoreTab === "course-attainment" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-6">
+                        <div className="border-b border-border/60 pb-4">
+                          <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                            Course Attainment Reports
+                          </h3>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                            Batch-wise course outcome & program outcome evaluation documents
+                          </p>
+                        </div>
+
+                        {moreData.courseAttainment && moreData.courseAttainment.length > 0 ? (
+                          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {moreData.courseAttainment.map((item, aIdx) => (
+                              <a
+                                key={aIdx}
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex flex-col justify-between p-5 rounded-xl border border-border/70 bg-muted/20 hover:bg-primary/5 hover:border-primary/40 transition-all text-secondary hover:text-primary shadow-2xs"
+                              >
+                                <div className="space-y-2">
+                                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <FileText className="w-5 h-5" />
+                                  </div>
+                                  <h4 className="font-bold text-sm sm:text-base text-secondary group-hover:text-primary pt-2">
+                                    {item.title}
+                                  </h4>
+                                </div>
+                                <div className="flex items-center gap-1.5 text-xs text-primary font-semibold mt-4 pt-3 border-t border-border/50">
+                                  <span>View Attainment Report</span>
+                                  <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                                </div>
+                              </a>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="text-center text-muted-foreground py-8">No course attainment records available at this time.</p>
+                        )}
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "alumni" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-8">
+                        <div className="border-b border-border/60 pb-4">
+                          <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                            Alumni Interaction & Guest Lectures
+                          </h3>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                            Distinguished alumni lectures, career guidance sessions, and event reports
+                          </p>
+                        </div>
+
+                        {moreData.alumniEvents && moreData.alumniEvents.length > 0 ? (
+                          <div className="space-y-8">
+                            {moreData.alumniEvents.map((group, gIdx) => (
+                              <div key={gIdx} className="space-y-4">
+                                <h4 className="text-lg font-bold text-secondary tracking-tight border-b border-border/50 pb-2">
+                                  {group.groupTitle}
+                                </h4>
+                                <div className="space-y-3 pl-1">
+                                  {group.documents.map((doc, dIdx) => (
+                                    <a
+                                      key={dIdx}
+                                      href={doc.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                                    >
+                                      <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                        <ChevronRight className="w-3 h-3 stroke-[3]" />
+                                      </div>
+                                      <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
+                                        {doc.title}
+                                      </span>
+                                    </a>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="text-center text-muted-foreground py-8">No alumni event records available at this time.</p>
+                        )}
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "stock-register" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
+                      <div className="p-4 sm:p-6 bg-muted/20 border-b border-border/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                          <h3 className="text-xl font-bold text-secondary">Department Stock Register</h3>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                            Equipment, instruments, and laboratory inventory register records
+                          </p>
+                        </div>
+                        <a
+                          href="https://mits.ac.in/assets/pdf/stock-registers/Civil%20Stock%20Register.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm shadow-xs transition-colors shrink-0 self-start sm:self-center"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          <span>Open Full Document</span>
+                        </a>
+                      </div>
+                      <div className="p-4 sm:p-6">
+                        <iframe
+                          src="https://mits.ac.in/assets/pdf/stock-registers/Civil%20Stock%20Register.pdf"
+                          title="Department Stock Register"
+                          className="w-full h-[750px] rounded-lg border border-border shadow-xs"
+                        />
+                      </div>
+                    </Card>
                   </div>
                 ) : activeMoreTab === "mentor-mentee" ? (
                   <div className="space-y-6">

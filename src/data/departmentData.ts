@@ -243,6 +243,29 @@ export interface ObeData {
   copoAttainment?: { title: string; url: string }[];
 }
 
+export interface FdpSession {
+  sno: string;
+  resourcePerson: string;
+  topic: string;
+  link: string;
+  dateSchedule: string;
+}
+
+export interface CourseMaterialItem {
+  sno: string;
+  courseName: string;
+  topicName: string;
+  materialUrl: string;
+  feedbackUrl: string;
+}
+
+export interface CivilNotesData {
+  title: string;
+  fdpTitle: string;
+  fdpSessions: FdpSession[];
+  materials: CourseMaterialItem[];
+}
+
 export interface DepartmentMoreData {
   subTabs: DepartmentMoreSubTab[];
   mentorMentee?: MentorMenteeGroup[];
@@ -254,6 +277,9 @@ export interface DepartmentMoreData {
   studentProjects?: MoreDocumentGroup;
   obe?: ObeData;
   labPdfUrl?: string;
+  civilNotes?: CivilNotesData;
+  courseAttainment?: MoreDocumentItem[];
+  alumniEvents?: MoreDocumentGroup[];
 }
 
 export interface UnderGraduateTimeTableItem {
@@ -903,7 +929,7 @@ percentage: "85%",
     shortName: "CE",
     established: "2014",
     bannerImage: deptImg("civil"),
-    about: "The Department of Civil Engineering was established in the year 2014. The Department offers 4-year B.Tech programme with a deep insight into the discipline which enables the promising engineers to acquire the skills required to succeed both individually as well as in Industry. Keeping in view of the technological advancement, the department is fortified by the most qualified and experienced faculty. The department is also well equipped with the modern laboratories. The B.Tech. Programme under Department of Civil Engineering was accredited by the National Board of Accreditation (NBA) of All India Council for Technical Education (AICTE).",
+    about: "The Department of Civil Engineering was established in the year 2014. The Department offers 4-year B.Tech programme with a deep insight into the discipline which enables the promising engineers to acquire the skills required to succeed both individually as well as in Industry. Keeping in view of the technological advancement, the department is fortified by the most qualified and experienced faculty. The department is also well equipped with the modern laboratories.\n\nThe B.Tech. Programme under Department of Civil Engineering was accredited by the National Board of Accreditation (NBA) of All India Council for Technical Education (AICTE).",
     vision: "To grow as a globally recognized Civil Engineering Department through cutting-edge education and research to bring sustainable cultural, economic and social growth in the nation.",
     mission: [
       "To provide modern educational tools and techniques to the students in order to enrich them to solve complex civil engineering problems.",
@@ -913,11 +939,20 @@ percentage: "85%",
     nbaAccredited: true,
     hod: { name: "Dr. Vijayakumar Natesan", designation: "Asst. Professor & Head", qualification: "Ph.D. (IIT, Hyderabad)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Vijayakumar Natesan.JPG", profileUrl: "https://mits.ac.in/facultyprofile/7" },
     achievements: { consultancyAmount: "₹10+ Lakhs", researchProjects: "8+", patents: "5+", publications: "100+" },
+    goals: [
+      "All the engineering departments set very high aims for graduate teaching. Our goal is to shape your professional future as engineers, to be creative and innovative and to excel in your chosen field.",
+      "Our degrees will also put you on the right career path in sectors such as manufacturing, engineering consultancies, R&D or investment banking.",
+      "An impressive proportion of graduates also go on to further education."
+    ],
     teachingApproach: {
-      description: "The department emphasizes practical learning with site visits, surveying camps, and hands-on laboratory sessions.",
-      points: ["Site visits and field surveys", "BIM-integrated design projects", "Industry guest lectures", "Sustainability-focused curriculum", "Geotechnical field testing"]
+      description: "All the engineering departments set very high aims for graduate teaching. Our goal is to shape your professional future as engineers, to be creative and innovative and to excel in your chosen field. Our degrees will also put you on the right career path in sectors such as manufacturing, engineering consultancies, R&D or investment banking. An impressive proportion of graduates also go on to further education.",
+      points: [
+        "To shape professional future as creative and innovative engineers",
+        "To provide right career pathways in engineering consultancies, manufacturing, R&D and banking",
+        "To support higher education and postgraduate research progression"
+      ]
     },
-    courses: ["Civil Engineering", "Construction Engineering and Management"],
+    courses: ["B.Tech in Civil Engineering", "M.Tech in Structural Engineering"],
     contactInfo: { email: "civilhod@mits.ac.in", phone: "+91-9100973371; 8571-280255; 280706" },
     faculty: [
       /*
@@ -1546,27 +1581,23 @@ percentage: "2023-24: 50 offers out of 62 eligible", avgPackage: "As per placeme
     about: "The Department of Computer Science and Engineering (Cyber Security) was established in 2020 with an initial intake of 60 students, which increased to 120 in 2023 and further expanded to 180 in 2024. The Department offers an undergraduate programme in Computer Science and Engineering (Cyber Security), designed to produce competent professionals equipped with strong theoretical foundations and practical skills to secure modern software and hardware systems. The B.Tech. programme emphasizes advanced learning in areas such as ethical hacking, artificial intelligence, and web and data security.\n\nThe Department is supported by robust infrastructural facilities that enable high-quality education aligned with current industry needs. It has a team of well-qualified and experienced faculty members with significant academic and industry expertise. To foster continuous learning and skill enhancement among students and faculty, the Department regularly organizes Faculty Development Programmes (FDPs), seminars, workshops, and technical symposiums.",
     vision: "Building globally competent, ethically responsible, and industry-ready cyber security professionals and technologists, serving the society by securing the digital world, addressing cyber threats through excellence in cyber security education, research and innovation.",
     mission: [
-      "M1: To provide quality education on Cyber Security threats and technologies through industry oriented curriculum, modern teaching-learning practices, advanced laboratories and experiential learning.",
-      "M2: To promote research, innovation, and industry collaboration in emerging domains of Cyber Security for developing skilled professionals capable of addressing real-world cyber threats.",
-      "M3: To inculcate ethical values, awareness on cyber laws, leadership qualities, lifelong learning, and social responsibility among students for building a secure and sustainable digital society."
+      "To provide quality education on Cyber Security threats and technologies through industry oriented curriculum, modern teaching-learning practices, advanced laboratories and experiential learning.",
+      "To promote research, innovation, and industry collaboration in emerging domains of Cyber Security for developing skilled professionals capable of addressing real-world cyber threats.",
+      "To inculcate ethical values, awareness on cyber laws, leadership qualities, lifelong learning, and social responsibility among students for building a secure and sustainable digital society."
     ],
     nbaAccredited: false,
     hod: { name: "Dr. Brahm Prakash", designation: "Assoc. Professor & Head", qualification: "Ph.D. (IKG Punjab Technical University)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Brahm Prakash.JPG", profileUrl: "https://mits.ac.in/facultyprofile/1085" },
     achievements: { consultancyAmount: "INR 3+ Lakhs", researchProjects: "4+", patents: "2+", publications: "40+" },
-    goals: [
-      "To uphold a high standard of education by delivering outstanding teaching, fostering an innovative curriculum, and providing research training that reflects the evolving needs of society.",
-      "To attract highly motivated students who demonstrate enthusiasm, a positive attitude, and a strong interest in Artificial Intelligence and Data Science.",
-      "To pursue excellence in research and promote effective technology transfer.",
-      "To enhance public awareness of departmental activities and promote a deeper understanding of the Artificial Intelligence and Data Science profession."
-    ],
+    
     teachingApproach: {
-      description: "With its revolutionary approach to education, multidisciplinary research, and emphasis on diligent collaboration, MITS fosters a conducive environment for students to broaden their perspectives. Students arrive with bright ideas, and MITS empowers them to transform those ideas into thoughtful, effective leadership that contributes to a better global society by positively impacting lives.\n\nTo another century of expanding minds and leading the world forward.",
       points: [
         "To uphold a high standard of education by delivering outstanding teaching, fostering an innovative curriculum, and providing research training that reflects the evolving needs of society.",
         "To attract highly motivated students who demonstrate enthusiasm, a positive attitude, and a strong interest in Artificial Intelligence and Data Science.",
         "To pursue excellence in research and promote effective technology transfer.",
         "To enhance public awareness of departmental activities and promote a deeper understanding of the Artificial Intelligence and Data Science profession."
-      ]
+      ],
+      description: "With its revolutionary approach to education, multidisciplinary research, and emphasis on diligent collaboration, MITS fosters a conducive environment for students to broaden their perspectives. Students arrive with bright ideas, and MITS empowers them to transform those ideas into thoughtful, effective leadership that contributes to a better global society by positively impacting lives.\n\nTo another century of expanding minds and leading the world forward.",
+      
     },
     courses: ["B.Tech in Computer Science and Engineering (Cyber Security)"],
     contactInfo: { email: "cshod@mits.ac.in", phone: "+91-9100973396; 8571-280255; 280706" },
@@ -2858,6 +2889,7 @@ export const getDepartmentByKey = (key: string): DepartmentData | undefined => {
   if (key === "cse-ds" || key === "csd" || key === "ds") return departmentsData.cseds;
   if (key === "cse-ai-ml" || key === "cai") return departmentsData.aiml;
   if (key === "cse-cs" || key === "csc" || key === "cs" || key === "cyber-security" || key === "csec") return departmentsData.csecs;
+  if (key === "civil" || key === "ce") return departmentsData.ce;
   return undefined;
 };
 
@@ -4083,6 +4115,86 @@ export const csecsUnderGraduateData: UnderGraduateData = {
   ]
 };
 
+export const ceUnderGraduateData: UnderGraduateData = {
+  programTitle: "Bachelor of Technology (B.Tech) - Civil Engineering",
+  programOverview:
+    "The Department has the best undergraduate program required for the Civil Industry. The course curriculum for the undergraduate program gives the flexibility to the students to prepare for advanced specializations. The department commits to offer a set of electives so that students can plan their academic program in advance. The course structure provides a right mix of compulsory and elective courses.",
+  sections: [
+    {
+      title: "Curriculum",
+      description:
+        "The B.Tech Program is divided into two distinct parts. A student has to go through a common program called Core Curriculum. Most of the core curriculum is completed in the first four semesters. The last four semesters have many professional courses to initiate the students towards the topics in Information Technology.\n\nThe Core Curriculum is a package of compulsory courses in Physics, Chemistry, Mathematics, Engineering Sciences and Technical Arts.\n\nThe Professional Curriculum consists of courses and Project Work. There are some compulsory courses along with a significant number of professional electives as well."
+    }
+  ],
+  subTabs: [
+    { id: "ug", label: "UG" },
+    { id: "course-syllabus", label: "Course Syllabus" },
+    { id: "timetable", label: "Timetable" }
+  ],
+  syllabusTables: [
+    {
+      title: "Course Structure & Syllabi (R23) B.Tech Programmes - Civil Engineering",
+      headers: ["Document", "Regulation", "Programme", "Link"],
+      rows: [
+        {
+          sno: "1",
+          name: "Course Structure & Syllabi (R23) B.Tech Programmes - Civil Engineering",
+          type: "Official Curriculum PDF",
+          credits: "R23"
+        }
+      ]
+    },
+    {
+      title: "Course Structure & Syllabi (R20) B.Tech Programmes - Civil Engineering",
+      headers: ["Document", "Regulation", "Programme", "Link"],
+      rows: [
+        {
+          sno: "2",
+          name: "Course Structure & Syllabi (R20) B.Tech Programmes - Civil Engineering",
+          type: "Official Curriculum PDF",
+          credits: "R20"
+        }
+      ]
+    }
+  ],
+  timeTables: [
+    {
+      groupTitle: "Master Time Tables",
+      items: [
+        {
+          title: "B.Tech II Year 2025-26 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/civil/B.Tech%20II%20Year%202025-26%20I%20Semester%20Timetable.pdf",
+          academicYear: "2025-26",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech III Year 2025-26 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/civil/B.Tech%20III%20Year%202025-26%20I%20Semester%20Timetable.pdf",
+          academicYear: "2025-26",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech IV Year 2025-26 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/civil/B.Tech%20IV%20Year%202025-26%20I%20Semester%20Timetable.pdf",
+          academicYear: "2025-26",
+          category: "Master Timetable"
+        }
+      ]
+    },
+    {
+      groupTitle: "Individual Faculty Time Tables",
+      items: [
+        {
+          title: "Individual Faculty Timetables",
+          pdfUrl: "https://mits.ac.in/assets/pdf/civil/Individual%20TT%20for%20II%20Sem%20for%20AY%202023-24%20Time%20Table.pdf",
+          academicYear: "2023-24",
+          category: "Faculty Timetable"
+        }
+      ]
+    }
+  ]
+};
+
 export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subject[] = []): UnderGraduateData {
   const dept = departmentsData[deptKey];
   if (dept && dept.underGraduate) {
@@ -4102,6 +4214,9 @@ export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subjec
   }
   if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
     return csecsUnderGraduateData;
+  }
+  if (deptKey === "ce" || deptKey === "civil") {
+    return ceUnderGraduateData;
   }
 
   const semMap = new Map<number, Subject[]>();
@@ -4674,6 +4789,323 @@ export const csecsMoreData: DepartmentMoreData = {
   }
 };
 
+export const ceMoreData: DepartmentMoreData = {
+  subTabs: [
+    {
+      id: "lab",
+      label: "Lab",
+      externalUrl: "https://mits.ac.in/public/uploads/departments/Civil%20Engineering%20Labs.pdf",
+      directPdf: true
+    },
+    {
+      id: "civil-engineering-notes",
+      label: "Civil Engineering Notes"
+    },
+    {
+      id: "course-attainment",
+      label: "Course Attainment"
+    },
+    {
+      id: "mentor-mentee",
+      label: "Mentor & Mentee"
+    },
+    {
+      id: "stock-register",
+      label: "Stock Register",
+      externalUrl: "https://mits.ac.in/assets/pdf/stock-registers/Civil%20Stock%20Register.pdf",
+      directPdf: true
+    },
+    {
+      id: "surveys",
+      label: "Surveys"
+    },
+    {
+      id: "alumni",
+      label: "Alumni"
+    }
+  ],
+  labPdfUrl: "https://mits.ac.in/public/uploads/departments/Civil%20Engineering%20Labs.pdf",
+  civilNotes: {
+    title: "Civil Engineering Notes & FDP Sessions",
+    fdpTitle: "Department of Civil Engineering Five-Day Faculty Development Programme (Hybrid Mode) “AICE 2025: Advances in Intelligent Civil Engineering”",
+    fdpSessions: [
+      {
+        sno: "1",
+        dateSchedule: "10-Sep-2025, Wednesday (Time: 2.30-4.30 PM)",
+        resourcePerson: "Dr. Dipankar Roy, Dept. of Civil Eng., MITS",
+        topic: "AI applications in Civil Engineering",
+        link: "https://www.youtube.com/live/BKbv6dv1wAg?si=JdF_aPlrG9AO47GX"
+      },
+      {
+        sno: "2",
+        dateSchedule: "11-Sep-2025, Thursday (Time: 2.30-4.30 PM)",
+        resourcePerson: "Dr. Arkopal Kishore Goswami, RCGSIDM, IIT Kharagpur",
+        topic: "Transport & Environment - The Role of Urban Transport Electrification",
+        link: "https://www.youtube.com/live/KAaBtYsWbT0?si=1xFe-cZ5OIMwIze1"
+      },
+      {
+        sno: "3",
+        dateSchedule: "12-Sep-2025, Friday (Time: 10:30 AM - 12:30 PM)",
+        resourcePerson: "Dr. Roshni T, Dept. of Civil Eng., NIT Patna",
+        topic: "Application of AI in water resources",
+        link: "https://www.youtube.com/live/XfDCAhaGGRg?si=oyOdrbrrrQ_q6MHG"
+      },
+      {
+        sno: "4",
+        dateSchedule: "12-Sep-2025, Friday (Time: 2.30-4.30 PM)",
+        resourcePerson: "Dr. Chandan M C, Dept. of Water resources and Ocean Eng., NITK Surathkal",
+        topic: "Applications of Geoinformatics and SWAT+ for Hydrological Modelling: A special focus on Urban Centers",
+        link: "https://www.youtube.com/live/sGTHL32D0iE?si=dmK1tJzMAFOSNhKq"
+      },
+      {
+        sno: "5",
+        dateSchedule: "13-Sep-2025, Saturday (Time: 10:30 AM - 12:30 PM)",
+        resourcePerson: "Dr. Eeshan Bhaduri, Institute for Transport Studies - University of Leeds, UK",
+        topic: "Travel Behavioral Modelling",
+        link: "https://www.youtube.com/live/nuy_voW_2R8?si=PwW5XIX4XkbBHHbJ"
+      },
+      {
+        sno: "6",
+        dateSchedule: "13-Sep-2025, Saturday (Time: 2.30-4.30 PM)",
+        resourcePerson: "Dr. Prasanna Kumar Behera, Dept. of Civil Eng., IIT Tirupati",
+        topic: "Health Monitoring of Civil Structures",
+        link: "https://www.youtube.com/live/0wUjCHzdXUA?si=-dNfT4cyr4yKTKX2"
+      },
+      {
+        sno: "7",
+        dateSchedule: "14-Sep-2025, Sunday (Time: 10:30 AM - 12:30 PM)",
+        resourcePerson: "Dr. Sudeep Banad, WELL LABS, Bengaluru",
+        topic: "Water security indicators using open-source geospatial data",
+        link: "https://www.youtube.com/live/EUr729x6BCs?si=3ZgvvWG4o1ilxLFX"
+      },
+      {
+        sno: "8",
+        dateSchedule: "14-Sep-2025, Sunday (Time: 2.30-4.30 PM)",
+        resourcePerson: "Dr. Bharath H Aithal, RCGSIDM, IIT Kharagpur",
+        topic: "Remote Sensing and Machine Learning Applications",
+        link: "https://www.youtube.com/live/IS2ltOGXi9Y?si=DyuZFYas0pCQBOnw"
+      }
+    ],
+    materials: [
+      {
+        sno: "1",
+        courseName: "Surveying",
+        topicName: "Basic Surveying",
+        materialUrl: "https://mits.ac.in/assets/pdf/civil/Basic%20Surveying.pdf",
+        feedbackUrl: "https://forms.office.com/r/A1ziCVn7iE"
+      },
+      {
+        sno: "2",
+        courseName: "Strength of Materials",
+        topicName: "Simple Stress and Strains",
+        materialUrl: "https://mits.ac.in/assets/pdf/civil/Simple%20stress%20and%20strains.pdf",
+        feedbackUrl: "https://forms.office.com/r/A1ziCVn7iE"
+      },
+      {
+        sno: "3",
+        courseName: "Strength of Materials",
+        topicName: "Compound Stresses and Strains",
+        materialUrl: "https://mits.ac.in/assets/pdf/civil/Compound%20Stresses%20and%20Strains.pdf",
+        feedbackUrl: "https://forms.office.com/r/A1ziCVn7iE"
+      },
+      {
+        sno: "4",
+        courseName: "Strength of Materials",
+        topicName: "Shear Stress",
+        materialUrl: "https://mits.ac.in/assets/pdf/civil/Shear%20Stress.pdf",
+        feedbackUrl: "https://forms.office.com/r/A1ziCVn7iE"
+      },
+      {
+        sno: "5",
+        courseName: "Strength of Materials",
+        topicName: "Bending Stress",
+        materialUrl: "https://mits.ac.in/assets/pdf/civil/Bending%20Stress.pdf",
+        feedbackUrl: "https://forms.office.com/r/A1ziCVn7iE"
+      },
+      {
+        sno: "6",
+        courseName: "Strength of Materials",
+        topicName: "Torsion",
+        materialUrl: "https://mits.ac.in/assets/pdf/civil/Torsion.pdf",
+        feedbackUrl: "https://forms.office.com/r/A1ziCVn7iE"
+      },
+      {
+        sno: "7",
+        courseName: "Strength of Materials",
+        topicName: "Slope and Deflection",
+        materialUrl: "https://mits.ac.in/assets/pdf/civil/Slope%20and%20Deflection.pdf",
+        feedbackUrl: "https://forms.office.com/r/A1ziCVn7iE"
+      },
+      {
+        sno: "8",
+        courseName: "Engineering Mechanics",
+        topicName: "Introduction to Engineering Mechanics and Frictions",
+        materialUrl: "https://mits.ac.in/assets/pdf/civil/Introduction%20to%20Engineering%20Mechanics%20and%20Frictions.pdf",
+        feedbackUrl: "https://forms.office.com/r/A1ziCVn7iE"
+      }
+    ]
+  },
+  courseAttainment: [
+    {
+      title: "2020-24 - Course Attainment",
+      url: "https://mits.ac.in/assets/pdf/civil/Batch%202020-2024.pdf"
+    },
+    {
+      title: "2019-23 - Course Attainment",
+      url: "https://mits.ac.in/assets/pdf/civil/Batch%202019-2023.pdf"
+    },
+    {
+      title: "2018-22 - Course Attainment",
+      url: "https://mits.ac.in/assets/pdf/civil/Batch%202018-2022.pdf"
+    },
+    {
+      title: "2022-23 - Course Attainment",
+      url: "https://mits.ac.in/assets/pdf/civil/PO%20attainment%202022-23.pdf"
+    },
+    {
+      title: "2016-20 - Course Attainment",
+      url: "https://mits.ac.in/assets/pdf/civil/Course_Attainment_2016_2020.pdf"
+    },
+    {
+      title: "2015-19 - Course Attainment",
+      url: "https://mits.ac.in/assets/pdf/civil/Couse_Attainment_2015_2019.pdf"
+    },
+    {
+      title: "2014-18 - Course Attainment",
+      url: "https://mits.ac.in/assets/pdf/civil/Couse_Attainment_2014_2018.pdf"
+    }
+  ],
+  mentorMentee: [
+    {
+      groupTitle: "Mentor & Mentee Name List",
+      items: [
+        {
+          title: "2025-26 - Mentor & Mentee List for Civil",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/Civil%20Engineering%20Mentor%20Mentee%20List%20AY%202025-26.pdf",
+          academicYear: "2025-26"
+        },
+        {
+          title: "2024-25 - Mentor & Mentee List for Civil",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/2024-25%20-%20Mentor%20&%20Mentee%20List%20for%20Civil.pdf",
+          academicYear: "2024-25"
+        },
+        {
+          title: "2023-24 - Mentor & Mentee List for Civil",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/Civil-Mentor%20Metee%20List%20AY%202023-24.pdf",
+          academicYear: "2023-24"
+        },
+        {
+          title: "2022-23 - Mentor & Mentee List for Civil",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/Civil-Mentor%20Mentee%20List%20AY%202022-23.pdf",
+          academicYear: "2022-23"
+        },
+        {
+          title: "2020-21 - Mentor & Mentee List for Civil",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/Mentor_list_2020_2021.pdf",
+          academicYear: "2020-21"
+        },
+        {
+          title: "2019-20 - Mentor & Mentee List for Civil",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/Mentor_list%20_2019_2020.pdf",
+          academicYear: "2019-20"
+        }
+      ]
+    }
+  ],
+  obe: {
+    title: "Surveys",
+    subTabs: [{ id: "surveys", label: "Surveys" }],
+    surveys: [
+      {
+        title: "Surveys from Stakeholders",
+        links: [
+          {
+            title: "2024-25 Academic Year Surveys",
+            url: "https://mits.ac.in/assets/pdf/civil/AY%202024-25.pdf"
+          },
+          {
+            title: "2023-24 Academic Year Surveys",
+            url: "https://mits.ac.in/assets/pdf/civil/AY%202023-24.pdf"
+          },
+          {
+            title: "2022-23 Academic Year Surveys",
+            url: "https://mits.ac.in/assets/pdf/civil/AY%202022-23.pdf"
+          },
+          {
+            title: "2019-20 Academic Year Surveys from Employer Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/employer%20feedback.pdf"
+          },
+          {
+            title: "2019-20 Academic Year Surveys from Faculty Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/faculty%20feedback.pdf"
+          },
+          {
+            title: "2019-20 Academic Year Surveys from Parent Feedback",
+            url: "https://mits.ac.in/public/uploads/surveys/parent%20feedback.pdf"
+          },
+          {
+            title: "2019-20 Academic Year Surveys from Curriculum by Students",
+            url: "https://mits.ac.in/public/uploads/surveys/curriculum%20by%20students.pdf"
+          },
+          {
+            title: "2019-20 Academic Year Surveys from Alumni 2019",
+            url: "https://mits.ac.in/public/uploads/surveys/alumni%202019.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  alumniEvents: [
+    {
+      groupTitle: "Academic Year 2024-25",
+      documents: [
+        {
+          title: "Alumni Guest Lecture by Finishers in Residential Buildings - 2024-10-30",
+          url: "https://mits.ac.in/assets/pdf/civil/Finishers%20in%20Residential%20Buildings.pdf"
+        },
+        {
+          title: "Alumni Guest Lecture Tunnelling by TBM and NATM - 2024-07-22",
+          url: "https://mits.ac.in/assets/pdf/civil/Tunneling%20by%20TBM%20and%20NATM.pdf"
+        },
+        {
+          title: "Alumni Guest Lecture Alumni talk on How to Reinforce the Stuctured Career - 2024-09-20",
+          url: "https://mits.ac.in/assets/pdf/civil/How%20to%20reinforce%20the%20Structured%20Career.pdf"
+        },
+        {
+          title: "Alumni Guest Lecture Alumni Talk on Manufacturing of Cement: Theory to the Reality - 2024-10-15",
+          url: "https://mits.ac.in/assets/pdf/civil/Manufacturing%20of%20Cement%20Theory%20to%20the%20Reality.pdf"
+        }
+      ]
+    },
+    {
+      groupTitle: "Academic Year 2023-24",
+      documents: [
+        {
+          title: "Alumni Guest Lecture on Career Prospects for Civil Engineering Graduates After B. Tech. - 2023-10-07",
+          url: "https://mits.ac.in/assets/pdf/civil/07-10-2023%20Career%20Prospects%20for%20Civil%20Engineering%20Graduates%20After%20B.%20Tech..pdf"
+        },
+        {
+          title: "Alumni Guest Lecture on Career Opportunities in Civil Engineering - 2023-11-01",
+          url: "https://mits.ac.in/assets/pdf/civil/01-11-2023%20Alumin%20Guest%20Lecture%20Interaction.pdf"
+        },
+        {
+          title: "Alumni Guest Lecture The Path of Higher Education Abroad - 2024-02-03",
+          url: "https://mits.ac.in/assets/pdf/civil/The%20Path%20of%20Higher%20Education%20Abroad.pdf"
+        }
+      ]
+    },
+    {
+      groupTitle: "Academic Year 2021-22",
+      documents: [
+        {
+          title: "Alumni Webinar on Path to Higher Studies in USA - 2022-03-16",
+          url: "https://mits.ac.in/assets/pdf/civil/Alumni%20webinar%20on%20Path%20to%20Higher%20Studies%20in%20USA.pdf"
+        }
+      ]
+    }
+  ]
+};
+
 /**
  * Returns customized "More" section data (Mentor & Mentee, Minor, etc.) for any department.
  */
@@ -4687,6 +5119,9 @@ export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   }
   if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
     return csecsMoreData;
+  }
+  if (deptKey === "ce" || deptKey === "civil") {
+    return ceMoreData;
   }
   if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
     return aimlMoreData;
@@ -5344,6 +5779,183 @@ export const csecsTopTabs: DepartmentTopTab[] = [
   }
 ];
 
+export const ceTopTabs: DepartmentTopTab[] = [
+  {
+    id: "department",
+    label: "Department"
+  },
+  {
+    id: "faculty-list",
+    label: "Faculty List",
+    title: "Faculty List",
+    documents: [
+      {
+        title: "Faculty List for the Academic Year 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/34609776fc6d3d8390a9657b4aa23f5a.pdf"
+      },
+      {
+        title: "Faculty List for the Academic Year 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/e69d899abe97fd5e36ed6550f0483aea.pdf"
+      },
+      {
+        title: "Faculty List for the Academic Year 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/824fd42977ce4aaacf2bb00033567041.pdf"
+      }
+    ]
+  },
+  {
+    id: "bos",
+    label: "BoS",
+    title: "Board of Studies",
+    documents: [
+      {
+        title: "BoS 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/5ebd8d1eccab5799909d40d4136d8f51.pdf"
+      },
+      {
+        title: "BoS 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/94cd2c24256628213ab83695f17dd91d.pdf"
+      },
+      {
+        title: "BoS 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/37f010e623c44a947cb8707c492638b9.pdf"
+      },
+      {
+        title: "BoS 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/8ff87e720735b4f72d24c4345730eba3.pdf"
+      },
+      {
+        title: "BoS 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/bc33d1be7144127a3e4ffe62cf23c916.pdf"
+      },
+      {
+        title: "BoS 2017-18",
+        url: "https://mits.ac.in/public/uploads/departments/e78f50832c37e1fdb0fe53dd70b07d24.pdf"
+      }
+    ]
+  },
+  {
+    id: "dab",
+    label: "DAB",
+    title: "Departmental Advisory Board",
+    documents: [
+      {
+        title: "DAB 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/fb5e44d7665f44ca9232cc905fbad821.pdf"
+      },
+      {
+        title: "DAB 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/93a33481b9901ab358ec8fc50aecbdb6.pdf"
+      },
+      {
+        title: "DAB 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/a30e2a00c25317dd815ef1e313a75d95.pdf"
+      },
+      {
+        title: "DAB 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/335fef3421ea7e7f789d04a2eb5eed55.pdf"
+      },
+      {
+        title: "DAB 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/4092546250940eeed0e87e4bcf7bbdb8.pdf"
+      },
+      {
+        title: "DAB 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/dee03e43857ae3ebf135d6dbc1acc99f.pdf"
+      },
+      {
+        title: "DAB 2017-18",
+        url: "https://mits.ac.in/public/uploads/departments/778fecafab6da179a1c0f9b639185b35.pdf"
+      }
+    ]
+  },
+  {
+    id: "pac",
+    label: "PAC",
+    title: "Program Assessment Committee",
+    documents: [
+      {
+        title: "PAC 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/4db1e62d5dd87a0209d5e9125d4244da.pdf"
+      },
+      {
+        title: "PAC 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/e8a356e163801d10d94352a3b5e5b57a.pdf"
+      },
+      {
+        title: "PAC 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/0532180613e8f28c29bcf6352279166e.pdf"
+      },
+      {
+        title: "PAC 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/7e3a61f4830902ed330a46893e2cc8cc.pdf"
+      },
+      {
+        title: "PAC 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/e856aab8a4b1ba4fa1458e82f6ed583a.pdf"
+      },
+      {
+        title: "PAC 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/aa285dfcf2f99ad381b67ebb684c8694.pdf"
+      },
+      {
+        title: "PAC 2017-18",
+        url: "https://mits.ac.in/public/uploads/departments/52fad3d88a8c82febf2e77106fc7c143.pdf"
+      }
+    ]
+  },
+  {
+    id: "newsletter",
+    label: "Newsletter",
+    title: "News Letter - Ranchana",
+    documents: [
+      {
+        title: "Ranchana News letter 2024-25",
+        url: "https://mits.ac.in/assets/pdf/civil/Ranchana%20News%20letter_2024-25.pdf"
+      },
+      {
+        title: "Ranchana News letter 2023-24",
+        url: "https://mits.ac.in/assets/pdf/civil/Ranchana%20News%20letter_2023-24.pdf"
+      },
+      {
+        title: "Ranchana News letter 2022-23",
+        url: "https://mits.ac.in/assets/pdf/civil/Ranchana%20News%20letter_2022-23.pdf"
+      },
+      {
+        title: "Ranchana News letter 2021-22",
+        url: "https://mits.ac.in/assets/pdf/civil/Ranchana%20News%20letter_2021-22.pdf"
+      }
+    ]
+  },
+  {
+    id: "magazine",
+    label: "Magazine",
+    title: "Magazine - TERRA",
+    documents: [
+      {
+        title: "TERRA - 2023-2024",
+        url: "https://mits.ac.in/assets/pdf/civil/TERRA-2023-24.pdf"
+      },
+      {
+        title: "TERRA - 2022-2023",
+        url: "https://mits.ac.in/assets/pdf/civil/TERRA-2022-23.pdf"
+      },
+      {
+        title: "TERRA - 2021-2022",
+        url: "https://mits.ac.in/assets/pdf/civil/TERRA-2021-22.pdf"
+      },
+      {
+        title: "TERRA - 2020-2021",
+        url: "https://mits.ac.in/assets/pdf/civil/TERRA%202020-2021.pdf"
+      },
+      {
+        title: "TERRA - 2019-2020",
+        url: "https://mits.ac.in/assets/pdf/civil/TERRA%202019-2020.pdf"
+      }
+    ]
+  }
+];
+
 /**
  * Returns top tabs data (Department, BoS, IAAB, Magazine, etc.) for any department.
  */
@@ -5351,6 +5963,9 @@ export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | unde
   const dept = departmentsData[deptKey];
   if (dept && dept.topTabs && dept.topTabs.length > 0) {
     return dept.topTabs;
+  }
+  if (deptKey === "ce" || deptKey === "civil") {
+    return ceTopTabs;
   }
   if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
     return csedsTopTabs;
