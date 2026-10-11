@@ -14,8 +14,7 @@ const schools = [
     depts: [
       "Computer Science and Engineering (Artificial Intelligence)",
       "Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
-      "Computer Science and Engineering (Artificial Intelligence and Data Science)",
-      "Computer Science and Engineering with Specialisation in Artificial Intelligence and Robotics"
+      "Computer Science and Engineering (Artificial Intelligence and Data Science)"
     ],
     icon: Brain,
   },
@@ -23,6 +22,7 @@ const schools = [
     name: "School of Computing",
     depts: [
       "Computer Science & Engineering",
+      "Computer Science & Technology",
       "Computer Science and Engineering (Cyber Security)",
       "BCA",
       "Master of Computer Applications"
@@ -32,7 +32,6 @@ const schools = [
   {
     name: "School of Engineering",
     depts: [
-      "Bioinformatics",
       "Civil Engineering",
       "Electrical and Electronics Engineering",
       "Electronics & Communication Engg",

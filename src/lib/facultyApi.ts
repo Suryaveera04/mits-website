@@ -151,7 +151,7 @@ export function mapApiDeptToDeptKey(code?: string, name?: string): string {
   if (c === "CSE-AIDS" || c === "CSE-DS" || c === "AIDS" || c === "DS") return "cseds";
   if (c === "CSE-AI" || c === "AI") return "ai";
   if (c === "CSE") return "cse";
-  if (c === "CST") return "cse";
+  if (c === "CST") return "cst";
   if (c === "CSE-CS") return "csecs";
   if (c === "ECE") return "ece";
   if (c === "EEE") return "eee";
@@ -170,7 +170,7 @@ export function mapApiDeptToDeptKey(code?: string, name?: string): string {
   if (n.includes("ELECTRICAL AND ELECTRONICS") || n.includes("ELECTRICAL & ELECTRONICS")) return "eee";
   if (n.includes("ELECTRONICS & COMMUNICATION") || n.includes("ELECTRONICS AND COMMUNICATION")) return "ece";
   if (n.includes("CYBER SECURITY")) return "csecs";
-  if (n.includes("COMPUTER SCIENCE AND TECHNOLOGY")) return "cse";
+  if (n.includes("COMPUTER SCIENCE AND TECHNOLOGY") || n.includes("COMPUTER SCIENCE & TECHNOLOGY")) return "cst";
   if (n.includes("COMPUTER SCIENCE")) return "cse";
   if (n.includes("CIVIL")) return "ce";
   if (n.includes("MECHANICAL")) return "me";

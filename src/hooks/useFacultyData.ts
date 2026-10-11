@@ -202,12 +202,12 @@ export function useFacultyData() {
    * Strictly keeps image blank if not present in the database.
    */
   const getDepartmentHod = useCallback(
-    (deptKey: string): FacultyMember | undefined => {
+    (deptKey: string, targetNameOrSubDept?: string): FacultyMember | undefined => {
       const normalizedKey = deptKey.toLowerCase().trim();
       const deptStatic = departmentsData[normalizedKey];
       const staticHod = deptStatic?.hod;
       const knownHead = departmentHeads.find((h) => h.deptKey === normalizedKey);
-      const hodTargetName = staticHod?.name || knownHead?.name;
+      const hodTargetName = targetNameOrSubDept || staticHod?.name || knownHead?.name;
 
       // 1. Get raw faculty for this department
       const deptRawFaculty = facultyList.filter((f) => {
@@ -215,16 +215,19 @@ export function useFacultyData() {
         return mapped === normalizedKey;
       });
 
-      // 2. Check if any faculty member in this department is designated as HOD
-      let apiHodMatch = deptRawFaculty.find((f) => {
-        const des = (f.designation || "").toLowerCase();
-        const roles = (f.academicAdministrationRoles || [])
-          .map((r) => (r.roleTitle || "").toLowerCase())
-          .join(" ");
-        return des.includes("hod") || des.includes("head") || roles.includes("head of department");
-      });
+      // 2. Check if any faculty member in this department is designated as HOD (only when no specific target name is requested)
+      let apiHodMatch: APIFacultyMember | undefined;
+      if (!targetNameOrSubDept) {
+        apiHodMatch = deptRawFaculty.find((f) => {
+          const des = (f.designation || "").toLowerCase();
+          const roles = (f.academicAdministrationRoles || [])
+            .map((r) => (r.roleTitle || "").toLowerCase())
+            .join(" ");
+          return des.includes("hod") || des.includes("head") || roles.includes("head of department");
+        });
+      }
 
-      // 3. If not found inside this department with an explicit HOD designation, match by known HOD name
+      // 3. If not found by explicit HOD designation, match by known HOD name
       if (!apiHodMatch && hodTargetName) {
         const cleanTarget = cleanFacultyName(hodTargetName);
         let bestScore = 0;
@@ -270,8 +273,22 @@ export function useFacultyData() {
         return member;
       }
 
-      // 5. Fallback to static department HOD if no API match found,
-      // but strictly keep the image blank (no old mits.ac.in link fallback)
+      // 5. Fallback to matched head from departmentHeads or static department HOD
+      if (targetNameOrSubDept) {
+        const matchedHead = departmentHeads.find(
+          (h) => matchFacultyNameScore(targetNameOrSubDept, h.name) >= 0.5
+        );
+        if (matchedHead) {
+          return {
+            name: cleanFacultyName(matchedHead.name),
+            designation: "Head of Department",
+            qualification: "",
+            image: matchedHead.image,
+            profileUrl: matchedHead.externalProfile || `/department/${normalizedKey}/faculty/${slugifyFaculty(matchedHead.name)}`,
+          };
+        }
+      }
+
       if (staticHod) {
         return {
           ...staticHod,

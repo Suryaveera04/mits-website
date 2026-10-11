@@ -18,7 +18,7 @@ describe("Faculty API & Department Segregation", () => {
     expect(mapApiDeptToDeptKey("ME")).toBe("me");
     expect(mapApiDeptToDeptKey("MCA")).toBe("mca");
     expect(mapApiDeptToDeptKey("CSE")).toBe("cse");
-    expect(mapApiDeptToDeptKey("CST")).toBe("cse");
+    expect(mapApiDeptToDeptKey("CST")).toBe("cst");
     expect(mapApiDeptToDeptKey("CSE-AI")).toBe("ai");
     expect(mapApiDeptToDeptKey("AI")).toBe("ai");
     expect(mapApiDeptToDeptKey("CSE-AIML")).toBe("aiml");
@@ -162,7 +162,8 @@ describe("Faculty API & Department Segregation", () => {
     expect(departmentMap.eee).toBe(17);
     expect(departmentMap.ai).toBe(11);
     expect(departmentMap.ce).toBe(8);
-    expect(departmentMap.cse).toBe(7);
+    expect(departmentMap.cse).toBe(6);
+    expect(departmentMap.cst).toBe(1);
     expect(departmentMap.admin).toBe(6);
     expect(departmentMap.me).toBe(2);
     expect(departmentMap.csecs).toBe(1);

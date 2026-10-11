@@ -64,13 +64,13 @@ const programsByTab: Record<ProgramBucket, SchoolGroup[]> = {
         { name: "Computer Science and Engineering (Artificial Intelligence)", icon: Bot, link: "/department/ai" },
         { name: "Computer Science and Engineering (Artificial Intelligence and Machine Learning)", icon: BrainCircuit, link: "/department/aiml" },
         { name: "Computer Science and Engineering (Artificial Intelligence and Data Science)", icon: ChartNoAxesCombined, link: "/department/cseds" },
-        { name: "Computer Science and Engineering with Specialisation in Artificial Intelligence and Robotics", icon: Bot, link: "/department/cser" },
       ],
     },
     {
       school: "School of Computing",
       courses: [
         { name: "Computer Science & Engineering", icon: Cpu, link: "/department/cse" },
+        { name: "Computer Science & Technology", icon: Cpu, link: "/department/cst" },
         { name: "Computer Science and Engineering (Cyber Security)", icon: ShieldCheck, link: "/department/csecs" },
         { name: "BCA", icon: Monitor, link: "/department/bca" },
       ],
@@ -78,7 +78,6 @@ const programsByTab: Record<ProgramBucket, SchoolGroup[]> = {
     {
       school: "School of Engineering",
       courses: [
-        { name: "Bioinformatics", icon: Dna, link: "/department/bioinfo" },
         { name: "Civil Engineering", icon: HardHat, link: "/department/ce" },
         { name: "Electrical and Electronics Engineering", icon: Zap, link: "/department/eee" },
         { name: "Electronics & Communication Engg", icon: CircuitBoard, link: "/department/ece" },

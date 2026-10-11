@@ -933,6 +933,7 @@ const DepartmentPage = () => {
     "Dr. S. Shanmuga Priya": "Department of English & Foreign Languages",
     "Dr. R. Saravana": "Department of Mathematics",
     "Dr. K. V. Narasimha Murthy": "Department of Mathematics",
+    "Dr. Jagadeesh Babu Bellam": "Department of Physics",
     "Dr. M. Chandra Sekhar": "Department of Physics",
     "Dr. Renjith Bhaskaran": "Department of Chemistry",
   };

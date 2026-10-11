@@ -17,18 +17,19 @@ const DepartmentHeads = () => {
     >
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {departmentHeads.map((h, i) => {
-          const dynamicHod = getDepartmentHod(h.deptKey);
+          const dynamicHod = getDepartmentHod(h.deptKey, h.name);
           const apiMatch = findFacultyByName(h.name);
-          const name = cleanFacultyName(dynamicHod?.name || h.name);
+          const name = cleanFacultyName(apiMatch?.fullName || dynamicHod?.name || h.name);
           
-          // Strictly only display photo if available in the database; keep blank otherwise
+          // Photo priority: live API photo > dynamic resolved photo > official fallback photo
           const photo =
+            (apiMatch?.profilePhoto ? getFacultyPhotoUrl(apiMatch.profilePhoto) : undefined) ||
             dynamicHod?.image ||
-            (apiMatch?.profilePhoto ? getFacultyPhotoUrl(apiMatch.profilePhoto) : undefined);
+            h.image;
 
           const profileLink =
             dynamicHod?.profileUrl ||
-            `/department/${h.deptKey}/faculty/${slugifyFaculty(name)}`;
+            (apiMatch ? `/department/${h.deptKey}/faculty/${slugifyFaculty(name)}` : (h.externalProfile || `/department/${h.deptKey}/faculty/${slugifyFaculty(name)}`));
           const designation =
             dynamicHod?.designation ||
             (apiMatch?.designation ? `${apiMatch.designation.replace(/s$/, "")} & Head` : undefined);

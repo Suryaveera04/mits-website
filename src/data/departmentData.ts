@@ -855,66 +855,62 @@ percentage: "98%",
     ],
   },
 
-  bioinfo: {
-    key: "bioinfo",
-    name: "Bioinformatics",
-    shortName: "Bioinformatics",
-    established: "2010",
-    bannerImage: deptImg("bioinformatics"),
-    about: "The Bioinformatics program at MITS is an interdisciplinary undergraduate curriculum under the School of Engineering. It integrates biological sciences with computational tools, programming, and data analysis to address complex challenges in genomics, proteomics, systems biology, and computational drug discovery. The program is designed to produce skilled graduates with expertise in both biological data analysis and engineering principles.",
-    vision: "To be a center of excellence in interdisciplinary education and research at the intersection of biology and computing, preparing professionals to address global scientific challenges.",
+  cst: {
+    key: "cst",
+    name: "Computer Science & Technology",
+    shortName: "CST",
+    established: "2018",
+    bannerImage: deptImg("cse"),
+    about: "The Department of Computer Science & Technology (CST) was established to provide cutting-edge education in computer science, software engineering, and emerging computational technologies. The department focuses on industry-relevant curriculum, hands-on programming labs, research publications, and producing top-tier software professionals. The B.Tech programme under the Department of Computer Science & Technology is NBA accredited.",
+    vision: "To excel in education, research, and innovation in Computer Science & Technology and develop competent professionals committed to societal development.",
     mission: [
-      "To provide high-quality education in computational biology, genomics, and programming.",
-      "To encourage interdisciplinary research and collaboration across the School of Engineering and School of Computing.",
-      "To prepare students for professional careers in biotech and IT sectors with strong problem-solving capabilities."
+      "To provide high quality education in computer science and technology through dynamic curricula and modern pedagogical practices.",
+      "To promote research, innovation, and entrepreneurship in software systems and cutting-edge computing paradigms.",
+      "To nurture ethical values, leadership qualities, and lifelong learning for global challenges."
     ],
-    nbaAccredited: false,
+    nbaAccredited: true,
     hod: {
-      name: "Dr. Dipankar Roy",
-      designation: "Dean, School of Engineering",
-      qualification: "Ph.D. (University of Pisa, Italy)",
-      image: "https://mits.ac.in/public/uploads/faculty/Deepankar Roy.JPG",
-      profileUrl: "https://mits.ac.in/facultyprofile/dean-engineering"
+      name: "Dr. K. Dinesh",
+      designation: "Assoc. Professor & Head",
+      qualification: "Ph.D.",
+      image: "https://engageai.mits.ac.in/mitsfaculty/api/v1/uploads/profile/profilePhoto-recent_photo-1787634982890-519201313.jpeg",
+      profileUrl: "https://mits.ac.in/department/4"
     },
     achievements: {
-      consultancyAmount: "N/A",
-      researchProjects: "Interdisciplinary",
-      patents: "3+",
-      publications: "50+"
+      consultancyAmount: "₹10+ Lakhs",
+      researchProjects: "8+",
+      patents: "6+",
+      publications: "90+"
     },
     teachingApproach: {
-      description: "Our teaching methodology focuses on experiential learning, computational laboratory sessions, and project-based assignments.",
+      description: "Project-based and experiential learning through state-of-the-art programming laboratories and hackathons.",
       points: [
-        "Hands-on database exploration and sequence analysis tools",
-        "Outcome-based education framework integrated with MOOC courses",
-        "Interdisciplinary projects in genomics and molecular modeling"
+        "Full-stack software engineering projects",
+        "Cloud and distributed systems implementation",
+        "Algorithmic problem solving and coding challenges",
+        "Industry-aligned capstone projects"
       ]
     },
-    courses: [
-      "Bioinformatics"
-    ],
+    courses: ["B.Tech - Computer Science & Technology"],
     contactInfo: {
-      email: "admissions@mits.ac.in",
-      phone: "+91-8571-280255; 280706"
+      email: "cst-hod@mits.ac.in",
+      phone: "+91-9100973281"
     },
     faculty: [
-      /*
-{
-        name: "Dr. Dipankar Roy",
-        designation: "Dean, School of Engineering",
-        qualification: "Ph.D. (University of Pisa, Italy)",
-        image: "https://mits.ac.in/public/uploads/faculty/Deepankar Roy.JPG",
-        profileUrl: "https://mits.ac.in/facultyprofile/dean-engineering"
+      {
+        name: "Dr. K. Dinesh",
+        designation: "Assoc. Professor & Head",
+        qualification: "Ph.D.",
+        image: "https://engageai.mits.ac.in/mitsfaculty/api/v1/uploads/profile/profilePhoto-recent_photo-1787634982890-519201313.jpeg",
+        email: "cst-hod@mits.ac.in",
+        profileUrl: "https://mits.ac.in/department/4"
       }
-      */
     ],
     detailedAchievements: [],
     facilities: [
-      {
-        name: "Bioinformatics Computational Lab",
-        description: "Equipped with specialized bioinformatics tools, databases, and molecular modeling software.",
-        image: ""
-      }
+      { name: "Advanced Computing Lab", description: "Modern computing systems for algorithms and software engineering." },
+      { name: "Software Development Lab", description: "IDE and full-stack development workstations." },
+      { name: "Database & Cloud Lab", description: "High-performance servers for distributed databases and virtualization." }
     ],
     patents: [],
     publications: [],
@@ -922,36 +918,19 @@ percentage: "98%",
     events: [],
     mous: [],
     placement: {
-      /*
-percentage: "85%",
-      averagePackage: "₹6 LPA",
-      highestPackage: "₹10 LPA",
-      topRecruiters: ["Cognizant", "TCS", "Accenture", "Wipro"]
-      */
-      percentage: "N/A", avgPackage: "N/A", highestPackage: "N/A", recruiters: [],
+      percentage: "93%",
+      avgPackage: "₹6.5 LPA",
+      highestPackage: "₹18 LPA",
+      recruiters: ["Cognizant", "TCS", "Wipro", "Infosys", "Accenture"]
     },
     studentProjects: [],
-    subjects: [
-      /*
-{
-        code: "20BI101",
-        name: "Introduction to Bioinformatics",
-        semester: 3,
-        type: "core"
-      },
-      {
-        code: "20BI102",
-        name: "Biological Databases & Tools",
-        semester: 4,
-        type: "core"
-      }
-      */
-    ],
+    subjects: [],
     documents: [
-      {
-        title: "B.Tech Bioinformatics Academic Calendar 2025-26",
-        url: "https://mits.ac.in/public/uploads/ugc/B.Tech%20Bioinformatics%20Academic%20Calendar%202025-26.pdf"
-      }
+      { title: "BoS — Computer Science & Technology", url: "https://mits.ac.in/assets/pdf/admin/BOS-CST.pdf" },
+      { title: "NBA — UG CST (2024–27)", url: "https://mits.ac.in/public/uploads/affiliations/NBA%20-%20CST-%20confirmation%20-till%2030.6.2027.pdf" },
+      { title: "Intellectual Property Rights 2024", url: "https://mits.ac.in/assets/pdf/cst/Intellectual%20Property%20Rights-2024.pdf" },
+      { title: "Departmental Level Hackathon CST", url: "https://mits.ac.in/assets/pdf/cst/Departmental%20Level%20Hackathon-CST.pdf" },
+      { title: "Internal Project Expo 2024", url: "https://mits.ac.in/assets/pdf/cst/Internal%20Project%20Expo-2024.pdf" }
     ]
   },
 
@@ -1356,17 +1335,17 @@ percentage: "88%", avgPackage: "₹5 LPA", highestPackage: "₹11 LPA", recruite
       "To inculcate ethical and lifelong learning values to address societal needs."
     ],
     nbaAccredited: true,
-    hod: { name: "Dr. S. Rajasekaran", designation: "Professor & Head", qualification: "Ph.D. (Anna University, Chennai)", image: "public/uploads/faculty/f8983b3c4255e5b248d9b51eb8f62e38.jpeg", profileUrl: "https://mits.ac.in/facultyprofile/173" },
+    hod: { name: "Dr. Sanjay Kumar C. Gowre", designation: "Professor & Head", qualification: "Ph.D. (IIT-Kharagpur)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Sanjay Kumar C. Gowre.JPG", profileUrl: "https://mits.ac.in/facultyprofile/1018" },
     achievements: { consultancyAmount: "₹15+ Lakhs", researchProjects: "12+", patents: "8+", publications: "150+" },
     teachingApproach: { description: "The department integrates simulation-based learning with hands-on hardware projects.", points: ["VLSI design with Cadence tools", "IoT prototyping with Arduino/Raspberry Pi", "PCB design and fabrication", "Communication system simulation", "MATLAB & Simulink projects"] },
     courses: ["Electronics & Communication Engg", "VLSI Design and Embedded Systems"],
-    contactInfo: { email: "hod_ece@mits.ac.in", phone: "+91-8571-280255" },
+    contactInfo: { email: "ecehod@mits.ac.in", phone: "+91-8571-280255" },
     faculty: [
       /*
-{ name: "Dr. Rama S Komaragiri", designation: "Professor & Dean-Academics", qualification: "Ph.D. (Technical University of Darmstadt, Germany)", image: "public/uploads/faculty/rama.jpg", profileUrl: "https://mits.ac.in/facultyprofile/735" },
+      { name: "Dr. Rama S Komaragiri", designation: "Professor & Dean-Academics", qualification: "Ph.D. (Technical University of Darmstadt, Germany)", image: "public/uploads/faculty/rama.jpg", profileUrl: "https://mits.ac.in/facultyprofile/735" },
       { name: "Dr. P. Ramanathan", designation: "Professor & Principal", qualification: "Ph.D. (PSG College of Technology & Anna University, Chennai)", image: "https://mits.ac.in/public/uploads/faculty/a744ebed6a293a48de32e80ba66680c8.JPG", profileUrl: "https://mits.ac.in/facultyprofile/172" },
-      { name: "Dr. Sanjay Kumar C. Gowre", designation: "Professor", qualification: "Ph.D. (IIT-Kharagpur)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Sanjay Kumar C. Gowre.JPG", profileUrl: "https://mits.ac.in/facultyprofile/1018" },
-      { name: "Dr. S. Rajasekaran", designation: "Professor & Head", qualification: "Ph.D. (Coimbatore Institute of Technology, Anna University, Chennai, India.)", image: "public/uploads/faculty/f8983b3c4255e5b248d9b51eb8f62e38.jpeg", profileUrl: "https://mits.ac.in/facultyprofile/173" },
+      { name: "Dr. Sanjay Kumar C. Gowre", designation: "Professor & Head", qualification: "Ph.D. (IIT-Kharagpur)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Sanjay Kumar C. Gowre.JPG", profileUrl: "https://mits.ac.in/facultyprofile/1018" },
+      { name: "Dr. S. Rajasekaran", designation: "Professor", qualification: "Ph.D. (Coimbatore Institute of Technology, Anna University, Chennai, India.)", image: "public/uploads/faculty/f8983b3c4255e5b248d9b51eb8f62e38.jpeg", profileUrl: "https://mits.ac.in/facultyprofile/173" },
       { name: "Dr. Nehru Kandasamy", designation: "Professor", qualification: "Ph.D. (Anna University, Chennai, India.)", image: "public/uploads/faculty/Nehru.JPG", profileUrl: "https://mits.ac.in/facultyprofile/174" },
       { name: "Dr. Murli Manohar", designation: "Assoc. Professor", qualification: "Ph.D. (Indian Institute of Technology, Guwahati)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Murali Manohar.JPG", profileUrl: "https://mits.ac.in/facultyprofile/734" },
       { name: "Dr. V. Jayaprakasan", designation: "Assoc. Professor", qualification: "Ph.D. (JNTUA, Ananthapuramu)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Jayaprakasan.JPG", profileUrl: "https://mits.ac.in/facultyprofile/751" },
@@ -2861,61 +2840,6 @@ percentage: "N/A", avgPackage: "N/A", highestPackage: "N/A", recruiters: []
     subjects: [],
     documents: []
   },
-
-  cser: {
-    key: "cser",
-    name: "Computer Science and Engineering with Specialisation in Artificial Intelligence and Robotics",
-    shortName: "CSE-AIR",
-    established: "2022",
-    bannerImage: deptImg("ai"),
-    isUnderUpdate: true,
-    about: "The Department of Computer Science and Engineering with Specialisation in Artificial Intelligence and Robotics offers undergraduate education focusing on intelligent robotics, machine learning, autonomous systems, and advanced computing paradigms.",
-    vision: "To be a center of excellence in Artificial Intelligence and Robotics, producing competent engineers and innovators.",
-    mission: [
-      "To impart foundational and modern education in artificial intelligence, automation, and intelligent robotics.",
-      "To foster practical and research capabilities in intelligent robotic systems and autonomous technologies."
-    ],
-    nbaAccredited: false,
-    hod: {
-      name: "Dr. R. Kalpana",
-      designation: "Professor & Head",
-      qualification: "Ph.D. (Anna University)",
-      image: "https://mits.ac.in/public/uploads/faculty/Dr. R. Kalpana.JPG",
-      profileUrl: "https://mits.ac.in/facultyprofile/80"
-    },
-    achievements: {
-      consultancyAmount: "N/A",
-      researchProjects: "N/A",
-      patents: "N/A",
-      publications: "N/A"
-    },
-    teachingApproach: {
-      description: "Hands-on robotics laboratory sessions, sensor integration, and machine learning application projects.",
-      points: ["Robotics and automation lab", "AI and machine learning applications", "Autonomous system design"]
-    },
-    courses: ["Computer Science and Engineering with Specialisation in Artificial Intelligence and Robotics"],
-    contactInfo: {
-      email: "aihod@mits.ac.in",
-      phone: "+91-8571-280255"
-    },
-    faculty: [],
-    detailedAchievements: [],
-    facilities: [],
-    patents: [],
-    publications: [],
-    consultancy: [],
-    events: [],
-    mous: [],
-    placement: {
-      percentage: "N/A",
-      avgPackage: "N/A",
-      highestPackage: "N/A",
-      recruiters: []
-    },
-    studentProjects: [],
-    subjects: [],
-    documents: []
-  },
 };
 
 // Helper to get all department keys
@@ -2929,6 +2853,7 @@ export const getDepartmentByKey = (key: string): DepartmentData | undefined => {
   if (key === "cse-cs" || key === "csc" || key === "cs" || key === "cyber-security" || key === "csec") return departmentsData.csecs;
   if (key === "civil" || key === "ce" || key === "6") return departmentsData.ce;
   if (key === "eee" || key === "electrical-electronics-engineering" || key === "electrical-and-electronics-engineering" || key === "ee" || key === "2") return departmentsData.eee;
+  if (key === "cst" || key === "4") return departmentsData.cst;
   return undefined;
 };
 
