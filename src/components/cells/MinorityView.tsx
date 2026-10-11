@@ -67,7 +67,7 @@ export default function MinorityView() {
         </nav>
       </section>
 
-      <main className="container mx-auto px-4 py-10 md:py-14 max-w-6xl">
+      <main className="container mx-auto px-4 py-10 md:py-14 max-w-7xl">
         <button
           onClick={() => navigate("/cells")}
           className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#b31317] transition-colors"
