@@ -4435,6 +4435,40 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "url": "https://mits.ac.in/sdg-cell"
   },
   "startup": {
+    "name": "Startup & Incubation Cell",
+    "aboutText": [
+      "Madanapalle Institute of Technology & Science - Deemed to be University has inculcated the culture of entrepreneurship. MITS has initiated the incubation centre in the year 2023 with an intention to provide creative atmosphere, wherein new ideas and projects can flourish. The incubation centre is registered as Madanapalle Institute of Technology and Science Foundation (MITS Foundation), a section 8 company as per the Companies Act, 2013. The foundation was registered on 3rd October 2024."
+    ],
+    "members": [],
+    "documents": [
+      { "title": "MITS Startup Policy", "href": "https://mits.ac.in/assets/pdf/assoc/MITS-Startup-Policy.pdf" },
+      { "title": "Pitch Deck Template - 2025", "href": "https://mits.ac.in/assets/pdf/assoc/Pitch_Deck_Template.pptx" },
+      { "title": "Startup Cell Achievements", "href": "https://mits.ac.in/assets/pdf/assoc/Startup Cell Achievements.pdf" },
+      { "title": "List of Startups Incubated in the Year 2024-25", "href": "https://mits.ac.in/assets/pdf/assoc/List of Startups Incubated in the Year 2024-25.pdf" },
+      { "title": "List of Startups Incubated in the Year 2023-24", "href": "https://mits.ac.in/assets/pdf/assoc/List of Startups Incubated in the Year 2023-24.pdf" },
+      { "title": "NISP Annual News Letter 2023-24", "href": "https://mits.ac.in/assets/pdf/assoc/NISP_Annual News Letter 2022-23.pdf" },
+      { "title": "NISP 2019", "href": "https://mits.ac.in/assets/pdf/assoc/NISP%202019.pdf" },
+      { "title": "AP Innovation and Startup Policy", "href": "https://mits.ac.in/assets/pdf/assoc/AP%20Innovation%20and%20Startup%20Policy.pdf" },
+      { "title": "NISP Committee Members 2025-26", "href": "https://mits.ac.in/assets/pdf/assoc/Office Order-STARTUP & INCUBATION CELL-2025.pdf" },
+      { "title": "NISP Committee Members 2023-24", "href": "https://mits.ac.in/assets/pdf/assoc/NISP%20Commitee%20Members.pdf" },
+      { "title": "MITS Startup Policy (Scanned)", "href": "https://mits.ac.in/assets/pdf/assoc/Scanned_MITS_ISP_policy.pdf" },
+      { "title": "Documents Required for Startup", "href": "https://mits.ac.in/assets/pdf/assoc/Documents Required for Startup.pdf" },
+      { "title": "Flowchart for Startup Registration", "href": "https://mits.ac.in/assets/pdf/assoc/Flowchart for Startup Registration.pdf" }
+    ],
+    "contacts": [
+      {
+        "name": "Mr. Praneel Kumar Peruru",
+        "designation": "Coordinator, Assistant Professor, Dept of CSE (Artificial Intelligence)",
+        "address": "Madanapalle Institute of Technology & Science, Deemed to be University, Madanapalle-Kadiri Road, Kurabalakota Mandal, Madanapalle-517325, Andhra Pradesh, India",
+        "phone": "+91-8571-280255, 280706",
+        "email": ""
+      }
+    ],
+    "id": "startup",
+    "url": "https://mits.ac.in/nisp",
+    "events": []
+  },
+  "_startup_old": {
     "name": "Startup Cell",
     "aboutText": [
       "Madanapalle Institute of Technology & Science - Deemed to be University has inculcated the culture of entrepreneurship. MITS has initiated the incubation centre in the year 2023 with an intention to provide creative atmosphere, wherein new ideas and projects can flourish. The incubation centre is registered as Madanapalle Institute of Technology and Science Foundation (MITS Foundation), a section 8 company as per the Companies Act, 2013. The foundation was registered on 3rd October 2024. The Foundation is established to offer a platform for staffs, students, alumni and general public who are aligned with its theme, for the purpose of business incubation and innovation. The center is taking an active role in fostering an entrepreneurial culture and environment for ideating, establishing, and commercializing businesses. Also, it provides working spaces for incubation and offers counseling services on business management and technological solutions. The approach is intended to help innovators in transforming their ideas into products. It identifies tools, devices, and technology and putting together a network to commercialize the items or services, thereby innovators and entrepreneurs can get benefitted.",
