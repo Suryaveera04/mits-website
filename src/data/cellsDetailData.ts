@@ -3814,75 +3814,44 @@ export const cellsDetailData: Record<string, CellDetail> = {
   "parakh": {
     "name": "AICTE PARAKH Cell",
     "aboutText": [
-      "The AICTE PARAKH Cell at Madanapalle Institute of Technology & Science facilitates the comprehensive assessment of student learning outcomes in cognitive, behavioral, and practical skills through the AICTE PARAKH portal.",
-      "The Cell coordinates benchmark diagnostic evaluations for emerging engineers, enabling faculty to tailor pedagogic strategies that enhance higher-order problem solving and analytical thinking."
+      "AICTE Student Learning Assessment PARAKH (Performance Assessment, Review and Analysis of Knowledge for Holistic Development) is a competency-based assessment initiative aligned with India's National Education Policy (NEP), focusing on evaluating students' Academic, Aptitude, and Higher-Order Thinking Skills which targets learners in AICTE-approved institutions across Engineering, Management, Computer Applications, and Emerging Disciplines to ensure a standardized evaluation process."
     ],
     "members": [
-      {
-        "sno": "1",
-        "name": "Dr. C. Yuvaraj",
-        "designation": "Vice Chancellor (I/c)",
-        "position": "Chairperson",
-        "email": ""
-      },
-      {
-        "sno": "2",
-        "name": "Dr. M. Sreedevi",
-        "designation": "Professor & Head, Dept. of CST",
-        "position": "Coordinator",
-        "email": ""
-      },
-      {
-        "sno": "3",
-        "name": "Dr. C. Kamal Basha",
-        "designation": "Dean Quality Assurance",
-        "position": "Member",
-        "email": ""
-      }
+      { "sno": "1",  "name": "Dr. C. Yuvaraj",          "designation": "Vice Chancellor (I/c)",                        "position": "Chairman",                            "email": "principal@mits.ac.in" },
+      { "sno": "2",  "name": "Dr. P. Ramanathan",        "designation": "Professor, Dept of ECE",                       "position": "Member Secretary",                    "email": "drramanathanp@mits.ac.in" },
+      { "sno": "3",  "name": "Mr. P. Sabarishkumar",     "designation": "Assistant Professor, Dept of CE",              "position": "Member",                              "email": "sabarishkumarp@mits.ac.in" },
+      { "sno": "4",  "name": "Dr. Thrinadh Jadam",       "designation": "Assistant Professor, Dept of ME",              "position": "Member",                              "email": "drthrinadhj@mits.ac.in" },
+      { "sno": "5",  "name": "Mrs. V. Sai Anusha",       "designation": "Assistant Professor, Dept of ECE",             "position": "Member",                              "email": "saianushav@mits.ac.in" },
+      { "sno": "6",  "name": "Dr. Vineeth Kumar",        "designation": "Assistant Professor, Dept of EEE",             "position": "Member",                              "email": "drvineetkumar@mits.ac.in" },
+      { "sno": "7",  "name": "Mr. B. Anandaraj",         "designation": "Assistant Professor, Dept of CSE",             "position": "Member",                              "email": "anandarajb@mits.ac.in" },
+      { "sno": "8",  "name": "Mr. Roni Das",             "designation": "Assistant Professor, Dept of CSE (CS)",        "position": "Member",                              "email": "ronidas@mits.ac.in" },
+      { "sno": "10", "name": "Mr. K. Chandra Sekhar",    "designation": "Assistant Professor, Dept of CSE (AI)",        "position": "Member",                              "email": "chandrasekhark@mits.ac.in" },
+      { "sno": "11", "name": "Ms. Shivani Jha",          "designation": "Assistant Professor, Dept of CSE (AI and ML)", "position": "Member",                              "email": "shivani@mits.ac.in" },
+      { "sno": "12", "name": "Mr. Noorbhasha Junnubabu", "designation": "Assistant Professor, Dept of CST",             "position": "Member",                              "email": "junnubabun@mits.ac.in" },
+      { "sno": "13", "name": "Dr. N. Gangisetty",        "designation": "Professor, Dept of MBA",                       "position": "Member",                              "email": "gangisetty@mits.ac.in" },
+      { "sno": "14", "name": "Mrs. S. Suganya",          "designation": "Assistant Professor, Dept of MCA",             "position": "Member",                              "email": "suganyas@mits.ac.in" },
+      { "sno": "15", "name": "Mr. Sridhar. N",           "designation": "Assistant Professor, Dept of EEE",             "position": "Coordinator - AICTE PARAKH",           "email": "sridharn@mits.ac.in" },
+      { "sno": "16", "name": "Mr. Darshan B V",          "designation": "Assistant Professor, Dept of ME",              "position": "Assistant Coordinator - AICTE PARAKH", "email": "mitsparakh@mits.ac.in" }
     ],
     "documents": [
-      {
-        "title": "PARAKH Portal Student Assessment Manual",
-        "href": "https://parakh.aicte-india.org/"
-      },
-      {
-        "title": "Institutional PARAKH Committee Office Order 2025",
-        "href": "https://mits.ac.in/assets/pdf/assoc/PARAKH Committee 2025.pdf"
-      }
+      { "title": "Coordination Team for PARAKH (AY 2026-27)",        "href": "https://mits.ac.in/assets/pdf/assoc/PARAKH Co-coordinators 2026-27.pdf" },
+      { "title": "AICTE PARAKH - Institute Profile",                  "href": "https://mits.ac.in/assets/pdf/assoc/AICTE PARAKH - Institute Profile.pdf" },
+      { "title": "AICTE PARAKH - Committee Office Order 2025-26",     "href": "https://mits.ac.in/assets/pdf/assoc/Office Order-PARAKH.pdf" },
+      { "title": "AICTE PARAKH - Committee Office Order 2024-25",     "href": "https://mits.ac.in/assets/pdf/assoc/AICTE PARAKH - Committee Office Order-2025.pdf" },
+      { "title": "SOP for AICTE PARAKH",                             "href": "https://mits.ac.in/assets/pdf/assoc/SOP for AICTE PARAKH.pdf" }
     ],
     "contacts": [
       {
-        "name": "Dr. M. Sreedevi",
-        "designation": "Professor & Head, Dept. of CST & Coordinator - PARAKH Cell",
-        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
-        "phone": "+91-8571-280255",
-        "email": "parakh@mits.ac.in"
+        "name": "Mr. N. Sridhar",
+        "designation": "Coordinator - AICTE PARAKH, Assistant Professor, Dept of EEE",
+        "address": "Madanapalle Institute of Technology & Science, Deemed to be University, Madanapalle-Kadiri Road, Kurabalakota Mandal, Madanapalle-517325, Andhra Pradesh, India",
+        "phone": "+91-8571-280255, 280706",
+        "email": "mitsparakh@mits.ac.in"
       }
     ],
     "id": "parakh",
     "url": "https://mits.ac.in/parakh",
-    "sections": [
-      {
-        "title": "Objectives & Assessment Framework",
-        "paragraphs": [
-          "Administering AICTE PARAKH assessments to gauge technical, mathematical, and 21st-century workplace competencies.",
-          "Using analytics and outcome benchmarks to identify curriculum enhancement requirements.",
-          "Strengthening national competitiveness and graduate readiness for global industries."
-        ]
-      }
-    ],
-    "events": [
-      {
-        "title": "AICTE PARAKH Diagnostic Assessment Drive for Final & Pre-Final Year Students",
-        "href": "https://parakh.aicte-india.org/",
-        "date": "24-09-2025"
-      },
-      {
-        "title": "Cognitive Outcome Mapping Workshop for Engineering Faculty",
-        "href": "https://parakh.aicte-india.org/",
-        "date": "10-04-2025"
-      }
-    ]
+    "events": []
   },
   "nep": {
     "id": "nep",

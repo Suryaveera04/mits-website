@@ -20,6 +20,7 @@ import EofcView from "@/components/cells/EofcView";
 import PaarcView from "@/components/cells/PaarcView";
 import IqacView from "@/pages/IQAC";
 import UhvcView from "@/components/cells/UhvcView";
+import ParakhView from "@/components/cells/ParakhView";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -128,6 +129,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "uhvc") {
     return <UhvcView />;
+  }
+
+  if (targetId === "parakh") {
+    return <ParakhView />;
   }
 
   if (!cell) {
