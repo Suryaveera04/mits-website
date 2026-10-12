@@ -296,6 +296,73 @@ export interface CivilNotesData {
   materials: CourseMaterialItem[];
 }
 
+export interface MbaAlumniYearGroup {
+  year: string;
+  lectures: string[];
+  reportTitle?: string;
+  reportUrl?: string;
+}
+
+export interface MbaCoordinatorContact {
+  title: string;
+  name: string;
+  designation: string;
+  department: string;
+  institute: string;
+  address: string;
+  phone: string;
+  email: string;
+}
+
+export interface MbaAlumniData {
+  title: string;
+  yearGroups: MbaAlumniYearGroup[];
+  coordinator?: MbaCoordinatorContact;
+}
+
+export interface MbaRuralImmersionBatch {
+  batchTitle: string;
+  videoLinks?: { title: string; url: string }[];
+  youtubeEmbeds?: string[];
+}
+
+export interface MbaRuralImmersionData {
+  title: string;
+  batches: MbaRuralImmersionBatch[];
+  galleries: { title: string; pdfUrl: string }[];
+}
+
+export interface MbaInternationalProgramItem {
+  subTitle: string;
+  points?: string[];
+  linkTitle?: string;
+  linkUrl?: string;
+}
+
+export interface MbaInternationalYearGroup {
+  year: string;
+  items: MbaInternationalProgramItem[];
+}
+
+export interface MbaInternationalRelationsData {
+  title: string;
+  yearGroups: MbaInternationalYearGroup[];
+  coordinator?: MbaCoordinatorContact;
+}
+
+export interface MbaBestPracticeSection {
+  title: string;
+  paragraphs: string[];
+  bulletPoints?: string[];
+  links?: { title: string; url: string }[];
+}
+
+export interface MbaBestPracticesData {
+  title: string;
+  overview: string;
+  sections: MbaBestPracticeSection[];
+}
+
 export interface DepartmentMoreData {
   subTabs: DepartmentMoreSubTab[];
   mentorMentee?: MentorMenteeGroup[];
@@ -317,6 +384,26 @@ export interface DepartmentMoreData {
   professionalActivities?: { description: string; reportUrl: string }[];
   committees?: MoreDocumentGroup;
   researchGroup?: MoreDocumentGroup;
+  placementsGroup?: MoreDocumentGroup;
+  ruralImmersion?: {
+    videos?: { title: string; url: string; isDropbox?: boolean; isSharePoint?: boolean }[];
+    reports?: MoreDocumentItem[];
+  };
+  internationalRelations?: MoreDocumentGroup;
+  bestPractices?: MoreDocumentGroup;
+  industrialVisits?: MoreDocumentGroup;
+  celebrations?: MoreDocumentGroup;
+  internships?: MoreDocumentGroup;
+  caseStudiesPdfUrl?: string;
+  galleryPdfUrl?: string;
+  mbaAlumni?: MbaAlumniData;
+  mbaRuralImmersion?: MbaRuralImmersionData;
+  mbaInternationalRelations?: MbaInternationalRelationsData;
+  mbaBestPractices?: MbaBestPracticesData;
+  mous?: MoreDocumentGroup;
+  nbaAccreditation?: MoreDocumentGroup;
+  departmentBudgetGroup?: MoreDocumentGroup;
+  timetablesGroup?: MoreDocumentGroup;
   researchProjects?: {
     overview: string;
     sections: {
@@ -381,6 +468,7 @@ export interface PostGraduateData {
     posR20: { id: string; title: string; description: string }[];
   };
   timetables?: { title: string; url: string; academicYear?: string }[];
+  academicsOverview?: { title: string; paragraphs: string[] };
 }
 
 // Helper to get dept image
@@ -2500,9 +2588,14 @@ percentage: "95%", avgPackage: "₹8 LPA", highestPackage: "₹14 LPA", recruite
     shortName: "MBA",
     established: "2004",
     bannerImage: deptImg("mba"),
-    about: "The Department of Management Studies offers a full-time MBA programme started in 2004, governed by AICTE, with specializations in HR, Marketing, Systems, and Finance. The department operates with strong infrastructure and continuously collaborates with industry and academic institutions. Academic Council and BoS drive curriculum quality to make students industry-ready. The MBA programme under the department is NBA accredited under AICTE.",
-    vision: "To become a globally recognized centre of excellence in management by building managerial competencies and preparing visionary global business leaders.",
-    mission: ["To empower students to face real-time business situations and foster entrepreneurship.", "To facilitate industry-driven learning among students and faculty.", "To provide a platform for knowledge creation and dissemination through relevant infrastructure.", "To contribute to socio-economic development through excellence in teaching and research."],
+    about: "The Department offers a full time M.B.A. programme affiliated to JNTUA, Anantapur governed by AICTE. The programme was started in the year 2004 with a very good infrastructure and an environment that is conducive for learning. It has been a hub of innovative activities and is constantly on the look out for the opportunities to collaborate with the industry as well as the educational institutions around the globe. The specializations offered are HR, Marketing, Systems and Finance.\n\nThe Department has obtained UGC-Autonomous Status in the year 2014 and is running the programme successfully by meeting all the requirements. The College Academic Council, Board of Studies of the department strive to provide quality education with the most advanced curriculum to make the students industry ready and excel in the contemporary business world.\n\nThe M.B.A. Programme under the Department of Management Studies was accredited by the National Board of Accreditation (NBA) of All India Council for Technical Education (AICTE).",
+    vision: "To become a centre of academic excellence in management education, serving the region, nation, and the world through research relevance and community engagement while emphasising the importance of the individual.",
+    mission: [
+      "M1: To provide a dynamic and inclusive learning environment that fosters managerial competence, critical thinking, and an entrepreneurial mindset.",
+      "M2: To promote research-driven and industry-integrated education that fosters innovation and prepares graduates to address real-world business challenges in a rapidly evolving global environment",
+      "M3: To instil ethical leadership, professional values, and social responsibility through value-based pedagogy and experiential learning for the holistic development of the individual",
+      "M4: To engage with the community and contribute to the sustainable socio-economic development of the region, nation, and the world through excellence in teaching, research, and outreach."
+    ],
     nbaAccredited: true,
     hod: { name: "Dr. Bhanu Sree Reddy", designation: "Professor & Dean-School of Management", qualification: "Ph.D. (Sri Venkateswara University)", image: "https://mits.ac.in/public/uploads/faculty/Bhanu Sree Reddy.JPG", profileUrl: "https://mits.ac.in/facultyprofile/701" },
     achievements: { consultancyAmount: "₹5+ Lakhs", researchProjects: "4+", patents: "0", publications: "50+" },
@@ -3754,10 +3847,35 @@ export const mcaPostGraduateData: PostGraduateData = {
   ]
 };
 
+export const mbaPostGraduateData: PostGraduateData = {
+  programTitle: "Master of Business Administration (MBA)",
+  programOverview:
+    "In the relatively short period since it was established (2004), the Department of Management Studies at MITS has earned a place among the most distinguished institutions of higher learning in Management.\n\nWith good access to Bangalore, Chennai and Tirupati, DMS-MITS has become the principal point for people of talent and ambition in the region. It is always ahead in implanting the conceptual knowledge coupled with the practical applications in the young minds. DMS-MITS plays a big brother role in the region by organizing Management Meets, Workshops, Conferences for both students and faculty on a regular basis on the latest management practices, Innovative Management Strategies like SPSS, Supply Chain Management etc.\n\nResearch at DMS-MITS is a continuous activity and the fruits are transferred to the students not only in teaching but also by involving them in the research activity.",
+  subTabs: [
+    { id: "academics", label: "Academics" },
+    {
+      id: "academic-regulations",
+      label: "Academic Regulations",
+      externalUrl: "https://mits.ac.in/ugc-autonomous-exam-portal"
+    }
+  ],
+  academicsOverview: {
+    title: "Academics at MITS",
+    paragraphs: [
+      "In the relatively short period since it was established (2004), the Department of Management Studies at MITS has earned a place among the most distinguished institutions of higher learning in Management.",
+      "With good access to Bangalore, Chennai and Tirupati, DMS-MITS has become the principal point for people of talent and ambition in the region. It is always ahead in implanting the conceptual knowledge coupled with the practical applications in the young minds. DMS-MITS plays a big brother role in the region by organizing Man-Meets, Workshops, Conferences for both students and faculty on a regular basis on the latest management practices., Innovative Management Strategies like SPSS, Supply Chain Management etc.",
+      "Research at DMS-MITS is a continuous activity and the fruits are transferred to the students not only in teaching but also by involving them in the research activity."
+    ]
+  }
+};
+
 /**
  * Returns postgraduate program and syllabus data for any department.
  */
 export function getDepartmentPostGraduate(deptKey: string): PostGraduateData | undefined {
+  if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "5") {
+    return mbaPostGraduateData;
+  }
   if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
     return mcaPostGraduateData;
   }
@@ -7787,7 +7905,698 @@ export const eceMoreData: DepartmentMoreData = {
   }
 };
 
+export const mbaMoreData: DepartmentMoreData = {
+  mbaAlumni: {
+    title: "Alumni Guest Lectures",
+    yearGroups: [
+      {
+        year: "2024-25",
+        lectures: [
+          'An Alumni Guest Lecture by Ms.Jayashree R on " Health insurance sector: Career opportunities" was organized by Department of Management Studies on 19th October 2024.'
+        ]
+      },
+      {
+        year: "2023-24",
+        lectures: [
+          'An Alumni Guest Lecture by Ms. Madhuri R on " How to survive in corporate world" was organized by Department of Management Studies on 27th June 2024.',
+          'An Alumni Guest Lecture by Miss. P. Nandini on "Career opportunities in Amazon" was organized by Department of Management Studies on 22nd February 2024.',
+          'An Alumni Guest Lecture by Mr. P. Naveen Kumar Reddy on " Career opportunities in banking sector for MBA students " was organized by Department of Management Studies on 12th February, 2024.',
+          'An Alumni Guest Lecture by Miss Karishma on "Tips to be industry ready" was organized by Department of Management Studies on 1st February, 2024.',
+          'An Alumni Guest Lecture by Miss Jyothi Priyanka on "Job opportunities in Accenture" was organized by Department of Management Studies on 22nd August, 2023.'
+        ],
+        reportTitle: "Alumni Guest Lecture Reports 2023-24",
+        reportUrl: "https://mits.ac.in/assets/pdf/mba/alumni guest lecture reports 23- 24.pdf"
+      },
+      {
+        year: "2022-23",
+        lectures: [
+          'An Alumni Guest Lecture by Mr. Sai Bhargv Raju on Awareness on Job opportunities in Genpact" was organized by Department of Management Studies on 16th August 2022',
+          'An Alumni Guest Lecture by Ms.Saivarshini on “ Placement awareness for I MBA students” was organized by Department of Management Studies on 16th August 2022.'
+        ],
+        reportTitle: "Alumni Guest Lecture Reports 2022-23",
+        reportUrl: "https://mits.ac.in/assets/pdf/mba/alumni guest lecture reports 2022- 23.pdf"
+      },
+      {
+        year: "2021-22",
+        lectures: [
+          'An Alumni Guest Lecture by Mr. M. Raghavendra on "Qualities required for an entrepreneur" was organized by Department of Management Studies on 14th March 2022.',
+          'An Alumni Guest Lecture by Miss. K. Swathi on "Funding Process at State Street Bank" was organized by Department of Management Studies on 08th March 2022.',
+          'An Alumni Guest Lecture by Miss Pratyusha on "Customer Relationship Building & Manage the Complete Customer Service" was organized by Department of Management Studies on 04th March 2022.',
+          'An Alumni Guest Lecture by Miss B. Tejeswaini on "Managerial Competencies for HR Professionals" was organized by Department of Management Studies on 04th February 2022.'
+        ],
+        reportTitle: "Alumni Guest Lecture Reports 2021-22",
+        reportUrl: "https://mits.ac.in/assets/pdf/mba/2021-22-Alumni.pdf"
+      },
+      {
+        year: "2020-21",
+        lectures: [
+          'An Alumni Guest Lecture by Mr. Syed Anees on “Career Opportunities through SAP” was organized by Department of Management Studies on 20th March 2021.'
+        ],
+        reportTitle: "Alumni Guest Lecture Reports 2020-21",
+        reportUrl: "https://mits.ac.in/assets/pdf/mba/2020-21-Alumni.pdf"
+      },
+      {
+        year: "2019-20",
+        lectures: [
+          'An Alumni Guest Lecture by Mr. Anil Duth on “Entrepreneurial Avenues for II MBA Students” was organized by Department of Management Studies on 27th August 2019.'
+        ],
+        reportTitle: "Alumni Guest Lecture Reports 2019-20",
+        reportUrl: "https://mits.ac.in/assets/pdf/mba/2019-20-Alumni.pdf"
+      },
+      {
+        year: "2018-19",
+        lectures: [
+          'An Alumni Guest Lecture by Mr. P. Gajendra on “Financial Derivatives” was organized by Department of Management Studies on 5th December 2018.',
+          'An Alumni Guest Lecture by Mr. D. Durga Prasad on “Investment Patterns” was organized by Department of Management Studies on 16th September 2018.',
+          'An Alumni Guest Lecture by Mr. P. Kiran Kumar on “Interview Techniques” was organized by Department of Management Studies on 21st January 2019.',
+          'An Alumni Guest Lecture by Mr. Kiran Kumar G.P on “Sales and Distribution Management” was organized by Department of Management Studies on 20th February 2019.',
+          'An Alumni Guest Lecture by Mr. K Arun Sharma on “Data Analytics Using Excel” was organized by Department of Management Studies on 20th March 2019.',
+          'An Alumni Guest Lecture by Mr. G. Srinivasulu on “Supply Chain Management” was organized by Department of Management Studies on 20th April 2019.',
+          'An Alumni Guest Lecture by Ms. Michael Steffi on “Recent Trends in HR” was organized by Department of Management Studies on 22nd May 2019.'
+        ],
+        reportTitle: "Alumni Guest Lecture Reports 2018-19",
+        reportUrl: "https://mits.ac.in/assets/pdf/mba/2018-19-Alumni.pdf"
+      },
+      {
+        year: "2017-18",
+        lectures: [
+          'An Alumni Guest Lecture by Mr. Naga Raja A on “Career Planning” was organized by Department of Management Studies on 28th August 2017.',
+          'An Alumni Guest Lecture by Mr. K. Jagadeeshwar Reddy on “Financial Investments” was organized by Department of Management Studies on 30th September 2017.',
+          'An Alumni Guest Lecture by Mr. S. Muni Prasad on “Digital Marketing” was organized by Department of Management Studies on 20th November 2017.',
+          'An Alumni Guest Lecture by Mr. Reddy Sekhar on “Business Analytics” was organized by Department of Management Studies on 17th February 2018.',
+          'An Alumni Guest Lecture by Mr. Uday Kumar on “DEBT Capital Markets” was organized by Department of Management Studies on 6th April 2018.',
+          'An Alumni Guest Lecture by Mr. M. Gunasekhar on “Interaction on Trends shaping the Payments Industry: From Payment Cards to Mobile Payments” was organized by Department of Management Studies on 2nd May 2018.'
+        ],
+        reportTitle: "Alumni Guest Lecture Reports 2017-18",
+        reportUrl: "https://mits.ac.in/assets/pdf/mba/2017-18-Alumni.pdf"
+      },
+      {
+        year: "2016-17",
+        lectures: [
+          'An Alumni Guest Lecture by Mr. Naga Raju on "Report interaction on modern branding offline and online" was organized by Department of Management Studies on 09th February 2017.',
+          'An Alumni Guest Lecture by Mr. Anil Duth on "Report on guest lecture on digital payments" was organized by Department of Management Studies on 10th April 2017.'
+        ],
+        reportTitle: "Alumni Guest Lecture Reports 2016-17",
+        reportUrl: "https://mits.ac.in/assets/pdf/mba/2016-17-Alumni.pdf"
+      }
+    ],
+    coordinator: {
+      title: "Departmental Alumni Coordinator",
+      name: "Dr. K. Venkateswarlu",
+      designation: "Assistant Professor",
+      department: "Department of Management Studies",
+      institute: "Madanapalle Institute of Technology & Science",
+      address: "Post Box No: 14, Kadiri Road, Angallu, Madanapalle-517325, Andhra Pradesh",
+      phone: "+91-8571-280255; 280706",
+      email: "drvenkateswarluk@mits.ac.in"
+    }
+  },
+  mbaRuralImmersion: {
+    title: "Rural Immersion",
+    batches: [
+      {
+        batchTitle: "Batch 2023-25 Year 2023-24 Semester II Regulation R22 Village Rajulavaripalli",
+        videoLinks: [
+          {
+            title: "Click here to watch the video on Rural Immersion Batch 2023-25 & Year 2023-24",
+            url: "https://www.dropbox.com/scl/fi/bkhbh1drb94v8l3k0hdgc/Rural-Immersion-Program-Batch-2023-25-Year-2023-24.mp4?rlkey=zb12q36ccrhobqq8m08819kb8&e=1&st=o6tkx90d&dl=0"
+          }
+        ]
+      },
+      {
+        batchTitle: "Batch 2021-23 Year 2022-23 Semester II-I Regulation R20 Village Rangasamudram, Thummanakunta, Kosuvaripalli & Naarlapalli",
+        videoLinks: [
+          {
+            title: "Click here to watch the video on Responsible consumption and production",
+            url: "https://mitsacin-my.sharepoint.com/:v:/g/personal/21691e00d1_mits_ac_in/EWXnw6KLF5JEhUFqomiv9nsBD7zctCaINcsgkGE-CU8iOA?e=wS98oe"
+          },
+          {
+            title: "Click here to watch the video on Education for all",
+            url: "https://mitsacin-my.sharepoint.com/:v:/g/personal/21691e00d1_mits_ac_in/EaowWySkBwFMtkviszk1ArYBLJ9EEkWIhD0FYlZux6xngg?e=DH5kk2"
+          },
+          {
+            title: "Click here to watch the video on Nutrition, health and well being",
+            url: "https://mitsacin-my.sharepoint.com/:v:/g/personal/21691e00d1_mits_ac_in/EW8Oz3-b12xIuxWL5t3t_-ABT3fktgUrDogF06C2xYPm0Q?e=f54ePz"
+          },
+          {
+            title: "Click here to watch the video on Clean Energy",
+            url: "https://mitsacin-my.sharepoint.com/:v:/g/personal/21691e00d1_mits_ac_in/Ef8BPy1LMnlPkKAEhuJVmM4BL0HwQKXjSR51RbhUY3S5yA?e=Kefu5W"
+          }
+        ]
+      },
+      {
+        batchTitle: "Batch 2020-22 Year 2021-22 Semester II-I Regulation R20 Village Kotavaripalli",
+        youtubeEmbeds: [
+          "https://www.youtube.com/embed/ARSuF1wdCU4"
+        ]
+      },
+      {
+        batchTitle: "Batch 2018-20 Year 2019-20 Semester II-I Regulation R2018 Villages Chintaparthy, Kondamarripalli, Munganpalli",
+        youtubeEmbeds: [
+          "https://www.youtube.com/embed/GHPhBBs9AvU",
+          "https://www.youtube.com/embed/xzYjDbpk8Gc",
+          "https://www.youtube.com/embed/qgq4d9aazhc"
+        ]
+      }
+    ],
+    galleries: [
+      {
+        title: "Rural Immersion Gallery Year Wise 2020-22",
+        pdfUrl: "https://mits.ac.in/assets/pdf/mba/RURAL IMMERSION PICTURES YEAR WISE 2020-22-min.pdf"
+      },
+      {
+        title: "Rural Immersion Gallery Year Wise 2018-20",
+        pdfUrl: "https://mits.ac.in/assets/pdf/mba/RURAL IMMERSION PICTURES YEAR WISE 2018-20-min.pdf"
+      },
+      {
+        title: "Rural Immersion Gallery Year Wise 2017-19",
+        pdfUrl: "https://mits.ac.in/assets/pdf/mba/RURAL IMMERSION PICTURES YEAR WISE 2017-19-min.pdf"
+      }
+    ]
+  },
+  mbaInternationalRelations: {
+    title: "International Internship Programme",
+    yearGroups: [
+      {
+        year: "2022-23",
+        items: [
+          {
+            subTitle: "Opportunities in Europe",
+            points: [
+              'Virtual Session on "Opportunities in Europe" for Students of Department of Management Studies by Dr. Vladimir Kulish, Czech Technical University'
+            ],
+            linkTitle: "Click here for Details",
+            linkUrl: "https://mits.ac.in/assets/pdf/mba/kulish.pdf"
+          },
+          {
+            subTitle: "Artificial Intelligence, in Management Asia University",
+            points: [
+              '49 students have done their Internship on “Artificial Intelligence in Management” from Asia University.'
+            ],
+            linkTitle: "Click here for Participants List",
+            linkUrl: "https://mits.ac.in/assets/pdf/mba/22-23.pdf"
+          }
+        ]
+      },
+      {
+        year: "2021-22",
+        items: [
+          {
+            subTitle: "Visit to Brno Technical University, Brno, Czech Republic",
+            points: [
+              'Dr. Sremmant Basu Dean International and HOD, Department of Management Studies visited Brno Technical University, Czech Republic from 8th to 10th June, 2022.'
+            ],
+            linkTitle: "Click here for Visit Details",
+            linkUrl: "https://mits.ac.in/assets/pdf/mba/Brno Technical University.pdf"
+          },
+          {
+            subTitle: "Business Research Methods, Asia University",
+            points: [
+              '14 students have done their Internship on “Business Research Methods” from Asia University.'
+            ],
+            linkTitle: "Click here for Participants List",
+            linkUrl: "https://mits.ac.in/assets/pdf/mba/21-22-min.pdf"
+          }
+        ]
+      },
+      {
+        year: "2020-21",
+        items: [
+          {
+            subTitle: "Investment Portfolio Analysis, Managerial Ethics and Corporate Social Responsibility, Asia University",
+            points: [
+              '06 students have done their Internship on “Investment Portfolio Analysis” from Asia University from 22nd February to 25th June 2021.',
+              '05 students have done their Internship on “Managerial Ethics and Corporate Social Responsibility” from Asia University from 22nd February to 25th June 2021.'
+            ],
+            linkTitle: "Click here for Participants List",
+            linkUrl: "https://mits.ac.in/assets/pdf/mba/20-21-min.pdf"
+          }
+        ]
+      },
+      {
+        year: "2018-19",
+        items: [
+          {
+            subTitle: "Dean International Relations and Head of the Department of Management Studies Signed MOU with Special Communication Research Center, Kookmin University, South Korea",
+            linkTitle: "Click here for MOU",
+            linkUrl: "https://mits.ac.in/assets/pdf/mba/18-19.1MOU-min.pdf"
+          },
+          {
+            subTitle: "Visit of Dr. Rushikesh from Department of Management, Providence University Taiwan",
+            linkTitle: "Click here for Visit Photographs",
+            linkUrl: "https://mits.ac.in/assets/pdf/mba/18-19 2-min.pdf"
+          }
+        ]
+      },
+      {
+        year: "2017-18",
+        items: [
+          {
+            subTitle: "Internship in Dubai at Jenmars Technical Services LLC, Dubai",
+            points: [
+              "Mr. Harsha Vardhan Bandarla - MBA February 2018",
+              "Mr. B. Chitanya Kumar - MBA February 2018"
+            ],
+            linkTitle: "Click here for Internship in Dubai",
+            linkUrl: "https://mits.ac.in/assets/pdf/mba/17-18 1-min.pdf"
+          },
+          {
+            subTitle: "University Innovation Fellowship Programme-Hasso Plattner Institute of Design School, Stanford university , Stanford.",
+            points: [
+              "Mr. Harshavardhan Bandarla - MBA November 2017"
+            ],
+            linkTitle: "Click here for Photographs & Details",
+            linkUrl: "https://mits.ac.in/assets/pdf/mba/2017-18. 2-min.pdf"
+          }
+        ]
+      }
+    ],
+    coordinator: {
+      title: "Departmental International Relations Coordinator",
+      name: "Dr. K. S. Krishna",
+      designation: "Assistant Professor",
+      department: "Department of Management Studies",
+      institute: "Madanapalle Institute of Technology & Science",
+      address: "Post Box No: 14, Kadiri Road, Angallu, Madanapalle-517325, Andhra Pradesh",
+      phone: "+91-8571-280255; 280706 (Extn: 162)",
+      email: "drkskrishna@mits.ac.in"
+    }
+  },
+  mbaBestPractices: {
+    title: "Best Practices",
+    overview: "For Enriching the Curriculum, the Department of Management Studies has three unique Best Practices, which help the students to remain updated with the latest trends in the industry and by getting overall exposer. These are Rural Immersion, International Internship, involvement of Industry Representative and Alumni Representation.",
+    sections: [
+      {
+        title: "1. Rural Immersion",
+        paragraphs: [
+          "Under the Board of Studies Regulations R22 and R24, 1st Year, 2nd Semester Students are exposed to socio-economic issues in rural settings. The students visit nearby villages in batches of 5 to 6 members to study the following aspects."
+        ],
+        bulletPoints: [
+          "Village profile: Population, literacy rate, number of families, occupations, etc.",
+          "Historical background",
+          "Cultural Aspects",
+          "Agriculture",
+          "Economic conditions of the people",
+          "Education",
+          "Healthcare",
+          "Water resources",
+          "Electricity",
+          "Family Income",
+          "Infrastructure (Roads, water tanks, pumps, communication facilities, bridges, storage facilities, small scale industries, irrigation facilities etc.)",
+          "Implementation of Govt. Schemes"
+        ],
+        links: [
+          {
+            title: "Please click here for Rural Immersion Video",
+            url: "https://www.youtube.com/embed/ARSuF1wdCU4"
+          },
+          {
+            title: "Please click here for Rural Immersion Gallery",
+            url: "https://mba.mits.ac.in/assets/pdf/mba/RURAL%20IMMERSION%20PICTURES%20YEAR%20WISE%202020-22-min.pdf"
+          }
+        ]
+      },
+      {
+        title: "2. International Internship",
+        paragraphs: [
+          "Our students are getting virtual Internship opportunities at Asia University, Taiwan. Some of the Students also got Internship opportunity in a company in Dubai. These opportunities give them International exposer which helps them in shaping their future career."
+        ],
+        links: [
+          {
+            title: "Click here for Report on International Internship",
+            url: "https://mba.mits.ac.in/assets/pdf/mba/INTERNATIONAL-min.pdf"
+          }
+        ]
+      },
+      {
+        title: "3. Curriculum Enrichment through Industry & Alumni",
+        paragraphs: [
+          "The department has initiated Involvement of Industry and Alumni representatives through a structured Board meeting which is called “Industry Alumni Advisory Board”. The Industry expert and Alumni give their suggestions for Curriculum Enrichment. These Proposals are being shared based on the Industry requirements. This process helps to make our Curriculum more Industry oriented."
+        ],
+        links: [
+          {
+            title: "Click here for Report",
+            url: "https://mba.mits.ac.in/assets/pdf/mba/IAAB.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  subTabs: [
+    { id: "lab", label: "Labs" },
+    { id: "research", label: "Research" },
+    { id: "journal", label: "Journal", externalUrl: "https://mits.ac.in/mits_new/mba" },
+    { id: "placement", label: "Placement" },
+    { id: "alumni", label: "Alumni" },
+    { id: "rural-immersion", label: "Rural Immersion" },
+    { id: "international-relations", label: "International Relations" },
+    { id: "best-practices", label: "Best Practices" },
+    { id: "industrial-visit", label: "Industrial Visit" },
+    { id: "budget", label: "Department Budget" },
+    { id: "newsletters", label: "NewsLetter" },
+    { id: "nba", label: "NBA" },
+    { id: "celebrations", label: "Celebrations" },
+    { id: "gallery", label: "Gallery" },
+    { id: "surveys", label: "Survey" },
+    { id: "timetables", label: "Timetables" },
+    { id: "internships", label: "Internships" },
+    { id: "mentor-mentee", label: "Mentor & Mentee" },
+    { id: "case-studies", label: "Case Studies" },
+    { id: "mou", label: "MoU" },
+    { id: "faculty-initiatives", label: "Faculty Initiatives on Teaching and Learning", externalUrl: "https://mits.ac.in/assets/pdf/mba/Faculty Initiatives on Teaching and learning-MBA.pdf", directPdf: true },
+    { id: "students-projects", label: "Students Projects" }
+  ],
+  labPdfUrl: "https://mits.ac.in/public/uploads/departments/MBA LAB.pdf",
+  caseStudiesPdfUrl: "https://mits.ac.in/assets/pdf/mba/NBA CASE STUDIES-min.pdf",
+  galleryPdfUrl: "https://mits.ac.in/assets/pdf/mba/studentclub.pdf",
+  researchProjects: {
+    overview: "The Department of Management Studies has undertaken various research and development projects sponsored by prestigious funding agencies like AICTE, UGC, and BSE-IPF.",
+    sections: [
+      {
+        academicYear: "2019-20",
+        agency: "AICTE",
+        totalAmount: "Rs.13,14,000/-",
+        headers: ["S.No", "Name of the Principal Investigator", "Sanctioned Letter Number with date", "Programme Title", "Duration of the Programme", "Total Sanctioned Amount", "Status of the Programme"],
+        rows: [
+          {
+            "S.No": "1",
+            "Name of the Principal Investigator": "Dr. Mohd Mujahed Ali",
+            "Sanctioned Letter Number with date": "F.No.73-9/RIFD/Samriddhi/Policy-1/2018-19",
+            "Programme Title": "Empowering Socially Changelled Youth of Rural India Through Entrepreneurship",
+            "Duration of the Programme": "2 years (2019-20 & 2020-21)",
+            "Total Sanctioned Amount": "Rs.13,14,000/-",
+            "Status of the Programme": "Completed"
+          }
+        ]
+      },
+      {
+        academicYear: "2018-19",
+        agency: "AICTE",
+        totalAmount: "Rs.18,53,000/-",
+        headers: ["S.No", "Name of the Principal Investigator", "Sanctioned Letter Number with date", "Programme Title", "Duration of the Programme", "Total Sanctioned Amount", "Status of the Programme"],
+        rows: [
+          {
+            "S.No": "1",
+            "Name of the Principal Investigator": "Dr. D. Pradeep Kumar",
+            "Sanctioned Letter Number with date": "File No.65-5/RIFD/SPDP/policy-1/2017-18",
+            "Programme Title": "Skill development for weaker sections in Madanapalle Institute of Technology and Science",
+            "Duration of the Programme": "3 years (2018-19, 2019-20 & 2020-21)",
+            "Total Sanctioned Amount": "Rs.18,53,000/-",
+            "Status of the Programme": "Completed"
+          }
+        ]
+      },
+      {
+        academicYear: "2016-17",
+        agency: "UGC-SERO MINOR PROJECT",
+        totalAmount: "Rs.2,35,000/-",
+        headers: ["S.No", "Name of the Principal Investigator", "Sanctioned Letter Number with date", "Project Title", "Duration of the Project", "Total Sanctioned Amount", "Status of the Projects"],
+        rows: [
+          {
+            "S.No": "1",
+            "Name of the Principal Investigator": "Dr. Mohd Mujahed Ali",
+            "Sanctioned Letter Number with date": "File No. MRP-6707/16(SERO-UGC), dated:30.06.2017",
+            "Project Title": "Skill Development for Enhancing Employability for Unemployed Youth of Andhra Pradesh Region",
+            "Duration of the Project": "2 years",
+            "Total Sanctioned Amount": "Rs.2,35,000/-",
+            "Status of the Projects": "Completed"
+          }
+        ]
+      },
+      {
+        academicYear: "2015-16",
+        agency: "BSE - IPF",
+        totalAmount: "Rs.60,000/-",
+        headers: ["S.No", "Name of the Principal Investigator", "Sanctioned Letter Number with date", "Project Title", "Duration of the Project", "Total Sanctioned Amount", "Status of the Projects"],
+        rows: [
+          {
+            "S.No": "1",
+            "Name of the Principal Investigator": "Dr. N. Subramanyam",
+            "Sanctioned Letter Number with date": "Lr From. C.Vasudevan, Head-BSE,IPF, dated:20.10.2015",
+            "Project Title": "Performance of FMCG vis-vis Infrastructure Companies which are listed in BSE 500 Index",
+            "Duration of the Project": "1 year",
+            "Total Sanctioned Amount": "Rs.60,000/-",
+            "Status of the Projects": "Completed"
+          }
+        ]
+      },
+      {
+        academicYear: "2014-15",
+        agency: "UGC-SERO MINOR PROJECT",
+        totalAmount: "Rs.1,20,000/-",
+        headers: ["S.No", "Name of the Principal Investigator", "Sanctioned Letter Number with date", "Project Title", "Duration of the Project", "Total Sanctioned Amount", "Status of the Projects"],
+        rows: [
+          {
+            "S.No": "1",
+            "Name of the Principal Investigator": "Mr Ismail. S",
+            "Sanctioned Letter Number with date": "File No.MRP-6096/15(SERO/UGC), dated:01.01.2015",
+            "Project Title": "A Study on Career Planning Absurd Among Students and its Impact on Employability",
+            "Duration of the Project": "2 years",
+            "Total Sanctioned Amount": "Rs.1,20,000/-",
+            "Status of the Projects": "Completed"
+          }
+        ]
+      },
+      {
+        academicYear: "2013-14",
+        agency: "UGC-SERO MINOR PROJECT",
+        totalAmount: "Rs.4,50,000/-",
+        headers: ["S.No", "Name of the Principal Investigator", "Sanctioned Letter Number with date", "Project Title", "Duration of the Project", "Total Sanctioned Amount", "Status of the Projects"],
+        rows: [
+          {
+            "S.No": "1",
+            "Name of the Principal Investigator": "Mr. K. Srinivas",
+            "Sanctioned Letter Number with date": "File No.MRP-4611/14(SERO/UGC), dated:MAR 2014",
+            "Project Title": "Challenges and Opportunities in Empowering Women of Backward Classes Through SHG’s in Chittoor District in Andhra Pradesh",
+            "Duration of the Project": "2 years",
+            "Total Sanctioned Amount": "Rs.2,50,000/-",
+            "Status of the Projects": "Completed"
+          },
+          {
+            "S.No": "2",
+            "Name of the Principal Investigator": "Mr. K.V.V Raaju",
+            "Sanctioned Letter Number with date": "File No.MRP-4614/14(SERO/UGC), dated:MAR 2014",
+            "Project Title": "Study on Aadhaar Card Implementation in Chittoor District",
+            "Duration of the Project": "2 years",
+            "Total Sanctioned Amount": "Rs.2,00,000/-",
+            "Status of the Projects": "Completed"
+          }
+        ]
+      }
+    ]
+  },
+  placementsGroup: {
+    groupTitle: "Placement Details",
+    documents: [
+      { title: "Placement 2022 - 24 Statistics", url: "https://mits.ac.in/assets/pdf/mba/Placement 2022-24 Statistics.pdf" },
+      { title: "Placement 2021 - 23 Statistics", url: "https://mits.ac.in/assets/pdf/mba/Placement 2021-23 Statistics.pdf" },
+      { title: "Student wise Placement Details 2019-2022 (Passed out)", url: "https://mits.ac.in/assets/pdf/mba/STUDENT%20WISE%20PLACEMENT%20DETAILS-2017-19.pdf" },
+      { title: "Placement 2020 - 22 Statistics", url: "https://mits.ac.in/assets/pdf/mba/Placement%20Statistics%202020_22.pdf" },
+      { title: "Placement 2019 - 21 Statistics", url: "https://mits.ac.in/assets/pdf/mba/Placement%20Statistics%202019_21.pdf" },
+      { title: "Placement 2018 - 20 Statistics", url: "https://mits.ac.in/assets/pdf/mba/Placement%20Statistics%202018_20.pdf" },
+      { title: "Placement 2017 - 19 Statistics", url: "https://mits.ac.in/assets/pdf/mba/Placement%20Statistics%202017_19.pdf" },
+      { title: "Placement 2016 - 18 Statistics", url: "https://mits.ac.in/assets/pdf/mba/Placement%20Statistics%202016_18.pdf" },
+      { title: "Placement 2015 - 17 Statistics", url: "https://mits.ac.in/assets/pdf/mba/Placement%20Statistics%202015_17.pdf" },
+      { title: "Placement 2014 - 16 Statistics", url: "https://mits.ac.in/assets/pdf/mba/Placement%20Statistics%202014_16.pdf" }
+    ]
+  },
+  alumniEvents: [
+    {
+      groupTitle: "Alumni Guest Lecture Reports",
+      documents: [
+        { title: "Alumni Guest Lecture Reports 2023-24", url: "https://mits.ac.in/assets/pdf/mba/alumni guest lecture reports 23- 24.pdf" },
+        { title: "Alumni Guest Lecture Reports 2022-23", url: "https://mits.ac.in/assets/pdf/mba/alumni guest lecture reports 2022- 23.pdf" },
+        { title: "Alumni Guest Lecture Reports 2021-22", url: "https://mits.ac.in/assets/pdf/mba/2021-22-Alumni.pdf" },
+        { title: "Alumni Guest Lecture Reports 2020-21", url: "https://mits.ac.in/assets/pdf/mba/2020-21-Alumni.pdf" },
+        { title: "Alumni Guest Lecture Reports 2019-20", url: "https://mits.ac.in/assets/pdf/mba/2019-20-Alumni.pdf" },
+        { title: "Alumni Guest Lecture Reports 2018-19", url: "https://mits.ac.in/assets/pdf/mba/2018-19-Alumni.pdf" },
+        { title: "Alumni Guest Lecture Reports 2017-18", url: "https://mits.ac.in/assets/pdf/mba/2017-18-Alumni.pdf" },
+        { title: "Alumni Guest Lecture Reports 2016-17", url: "https://mits.ac.in/assets/pdf/mba/2016-17-Alumni.pdf" }
+      ]
+    }
+  ],
+  ruralImmersion: {
+    videos: [
+      { title: "Rural Immersion Batch 2023-25 & Year 2023-24", url: "https://www.dropbox.com/scl/fi/bkhbh1drb94v8l3k0hdgc/Rural-Immersion-Program-Batch-2023-25-Year-2023-24.mp4?rlkey=zb12q36ccrhobqq8m08819kb8&e=1&st=o6tkx90d&dl=0", isDropbox: true },
+      { title: "Responsible consumption and production", url: "https://mitsacin-my.sharepoint.com/:v:/g/personal/21691e00d1_mits_ac_in/EWXnw6KLF5JEhUFqomiv9nsBD7zctCaINcsgkGE-CU8iOA?e=wS98oe", isSharePoint: true },
+      { title: "Education for all", url: "https://mitsacin-my.sharepoint.com/:v:/g/personal/21691e00d1_mits_ac_in/EaowWySkBwFMtkviszk1ArYBLJ9EEkWIhD0FYlZux6xngg?e=DH5kk2", isSharePoint: true },
+      { title: "Nutrition, health and well being", url: "https://mitsacin-my.sharepoint.com/:v:/g/personal/21691e00d1_mits_ac_in/EW8Oz3-b12xIuxWL5t3t_-ABT3fktgUrDogF06C2xYPm0Q?e=f54ePz", isSharePoint: true },
+      { title: "Clean Energy", url: "https://mitsacin-my.sharepoint.com/:v:/g/personal/21691e00d1_mits_ac_in/Ef8BPy1LMnlPkKAEhuJVmM4BL0HwQKXjSR51RbhUY3S5yA?e=Kefu5W", isSharePoint: true },
+      { title: "Rural Immersion Video 1", url: "https://www.youtube.com/embed/ARSuF1wdCU4" },
+      { title: "Rural Immersion Video 2", url: "https://www.youtube.com/embed/GHPhBBs9AvU" },
+      { title: "Rural Immersion Video 3", url: "https://www.youtube.com/embed/xzYjDbpk8Gc" },
+      { title: "Rural Immersion Video 4", url: "https://www.youtube.com/embed/qgq4d9aazhc" }
+    ],
+    reports: [
+      { title: "Rural Immersion Pictures Year Wise 2020-22", url: "https://mits.ac.in/assets/pdf/mba/RURAL IMMERSION PICTURES YEAR WISE 2020-22-min.pdf" },
+      { title: "Rural Immersion Pictures Year Wise 2018-20", url: "https://mits.ac.in/assets/pdf/mba/RURAL IMMERSION PICTURES YEAR WISE 2018-20-min.pdf" },
+      { title: "Rural Immersion Pictures Year Wise 2017-19", url: "https://mits.ac.in/assets/pdf/mba/RURAL IMMERSION PICTURES YEAR WISE 2017-19-min.pdf" }
+    ]
+  },
+  internationalRelations: {
+    groupTitle: "International Internship Programme",
+    description: "International Relations initiatives, exchange programs, and foreign university internships of the MBA department.",
+    documents: [
+      { title: "Virtual Session on 'Opportunities in Europe' by Dr. Vladimir Kulish, Czech Technical University (2022-23)", url: "https://mits.ac.in/assets/pdf/mba/kulish.pdf" },
+      { title: "Internship on 'Artificial Intelligence in Management' from Asia University - 49 Students Participants List (2022-23)", url: "https://mits.ac.in/assets/pdf/mba/22-23.pdf" },
+      { title: "Visit to Brno Technical University, Czech Republic by Dr. Sremmant Basu (2021-22)", url: "https://mits.ac.in/assets/pdf/mba/Brno Technical University.pdf" },
+      { title: "Internship on 'Business Research Methods' from Asia University - 14 Students Participants List (2021-22)", url: "https://mits.ac.in/assets/pdf/mba/21-22-min.pdf" },
+      { title: "Internship on 'Investment Portfolio Analysis' & 'Managerial Ethics' from Asia University - Participants List (2020-21)", url: "https://mits.ac.in/assets/pdf/mba/20-21-min.pdf" },
+      { title: "MOU with Special Communication Research Center, Kookmin University, South Korea (2018-19)", url: "https://mits.ac.in/assets/pdf/mba/18-19.1MOU-min.pdf" },
+      { title: "Visit of Dr. Rushikesh from Department of Management, Providence University Taiwan - Photographs (2018-19)", url: "https://mits.ac.in/assets/pdf/mba/18-19 2-min.pdf" },
+      { title: "Internship in Dubai at Jenmars Technical Services LLC - Mr. Harsha Vardhan Bandarla & Mr. B. Chitanya Kumar (2017-18)", url: "https://mits.ac.in/assets/pdf/mba/17-18 1-min.pdf" },
+      { title: "University Innovation Fellowship Programme - Stanford University, Stanford - Mr. Harshavardhan Bandarla (2017-18)", url: "https://mits.ac.in/assets/pdf/mba/2017-18. 2-min.pdf" }
+    ]
+  },
+  bestPractices: {
+    groupTitle: "Best Practices",
+    documents: [
+      { title: "Rural Immersion Video", url: "https://www.youtube.com/embed/ARSuF1wdCU4" },
+      { title: "Rural Immersion Gallery (2020-22)", url: "https://mba.mits.ac.in/assets/pdf/mba/RURAL%20IMMERSION%20PICTURES%20YEAR%20WISE%202020-22-min.pdf" },
+      { title: "Report on International Internship", url: "https://mba.mits.ac.in/assets/pdf/mba/INTERNATIONAL-min.pdf" },
+      { title: "Industry Alumni Advisory Board (IAAB) Report", url: "https://mba.mits.ac.in/assets/pdf/mba/IAAB.pdf" }
+    ]
+  },
+  industrialVisits: {
+    groupTitle: "Industrial Visits",
+    documents: [
+      { title: "Industrial Visit - Student Club", url: "https://mba.mits.ac.in/assets/pdf/mba/studentclub.pdf" },
+      { title: "Industrial Visit to Hatsun Agro Products (HAP) Dairy Plant (2025)", url: "https://mits.ac.in/assets/pdf/mba/Hatsun Agro Products (HAP) Dairy Plant.pdf" },
+      { title: "Industrial Visit to 'Titan Manufacturing entity, Hosur' (21st June 2025)", url: "https://mits.ac.in/assets/pdf/mba/Titan Manufacturing entity, Hosur.pdf" },
+      { title: "Two-day Industrial Visit and Consultant work to the Industries at Bengaluru (29th-30th April 2025)", url: "https://mits.ac.in/assets/pdf/mba/Two-day Industrial Visit and Consultant work to the Industries.pdf" },
+      { title: "Industrial Visit to Karnataka Silk Industries Corporation (KSIC), Mysore (04th January 2025)", url: "https://mits.ac.in/assets/pdf/mba/Industrial Visit to Karnataka Silk Industries Corporation (KSIC), Mysore on 04th January 2025.pdf" },
+      { title: "Industrial Visit to Hatsun Agro Products (HAP) Dairy Plant (11th-16th December 2024)", url: "https://mits.ac.in/assets/pdf/mba/Industrial Visit to Hatsun Agro Products (HAP) Dairy Plant, 11th December 2024 to 16th December 2024.pdf" },
+      { title: "Industrial Visit to 'Thirumala Dairy, Palamaneru' (7th December 2023)", url: "https://mits.ac.in/assets/pdf/mba/Industrial Visit-Thirumala Dairy.pdf" },
+      { title: "Industrial Visit to 'Thirumala Dairy, Palamaneru' (6th December 2023)", url: "https://mits.ac.in/assets/pdf/mba/Industrial Visit thirumala dairy.pdf" },
+      { title: "Industrial Visit to Tirumala Milk Products Pvt. Ltd, Pasupathur Village (22-July-2022)", url: "https://mits.ac.in/assets/pdf/mba/Industrial%20Visit_Section.pdf" },
+      { title: "Industrial Visit to Tirumala Diary Products Pvt. Ltd, Pasupathur Village (19-July-2022)", url: "https://mits.ac.in/assets/pdf/mba/Industrial%20Visit%2019july%202021-min.pdf" },
+      { title: "Industrial Visit to Tirumala Dairy Products Pvt. Ltd, Pasupathur Village (16-July-2022)", url: "https://mits.ac.in/assets/pdf/mba/Industrial%20Visit%2016july%202021-min.pdf" }
+    ]
+  },
+  departmentBudgetGroup: {
+    groupTitle: "Department Budget",
+    documents: [
+      { title: "Budget 2024-25", url: "https://mits.ac.in/assets/pdf/mba/Budget 2024-25.pdf" },
+      { title: "Budget 2023-24", url: "https://mits.ac.in/assets/pdf/mba/Budget 2023-24.pdf" },
+      { title: "Budget 2022-23", url: "https://mits.ac.in/assets/pdf/mba/B%202022-2023.pdf" },
+      { title: "Budget 2021-22", url: "https://mits.ac.in/assets/pdf/mba/B%202021-2022.pdf" },
+      { title: "Budget 2020-21", url: "https://mits.ac.in/assets/pdf/mba/B%202020-2021.pdf" },
+      { title: "Budget 2019-20", url: "https://mits.ac.in/assets/pdf/mba/B%202019-2020.pdf" }
+    ]
+  },
+  newsletterGroup: {
+    groupTitle: "Department Newsletters",
+    documents: [
+      { title: "July 2025 Volume 7 Edition 2", url: "https://mits.ac.in/assets/pdf/mba/July 2025 volumn 7 Edition 2.pdf" },
+      { title: "January 2025 Volume 7 Edition 1", url: "https://mits.ac.in/assets/pdf/mba/January 2025 volumn 7 Edition 1.pdf" },
+      { title: "July 2024 Volume 6 Edition 2", url: "https://mits.ac.in/assets/pdf/mba/July 2024 volumn 6 Edition 2.pdf" },
+      { title: "January 2024 Volume 6 Edition 1", url: "https://mits.ac.in/assets/pdf/mba/January 2024 volumn 6 Edition 1.pdf" },
+      { title: "July 2023 Volume 5 Edition 2", url: "https://mits.ac.in/assets/pdf/mba/July 2023 volumn 5 Edition 2.pdf" },
+      { title: "January 2023 Volume 5 Edition 1", url: "https://mits.ac.in/assets/pdf/mba/January 2023 volumn 5 Edition 1.pdf" },
+      { title: "July 2022 Volume 4 Edition 2", url: "https://mits.ac.in/assets/pdf/mba/July 2022 volumn 4 Edition 2.pdf" },
+      { title: "January 2022 Volume 4 Edition 1", url: "https://mits.ac.in/assets/pdf/mba/January 2022 volumn 4 Edition 1.pdf" },
+      { title: "July 2021 Volume 3 Edition 2", url: "https://mits.ac.in/assets/pdf/mba/July%202021%20V3E2.pdf" },
+      { title: "January 2021 Volume 3 Edition 1", url: "https://mits.ac.in/assets/pdf/mba/Jan%202021-v3e1.pdf" },
+      { title: "January 2020 Volume 2 Edition 1", url: "https://mits.ac.in/assets/pdf/mba/Jan%202020-v2e1.pdf" },
+      { title: "July 2019 Volume 1 Edition 2", url: "https://mits.ac.in/assets/pdf/mba/July%202019-v1e2.pdf" },
+      { title: "January 2019 Volume 1 Edition 1", url: "https://mits.ac.in/assets/pdf/mba/Jan%202019%20E1%20Final-min.pdf" }
+    ]
+  },
+  nbaAccreditation: {
+    groupTitle: "National Board of Accreditation (NBA)",
+    documents: [
+      { title: "NBA 2025-2028", url: "https://mits.ac.in/assets/pdf/mba/NBA 2025-2028.pdf" },
+      { title: "NBA 2022-2025", url: "https://mits.ac.in/assets/pdf/mba/NBA 2022-2025.pdf" },
+      { title: "NBA 2019-2022", url: "https://mits.ac.in/assets/pdf/mba/19-22%20NBA.pdf" },
+      { title: "NBA 2018-2019", url: "https://mits.ac.in/assets/pdf/mba/NBA 2018-2019.pdf" },
+      { title: "NBA 2016-2018", url: "https://mits.ac.in/assets/pdf/mba/NBA 2016-2018.pdf" }
+    ]
+  },
+  celebrations: {
+    groupTitle: "Department Celebrations",
+    documents: [
+      { title: "Guru Purnima Celebrations organized in the Department on 21st July, 2024", url: "https://mits.ac.in/assets/pdf/mba/Guru Poornima Celebrations was organized in the Department on 21th July, 2024.pdf" },
+      { title: "Farewell Party on 29th August 2022 organized by Department of Management Studies (2021-23 Batch)", url: "https://mits.ac.in/assets/pdf/mba/farewell-min.pdf" },
+      { title: "Har Ghar Tiranga on 15th August 2022 - Azadi Ka Amrit Mahotsav", url: "https://mits.ac.in/assets/pdf/mba/Tiranga-min.pdf" },
+      { title: "International Yoga Day organized by Department of Management Studies on 21st June, 2022", url: "https://mits.ac.in/assets/pdf/mba/yoga%20day-min.pdf" },
+      { title: "Guru Purnima Celebrations organized in the Department on 13th July, 2022", url: "https://mits.ac.in/assets/pdf/mba/Guru%20purnima-min.pdf" }
+    ]
+  },
+  surveys: [
+    {
+      title: "Feedback Surveys",
+      links: [
+        { title: "2025-26 Feedback Survey", url: "https://mits.ac.in/public/uploads/surveys/2025-26 Feedback Survey.pdf" },
+        { title: "2024-25 Feedback Survey", url: "https://mits.ac.in/public/uploads/surveys/2024-25 survey-compressed.pdf" },
+        { title: "2023-24 Feedback Survey", url: "https://mits.ac.in/public/uploads/surveys/Stakeholders survey 23-24.pdf" },
+        { title: "2022-23 Feedback Survey", url: "https://mits.ac.in/public/uploads/surveys/2022-2023 Survey-MBA Department.pdf" },
+        { title: "2021-22 Feedback Survey", url: "https://mits.ac.in/public/uploads/surveys/0118bbed19b36c0a93275579436bdddf.pdf" },
+        { title: "2020-21 Feedback Survey", url: "https://mits.ac.in/public/uploads/surveys/184b29c0ed45481de921979068d9b61a.pdf" },
+        { title: "2019-20 Feedback Survey", url: "https://mits.ac.in/public/uploads/surveys/90b117cc8e411755135130389e2cc4c3.pdf" },
+        { title: "2018-19 Feedback Survey", url: "https://mits.ac.in/public/uploads/surveys/08b6ba72271dddad17173bb72700b7fb.pdf" },
+        { title: "2017-18 Feedback Survey", url: "https://mits.ac.in/public/uploads/surveys/98f387f1cc50fb73cb5aa621f72866b6.pdf" },
+        { title: "2016-17 Feedback Survey", url: "https://mits.ac.in/public/uploads/surveys/e94a969339042b2ed66f3a075e0bcd1a.pdf" }
+      ]
+    }
+  ],
+  timetablesGroup: {
+    groupTitle: "Timetables",
+    documents: [
+      { title: "MBA I Year II Semester Timetable Batch (2024-26)", url: "https://mits.ac.in/assets/pdf/mba/MBA I-II Time table AY 2024-25-min.pdf" },
+      { title: "MBA II Year II Semester Timetable Batch (2023-25)", url: "https://mits.ac.in/assets/pdf/mba/MBA II-II Time table AY 2024-25-min.pdf" }
+    ]
+  },
+  internships: {
+    groupTitle: "MBA Internships",
+    documents: [
+      { title: "2024-25 - MBA Internships", url: "https://mits.ac.in/assets/pdf/mba/2024-25 - MBA - Internships.pdf" },
+      { title: "2023-24 - MBA Internships", url: "https://mits.ac.in/assets/pdf/mba/2023-24 MBA Internships.pdf" },
+      { title: "2022-23 - MBA Internships", url: "https://mits.ac.in/assets/pdf/mba/2022-23 MBA Internships.pdf" },
+      { title: "2021-22 - MBA Internships", url: "https://mits.ac.in/assets/pdf/mba/2021-22 MBA Internships.pdf" }
+    ]
+  },
+  mentorMentee: [
+    {
+      groupTitle: "Mentor & Mentee Allocation",
+      items: [
+        { title: "Mentor & Mentee Batch 2025-2027", pdfUrl: "https://mits.ac.in/assets/pdf/mba/Mentor Mentee Allocation 2025-27.pdf" },
+        { title: "Mentor & Mentee Batch 2024-2026", pdfUrl: "https://mits.ac.in/assets/pdf/mba/Mentor-Mentee-Batch 2024-26.pdf" },
+        { title: "Mentor & Mentee Batch 2023-2025", pdfUrl: "https://mits.ac.in/assets/pdf/mba/Mentor-Mentee-Batch 2023-25.pdf" },
+        { title: "Mentor & Mentee Batch 2022-2024", pdfUrl: "https://mits.ac.in/assets/pdf/mba/Mentor-Mentee-Batch 2022-24.pdf" },
+        { title: "Mentor & Mentee Batch 2021-2023", pdfUrl: "https://mits.ac.in/assets/pdf/mba/Mentor-Mentee-Batch 2021-23.pdf" }
+      ]
+    }
+  ],
+  mous: {
+    groupTitle: "Memorandum of Understanding (MoU)",
+    documents: [
+      { title: "Bajaj Finserv College Signed MOU", url: "https://mits.ac.in/assets/pdf/mba/Bajaj FInserv College_Signed_MOU_1772098610770.pdf" },
+      { title: "Career School HR Solutions MoU", url: "https://mits.ac.in/assets/pdf/mba/Career School HR solutions MoU.pdf" },
+      { title: "DataQuotes Edutech Pvt Ltd MoU", url: "https://mits.ac.in/assets/pdf/mba/DataQuotes Edutech pvt ltd MoU.pdf" },
+      { title: "Dattha Institute MoU", url: "https://mits.ac.in/assets/pdf/mba/Dattha Institute MoU.pdf" },
+      { title: "PARD India MoU", url: "https://mits.ac.in/assets/pdf/mba/PARD India MoU.pdf" },
+      { title: "National Institute of Technical Teachers Training and Research (NITTTR) MOU", url: "https://mits.ac.in/assets/pdf/mba/National Institute of Technical Teachers Training and Research MOU.pdf" },
+      { title: "NASSCOM IT-ITeS Sector Skills Council MoU", url: "https://mits.ac.in/assets/pdf/mba/NASSCOM IT-ITeS SECTOR SKILLS COUNCIL MoU.pdf" },
+      { title: "Asia University, Taiwan MoA", url: "https://mits.ac.in/assets/pdf/mba/MoA-Management studies-Asia Unv Taiwan-23.pdf" },
+      { title: "Inspire Softech Solutions MoU", url: "https://mits.ac.in/assets/pdf/mba/Inspire Softech Solutions.pdf" },
+      { title: "Dhara HR Solutions MoU", url: "https://mits.ac.in/assets/pdf/mba/Dhara HR Solutions.pdf" }
+    ]
+  },
+  studentProjects: {
+    groupTitle: "Students Projects",
+    documents: [
+      { title: "Project Data - 2025-2026", url: "https://mits.ac.in/assets/pdf/mba/Project Data- 2025-26.pdf" },
+      { title: "Project Data - 2024-2025", url: "https://mits.ac.in/assets/pdf/mba/Project Data- 2024-25.pdf" },
+      { title: "Project Data - 2023-2024", url: "https://mits.ac.in/assets/pdf/mba/Project Data- 2023-24.pdf" },
+      { title: "Project Data - 2022-2023", url: "https://mits.ac.in/assets/pdf/mba/Project Data- 2022-23.pdf" }
+    ]
+  }
+};
+
 export function getDepartmentMore(deptKey: string): DepartmentMoreData {
+  if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "5") {
+    return mbaMoreData;
+  }
   const dept = departmentsData[deptKey];
   if (dept && dept.more) {
     return dept.more;
@@ -9667,10 +10476,100 @@ export const eceTopTabs: DepartmentTopTab[] = [
   }
 ];
 
+export const mbaTopTabs: DepartmentTopTab[] = [
+  {
+    id: "department",
+    label: "Department"
+  },
+  {
+    id: "bos",
+    label: "BoS",
+    title: "Board of Studies (BoS)",
+    documents: [
+      { title: "BoS 2026-27", url: "https://mits.ac.in/public/uploads/departments/04145840a3c2d210cb57567d3d277e9e.pdf" },
+      { title: "BoS 2025-26", url: "https://mits.ac.in/public/uploads/departments/d89e5782130f5ef8a89a3e161ef70733.pdf" },
+      { title: "BoS 2024-25", url: "https://mits.ac.in/public/uploads/departments/9b48d30c4372e6d4448b7e1343864fb3.pdf" },
+      { title: "BoS 2023-24", url: "https://mits.ac.in/public/uploads/departments/e193394b7e0a762cb7996b1170e4ecb3.pdf" },
+      { title: "BoS 2022-23", url: "https://mits.ac.in/public/uploads/departments/aba3797698f40117a75b732b9fc8c478.pdf" },
+      { title: "BoS 2021-22", url: "https://mits.ac.in/public/uploads/departments/19833131c5e79441550f57f969a14c9e.pdf" },
+      { title: "BoS 2020-21", url: "https://mits.ac.in/public/uploads/departments/5a58c017309faae038d12ea2eb704142.pdf" },
+      { title: "BoS 2019-20", url: "https://mits.ac.in/public/uploads/departments/cb57a026ffff03094f4dc204c5b80276.pdf" },
+      { title: "BoS 2018-19", url: "https://mits.ac.in/public/uploads/departments/5ab25f1061df36b8aa832a931841b7ed.pdf" }
+    ]
+  },
+  {
+    id: "iaab",
+    label: "IAAB",
+    title: "Industry Alumni Advisory Board (IAAB)",
+    documents: [
+      { title: "IAAB 2026-27", url: "https://mits.ac.in/public/uploads/departments/a0a0822c4e9252b9bff820b9b57ad870.pdf" },
+      { title: "IAAB 2025-26", url: "https://mits.ac.in/public/uploads/departments/390937111079f8b6634f9f22628bcc0b.pdf" },
+      { title: "IAAB 2024-25", url: "https://mits.ac.in/public/uploads/departments/1d8fb739bdb0a8a2ff230e7ca05b7ff5.pdf" },
+      { title: "IAAB 2023-24", url: "https://mits.ac.in/public/uploads/departments/14135c7332b5d21bf8ddddf247699d94.pdf" },
+      { title: "IAAB 2022-23", url: "https://mits.ac.in/public/uploads/departments/f28455e5597af18ef9ef42805b1bd890.pdf" },
+      { title: "IAAB 2021-22", url: "https://mits.ac.in/public/uploads/departments/9a1bb46c355218bc0b4a42a74c66e4b5.pdf" },
+      { title: "IAAB 2020-21", url: "https://mits.ac.in/public/uploads/departments/3e5e1ef86b125d6773b89e2153637bb4.pdf" },
+      { title: "IAAB 2019-20", url: "https://mits.ac.in/public/uploads/departments/66b3127cc20998583b2a13e96e40c3b9.pdf" },
+      { title: "IAAB 2018-19", url: "https://mits.ac.in/public/uploads/departments/7b4c1353e9782786181a10e85ebdf036.pdf" }
+    ]
+  },
+  {
+    id: "dab",
+    label: "DAB",
+    title: "Departmental Advisory Board (DAB)",
+    documents: [
+      { title: "DAB 2024-25", url: "https://mits.ac.in/public/uploads/departments/c488b4a26a4da652bf7ccc3906c2637c.pdf" },
+      { title: "DAB 2023-24", url: "https://mits.ac.in/public/uploads/departments/113686fbaa11661298ab989e422bf3d0.pdf" },
+      { title: "DAB 2022-23", url: "https://mits.ac.in/public/uploads/departments/4a2a2a072ab8d5593382460bd1fedd42.pdf" },
+      { title: "DAB 2021-22", url: "https://mits.ac.in/public/uploads/departments/09b82297d42316d6c9695eda97ed61c2.pdf" },
+      { title: "DAB 2020-21", url: "https://mits.ac.in/public/uploads/departments/98bf4345de92be18f68ba7eb6b7aa999.pdf" },
+      { title: "DAB 2019-20", url: "https://mits.ac.in/public/uploads/departments/96689986dd6a75f628ca8ed55ed63d07.pdf" },
+      { title: "DAB 2018-19", url: "https://mits.ac.in/public/uploads/departments/8cc6a82aaf2c983e3ef86ae3afcf8ad7.pdf" }
+    ]
+  },
+  {
+    id: "pac",
+    label: "PAC",
+    title: "Program Assessment Committee (PAC)",
+    documents: [
+      { title: "PAC 2024-25", url: "https://mits.ac.in/public/uploads/departments/0ee9c31743fd8980d2ac8cf8371a8f56.pdf" },
+      { title: "PAC 2023-24", url: "https://mits.ac.in/public/uploads/departments/a4c425d1f566eccfe649847d0bd3b309.pdf" },
+      { title: "PAC 2022-23", url: "https://mits.ac.in/public/uploads/departments/2f1ea62ee3e82f542d5020f96d6a3747.pdf" },
+      { title: "PAC 2021-22", url: "https://mits.ac.in/public/uploads/departments/c6e4805f9898c1f76fe262675aee82a1.pdf" },
+      { title: "PAC 2020-21", url: "https://mits.ac.in/public/uploads/departments/5d24062147daedef23d20f32c2b9c094.pdf" },
+      { title: "PAC 2019-20", url: "https://mits.ac.in/public/uploads/departments/06958561e08d8aa67426311f45275dbe.pdf" },
+      { title: "PAC 2018-19", url: "https://mits.ac.in/public/uploads/departments/af862680ec0220f838fcc4e40141e1b4.pdf" }
+    ]
+  },
+  {
+    id: "faculty-list",
+    label: "Faculty List",
+    title: "Faculty List",
+    documents: [
+      { title: "Faculty List for the Academic Year 2024-25", url: "https://mits.ac.in/assets/pdf/mba/Information of Faculty 2024-25.pdf" },
+      { title: "Faculty List for the Academic Year 2023-24", url: "https://mits.ac.in/assets/pdf/mba/Information of Faculty 2023-24.pdf" },
+      { title: "Faculty List for the Academic Year 2022-23", url: "https://mits.ac.in/assets/pdf/mba/Information of Faculty 2022-23.pdf" }
+    ]
+  },
+  {
+    id: "placement-statistics",
+    label: "Placement Statistics",
+    title: "Placement Statistics",
+    documents: [
+      { title: "Placement Statistics Batch 2022-2024", url: "https://mits.ac.in/assets/pdf/mba/Placement Statistics 2022-24 Batch.pdf" },
+      { title: "Placement Statistics Batch 2021-2023", url: "https://mits.ac.in/assets/pdf/mba/Placement Statistics 2021-23 Batch.pdf" },
+      { title: "Placement Statistics Batch 2020-2022", url: "https://mits.ac.in/assets/pdf/mba/Placement Statistics 2020-22 Batch.pdf" }
+    ]
+  }
+];
+
 export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | undefined {
   const dept = departmentsData[deptKey];
   if (dept && dept.topTabs && dept.topTabs.length > 0) {
     return dept.topTabs;
+  }
+  if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "5") {
+    return mbaTopTabs;
   }
   if (deptKey === "ece" || deptKey === "electronics-communication-engineering" || deptKey === "electronics-and-communication-engineering" || deptKey === "3") {
     return eceTopTabs;

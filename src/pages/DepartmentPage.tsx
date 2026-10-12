@@ -138,10 +138,10 @@ const DepartmentPage = () => {
 
   const currentSidebarItems = useMemo(() => {
     const items: SidebarItem[] = [];
-    const isMcaDept = deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18";
+    const isPgOnlyDept = deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18" || deptKey === "mba" || deptKey === "management-studies" || deptKey === "5";
     sidebarItems.forEach(item => {
       if (item.id === "under-graduate") {
-        if (isMcaDept) {
+        if (isPgOnlyDept) {
           if (pgData) {
             items.push({
               id: "post-graduate",
@@ -517,10 +517,12 @@ const DepartmentPage = () => {
         setUgDropdownOpen(true);
         return;
       }
-      if (hash === "post-graduate" || hash === "pg" || hash === "pg-course-syllabus" || hash === "tab-18") {
+      if (hash === "post-graduate" || hash === "pg" || hash === "pg-course-syllabus" || hash === "tab-18" || hash === "academics") {
         setActiveSection("post-graduate");
         if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
           setActivePgTab("obe");
+        } else if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "5") {
+          setActivePgTab("academics");
         } else {
           setActivePgTab("pg-course-syllabus");
         }
@@ -689,7 +691,159 @@ const DepartmentPage = () => {
         setActiveTopTab("technical-symposium");
         return;
       }
-      if (hash === "department" || hash === "tab1") {
+      if (hash === "tab19") {
+        setActiveSection("more");
+        setActiveMoreTab("research");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab21" || hash === "placement") {
+        setActiveSection("more");
+        setActiveMoreTab("placement");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab23") {
+        setActiveSection("more");
+        setActiveMoreTab("alumni");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab24" || hash === "rural-immersion") {
+        setActiveSection("more");
+        setActiveMoreTab("rural-immersion");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab25" || hash === "international-relations") {
+        setActiveSection("more");
+        setActiveMoreTab("international-relations");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab26" || hash === "best-practices") {
+        setActiveSection("more");
+        setActiveMoreTab("best-practices");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab27" || hash === "industrial-visit") {
+        setActiveSection("more");
+        setActiveMoreTab("industrial-visit");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab28") {
+        setActiveSection("more");
+        setActiveMoreTab("budget");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab29") {
+        setActiveSection("more");
+        setActiveMoreTab("newsletters");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab30" || hash === "nba") {
+        setActiveSection("more");
+        setActiveMoreTab("nba");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab31") {
+        if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "5") {
+          setActiveSection("more");
+          setActiveMoreTab("celebrations");
+          setMoreDropdownOpen(true);
+          return;
+        }
+      }
+      if (hash === "celebrations") {
+        setActiveSection("more");
+        setActiveMoreTab("celebrations");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab32" || hash === "gallery") {
+        setActiveSection("more");
+        setActiveMoreTab("gallery");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab90") {
+        setActiveSection("more");
+        setActiveMoreTab("surveys");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab111") {
+        setActiveSection("more");
+        setActiveMoreTab("timetables");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab126" || hash === "internships") {
+        setActiveSection("more");
+        setActiveMoreTab("internships");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab130") {
+        setActiveSection("more");
+        setActiveMoreTab("mentor-mentee");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab129" || hash === "case-studies") {
+        setActiveSection("more");
+        setActiveMoreTab("case-studies");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab132" || hash === "mou") {
+        setActiveSection("more");
+        setActiveMoreTab("mou");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "tab153" || hash === "students-projects") {
+        setActiveSection("more");
+        setActiveMoreTab("students-projects");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "faculty-list" || hash === "tab6" || hash === "tab8" || hash === "tab-8") {
+        setActiveSection("about");
+        setActiveTopTab("faculty-list");
+        return;
+      }
+      if (hash === "placement-statistics" || hash === "placements" || hash === "tab9" || hash === "tab-9") {
+        setActiveSection("about");
+        setActiveTopTab("placement-statistics");
+        return;
+      }
+      if (hash === "bos" || hash === "board-of-studies" || hash === "tab2" || hash === "tab-2") {
+        setActiveSection("about");
+        setActiveTopTab("bos");
+        return;
+      }
+      if (hash === "iaab" || hash === "tab3" || hash === "tab-3") {
+        setActiveSection("about");
+        setActiveTopTab("iaab");
+        return;
+      }
+      if (hash === "dab" || hash === "tab4" || hash === "tab-4") {
+        setActiveSection("about");
+        setActiveTopTab("dab");
+        return;
+      }
+      if (hash === "pac" || hash === "tab5" || hash === "tab-5") {
+        setActiveSection("about");
+        setActiveTopTab("pac");
+        return;
+      }
+      if (hash === "department" || hash === "tab1" || hash === "tab-1") {
         setActiveSection("about");
         setActiveTopTab("department");
         return;
@@ -2649,7 +2803,43 @@ const DepartmentPage = () => {
                 )}
 
                 {/* OBE Content */}
-                {activePgTab === "obe" && pgData.obe ? (
+                {((activePgTab === "academics" || activePgTab === "pg" || (!pgData.obe && !pgData.timetables && pgData.academicsOverview)) && pgData.academicsOverview) ? (
+                  <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
+                    <div className="border-b border-border/60 pb-4">
+                      <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                        {pgData.academicsOverview.title}
+                      </h3>
+                    </div>
+                    <div className="space-y-4 text-muted-foreground text-sm sm:text-base leading-relaxed text-justify">
+                      {pgData.academicsOverview.paragraphs.map((para, pIdx) => (
+                        <p key={pIdx}>{para}</p>
+                      ))}
+                    </div>
+                  </Card>
+                ) : activePgTab === "academic-regulations" ? (
+                  <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6 text-center">
+                    <div className="max-w-xl mx-auto space-y-4 py-8">
+                      <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto">
+                        <FileText className="w-8 h-8" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                        Academic Regulations
+                      </h3>
+                      <p className="text-muted-foreground text-sm sm:text-base">
+                        View autonomous academic regulations, syllabus structures, and examination curriculum.
+                      </p>
+                      <a
+                        href="https://mits.ac.in/ugc-autonomous-exam-portal"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-6 py-3 rounded-xl font-semibold text-sm shadow-xs transition-colors"
+                      >
+                        <span>Open Autonomous Regulations Portal</span>
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </Card>
+                ) : activePgTab === "obe" && pgData.obe ? (
                   <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
                     <div className="space-y-6">
                       <div className="border-b border-border/60 pb-4">
@@ -3629,7 +3819,7 @@ const DepartmentPage = () => {
                         <button
                           key={tab.id}
                           onClick={() => {
-                            if (tab.externalUrl && tab.directPdf) {
+                            if (tab.externalUrl) {
                               window.open(tab.externalUrl, "_blank", "noopener,noreferrer");
                               return;
                             }
@@ -3859,45 +4049,121 @@ const DepartmentPage = () => {
                 ) : activeMoreTab === "alumni" ? (
                   <div className="space-y-6">
                     <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
-                      <div className="space-y-8">
-                        {moreData.alumniEvents && moreData.alumniEvents.length > 0 ? (
+                      {moreData.mbaAlumni ? (
+                        <div className="space-y-8">
+                          <div className="border-b border-border/60 pb-4">
+                            <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                              {moreData.mbaAlumni.title}
+                            </h3>
+                            <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                              Academic year-wise guest lectures, interactive sessions, and industry exposure conducted by distinguished alumni
+                            </p>
+                          </div>
+
                           <div className="space-y-8">
-                            {moreData.alumniEvents.map((group, gIdx) => (
-                              <div key={gIdx} className="space-y-4">
-                                <h3 className="text-xl sm:text-2xl font-bold text-secondary tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-                                  {group.groupTitle}
-                                </h3>
-                                <div className="space-y-5 pl-1">
-                                  {group.documents.map((doc, dIdx) => (
-                                    <div key={dIdx} className="space-y-1">
-                                      <div className="flex items-start gap-2.5">
-                                        <div className="w-4 h-4 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 mt-0.5 shadow-xs">
-                                          <ChevronRight className="w-2.5 h-2.5 stroke-[3]" />
-                                        </div>
-                                        <span className="font-semibold text-secondary text-sm sm:text-base leading-snug">
-                                          {doc.title}
-                                        </span>
+                            {moreData.mbaAlumni.yearGroups.map((group, yIdx) => (
+                              <div key={yIdx} className="space-y-3.5">
+                                <h4 className="text-lg sm:text-xl font-bold text-secondary flex items-center gap-2">
+                                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                                  {group.year}
+                                </h4>
+
+                                <div className="space-y-2.5 pl-1">
+                                  {group.lectures.map((lec, lIdx) => (
+                                    <div key={lIdx} className="flex items-start gap-3 text-sm sm:text-base text-foreground">
+                                      <div className="w-4 h-4 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 mt-1 shadow-xs">
+                                        <ChevronRight className="w-2.5 h-2.5 stroke-[3]" />
                                       </div>
-                                      <div className="pl-6.5">
-                                        <a
-                                          href={doc.url}
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          className="text-xs sm:text-sm text-muted-foreground hover:text-primary hover:underline transition-colors inline-flex items-center gap-1 font-medium"
-                                        >
-                                          Click here for Report on Event
-                                        </a>
-                                      </div>
+                                      <p className="leading-relaxed text-secondary">{lec}</p>
                                     </div>
                                   ))}
                                 </div>
+
+                                {group.reportUrl && (
+                                  <div className="pt-2 pl-1">
+                                    <a
+                                      href={group.reportUrl}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 text-primary hover:bg-primary hover:text-white font-semibold text-xs sm:text-sm transition-colors border border-primary/20 shadow-2xs"
+                                    >
+                                      <FileText className="w-4 h-4" />
+                                      <span>{group.reportTitle || `Alumni Guest Lecture Reports ${group.year}`}</span>
+                                      <ExternalLink className="w-3.5 h-3.5 ml-1" />
+                                    </a>
+                                  </div>
+                                )}
                               </div>
                             ))}
                           </div>
-                        ) : (
-                          <p className="text-center text-muted-foreground py-8">No alumni event records available at this time.</p>
-                        )}
-                      </div>
+
+                          {moreData.mbaAlumni.coordinator && (
+                            <div className="mt-8 pt-6 border-t border-border/60 bg-muted/20 p-5 rounded-2xl border border-border/70 space-y-2">
+                              <span className="text-xs uppercase font-bold tracking-widest text-primary">Department Coordinator</span>
+                              <h4 className="text-lg font-bold text-[#800000] dark:text-red-400">
+                                {moreData.mbaAlumni.coordinator.name}
+                              </h4>
+                              <p className="text-xs sm:text-sm text-secondary font-medium">
+                                {moreData.mbaAlumni.coordinator.designation}, {moreData.mbaAlumni.coordinator.department}
+                              </p>
+                              <p className="text-xs text-muted-foreground">
+                                {moreData.mbaAlumni.coordinator.institute}, {moreData.mbaAlumni.coordinator.address}
+                              </p>
+                              <div className="pt-2 flex flex-wrap gap-4 text-xs sm:text-sm">
+                                <span className="text-muted-foreground">
+                                  <strong className="text-secondary">Phone:</strong> {moreData.mbaAlumni.coordinator.phone}
+                                </span>
+                                <span className="text-muted-foreground">
+                                  <strong className="text-secondary">Email:</strong>{" "}
+                                  <a href={`mailto:${moreData.mbaAlumni.coordinator.email}`} className="text-primary hover:underline">
+                                    {moreData.mbaAlumni.coordinator.email}
+                                  </a>
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <div className="space-y-8">
+                          {moreData.alumniEvents && moreData.alumniEvents.length > 0 ? (
+                            <div className="space-y-8">
+                              {moreData.alumniEvents.map((group, gIdx) => (
+                                <div key={gIdx} className="space-y-4">
+                                  <h3 className="text-xl sm:text-2xl font-bold text-secondary tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
+                                    {group.groupTitle}
+                                  </h3>
+                                  <div className="space-y-5 pl-1">
+                                    {group.documents.map((doc, dIdx) => (
+                                      <div key={dIdx} className="space-y-1">
+                                        <div className="flex items-start gap-2.5">
+                                          <div className="w-4 h-4 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 mt-0.5 shadow-xs">
+                                            <ChevronRight className="w-2.5 h-2.5 stroke-[3]" />
+                                          </div>
+                                          <span className="font-semibold text-secondary text-sm sm:text-base leading-snug">
+                                            {doc.title}
+                                          </span>
+                                        </div>
+                                        <div className="pl-6.5">
+                                          <a
+                                            href={doc.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-xs sm:text-sm text-muted-foreground hover:text-primary hover:underline transition-colors inline-flex items-center gap-1 font-medium"
+                                          >
+                                            Click here for Report on Event
+                                          </a>
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
+                            <p className="text-center text-muted-foreground py-8">No alumni event records available at this time.</p>
+                          )}
+                        </div>
+                      )}
                     </Card>
                   </div>
                 ) : activeMoreTab === "stock-register" ? (
@@ -4819,7 +5085,7 @@ const DepartmentPage = () => {
                               Department Budget
                             </h3>
                             <p className="text-xs sm:text-sm text-muted-foreground mt-1">
-                              Department of Computer Applications: Budget, Actual Expenses, & Utilization Summary
+                              Budget allocations, actual expenses, and utilization summary across academic years
                             </p>
                           </div>
                           {moreData.budgetPdfUrl && (
@@ -4834,6 +5100,28 @@ const DepartmentPage = () => {
                             </a>
                           )}
                         </div>
+
+                        {moreData.departmentBudgetGroup && (
+                          <div className="space-y-3 pl-1">
+                            {moreData.departmentBudgetGroup.documents.map((doc, dIdx) => (
+                              <a
+                                key={dIdx}
+                                href={doc.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                              >
+                                <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                  <ChevronRight className="w-3 h-3 stroke-[3]" />
+                                </div>
+                                <span className="font-semibold group-hover:underline underline-offset-4">
+                                  {doc.title}
+                                </span>
+                                <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                              </a>
+                            ))}
+                          </div>
+                        )}
 
                         {moreData.budgetPdfUrl && (
                           <div className="rounded-xl border border-border overflow-hidden bg-muted/20 shadow-xs">
@@ -5022,6 +5310,685 @@ const DepartmentPage = () => {
                         </div>
                       </Card>
                     ) : null}
+                  </div>
+                ) : activeMoreTab === "placement" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-6">
+                        <div className="border-b border-border/60 pb-4">
+                          <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                            {moreData.placementsGroup?.groupTitle || "Placement Details"}
+                          </h3>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                            Department of Management Studies student placement statistics and record details
+                          </p>
+                        </div>
+                        <div className="space-y-3 pl-1">
+                          {moreData.placementsGroup?.documents.map((doc, dIdx) => (
+                            <a
+                              key={dIdx}
+                              href={doc.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                            >
+                              <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                <ChevronRight className="w-3 h-3 stroke-[3]" />
+                              </div>
+                              <span className="font-semibold group-hover:underline underline-offset-4">
+                                {doc.title}
+                              </span>
+                              <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "rural-immersion" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-8">
+                      <div className="border-b border-border/60 pb-4">
+                        <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                          {moreData.mbaRuralImmersion?.title || "Rural Immersion"}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          Experiential learning program empowering students with rural engagement and sustainability initiatives
+                        </p>
+                      </div>
+
+                      {moreData.mbaRuralImmersion ? (
+                        <div className="space-y-8">
+                          {moreData.mbaRuralImmersion.batches.map((batch, bIdx) => (
+                            <div key={bIdx} className="space-y-4">
+                              <h4 className="text-lg sm:text-xl font-bold text-[#09086f] dark:text-blue-400">
+                                {batch.batchTitle}
+                              </h4>
+
+                              {batch.videoLinks && batch.videoLinks.length > 0 && (
+                                <div className="space-y-2.5 pl-1">
+                                  {batch.videoLinks.map((link, lIdx) => (
+                                    <div key={lIdx} className="flex items-start gap-2.5">
+                                      <div className="w-4 h-4 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 mt-1 shadow-xs">
+                                        <ChevronRight className="w-2.5 h-2.5 stroke-[3]" />
+                                      </div>
+                                      <a
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-sm sm:text-base text-secondary hover:text-primary font-medium hover:underline inline-flex items-center gap-1.5 transition-colors"
+                                      >
+                                        <span>{link.title}</span>
+                                        <ExternalLink className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+                                      </a>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+
+                              {batch.youtubeEmbeds && batch.youtubeEmbeds.length > 0 && (
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+                                  {batch.youtubeEmbeds.map((src, yIdx) => (
+                                    <div key={yIdx} className="rounded-xl overflow-hidden border border-border shadow-xs aspect-video bg-black/5">
+                                      <iframe
+                                        src={src}
+                                        title={`${batch.batchTitle} Video ${yIdx + 1}`}
+                                        className="w-full h-full border-0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                      />
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+
+                          {moreData.mbaRuralImmersion.galleries.map((gal, gIdx) => (
+                            <div key={gIdx} className="space-y-4 pt-6 border-t border-border/60">
+                              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                                <h4 className="text-lg sm:text-xl font-bold text-[#09086f] dark:text-blue-400">
+                                  {gal.title}
+                                </h4>
+                                <a
+                                  href={gal.pdfUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-white font-semibold text-xs sm:text-sm hover:bg-primary/90 transition-colors shadow-2xs shrink-0 self-start sm:self-auto"
+                                >
+                                  <ExternalLink className="w-4 h-4" />
+                                  <span>Open Full Document</span>
+                                </a>
+                              </div>
+                              <iframe
+                                src={gal.pdfUrl}
+                                title={gal.title}
+                                className="w-full h-[650px] sm:h-[800px] rounded-xl border border-border shadow-xs"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        /* Fallback */
+                        <div className="space-y-8">
+                          {moreData.ruralImmersion?.videos && (
+                            <div className="space-y-4">
+                              <h4 className="text-lg font-bold text-secondary flex items-center gap-2">
+                                <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                                Videos & Field Presentations
+                              </h4>
+                              <div className="space-y-3 pl-1">
+                                {moreData.ruralImmersion.videos.map((vid, vIdx) => (
+                                  <a
+                                    key={vIdx}
+                                    href={vid.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                                  >
+                                    <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                      <ChevronRight className="w-3 h-3 stroke-[3]" />
+                                    </div>
+                                    <span className="font-semibold group-hover:underline underline-offset-4">
+                                      {vid.title}
+                                    </span>
+                                    <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {moreData.ruralImmersion?.reports && (
+                            <div className="space-y-4 pt-4 border-t border-border/60">
+                              <h4 className="text-lg font-bold text-secondary flex items-center gap-2">
+                                <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                                Year-Wise Picture Reports
+                              </h4>
+                              <div className="space-y-3 pl-1">
+                                {moreData.ruralImmersion.reports.map((rep, rIdx) => (
+                                  <a
+                                    key={rIdx}
+                                    href={rep.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                                  >
+                                    <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                      <ChevronRight className="w-3 h-3 stroke-[3]" />
+                                    </div>
+                                    <span className="font-semibold group-hover:underline underline-offset-4">
+                                      {rep.title}
+                                    </span>
+                                    <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "international-relations" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
+                      <div className="border-b border-border/60 pb-4">
+                        <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                          {moreData.mbaInternationalRelations?.title || moreData.internationalRelations?.groupTitle || "International Internship Programme"}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          International exchange programmes, foreign university internships, and global academic initiatives
+                        </p>
+                      </div>
+
+                      {moreData.mbaInternationalRelations ? (
+                        <div className="space-y-8">
+                          {moreData.mbaInternationalRelations.yearGroups.map((yg, yIdx) => (
+                            <div key={yIdx} className="space-y-4">
+                              <h4 className="text-xl font-bold text-[#09086f] dark:text-blue-400 border-b border-border/40 pb-2">
+                                {yg.year}
+                              </h4>
+
+                              <div className="space-y-6 pl-1">
+                                {yg.items.map((item, iIdx) => (
+                                  <div key={iIdx} className="space-y-2">
+                                    <h5 className="text-base sm:text-lg font-bold text-secondary">
+                                      {item.subTitle}
+                                    </h5>
+
+                                    {item.points && item.points.length > 0 && (
+                                      <div className="space-y-2 pl-1">
+                                        {item.points.map((pt, pIdx) => (
+                                          <div key={pIdx} className="flex items-start gap-2.5 text-sm sm:text-base text-foreground">
+                                            <div className="w-4 h-4 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 mt-1 shadow-xs">
+                                              <ChevronRight className="w-2.5 h-2.5 stroke-[3]" />
+                                            </div>
+                                            <span className="leading-relaxed text-secondary">{pt}</span>
+                                          </div>
+                                        ))}
+                                      </div>
+                                    )}
+
+                                    {item.linkUrl && (
+                                      <div className="pt-1.5 pl-6">
+                                        <a
+                                          href={item.linkUrl}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="text-xs sm:text-sm text-muted-foreground hover:text-primary font-semibold hover:underline inline-flex items-center gap-1.5 transition-colors"
+                                        >
+                                          <span>{item.linkTitle || "Click here for Details"}</span>
+                                          <ExternalLink className="w-3.5 h-3.5 text-muted-foreground" />
+                                        </a>
+                                      </div>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+
+                          {moreData.mbaInternationalRelations.coordinator && (
+                            <div className="mt-8 pt-6 border-t border-border/60 bg-muted/20 p-5 rounded-2xl border border-border/70 space-y-2">
+                              <span className="text-xs uppercase font-bold tracking-widest text-[#09086f] dark:text-blue-400">Department Coordinator</span>
+                              <h4 className="text-lg font-bold text-[#800000] dark:text-red-400">
+                                {moreData.mbaInternationalRelations.coordinator.name}
+                              </h4>
+                              <p className="text-xs sm:text-sm text-secondary font-medium">
+                                {moreData.mbaInternationalRelations.coordinator.designation}, {moreData.mbaInternationalRelations.coordinator.department}
+                              </p>
+                              <p className="text-xs text-muted-foreground">
+                                {moreData.mbaInternationalRelations.coordinator.institute}, {moreData.mbaInternationalRelations.coordinator.address}
+                              </p>
+                              <div className="pt-2 flex flex-wrap gap-4 text-xs sm:text-sm">
+                                <span className="text-muted-foreground">
+                                  <strong className="text-secondary">Phone:</strong> {moreData.mbaInternationalRelations.coordinator.phone}
+                                </span>
+                                <span className="text-muted-foreground">
+                                  <strong className="text-secondary">Email:</strong>{" "}
+                                  <a href={`mailto:${moreData.mbaInternationalRelations.coordinator.email}`} className="text-primary hover:underline">
+                                    {moreData.mbaInternationalRelations.coordinator.email}
+                                  </a>
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <div className="space-y-3 pl-1">
+                          {moreData.internationalRelations?.documents.map((doc, dIdx) => (
+                            <a
+                              key={dIdx}
+                              href={doc.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                            >
+                              <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                <ChevronRight className="w-3 h-3 stroke-[3]" />
+                              </div>
+                              <span className="font-semibold group-hover:underline underline-offset-4">
+                                {doc.title}
+                              </span>
+                              <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "best-practices" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
+                      <div className="border-b border-border/60 pb-4">
+                        <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                          {moreData.mbaBestPractices?.title || moreData.bestPractices?.groupTitle || "Best Practices"}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          Innovative educational practices, institutional collaborations, and experiential immersion
+                        </p>
+                      </div>
+
+                      {moreData.mbaBestPractices ? (
+                        <div className="space-y-8">
+                          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
+                            {moreData.mbaBestPractices.overview}
+                          </p>
+
+                          <div className="space-y-8">
+                            {moreData.mbaBestPractices.sections.map((sec, sIdx) => (
+                              <div key={sIdx} className="space-y-4 pt-4 first:pt-0 border-t border-border/60 first:border-t-0">
+                                <h4 className="text-lg sm:text-xl font-bold text-secondary">
+                                  {sec.title}
+                                </h4>
+
+                                <div className="space-y-3">
+                                  {sec.paragraphs.map((para, pIdx) => (
+                                    <p key={pIdx} className="text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
+                                      {para}
+                                    </p>
+                                  ))}
+                                </div>
+
+                                {sec.bulletPoints && sec.bulletPoints.length > 0 && (
+                                  <div className="space-y-2.5 pl-1 py-1">
+                                    {sec.bulletPoints.map((bp, bpIdx) => (
+                                      <div key={bpIdx} className="flex items-start gap-2.5 text-sm sm:text-base text-foreground">
+                                        <div className="w-4 h-4 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 mt-1 shadow-xs">
+                                          <ChevronRight className="w-2.5 h-2.5 stroke-[3]" />
+                                        </div>
+                                        <span className="leading-relaxed text-secondary">{bp}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+
+                                {sec.links && sec.links.length > 0 && (
+                                  <div className="flex flex-wrap gap-3 pt-2">
+                                    {sec.links.map((link, lIdx) => (
+                                      <a
+                                        key={lIdx}
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 text-primary hover:bg-primary hover:text-white font-semibold text-xs sm:text-sm transition-colors border border-primary/20 shadow-2xs"
+                                      >
+                                        <ExternalLink className="w-4 h-4" />
+                                        <span>{link.title}</span>
+                                      </a>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="space-y-3 pl-1">
+                          {moreData.bestPractices?.documents.map((doc, dIdx) => (
+                            <a
+                              key={dIdx}
+                              href={doc.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                            >
+                              <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                <ChevronRight className="w-3 h-3 stroke-[3]" />
+                              </div>
+                              <span className="font-semibold group-hover:underline underline-offset-4">
+                                {doc.title}
+                              </span>
+                              <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "industrial-visit" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
+                      <div className="border-b border-border/60 pb-4">
+                        <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                          {moreData.industrialVisits?.groupTitle || "Industrial Visits"}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          Practical exposure and corporate visits to premier manufacturing and corporate industries
+                        </p>
+                      </div>
+
+                      <div className="space-y-3 pl-1">
+                        {moreData.industrialVisits?.documents.map((doc, dIdx) => (
+                          <a
+                            key={dIdx}
+                            href={doc.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                          >
+                            <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                              <ChevronRight className="w-3 h-3 stroke-[3]" />
+                            </div>
+                            <span className="font-semibold group-hover:underline underline-offset-4">
+                              {doc.title}
+                            </span>
+                            <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                          </a>
+                        ))}
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "nba" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
+                      <div className="border-b border-border/60 pb-4">
+                        <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                          {moreData.nbaAccreditation?.groupTitle || "National Board of Accreditation (NBA)"}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          Accreditation certifications and official sanction orders
+                        </p>
+                      </div>
+
+                      <div className="space-y-3 pl-1">
+                        {moreData.nbaAccreditation?.documents.map((doc, dIdx) => (
+                          <a
+                            key={dIdx}
+                            href={doc.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                          >
+                            <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                              <ChevronRight className="w-3 h-3 stroke-[3]" />
+                            </div>
+                            <span className="font-semibold group-hover:underline underline-offset-4">
+                              {doc.title}
+                            </span>
+                            <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                          </a>
+                        ))}
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "celebrations" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
+                      <div className="border-b border-border/60 pb-4">
+                        <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                          {moreData.celebrations?.groupTitle || "Department Celebrations"}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          Cultural activities, festival celebrations, and student events
+                        </p>
+                      </div>
+
+                      <div className="space-y-3 pl-1">
+                        {moreData.celebrations?.documents.map((doc, dIdx) => (
+                          <a
+                            key={dIdx}
+                            href={doc.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                          >
+                            <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                              <ChevronRight className="w-3 h-3 stroke-[3]" />
+                            </div>
+                            <span className="font-semibold group-hover:underline underline-offset-4">
+                              {doc.title}
+                            </span>
+                            <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                          </a>
+                        ))}
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "gallery" ? (
+                  <div className="space-y-6">
+                    {moreData.galleryPdfUrl ? (
+                      <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
+                        <div className="p-4 sm:p-6 bg-muted/20 border-b border-border/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                          <div>
+                            <h3 className="text-xl font-bold text-secondary">Department Gallery & Student Club</h3>
+                            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                              Activities, workshops, and student club photographs
+                            </p>
+                          </div>
+                          <a
+                            href={moreData.galleryPdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm shadow-xs transition-colors shrink-0 self-start sm:self-center"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                            <span>Open Document</span>
+                          </a>
+                        </div>
+                        <div className="p-4 sm:p-6">
+                          <iframe
+                            src={moreData.galleryPdfUrl}
+                            title="Department Gallery"
+                            className="w-full h-[750px] rounded-lg border border-border shadow-xs"
+                          />
+                        </div>
+                      </Card>
+                    ) : (
+                      <Card className="p-10 text-center text-muted-foreground bg-card">
+                        <Layers className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
+                        <p className="font-semibold text-base text-secondary">Department gallery will be updated soon.</p>
+                      </Card>
+                    )}
+                  </div>
+                ) : activeMoreTab === "timetables" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
+                      <div className="border-b border-border/60 pb-4">
+                        <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                          {moreData.timetablesGroup?.groupTitle || "Timetables"}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          Academic semester class schedules and lecture timetables
+                        </p>
+                      </div>
+
+                      <div className="space-y-3 pl-1">
+                        {moreData.timetablesGroup?.documents.map((doc, dIdx) => (
+                          <a
+                            key={dIdx}
+                            href={doc.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                          >
+                            <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                              <ChevronRight className="w-3 h-3 stroke-[3]" />
+                            </div>
+                            <span className="font-semibold group-hover:underline underline-offset-4">
+                              {doc.title}
+                            </span>
+                            <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                          </a>
+                        ))}
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "internships" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
+                      <div className="border-b border-border/60 pb-4">
+                        <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                          {moreData.internships?.groupTitle || "MBA Internships"}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          Academic year-wise industrial and corporate internships undertaken by students
+                        </p>
+                      </div>
+
+                      <div className="space-y-3 pl-1">
+                        {moreData.internships?.documents.map((doc, dIdx) => (
+                          <a
+                            key={dIdx}
+                            href={doc.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                          >
+                            <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                              <ChevronRight className="w-3 h-3 stroke-[3]" />
+                            </div>
+                            <span className="font-semibold group-hover:underline underline-offset-4">
+                              {doc.title}
+                            </span>
+                            <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                          </a>
+                        ))}
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "case-studies" ? (
+                  <div className="space-y-6">
+                    {moreData.caseStudiesPdfUrl ? (
+                      <Card className="border border-border/80 shadow-xs bg-card overflow-hidden">
+                        <div className="p-4 sm:p-6 bg-muted/20 border-b border-border/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                          <div>
+                            <h3 className="text-xl font-bold text-secondary">NBA Case Studies</h3>
+                            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                              Department of Management Studies NBA case study documentation and pedagogical analysis
+                            </p>
+                          </div>
+                          <a
+                            href={moreData.caseStudiesPdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm shadow-xs transition-colors shrink-0 self-start sm:self-center"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                            <span>Open Document</span>
+                          </a>
+                        </div>
+                        <div className="p-4 sm:p-6">
+                          <iframe
+                            src={moreData.caseStudiesPdfUrl}
+                            title="NBA Case Studies"
+                            className="w-full h-[750px] rounded-lg border border-border shadow-xs"
+                          />
+                        </div>
+                      </Card>
+                    ) : (
+                      <Card className="p-10 text-center text-muted-foreground bg-card">
+                        <Layers className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
+                        <p className="font-semibold text-base text-secondary">Case studies will be updated soon.</p>
+                      </Card>
+                    )}
+                  </div>
+                ) : activeMoreTab === "mou" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
+                      <div className="border-b border-border/60 pb-4">
+                        <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                          {moreData.mous?.groupTitle || "Memorandum of Understanding (MoU)"}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          Active industry and academic collaborations, partnerships, and signed MoUs
+                        </p>
+                      </div>
+
+                      <div className="space-y-3 pl-1">
+                        {moreData.mous?.documents.map((doc, dIdx) => (
+                          <a
+                            key={dIdx}
+                            href={doc.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                          >
+                            <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                              <ChevronRight className="w-3 h-3 stroke-[3]" />
+                            </div>
+                            <span className="font-semibold group-hover:underline underline-offset-4">
+                              {doc.title}
+                            </span>
+                            <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                          </a>
+                        ))}
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "students-projects" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
+                      <div className="border-b border-border/60 pb-4">
+                        <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                          {moreData.studentProjects?.groupTitle || "Students Projects"}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          Master of Business Administration academic project data and reports
+                        </p>
+                      </div>
+
+                      <div className="space-y-3 pl-1">
+                        {moreData.studentProjects?.documents.map((doc, dIdx) => (
+                          <a
+                            key={dIdx}
+                            href={doc.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                          >
+                            <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                              <ChevronRight className="w-3 h-3 stroke-[3]" />
+                            </div>
+                            <span className="font-semibold group-hover:underline underline-offset-4">
+                              {doc.title}
+                            </span>
+                            <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                          </a>
+                        ))}
+                      </div>
+                    </Card>
                   </div>
                 ) : null}
               </motion.div>
