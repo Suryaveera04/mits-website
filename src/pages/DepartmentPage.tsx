@@ -4925,68 +4925,103 @@ const DepartmentPage = () => {
                   </div>
                 ) : activeMoreTab === "research" ? (
                   <div className="space-y-6">
-                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
-                      <div className="space-y-8">
+                    {moreData.researchGroup ? (
+                      <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8 space-y-6">
                         <div className="border-b border-border/60 pb-4">
                           <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
-                            Funded Projects
+                            {moreData.researchGroup.groupTitle || "Research"}
                           </h3>
-                          <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                            {moreData.researchProjects?.overview}
-                          </p>
+                          {moreData.researchGroup.description && (
+                            <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                              {moreData.researchGroup.description}
+                            </p>
+                          )}
                         </div>
 
-                        <div className="space-y-8">
-                          {moreData.researchProjects?.sections.map((section, sIdx) => (
-                            <div key={sIdx} className="space-y-3">
-                              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                <h4 className="text-lg font-bold text-secondary flex items-center gap-2">
-                                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                                  Academic Year {section.academicYear}
-                                </h4>
-                                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
-                                  {section.agency && (
-                                    <span className="px-2.5 py-1 rounded-full bg-muted border border-border text-muted-foreground">
-                                      Funding Agency: {section.agency}
-                                    </span>
-                                  )}
-                                  {section.totalAmount && (
-                                    <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
-                                      Total: {section.totalAmount}
-                                    </span>
-                                  )}
-                                </div>
+                        <div className="space-y-3 pl-1">
+                          {moreData.researchGroup.documents.map((doc, dIdx) => (
+                            <a
+                              key={dIdx}
+                              href={doc.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                            >
+                              <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                <ChevronRight className="w-3 h-3 stroke-[3]" />
                               </div>
-
-                              <div className="overflow-x-auto rounded-xl border border-border shadow-xs">
-                                <table className="w-full text-sm border-collapse text-left">
-                                  <thead>
-                                    <tr className="bg-[#800000] text-white border-b border-[#800000] text-xs uppercase font-bold tracking-wider">
-                                      {section.headers.map((h, hIdx) => (
-                                        <th key={hIdx} className="py-3 px-3 text-center first:w-14">
-                                          {h}
-                                        </th>
-                                      ))}
-                                    </tr>
-                                  </thead>
-                                  <tbody className="divide-y divide-border/60">
-                                    {section.rows.map((row, rIdx) => (
-                                      <tr key={rIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
-                                        {section.headers.map((h, hIdx) => (
-                                          <td key={hIdx} className={`py-3 px-3.5 text-xs sm:text-sm ${hIdx === 0 ? "text-center font-medium" : ""}`}>
-                                            {row[h]}
-                                          </td>
-                                        ))}
-                                      </tr>
-                                    ))}
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
+                              <span className="font-semibold group-hover:underline underline-offset-4">
+                                {doc.title}
+                              </span>
+                              <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary opacity-70 group-hover:opacity-100 transition-opacity ml-auto" />
+                            </a>
                           ))}
                         </div>
-                      </div>
-                    </Card>
+                      </Card>
+                    ) : moreData.researchProjects ? (
+                      <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                        <div className="space-y-8">
+                          <div className="border-b border-border/60 pb-4">
+                            <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                              Funded Projects
+                            </h3>
+                            <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                              {moreData.researchProjects.overview}
+                            </p>
+                          </div>
+
+                          <div className="space-y-8">
+                            {moreData.researchProjects.sections.map((section, sIdx) => (
+                              <div key={sIdx} className="space-y-3">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                  <h4 className="text-lg font-bold text-secondary flex items-center gap-2">
+                                    <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                                    Academic Year {section.academicYear}
+                                  </h4>
+                                  <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                                    {section.agency && (
+                                      <span className="px-2.5 py-1 rounded-full bg-muted border border-border text-muted-foreground">
+                                        Funding Agency: {section.agency}
+                                      </span>
+                                    )}
+                                    {section.totalAmount && (
+                                      <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                                        Total: {section.totalAmount}
+                                      </span>
+                                    )}
+                                  </div>
+                                </div>
+
+                                <div className="overflow-x-auto rounded-xl border border-border shadow-xs">
+                                  <table className="w-full text-sm border-collapse text-left">
+                                    <thead>
+                                      <tr className="bg-[#800000] text-white border-b border-[#800000] text-xs uppercase font-bold tracking-wider">
+                                        {section.headers.map((h, hIdx) => (
+                                          <th key={hIdx} className="py-3 px-3 text-center first:w-14">
+                                            {h}
+                                          </th>
+                                        ))}
+                                      </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-border/60">
+                                      {section.rows.map((row, rIdx) => (
+                                        <tr key={rIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
+                                          {section.headers.map((h, hIdx) => (
+                                            <td key={hIdx} className={`py-3 px-3.5 text-xs sm:text-sm ${hIdx === 0 ? "text-center font-medium" : ""}`}>
+                                              {row[h]}
+                                            </td>
+                                          ))}
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </Card>
+                    ) : null}
                   </div>
                 ) : null}
               </motion.div>

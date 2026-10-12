@@ -316,6 +316,7 @@ export interface DepartmentMoreData {
   newsletterGroup?: MoreDocumentGroup;
   professionalActivities?: { description: string; reportUrl: string }[];
   committees?: MoreDocumentGroup;
+  researchGroup?: MoreDocumentGroup;
   researchProjects?: {
     overview: string;
     sections: {
@@ -1348,12 +1349,12 @@ percentage: "88%", avgPackage: "₹5 LPA", highestPackage: "₹11 LPA", recruite
     shortName: "ECE",
     established: "2005",
     bannerImage: deptImg("ece"),
-    about: "The Department of Electronics & Communication Engineering was established in 1998 for B.Tech and currently offers undergraduate and postgraduate programmes. The department emphasizes all-round development of students, faculty, and staff through a strong academic environment, qualified faculty, and research infrastructure. Since autonomous status, the department has continuously evolved curriculum through AC and BoS to make students industry-ready. The programme is NBA accredited under AICTE.",
-    vision: "To excel in technical education and research in Electronics and Communication Engineering and produce skilled, trained, and competent individuals to meet present-day societal challenges.",
+    about: "The Department of Electronics & Communication Engineering was established in the year 1998 for B. Tech course. The department offers 4 years of undergraduate program and 2 years of postgraduate program . The department lays stress on all round development of the students, faculty and laboratory staff by providing them conducive academic environment with necessary infrastructure to carry out their academic and research work. The department has distinguished faculty, most of them holding their Ph.D. degrees.\n\nThe Department obtained UGC-Autonomous Status in the year 2014 and since then running the program successfully by meeting all the requirements. The College Academic Council, Board of Studies of the department strive to provide quality education with the most advanced curriculum to make the students industry ready and to excel in the contemporary business world.\n\nThe B.Tech Program under Department of Electronics & Communication Engineering was accredited by the National Board of Accreditation (NBA) of All India Council for Technical Education (AICTE).",
+    vision: "Department is to excel in technical education and research in the area of Electronics and Communication Engineering and to produce skilled, trained and competent individuals with high motivation to meet the present day challenges of the society.",
     mission: [
-      "To impart high quality education to enable students to face challenges in ECE.",
-      "To provide infrastructure and environment for innovation, creativity, and research among students and faculty.",
-      "To inculcate ethical and lifelong learning values to address societal needs."
+      "M1: To impart high quality education to enable students face challenges in the fields of Electronics and Communication Engineering.",
+      "M2: To provide facilities, infrastructure, environment to develop the spirit of innovation, creativity, and research among students and faculty.",
+      "M3: To inculcate ethical, moral values and lifelong learning skills in students to address the societal needs."
     ],
     nbaAccredited: true,
     hod: { name: "Dr. Sanjay Kumar C. Gowre", designation: "Professor & Head", qualification: "Ph.D. (IIT-Kharagpur)", image: "https://mits.ac.in/public/uploads/faculty/Dr. Sanjay Kumar C. Gowre.JPG", profileUrl: "https://mits.ac.in/facultyprofile/1018" },
@@ -5497,10 +5498,253 @@ export const cstUnderGraduateData: UnderGraduateData = {
   ]
 };
 
+export const eceUnderGraduateData: UnderGraduateData = {
+  programTitle: "Bachelor of Technology (B.Tech) Program",
+  programOverview:
+    "The Department was established in the year 1998 with the B. Tech program in Electronics and Communication Engineering. After four years of its inception, in 2002, the department got approval for the M. Tech program from A.I.C.T.E. The department has a team of highly qualified senior faculty with specializations in communication systems, Microwave Engineering, Digital Signal Processing, Digital Image Processing, VLSI and Embedded Systems.\n\nThe Objective of the Department is to provide high quality man power by giving the technical inputs to meet the requirements of Indian Industries and R & D establishment both in India and in abroad.\n\nThe Department regularly conducts seminars, guest lectures, workshops and technical symposiums on latest technologies. Apart from the curriculum a project development centre is there to impart the real and practical technical skills to the students. The department has been in the fore front for research and training activities in Embedded Systems, Digital Image Processing, Digital Signal Processing, Cryptography and Network Security.\n\nThe Department has the best undergraduate program required for the Civil Industry. The course curriculum for the undergraduate program gives the flexibility to the students to prepare for advanced specializations. The department offers a set of electives so that students can plan their academic program in advance. The course structure provides a right mix of compulsory and elective courses.",
+  subTabs: [
+    { id: "ug", label: "UG Overview" },
+    { id: "timetable", label: "Timetables" },
+    { id: "course-syllabus", label: "Course Syllabus" }
+  ],
+  sections: [
+    {
+      title: "Curriculum",
+      description:
+        "The B.Tech Program is divided into two distinct parts. A student has to go through a common program called Core Curriculum. Most of the core curriculum is completed in the first four semesters. The last four semesters have a large number of professional courses, that initiate the student to topics in Electronics and Communication Engineering. The Professional Curriculum consists of courses and Project Work. There are not only some compulsory courses but also significant professional electives as well."
+    },
+    {
+      title: "Department Laboratories & Computing Facilities",
+      points: [
+        "1. Microprocessor & DSP Lab: Equipped with 22 systems installed with windows XP, MATLAB Software and tools version 7.5. 20 TMS DSP Processor kits, 13 Embedded Trainer Kits, Code composer Studio Software and Keil Software.",
+        "2. Microprocessor & Microcontroller Lab: Equipped with Thirty PCs installed with MASM tool and Twenty five 8086 Microprocessor kits, twenty four 8051 Microcontroller kits, Five 8085 Microprocessor Kits and various Interfacing cards.",
+        "3. Electronic Computer Aided Design Lab: Equipped with 29 P-IV systems installed with windows XP, Xilinx Software, MATLAB, Multisim Software. KEIL'S, Code Composer Studio Software and Flash Magic Software's and FPGA and CPLD Kits.",
+        "4. Analog Communication / Digital Communication Lab: Equipped with fourteen CRO's, fourteen Function Generators, 110 Digital Communication & Analog communication Trainer Kits, Nine Electronic Lab Trainers, Four SDC Trainer Kits and the components required to conduce the experiments.",
+        "5. Micro Wave Engineering & Optical Fiber Communication Lab: Equipped with 11 Klystron Mounts, Seven Optical Communication Trainer kits, Two Gunn benches and Three CRO's.",
+        "6. Pulse and Digital Circuits Lab 1 & Lab 2: Equipped with 10 DSOs , 8 twenty three CRO's, Thirteen Function Generators, 12 RPSs, Thirteen SDC Trainer Kits, Analog to Digital, Digital to Analog trainer kits, IC tester and the components required to conduct the experiments.",
+        "7. IC Applications Lab: Equipped with 07 DSOs , 07 Function Generators, 07 RPSs, Thirteen SDC Trainer Kits, Linear IC Trainer kits and the components required to conduct the experiments.",
+        "8. Electronic Devices and Circuits Lab -1: Equipped with Twenty six CRO's, 10 DSOs, 20 RPSs, thirty nine Function Generators, Twenty one SDC Trainer kits and the components required to conduct the experiments.",
+        "9. Electronic Devices and Circuits Lab -2: Equipped with 18 DSOs , 18 Function Generators, 18 RPSs and the components required to conduct the experiments.",
+        "Exclusive Department Computing Facilities: 29 Computer Systems in ECAD / EC Lab; 21 computer systems in DSP / Embedded Systems Lab; 30 PCs in Microprocessor and Microcontroller Lab; 7 PCs in M.Tech Lab.",
+        "Availability of laboratories and project support: All Department Laboratories are available with Technical support during working hours and one hour beyond working hours. DSP Lab (17 P-IV systems with Internet) operates two hours beyond working hours for students."
+      ]
+    }
+  ],
+  timeTables: [
+    {
+      groupTitle: "Master Time Tables",
+      items: [
+        {
+          title: "B.Tech II Year 2026-27 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/ece/ECE%20II%20Year%20I%20SEM-2026-27.pdf",
+          academicYear: "2026-27",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech III Year 2026-27 I Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/ece/ECE%20III%20Year%20I%20SEM-2026-27.pdf",
+          academicYear: "2026-27",
+          category: "Master Timetable"
+        }
+      ]
+    },
+    {
+      groupTitle: "Individual Faculty Time Tables",
+      items: [
+        {
+          title: "Individual Faculty Timetables 2025-26",
+          pdfUrl: "https://mits.ac.in/assets/pdf/ece/Faculty%20Load%20ECE-min.pdf",
+          academicYear: "2025-26",
+          category: "Faculty Timetable"
+        }
+      ]
+    }
+  ],
+  syllabusTables: [
+    {
+      title: "First Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Linear Algebra and Calculus", type: "Theory", credits: "3" },
+        { sno: "2", name: "Engineering Physics", type: "Theory", credits: "3" },
+        { sno: "3", name: "Basic Electrical and Electronics Engineering", type: "Theory", credits: "3" },
+        { sno: "4", name: "Introduction to Programming", type: "Theory", credits: "3" },
+        { sno: "5", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "6", name: "Engineering Physics Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Electrical and Electronics Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Computer Programming Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "IT Workshop", type: "Lab", credits: "1" },
+        { sno: "10", name: "NSS / NCC / Scouts and Guides / Community Service", type: "-", credits: "0.5" }
+      ]
+    },
+    {
+      title: "First Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Communicative English", type: "Theory", credits: "2" },
+        { sno: "2", name: "Differential Equations and Vector Calculus", type: "Theory", credits: "3" },
+        { sno: "3", name: "Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "Basic Civil and Mechanical Engineering", type: "Theory", credits: "3" },
+        { sno: "5", name: "Network Analysis", type: "Theory", credits: "3" },
+        { sno: "6", name: "Communicative English Laboratory", type: "Lab", credits: "1" },
+        { sno: "7", name: "Chemistry Laboratory", type: "Lab", credits: "1" },
+        { sno: "8", name: "Engineering Workshop", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Network Analysis and Simulation Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "10", name: "Health and Wellness, Yoga and Sports", type: "-", credits: "0.5" }
+      ]
+    },
+    {
+      title: "Second Year I Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Universal Human Values", type: "Theory", credits: "3" },
+        { sno: "2", name: "Complex Variables and Probability Theory", type: "Theory", credits: "3" },
+        { sno: "3", name: "Signals and Systems", type: "Theory", credits: "3" },
+        { sno: "4", name: "Electronic Devices and Circuits", type: "Theory", credits: "3" },
+        { sno: "5", name: "Digital Circuits Design", type: "Theory", credits: "3" },
+        { sno: "6", name: "Electronic Devices and Circuits Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Digital Circuits and Signal Simulation Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Python Programming", type: "Lab", credits: "2" },
+        { sno: "9", name: "Environmental Science", type: "Theory", credits: "-" }
+      ]
+    },
+    {
+      title: "Second Year II Semester - R23",
+      headers: ["S.No", "Name of the Subject", "Theory/lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Economics and Financial Accounting For Engineers", type: "Theory", credits: "2" },
+        { sno: "2", name: "Innovation and Incubation Courses", type: "Theory", credits: "2" },
+        { sno: "3", name: "Linear Control Systems", type: "Theory", credits: "3" },
+        { sno: "4", name: "EM Waves and Transmission Lines", type: "Theory", credits: "3" },
+        { sno: "5", name: "Analog Circuits", type: "Theory", credits: "3" },
+        { sno: "6", name: "Analog Communication", type: "Lab", credits: "3" },
+        { sno: "7", name: "Analog Circuits Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Analog Communication Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Soft Skills", type: "-", credits: "2" }
+      ]
+    },
+    {
+      title: "First Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional English", type: "Theory", credits: "3" },
+        { sno: "2", name: "Engineering Calculus", type: "Theory", credits: "4" },
+        { sno: "3", name: "Engineering Chemistry", type: "Theory", credits: "3" },
+        { sno: "4", name: "Engineering Graphics", type: "Theory", credits: "3" },
+        { sno: "5", name: "Programming for Problem Solving (Python)", type: "Theory", credits: "3.5" },
+        { sno: "6", name: "Chemistry Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Workshop Practice", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "First Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Linear Algebra, Complex Variables and Ordinary Differential Equations", type: "Theory", credits: "3" },
+        { sno: "2", name: "Applied Physics", type: "Theory", credits: "4" },
+        { sno: "3", name: "Basic Electrical Engineering", type: "Theory", credits: "4" },
+        { sno: "4", name: "C Programming and Data Structures", type: "Theory", credits: "3" },
+        { sno: "5", name: "English for Professional Purposes Laboratory", type: "Theory", credits: "1" },
+        { sno: "6", name: "Physics Laboratory", type: "Theory", credits: "1.5" },
+        { sno: "7", name: "Electrical Engineering Laboratory", type: "lab", credits: "1.5" },
+        { sno: "8", name: "C Programming and Data Structures Laboratory", type: "lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "Second Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Economics and Financial Accounting for Engineers", type: "Theory", credits: "3" },
+        { sno: "2", name: "Transforms and Partial Differential Equations", type: "Theory", credits: "3" },
+        { sno: "3", name: "Network Theory", type: "Theory", credits: "3" },
+        { sno: "4", name: "Digital System Design", type: "Theory", credits: "3" },
+        { sno: "5", name: "Electronic Devices and Circuits", type: "Theory", credits: "3" },
+        { sno: "6", name: "Networks and Simulation Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Digital System Design Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Electronic Devices and Circuits Simulation Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course -I", type: "-", credits: "2" },
+        { sno: "10", name: "Skill Oriented Course -I", type: "-", credits: "2" }
+      ]
+    },
+    {
+      title: "Second Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Probability and Stochastic Process", type: "Theory", credits: "4" },
+        { sno: "2", name: "Control System Engineering", type: "Theory", credits: "3" },
+        { sno: "3", name: "Principles of Signals and Systems", type: "Theory", credits: "3" },
+        { sno: "4", name: "Analog Circuits", type: "Theory", credits: "3" },
+        { sno: "5", name: "Microprocessor and Microcontrollers", type: "Theory", credits: "3" },
+        { sno: "6", name: "Simulation and Control Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Analog Circuits Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Microprocessor and Microcontroller Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course - II", type: "-", credits: "2" },
+        { sno: "10", name: "Environmental Science", type: "-", credits: "0" }
+      ]
+    },
+    {
+      title: "Third Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Electromagnetic Fields and Transmission Lines", type: "Theory", credits: "3" },
+        { sno: "2", name: "Analog Communication", type: "Theory", credits: "3" },
+        { sno: "3", name: "Digital Signal Processing", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-I", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-I", type: "Theory", credits: "3" },
+        { sno: "6", name: "Analog Communication Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Digital Signal Processing Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Skill Oriented Course -III", type: "Lab", credits: "2" },
+        { sno: "9", name: "Universal Human Values", type: "Lab", credits: "0/3" },
+        { sno: "10", name: "Summer Internship-1*", type: "Theory", credits: "1.5" }
+      ]
+    },
+    {
+      title: "Third Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "VLSI Design", type: "Theory", credits: "3" },
+        { sno: "2", name: "Antenna and Microwave Engineering", type: "Theory", credits: "3" },
+        { sno: "3", name: "Digital Communication", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-II", type: "Theory", credits: "3" },
+        { sno: "5", name: "Professional Elective-II (MOOCS)", type: "Theory", credits: "3" },
+        { sno: "6", name: "VLSI Design Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Microwave Engineering Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Digital Communication Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "9", name: "Skill Oriented Course-IV", type: "Lab", credits: "2" },
+        { sno: "10", name: "Disaster Management", type: "Lab", credits: "0" }
+      ]
+    },
+    {
+      title: "Fourth Year I Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Professional Elective-III", type: "Theory", credits: "3" },
+        { sno: "2", name: "Professional Elective-IV", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective-V", type: "Theory", credits: "3" },
+        { sno: "4", name: "Open Elective-III", type: "Theory", credits: "3" },
+        { sno: "5", name: "Open Elective-IV", type: "Theory", credits: "3" },
+        { sno: "6", name: "Open Elective-V (Taken from Humanities & Social Science)", type: "Theory", credits: "3" },
+        { sno: "7", name: "Skill Oriented Course - V", type: "-", credits: "2" },
+        { sno: "8", name: "Summer Internship-2*", type: "-", credits: "3" }
+      ]
+    },
+    {
+      title: "Fourth Year II Semester - R20",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Project Work / Internship", type: "-", credits: "12" }
+      ]
+    }
+  ]
+};
+
 export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subject[] = []): UnderGraduateData {
   const dept = departmentsData[deptKey];
   if (dept && dept.underGraduate) {
     return dept.underGraduate;
+  }
+  if (deptKey === "ece" || deptKey === "electronics-communication-engineering" || deptKey === "electronics-and-communication-engineering" || deptKey === "3") {
+    return eceUnderGraduateData;
   }
   if (deptKey === "cst" || deptKey === "computer-science-and-technology" || deptKey === "computer-science-technology" || deptKey === "4") {
     return cstUnderGraduateData;
@@ -7412,10 +7656,144 @@ export const mcaMoreData: DepartmentMoreData = {
   }
 };
 
+export const eceMoreData: DepartmentMoreData = {
+  subTabs: [
+    { id: "doctoral", label: "Doctoral" },
+    { id: "lab", label: "Lab" },
+    { id: "course-attainment", label: "Course Attainment Matrix ECE" },
+    { id: "mentor-mentee", label: "Mentor & Mentee" },
+    { id: "stock-register", label: "Stock Register" },
+    { id: "surveys", label: "Surveys" },
+    { id: "research", label: "Research" }
+  ],
+  labPdfUrl: "https://mits.ac.in/public/uploads/departments/labs.pdf",
+  stockRegisterPdfUrl: "https://mits.ac.in/assets/pdf/stock-registers/ECE%20Stock%20Register.pdf",
+  doctoral: {
+    title: "Doctoral Programs",
+    description:
+      "The Department of Electronics and Communication Engineering is one of the recognized research centers for doctoral programs affiliated to JNTU Anatapur since 2013.\n\nFull time research scholars of doctoral programs are working under the guidance of highly qualified faculty with strong inclination towards research and development of innovative technologies like Cryptography, Computer vision, VLSI and Embedded Systems.",
+    batches: [
+      {
+        batchTitle: "Full-Time Research Scholars Details 2013-2014 Batch",
+        scholars: [
+          {
+            sno: "1",
+            name: "E.LAKSHMI PRASAD",
+            guide: "Dr.A.R.REDDY\nProfessor & HOD",
+            coGuide: "Dr.M.N.GIRI PRASAD\nProfessor",
+            dateOfJoining: "25-06-2014",
+            researchTitle: "VLSI"
+          },
+          {
+            sno: "2",
+            name: "K.SAI VENU PRATHAP",
+            guide: "Dr.S.A.K.JILANI\nProfessor",
+            coGuide: "Dr.P.RAMANA REDDY\nProfessor",
+            dateOfJoining: "25-06-2014",
+            researchTitle: "IMAGE PROCESSING"
+          }
+        ]
+      },
+      {
+        batchTitle: "Full-Time Research Scholars Details 2014-2015 Batch",
+        scholars: [
+          {
+            sno: "1",
+            name: "T.Prahalad Reddy",
+            guide: "Dr.A.R.Reddy\nProfessor & HOD",
+            coGuide: "Dr.M.N.Giri Prasad\nProfessor",
+            dateOfJoining: "04-05-2015",
+            researchTitle: "Embedded Systems"
+          },
+          {
+            sno: "2",
+            name: "Brahmadesam. T.Madav",
+            guide: "Dr.S.A.K.Jilani\nProfessor",
+            coGuide: "Dr.S.Aruna Mastani\nAssistant Professor",
+            dateOfJoining: "04-05-2015",
+            researchTitle: "Video Processing"
+          }
+        ]
+      },
+      {
+        batchTitle: "Full-Time Research Scholars Details 2015-2016 Batch",
+        scholars: [
+          {
+            sno: "1",
+            name: "Shaik Mohammed Rafi",
+            guide: "Dr.J.L.Mazher Iqbal\nProfessor",
+            coGuide: "Dr.S.Chandra Mohan Reddy\nAssistant Professor",
+            dateOfJoining: "13-04-2016",
+            researchTitle: "VLSI"
+          }
+        ]
+      }
+    ]
+  },
+  courseAttainment: [
+    { title: "2017-21 Course Attainment Matrix ECE", url: "https://mits.ac.in/assets/pdf/ece/2017-21%20Course%20Attainment%20Matrix%20ECE.pdf" },
+    { title: "2016-20 Course Attainment Matrix ECE", url: "https://mits.ac.in/assets/pdf/ece/2016-20%20Course%20Attainment%20Matrix%20ECE.pdf" },
+    { title: "2015-19 Course Attainment Matrix ECE", url: "https://mits.ac.in/assets/pdf/ece/2015-19%20Course%20Attainment%20Matrix%20ECE.pdf" },
+    { title: "2014-18 Course Attainment Matrix ECE", url: "https://mits.ac.in/assets/pdf/ece/2014-18%20Course%20Attainment%20Matrix%20ECE.pdf" }
+  ],
+  mentorMentee: [
+    {
+      groupTitle: "Mentor-Mentee Allocation Lists",
+      items: [
+        {
+          title: "2021-22 - Mentor-Mentee Allocation List for ECE",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/2021-22%20-%20Mentor-Mentee%20Allocation%20List%20for%20ECE.pdf",
+          academicYear: "2021-22"
+        },
+        {
+          title: "2020-21 - Mentor-Mentee Allocation List for ECE",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/2020-21%20-%20Mentor-Mentee%20Allocation%20List%20for%20ECE.pdf",
+          academicYear: "2020-21"
+        },
+        {
+          title: "2019-20 - Mentor-Mentee Allocation List for ECE",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/2019-20%20-%20Mentor-Mentee%20Allocation%20List%20for%20ECE.pdf",
+          academicYear: "2019-20"
+        }
+      ]
+    }
+  ],
+  surveys: [
+    {
+      title: "Surveys from Stakeholders",
+      links: [
+        { title: "2023-24 Academic Year Surveys from Stakeholders", url: "https://mits.ac.in/public/uploads/surveys/2023-24%20Academic%20Year%20Survey%20from%20Stakeholders.pdf" },
+        { title: "2022-23 Academic Year Surveys from Stakeholders", url: "https://mits.ac.in/public/uploads/surveys/Feedback%20Analysis%202022-23.pdf" },
+        { title: "2021-22 Academic Year Surveys from Stakeholders", url: "https://mits.ac.in/public/uploads/surveys/80c358e3d7a30701bc314db8db919d57.pdf" },
+        { title: "2020-21 Academic Year Surveys from Stakeholders", url: "https://mits.ac.in/public/uploads/surveys/7d39f7a05a409edbc80aa54c08592ec4.pdf" },
+        { title: "2019-20 Academic Year Surveys from Stakeholders", url: "https://mits.ac.in/public/uploads/surveys/a2dba4acd0a3b9d8383526c1224d6bab.pdf" },
+        { title: "2018-19 Academic Year Surveys from Stakeholders", url: "https://mits.ac.in/public/uploads/surveys/5691513edb61ee2e88a9da6752d52a94.pdf" },
+        { title: "2017-18 Academic Year Surveys from Stakeholders", url: "https://mits.ac.in/public/uploads/surveys/6be932bf35adaf28bbe410a805ccd40a.pdf" },
+        { title: "2016-17 Academic Year Surveys from Stakeholders", url: "https://mits.ac.in/public/uploads/surveys/365c3971d8d06cf71123491e961f888e.pdf" },
+        { title: "2015-16 Academic Year Surveys from Stakeholders", url: "https://mits.ac.in/public/uploads/surveys/35cfb3257bbf27943e8d00c65a8eaca1.pdf" },
+        { title: "2014-15 Academic Year Surveys from Stakeholders", url: "https://mits.ac.in/public/uploads/surveys/3b164c3299a2c5bc7da152152b497008.pdf" }
+      ]
+    }
+  ],
+  researchGroup: {
+    groupTitle: "Research",
+    description: "Department research publications, projects, and developmental reports.",
+    documents: [
+      { title: "Research 2024-2025", url: "https://mits.ac.in/assets/pdf/ece/Research-2024-2025.pdf" },
+      { title: "Research 2023-2024", url: "https://mits.ac.in/assets/pdf/ece/Research-2023-2024.pdf" },
+      { title: "Research 2022-2023", url: "https://mits.ac.in/assets/pdf/ece/Research-2022-2023.pdf" },
+      { title: "Research 2021-2022", url: "https://mits.ac.in/assets/pdf/ece/Research-2021-2022.pdf" }
+    ]
+  }
+};
+
 export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   const dept = departmentsData[deptKey];
   if (dept && dept.more) {
     return dept.more;
+  }
+  if (deptKey === "ece" || deptKey === "electronics-communication-engineering" || deptKey === "electronics-and-communication-engineering" || deptKey === "3") {
+    return eceMoreData;
   }
   if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
     return mcaMoreData;
@@ -9145,10 +9523,153 @@ export const mcaTopTabs: DepartmentTopTab[] = [
   }
 ];
 
+export const eceTopTabs: DepartmentTopTab[] = [
+  {
+    id: "faculty-list",
+    label: "Faculty List",
+    title: "Faculty List",
+    documents: [
+      { title: "Faculty List for the Academic Year 2024-25", url: "https://mits.ac.in/assets/pdf/ece/2024-25%20ECE.pdf" },
+      { title: "Faculty List for the Academic Year 2023-24", url: "https://mits.ac.in/assets/pdf/ece/2023-24%20ECE.pdf" },
+      { title: "Faculty List for the Academic Year 2022-23", url: "https://mits.ac.in/assets/pdf/ece/2022-23%20ECE.pdf" }
+    ]
+  },
+  {
+    id: "placement-details",
+    label: "Placement Details",
+    title: "Placement Details",
+    documents: [
+      { title: "Placement Details 2023-24", url: "https://mits.ac.in/assets/pdf/ece/ECE%20Placements%202023-24.pdf" },
+      { title: "Placement Details 2022-23", url: "https://mits.ac.in/assets/pdf/ece/ECE%20Placements%202022-23.pdf" },
+      { title: "Placement Details 2021-22", url: "https://mits.ac.in/assets/pdf/ece/ECE%20Placements%202021-22.pdf" }
+    ]
+  },
+  {
+    id: "bos",
+    label: "BoS",
+    title: "Board of Studies (BoS)",
+    documents: [
+      { title: "BOS 2022-23", url: "https://mits.ac.in/public/uploads/departments/016da0715e97c1d3d0a16083565a153f.pdf" },
+      { title: "BOS 2021-22", url: "https://mits.ac.in/public/uploads/departments/7af6d7984f445b07f1d5868977680e08.pdf" },
+      { title: "BOS 2020-21", url: "https://mits.ac.in/public/uploads/departments/2aa457941c4fe9f5a7be1a8b4dfbe6ec.pdf" },
+      { title: "BOS 2019-20", url: "https://mits.ac.in/public/uploads/departments/0a031ccf98b2c282b88f6cb92a15d579.pdf" },
+      { title: "BOS 2018-19", url: "https://mits.ac.in/public/uploads/departments/78b91747c588db25787a3f56bf5d3218.pdf" },
+      { title: "BOS 2017-18", url: "https://mits.ac.in/public/uploads/departments/2795bee7e8b8440c9df33a01307a6b86.pdf" },
+      { title: "BOS 2016-17", url: "https://mits.ac.in/public/uploads/departments/c746295a1245c510e6c374f2c1ab40c0.pdf" },
+      { title: "BOS 2015-16", url: "https://mits.ac.in/public/uploads/departments/efcf5bbe6fd0a4698a1e030a913744c0.pdf" },
+      { title: "BOS 2014-15", url: "https://mits.ac.in/public/uploads/departments/668c7684ba77fea21cdf93f00b06802c.pdf" }
+    ]
+  },
+  {
+    id: "iaab",
+    label: "IAAB",
+    title: "Industry Alumni Advisory Board (IAAB)",
+    documents: [
+      { title: "IAAB 2023-24", url: "https://mits.ac.in/public/uploads/departments/0cb69816b5667fe09b0e368687a8dbed.pdf" },
+      { title: "IAAB 2022-23", url: "https://mits.ac.in/public/uploads/departments/c98eeda2229bd3122ad035e9b46ce56a.pdf" },
+      { title: "IAAB 2021-22", url: "https://mits.ac.in/public/uploads/departments/a29dd83b700bf62904b70b2b533bae79.pdf" },
+      { title: "IAAB 2020-21", url: "https://mits.ac.in/public/uploads/departments/de7580614f7b84008a90465c910a6af3.pdf" },
+      { title: "IAAB 2019-20", url: "https://mits.ac.in/public/uploads/departments/10aab453d279e50d124ec53fabe21945.pdf" },
+      { title: "IAAB 2018-19", url: "https://mits.ac.in/public/uploads/departments/5d8ab3098e7823516ecedadb865272b1.pdf" },
+      { title: "IAAB 2017-18", url: "https://mits.ac.in/public/uploads/departments/e621de16f441e4303e96c6be5d031a04.pdf" },
+      { title: "IAAB 2016-17", url: "https://mits.ac.in/public/uploads/departments/3bea21e09aaf7b4fb787c3207b271b25.pdf" },
+      { title: "IAAB 2015-16", url: "https://mits.ac.in/public/uploads/departments/42ad366e0de05782643087f2cb07e8fd.pdf" },
+      { title: "IAAB 2014-15", url: "https://mits.ac.in/public/uploads/departments/178642668ce810dcf96b8db83abec4ff.pdf" }
+    ]
+  },
+  {
+    id: "dab",
+    label: "DAB",
+    title: "Departmental Advisory Board (DAB)",
+    documents: [
+      { title: "DAB 2023-24", url: "https://mits.ac.in/public/uploads/departments/dd0125dc5a4891344fe2d280c4de28ea.pdf" },
+      { title: "DAB 2023-24", url: "https://mits.ac.in/public/uploads/departments/e5c213879f849b4982c997f42022a619.pdf" },
+      { title: "DAB 2022-23", url: "https://mits.ac.in/public/uploads/departments/ba076498d18cef452d7a581c222a6430.pdf" },
+      { title: "DAB 2021-22", url: "https://mits.ac.in/public/uploads/departments/988a8a20df9c52b3661db40eece9c455.pdf" },
+      { title: "DAB 2020-21", url: "https://mits.ac.in/public/uploads/departments/dc32bdc48c2580833d0829583cef0995.pdf" },
+      { title: "DAB 2019-20", url: "https://mits.ac.in/public/uploads/departments/114b1893f0ba05f5307451e71c84c8b9.pdf" },
+      { title: "DAB 2018-19", url: "https://mits.ac.in/public/uploads/departments/e7a09d7697b1085476d5ffabf2f76531.pdf" },
+      { title: "DAB 2017-18", url: "https://mits.ac.in/public/uploads/departments/ff95b792dd5769ce3f558eaf89b34d9c.pdf" },
+      { title: "DAB 2016-17", url: "https://mits.ac.in/public/uploads/departments/8fb707d01664a99855a380b5e91d28b5.pdf" }
+    ]
+  },
+  {
+    id: "pac",
+    label: "PAC",
+    title: "Program Assessment Committee (PAC)",
+    documents: [
+      { title: "PAC 2023-24", url: "https://mits.ac.in/public/uploads/departments/639ffe43261ebfd8355cb837e46313e1.pdf" },
+      { title: "PAC 2022-23", url: "https://mits.ac.in/public/uploads/departments/2ff47d4f33569277f69355113bc1a577.pdf" },
+      { title: "PAC 2021-22", url: "https://mits.ac.in/public/uploads/departments/8a5852f2eb4d798fae767168ac28d802.pdf" },
+      { title: "PAC 2020-21", url: "https://mits.ac.in/public/uploads/departments/931276292f2a98191d780a66ffcf84a5.pdf" },
+      { title: "PAC 2019-20", url: "https://mits.ac.in/public/uploads/departments/bddad031c5af2788f5d61efe838f5a83.pdf" },
+      { title: "PAC 2018-19", url: "https://mits.ac.in/public/uploads/departments/90e820ae78488fe024749839965fbda0.pdf" },
+      { title: "PAC 2016-17", url: "https://mits.ac.in/public/uploads/departments/eb793480f13e878cc4b444892142710a.pdf" },
+      { title: "PAC 2015-16", url: "https://mits.ac.in/public/uploads/departments/aa0c266f6b68b2a13e435e94e1c6dda0.pdf" },
+      { title: "PAC 2014-15", url: "https://mits.ac.in/public/uploads/departments/6d6347f35655d43724683741ae57336c.pdf" }
+    ]
+  },
+  {
+    id: "ccc",
+    label: "CCC",
+    title: "Course Coordinator Committee",
+    documents: [
+      { title: "B. Tech II Year 2025-26 II Semester course coordinator committee", url: "https://mits.ac.in/assets/pdf/ece/B.%20Tech%20II%20Year%202025-26%20II%20Semester%20course%20coordinator%20committee.pdf" },
+      { title: "B. Tech II Year 2025-26 I Semester course coordinator committee", url: "https://mits.ac.in/assets/pdf/ece/B.Tech%20II%20Year%202025-26%20I%20Semester%20course%20coordinator%20committee.pdf" },
+      { title: "B. Tech IV Year 2025-26 I Semester course coordinator committee", url: "https://mits.ac.in/assets/pdf/ece/B.%20Tech%20IV%20Year%202025-26%20I%20Semester%20course%20coordinator%20committee.pdf" },
+      { title: "B.Tech II Year 2024-25 II Semester Course Coordinator Committee", url: "https://mits.ac.in/assets/pdf/ece/CCC_II%20Year_II%20SEM%202024-25.pdf" },
+      { title: "B.Tech III Year 2024-25 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/4de0360bf667b8fead93c9b1ccea3db4.pdf" },
+      { title: "B.Tech II Year 2024-25 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/8e53032d58087705b578932a46cc4abb.pdf" },
+      { title: "B.Tech IV Year 2024-25 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/a53e42882baa7391df1cf8bdd87e08d2.pdf" },
+      { title: "B.Tech III Year 2024-25 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/ef94331ed70958cdd5e84d42c5af5cb9.pdf" },
+      { title: "B.Tech III Year 2023-24 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/b2134febbcc6f3ffb5e4f1232ef3f5ea.pdf" },
+      { title: "B.Tech III Year 2023-24 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/21a35a151e2045c07cbbf8489dc1b39a.pdf" },
+      { title: "B.Tech III Year 2023-24 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/e08cbb54aea62f0d7449e4ee45cef652.pdf" },
+      { title: "B.Tech II Year 2023-24 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/1d259bc0831191f5db1d0a1b261a2577.pdf" },
+      { title: "B.Tech II Year 2023-24 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/a9056394a7889f6db562795728a46e85.pdf" },
+      { title: "B.Tech IV Year 2023-24 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/e023f30f34aa22d3a34074bbbd7a1fad.pdf" },
+      { title: "B.Tech IV Year 2022-23 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/91edef9afc548f538554af308c0928a4.pdf" },
+      { title: "B.Tech IV Year 2022-23 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/1002ea3cc88c12fa22c5af65d9511209.pdf" },
+      { title: "B.Tech III Year 2022-23 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/82e1e41e7692100fff2123ee753fe34d.pdf" },
+      { title: "B.Tech III Year 2022-23 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/e1680ab9e527638704b20a14b910de71.pdf" },
+      { title: "B.Tech II Year 2022-23 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/a16975ed9422f24c031644abd3da7064.pdf" },
+      { title: "B.Tech II Year 2022-23 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/b445f0e321921f5409d17febc23342b3.pdf" },
+      { title: "B.Tech IV Year 2021-22 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/e07b0986e3a623c070b40e9b5eb2bd0d.pdf" },
+      { title: "B.Tech II Year 2021-22 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/9a6d292bed20261259369e7e5a9351e5.pdf" },
+      { title: "B.Tech III Year 2021-22 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/44891a0eb66be466d36066f797a6fbbc.pdf" },
+      { title: "B.Tech II Year 2021-22 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/9c0ce4010d1e75f698fb4fde529672d7.pdf" },
+      { title: "B.Tech IV Year 2021-22 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/fa103e2f39766c93eb261312d6072213.pdf" },
+      { title: "B.Tech III Year 2020-21 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/044f27a55b0af9e18ff7e08d38724871.pdf" },
+      { title: "B.Tech III Year 2021-22 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/519532bfae61a77ffc750ac6f6dc6437.pdf" },
+      { title: "B.Tech IV Year 2020-21 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/95861662b1d499303f3c2be8cd792ec2.pdf" },
+      { title: "B.Tech IV Year 2020-21 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/835810b06aad88bda217e8aad42a1f16.pdf" },
+      { title: "B.Tech III Year 2020-21 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/9b00f489e3b8e2713a63639dd8310fb7.pdf" },
+      { title: "B.Tech II Year 2020-21 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/9b2c24914421712365ad2af8e24101bf.pdf" },
+      { title: "B.Tech II Year 2020-21 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/b11a9897363e8c46cd37209a2bd2b0e1.pdf" },
+      { title: "B.Tech II Year 2019-20 II Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/8a4537bcb864bc1140ac508d8e1068e0.pdf" },
+      { title: "B.Tech II Year 2019-20 I Semester Course Coordinator Committee", url: "https://mits.ac.in/public/uploads/departments/199a2c8abecf204c4436d68fd412369d.pdf" }
+    ]
+  },
+  {
+    id: "dugc",
+    label: "DUGC",
+    title: "Departmental Under Graduate Committee (DUGC)",
+    documents: [
+      { title: "DUGC 2023-24", url: "https://mits.ac.in/public/uploads/departments/4970ecf6082bd71f2279be60b6b82098.pdf" },
+      { title: "DUGC 2022-23", url: "https://mits.ac.in/public/uploads/departments/8222f92f447a1d7a92fb2cf3d7e20b8f.pdf" },
+      { title: "DUGC 2021-22", url: "https://mits.ac.in/public/uploads/departments/1c0596da8cd45b0578d77eef83d6e62e.pdf" },
+      { title: "DUGC 2020-21", url: "https://mits.ac.in/public/uploads/departments/f411d641ee1f7a866c554b188ae9ad65.pdf" }
+    ]
+  }
+];
+
 export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | undefined {
   const dept = departmentsData[deptKey];
   if (dept && dept.topTabs && dept.topTabs.length > 0) {
     return dept.topTabs;
+  }
+  if (deptKey === "ece" || deptKey === "electronics-communication-engineering" || deptKey === "electronics-and-communication-engineering" || deptKey === "3") {
+    return eceTopTabs;
   }
   if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
     return mcaTopTabs;
