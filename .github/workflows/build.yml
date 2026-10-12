@@ -33,12 +33,12 @@ jobs:
           mkdir -p ~/.ssh
           printf '%s\n' "$CPANEL_SSH_KEY" > ~/.ssh/cpanel_deploy
           chmod 600 ~/.ssh/cpanel_deploy
-          ssh-keyscan -p 22133 mits.edu >> ~/.ssh/known_hosts
+          ssh-keyscan -T 10 -p 22133 mits.edu >> ~/.ssh/known_hosts || true
 
       - name: Deploy with rsync
         run: |
           rsync -az --checksum \
-            -e "ssh -i ~/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=20" \
+            -e "ssh -i ~/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=20" \
             dist/ \
             mits@mits.edu:/home/mits/public_html/university/
 
@@ -46,6 +46,6 @@ jobs:
         run: |
           printf 'RewriteEngine On\nRewriteRule ^$ /university/ [R=301,L]\nRewriteCond %%{REQUEST_URI} !^/university/\nRewriteRule ^(.*)$ /university/$1 [R=301,L]\n' > /tmp/root.htaccess
           rsync -az \
-            -e "ssh -i ~/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=20" \
+            -e "ssh -i ~/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=20" \
             /tmp/root.htaccess \
             mits@mits.edu:/home/mits/public_html/.htaccess
