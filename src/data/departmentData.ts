@@ -9525,6 +9525,10 @@ export const mcaTopTabs: DepartmentTopTab[] = [
 
 export const eceTopTabs: DepartmentTopTab[] = [
   {
+    id: "department",
+    label: "Department"
+  },
+  {
     id: "faculty-list",
     label: "Faculty List",
     title: "Faculty List",
