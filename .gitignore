@@ -12,7 +12,6 @@ dist
 dist-ssr
 *.local
 # Editor directories and files
-.vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
@@ -32,3 +31,4 @@ scratch/
 faculty_response.json
 dist.zip
 *.zip
+config.bat
