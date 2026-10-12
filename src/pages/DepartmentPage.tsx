@@ -138,24 +138,39 @@ const DepartmentPage = () => {
 
   const currentSidebarItems = useMemo(() => {
     const items: SidebarItem[] = [];
+    const isMcaDept = deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18";
     sidebarItems.forEach(item => {
       if (item.id === "under-graduate") {
-        items.push({
-          ...item,
-          subItems: ugData.subTabs || [
-            { id: "ug", label: "UG" },
-            { id: "course-syllabus", label: "Course Syllabus" },
-          ]
-        });
-        if (pgData) {
+        if (isMcaDept) {
+          if (pgData) {
+            items.push({
+              id: "post-graduate",
+              label: "Post Graduate",
+              icon: GraduationCap,
+              subItems: pgData.subTabs || [
+                { id: "obe", label: "OBE" },
+                { id: "timetable", label: "Timetables" }
+              ]
+            });
+          }
+        } else {
           items.push({
-            id: "post-graduate",
-            label: "Post Graduate",
-            icon: GraduationCap,
-            subItems: pgData.subTabs || [
-              { id: "pg-course-syllabus", label: "Course Syllabus" }
+            ...item,
+            subItems: ugData.subTabs || [
+              { id: "ug", label: "UG" },
+              { id: "course-syllabus", label: "Course Syllabus" },
             ]
           });
+          if (pgData) {
+            items.push({
+              id: "post-graduate",
+              label: "Post Graduate",
+              icon: GraduationCap,
+              subItems: pgData.subTabs || [
+                { id: "pg-course-syllabus", label: "Course Syllabus" }
+              ]
+            });
+          }
         }
       } else if (item.id === "more") {
         items.push({
@@ -170,7 +185,7 @@ const DepartmentPage = () => {
       }
     });
     return items;
-  }, [ugData.subTabs, pgData, moreData.subTabs]);
+  }, [deptKey, ugData.subTabs, pgData, moreData.subTabs]);
 
   const specializations = useMemo(() => {
     if (!ugData.syllabusTables || ugData.syllabusTables.length === 0) return [];
@@ -502,15 +517,95 @@ const DepartmentPage = () => {
         setUgDropdownOpen(true);
         return;
       }
-      if (hash === "post-graduate" || hash === "pg" || hash === "pg-course-syllabus") {
+      if (hash === "post-graduate" || hash === "pg" || hash === "pg-course-syllabus" || hash === "tab-18") {
         setActiveSection("post-graduate");
-        setActivePgTab("pg-course-syllabus");
+        if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+          setActivePgTab("obe");
+        } else {
+          setActivePgTab("pg-course-syllabus");
+        }
         setPgDropdownOpen(true);
         return;
       }
-      if (hash === "mentor-mentee" || hash === "mentors") {
+      if (hash === "obe") {
+        if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+          setActiveSection("post-graduate");
+          setActivePgTab("obe");
+          setPgDropdownOpen(true);
+        } else if (ugData.subTabs?.some(t => t.id === "obe")) {
+          setActiveSection("under-graduate");
+          setActiveUgTab("obe");
+          setUgDropdownOpen(true);
+        } else {
+          setActiveSection("more");
+          setActiveMoreTab("obe");
+          setMoreDropdownOpen(true);
+        }
+        return;
+      }
+      if (hash === "timetable" || hash === "timetables" || hash === "tab115") {
+        if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+          setActiveSection("post-graduate");
+          setActivePgTab("timetable");
+          setPgDropdownOpen(true);
+        } else {
+          setActiveSection("under-graduate");
+          setActiveUgTab("timetable");
+          setUgDropdownOpen(true);
+        }
+        return;
+      }
+      if (hash === "budget" || hash === "department-budget" || hash === "tab15") {
+        setActiveSection("more");
+        setActiveMoreTab("budget");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "professional-activities" || hash === "professional-society-activities" || hash === "tab107") {
+        setActiveSection("more");
+        setActiveMoreTab("professional-activities");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "committees" || hash === "department-committees" || hash === "tab75") {
+        setActiveSection("more");
+        setActiveMoreTab("committees");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "research" || hash === "funded-projects" || hash === "tab-16") {
+        setActiveSection("more");
+        setActiveMoreTab("research");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "alumni" || hash === "tab11" || hash === "tab119") {
+        setActiveSection("more");
+        setActiveMoreTab("alumni");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "surveys" || hash === "survey" || hash === "tab91" || hash === "tab31") {
+        setActiveSection("more");
+        setActiveMoreTab("surveys");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "newsletters" || hash === "tab59") {
+        setActiveSection("more");
+        setActiveMoreTab("newsletters");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "mentor-mentee" || hash === "mentors" || hash === "tab73") {
         setActiveSection("more");
         setActiveMoreTab("mentor-mentee");
+        setMoreDropdownOpen(true);
+        return;
+      }
+      if (hash === "innovative-teaching" || hash === "tab14") {
+        setActiveSection("more");
+        setActiveMoreTab("innovative-teaching");
         setMoreDropdownOpen(true);
         return;
       }
@@ -538,34 +633,43 @@ const DepartmentPage = () => {
         setMoreDropdownOpen(true);
         return;
       }
-      if (hash === "innovative-teaching") {
-        setActiveSection("more");
-        setActiveMoreTab("innovative-teaching");
-        setMoreDropdownOpen(true);
-        return;
-      }
       if (hash === "stock-register") {
         setActiveSection("more");
         setActiveMoreTab("stock-register");
         setMoreDropdownOpen(true);
         return;
       }
-      if (hash === "faculty-list") {
+      if (hash === "faculty-list" || hash === "tab6") {
         setActiveSection("about");
         setActiveTopTab("faculty-list");
         return;
       }
-      if (hash === "bos" || hash === "board-of-studies") {
+      if (hash === "placement-statistics" || hash === "placements" || hash === "tab9") {
+        setActiveSection("about");
+        setActiveTopTab("placement-statistics");
+        return;
+      }
+      if (hash === "magazines" || hash === "magazine" || hash === "tab13") {
+        setActiveSection("about");
+        setActiveTopTab("magazines");
+        return;
+      }
+      if (hash === "bos" || hash === "board-of-studies" || hash === "tab2") {
         setActiveSection("about");
         setActiveTopTab("bos");
         return;
       }
-      if (hash === "dab") {
+      if (hash === "iaab" || hash === "tab3") {
+        setActiveSection("about");
+        setActiveTopTab("iaab");
+        return;
+      }
+      if (hash === "dab" || hash === "tab4") {
         setActiveSection("about");
         setActiveTopTab("dab");
         return;
       }
-      if (hash === "pac") {
+      if (hash === "pac" || hash === "tab5") {
         setActiveSection("about");
         setActiveTopTab("pac");
         return;
@@ -573,16 +677,6 @@ const DepartmentPage = () => {
       if (hash === "newsletter") {
         setActiveSection("about");
         setActiveTopTab("newsletter");
-        return;
-      }
-      if (hash === "iaab") {
-        setActiveSection("about");
-        setActiveTopTab("iaab");
-        return;
-      }
-      if (hash === "magazine") {
-        setActiveSection("about");
-        setActiveTopTab("magazine");
         return;
       }
       if (hash === "student-projects") {
@@ -595,7 +689,7 @@ const DepartmentPage = () => {
         setActiveTopTab("technical-symposium");
         return;
       }
-      if (hash === "department") {
+      if (hash === "department" || hash === "tab1") {
         setActiveSection("about");
         setActiveTopTab("department");
         return;
@@ -657,10 +751,16 @@ const DepartmentPage = () => {
       setActiveSection("under-graduate");
       setActiveUgTab("course-syllabus");
       setUgDropdownOpen(true);
-    } else if (lastPart === "timetable" || lastPart === "time-table") {
-      setActiveSection("under-graduate");
-      setActiveUgTab("timetable");
-      setUgDropdownOpen(true);
+    } else if (lastPart === "timetable" || lastPart === "time-table" || lastPart === "timetables" || lastPart === "tab115") {
+      if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+        setActiveSection("post-graduate");
+        setActivePgTab("timetable");
+        setPgDropdownOpen(true);
+      } else {
+        setActiveSection("under-graduate");
+        setActiveUgTab("timetable");
+        setUgDropdownOpen(true);
+      }
     } else if (lastPart === "minors") {
       setActiveSection("under-graduate");
       setActiveUgTab("minors");
@@ -678,7 +778,11 @@ const DepartmentPage = () => {
         setObeDropdownOpen(true);
       }
     } else if (lastPart === "obe") {
-      if (isMech || ugData.subTabs?.some(t => t.id === "obe")) {
+      if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+        setActiveSection("post-graduate");
+        setActivePgTab("obe");
+        setPgDropdownOpen(true);
+      } else if (isMech || ugData.subTabs?.some(t => t.id === "obe")) {
         setActiveSection("under-graduate");
         setActiveUgTab("obe");
         setUgDropdownOpen(true);
@@ -693,7 +797,23 @@ const DepartmentPage = () => {
         setMoreDropdownOpen(true);
         setObeDropdownOpen(true);
       }
-    } else if (lastPart === "surveys" || lastPart === "tab31") {
+    } else if (lastPart === "budget" || lastPart === "department-budget" || lastPart === "tab15") {
+      setActiveSection("more");
+      setActiveMoreTab("budget");
+      setMoreDropdownOpen(true);
+    } else if (lastPart === "professional-activities" || lastPart === "professional-society-activities" || lastPart === "tab107") {
+      setActiveSection("more");
+      setActiveMoreTab("professional-activities");
+      setMoreDropdownOpen(true);
+    } else if (lastPart === "committees" || lastPart === "department-committees" || lastPart === "tab75") {
+      setActiveSection("more");
+      setActiveMoreTab("committees");
+      setMoreDropdownOpen(true);
+    } else if (lastPart === "research" || lastPart === "funded-projects" || lastPart === "tab-16") {
+      setActiveSection("more");
+      setActiveMoreTab("research");
+      setMoreDropdownOpen(true);
+    } else if (lastPart === "surveys" || lastPart === "tab31" || lastPart === "tab91" || lastPart === "survey") {
       if (isMech) {
         if (activeSection === "more") {
           setActiveSection("more");
@@ -719,17 +839,27 @@ const DepartmentPage = () => {
       setActiveSection("more");
       setActiveMoreTab("phd");
       setMoreDropdownOpen(true);
-    } else if (lastPart === "newsletters") {
+    } else if (lastPart === "newsletters" || lastPart === "newsletter" || lastPart === "tab59") {
       setActiveSection("more");
       setActiveMoreTab("newsletters");
       setMoreDropdownOpen(true);
     } else if (lastPart === "under-graduate") {
       setActiveSection("under-graduate");
       setUgDropdownOpen(true);
-    } else if (lastPart === "post-graduate" || lastPart === "pg" || lastPart === "pg-course-syllabus") {
+    } else if (lastPart === "post-graduate" || lastPart === "pg" || lastPart === "pg-course-syllabus" || lastPart === "tab-18") {
       setActiveSection("post-graduate");
-      setActivePgTab("pg-course-syllabus");
+      if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+        setActivePgTab("obe");
+      } else {
+        setActivePgTab("pg-course-syllabus");
+      }
       setPgDropdownOpen(true);
+    } else if (lastPart === "placement-statistics" || lastPart === "placements" || lastPart === "tab9") {
+      setActiveSection("about");
+      setActiveTopTab("placement-statistics");
+    } else if (lastPart === "magazines" || lastPart === "magazine" || lastPart === "tab13") {
+      setActiveSection("about");
+      setActiveTopTab("magazines");
     } else if (lastPart === "tab-7" || lastPart === "tab7" || lastPart === "lab") {
       setActiveSection("more");
       setActiveMoreTab("lab");
@@ -2518,97 +2648,216 @@ const DepartmentPage = () => {
                   </div>
                 )}
 
-                {/* Search & Syllabus Tables */}
-                <div className="space-y-6">
-                  <div className="bg-muted/20 border border-border/70 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div className="relative flex-1 max-w-md">
-                      <Search className="w-4 h-4 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
-                      <input
-                        type="text"
-                        value={pgSearch}
-                        onChange={(e) => setPgSearch(e.target.value)}
-                        placeholder="Search PG subjects by name or type..."
-                        className="w-full pl-9 pr-3 py-2 bg-card border border-border rounded-lg text-xs sm:text-sm text-secondary placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-                      />
-                    </div>
-                    {pgSearch && (
-                      <button
-                        onClick={() => setPgSearch("")}
-                        className="text-xs font-bold text-primary hover:underline self-start sm:self-center"
-                      >
-                        Clear Search
-                      </button>
-                    )}
-                  </div>
+                {/* OBE Content */}
+                {activePgTab === "obe" && pgData.obe ? (
+                  <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                    <div className="space-y-6">
+                      <div className="border-b border-border/60 pb-4">
+                        <span className="text-xs uppercase font-bold tracking-widest text-primary">Academic Framework</span>
+                        <h3 className="text-2xl font-bold text-secondary mt-1" style={{ fontFamily: "var(--font-display)" }}>
+                          Outcome Based Education (OBE)
+                        </h3>
+                        <p className="text-sm text-muted-foreground mt-2 leading-relaxed whitespace-pre-line">
+                          {pgData.obe.overview}
+                        </p>
+                      </div>
 
-                  <div className="space-y-6">
-                    {pgData.syllabusTables.map((table, tIdx) => {
-                      const matchingRows = table.rows.filter((r) =>
-                        pgSearch
-                          ? r.name.toLowerCase().includes(pgSearch.toLowerCase()) ||
-                            r.type.toLowerCase().includes(pgSearch.toLowerCase())
-                          : true
-                      );
-                      if (pgSearch && matchingRows.length === 0) return null;
+                      {/* PEOs */}
+                      <div className="space-y-3">
+                        <h4 className="font-bold text-secondary text-lg flex items-center gap-2">
+                          <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                          Programme Educational Objectives (PEOs)
+                        </h4>
+                        <div className="space-y-2.5 pl-1">
+                          {pgData.obe.peos.map((peo, idx) => (
+                            <div key={idx} className="flex items-start gap-3 text-sm p-3.5 rounded-xl border border-border/60 bg-muted/10">
+                              <span className="font-bold text-primary shrink-0 px-2.5 py-1 rounded-md bg-primary/10 text-xs mt-0.5">
+                                {peo.id}
+                              </span>
+                              <span className="text-muted-foreground leading-relaxed">{peo.description}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
 
-                      return (
-                        <div key={tIdx} className="bg-card border border-border/80 rounded-2xl shadow-xs overflow-hidden">
-                          <div className="bg-muted/30 border-b border-border/70 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div>
-                              <h3 className="text-base sm:text-lg font-bold text-secondary">
-                                {table.title}
-                              </h3>
-                              <div className="flex items-center gap-2 text-xs text-muted-foreground mt-0.5">
-                                <span>Curriculum Matrix</span>
-                                <span>•</span>
-                                <span>{table.rows.length} Subjects</span>
+                      {/* POs R22 & R24 */}
+                      <div className="space-y-3 pt-4 border-t border-border/60">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                          <h4 className="font-bold text-secondary text-lg flex items-center gap-2">
+                            <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                            Program Outcomes (POs) - R22 & R24 Regulations
+                          </h4>
+                          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 w-fit">
+                            Prescribed by NBA
+                          </span>
+                        </div>
+                        <div className="space-y-2.5 pl-1">
+                          {pgData.obe.posR22R24.map((po, idx) => (
+                            <div key={idx} className="flex items-start gap-3 text-sm p-3.5 rounded-xl border border-border/60 bg-muted/10">
+                              <span className="font-bold text-primary shrink-0 px-2.5 py-1 rounded-md bg-primary/10 text-xs mt-0.5">
+                                {po.id}
+                              </span>
+                              <div className="space-y-0.5">
+                                <span className="font-semibold text-secondary mr-2">{po.title}:</span>
+                                <span className="text-muted-foreground leading-relaxed">{po.description}</span>
                               </div>
                             </div>
-                            <div className="flex items-center gap-2 shrink-0">
-                              <span className="px-2.5 py-1 bg-card border border-border text-secondary rounded-full text-xs font-bold">
-                                R24
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* POs R20 */}
+                      <div className="space-y-3 pt-4 border-t border-border/60">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                          <h4 className="font-bold text-secondary text-lg flex items-center gap-2">
+                            <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                            Program Outcomes (POs) - R20 Regulations
+                          </h4>
+                          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 w-fit">
+                            Prescribed by NBA
+                          </span>
+                        </div>
+                        <div className="space-y-2.5 pl-1">
+                          {pgData.obe.posR20.map((po, idx) => (
+                            <div key={idx} className="flex items-start gap-3 text-sm p-3.5 rounded-xl border border-border/60 bg-muted/10">
+                              <span className="font-bold text-primary shrink-0 px-2.5 py-1 rounded-md bg-primary/10 text-xs mt-0.5">
+                                {po.id}
                               </span>
-                              <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold shadow-xs">
-                                Total: {calculateTableCredits(table.rows)} Credits
-                              </span>
+                              <div className="space-y-0.5">
+                                <span className="font-semibold text-secondary mr-2">{po.title}:</span>
+                                <span className="text-muted-foreground leading-relaxed">{po.description}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                ) : (activePgTab === "timetable" || activePgTab === "timetables") && pgData.timetables ? (
+                  <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                    <div className="space-y-6">
+                      <div className="border-b border-border/60 pb-4">
+                        <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                          Timetables
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          Master of Computer Applications class schedules and semester timetables
+                        </p>
+                      </div>
+
+                      <div className="space-y-3 pl-1">
+                        {pgData.timetables.map((item, iIdx) => (
+                          <a
+                            key={iIdx}
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-3 py-2 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                          >
+                            <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                              <ChevronRight className="w-3 h-3 stroke-[3]" />
+                            </div>
+                            <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
+                              {item.title}
+                            </span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </Card>
+                ) : pgData.syllabusTables && pgData.syllabusTables.length > 0 ? (
+                  /* Search & Syllabus Tables */
+                  <div className="space-y-6">
+                    <div className="bg-muted/20 border border-border/70 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="relative flex-1 max-w-md">
+                        <Search className="w-4 h-4 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
+                        <input
+                          type="text"
+                          value={pgSearch}
+                          onChange={(e) => setPgSearch(e.target.value)}
+                          placeholder="Search PG subjects by name or type..."
+                          className="w-full pl-9 pr-3 py-2 bg-card border border-border rounded-lg text-xs sm:text-sm text-secondary placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                        />
+                      </div>
+                      {pgSearch && (
+                        <button
+                          onClick={() => setPgSearch("")}
+                          className="text-xs font-bold text-primary hover:underline self-start sm:self-center"
+                        >
+                          Clear Search
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="space-y-6">
+                      {pgData.syllabusTables.map((table, tIdx) => {
+                        const matchingRows = table.rows.filter((r) =>
+                          pgSearch
+                            ? r.name.toLowerCase().includes(pgSearch.toLowerCase()) ||
+                              r.type.toLowerCase().includes(pgSearch.toLowerCase())
+                            : true
+                        );
+                        if (pgSearch && matchingRows.length === 0) return null;
+
+                        return (
+                          <div key={tIdx} className="bg-card border border-border/80 rounded-2xl shadow-xs overflow-hidden">
+                            <div className="bg-muted/30 border-b border-border/70 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                              <div>
+                                <h3 className="text-base sm:text-lg font-bold text-secondary">
+                                  {table.title}
+                                </h3>
+                                <div className="flex items-center gap-2 text-xs text-muted-foreground mt-0.5">
+                                  <span>Curriculum Matrix</span>
+                                  <span>•</span>
+                                  <span>{table.rows.length} Subjects</span>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-2 shrink-0">
+                                <span className="px-2.5 py-1 bg-card border border-border text-secondary rounded-full text-xs font-bold">
+                                  R24
+                                </span>
+                                <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold shadow-xs">
+                                  Total: {calculateTableCredits(table.rows)} Credits
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="overflow-x-auto">
+                              <table className="w-full text-sm border-collapse text-left">
+                                <thead>
+                                  <tr className="bg-muted/40 text-secondary border-b border-border text-xs uppercase font-bold tracking-wider divide-x divide-border/60">
+                                    <th className="py-3.5 px-4 text-center w-16">S.No</th>
+                                    <th className="py-3.5 px-6">Name of the Subject</th>
+                                    <th className="py-3.5 px-4 text-center w-36">Theory / Lab</th>
+                                    <th className="py-3.5 px-4 text-center w-28">Credits</th>
+                                  </tr>
+                                </thead>
+                                <tbody className="divide-y divide-border/60">
+                                  {matchingRows.map((row, rIdx) => (
+                                    <tr key={rIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
+                                      <td className="py-3.5 px-4 text-center font-medium text-muted-foreground text-xs">
+                                        {row.sno}
+                                      </td>
+                                      <td className="py-3.5 px-6 font-semibold text-secondary">
+                                        {row.name}
+                                      </td>
+                                      <td className="py-3.5 px-4 text-center text-sm font-medium text-muted-foreground">
+                                        {row.type}
+                                      </td>
+                                      <td className="py-3.5 px-4 text-center text-sm font-bold text-secondary">
+                                        {row.credits}
+                                      </td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
                             </div>
                           </div>
-
-                          <div className="overflow-x-auto">
-                            <table className="w-full text-sm border-collapse text-left">
-                              <thead>
-                                <tr className="bg-muted/40 text-secondary border-b border-border text-xs uppercase font-bold tracking-wider divide-x divide-border/60">
-                                  <th className="py-3.5 px-4 text-center w-16">S.No</th>
-                                  <th className="py-3.5 px-6">Name of the Subject</th>
-                                  <th className="py-3.5 px-4 text-center w-36">Theory / Lab</th>
-                                  <th className="py-3.5 px-4 text-center w-28">Credits</th>
-                                </tr>
-                              </thead>
-                              <tbody className="divide-y divide-border/60">
-                                {matchingRows.map((row, rIdx) => (
-                                  <tr key={rIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
-                                    <td className="py-3.5 px-4 text-center font-medium text-muted-foreground text-xs">
-                                      {row.sno}
-                                    </td>
-                                    <td className="py-3.5 px-6 font-semibold text-secondary">
-                                      {row.name}
-                                    </td>
-                                    <td className="py-3.5 px-4 text-center text-sm font-medium text-muted-foreground">
-                                      {row.type}
-                                    </td>
-                                    <td className="py-3.5 px-4 text-center text-sm font-bold text-secondary">
-                                      {row.credits}
-                                    </td>
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
+                ) : null}
               </motion.div>
             )}
 
@@ -3349,12 +3598,20 @@ const DepartmentPage = () => {
                       <span>Interdisciplinary <span className="text-primary">Projects</span></span>
                     ) : activeMoreTab === "doctoral" || activeMoreTab === "phd" ? (
                       <span>Doctoral Research <span className="text-primary">(Ph.D)</span></span>
-                    ) : activeMoreTab === "newsletters" ? (
+                    ) : activeMoreTab === "newsletters" || activeMoreTab === "newsletter" ? (
                       <span>Department <span className="text-primary">Newsletters</span></span>
                     ) : activeMoreTab === "feedback" ? (
                       <span>Stakeholder <span className="text-primary">Feedback</span></span>
                     ) : activeMoreTab === "innovative-teaching" ? (
-                      <span>Innovative <span className="text-primary">Teaching Approach</span></span>
+                      <span>Innovative <span className="text-primary">Teaching & Learning</span></span>
+                    ) : activeMoreTab === "budget" ? (
+                      <span>Department <span className="text-primary">Budget</span></span>
+                    ) : activeMoreTab === "professional-activities" ? (
+                      <span>Professional Society <span className="text-primary">Activities</span></span>
+                    ) : activeMoreTab === "committees" ? (
+                      <span>Department <span className="text-primary">Committees</span></span>
+                    ) : activeMoreTab === "research" ? (
+                      <span>Funded <span className="text-primary">Research Projects</span></span>
                     ) : activeMoreTab === "obe" ? (
                       <span>Outcome Based Education <span className="text-primary">(OBE)</span></span>
                     ) : (
@@ -3969,16 +4226,16 @@ const DepartmentPage = () => {
                       </Card>
                     )}
                   </div>
-                ) : activeMoreTab === "newsletters" ? (
+                ) : activeMoreTab === "newsletters" || activeMoreTab === "newsletter" ? (
                   <div className="space-y-6">
-                    {(moreData.studentProjects || moreData.feedback) ? (
+                    {(moreData.newsletterGroup || moreData.studentProjects || moreData.feedback) ? (
                       <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
                         <div className="space-y-6">
                           <h3 className="text-xl font-bold text-secondary tracking-tight">
                             Department Newsletters
                           </h3>
                           <div className="space-y-3 pl-1">
-                            {((moreData.studentProjects?.documents) || (moreData.feedback?.documents) || []).map((doc, dIdx) => (
+                            {((moreData.newsletterGroup?.documents) || (moreData.studentProjects?.documents) || (moreData.feedback?.documents) || []).map((doc, dIdx) => (
                               <a
                                 key={dIdx}
                                 href={doc.url}
@@ -4551,6 +4808,185 @@ const DepartmentPage = () => {
                         )}
                       </div>
                     )}
+                  </div>
+                ) : activeMoreTab === "budget" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-6">
+                        <div className="border-b border-border/60 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                          <div>
+                            <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                              Department Budget
+                            </h3>
+                            <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                              Department of Computer Applications: Budget, Actual Expenses, & Utilization Summary
+                            </p>
+                          </div>
+                          {moreData.budgetPdfUrl && (
+                            <a
+                              href={moreData.budgetPdfUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-white font-semibold text-xs sm:text-sm hover:bg-primary/90 transition-colors shadow-2xs self-start sm:self-auto shrink-0"
+                            >
+                              <Download className="w-4 h-4" />
+                              <span>Download Budget PDF</span>
+                            </a>
+                          )}
+                        </div>
+
+                        {moreData.budgetPdfUrl && (
+                          <div className="rounded-xl border border-border overflow-hidden bg-muted/20 shadow-xs">
+                            <iframe
+                              src={moreData.budgetPdfUrl}
+                              title="Department Budget PDF"
+                              className="w-full h-[650px] sm:h-[850px] border-0"
+                            />
+                          </div>
+                        )}
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "professional-activities" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-6">
+                        <div className="border-b border-border/60 pb-4">
+                          <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                            Professional Society Activities
+                          </h3>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                            Workshops, Guest Lectures, Expert Talks and Professional Chapter Activities
+                          </p>
+                        </div>
+
+                        <div className="space-y-6 pl-1">
+                          {moreData.professionalActivities?.map((activity, idx) => (
+                            <div key={idx} className="space-y-1.5">
+                              <div className="flex items-start gap-3">
+                                <div className="w-4 h-4 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 mt-1 shadow-xs">
+                                  <ChevronRight className="w-2.5 h-2.5 stroke-[3]" />
+                                </div>
+                                <span className="font-semibold text-secondary text-sm sm:text-base leading-snug">
+                                  {activity.description}
+                                </span>
+                              </div>
+                              {activity.reportUrl && (
+                                <div className="pl-7">
+                                  <a
+                                    href={activity.reportUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-xs sm:text-sm text-primary hover:text-primary/80 hover:underline transition-colors inline-flex items-center gap-1 font-medium"
+                                  >
+                                    Click here for Report on Event
+                                  </a>
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "committees" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-6">
+                        <div className="border-b border-border/60 pb-4">
+                          <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                            Department Committees
+                          </h3>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                            Various coordinators and departmental committees across academic years
+                          </p>
+                        </div>
+
+                        <div className="space-y-3 pl-1">
+                          {moreData.committees?.documents.map((doc, dIdx) => (
+                            <a
+                              key={dIdx}
+                              href={doc.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group flex items-center gap-3 py-1.5 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                            >
+                              <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                <ChevronRight className="w-3 h-3 stroke-[3]" />
+                              </div>
+                              <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
+                                {doc.title}
+                              </span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                ) : activeMoreTab === "research" ? (
+                  <div className="space-y-6">
+                    <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                      <div className="space-y-8">
+                        <div className="border-b border-border/60 pb-4">
+                          <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                            Funded Projects
+                          </h3>
+                          <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                            {moreData.researchProjects?.overview}
+                          </p>
+                        </div>
+
+                        <div className="space-y-8">
+                          {moreData.researchProjects?.sections.map((section, sIdx) => (
+                            <div key={sIdx} className="space-y-3">
+                              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                <h4 className="text-lg font-bold text-secondary flex items-center gap-2">
+                                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                                  Academic Year {section.academicYear}
+                                </h4>
+                                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                                  {section.agency && (
+                                    <span className="px-2.5 py-1 rounded-full bg-muted border border-border text-muted-foreground">
+                                      Funding Agency: {section.agency}
+                                    </span>
+                                  )}
+                                  {section.totalAmount && (
+                                    <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                                      Total: {section.totalAmount}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+
+                              <div className="overflow-x-auto rounded-xl border border-border shadow-xs">
+                                <table className="w-full text-sm border-collapse text-left">
+                                  <thead>
+                                    <tr className="bg-[#800000] text-white border-b border-[#800000] text-xs uppercase font-bold tracking-wider">
+                                      {section.headers.map((h, hIdx) => (
+                                        <th key={hIdx} className="py-3 px-3 text-center first:w-14">
+                                          {h}
+                                        </th>
+                                      ))}
+                                    </tr>
+                                  </thead>
+                                  <tbody className="divide-y divide-border/60">
+                                    {section.rows.map((row, rIdx) => (
+                                      <tr key={rIdx} className="hover:bg-muted/20 transition-colors even:bg-muted/10 divide-x divide-border/60">
+                                        {section.headers.map((h, hIdx) => (
+                                          <td key={hIdx} className={`py-3 px-3.5 text-xs sm:text-sm ${hIdx === 0 ? "text-center font-medium" : ""}`}>
+                                            {row[h]}
+                                          </td>
+                                        ))}
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </Card>
                   </div>
                 ) : null}
               </motion.div>

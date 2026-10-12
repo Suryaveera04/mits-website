@@ -312,6 +312,20 @@ export interface DepartmentMoreData {
   courseAttainment?: MoreDocumentItem[];
   alumniEvents?: MoreDocumentGroup[];
   stockRegisterPdfUrl?: string;
+  budgetPdfUrl?: string;
+  newsletterGroup?: MoreDocumentGroup;
+  professionalActivities?: { description: string; reportUrl: string }[];
+  committees?: MoreDocumentGroup;
+  researchProjects?: {
+    overview: string;
+    sections: {
+      academicYear: string;
+      agency?: string;
+      totalAmount?: string;
+      headers: string[];
+      rows: Record<string, string>[];
+    }[];
+  };
 }
 
 export interface UnderGraduateTimeTableItem {
@@ -357,8 +371,15 @@ export interface UnderGraduateData {
 export interface PostGraduateData {
   programTitle: string;
   programOverview?: string;
-  subTabs?: { id: string; label: string }[];
+  subTabs?: { id: string; label: string; externalUrl?: string; directPdf?: boolean }[];
   syllabusTables?: SyllabusTable[];
+  obe?: {
+    overview: string;
+    peos: { id: string; description: string }[];
+    posR22R24: { id: string; title: string; description: string }[];
+    posR20: { id: string; title: string; description: string }[];
+  };
+  timetables?: { title: string; url: string; academicYear?: string }[];
 }
 
 // Helper to get dept image
@@ -2362,12 +2383,17 @@ percentage: "96%", avgPackage: "₹8 LPA", highestPackage: "₹20 LPA", recruite
     shortName: "MCA",
     established: "2004",
     bannerImage: deptImg("mca"),
-    about: "The Department of Computer Applications has grown steadily since 2004 and currently offers a three-year MCA and a two-year MCA (Direct Second Year) programme. The programmes are AICTE governed and aligned to industry needs through contemporary curriculum updates. The department emphasizes value-based education, strong academic outcomes, modern labs, structured academic processes, mentoring, and regular FDPs/workshops. The MCA programme is NBA accredited under AICTE and has consistently strong placement outcomes.",
-    vision: "To be the source of producing competent computer application professionals in academic and research activities to serve industry and society.",
+    about: "The Department has grown steadily since its inception in 2004 and currently offers a two-year MCA program. The program governed by AICTE, New Delhi, and are affiliated with JNTU Ananthapuramu. The Department is committed to foster value-based education and socially responsible professionalism, contributing to the holistic development of students and society. Its primary objective is to educate and prepare students to become dynamic, competent, and knowledgeable professionals. The Department’s core strengths are excellent academic results, state-of-the-art computer laboratories, well-defined & well-documented academic and administrative processes, and comprehensive student counselling services encompassing both personal and academic guidance.\n\nThe Department was granted UGC Autonomous status in 2014 and has been successfully offering its programs in full compliance with all prescribed requirements. The College Academic Council and the Department’s Board of Studies continuously strive to deliver quality education through a contemporary and industry-oriented curriculum, equipping students with the skills and knowledge required to excel in today’s competitive and dynamic business environment.\n\nThe Department regularly organizes Faculty Development Programs, conferences, seminars, symposiums, and workshops focusing on emerging areas and advanced technologies. Guest lectures are conducted by eminent professors and experienced industry professionals from reputed IT organizations and top-ranked universities. The Department has an excellent placement record, with all eligible and competent students securing positions in renowned national and international organizations. Maintaining global standards in teaching and learning, achieving consistent placement success, and recording 100% admissions year after year are the hallmark achievements of the Department.\n\nThe M.C.A. program offered by the Department of Computer Applications is accredited by the National Board of Accreditation (NBA) under the All India Council for Technical Education (AICTE)",
+    vision: "To be a center of Excellence in Computer Applications through academic Excellence, innovative research, digital transformation, ethical values and Community engagement, nurturing globally competent. Industry ready, and socially responsible professional for sustainable development.",
     mission: [
-      "To empower students with computer application knowledge through state-of-the-art infrastructure and curriculum.",
-      "To groom students into competent professionals in emerging technologies through industry-specific programmes.",
-      "To inculcate ethical values, leadership, and managerial skills in students."
+      "M1: Deliver quality and inclusive education through an industry –aligned curriculum, experimental learning, emerging technologies, and continuous curriculum development to develop competent computing professionals.",
+      "M2: Foster research excellence, innovation, entrepreneurship, interdisciplinary collaboration, and lifelong learning through projects, funded research, publications, and consultancy, incubation and industry partnerships.",
+      "M3: develop ethical leadership, professional competence. Global perspectives.communicaion skills, teamwork, and social responsibility by promoting community engagement, sustainable development, and responsible computing practices."
+    ],
+    goals: [
+      "To equip students with the necessary skills to meet the challenges of the rapidly evolving computer and IT landscape by providing a strong academic foundation and practical competence, thereby enhancing their analytical abilities and making them valuable assets to any organization.",
+      "To develop creative and versatile professionals who demonstrate strong ethical values, leadership qualities, and a commitment to social responsibility through comprehensive and relevant training.",
+      "To provide excellent learning opportunities tailored to the interests, abilities, and career aspirations of learners."
     ],
     nbaAccredited: true,
     hod: { name: "Dr. N. Naveen Kumar", designation: "Professor & Head", qualification: "Ph.D. (S V University, Tirupathi)", image: "https://mits.ac.in/public/uploads/faculty/Naveen Kumar.JPG", profileUrl: "https://mits.ac.in/facultyprofile/254" },
@@ -3581,10 +3607,159 @@ export const csePostGraduateData: PostGraduateData = {
   ]
 };
 
+export const mcaPostGraduateData: PostGraduateData = {
+  programTitle: "Master of Computer Applications (MCA) Program",
+  programOverview:
+    "The Department has grown steadily since its inception in 2004 and currently offers a two-year MCA program. The program is governed by AICTE, New Delhi, and affiliated with JNTU Ananthapuramu. The Department was granted UGC Autonomous status in 2014 and is accredited by NBA.",
+  subTabs: [
+    { id: "obe", label: "OBE" },
+    { id: "timetable", label: "Timetables" }
+  ],
+  obe: {
+    overview:
+      "In accordance with the philosophy of Outcome Based Education (OBE), the expected learning outcomes for students at various stages of the programme are clearly defined in advance. All academic activities are systematically planned and implemented to ensure their effective contribution toward the attainment of these outcomes. The curriculum structure, teaching–learning processes, assessment methods, infrastructural facilities, and co-curricular and extra-curricular activities are carefully aligned with the overall programme objectives.\n\nGiven below are the Programme Educational Objectives (PEOs) and Programme Outcomes (POs) of the M.C.A. programme offered by the Department.",
+    peos: [
+      {
+        id: "PEO1",
+        description: "Excel in the software industry with the application of comprehensive knowledge and skills."
+      },
+      {
+        id: "PEO2",
+        description: "Contribute by building innovative and sustainable solutions to the problems in the IT industry."
+      },
+      {
+        id: "PEO3",
+        description: "Become successful professionals, exhibiting social responsibility leading to lifelong learning."
+      }
+    ],
+    posR22R24: [
+      {
+        id: "PO1",
+        title: "Foundation Knowledge",
+        description: "Apply knowledge of mathematics, programming logic and coding fundamentals for solution architecture and problem solving."
+      },
+      {
+        id: "PO2",
+        title: "Problem Analysis",
+        description: "Identify, review, formulate and analyse problems for primarily focusing on customer requirements using critical thinking frameworks."
+      },
+      {
+        id: "PO3",
+        title: "Development of Solutions",
+        description: "Design, develop and investigate problems with as an innovative approach for solutions incorporating ESG/SDG goals."
+      },
+      {
+        id: "PO4",
+        title: "Modern Tool Usage",
+        description: "Select, adapt and apply modern computational tools such as development of algorithms with an understanding of the limitations including human biases."
+      },
+      {
+        id: "PO5",
+        title: "Individual and Teamwork",
+        description: "Function and communicate effectively as an individual or a team leader in diverse and multidisciplinary groups. Use methodologies such as agile."
+      },
+      {
+        id: "PO6",
+        title: "Project Management and Finance",
+        description: "Use the principles of project management such as scheduling, work breakdown structure and be conversant with the principles of Finance for profitable project management."
+      },
+      {
+        id: "PO7",
+        title: "Ethics",
+        description: "Commit to professional ethics in managing software projects with financial aspects. Learn to use new technologies for cyber security and insulate customers from malware."
+      },
+      {
+        id: "PO8",
+        title: "Life-long learning",
+        description: "Change management skills and the ability to learn, keep up with contemporary technologies and ways of working."
+      }
+    ],
+    posR20: [
+      {
+        id: "PO1",
+        title: "Computational Knowledge",
+        description: "Apply knowledge of computing fundamentals, computing specialisation, mathematics, and domain knowledge appropriate for the computing specialisation to the abstraction and conceptualisation of computing models from defined problems and requirements."
+      },
+      {
+        id: "PO2",
+        title: "Problem Analysis",
+        description: "Identify, formulate, research literature, and solve complex computing problems reaching substantiated conclusions using fundamental principles of mathematics, computing sciences, and relevant domain disciplines."
+      },
+      {
+        id: "PO3",
+        title: "Design/Development of solutions",
+        description: "Design and evaluate solutions for complex computing problems, and design and evaluate systems, components, or processes that meet specified needs with appropriate consideration for public health and safety, cultural, societal, and environmental considerations."
+      },
+      {
+        id: "PO4",
+        title: "Conduct investigations of complex problems",
+        description: "Use research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of the information to provide valid conclusions."
+      },
+      {
+        id: "PO5",
+        title: "Modern tool usage",
+        description: "Create, select, adapt and apply appropriate techniques, resources, and modern computing tools to complex computing activities, with an understanding of the limitations."
+      },
+      {
+        id: "PO6",
+        title: "Professional Ethics",
+        description: "Understand and commit to professional ethics and cyber regulations, responsibilities, and norms of professional computing practice."
+      },
+      {
+        id: "PO7",
+        title: "Life-long Learning",
+        description: "Recognize the need, and have the ability, to engage in independent learning for continual development as a computing professional."
+      },
+      {
+        id: "PO8",
+        title: "Project Management and Finance",
+        description: "Demonstrate knowledge and understanding of the computing and management principles and apply these to one’s own work, as a member and leader in a team, to manage projects and in multidisciplinary environments."
+      },
+      {
+        id: "PO9",
+        title: "Communication efficacy",
+        description: "Communicate effectively with the computing community, and with society at large, about complex computing activities by being able to comprehend and write effective reports, design documentation, make effective presentations, and give and understand clear instructions."
+      },
+      {
+        id: "PO10",
+        title: "Societal and Environmental Concern",
+        description: "Understand and assess societal, environmental, health, safety, legal, and cultural issues within local and global contexts, and the consequential responsibilities relevant to professional computing practice."
+      },
+      {
+        id: "PO11",
+        title: "Individual and Team Work",
+        description: "Function effectively as an individual and as a member or leader in diverse teams and in multidisciplinary environments."
+      },
+      {
+        id: "PO12",
+        title: "Innovation and Entrepreneurship",
+        description: "Identify a timely opportunity and using innovation to pursue that opportunity to create value and wealth for the betterment of the individual and society at large."
+      }
+    ]
+  },
+  timetables: [
+    {
+      title: "MCA I Year 2024 - 2025 I Semester (Section A, B, C, D & E) Class Time Table (2024 Admitted Batch)",
+      url: "https://mits.ac.in/assets/pdf/ca/MCA%20I%20Year%202024%20-%202025%20I%20Semester%20(Section%20A,B,C,D%20&%20E)%20Class%20Time%20Table%20(2024%20Admitted%20Batch).pdf"
+    },
+    {
+      title: "MCA I Year 2024 - 2025 II Semester (Section A, B, C, D & E) Class Time Table (2024 Admitted Batch)",
+      url: "https://mits.ac.in/assets/pdf/ca/MCA%20I%20Year%202024%20-%202025%20II%20Semester%20(Section%20A,B,C,D&%20E)%20Class%20Time%20Table%20(2024%20Admitted%20Batch)-min.pdf"
+    },
+    {
+      title: "MCA II Year 2024 - 2025 I Semester (Section A, B & C) Class Time Table (2023 Admitted Batch)",
+      url: "https://mits.ac.in/assets/pdf/ca/MCA%20II%20Year%202024%20-%202025%20I%20Semester%20(Section%20A,B&C)%20Class%20Time%20Table%20(2024%20Admitted%20Batch).pdf"
+    }
+  ]
+};
+
 /**
  * Returns postgraduate program and syllabus data for any department.
  */
 export function getDepartmentPostGraduate(deptKey: string): PostGraduateData | undefined {
+  if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+    return mcaPostGraduateData;
+  }
   if (deptKey === "cse") {
     return csePostGraduateData;
   }
@@ -6810,10 +6985,440 @@ export const cstMoreData: DepartmentMoreData = {
   }
 };
 
+export const mcaMoreData: DepartmentMoreData = {
+  subTabs: [
+    { id: "alumni", label: "Alumni" },
+    { id: "innovative-teaching", label: "Innovative Teaching and Learning" },
+    { id: "budget", label: "Department Budget" },
+    { id: "newsletters", label: "Newsletter" },
+    { id: "professional-activities", label: "Professional Society Activities" },
+    { id: "mentor-mentee", label: "Mentor & Mentee" },
+    { id: "committees", label: "Department Committees" },
+    { id: "surveys", label: "Survey" },
+    { id: "research", label: "Research" }
+  ],
+  budgetPdfUrl: "https://mits.ac.in/assets/pdf/ca/Budget%20MCA%20Department.pdf",
+  alumniEvents: [
+    {
+      groupTitle: "2024-25",
+      documents: [
+        {
+          title: "Alumni Reports 2024-25",
+          url: "https://mits.ac.in/assets/pdf/ca/Alumni%202024-25.pdf"
+        }
+      ]
+    },
+    {
+      groupTitle: "2023-24",
+      documents: [
+        {
+          title: "Alumni Meet Report 2024",
+          url: "https://mits.ac.in/assets/pdf/ca/Department%20of%20MCA%20-%20Alumni%20meet%2030.3.24.pdf"
+        },
+        {
+          title: "Alumni Guest Lecture Reports 2023-24",
+          url: "https://mits.ac.in/assets/pdf/ca/Alumni%20Guest%20Lecture%20Reports%202023-24.pdf"
+        }
+      ]
+    },
+    {
+      groupTitle: "2022-23",
+      documents: [
+        {
+          title: "Alumni Guest Lecture Reports 2022-23",
+          url: "https://mits.ac.in/assets/pdf/ca/Alumni%20Guest%20Lecture%20Reports%202022-23.pdf"
+        }
+      ]
+    },
+    {
+      groupTitle: "2021-22",
+      documents: [
+        {
+          title: "Alumni Guest Lecture Reports 2021-22",
+          url: "https://mits.ac.in/assets/pdf/ca/2021-22-Alumni.pdf"
+        }
+      ]
+    },
+    {
+      groupTitle: "2020-21",
+      documents: [
+        {
+          title: "Alumni Guest Lecture Reports 2020-21",
+          url: "https://mits.ac.in/assets/pdf/ca/2020-21-Alumni.pdf"
+        }
+      ]
+    },
+    {
+      groupTitle: "2019-20",
+      documents: [
+        {
+          title: "Alumni Guest Lecture Reports 2019-20",
+          url: "https://mits.ac.in/assets/pdf/ca/2019-20-Alumni.pdf"
+        }
+      ]
+    },
+    {
+      groupTitle: "2018-19",
+      documents: [
+        {
+          title: "Alumni Guest Lecture Reports 2018-19",
+          url: "https://mits.ac.in/assets/pdf/ca/2018-19-Alumni.pdf"
+        }
+      ]
+    },
+    {
+      groupTitle: "2017-18",
+      documents: [
+        {
+          title: "Alumni Guest Lecture Reports 2017-18",
+          url: "https://mits.ac.in/assets/pdf/ca/2017-18-Alumni.pdf"
+        }
+      ]
+    },
+    {
+      groupTitle: "2016-17",
+      documents: [
+        {
+          title: "Alumni Guest Lecture Reports 2016-17",
+          url: "https://mits.ac.in/assets/pdf/ca/2016-17-Alumni.pdf"
+        }
+      ]
+    },
+    {
+      groupTitle: "2015-16",
+      documents: [
+        {
+          title: "Alumni Guest Lecture Reports 2015-16",
+          url: "https://mits.ac.in/assets/pdf/ca/2015-16-Alumni.pdf"
+        }
+      ]
+    }
+  ],
+  innovativeTeaching: {
+    groupTitle: "Innovative Teaching and Learning",
+    documents: [
+      {
+        title: "Innovative Teaching and Learning 2024-25",
+        url: "https://mits.ac.in/assets/pdf/ca/innovative%20learning%202024-2025.pdf"
+      },
+      {
+        title: "Innovative Teaching and Learning 2023-24",
+        url: "https://mits.ac.in/assets/pdf/ca/Innovative%20Teaching%20Learning%20Process-2023-24.pdf"
+      },
+      {
+        title: "Innovative Teaching and Learning 2022-23",
+        url: "https://mits.ac.in/assets/pdf/ca/Innovative%20Teaching%20Learning%20Process-2022-23.pdf"
+      },
+      {
+        title: "Innovative Teaching and Learning 2021-22",
+        url: "https://mits.ac.in/assets/pdf/ca/Innovative%20Teaching%20Learning%20Process-2021-22.pdf"
+      }
+    ],
+    critiqueReviewText: "To uphold the highest standards of quality and academic rigor, the course coordinators invite faculty and student feedback through the provided link.",
+    critiqueReviewLink: "https://forms.gle/3nD7xdRoBP8X94LdA"
+  },
+  newsletterGroup: {
+    groupTitle: "Newsletter",
+    documents: [
+      {
+        title: "Newsletter 2025-26",
+        url: "https://mits.ac.in/assets/pdf/ca/MCA_Newsletter%202025_2026.pdf"
+      },
+      {
+        title: "Newsletter 2024-25",
+        url: "https://mits.ac.in/assets/pdf/ca/Newsletter-2024-25.pdf"
+      },
+      {
+        title: "Newsletter 2023-24",
+        url: "https://mits.ac.in/assets/pdf/ca/MCA-Newsletter%202023-2024.pdf"
+      },
+      {
+        title: "Newsletter 2022-23",
+        url: "https://mits.ac.in/assets/pdf/ca/MCA%20Newsletter%202022-2023.pdf"
+      },
+      {
+        title: "Newsletter 2021-22",
+        url: "https://mits.ac.in/assets/pdf/ca/MCA%20Newsletter%202021-2022.pdf"
+      },
+      {
+        title: "Newsletter 2020-21",
+        url: "https://mits.ac.in/assets/pdf/ca/MCA%20Newsletter%202020-2021.pdf"
+      },
+      {
+        title: "Newsletter 2019-20",
+        url: "https://mits.ac.in/assets/pdf/ca/MCA%20Newsletter%202019-2020.pdf"
+      },
+      {
+        title: "Newsletter 2018-19",
+        url: "https://mits.ac.in/assets/pdf/ca/MCA%20Newsletter%202018-2019.pdf"
+      },
+      {
+        title: "Newsletter 2017-18",
+        url: "https://mits.ac.in/assets/pdf/ca/MCA%20Newsletter%202017-2018.pdf"
+      }
+    ]
+  },
+  professionalActivities: [
+    {
+      description: "A Workshop on “Machine Learning: From Fundamentals to Future Frontiers” was organised by Department of Computer Applications in association with ISTE, MITS on 22nd December 2025.",
+      reportUrl: "https://mits.ac.in/assets/pdf/ca/Machine%20Learning%20From%20Fundamentals%20to%20Future%20Frontiers.pdf"
+    },
+    {
+      description: "A One Day Workshop on \"Generative AI Using Microservices Architecture\" was organized by Department of Computer Applications In association with ISTE & IIC on 13th June 2025.",
+      reportUrl: "https://mits.ac.in/assets/pdf/ca/Generative%20AI%20Using%20Microservices%20Architecture.pdf"
+    },
+    {
+      description: "The Two-day Workshop on \"The Role of NS3 in Enhancing Cybersecurity through Cloud based\" Innovations was organized by Department of Computer Applications in Association with ISTE 29th January 2025 to 30th January 2025.",
+      reportUrl: "https://mits.ac.in/assets/pdf/ca/Two-day%20Workshop%20on%20The%20Role%20of%20NS3%20in%20Enhancing%20Cybersecurity%20through%20Cloud%20based%20Innovations%20was%20organized%20by%20Department%20of%20Computer%20Application%2029th%20January%202025.pdf"
+    },
+    {
+      description: "An Expert Talk on \"7 Habits of Highly Effective People\" was organized by Department of Computer Applications in Association with ISTE 27th December 2024.",
+      reportUrl: "https://mits.ac.in/assets/pdf/ca/Expert%20Talk%20on%207%20Habits%20of%20Highly%20Effective%20People%20was%20organized%20by%20Department%20of%20Computer%20Applications%20in%20Association%20with%20ISTE%2027th%20December%202024.pdf"
+    },
+    {
+      description: "A Guest Lecture on \"UX/UI Design\" was organized by Department of Computer Applications in Association with ISTE 12th December 2024.",
+      reportUrl: "https://mits.ac.in/assets/pdf/ca/A%20Guest%20Lecture%20on%20UXUI%20Design%20was%20organized%20by%20Department%20of%20Computer%20Applications%20in%20Association%20with%20ISTE%20%2012th%20December%202024.pdf"
+    },
+    {
+      description: "A “3-Day Cyber Security Hands-on Training with Next Generation Firewall” was organized by Department of Computer Applications in Association with IEEE GRSS Student Branch from 25th to 27th July 2024.",
+      reportUrl: "https://mits.ac.in/assets/pdf/ca/Cyber%20Security%20with%20Next%20Generation%20Firewall%20report-min.pdf"
+    },
+    {
+      description: "A Guest Lecture on “Software Testing Tools & Techniques\" was organised by Department of Computer Applications on 14th March 2024.",
+      reportUrl: "https://mits.ac.in/assets/pdf/ca/Guest%20Lecture%20on%20%E2%80%9Csoftware%20Testing%20Tools%20and%20Techniques-min.pdf"
+    },
+    {
+      description: "IEEE MITS Computational Intelligence Society Student Branch Chapter at MITS has been formed on 17th February 2024.",
+      reportUrl: "https://mits.ac.in/assets/pdf/ca/CIS%20formation%20Letter-min.pdf"
+    },
+    {
+      description: "An IEEE MITS Computational Intelligence Society Inauguration was organised by Department of Computer Applications on 09th February 2024.",
+      reportUrl: "https://mits.ac.in/assets/pdf/ca/IEEE%20MITS%20Computational%20Intelligence%20Society%20Inauguration-min.pdf"
+    },
+    {
+      description: "A Guest Lecture on \"Career Guidance for IT Industry\" was organised by Department of Computer Applications on 03rd February 2024.",
+      reportUrl: "https://mits.ac.in/assets/pdf/ca/Alumni%20Guest%20Lecture%20%E2%80%9CCareer%20Guidance%20in%20IT%20industry-min.pdf"
+    }
+  ],
+  mentorMentee: [
+    {
+      groupTitle: "Mentor & Mentee Lists",
+      items: [
+        {
+          title: "Mentor - Mentee Academic Year 2025-2026",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/Mentor%20-%20Mentee%20Academic%20Year%202025-2026.pdf",
+          academicYear: "2025-26"
+        },
+        {
+          title: "Mentor - Mentee Academic Year 2024-2025",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/mentor%20-mentee%20Allotment%20AY%202024-2025.pdf",
+          academicYear: "2024-25"
+        },
+        {
+          title: "Mentor - Mentee Academic Year 2023-2024",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/Mentor%20-mentee%20Allotment%20AY%202023-2024.pdf",
+          academicYear: "2023-24"
+        },
+        {
+          title: "Mentor - Mentee Academic Year 2022-2023",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/Mentor%20-mentee%20Allotment%20AY%202022-2023.pdf",
+          academicYear: "2022-23"
+        },
+        {
+          title: "Mentor - Mentee Academic Year 2021-2022",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/Mentor%20-mentee%20Allotment-AY%202021-22.pdf",
+          academicYear: "2021-22"
+        },
+        {
+          title: "Mentor - Mentee Academic Year 2020-2021",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/Mentor%20-mentee%20Allotment-%20AY%202020-21.pdf",
+          academicYear: "2020-21"
+        },
+        {
+          title: "Student Mentoring System : Mentor - Mentee",
+          pdfUrl: "https://mits.ac.in/public/uploads/menteementors/2b45ff2582bfd10bbb1f485a4591b817.pdf"
+        }
+      ]
+    }
+  ],
+  committees: {
+    groupTitle: "Department Committees",
+    documents: [
+      {
+        title: "Various Committee's for the Academic Year 2026-27",
+        url: "https://mits.ac.in/assets/pdf/ca/Department%20Commitee%202026-2027.pdf"
+      },
+      {
+        title: "Various Committee's for the Academic Year 2025-26",
+        url: "https://mits.ac.in/assets/pdf/ca/co%20ordinator%20list%202025-26.pdf"
+      },
+      {
+        title: "Various Committee's for the Academic Year 2024-25",
+        url: "https://mits.ac.in/assets/pdf/ca/Various%20Committee-%20AY%202024-25.pdf"
+      },
+      {
+        title: "Various Committee's for the Academic Year 2023-24",
+        url: "https://mits.ac.in/assets/pdf/ca/MCA_Dep_committee_2023-24.pdf"
+      }
+    ]
+  },
+  surveys: [
+    {
+      title: "Surveys from Stakeholders",
+      links: [
+        {
+          title: "Survey 2025-26 (Stakeholder Feedback)",
+          url: "https://mits.ac.in/assets/pdf/ca/MCA_Stakeholder_Feedback_2025_2026.pdf"
+        },
+        {
+          title: "Survey 2024-25",
+          url: "https://mits.ac.in/assets/pdf/ca/Survey%202024-25.rar"
+        },
+        {
+          title: "Survey 2023-24",
+          url: "https://mits.ac.in/assets/pdf/ca/survey%202023%20-%202024.rar"
+        },
+        {
+          title: "Survey 2022-23",
+          url: "https://mits.ac.in/assets/pdf/ca/survey%202022%20-%202023.rar"
+        },
+        {
+          title: "Survey 2021-22",
+          url: "https://mits.ac.in/assets/pdf/ca/Survey%202021-22.rar"
+        }
+      ]
+    }
+  ],
+  researchProjects: {
+    overview:
+      "The Department secured its first externally funded project in the academic year 2015–16, and since then, research funding has shown steady growth. Below is a list of funded research projects undertaken by the department in recent years.",
+    sections: [
+      {
+        academicYear: "2023-24",
+        headers: [
+          "S.No",
+          "Name of the Principal Investigator",
+          "Project Title",
+          "Funding Agency",
+          "Duration",
+          "Total Sanctioned Amount",
+          "Status of the Projects"
+        ],
+        rows: [
+          {
+            "S.No": "1",
+            "Name of the Principal Investigator": "Dr. J. Srinivasan",
+            "Project Title": "Application Development for Payroll Management System",
+            "Funding Agency": "K TECH Power Projects, Chennai",
+            "Duration": "2 years",
+            "Total Sanctioned Amount": "Rs.1,30,000/-",
+            "Status of the Projects": "Ongoing"
+          },
+          {
+            "S.No": "2",
+            "Name of the Principal Investigator": "Dr. C. Sivaraj",
+            "Project Title": "College Management Systems",
+            "Funding Agency": "Bals Technology, Chennai",
+            "Duration": "2 years",
+            "Total Sanctioned Amount": "Rs.1,00,000/-",
+            "Status of the Projects": "Ongoing"
+          }
+        ]
+      },
+      {
+        academicYear: "2021-22",
+        headers: [
+          "S.No",
+          "Name of the Principal Investigator",
+          "Project Title",
+          "Funding Agency",
+          "Duration",
+          "Total Sanctioned Amount",
+          "Status of the Projects"
+        ],
+        rows: [
+          {
+            "S.No": "1",
+            "Name of the Principal Investigator": "Dr. S. Jansi",
+            "Project Title": "Website Development for a Seva NGO",
+            "Funding Agency": "Seva NGO, Tirupathi",
+            "Duration": "2 years",
+            "Total Sanctioned Amount": "Rs.2,10,000/-",
+            "Status of the Projects": "Completed"
+          }
+        ]
+      },
+      {
+        academicYear: "2016-17",
+        agency: "UGC-SERO MINOR PROJECT",
+        totalAmount: "Rs.5,45,000/-",
+        headers: [
+          "S.No",
+          "Name of the Principal Investigator",
+          "Sanctioned Letter Number with date",
+          "Project Title",
+          "Duration of the Project",
+          "Total Sanctioned Amount",
+          "Status of the Projects"
+        ],
+        rows: [
+          {
+            "S.No": "1",
+            "Name of the Principal Investigator": "Mr. V. Maruthi Prasad",
+            "Sanctioned Letter Number with date": "File No. MRP-6515/16(SERO-UGC), dated:30.06.2017",
+            "Project Title": "Detection Approach for Botnets with Cross Cluster Correlation",
+            "Duration of the Project": "2 years",
+            "Total Sanctioned Amount": "Rs.2,15,000/-",
+            "Status of the Projects": "Completed"
+          },
+          {
+            "S.No": "2",
+            "Name of the Principal Investigator": "Dr. S. V. S. Ganga Devi",
+            "Sanctioned Letter Number with date": "File No. MRP-6543/16(SERO-UGC), dated:30.06.2017",
+            "Project Title":
+              "Analyzing Ground Water Quality Using Data Mining Techniques for the Regions of Kadapa District, A.P. and Developing A Portal for Drinking Water Supply Management System",
+            "Duration of the Project": "2 years",
+            "Total Sanctioned Amount": "Rs.3,30,000/-",
+            "Status of the Projects": "Completed"
+          }
+        ]
+      },
+      {
+        academicYear: "2015-16",
+        agency: "UGC-SERO MINOR PROJECT",
+        totalAmount: "Rs.80,000/-",
+        headers: [
+          "S.No",
+          "Name of the Principal Investigator",
+          "Sanctioned Letter Number with date",
+          "Project Title",
+          "Duration of the Project",
+          "Total Sanctioned Amount",
+          "Status of the Projects"
+        ],
+        rows: [
+          {
+            "S.No": "1",
+            "Name of the Principal Investigator": "Mr. B. Sudhir",
+            "Sanctioned Letter Number with date": "MRP-6097/15(SERO/UGC), dated:01-01-2015",
+            "Project Title": "Decision Support System for Agricultural Land for Crops in Kadapa and Chittoor District",
+            "Duration of the Project": "2 years",
+            "Total Sanctioned Amount": "Rs.80,000/-",
+            "Status of the Projects": "Completed"
+          }
+        ]
+      }
+    ]
+  }
+};
+
 export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   const dept = departmentsData[deptKey];
   if (dept && dept.more) {
     return dept.more;
+  }
+  if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+    return mcaMoreData;
   }
   if (deptKey === "cst" || deptKey === "computer-science-and-technology" || deptKey === "computer-science-technology" || deptKey === "4") {
     return cstMoreData;
@@ -8435,10 +9040,118 @@ export const cstTopTabs: DepartmentTopTab[] = [
   }
 ];
 
+export const mcaTopTabs: DepartmentTopTab[] = [
+  {
+    id: "department",
+    label: "Department"
+  },
+  {
+    id: "bos",
+    label: "BoS",
+    title: "Board Of Studies",
+    documents: [
+      { title: "BoS 2026-27", url: "https://mits.ac.in/public/uploads/departments/f0bdd3ad8c7b674151453ab6ceefcc32.pdf" },
+      { title: "BoS 2025-26", url: "https://mits.ac.in/public/uploads/departments/f2e7acf38e23f4b6708601542f820d48.pdf" },
+      { title: "BoS 2024-25", url: "https://mits.ac.in/public/uploads/departments/3ce2d90ae1fbe764f9eefdf900e2a803.pdf" },
+      { title: "BoS 2023-24", url: "https://mits.ac.in/public/uploads/departments/40e13e2e004ed338002c36fc28347f68.pdf" },
+      { title: "BoS 2022-23", url: "https://mits.ac.in/public/uploads/departments/87e28388d59a97a56f59b5a9c09fd8da.pdf" },
+      { title: "BoS 2021-22", url: "https://mits.ac.in/public/uploads/departments/f3d5fefe7a78f186bb704db07978bd45.pdf" },
+      { title: "BoS 2020-21", url: "https://mits.ac.in/public/uploads/departments/8347d6e0d93e005887b214e5c9db9932.pdf" },
+      { title: "BoS 2019-20", url: "https://mits.ac.in/public/uploads/departments/4e55da3011e61a8cb27bc6151a756e8b.pdf" },
+      { title: "BoS 2018-19", url: "https://mits.ac.in/public/uploads/departments/caf48f7b3f121c84b8b9b89bcac9192a.pdf" },
+      { title: "BoS 2017-18", url: "https://mits.ac.in/public/uploads/departments/de01117b2abb030d91bba8f3afbe9f2d.pdf" },
+      { title: "BoS 2016-17", url: "https://mits.ac.in/public/uploads/departments/b975e1c83fa17fefcfc80da327cd1d38.pdf" }
+    ]
+  },
+  {
+    id: "iaab",
+    label: "IAAB",
+    title: "Industry Alumni Advisory Board",
+    documents: [
+      { title: "IAAB 2026-27", url: "https://mits.ac.in/public/uploads/departments/a47658b320fadafccbfaa214db0781a4.pdf" },
+      { title: "IAAB 2024-25", url: "https://mits.ac.in/public/uploads/departments/a81dde5b99179d390058f64e20235c06.pdf" },
+      { title: "IAAB 2023-24", url: "https://mits.ac.in/public/uploads/departments/5add1cae928258f5fe7f0c97efe0fd58.pdf" },
+      { title: "IAAB 2022-23", url: "https://mits.ac.in/public/uploads/departments/d810b5ae6efc5b435c99159efbb8b8d7.pdf" },
+      { title: "IAAB 2021-22", url: "https://mits.ac.in/public/uploads/departments/1adb72b79d02f0f8ceb670b1a246074c.pdf" },
+      { title: "IAAB 2020-21", url: "https://mits.ac.in/public/uploads/departments/a64546be60280521829c51eb10bc92f0.pdf" },
+      { title: "IAAB 2019-20", url: "https://mits.ac.in/public/uploads/departments/890cf318b641d57d2b6e5fd184df4926.pdf" },
+      { title: "IAAB 2018-19", url: "https://mits.ac.in/public/uploads/departments/3f4f45079cb332afc510bf578cc33365.pdf" },
+      { title: "IAAB 2017-18", url: "https://mits.ac.in/public/uploads/departments/d7e628d73bc6caf7a29b5cb06b7559f1.pdf" }
+    ]
+  },
+  {
+    id: "dab",
+    label: "DAB",
+    title: "Departmental Advisory Board",
+    documents: [
+      { title: "DAB 2024-25", url: "https://mits.ac.in/public/uploads/departments/75426e824534d69586732df50570199a.pdf" },
+      { title: "DAB 2023-24", url: "https://mits.ac.in/public/uploads/departments/244177523444a15d0c3a53d2eeccd95f.pdf" },
+      { title: "DAB 2022-23", url: "https://mits.ac.in/public/uploads/departments/873ddba6d42ad393aaf3086eee07579c.pdf" },
+      { title: "DAB 2021-22", url: "https://mits.ac.in/public/uploads/departments/b1464d502949fced793558d5805752c8.pdf" },
+      { title: "DAB 2020-21", url: "https://mits.ac.in/public/uploads/departments/ea134d8905a78d3ff89454967366c330.pdf" },
+      { title: "DAB 2019-20", url: "https://mits.ac.in/public/uploads/departments/2f62eb8f00624d0162ef3123b58add7d.pdf" },
+      { title: "DAB 2018-19", url: "https://mits.ac.in/public/uploads/departments/7429424126f2b338ec554d8c6a98432d.pdf" },
+      { title: "DAB 2017-18", url: "https://mits.ac.in/public/uploads/departments/0aa639bb2b33a8dffd9fc6fc1e268262.pdf" },
+      { title: "DAB 2016-17", url: "https://mits.ac.in/public/uploads/departments/013d223645fb5afecfb08b40459ffa15.pdf" }
+    ]
+  },
+  {
+    id: "pac",
+    label: "PAC",
+    title: "Program Assessment Committee",
+    documents: [
+      { title: "PAC 2023-24", url: "https://mits.ac.in/public/uploads/departments/ce5e93a50b0c64fbb2608ffabf6ee5cd.pdf" },
+      { title: "PAC 2022-23", url: "https://mits.ac.in/public/uploads/departments/193b35b72009a939bc4e0a6cc2a6ad99.pdf" },
+      { title: "PAC 2021-22", url: "https://mits.ac.in/public/uploads/departments/03ddf39d0eee4282c652115f581997b7.pdf" },
+      { title: "PAC 2020-21", url: "https://mits.ac.in/public/uploads/departments/635469918df9c445703c117d9e19676d.pdf" },
+      { title: "PAC 2019-20", url: "https://mits.ac.in/public/uploads/departments/a414d964a7f682280db2c1871ea6facb.pdf" },
+      { title: "PAC 2018-19", url: "https://mits.ac.in/public/uploads/departments/4947a1d640c4959e236994f8ec90726d.pdf" },
+      { title: "PAC 2017-18", url: "https://mits.ac.in/public/uploads/departments/92f9fb51652022855c4214a5f1ccd441.pdf" },
+      { title: "PAC 2016-17", url: "https://mits.ac.in/public/uploads/departments/7010f4e0b5c74f1a19ca0ac295fc3484.pdf" }
+    ]
+  },
+  {
+    id: "faculty-list",
+    label: "Faculty List",
+    title: "Faculty List",
+    documents: [
+      { title: "Faculty List for the Academic Year 2024-25", url: "https://mits.ac.in/assets/pdf/ca/MCA-Faculty%20list%20for%20AY%202024-2025.pdf" },
+      { title: "Faculty List for the Academic Year 2023-24", url: "https://mits.ac.in/assets/pdf/ca/MCA-Faculty%20list%20for%20AY%202023-2024.pdf" },
+      { title: "Faculty List for the Academic Year 2022-23", url: "https://mits.ac.in/assets/pdf/ca/Faculty%20information%20wesite%20copy%20AY%202022-23.pdf" }
+    ]
+  },
+  {
+    id: "placement-statistics",
+    label: "Placement Statistics",
+    title: "Placement Statistics",
+    documents: [
+      { title: "Placement Statistics Batch 2022-2024", url: "https://mits.ac.in/assets/pdf/ca/Placement%20Statistics-2022-24.pdf" },
+      { title: "Placement Statistics Batch 2021-2023", url: "https://mits.ac.in/assets/pdf/ca/Placement%20Statistics-2021-23.pdf" },
+      { title: "Placement Statistics Batch 2020-2022", url: "https://mits.ac.in/assets/pdf/ca/Placement%20Statistics-2020-22.pdf" }
+    ]
+  },
+  {
+    id: "magazines",
+    label: "Magazines",
+    title: "Magazines",
+    documents: [
+      { title: "Magazine 2025-26", url: "https://mits.ac.in/assets/pdf/ca/Magazine%202025-26.pdf" },
+      { title: "Magazine 2024-25", url: "https://mits.ac.in/assets/pdf/ca/Magazine%202024-25.pdf" },
+      { title: "Magazine 2023-24", url: "https://mits.ac.in/assets/pdf/ca/Magazine-2023-24.pdf" },
+      { title: "Magazine 2022-23", url: "https://mits.ac.in/assets/pdf/ca/Magazine-2022-23.pdf" },
+      { title: "Magazine 2021-22", url: "https://mits.ac.in/assets/pdf/ca/Magazine-2021-22.pdf" },
+      { title: "Magazine 2020-21", url: "https://mits.ac.in/assets/pdf/ca/MCA%20Magazine%202020-2021.pdf" }
+    ]
+  }
+];
+
 export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | undefined {
   const dept = departmentsData[deptKey];
   if (dept && dept.topTabs && dept.topTabs.length > 0) {
     return dept.topTabs;
+  }
+  if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+    return mcaTopTabs;
   }
   if (deptKey === "cst" || deptKey === "computer-science-and-technology" || deptKey === "computer-science-technology" || deptKey === "4") {
     return cstTopTabs;
