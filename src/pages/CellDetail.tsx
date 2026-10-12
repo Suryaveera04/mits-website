@@ -22,6 +22,7 @@ import IqacView from "@/pages/IQAC";
 import UhvcView from "@/components/cells/UhvcView";
 import ParakhView from "@/components/cells/ParakhView";
 import StartupView from "@/components/cells/StartupView";
+import IprView from "@/components/cells/IprView";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -138,6 +139,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "startup") {
     return <StartupView />;
+  }
+
+  if (targetId === "ipr") {
+    return <IprView />;
   }
 
   if (!cell) {
