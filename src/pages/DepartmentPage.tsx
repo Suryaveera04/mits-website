@@ -221,17 +221,17 @@ const DepartmentPage = () => {
         setActiveTopTab("faculty-list");
         return;
       }
-      if (hash === "sub-tab-29" || hash === "sub-tab-267" || hash === "bos" || hash === "board-of-studies") {
+      if (hash === "sub-tab-29" || hash === "sub-tab-267" || hash === "sub-tab-23" || hash === "bos" || hash === "board-of-studies") {
         setActiveSection("about");
         setActiveTopTab("bos");
         return;
       }
-      if (hash === "sub-tab-211" || hash === "sub-tab-268" || hash === "iaab") {
+      if (hash === "sub-tab-211" || hash === "sub-tab-268" || hash === "sub-tab-244" || hash === "iaab") {
         setActiveSection("about");
         setActiveTopTab("iaab");
         return;
       }
-      if (hash === "sub-tab-212" || hash === "sub-tab-269" || hash === "pac") {
+      if (hash === "sub-tab-212" || hash === "sub-tab-269" || hash === "sub-tab-248" || hash === "pac") {
         setActiveSection("about");
         setActiveTopTab("pac");
         return;
@@ -241,12 +241,27 @@ const DepartmentPage = () => {
         setActiveTopTab("dab");
         return;
       }
-      if (hash === "sub-tab-237" || hash === "newsletter" || hash === "news-letters") {
+      if (hash === "sub-tab-245" || hash === "magazine" || hash === "magazines") {
+        setActiveSection("about");
+        setActiveTopTab("magazine");
+        return;
+      }
+      if (hash === "sub-tab-251" || hash === "student-projects") {
+        setActiveSection("about");
+        setActiveTopTab("student-projects");
+        return;
+      }
+      if (hash === "sub-tab-242" || hash === "technical-symposium") {
+        setActiveSection("about");
+        setActiveTopTab("technical-symposium");
+        return;
+      }
+      if (hash === "sub-tab-237" || hash === "sub-tab-243" || hash === "newsletter" || hash === "news-letters") {
         setActiveSection("about");
         setActiveTopTab("newsletter");
         return;
       }
-      if (hash === "tab-2") {
+      if (hash === "tab-2" || hash === "ug-tab3") {
         setActiveSection("under-graduate");
         setActiveUgTab("ug");
         setUgDropdownOpen(true);
@@ -272,7 +287,7 @@ const DepartmentPage = () => {
         setActiveSection("consultancy");
         return;
       }
-      if (hash === "tab72") {
+      if (hash === "tab72" || hash === "tab70" || hash === "mentor-mentee") {
         setActiveSection("more");
         setActiveMoreTab("mentor-mentee");
         setMoreDropdownOpen(true);
@@ -291,7 +306,7 @@ const DepartmentPage = () => {
         return;
       }
       const isMechDept = deptKey === "me" || deptKey === "mech" || deptKey === "mechanical" || deptKey === "mechanical-engineering" || deptKey === "8";
-      if (hash === "tab89" || hash === "tab88") {
+      if (hash === "tab89" || hash === "tab88" || hash === "tab83") {
         setActiveSection("more");
         setActiveMoreTab("surveys");
         setMoreDropdownOpen(true);
@@ -321,7 +336,7 @@ const DepartmentPage = () => {
         setUgDropdownOpen(true);
         return;
       }
-      if (hash === "tab113" || hash === "ug-tab15" || hash === "timetable" || hash === "time-table" || hash === "ug-tab60") {
+      if (hash === "tab113" || hash === "ug-tab15" || hash === "ug-tab5" || hash === "timetable" || hash === "time-table" || hash === "ug-tab60") {
         setActiveSection("under-graduate");
         setActiveUgTab("timetable");
         setUgDropdownOpen(true);
@@ -389,7 +404,7 @@ const DepartmentPage = () => {
         setActiveSection("facilities");
         return;
       }
-      if (hash === "tab-19" || hash === "obe") {
+      if (hash === "tab-19" || hash === "obe" || hash === "tab104") {
         if (isMechDept || ugData.subTabs?.some(t => t.id === "obe")) {
           setActiveSection("under-graduate");
           setActiveUgTab("obe");
@@ -397,6 +412,11 @@ const DepartmentPage = () => {
         } else {
           setActiveSection("more");
           setActiveMoreTab("obe");
+          if (moreData.obe?.subTabs && moreData.obe.subTabs.length > 0) {
+            if (!moreData.obe.subTabs.some(t => t.id === activeObeSubTab)) {
+              setActiveObeSubTab(moreData.obe.subTabs[0].id);
+            }
+          }
           setMoreDropdownOpen(true);
           setObeDropdownOpen(true);
         }
@@ -565,6 +585,16 @@ const DepartmentPage = () => {
         setActiveTopTab("magazine");
         return;
       }
+      if (hash === "student-projects") {
+        setActiveSection("about");
+        setActiveTopTab("student-projects");
+        return;
+      }
+      if (hash === "technical-symposium") {
+        setActiveSection("about");
+        setActiveTopTab("technical-symposium");
+        return;
+      }
       if (hash === "department") {
         setActiveSection("about");
         setActiveTopTab("department");
@@ -655,6 +685,11 @@ const DepartmentPage = () => {
       } else {
         setActiveSection("more");
         setActiveMoreTab("obe");
+        if (moreData.obe?.subTabs && moreData.obe.subTabs.length > 0) {
+          if (!moreData.obe.subTabs.some(t => t.id === activeObeSubTab)) {
+            setActiveObeSubTab(moreData.obe.subTabs[0].id);
+          }
+        }
         setMoreDropdownOpen(true);
         setObeDropdownOpen(true);
       }
@@ -781,6 +816,12 @@ const DepartmentPage = () => {
     } else if (lastPart === "magazine" || lastPart === "magazines") {
       setActiveSection("about");
       setActiveTopTab("magazine");
+    } else if (lastPart === "student-projects") {
+      setActiveSection("about");
+      setActiveTopTab("student-projects");
+    } else if (lastPart === "technical-symposium") {
+      setActiveSection("about");
+      setActiveTopTab("technical-symposium");
     } else if (lastPart === "department" || lastPart === "about") {
       setActiveSection("about");
       setActiveTopTab("department");
@@ -848,6 +889,11 @@ const DepartmentPage = () => {
     }
     setActiveSection("more");
     setActiveMoreTab(tabId);
+    if (tabId === "obe" && moreData.obe?.subTabs && moreData.obe.subTabs.length > 0) {
+      if (!moreData.obe.subTabs.some(t => t.id === activeObeSubTab)) {
+        setActiveObeSubTab(moreData.obe.subTabs[0].id);
+      }
+    }
     setMoreDropdownOpen(true);
     setMobileMenuOpen(false);
     const basePath = `/department/${deptKey}`;
@@ -3331,6 +3377,11 @@ const DepartmentPage = () => {
                               return;
                             }
                             setActiveMoreTab(tab.id);
+                            if (tab.id === "obe" && moreData.obe?.subTabs && moreData.obe.subTabs.length > 0) {
+                              if (!moreData.obe.subTabs.some(t => t.id === activeObeSubTab)) {
+                                setActiveObeSubTab(moreData.obe.subTabs[0].id);
+                              }
+                            }
                             navigate(`/department/${deptKey}/more/${tab.id}`, { replace: true });
                           }}
                           className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg border transition-all duration-200 cursor-pointer ${

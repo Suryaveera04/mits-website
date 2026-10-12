@@ -861,12 +861,12 @@ percentage: "98%",
     shortName: "CST",
     established: "2018",
     bannerImage: deptImg("cse"),
-    about: "The Department of Computer Science & Technology (CST) was established to provide cutting-edge education in computer science, software engineering, and emerging computational technologies. The department focuses on industry-relevant curriculum, hands-on programming labs, research publications, and producing top-tier software professionals. The B.Tech programme under the Department of Computer Science & Technology is NBA accredited.",
-    vision: "To excel in education, research, and innovation in Computer Science & Technology and develop competent professionals committed to societal development.",
+    about: "The Department of Computer Science and Technology (CST) was established in 2018 and plays a vital role in producing value-based professionals to meet the ever-challenging demands of technical excellence in emerging areas of CST. The department offers one undergraduate (UG) program with an initial intake of 60 students, which was increased to 180 seats in 2019. The Department of CST has adequate infrastructure to deliver high-quality education and is fully equipped to meet the contemporary needs of the industry. High-quality education is supported by well-qualified and experienced faculty members with rich academic and industry exposure, many of whom hold Master's or Ph.D. degrees from prestigious institutions like NITs, IITs, and Central Universities in India and abroad. The Department of CST maintains strong interactions and MoUs with leading industries for training and development in technology domains. It regularly organizes symposia, exhibitions, conferences, seminars, and workshops for students, faculty from various technical educational institutions, research scholars, and industry professionals across India. Our students have received placement offers from top MNCs such as TCS, Infosys, IBM, Tech Mahindra, Accenture, and Mindtree. The department also offers training in certification programs and encourages self-learning through platforms like NPTEL, Microsoft, Coursera, and edX. Research activities and outcomes are presented and published in national and international conferences and journals. Students can become members of professional bodies such as CSI, IEEE, ISTE, and ACM, participating in various activities through these organizations. The department is committed to encouraging students and researchers to conduct innovative research in Computer Science & Engineering, focusing on excellence and providing quality services that meet the needs of technical education, industry, and society. Students of the CST department are motivated to be innovative thinkers while maintaining a strong foundation in core Computer Science knowledge. The department is also accredited by the NBA (National Board of Accreditation) under the All India Council for Technical Education (AICTE), New Delhi.",
+    vision: "To bring forth globally competent engineers with societal consciousness, who thrive in academics and research in Computer Science and Technology.",
     mission: [
-      "To provide high quality education in computer science and technology through dynamic curricula and modern pedagogical practices.",
-      "To promote research, innovation, and entrepreneurship in software systems and cutting-edge computing paradigms.",
-      "To nurture ethical values, leadership qualities, and lifelong learning for global challenges."
+      "M1: To deliver technical education of the highest quality by improving the curriculum and using effective pedagogical techniques by qualified faculty.",
+      "M2: To foster interaction between Industry and academia, to improve students' abilities in research, innovation, and entrepreneurship.",
+      "M3: To prepare the students to become professionally competent and intellectually adept by imparting required Skills to mitigate the societal problems."
     ],
     nbaAccredited: true,
     hod: {
@@ -5254,10 +5254,81 @@ export const meUnderGraduateData: UnderGraduateData = {
   ]
 };
 
+export const cstUnderGraduateData: UnderGraduateData = {
+  programTitle: "Bachelor of Technology (B.Tech) Program",
+  programOverview:
+    "The Department has the best undergraduate program required for the IT industry. The course curriculum for the undergraduate program gives the flexibility to the students to prepare for advanced specializations. The department commits to offer a set of electives so that students can plan their academic program in advance. The course structure provides a right mix of compulsory and elective courses.",
+  sections: [
+    {
+      title: "Curriculum",
+      description:
+        "The B.Tech Program is divided in to two distinct parts. A student has to go through a common program called Core Curriculum. Most of the core curriculum is completed in the first four semesters. The last four semesters has a large number of professional courses, that initiates the student to topics in Computer Science & Technology. The Core Curriculum consists of a package of compulsory courses in Physics, Chemistry, Mathematics, Engineering Sciences and Technical Arts.\n\nThe Professional Curriculum consists of courses and Project Work. There are some compulsory courses, but there is a significant number of professional electives as well."
+    },
+    {
+      title: "Department Information",
+      description:
+        "The Department of Computer Science & Technology (CST) was established in the year 2018 and plays a vital role in producing value-based professionals to cater to the ever challenging needs of technical excellence in the emerging areas of CST. The department offers one UG program with an intake of 60 students and the intake was enhanced to 180 seats in the year 2019."
+    },
+    {
+      title: "Dept Activities",
+      description:
+        "To train up the students to increase their managerial skills on par with Industry. Conducting IT games to bring up the creative thoughts and conducting classes to improve their personality"
+    },
+    {
+      title: "Computer Lab",
+      description:
+        "The computer center is located in three floor circular building with centralized A/c and it is equipped with 575 P – IV systems with latest configuration and 3 servers. Internet facility is provided to all the students. Each student is provided with an independent workstation."
+    }
+  ],
+  subTabs: [
+    { id: "ug", label: "UG Overview" },
+    { id: "timetable", label: "Time Tables" }
+  ],
+  timeTables: [
+    {
+      groupTitle: "Master Time Tables",
+      items: [
+        {
+          title: "B.Tech II Year 2024-25 II Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cst/B.Tech%20II%20Year%202024-25%20II%20Semester%20Timetable.pdf",
+          academicYear: "2024-25",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech III Year 2024-25 II Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cst/B.Tech%20III%20Year%202024-25%20II%20Semester%20Timetable.pdf",
+          academicYear: "2024-25",
+          category: "Master Timetable"
+        },
+        {
+          title: "B.Tech IV Year 2024-25 II Semester Timetable",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cst/B.Tech%20IV%20Year%202024-25%20II%20Semester%20Timetable.pdf",
+          academicYear: "2024-25",
+          category: "Master Timetable"
+        }
+      ]
+    },
+    {
+      groupTitle: "Individual Faculty Time Tables",
+      items: [
+        {
+          title: "Individual Faculty Timetables",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cst/Individual%20WorkLoad-CST.pdf",
+          academicYear: "2024-25",
+          category: "Faculty Timetable"
+        }
+      ]
+    }
+  ]
+};
+
 export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subject[] = []): UnderGraduateData {
   const dept = departmentsData[deptKey];
   if (dept && dept.underGraduate) {
     return dept.underGraduate;
+  }
+  if (deptKey === "cst" || deptKey === "computer-science-and-technology" || deptKey === "computer-science-technology" || deptKey === "4") {
+    return cstUnderGraduateData;
   }
   if (deptKey === "aiml" || deptKey === "cse-ai-ml") {
     return aimlUnderGraduateData;
@@ -6575,10 +6646,181 @@ export const meMoreData: DepartmentMoreData = {
   }
 };
 
+export const cstMoreData: DepartmentMoreData = {
+  subTabs: [
+    {
+      id: "mentor-mentee",
+      label: "Mentor & Mentee"
+    },
+    {
+      id: "stock-register",
+      label: "Stock Register",
+      externalUrl: "https://mits.ac.in/assets/pdf/stock-registers/CST-Stock-Registers.pdf",
+      directPdf: true
+    },
+    {
+      id: "surveys",
+      label: "Surveys"
+    },
+    {
+      id: "obe",
+      label: "OBE"
+    }
+  ],
+  stockRegisterPdfUrl: "https://mits.ac.in/assets/pdf/stock-registers/CST-Stock-Registers.pdf",
+  mentorMentee: [
+    {
+      groupTitle: "Mentor & Mentee List",
+      items: [
+        {
+          title: "Mentoring List - 2025-26",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cst/2025-26%20CST-Mentor-Mentee.pdf",
+          academicYear: "2025-26"
+        },
+        {
+          title: "Mentoring List - 2024-25",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cst/2024-25%20CST-Mentor-Mentee.pdf",
+          academicYear: "2024-25"
+        },
+        {
+          title: "Mentoring List - 2023-24",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cst/2023-24%20CST-Mentor-Mentee.pdf",
+          academicYear: "2023-24"
+        },
+        {
+          title: "Mentoring List - 2022-23",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cst/CST-2022-23.pdf",
+          academicYear: "2022-23"
+        },
+        {
+          title: "Mentoring List - 2021-22",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cst/2021-22%20CST-Mentor-Mentee.pdf",
+          academicYear: "2021-22"
+        },
+        {
+          title: "Mentoring List - 2020-21",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cst/CST-2020-21.pdf",
+          academicYear: "2020-21"
+        },
+        {
+          title: "Mentoring List - 2019-20",
+          pdfUrl: "https://mits.ac.in/assets/pdf/cst/CST-2019-20.pdf",
+          academicYear: "2019-20"
+        }
+      ]
+    }
+  ],
+  surveys: [
+    {
+      title: "Surveys from Stakeholders",
+      links: [
+        {
+          title: "Stakeholder Feedback - Action Taken Report Academic Year 2025-26",
+          url: "https://mits.ac.in/public/uploads/surveys/STAKEHOLDER%20FEEDBACK-ACTION%20TAKEN%20REPORT%20ACADEMIC%20YEAR%202025-26.pdf"
+        },
+        {
+          title: "Stakeholder Feedback - Action Taken Report Academic Year 2024-25",
+          url: "https://mits.ac.in/public/uploads/surveys/STAKEHOLDERFEEDBACKATRAY2425.pdf"
+        },
+        {
+          title: "2023-24 Academic Year Surveys from Stakeholders",
+          url: "https://mits.ac.in/public/uploads/surveys/2023-24%20Academic%20Year%20Surveys%20from%20Stakeholders.pdf"
+        },
+        {
+          title: "Alumni Survey 2023-24 Admitted Batches",
+          url: "https://mits.ac.in/public/uploads/surveys/CST_Alumni%20Survey_2023-24.pdf"
+        },
+        {
+          title: "Employer Survey 2023-24 Amitted Batches",
+          url: "https://mits.ac.in/public/uploads/surveys/CST_Employer%20Survey_2023-24.pdf"
+        },
+        {
+          title: "Graduate Survey 2023-24 Admitted Batches",
+          url: "https://mits.ac.in/public/uploads/surveys/CST_Graduate%20Survey_2023-24.pdf"
+        },
+        {
+          title: "2022-23 Academic Year Surveys from Stakeholders",
+          url: "https://mits.ac.in/public/uploads/surveys/2022-23%20Academic%20Year%20Surveys%20from%20Stakeholders.pdf"
+        },
+        {
+          title: "2021-22 Academic Year Surveys from Stakeholders",
+          url: "https://mits.ac.in/public/uploads/surveys/55e056ebcea4af36725d9ce10978e9f7.pdf"
+        },
+        {
+          title: "2020-21 Academic Year Surveys from Stakeholders",
+          url: "https://mits.ac.in/public/uploads/surveys/2020-21%20Academic%20Year%20Surveys%20from%20Stakeholders.pdf"
+        },
+        {
+          title: "Alumni Survey 2019 & 2018 Admitted Batches",
+          url: "https://mits.ac.in/public/uploads/surveys/Alumni%20Survey%202019%20&%202018%20Admitted%20Batches.pdf"
+        },
+        {
+          title: "Employer Survey 2019 & 2018 Admitted Batches",
+          url: "https://mits.ac.in/public/uploads/surveys/Employer%20Survey%202019%20&%202018%20Admitted%20Batches.pdf"
+        },
+        {
+          title: "Graduate Survey 2019 & 2018 Admitted Batches",
+          url: "https://mits.ac.in/public/uploads/surveys/Graduate%20Survey%202019%20&%202018%20Admitted%20Batches.pdf"
+        }
+      ]
+    }
+  ],
+  obe: {
+    title: "Outcome Based Education (OBE)",
+    subTabs: [
+      { id: "remedial-classes", label: "Remedial Classes" },
+      { id: "copo-attainment", label: "CO-PO Attainment" }
+    ],
+    remedialClasses: [
+      {
+        title: "Semester I 2024-2025",
+        url: "https://mits.ac.in/assets/pdf/cst/II,%20III%20&%20IV%20Year%20Sem%20-%20I%20Remedial%20Class%20Schedule%20AY%20-%202024-25.pdf"
+      },
+      {
+        title: "Semester I & II 2023-2024",
+        url: "https://mits.ac.in/assets/pdf/cst/CST%20Remedial%20Class%202023-24.pdf"
+      },
+      {
+        title: "Semester I & II 2022-2023",
+        url: "https://mits.ac.in/assets/pdf/cst/CST%20Remedial%20Class%202022-23.pdf"
+      },
+      {
+        title: "Semester I & II 2021-2022",
+        url: "https://mits.ac.in/assets/pdf/cst/CST%20Remedial%20Class%202021-22.pdf"
+      },
+      {
+        title: "Semester I & II 2020-2021",
+        url: "https://mits.ac.in/assets/pdf/cst/CST%20Remedial%20Class%202020-21.pdf"
+      },
+      {
+        title: "Semester I & II 2019-2020",
+        url: "https://mits.ac.in/assets/pdf/cst/CST%20Remedial%20Class%202019-20.pdf"
+      }
+    ],
+    copoAttainment: [
+      {
+        title: "CO-PO Attainment Batch 1",
+        url: "https://mits.ac.in/assets/pdf/cst/co%20po%20attainment%202018%20Batch.pdf"
+      },
+      {
+        title: "CO-PO Attainment Batch 2",
+        url: "https://mits.ac.in/assets/pdf/cst/co%20po%20attainment%202019%20Batch.pdf"
+      },
+      {
+        title: "Overall Attainment Batch 1 & Batch 2",
+        url: "https://mits.ac.in/assets/pdf/cst/Comparision%20of%20overall%20attenment.pdf"
+      }
+    ]
+  }
+};
+
 export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   const dept = departmentsData[deptKey];
   if (dept && dept.more) {
     return dept.more;
+  }
+  if (deptKey === "cst" || deptKey === "computer-science-and-technology" || deptKey === "computer-science-technology" || deptKey === "4") {
+    return cstMoreData;
   }
   if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
     return csedsMoreData;
@@ -7992,10 +8234,218 @@ export const meTopTabs: DepartmentTopTab[] = [
   }
 ];
 
+export const cstTopTabs: DepartmentTopTab[] = [
+  {
+    id: "department",
+    label: "Department"
+  },
+  {
+    id: "bos",
+    label: "BoS",
+    title: "Board Of Studies",
+    description: "Department’s Board of Studies (BoS) is a statutory body which is primarily responsible for compiling the curricula for all the courses offered by the Department and for regularly revising the syllabi for keeping it up to date with the changing trends. In addition, BoS also reviews the progress of the Department in terms of academics and research and suggests strategies for continuous improvement. The BoS comprises of senior faculty of the Department and experts from Industry and Peer Institutions. The external members in the current Bo of the Department are:",
+    documents: [
+      {
+        title: "BoS 2026-27",
+        url: "https://mits.ac.in/public/uploads/departments/442f80347264df21cffbae907ee72d5c.pdf"
+      },
+      {
+        title: "BoS 2025-26",
+        url: "https://mits.ac.in/public/uploads/departments/21829492e83850371e5ef11cbf8e34ea.pdf"
+      },
+      {
+        title: "BoS 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/872951a72ebb4754954fd70edea3e181.pdf"
+      },
+      {
+        title: "BOS 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/6426608dd7f2c6d9cb9f9eb15de47de6.pdf"
+      },
+      {
+        title: "BOS 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/0b79d9a230826a8387b27b8bf39aa195.pdf"
+      },
+      {
+        title: "BOS 2021-22",
+        url: "https://mits.ac.in/public/uploads/departments/630d0f9dc475a4c952e61bc500c5a6ad.pdf"
+      },
+      {
+        title: "BoS 2020-21",
+        url: "https://mits.ac.in/public/uploads/departments/b142c10532231df739f4527f16b19312.pdf"
+      },
+      {
+        title: "BoS 2019-20",
+        url: "https://mits.ac.in/public/uploads/departments/66b8171b008e8a651f8c680b12ac0daf.pdf"
+      },
+      {
+        title: "BoS 2018-19",
+        url: "https://mits.ac.in/public/uploads/departments/4cd9e467724289d8ce3cedbfe01a2cb1.pdf"
+      }
+    ]
+  },
+  {
+    id: "iaab",
+    label: "IAAB",
+    title: "IAAB",
+    documents: [
+      {
+        title: "IAAB 2024-25",
+        url: "https://mits.ac.in/public/uploads/departments/70790676b47fc14c69430a3c004e806a.pdf"
+      },
+      {
+        title: "IAAB 2023-24",
+        url: "https://mits.ac.in/public/uploads/departments/6cdb7b6d5596626a56bfcfee37f6950f.pdf"
+      },
+      {
+        title: "IAAB 2022-23",
+        url: "https://mits.ac.in/public/uploads/departments/a5efedbaba9a2fbfbf794bf6d5cb9f94.pdf"
+      }
+    ]
+  },
+  {
+    id: "magazine",
+    label: "Magazine",
+    title: "Magazine",
+    documents: [
+      {
+        title: "SPARK 2024-2025 (Issue - 6 Volume - 1)",
+        url: "https://mits.ac.in/public/uploads/departments/471ecb6135b92321230e1ae407b8740d.pdf"
+      },
+      {
+        title: "SPARK 2023-2024 (Issue - 5 Volume - 1)",
+        url: "https://mits.ac.in/public/uploads/departments/caa674599b229163e82d8f70e07b17ce.pdf"
+      },
+      {
+        title: "SPARK 2022-2023 (Issue - 4 Volume - 1)",
+        url: "https://mits.ac.in/public/uploads/departments/b32ff5c0d6e9040c76e417d27e49cce8.pdf"
+      },
+      {
+        title: "SPARK 2021-2022 (Issue - 3 Volume - 1)",
+        url: "https://mits.ac.in/public/uploads/departments/eb45bc91a9511f1741012ce12b10c51a.pdf"
+      },
+      {
+        title: "SPARK 2020-2021 (Issue - 2 Volume - 1)",
+        url: "https://mits.ac.in/public/uploads/departments/ab8a269cbbe19d0f34d1e632c81f74fa.pdf"
+      },
+      {
+        title: "SPARK 2019-2020 (Issue - 1 Volume - 1)",
+        url: "https://mits.ac.in/public/uploads/departments/899a2cf062d555e9ee5dbdc63de76fa4.pdf"
+      }
+    ]
+  },
+  {
+    id: "pac",
+    label: "PAC & DAB",
+    title: "PAC & DAB",
+    documents: [
+      {
+        title: "PAC & DAB 2024-25",
+        url: "https://mits.ac.in/assets/pdf/cst/PAC%20&%20DAB%202024-25.pdf"
+      },
+      {
+        title: "PAC & DAB 2023-24",
+        url: "https://mits.ac.in/assets/pdf/cst/PAAC%20&%20DAAB%202023-2024.pdf"
+      },
+      {
+        title: "PAC & DAB 2022-23",
+        url: "https://mits.ac.in/assets/pdf/cst/PAAC%20&%20DAAB%202022-2023.pdf"
+      },
+      {
+        title: "PAC & DAB 2021-22",
+        url: "https://mits.ac.in/assets/pdf/cst/PAAC%20&%20DAAB%202021-2022.pdf"
+      },
+      {
+        title: "PAC & DAB 2020-21",
+        url: "https://mits.ac.in/assets/pdf/cst/PAAC%20&%20DAAB%202020-2021.pdf"
+      },
+      {
+        title: "PAC & DAB 2019-20",
+        url: "https://mits.ac.in/assets/pdf/cst/PAAC%20&%20DAAB%202019-20.pdf"
+      },
+      {
+        title: "PAC & DAB 2018-19",
+        url: "https://mits.ac.in/assets/pdf/cst/PAAC%20&%20DAAB%202018-2019.pdf"
+      }
+    ]
+  },
+  {
+    id: "student-projects",
+    label: "Student Projects",
+    title: "Student Projects",
+    documents: [
+      {
+        title: "Batch 2021-25 Project Titles",
+        url: "https://mits.ac.in/public/uploads/departments/34b81c5caffd6a58085450305aa15c5c.pdf"
+      },
+      {
+        title: "Batch 2020-24 Project Titles",
+        url: "https://mits.ac.in/public/uploads/departments/a5366fad63d845d4e75e2dd6781ba7bd.pdf"
+      },
+      {
+        title: "Batch 2019-23 Project Titles",
+        url: "https://mits.ac.in/public/uploads/departments/380b753e5962ebf542a17086d9ba7a3f.pdf"
+      },
+      {
+        title: "Batch 2018-22 Project Titles",
+        url: "https://mits.ac.in/public/uploads/departments/07e0d2d438043335fe09243da6401a58.pdf"
+      }
+    ]
+  },
+  {
+    id: "technical-symposium",
+    label: "Technical Symposium",
+    title: "Technical Symposium",
+    documents: [
+      {
+        title: "INVICTA - 2K23",
+        url: "https://mits.ac.in/assets/pdf/cst/INVICTA_2K23.pdf"
+      },
+      {
+        title: "INVICTA - 2K22",
+        url: "https://mits.ac.in/assets/pdf/cst/INVICTA_2K22.pdf"
+      }
+    ]
+  },
+  {
+    id: "newsletter",
+    label: "Newsletter",
+    title: "Newsletter",
+    documents: [
+      {
+        title: "ECHO 2024 - 2025 Volume 6 Issue 1",
+        url: "https://mits.ac.in/public/uploads/departments/3946a7a235d05c12b17730d62e1fb4a4.pdf"
+      },
+      {
+        title: "ECHO 2023 - 2024 Volume 5 Issue 1",
+        url: "https://mits.ac.in/public/uploads/departments/f7793c310c093a1f4e89bf14a79a5618.pdf"
+      },
+      {
+        title: "ECHO 2022 - 2023 Volume 4 Issue 1",
+        url: "https://mits.ac.in/public/uploads/departments/26e00fb63da62a87599909b80bc3fb70.pdf"
+      },
+      {
+        title: "ECHO 2021 - 2022 Volume 3 Issue 1",
+        url: "https://mits.ac.in/public/uploads/departments/f56dc113194ff548985070846bda6714.pdf"
+      },
+      {
+        title: "ECHO 2020 - 2021 Volume 2 Issue 1",
+        url: "https://mits.ac.in/public/uploads/departments/d4eb8c36251abd8e436282c7eff6956e.pdf"
+      },
+      {
+        title: "ECHO 2019 - 2020 Volume 1 Issue 1",
+        url: "https://mits.ac.in/public/uploads/departments/2786b6bbb13352f1e6b271e4d345eee5.pdf"
+      }
+    ]
+  }
+];
+
 export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | undefined {
   const dept = departmentsData[deptKey];
   if (dept && dept.topTabs && dept.topTabs.length > 0) {
     return dept.topTabs;
+  }
+  if (deptKey === "cst" || deptKey === "computer-science-and-technology" || deptKey === "computer-science-technology" || deptKey === "4") {
+    return cstTopTabs;
   }
   if (deptKey === "ce" || deptKey === "civil" || deptKey === "6") {
     return ceTopTabs;
