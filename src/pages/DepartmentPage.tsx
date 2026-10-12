@@ -754,7 +754,7 @@ const DepartmentPage = () => {
       setActiveSection("more");
       setActiveMoreTab("mentor-mentee");
       setMoreDropdownOpen(true);
-    } else if (lastPart === "student-innovative-projects" || lastPart === "student-projects" || lastPart === "innovative-projects") {
+    } else if (lastPart === "student-innovative-projects" || lastPart === "innovative-projects") {
       setActiveSection("more");
       setActiveMoreTab("student-innovative-projects");
       setMoreDropdownOpen(true);
@@ -4241,14 +4241,11 @@ const DepartmentPage = () => {
                   </div>
                 ) : activeMoreTab === "obe" ? (
                   <div className="space-y-6">
-                    {/* OBE Top Tabs Switcher - matches screenshot exactly */}
-                    <div className="flex flex-wrap items-center gap-2.5 mb-6">
-                      {(moreData.obe?.subTabs || [
-                        { id: "pos-psos-peos", label: "POs, PSOs & PEOs" },
-                        { id: "surveys", label: "Surveys" },
-                        { id: "remedial-classes", label: "Remedial Classes" },
-                        { id: "copo-attainment", label: "CO-PO Attainment" }
-                      ]).map((tab) => {
+                    {moreData.obe?.subTabs && moreData.obe.subTabs.length > 1 && deptKey !== "cst" && deptKey !== "4" ? (
+                      <>
+                        {/* OBE Top Tabs Switcher - matches screenshot exactly */}
+                        <div className="flex flex-wrap items-center gap-2.5 mb-6">
+                          {moreData.obe.subTabs.map((tab) => {
                         const isActive = activeObeSubTab === tab.id;
                         return (
                           <button
@@ -4472,6 +4469,88 @@ const DepartmentPage = () => {
                         </Card>
                       </div>
                     ) : null}
+                      </>
+                    ) : (
+                      /* Unified OBE view without subtab buttons: Remedial Classes first, then CO-PO Attainment below */
+                      <div className="space-y-8">
+                        {moreData.obe?.remedialClasses && moreData.obe.remedialClasses.length > 0 && (
+                          <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                            <div className="space-y-6">
+                              <div className="border-b border-border/60 pb-4">
+                                <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                                  Remedial Classes
+                                </h3>
+                                <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                                  Academic remedial schedules and timetables across odd and even semesters
+                                </p>
+                              </div>
+
+                              <div className="grid sm:grid-cols-2 gap-3">
+                                {moreData.obe.remedialClasses.map((item, rIdx) => (
+                                  <a
+                                    key={rIdx}
+                                    href={item.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group flex items-center justify-between p-3.5 rounded-xl border border-border/70 bg-muted/20 hover:bg-primary/5 hover:border-primary/40 transition-all text-secondary hover:text-primary shadow-2xs"
+                                  >
+                                    <div className="flex items-center gap-3 min-w-0">
+                                      <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                                        <FileText className="w-4 h-4" />
+                                      </div>
+                                      <span className="font-semibold text-xs sm:text-sm truncate text-secondary group-hover:text-primary">
+                                        {item.title}
+                                      </span>
+                                    </div>
+                                    <Download className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 ml-2 transition-transform group-hover:translate-y-0.5" />
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          </Card>
+                        )}
+
+                        {moreData.obe?.copoAttainment && moreData.obe.copoAttainment.length > 0 && (
+                          <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                            <div className="space-y-6">
+                              <div className="border-b border-border/60 pb-4">
+                                <h3 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                                  CO-PO Attainment
+                                </h3>
+                                <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                                  Course Outcome & Program Outcome batch-wise attainment evaluation reports
+                                </p>
+                              </div>
+
+                              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {moreData.obe.copoAttainment.map((item, aIdx) => (
+                                  <a
+                                    key={aIdx}
+                                    href={item.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group flex flex-col justify-between p-5 rounded-xl border border-border/70 bg-muted/20 hover:bg-primary/5 hover:border-primary/40 transition-all text-secondary hover:text-primary shadow-2xs"
+                                  >
+                                    <div className="space-y-2">
+                                      <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                        <FileText className="w-5 h-5" />
+                                      </div>
+                                      <h4 className="font-bold text-sm sm:text-base text-secondary group-hover:text-primary pt-2">
+                                        {item.title}
+                                      </h4>
+                                    </div>
+                                    <div className="flex items-center gap-1.5 text-xs text-primary font-semibold mt-4 pt-3 border-t border-border/50">
+                                      <span>View Attainment Report</span>
+                                      <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                                    </div>
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          </Card>
+                        )}
+                      </div>
+                    )}
                   </div>
                 ) : null}
               </motion.div>

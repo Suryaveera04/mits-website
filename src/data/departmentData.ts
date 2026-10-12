@@ -6767,10 +6767,6 @@ export const cstMoreData: DepartmentMoreData = {
   ],
   obe: {
     title: "Outcome Based Education (OBE)",
-    subTabs: [
-      { id: "remedial-classes", label: "Remedial Classes" },
-      { id: "copo-attainment", label: "CO-PO Attainment" }
-    ],
     remedialClasses: [
       {
         title: "Semester I 2024-2025",
