@@ -51,6 +51,9 @@ import {
   benefits,
   followUp,
   qualityFrameworkImg,
+  actionPlanImg,
+  milestonesImg,
+  qualityInitiativeInfographics,
   organogramPdf,
   compositionIntroText,
   compositionMitsText,
@@ -168,10 +171,12 @@ const sections: { key: SectionKey; label: string; icon: React.ComponentType<{ cl
   { key: "composition", label: "IQAC Composition", icon: Users, group: "Governance" },
   { key: "organogram", label: "IQAC Organogram", icon: FolderTree, group: "Governance" },
   { key: "policies", label: "IQAC Policies", icon: ShieldCheck, group: "Governance" },
+  { key: "policiesDtbu", label: "Policies (MITS DTBU)", icon: ShieldCheck, group: "Governance" },
   { key: "activities", label: "Activities of IQAC", icon: Calendar, group: "Operations" },
   { key: "initiatives", label: "Quality Initiatives", icon: Sparkles, group: "Operations" },
   { key: "milestones", label: "Milestones", icon: Milestone, group: "Operations" },
   { key: "meetings", label: "Minutes of Meeting", icon: ClipboardList, group: "Operations" },
+  { key: "meetingsDtbu", label: "Minutes of Meeting (MITS DTBU)", icon: ClipboardList, group: "Operations" },
   { key: "certifications", label: "Certifications", icon: Award, group: "Accreditation" },
   { key: "iso", label: "ISO 21001 : 2018 EOMS", icon: ShieldCheck, group: "Accreditation" },
   { key: "ims", label: "IMS (ISO 14001:2015 & ISO 50001:2018)", icon: ShieldCheck, group: "Accreditation" },
@@ -990,10 +995,43 @@ const IQAC = () => {
 
                     {/* Official IQAC Quality Framework Infographic */}
                     <div className="mt-8 bg-white rounded-2xl border border-[#0f2a44]/10 p-4 md:p-6 shadow-sm">
-                      <h3 className="font-display text-lg font-bold text-[#0f2a44] mb-4">IQAC Quality Framework</h3>
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="font-display text-lg font-bold text-[#0f2a44]">IQAC Quality Framework</h3>
+                        <a
+                          href={qualityFrameworkImg}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0f2a44] text-white text-xs sm:text-sm font-semibold hover:bg-primary transition-colors"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" /> View High-Res
+                        </a>
+                      </div>
                       <img
                         src={qualityFrameworkImg}
                         alt="MITS IQAC Quality Framework"
+                        className="w-full h-auto rounded-xl border border-slate-200"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    </div>
+
+                    {/* Official IQAC Action Plan 2026-27 Infographic */}
+                    <div className="mt-6 bg-white rounded-2xl border border-[#0f2a44]/10 p-4 md:p-6 shadow-sm">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="font-display text-lg font-bold text-[#0f2a44]">IQAC Action Plan 2026-27</h3>
+                        <a
+                          href={actionPlanImg}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0f2a44] text-white text-xs sm:text-sm font-semibold hover:bg-primary transition-colors"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" /> View High-Res
+                        </a>
+                      </div>
+                      <img
+                        src={actionPlanImg}
+                        alt="MITS IQAC Action Plan 2026-27"
                         className="w-full h-auto rounded-xl border border-slate-200"
                         onError={(e) => {
                           (e.currentTarget as HTMLImageElement).style.display = 'none';
@@ -1131,10 +1169,18 @@ const IQAC = () => {
 
                 {active === "policies" && (
                   <section>
-                    <SectionHeader eyebrow="Policies" title="IQAC Policies & Framework" description="Comprehensive quality policies governing MITS and MITS Deemed to be University (DTBU) operations." />
+                    <SectionHeader eyebrow="Policies" title="IQAC Policies (Autonomous)" description="Comprehensive quality policies governing MITS autonomous operations, EOMS, academics, examination and stakeholder standards." />
+                    <DocGrid docs={filter(iqacPolicies)} />
                     <SubHeader title="Policies (MITS DTBU)" />
                     <DocGrid docs={filter(mitsDtbuPolicies)} />
-                    <SubHeader title="IQAC Policies" />
+                  </section>
+                )}
+
+                {active === "policiesDtbu" && (
+                  <section>
+                    <SectionHeader eyebrow="Governance" title="Policies (MITS DTBU)" description="Approved institutional policies for MITS Deemed to be University across industry relations, IMS, human values, research and diversity." />
+                    <DocGrid docs={filter(mitsDtbuPolicies)} />
+                    <SubHeader title="Autonomous Policies Reference" />
                     <DocGrid docs={filter(iqacPolicies)} />
                   </section>
                 )}
@@ -1195,47 +1241,34 @@ const IQAC = () => {
                   <section>
                     <SectionHeader eyebrow="Quality Framework" title="IQAC Quality Initiatives" description="Core institutional levers deployed by IQAC to embed quality across academics, governance and student experience." />
                     
-                    {/* Infographic 1: Quality Framework */}
-                    <div className="bg-white rounded-2xl border border-[#0f2a44]/10 p-4 md:p-6 shadow-sm mb-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="font-display text-lg font-bold text-[#0f2a44]">MITS IQAC Quality Framework</h3>
-                        <a
-                          href="https://mits.ac.in/assets/pdf/iqac/MITS IQAC Quality Framework-1.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0f2a44] text-white text-sm font-semibold hover:bg-primary transition-colors"
-                        >
-                          <Download className="w-3.5 h-3.5" /> Download Framework PDF
-                        </a>
-                      </div>
-                      <img
-                        src="https://mits.ac.in/assets/images/MITS IQAC-Quality Framework.png"
-                        alt="MITS IQAC Quality Framework"
-                        className="w-full h-auto rounded-xl border border-slate-200"
-                        onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src = qualityFrameworkImg;
-                        }}
-                      />
-                    </div>
-
-                    {/* Infographic 2: Monthly Quality Review / IQAC Hours */}
-                    <div className="bg-white rounded-2xl border border-[#0f2a44]/10 p-4 md:p-6 shadow-sm mb-8">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="font-display text-lg font-bold text-[#0f2a44]">MITS IQAC Monthly Quality Review | IQAC Hours</h3>
-                        <a
-                          href="https://mits.ac.in/assets/pdf/iqac/MITS-IQAC Hours.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0f2a44] text-white text-sm font-semibold hover:bg-primary transition-colors"
-                        >
-                          <Download className="w-3.5 h-3.5" /> Download IQAC Hours PDF
-                        </a>
-                      </div>
-                      <img
-                        src="https://mits.ac.in/assets/images/MITS IQAC-Monthly review.png"
-                        alt="MITS IQAC Monthly Quality Review"
-                        className="w-full h-auto rounded-xl border border-slate-200"
-                      />
+                    {/* All 7 Official Quality Architecture Infographics */}
+                    <div className="space-y-6 mb-8">
+                      {qualityInitiativeInfographics.map((info, idx) => (
+                        <div key={idx} className="bg-white rounded-2xl border border-[#0f2a44]/10 p-4 md:p-6 shadow-sm">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                            <div>
+                              <h3 className="font-display text-lg font-bold text-[#0f2a44]">{info.title}</h3>
+                              {info.subtitle && <p className="font-body text-xs text-slate-500 mt-0.5">{info.subtitle}</p>}
+                            </div>
+                            <a
+                              href={info.downloadUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0f2a44] text-white text-xs sm:text-sm font-semibold hover:bg-primary transition-colors shrink-0"
+                            >
+                              <Download className="w-3.5 h-3.5" /> {info.downloadLabel}
+                            </a>
+                          </div>
+                          <img
+                            src={info.src}
+                            alt={info.title}
+                            className="w-full h-auto rounded-xl border border-slate-200"
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).style.display = 'none';
+                            }}
+                          />
+                        </div>
+                      ))}
                     </div>
 
                     <SubHeader title="Quality Initiatives Documents" />
@@ -1245,7 +1278,31 @@ const IQAC = () => {
 
                 {active === "milestones" && (
                   <section>
-                    <SectionHeader eyebrow="Journey" title="MITS Quality Milestones" description="Key institutional milestones since the IQAC was established." />
+                    <SectionHeader eyebrow="Journey" title="MITS Quality Milestones" description="Key institutional milestones and accreditation timeline since the IQAC was established." />
+                    
+                    {/* Official Milestones Infographic */}
+                    <div className="bg-white rounded-2xl border border-[#0f2a44]/10 p-4 md:p-6 shadow-sm mb-8">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="font-display text-lg font-bold text-[#0f2a44]">IQAC Milestones Journey</h3>
+                        <a
+                          href={milestonesImg}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0f2a44] text-white text-xs sm:text-sm font-semibold hover:bg-primary transition-colors"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" /> View High-Res
+                        </a>
+                      </div>
+                      <img
+                        src={milestonesImg}
+                        alt="MITS IQAC Milestones"
+                        className="w-full h-auto rounded-xl border border-slate-200"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    </div>
+
                     <IQACMilestonesSlider />
                   </section>
                 )}
@@ -1255,10 +1312,17 @@ const IQAC = () => {
                     <SectionHeader eyebrow="Minutes of Meeting" title="IQAC Meeting Records" description="Year-wise minutes, agendas and resolutions of IQAC review meetings for MITS and MITS Deemed to be University (DTBU)." />
                     <SubHeader title="Minutes of Meeting (MITS DTBU)" />
                     <DocGrid docs={filter(meetingsDtbu)} />
-                    <SubHeader title="Minutes of the Meeting" />
+                    <SubHeader title="Minutes of the Meeting (Autonomous)" />
                     <DocGrid docs={filter(meetingsMom)} />
                     <SubHeader title="IQAC Hours — Monthly Reports" />
                     <DocGrid docs={filter(iqacHoursReports)} />
+                  </section>
+                )}
+
+                {active === "meetingsDtbu" && (
+                  <section>
+                    <SectionHeader eyebrow="Operations" title="Minutes of Meeting (MITS DTBU)" description="Official minutes, agenda points and action resolutions for MITS Deemed to be University IQAC meetings." />
+                    <DocGrid docs={filter(meetingsDtbu)} />
                   </section>
                 )}
 
@@ -1463,8 +1527,9 @@ const IQAC = () => {
                         </div>
                       </div>
 
-                      <div className="pt-2">
+                      <div className="pt-2 grid sm:grid-cols-2 gap-3">
                         <DocCard doc={userAaaDocs.policy} />
+                        {userAaaDocs.dtbuPolicy && <DocCard doc={userAaaDocs.dtbuPolicy} />}
                       </div>
                     </div>
 

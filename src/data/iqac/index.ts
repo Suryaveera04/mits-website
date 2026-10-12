@@ -118,10 +118,16 @@ export const aqarReportsYearly: Doc[] = [
 
 export const compositionYearly: Doc[] = [
   {
-    "title": "Composition of committee members for Year 2025-2026",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Composition of committee members for Year 2025-2026.pdf",
-    "type": "pdf"
+    title: "Composition of Committee Members for Year 2026-2027",
+    url: "https://mits.ac.in/assets/pdf/iqac/Composition of committee members for Year 2026-2027.pdf",
+    type: "pdf"
   },
+  {
+    title: "Composition of Committee Members for Year 2025-2026",
+    url: "https://mits.ac.in/assets/pdf/iqac/Composition of committee members for Year 2025-2026.pdf",
+    type: "pdf"
+  },
+
   {
     "title": "Composition of committee members for Year 2024-2025",
     "url": "https://mits.ac.in/assets/pdf/iqac/Composition of committee members for Year 2024-2025.pdf",
@@ -172,6 +178,101 @@ export const organogram = {
 
 // ---------------- NAAC REFORMS 2024 ----------------
 export const naacReforms2024: Doc[] = [
+  {
+    title: "Department-wise DQAC Coordinators List 2026-27",
+    url: "https://mits.ac.in/assets/pdf/iqac/Departmentwise DQAC Coordinators List 2026-27.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Department-wise NAAC Coordinators 2026-27",
+    url: "https://mits.ac.in/assets/pdf/iqac/Department-wise NAAC Coordinators 2026-27.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Institutional Cells & Committee Incharges Details 14th August 2026",
+    url: "https://mits.ac.in/assets/pdf/iqac/Cells Coordinators Details 14th August 2026.pdf",
+    type: "pdf"
+  },
+  {
+    title: "NAAC_Survey (Draft) 21-04-2026 - Dr. K. Sathesh",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC_Survey 21-04-2026-Dr.K.Sathesh.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Extended Profile Mapping Between SSR and AQAR (Autonomous College-Manual)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Extended Profile Mapping Between SSR and AQAR(Autonomous College-Manual).pdf",
+    type: "pdf"
+  },
+  {
+    title: "NAAC RAF SSR NEW Format (9-8-2023) (Autonomous College)",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC RAF SSR NEW Format (9-8-2023)(Autonomous College).pdf",
+    type: "pdf"
+  },
+  {
+    title: "Criterion I – Curricular Aspects (SSR-AQAR Mapping)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Criterion_1_Curricular_Aspects_SSR_AQAR_Mapping_Autonomous_College-1.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Criterion II – Teaching-Learning and Evaluation (SSR-AQAR Mapping)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Criterion II – Teaching-Learning and Evaluation_SSR_AQAR_Mapping_Autonomous_College-1.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Criterion III – Research, Innovations and Extension (SSR-AQAR Mapping)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Criterion III – – Research, Innovations and Extension _SSR_AQAR_Mapping_Autonomous_College-2-1.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Criterion IV – Infrastructure and Learning Resources (SSR-AQAR Mapping)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Criterion IV – Infrastructure and Learning Resources _SSR_AQAR_Mapping_Autonomous_College.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Criterion V – Student Support and Progression (SSR-AQAR Mapping)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Criterion V – Student Support and Progression_SSR_AQAR_Mapping_Autonomous_College.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Criterion VI – Governance, Leadership and Management (SSR-AQAR Mapping)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Criterion VI – Governance.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Criterion VII – Institutional Values and Best Practices (SSR-AQAR Mapping)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Criterion VII –Institutional Values and Best Practices _SSR_AQAR_Mapping_Autonomous_College.pdf",
+    type: "pdf"
+  },
+  {
+    title: "NBA-NAAC Comparison",
+    url: "https://mits.ac.in/assets/pdf/iqac/NBA-NAAC Comparsion.xlsx",
+    type: "xlsx"
+  },
+  {
+    title: "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criteria I-II-III",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR Mapping _Supporting_Document_Manual_Criteria-I_II_III.docx",
+    type: "doc"
+  },
+  {
+    title: "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion IV",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR Mapping _Supporting_Document_Manual_Criterion-IV.docx",
+    type: "doc"
+  },
+  {
+    title: "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion V",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR Mapping _Supporting_Document_Manual_Criterion-V.docx",
+    type: "doc"
+  },
+  {
+    title: "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion VI",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR_SSR Mapping _Supporting_Document_Manual_Criterion-VI.docx",
+    type: "doc"
+  },
+  {
+    title: "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion VII",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR_SSR Mapping _Supporting_Document_Manual_Criterion-VII.docx",
+    type: "doc"
+  },
   {
     "title": "Institution-wise NAAC Criterion Coordinators 2026",
     "url": "https://mits.ac.in/assets/pdf/iqac/Institution-wise NAAC Criterion Coordinators_2026.pdf",
@@ -275,6 +376,21 @@ export const milestones = [
 
 // ---------------- CERTIFICATIONS ----------------
 export const certifications: Doc[] = [
+  {
+    title: "AICTE Approval for (2026-2027)",
+    url: "https://mits.ac.in/assets/pdf/admin/EOA%20Report%202026-2027.PDF",
+    type: "pdf"
+  },
+  {
+    title: "EOA Corrigendum 2025-26",
+    url: "https://mits.ac.in/public/uploads/affiliations/EOA-Corrigendum%202025-26_1-44642479593%20(1).pdf",
+    type: "pdf"
+  },
+  {
+    title: "Gazette Notification (MITS Deemed to be University)",
+    url: "https://mits.ac.in/assets/pdf/admin/Gazette%20Notification%20No.%209-1-2025-U.3A%20dated%2015.07.2025-1.pdf",
+    type: "pdf"
+  },
   {
     "title": "UGC - Deemed to be University approval",
     "url": "https://mits.ac.in/assets/pdf/admin/Gazette%20Notification%20No.%209-1-2025-U.3A%20dated%2015.07.2025-1.pdf",
@@ -840,6 +956,16 @@ export const poPsoCoUG: Doc[] = [
 ];
 export const poPsoCoPG: Doc[] = [
   {
+    title: "B.B.A. - Bachelor of Business Administration (Vision & Mission)",
+    url: "https://mits.ac.in/public/uploads/courseattainment/BBA%20vision,%20mission.pdf",
+    type: "pdf"
+  },
+  {
+    title: "M.B.A. - Master of Business Administration (Vision & Mission)",
+    url: "https://mits.ac.in/public/uploads/courseattainment/MBA%20Vision%20and%20Mission.pdf",
+    type: "pdf"
+  },
+  {
     "title": "M.B.A. - Master of Business Administration",
     "url": "https://mits.ac.in/public/uploads/courseattainment/a362fcdaee05429e6c443f6b052b7282.pdf",
     "type": "pdf"
@@ -1295,6 +1421,39 @@ export const iqacEvents: IqacEvent[] = [
   }
 ];
 export const iqacENotices = [
+  {
+    title: "📢 Internal Academic Audit – AY 2025–26, Semester–II for UG & PG programs (9th – 13th March 2026, Conducted by PAARC & IQAC Team)",
+    date: "March 2026",
+    url: "https://mits.ac.in/assets/pdf/iqac/IQAC PDP poster-2026.pdf",
+    highlight: true
+  },
+  {
+    title: "🌍 Times Higher Education – MITS World University Rankings 2027",
+    date: "2026",
+    url: "https://www.timeshighereducation.com/world-university-rankings/madanapalle-institute-technology-and-science-deemed-be-university",
+    highlight: true
+  },
+  {
+    title: "🌿 UI GreenMetric – World University Rankings 2026 Profile",
+    date: "2026",
+    url: "https://uigreenmetric.com/university/mits.ac.in",
+    highlight: true
+  },
+  {
+    title: "Review Meeting — Conducted by IQAC (22nd to 24th January 2026)",
+    date: "Jan 2026",
+    url: "#"
+  },
+  {
+    title: "Cell / Committee Review Meeting (5th November 2025 to 12th January 2026)",
+    date: "Nov 2025 - Jan 2026",
+    url: "#"
+  },
+  {
+    title: "Guru Dakshta (Faculty Induction Program (FIP)) (27th October - 14th November 2025)",
+    date: "Oct - Nov 2025",
+    url: "#"
+  },
   {
     title: "Professional Development Programme",
     detail: "NITTTRC Professional Development Programme on \"AI in Teaching and Learning\". 06th April - 10th April 2026",
@@ -3089,6 +3248,41 @@ export const iqacPolicies: Doc[] = [
 ];
 export const mitsDtbuPolicies: Doc[] = [
   {
+    title: "Women Empowerment Cell Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/WEC Policy.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS IETE Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS IETE Policy.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS Universal Human Values Cell Policy",
+    url: "https://mits.ac.in/assets/pdf/assoc/UHV%20Cell%20Policy%20document%20ver01_25-26.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS Anti-Ragging Cell Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/ver1_POLICY DOCUMENT OF ANTI-RAGGING CELL.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS SC ST Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS SC ST Policy Document .pdf",
+    type: "pdf"
+  },
+  {
+    title: "Internal Complaints Committee (ICC) Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/ICC Policy.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Students\' Grievance Redressal Committee (SGRC) Policy",
+    url: "https://www.mits.ac.in/assets/pdf/admin/Students%20Grievance%20Redressal%20Policy.pdf",
+    type: "pdf"
+  },
+  {
     "title": "Internal Quality Assurance Cell Policy",
     "url": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU Internal Quality Assurnace Cell Policy.pdf",
     "type": "pdf"
@@ -3147,6 +3341,11 @@ export const mitsDtbuPolicies: Doc[] = [
 
 // ---------------- MEETINGS ----------------
 export const meetingsMom: Doc[] = [
+  {
+    title: "MoM 2024-25",
+    url: "https://mits.ac.in/public/uploads/naac/IQAC_MoM 2024-25.pdf",
+    type: "pdf"
+  },
   {
     "title": "IQAC Committee",
     "url": "https://mits.ac.in/public/uploads/naac/Composition%20of%20IQAC.pdf",
@@ -3341,3 +3540,58 @@ export { iso21001Subtabs, type ISOSubtab } from "./isoData";
 export { imsSubtabs, type IMSSubtab } from "./imsData";
 export { aqarReportsList, aqarCriteriaData, type AQARCriterion, type AQARReportItem } from "./aqarData";
 export { userReportsDocs, userFeedbackSections, userAaaDocs, userAaaRefDocs, userStrategicDocs, userBestPracticesDocs, userSssDocs, userAnnualReportsDocs, userIqacHoursDocs, userHandbookDocs, userUgcMandateDocs, userIqacEventsDocs, userEiqacDocs, userGalleryDocs, userManualsTableData } from "./userUpdatedSections";
+
+export const actionPlanImg = "https://mits.ac.in/assets/images/IQAC Action Plan 2026-27.png";
+export const milestonesImg = "https://mits.ac.in/assets/images/IQAC Milestones.png";
+
+export const qualityInitiativeInfographics = [
+  {
+    title: "MITS IQAC Quality Framework",
+    subtitle: "Comprehensive institutional quality framework across leadership, governance & academic metrics",
+    src: "https://mits.ac.in/assets/images/MITS IQAC-Quality Framework.png",
+    downloadUrl: "https://mits.ac.in/assets/pdf/iqac/MITS IQAC Quality Framework-1.pdf",
+    downloadLabel: "Download Framework PDF"
+  },
+  {
+    title: "MITS IQAC Monthly Quality Review | IQAC Hours",
+    subtitle: "Systematic monthly departmental monitoring of academic progression, labs & faculty outcomes",
+    src: "https://mits.ac.in/assets/images/MITS IQAC-Monthly review.png",
+    downloadUrl: "https://mits.ac.in/assets/pdf/iqac/MITS-IQAC Hours.pdf",
+    downloadLabel: "Download IQAC Hours PDF"
+  },
+  {
+    title: "MITS IQAC Audit & Continuous Improvement",
+    subtitle: "Internal & external audit cycle driving non-conformity tracking and evidence-backed resolution",
+    src: "https://mits.ac.in/assets/images/MITS IQAC Audit & Continuous Improvement.png",
+    downloadUrl: "https://mits.ac.in/assets/images/MITS IQAC Audit & Continuous Improvement.png",
+    downloadLabel: "View Full Resolution Infographic"
+  },
+  {
+    title: "MITS IQAC Stakeholder's Feedback Process",
+    subtitle: "Multi-tier 360° stakeholder evaluation loop including students, faculty, employers, alumni & parents",
+    src: "https://mits.ac.in/assets/images/MITS IQAC Stakeholder's Feedback Process.png",
+    downloadUrl: "https://mits.ac.in/assets/pdf/iqac/Student Feedback Process Flow.pdf",
+    downloadLabel: "Download Feedback Flow PDF"
+  },
+  {
+    title: "MITS IQAC Strategic Plan",
+    subtitle: "Long-term institutional development planning (IDP), five-year horizons, and milestone verification",
+    src: "https://mits.ac.in/assets/images/MITS IQAC Strategic Plan.png",
+    downloadUrl: "https://mits.ac.in/assets/images/MITS IQAC Strategic Plan.png",
+    downloadLabel: "View Full Resolution Infographic"
+  },
+  {
+    title: "MITS SDG Impact & Excellence",
+    subtitle: "Global Sustainable Development Goals integration across teaching, campus operations and community",
+    src: "https://mits.ac.in/assets/images/MITS SDG Impact & Excellence.png",
+    downloadUrl: "https://mits.ac.in/assets/images/MITS SDG Impact & Excellence.png",
+    downloadLabel: "View Full Resolution Infographic"
+  },
+  {
+    title: "MITS National Education Policy (NEP) Quality Architecture",
+    subtitle: "Implementation roadmap for multidisciplinary pedagogy, credit transfers and holistic competency frameworks",
+    src: "https://mits.ac.in/assets/images/MITS NEP.png",
+    downloadUrl: "https://mits.ac.in/assets/images/MITS NEP.png",
+    downloadLabel: "View Full Resolution Infographic"
+  }
+];

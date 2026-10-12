@@ -1,6 +1,11 @@
 import type { Doc } from './index';
 export const userReportsDocs: Doc[] = [
   {
+    "title": "Annual Report IQAC 2020-21",
+    "url": "https://mits.ac.in/public/uploads/naac/db689e5eef62bf46b6430dfdf1c0ed07.pdf",
+    "type": "pdf"
+  },
+  {
     "title": "NAAC Peer Team Report",
     "url": "https://mits.ac.in/public/uploads/naac/NAAC%20PEER%20TEAM%20REPORT.pdf",
     "type": "pdf"
@@ -18,6 +23,16 @@ export const userReportsDocs: Doc[] = [
 ];
 export const userFeedbackSections: Record<string, any> = {
   "aicte360": [
+    {
+      "title": "AICTE 360° Feedback System – Coordination Team (AY 2026-27)",
+      "url": "https://mits.ac.in/assets/pdf/iqac/AICTE%20360%C2%B0Co-coordinator%20order%202026-27.pdf",
+      "type": "pdf"
+    },
+    {
+      "title": "AICTE's 360 Degree Feedback 2025-26",
+      "url": "https://mits.ac.in/assets/pdf/admin/AWD100207.pdf",
+      "type": "pdf"
+    },
     {
       "title": "AICTE's 360 Degree Feedback Portal",
       "url": "https://smartcookie.in/AICTE-360degreefeedback",
@@ -60,6 +75,21 @@ export const userFeedbackSections: Record<string, any> = {
     }
   ],
   "stakeholderPolicy": [
+    {
+      "title": "Stakeholder Feedback Coordination Team (AY 2026-27)",
+      "url": "https://mits.ac.in/assets/pdf/iqac/Stake%20Holder%20Feedback%20order%202026-27.pdf",
+      "type": "pdf"
+    },
+    {
+      "title": "Department-wise Stakeholder Feedback Coordinators",
+      "url": "https://mits.ac.in/assets/pdf/iqac/Department-wise%20Stakeholder%20Feedback%20Coordinators.pdf",
+      "type": "pdf"
+    },
+    {
+      "title": "Feedback Live Dashboard",
+      "url": "https://74.235.98.35/mits_fb_iqac_24/getcount.php",
+      "type": "link"
+    },
     {
       "title": "MITS Stakeholder Feedback - Policy",
       "url": "https://mits.ac.in/assets/pdf/iqac/MITS-Stakeholder%20Feedback-Policy.pdf",
@@ -215,11 +245,21 @@ export const userFeedbackSections: Record<string, any> = {
 };
 export const userAaaDocs: Record<string, any> = {
   "policy": {
-    "title": "Academic and Administrative Audit Policy",
+    "title": "Academic and Administrative Audit Policy (Autonomous)",
     "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20IQAC%20Academic%20Audit%20Policy.pdf",
     "type": "pdf"
   },
+  "dtbuPolicy": {
+    "title": "Academic and Administrative Audit Policy (MITS DTBU Version 1)",
+    "url": "https://mits.ac.in/assets/pdf/iqac/MITS-DTBU%20AAA_%20POLICY%20DOCUMENT%20Version%201.pdf",
+    "type": "pdf"
+  },
   "externalReports": [
+    {
+      "title": "External Audit Report 2024-25",
+      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202024-25.pdf",
+      "type": "pdf"
+    },
     {
       "title": "External Audit Report 2023-24",
       "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202023-24.pdf",
@@ -237,6 +277,11 @@ export const userAaaDocs: Record<string, any> = {
     }
   ],
   "internalReports": [
+    {
+      "title": "Internal Audit Report 2025-26",
+      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_Internal%20Audit%20Report%20for%202025-2026.pdf",
+      "type": "pdf"
+    },
     {
       "title": "Internal Audit Report 2024-25",
       "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20Report%202024-2025.pdf",
@@ -260,6 +305,11 @@ export const userAaaDocs: Record<string, any> = {
   ],
   "externalAtr": [
     {
+      "title": "External Audit ATR 2024-25",
+      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR%20-%20External%20Audit%202024-25.pdf",
+      "type": "pdf"
+    },
+    {
       "title": "External Audit ATR 2023-24",
       "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20ATR%202023-24.pdf",
       "type": "pdf"
@@ -276,6 +326,16 @@ export const userAaaDocs: Record<string, any> = {
     }
   ],
   "internalAtr": [
+    {
+      "title": "Internal Action Taken Report 2025-26",
+      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR_Internal%20Audit%20Report%20for%202025-2026.pdf",
+      "type": "pdf"
+    },
+    {
+      "title": "Internal Action Taken Report 2024-25",
+      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_%20ATR_%202024-25%20_AAA.pdf",
+      "type": "pdf"
+    },
     {
       "title": "Internal Action Taken Report 2023-24",
       "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20ATR%202023-24.pdf",
@@ -294,6 +354,11 @@ export const userAaaDocs: Record<string, any> = {
   ]
 };
 export const userAaaRefDocs: Doc[] = [
+  {
+    "title": "NAAC - Brief Advisory Note on Academic and Administrative Audit (AAA)",
+    "url": "https://naac.gov.in/docs/Miscellaneous/NAAC_AAA_Note.pdf",
+    "type": "pdf"
+  },
   {
     "title": "NAAC (1st Cycle) - Self Study Report (SSR)",
     "url": "https://mits.ac.in/assets/pdf/iqac/NAAC%20(1st%20Cycle)%20-%20Self%20Study%20Report%20(SSR).pdf",
@@ -377,6 +442,26 @@ export const userAaaRefDocs: Doc[] = [
 ];
 export const userStrategicDocs: Doc[] = [
   {
+    "title": "MITS DTBU Institutional Development Plan (IDP 2025-35)",
+    "url": "https://mits.ac.in/assets/pdf/admin/MITS%20DTBU%20IDP%202025-35.pdf",
+    "type": "pdf"
+  },
+  {
+    "title": "Office Order - 34 (A) - IDP Constitution - Steering Committee",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Office%20Order%20-%2034%20(A)%20-%20IDP%20Constitution%20-%20Steering%20Committee.pdf",
+    "type": "pdf"
+  },
+  {
+    "title": "IDP Minutes of Meeting",
+    "url": "https://mits.ac.in/assets/pdf/iqac/IDP_Minutes_of_Meeting.pdf",
+    "type": "pdf"
+  },
+  {
+    "title": "Strategic Plan Review Minutes of Meeting",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Strategic%20Plan%20Review%20_Minutes%20of%20Meeting.pdf",
+    "type": "pdf"
+  },
+  {
     "title": "Strategic Plan Implementation (AY 2023-24 Gap Analysis Report)",
     "url": "https://mits.ac.in/assets/pdf/iqac/23-24_GAp%20ANalysis%20Report.pdf",
     "type": "pdf"
@@ -448,6 +533,7 @@ export const userAnnualReportsDocs: Doc[] = [
 ];
 
 export const userIqacHoursDocs: Doc[] = [
+  { title: "IQAC HOURS July 2025 to June 2026 - Annual Report ALL Departments", url: "https://mits.ac.in/assets/pdf/iqac/IQAC%20HOURS%20July%202025%20to%20June%202026_Annual_Report_ALL_Departments.pdf", type: "pdf" },
   { title: "IQAC Hours July 2024 to June 2025 (ENGG,MBA, MCA & BSH)", url: "https://mits.ac.in/assets/pdf/iqac/IQAC%20Hours%20July%202024%20to%20June%202025(ENGG,MBA%20,%20MCA%20&%20BSH).pdf", type: "pdf" },
   { title: "IQAC HOURS May 2025 Report (ENGG, MBA, MCA & BSH)", url: "https://mits.ac.in/assets/pdf/iqac/IQAC%20Hours%20May%202025.pdf", type: "pdf" },
   { title: "IQAC HOURS April 2025 Report (ENGG, MBA, MCA & BSH)", url: "https://mits.ac.in/assets/pdf/iqac/IQAC%20Hours%20April%202025.pdf", type: "pdf" },
@@ -766,6 +852,22 @@ export const userEiqacDocs: Doc[] = [
   }
 ];
 export const userGalleryDocs = [
+  {
+    "title": "PDP on AI in Teaching and Learning — Session 1",
+    "img": "https://mits.ac.in/public/uploads/iqac/1ai.JPG"
+  },
+  {
+    "title": "PDP on AI in Teaching and Learning — Session 2",
+    "img": "https://mits.ac.in/public/uploads/iqac/2ai.JPG"
+  },
+  {
+    "title": "PDP on AI in Teaching and Learning — Session 3",
+    "img": "https://mits.ac.in/public/uploads/iqac/3ai.JPG"
+  },
+  {
+    "title": "PDP on AI in Teaching and Learning — Session 4",
+    "img": "https://mits.ac.in/public/uploads/iqac/4ai.JPG"
+  },
   {
     "title": "ISO 21001:2018 Surveillance Audit 2 during 22nd to 24th January 2026",
     "img": "https://mits.ac.in/public/uploads/iqac/ISO%20210012018%20Surveillance%20Audit%202%20during%2022nd%20January%202026%20to%2024th%20January%202026%20-%20Lead%20Auditor%20Dr.K.Sundaresan%20organized%20by%20IQAC.png"
@@ -1819,6 +1921,65 @@ export const userManualsTableData = [
         "name": "AI PDP Material Sharepoint",
         "url": "https://mitsacin-my.sharepoint.com/:f:/g/personal/iqaccell_mits_ac_in/IgBrcDUBn35qQ5ssGj35VXnoASLgg70R5kObtWG7w4ya8aY?e=xjhvzp",
         "type": "link"
+      }
+    ]
+  }
+,
+  {
+    "sno": 46,
+    "title": "MITS DTBU Monthly Cell / Committee Review",
+    "formats": [
+      {
+        "name": "MITS DTBU Monthly Cell Review Template 2026",
+        "url": "https://mits.ac.in/assets/pdf/iqac/46.%20MITS%20DTBU%20Monthly_Cell_Review_Template%202026.docx",
+        "type": "doc"
+      }
+    ]
+  },
+  {
+    "sno": 47,
+    "title": "IQAC Hours - Agenda & Minutes of Meeting",
+    "formats": [
+      {
+        "name": "IQAC Hours MoM Template",
+        "url": "https://mits.ac.in/assets/pdf/iqac/47.IQAC%20Hours%20_MoM%20_Template.docx",
+        "type": "doc"
+      }
+    ]
+  },
+  {
+    "sno": 48,
+    "title": "MITS DTBU – Department Vision Mission PEO/PO/PSO",
+    "formats": [
+      {
+        "name": "B.Tech Department Vision & Mission, PEO, PO & PSO",
+        "url": "https://mits.ac.in/assets/pdf/iqac/1.B.Tech%20Department%20Vision%20&%20Mission,%20PEO,%20PO%20&%20PSO.docx",
+        "type": "doc"
+      },
+      {
+        "name": "M.Tech Department Vision & Mission, PEO, PO",
+        "url": "https://mits.ac.in/assets/pdf/iqac/2.M.Tech%20Department%20Vision%20&%20Mission,%20PEO,%20PO.docx",
+        "type": "doc"
+      },
+      {
+        "name": "BBA Department Vision & Mission, PEO",
+        "url": "https://mits.ac.in/assets/pdf/iqac/3.BBA%20Department%20Vision%20&%20Mission,%20PEO.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MBA Department Vision & Mission, PEO, PO & PSO",
+        "url": "https://mits.ac.in/assets/pdf/iqac/4.MBA%20Department%20Vision%20&%20Mission,%20PEO,%20PO%20&%20PSO.docx",
+        "type": "doc"
+      },
+      {
+        "name": "BCA Department Vision & Mission, PEO",
+        "url": "https://mits.ac.in/assets/pdf/iqac/5.BCA%20Department%20Vision%20&%20Mission,%20PEO.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MCA Department Vision & Mission, PEO, PO",
+        "url": "https://mits.ac.in/assets/pdf/iqac/6.MCA%20Department%20Vision%20&%20Mission,%20PEO,%20PO.docx",
+        "type": "doc"
       }
     ]
   }
