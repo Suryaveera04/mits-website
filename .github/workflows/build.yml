@@ -32,74 +32,105 @@ jobs:
           CPANEL_SSH_KEY: ${{ secrets.CPANEL_SSH_KEY }}
         run: |
           set -euo pipefail
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
+
+          install -d -m 700 "$HOME/.ssh"
 
           if [ -z "${CPANEL_SSH_KEY:-}" ]; then
-            echo "ERROR: CPANEL_SSH_KEY secret is not set!"
+            echo "ERROR: CPANEL_SSH_KEY secret is missing."
             exit 1
           fi
 
-          printf '%s\n' "$CPANEL_SSH_KEY" | tr -d '\r' > ~/.ssh/cpanel_deploy
-          chmod 600 ~/.ssh/cpanel_deploy
+          printf '%s\n' "$CPANEL_SSH_KEY" | tr -d '\r' > "$HOME/.ssh/cpanel_deploy"
+          chmod 600 "$HOME/.ssh/cpanel_deploy"
 
-          # Best effort host key scan, non-fatal if probe times out or is filtered
-          ssh-keyscan -T 15 -p 22133 mits.edu >> ~/.ssh/known_hosts 2>/dev/null || true
-          touch ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/known_hosts
+          echo "Validating SSH private key..."
+          ssh-keygen -y -f "$HOME/.ssh/cpanel_deploy" > /dev/null
+
+          echo "Retrieving SSH host key..."
+          if ! ssh-keyscan -T 15 -p 22133 mits.edu > "$HOME/.ssh/known_hosts" 2>/dev/null; then
+            echo "WARNING: Host key scan failed. Connectivity will be tested separately."
+            : > "$HOME/.ssh/known_hosts"
+          fi
+
+          chmod 600 "$HOME/.ssh/known_hosts"
+          echo "SSH configuration completed."
+
+      - name: Diagnose cPanel connectivity
+        shell: bash
+        run: |
+          echo "=== DNS resolution ==="
+          getent ahostsv4 mits.edu || true
+
+          echo "=== Testing cPanel IP: 95.211.237.89 ==="
+          if timeout 10 bash -c '</dev/tcp/95.211.237.89/22133'; then
+            echo "CPANEL_IP_PORT_OPEN"
+          else
+            echo "CPANEL_IP_PORT_UNREACHABLE"
+          fi
+
+          echo "=== Testing domain: mits.edu ==="
+          if timeout 10 bash -c '</dev/tcp/mits.edu/22133'; then
+            echo "DOMAIN_PORT_OPEN"
+          else
+            echo "DOMAIN_PORT_UNREACHABLE"
+          fi
 
       - name: Deploy with rsync
         shell: bash
         run: |
           set -euo pipefail
 
-          SSH_CMD="ssh -i ~/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=15 -o ServerAliveCountMax=20 -o ConnectTimeout=30"
+          SSH_CMD="ssh -i $HOME/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=15 -o ServerAliveCountMax=20 -o ConnectTimeout=30"
 
           MAX_RETRIES=3
-          for attempt in $(seq 1 $MAX_RETRIES); do
+
+          for attempt in $(seq 1 "$MAX_RETRIES"); do
             echo "==> Deployment attempt $attempt of $MAX_RETRIES..."
+
             if rsync -az --checksum \
               -e "$SSH_CMD" \
               dist/ \
               mits@mits.edu:/home/mits/public_html/university/; then
-              echo "==> Deployment succeeded on attempt $attempt."
+              echo "==> Website deployment succeeded."
               exit 0
             fi
 
             if [ "$attempt" -lt "$MAX_RETRIES" ]; then
-              echo "==> Attempt $attempt failed. Retrying in 10s..."
+              echo "==> Attempt failed. Retrying in 10 seconds..."
               sleep 10
             fi
           done
 
-          echo "ERROR: Deployment failed after $MAX_RETRIES attempts."
+          echo "ERROR: Website deployment failed after $MAX_RETRIES attempts."
           exit 1
 
-      - name: Deploy root .htaccess (redirect mits.edu → /university/)
+      - name: Deploy root .htaccess
         shell: bash
         run: |
           set -euo pipefail
 
-          SSH_CMD="ssh -i ~/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=15 -o ServerAliveCountMax=20 -o ConnectTimeout=30"
+          SSH_CMD="ssh -i $HOME/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=15 -o ServerAliveCountMax=20 -o ConnectTimeout=30"
 
           printf 'RewriteEngine On\nRewriteRule ^$ /university/ [R=301,L]\nRewriteCond %%{REQUEST_URI} !^/university/\nRewriteRule ^(.*)$ /university/$1 [R=301,L]\n' > /tmp/root.htaccess
 
           MAX_RETRIES=3
-          for attempt in $(seq 1 $MAX_RETRIES); do
+
+          for attempt in $(seq 1 "$MAX_RETRIES"); do
             echo "==> Root .htaccess attempt $attempt of $MAX_RETRIES..."
+
             if rsync -az \
               -e "$SSH_CMD" \
               /tmp/root.htaccess \
               mits@mits.edu:/home/mits/public_html/.htaccess; then
-              echo "==> Root .htaccess deployed successfully on attempt $attempt."
+              echo "==> Root .htaccess deployed successfully."
               exit 0
             fi
 
             if [ "$attempt" -lt "$MAX_RETRIES" ]; then
-              echo "==> Attempt $attempt failed. Retrying in 5s..."
+              echo "==> Attempt failed. Retrying in 5 seconds..."
               sleep 5
             fi
           done
 
-          echo "ERROR: Root .htaccess deployment failed after $MAX_RETRIES attempts."
+          echo "ERROR: Root .htaccess deployment failed."
           exit 1
