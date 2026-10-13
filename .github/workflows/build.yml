@@ -27,25 +27,79 @@ jobs:
         run: npm run build
 
       - name: Configure SSH
+        shell: bash
         env:
           CPANEL_SSH_KEY: ${{ secrets.CPANEL_SSH_KEY }}
         run: |
+          set -euo pipefail
           mkdir -p ~/.ssh
-          printf '%s\n' "$CPANEL_SSH_KEY" > ~/.ssh/cpanel_deploy
+          chmod 700 ~/.ssh
+
+          if [ -z "${CPANEL_SSH_KEY:-}" ]; then
+            echo "ERROR: CPANEL_SSH_KEY secret is not set!"
+            exit 1
+          fi
+
+          printf '%s\n' "$CPANEL_SSH_KEY" | tr -d '\r' > ~/.ssh/cpanel_deploy
           chmod 600 ~/.ssh/cpanel_deploy
-          ssh-keyscan -p 22133 mits.edu >> ~/.ssh/known_hosts
+
+          # Best effort host key scan, non-fatal if probe times out or is filtered
+          ssh-keyscan -T 15 -p 22133 mits.edu >> ~/.ssh/known_hosts 2>/dev/null || true
+          touch ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
 
       - name: Deploy with rsync
+        shell: bash
         run: |
-          rsync -az --checksum \
-            -e "ssh -i ~/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=20" \
-            dist/ \
-            mits@mits.edu:/home/mits/public_html/university/
+          set -euo pipefail
+
+          SSH_CMD="ssh -i ~/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=15 -o ServerAliveCountMax=20 -o ConnectTimeout=30"
+
+          MAX_RETRIES=3
+          for attempt in $(seq 1 $MAX_RETRIES); do
+            echo "==> Deployment attempt $attempt of $MAX_RETRIES..."
+            if rsync -az --checksum \
+              -e "$SSH_CMD" \
+              dist/ \
+              mits@mits.edu:/home/mits/public_html/university/; then
+              echo "==> Deployment succeeded on attempt $attempt."
+              exit 0
+            fi
+
+            if [ "$attempt" -lt "$MAX_RETRIES" ]; then
+              echo "==> Attempt $attempt failed. Retrying in 10s..."
+              sleep 10
+            fi
+          done
+
+          echo "ERROR: Deployment failed after $MAX_RETRIES attempts."
+          exit 1
 
       - name: Deploy root .htaccess (redirect mits.edu → /university/)
+        shell: bash
         run: |
+          set -euo pipefail
+
+          SSH_CMD="ssh -i ~/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=15 -o ServerAliveCountMax=20 -o ConnectTimeout=30"
+
           printf 'RewriteEngine On\nRewriteRule ^$ /university/ [R=301,L]\nRewriteCond %%{REQUEST_URI} !^/university/\nRewriteRule ^(.*)$ /university/$1 [R=301,L]\n' > /tmp/root.htaccess
-          rsync -az \
-            -e "ssh -i ~/.ssh/cpanel_deploy -p 22133 -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=20" \
-            /tmp/root.htaccess \
-            mits@mits.edu:/home/mits/public_html/.htaccess
+
+          MAX_RETRIES=3
+          for attempt in $(seq 1 $MAX_RETRIES); do
+            echo "==> Root .htaccess attempt $attempt of $MAX_RETRIES..."
+            if rsync -az \
+              -e "$SSH_CMD" \
+              /tmp/root.htaccess \
+              mits@mits.edu:/home/mits/public_html/.htaccess; then
+              echo "==> Root .htaccess deployed successfully on attempt $attempt."
+              exit 0
+            fi
+
+            if [ "$attempt" -lt "$MAX_RETRIES" ]; then
+              echo "==> Attempt $attempt failed. Retrying in 5s..."
+              sleep 5
+            fi
+          done
+
+          echo "ERROR: Root .htaccess deployment failed after $MAX_RETRIES attempts."
+          exit 1
