@@ -134,3 +134,20 @@ jobs:
 
           echo "ERROR: Root .htaccess deployment failed."
           exit 1
+      
+      - name: Diagnose external SSH access
+        if: always()
+        shell: bash
+        run: |
+          echo "=== DNS ==="
+          getent ahostsv4 mits.edu || true
+
+          echo "=== TCP test to server IP ==="
+          timeout 8 bash -c '</dev/tcp/95.211.237.89/22133' \
+            && echo "IP_REACHABLE" \
+            || echo "IP_UNREACHABLE"
+
+          echo "=== TCP test to hostname ==="
+          timeout 8 bash -c '</dev/tcp/mits.edu/22133' \
+            && echo "HOSTNAME_REACHABLE" \
+            || echo "HOSTNAME_UNREACHABLE"
