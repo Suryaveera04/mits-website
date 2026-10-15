@@ -26,6 +26,7 @@ import IprView from "@/components/cells/IprView";
 import DtsView from "@/components/cells/DtsView";
 import IpfcView from "@/components/cells/IpfcView";
 import IiicView from "@/components/cells/IiicView";
+import EdcView from "@/components/cells/EdcView";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -158,6 +159,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "iiic") {
     return <IiicView />;
+  }
+
+  if (targetId === "edc") {
+    return <EdcView />;
   }
 
   if (!cell) {

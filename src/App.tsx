@@ -180,6 +180,8 @@ const App = () => (
             <Route path="/student-clubs-sac" element={<StudentClubs />} />
             <Route path="/iei" element={<CellDetail overrideId="iei" />} />
             <Route path="/ipfc" element={<CellDetail overrideId="ipfc" />} />
+            <Route path="/edc" element={<CellDetail overrideId="edc" />} />
+            <Route path="/ed-cell" element={<CellDetail overrideId="edc" />} />
             <Route path="/career" element={<Careers />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/Venture-Studio" element={<VentureStudio />} />
