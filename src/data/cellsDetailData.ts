@@ -3817,28 +3817,28 @@ export const cellsDetailData: Record<string, CellDetail> = {
       "AICTE Student Learning Assessment PARAKH (Performance Assessment, Review and Analysis of Knowledge for Holistic Development) is a competency-based assessment initiative aligned with India's National Education Policy (NEP), focusing on evaluating students' Academic, Aptitude, and Higher-Order Thinking Skills which targets learners in AICTE-approved institutions across Engineering, Management, Computer Applications, and Emerging Disciplines to ensure a standardized evaluation process."
     ],
     "members": [
-      { "sno": "1",  "name": "Dr. C. Yuvaraj",          "designation": "Vice Chancellor (I/c)",                        "position": "Chairman",                            "email": "principal@mits.ac.in" },
-      { "sno": "2",  "name": "Dr. P. Ramanathan",        "designation": "Professor, Dept of ECE",                       "position": "Member Secretary",                    "email": "drramanathanp@mits.ac.in" },
-      { "sno": "3",  "name": "Mr. P. Sabarishkumar",     "designation": "Assistant Professor, Dept of CE",              "position": "Member",                              "email": "sabarishkumarp@mits.ac.in" },
-      { "sno": "4",  "name": "Dr. Thrinadh Jadam",       "designation": "Assistant Professor, Dept of ME",              "position": "Member",                              "email": "drthrinadhj@mits.ac.in" },
-      { "sno": "5",  "name": "Mrs. V. Sai Anusha",       "designation": "Assistant Professor, Dept of ECE",             "position": "Member",                              "email": "saianushav@mits.ac.in" },
-      { "sno": "6",  "name": "Dr. Vineeth Kumar",        "designation": "Assistant Professor, Dept of EEE",             "position": "Member",                              "email": "drvineetkumar@mits.ac.in" },
-      { "sno": "7",  "name": "Mr. B. Anandaraj",         "designation": "Assistant Professor, Dept of CSE",             "position": "Member",                              "email": "anandarajb@mits.ac.in" },
-      { "sno": "8",  "name": "Mr. Roni Das",             "designation": "Assistant Professor, Dept of CSE (CS)",        "position": "Member",                              "email": "ronidas@mits.ac.in" },
-      { "sno": "10", "name": "Mr. K. Chandra Sekhar",    "designation": "Assistant Professor, Dept of CSE (AI)",        "position": "Member",                              "email": "chandrasekhark@mits.ac.in" },
-      { "sno": "11", "name": "Ms. Shivani Jha",          "designation": "Assistant Professor, Dept of CSE (AI and ML)", "position": "Member",                              "email": "shivani@mits.ac.in" },
-      { "sno": "12", "name": "Mr. Noorbhasha Junnubabu", "designation": "Assistant Professor, Dept of CST",             "position": "Member",                              "email": "junnubabun@mits.ac.in" },
-      { "sno": "13", "name": "Dr. N. Gangisetty",        "designation": "Professor, Dept of MBA",                       "position": "Member",                              "email": "gangisetty@mits.ac.in" },
-      { "sno": "14", "name": "Mrs. S. Suganya",          "designation": "Assistant Professor, Dept of MCA",             "position": "Member",                              "email": "suganyas@mits.ac.in" },
-      { "sno": "15", "name": "Mr. Sridhar. N",           "designation": "Assistant Professor, Dept of EEE",             "position": "Coordinator - AICTE PARAKH",           "email": "sridharn@mits.ac.in" },
-      { "sno": "16", "name": "Mr. Darshan B V",          "designation": "Assistant Professor, Dept of ME",              "position": "Assistant Coordinator - AICTE PARAKH", "email": "mitsparakh@mits.ac.in" }
+      { "sno": "1", "name": "Dr. C. Yuvaraj", "designation": "Vice Chancellor (I/c)", "position": "Chairman", "email": "principal@mits.ac.in" },
+      { "sno": "2", "name": "Dr. P. Ramanathan", "designation": "Professor, Dept of ECE", "position": "Member Secretary", "email": "drramanathanp@mits.ac.in" },
+      { "sno": "3", "name": "Mr. P. Sabarishkumar", "designation": "Assistant Professor, Dept of CE", "position": "Member", "email": "sabarishkumarp@mits.ac.in" },
+      { "sno": "4", "name": "Dr. Thrinadh Jadam", "designation": "Assistant Professor, Dept of ME", "position": "Member", "email": "drthrinadhj@mits.ac.in" },
+      { "sno": "5", "name": "Mrs. V. Sai Anusha", "designation": "Assistant Professor, Dept of ECE", "position": "Member", "email": "saianushav@mits.ac.in" },
+      { "sno": "6", "name": "Dr. Vineeth Kumar", "designation": "Assistant Professor, Dept of EEE", "position": "Member", "email": "drvineetkumar@mits.ac.in" },
+      { "sno": "7", "name": "Mr. B. Anandaraj", "designation": "Assistant Professor, Dept of CSE", "position": "Member", "email": "anandarajb@mits.ac.in" },
+      { "sno": "8", "name": "Mr. Roni Das", "designation": "Assistant Professor, Dept of CSE (CS)", "position": "Member", "email": "ronidas@mits.ac.in" },
+      { "sno": "10", "name": "Mr. K. Chandra Sekhar", "designation": "Assistant Professor, Dept of CSE (AI)", "position": "Member", "email": "chandrasekhark@mits.ac.in" },
+      { "sno": "11", "name": "Ms. Shivani Jha", "designation": "Assistant Professor, Dept of CSE (AI and ML)", "position": "Member", "email": "shivani@mits.ac.in" },
+      { "sno": "12", "name": "Mr. Noorbhasha Junnubabu", "designation": "Assistant Professor, Dept of CST", "position": "Member", "email": "junnubabun@mits.ac.in" },
+      { "sno": "13", "name": "Dr. N. Gangisetty", "designation": "Professor, Dept of MBA", "position": "Member", "email": "gangisetty@mits.ac.in" },
+      { "sno": "14", "name": "Mrs. S. Suganya", "designation": "Assistant Professor, Dept of MCA", "position": "Member", "email": "suganyas@mits.ac.in" },
+      { "sno": "15", "name": "Mr. Sridhar. N", "designation": "Assistant Professor, Dept of EEE", "position": "Coordinator - AICTE PARAKH", "email": "sridharn@mits.ac.in" },
+      { "sno": "16", "name": "Mr. Darshan B V", "designation": "Assistant Professor, Dept of ME", "position": "Assistant Coordinator - AICTE PARAKH", "email": "mitsparakh@mits.ac.in" }
     ],
     "documents": [
-      { "title": "Coordination Team for PARAKH (AY 2026-27)",        "href": "https://mits.ac.in/assets/pdf/assoc/PARAKH Co-coordinators 2026-27.pdf" },
-      { "title": "AICTE PARAKH - Institute Profile",                  "href": "https://mits.ac.in/assets/pdf/assoc/AICTE PARAKH - Institute Profile.pdf" },
-      { "title": "AICTE PARAKH - Committee Office Order 2025-26",     "href": "https://mits.ac.in/assets/pdf/assoc/Office Order-PARAKH.pdf" },
-      { "title": "AICTE PARAKH - Committee Office Order 2024-25",     "href": "https://mits.ac.in/assets/pdf/assoc/AICTE PARAKH - Committee Office Order-2025.pdf" },
-      { "title": "SOP for AICTE PARAKH",                             "href": "https://mits.ac.in/assets/pdf/assoc/SOP for AICTE PARAKH.pdf" }
+      { "title": "Coordination Team for PARAKH (AY 2026-27)", "href": "https://mits.ac.in/assets/pdf/assoc/PARAKH Co-coordinators 2026-27.pdf" },
+      { "title": "AICTE PARAKH - Institute Profile", "href": "https://mits.ac.in/assets/pdf/assoc/AICTE PARAKH - Institute Profile.pdf" },
+      { "title": "AICTE PARAKH - Committee Office Order 2025-26", "href": "https://mits.ac.in/assets/pdf/assoc/Office Order-PARAKH.pdf" },
+      { "title": "AICTE PARAKH - Committee Office Order 2024-25", "href": "https://mits.ac.in/assets/pdf/assoc/AICTE PARAKH - Committee Office Order-2025.pdf" },
+      { "title": "SOP for AICTE PARAKH", "href": "https://mits.ac.in/assets/pdf/assoc/SOP for AICTE PARAKH.pdf" }
     ],
     "contacts": [
       {
@@ -5362,121 +5362,25 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "id": "cii",
     "url": "https://mits.ac.in/innovation-center"
   },
-  "ipfc": {
-    "name": "MSME Intellectual Property Facilitation Centre (IPFC)",
+  "iiic": {
+    "name": "Industry-Institute Interaction Cell",
+    "id": "iiic",
+    "url": "https://mits.ac.in/iiic",
     "aboutText": [
-      "The MSME Intellectual Property Facilitation Centre (IPFC) at Madanapalle Institute of Technology & Science is established with grant-in-aid support from the Ministry of MSME, Government of India, to nurture intellectual property awareness, registration, and commercialization among Micro, Small, and Medium Enterprises (MSMEs), grassroots innovators, and academic researchers in the Rayalaseema region.",
-      "The Centre provides specialized guidance in patent drafting, industrial design registrations, trademark protection, and geographical indications, serving as an innovation catalyst connecting academia with regional industrial clusters."
+      "The Industry-Institute Interaction Cell (IIIC) of the college is a dedicated cell to promote the close interaction of industry and various departments of the institute. The IIIC Cell facilitates industrial and academic trainings those are not prescribed in the syllabus in addition to conducting industrial exhibitions and interaction meets. Industry Institute Partnership forms an important activity for any academic institute as its stakeholders interact with the real world.",
+      "Firstly, the students are benefited due to exposure to current industry practices, challenges and needs and update their skills when changes occur in technology, teaching faculty get sensitised to the latest practices leading them to blend practice with usual theoretical teaching methods. On successful interaction, Industry may realize that Academia has more to offer by way of solving their short term and long term technical problems, provide a manpower resource pool with good industry orientation and a source for updating the knowledge sets of its personnel."
     ],
-    "members": [
-      {
-        "sno": "1",
-        "name": "Dr. C. Yuvaraj",
-        "designation": "Vice Chancellor (I/c) and IPFC Chairperson",
-        "position": "Chairman",
-        "email": ""
-      },
-      {
-        "sno": "2",
-        "name": "Dr. P. Sivaiah",
-        "designation": "Associate Professor, Dept. of Mechanical Engineering",
-        "position": "Coordinator",
-        "email": ""
-      },
-      {
-        "sno": "3",
-        "name": "Dr. K. Arul kumar",
-        "designation": "Associate Professor, Dept. of EEE",
-        "position": "Co-Coordinator",
-        "email": ""
-      }
-    ],
-    "documents": [
-      {
-        "title": "IPFC Establishment Order & MSME Guidelines",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IPFC Committee Order.pdf"
-      },
-      {
-        "title": "Patent and Trademark Advisory Handbook",
-        "href": "https://mits.ac.in/assets/pdf/admin/MITS-IPR-Policy.pdf"
-      }
-    ],
-    "contacts": [
-      {
-        "name": "Dr. P. Sivaiah",
-        "designation": "Associate Professor (ME) & Coordinator - IPFC",
-        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
-        "phone": "+91-8571-280255",
-        "email": "ipfc@mits.ac.in"
-      },
-      {
-        "name": "Dr. K. Arul kumar",
-        "designation": "Associate Professor (EEE) & Co-Coordinator - IPFC",
-        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
-        "phone": "+91-8571-280255",
-        "email": "arulkumark@mits.ac.in"
-      }
-    ],
-    "id": "ipfc",
-    "url": "https://mits.ac.in/ipfc",
     "sections": [
       {
-        "title": "Services Offered",
+        "title": "IIIC Services / Objectives",
         "paragraphs": [
-          "Pro bono and subsidized patentability evaluations and prior art search services for local MSMEs.",
-          "Facilitating government subsidies under MSME IP schemes for patent and trademark applications.",
-          "Incubating innovative industrial designs and filing geographical indication registrations for regional artisanal clusters."
+          "To explore and identify common avenues of interaction with Industry as per the requirements of the institution.",
+          "Bridging the gap between Industry and Institute.",
+          "Initiate and Coordinate Industry based research.",
+          "Initiate and coordinate consultancy service.",
+          "Need based training to the Industry and Institute as well.",
+          "Short term courses for Manpower development."
         ]
-      }
-    ],
-    "events": [
-      {
-        "title": "MSME IP Awareness & Capacity Building Conclave for Regional Entrepreneurs",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IPFC Committee Order.pdf",
-        "date": "18-11-2025"
-      },
-      {
-        "title": "Workshop on Trademark Registration & Brand Building for Startups",
-        "href": "https://mits.ac.in/assets/pdf/assoc/IPFC Committee Order.pdf",
-        "date": "25-03-2025"
-      }
-    ]
-  },
-  "iiic": {
-    "name": "Industry-Institute Interaction Cell (IIIC / IRC)",
-    "aboutText": [
-      "The Industry-Institute Interaction Cell (IIIC / Industry Relations Cell - IRC) at Madanapalle Institute of Technology & Science acts as the strategic interface bridging academic curricula with corporate industry practices.",
-      "The Cell catalyzes active corporate MoUs, industry-sponsored laboratories, student internships, sabbatical faculty training, and joint consultancy projects with Fortune 500 tech leaders and premier manufacturing conglomerates.",
-      "Through structured industry engagement, the Cell ensures that MITS graduates possess job-ready competencies and deep exposure to contemporary technological workflows."
-    ],
-    "members": [
-      {
-        "sno": "1",
-        "name": "Dr. C. Yuvaraj",
-        "designation": "Vice Chancellor (I/c)",
-        "position": "Chairperson",
-        "email": ""
-      },
-      {
-        "sno": "2",
-        "name": "Dr. G. Sreenivasulu",
-        "designation": "Dean - Industry Institute Interaction",
-        "position": "Coordinator",
-        "email": ""
-      },
-      {
-        "sno": "3",
-        "name": "Dr. P. Ramanathan",
-        "designation": "Vice-Principal (Administration)",
-        "position": "Member",
-        "email": ""
-      },
-      {
-        "sno": "4",
-        "name": "Dr. S. Baskaran",
-        "designation": "Head, Dept. of Mechanical Engineering",
-        "position": "Member",
-        "email": ""
       }
     ],
     "documents": [
@@ -5497,47 +5401,44 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS-INTERNSHIP GUDELINES 2024-25.pdf"
       },
       {
-        "title": "Committee Members 2024-25",
+        "title": "Commitee Members 2024-25",
         "href": "https://mits.ac.in/assets/pdf/assoc/IIIC -Office Order-sep2024.pdf"
+      },
+      {
+        "title": "MoM of Reconstitution of IIIC Committee 2023-24",
+        "href": "https://mits.ac.in/assets/pdf/assoc/MOM_IIIC_Reconstitution.pdf"
+      },
+      {
+        "title": "Commitee Members 2023-24",
+        "href": "https://mits.ac.in/assets/pdf/assoc/IIIIC.pdf"
+      },
+      {
+        "title": "MITS Internship Commitee Members 2022-23",
+        "href": "https://mits.ac.in/assets/pdf/assoc/IIIC Internship Committee- 2022-23.pdf"
+      },
+      {
+        "title": "MITS MoU Policy 2021-22",
+        "href": "https://mits.ac.in/assets/pdf/assoc/MITS_MoU Policy_2021-22.pdf"
+      },
+      {
+        "title": "Academic Year 2023-24",
+        "href": "https://mits.ac.in/assets/pdf/assoc/IIIC_Final_AY2023-24.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "Dr. G. Sreenivasulu",
-        "designation": "Dean - Industry Institute Interaction",
-        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
-        "phone": "+91-8571-280255",
+        "name": "Prof P. M. Balaji",
+        "designation": "Assistant Director - Industry Relations",
+        "address": "Madanapalle Institute of Technology & Science, Deemed to be University, Madanapalle-Kadiri Road, Kurabalakota Mandal, Madanapalle - 517325, Andhra Pradesh, India",
+        "phone": "+91-8571-280255; 280706",
         "email": "iiic@mits.ac.in"
-      }
-    ],
-    "id": "iiic",
-    "url": "https://mits.ac.in/iiic",
-    "events": [
-      {
-        "title": "Annual Industry-Academia Conclave & HR Leadership Round Table 2025",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Industry Relations Cell _ Policy Document_2026.pdf",
-        "date": "28-08-2025"
       },
       {
-        "title": "Corporate Internship Fair & Tech Talent Showcase",
-        "href": "https://mits.ac.in/assets/pdf/assoc/MITS-INTERNSHIP GUDELINES 2024-25.pdf",
-        "date": "14-03-2025"
-      },
-      {
-        "title": "Executive Seminar on Cloud Computing and Enterprise Architecture",
-        "href": "https://mits.ac.in/assets/pdf/assoc/MOM-iiic-2025-26.pdf",
-        "date": "12-11-2024"
-      }
-    ],
-    "sections": [
-      {
-        "title": "Strategic Focus Areas",
-        "paragraphs": [
-          "Facilitating mandatory full-semester corporate internships for undergraduate and postgraduate scholars.",
-          "Establishing state-of-the-art Centers of Excellence (CoE) in association with global technology leaders.",
-          "Organizing executive guest lectures, industry conclaves, and corporate hackathons.",
-          "Facilitating faculty industrial consultancies and sponsored research projects."
-        ]
+        "name": "Mr. G. Kumar",
+        "designation": "IRO - Industry Relations",
+        "address": "Madanapalle Institute of Technology & Science, Deemed to be University, Madanapalle-Kadiri Road, Kurabalakota Mandal, Madanapalle - 517325, Andhra Pradesh, India",
+        "phone": "+91-8571-280255; 280706",
+        "email": "iiic@mits.ac.in"
       }
     ]
   },
@@ -9470,6 +9371,195 @@ export const cellsDetailData: Record<string, CellDetail> = {
       {
         "title": "A Guest Lecture on \"Sustainable Innovation through Collaborative DevOps Culture and Practices\" was organized by Department of CSE-Data Science in association with Institution of Engineers(India) on 15.11.2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/Sustainable Innovation through Collaborative DevOps Culture and Practices - Event Report_IEI_CSE DS_15.11.2025-min.pdf"
+      }
+    ]
+  },
+  "ipfc": {
+    "id": "ipfc",
+    "name": "Intellectual Property Facilitation Centre",
+    "url": "https://mits.ac.in/ipfc",
+    "aboutText": [
+      "The Intellectual Property Facilitation Centre (IPFC) has been established at Madanapalle Institute of Technology & Science - Deemed to be University in the year A.Y:2023-24 sponsored by Development Commissioner (Micro, Small, and Medium Enterprises), Ministry of MSME, Govt. of India.",
+      "The primary objective of MITS-IPFC is to provide comprehensive support and services related to intellectual property rights (IPR) for MSMEs, Startups, Faculty, Researchers, and students which includes promoting IP awareness among students, faculty, and local businesses. Also, Providing IP education and consultation services. Further, it supports IP registration and protection."
+    ],
+    "sections": [
+      {
+        "title": "Objective",
+        "paragraphs": [
+          "The primary objective of MITS-IPFC is to provide comprehensive support and services related to intellectual property rights (IPR) for MSMEs, Startups, Faculty, Researchers, and students which includes promoting IP awareness among students, faculty, and local businesses. Also, Providing IP education and consultation services. Further, it supports IP registration and protection."
+        ]
+      },
+      {
+        "title": "Services Available at IPFC",
+        "paragraphs": [
+          "To render IPR awareness, training, protection, information & advisory services, through IPR Experts/Agents/attorneys, specialized in IP Laws for filing (national and international level), protection and litigation matters for Students/professionals/researchers and MSMEs.",
+          "Facilitating filing services such as Patents, Designs, Trademarks, Copyrights, Geographical Indications etc.",
+          "IP search and analysis assistances to clients in conducting patent searches, trademark searches, and prior art searches etc.",
+          "IP registration assistance to clients with the application and registration processes for Patents, Trademarks, Copyrights, and other IP rights.",
+          "Advisory services on various IPR filings.",
+          "Facilitates the process of reimbursement application for granted patents, trademarks, designs and GI's filed by eligible applicants."
+        ]
+      }
+    ],
+    "members": [
+      {
+        "sno": "1",
+        "name": "Dr. C. Yuvaraj",
+        "designation": "Vice Chancellor (I/c) and IPFC Chairperson, MITS",
+        "position": "Chairman",
+        "email": ""
+      },
+      {
+        "sno": "2",
+        "name": "Sri. D Chandra Sekhar",
+        "designation": "Additional Development Commissioner, MSME-Development and Facilitation Office, Hyderabad.",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "3",
+        "name": "Dr. R. Thulasiram Naidu",
+        "designation": "Advisor R&D and Consultancy, MITS",
+        "position": "IPFC In-charge",
+        "email": ""
+      },
+      {
+        "sno": "4",
+        "name": "Dr. P. B. N. Prasad",
+        "designation": "Director, Techno Confluence Intelligent Engineering Solutions Pvt. Ltd.",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "5",
+        "name": "Swarna Srivastava",
+        "designation": "IP advisory & Attorney, Zeya IP, Gurgaon Haryana",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "6",
+        "name": "Dr. P. Sivaiah",
+        "designation": "Associate Dean-R&D, MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "7",
+        "name": "Dr. D. Pradeep Kumar",
+        "designation": "Registrar & Chief Coordinator, (NAAC/NEP/ISO Affairs), MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "8",
+        "name": "Dr. P. Ramanathan",
+        "designation": "Principal, MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "9",
+        "name": "Dr. C. Kamal Basha",
+        "designation": "Vice Principal (Administration), MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "11",
+        "name": "Dr. Anantha Raman L",
+        "designation": "IIC coordinator, MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "12",
+        "name": "Dr. A. V. Pavan Kumar",
+        "designation": "NIRF coordinator, MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "13",
+        "name": "Dr. Manish Sharma",
+        "designation": "NBA coordinator, MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "14",
+        "name": "Dr. Dipankar Roy",
+        "designation": "Professor & Head of the Dept., Civil Engg., MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "15",
+        "name": "Dr. Manavaalan Gunasekaran",
+        "designation": "Assoc. Professor & Head of the Dept., EEE, MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "16",
+        "name": "Dr. S. Baskaran",
+        "designation": "Associate Professor & Head of the Dept., ME Engg., MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "17",
+        "name": "Dr. S. Rajasekaran",
+        "designation": "Professor & Head of the Dept., ECE, MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "18",
+        "name": "Dr. R. Kalpana",
+        "designation": "Professor & Head of the Dept., CSE- AI, MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "19",
+        "name": "Dr. K. Dinesh",
+        "designation": "Associate Professor & Head of the Dept., CST, MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "20",
+        "name": "Dr. S. V. S. Ganga Devi",
+        "designation": "Professor & Head of the Dept., CSE-CS, MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "21",
+        "name": "Dr. M. Sreedevi",
+        "designation": "Professor & Head of the Dept., CSE, MITS",
+        "position": "Member",
+        "email": ""
+      },
+      {
+        "sno": "22",
+        "name": "Dr. S. Kusuma",
+        "designation": "Assistant Professor & Head of the Dept., CSE-DS, MITS",
+        "position": "Member",
+        "email": ""
+      }
+    ],
+    "documents": [
+      {
+        "title": "Intellectual Property Facilitation Centre Brochure",
+        "href": "https://mits.ac.in/assets/pdf/admin/IPFC Brochure.pdf"
+      }
+    ],
+    "contacts": [
+      {
+        "address": "Madanapalle Institute of Technology & Science, Deemed to be University, Madanapalle-Kadiri Road, Kurabalakota Mandal, Madanapalle - 517325, Andhra Pradesh, India",
+        "phone": "+91-8571-280255, 280706"
       }
     ]
   }
