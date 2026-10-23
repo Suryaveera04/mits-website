@@ -1,4 +1,4 @@
-name: Build MITS Website for cPanel Pull Deployment
+name: Build and Deploy MITS Website
 
 on:
   push:
@@ -9,8 +9,12 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: mits-website-deployment
+  cancel-in-progress: false
+
 jobs:
-  build-and-publish:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
@@ -20,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -46,3 +50,58 @@ jobs:
           publish_dir: ./dist
           force_orphan: true
           keep_files: false
+
+      - name: Configure SSH
+        shell: bash
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_PORT: ${{ secrets.CPANEL_PORT }}
+          CPANEL_SSH_KEY: ${{ secrets.CPANEL_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          : "${CPANEL_HOST:?Add CPANEL_HOST in GitHub repository Actions secrets}"
+          : "${CPANEL_SSH_KEY:?Add CPANEL_SSH_KEY in GitHub repository Actions secrets}"
+          CPANEL_PORT="${CPANEL_PORT:-22133}"
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$CPANEL_SSH_KEY" > ~/.ssh/cpanel_deploy_key
+          chmod 600 ~/.ssh/cpanel_deploy_key
+          ssh-keyscan -p "$CPANEL_PORT" -H "$CPANEL_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          chmod 600 ~/.ssh/known_hosts
+          echo "SSH host key collected for $CPANEL_HOST:$CPANEL_PORT"
+
+      - name: Test cPanel SSH connection
+        shell: bash
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_PORT: ${{ secrets.CPANEL_PORT }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+        run: |
+          set -euo pipefail
+          CPANEL_PORT="${CPANEL_PORT:-22133}"
+          : "${CPANEL_USER:?Add CPANEL_USER in GitHub repository Actions secrets}"
+          ssh -i ~/.ssh/cpanel_deploy_key \
+            -p "$CPANEL_PORT" \
+            -o BatchMode=yes \
+            -o ConnectTimeout=15 \
+            "$CPANEL_USER@$CPANEL_HOST" \
+            'printf "SSH_CONNECTION_OK user=%s host=%s\n" "$(id -un)" "$(hostname)"'
+
+      - name: Deploy validated build to cPanel
+        shell: bash
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_PORT: ${{ secrets.CPANEL_PORT }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+        run: |
+          set -euo pipefail
+          CPANEL_PORT="${CPANEL_PORT:-22133}"
+          REMOTE_DIR="/home/$CPANEL_USER/public_html/university"
+          ssh -i ~/.ssh/cpanel_deploy_key -p "$CPANEL_PORT" \
+            -o BatchMode=yes "$CPANEL_USER@$CPANEL_HOST" \
+            "test -d '$REMOTE_DIR' && test -w '$REMOTE_DIR'"
+          rsync -az --itemize-changes \
+            --exclude='.htaccess' \
+            -e "ssh -i ~/.ssh/cpanel_deploy_key -p $CPANEL_PORT -o BatchMode=yes" \
+            dist/ "$CPANEL_USER@$CPANEL_HOST:$REMOTE_DIR/"
+          echo "Deployment copy completed. Existing files not present in dist were preserved."
