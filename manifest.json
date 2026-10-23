@@ -1,0 +1,22 @@
+{
+  "name": "MITS Madanapalle",
+  "short_name": "MITS",
+  "description": "Madanapalle Institute of Technology & Science - NAAC A+ Deemed University",
+  "start_url": "/university/",
+  "scope": "/university/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#b30000",
+  "icons": [
+    {
+      "src": "/university/mits-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/university/mits-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+# Correct MIME type for web manifest
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+</IfModule>
+
+# Prevent browser caching of index.html so fresh JS bundles load instantly
+<IfModule mod_headers.c>
+  Header always unset Content-Security-Policy
+  Header always set Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; img-src 'self' data: blob: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https:;"
+  
+  <FilesMatch "^(index\.html)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>
+
+# BrowserRouter support — rewrite all non-file requests to index.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /university/
+
+  # Skip real files and manifest — but NOT directories (BrowserRouter routes look like dirs)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !\.webmanifest$
+
+  # Rewrite everything else (including directory-like routes) to index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
