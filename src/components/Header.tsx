@@ -137,14 +137,14 @@ const Header = () => {
       <div className="bg-white border-b border-border shadow-sm">
         <div className="w-full flex items-center justify-between min-h-16 lg:min-h-20 px-2 sm:px-4 md:px-6 py-2 gap-2 sm:gap-3">
           {/* Logo */}
-          <Link to="/" className="flex items-center min-w-0 shrink-0" onClick={() => setMobileOpen(false)}>
+          <Link to="/" className="flex items-center min-w-0 shrink" onClick={() => setMobileOpen(false)}>
             <img
               src={`${import.meta.env.BASE_URL}mits-official-logo.png`}
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).src = `${import.meta.env.BASE_URL}mits-logo.png`;
               }}
               alt="MITS Madanapalle official logo"
-              className="h-12 sm:h-14 md:h-16 lg:h-[76px] w-auto max-w-[270px] sm:max-w-[330px] md:max-w-[390px] object-contain shrink-0"
+              className="h-9 min-[400px]:h-11 sm:h-14 md:h-16 lg:h-[76px] w-auto max-w-[170px] min-[360px]:max-w-[200px] min-[400px]:max-w-[250px] sm:max-w-[330px] md:max-w-[390px] object-contain shrink"
             />
             <span className="sr-only">MITS Madanapalle Home</span>
           </Link>
@@ -222,20 +222,20 @@ const Header = () => {
           </nav>
 
           {/* Right: Search + Apply + Mobile toggle */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto lg:ml-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0 ml-auto lg:ml-0">
             <HeaderSearchBar variant="navbar" className="hidden lg:flex" />
-            <Link to="/admissions">
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-sm px-4 sm:px-5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg">
+            <Link to="/admissions" className="shrink-0">
+              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-xs sm:text-sm px-2.5 sm:px-5 h-8 sm:h-9 rounded-full transition-all duration-200 shadow-md hover:shadow-lg shrink-0">
                 Apply Now
               </Button>
             </Link>
-            <HeaderSearchBar variant="navbar" className="lg:hidden" />
+            <HeaderSearchBar variant="navbar" className="lg:hidden shrink-0" />
             <button
-              className="xl:hidden text-secondary hover:text-primary transition-colors p-1"
+              className="xl:hidden text-secondary hover:text-primary transition-colors p-1.5 rounded-md hover:bg-slate-100 shrink-0"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle Menu"
             >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
         </div>
