@@ -138,39 +138,24 @@ const DepartmentPage = () => {
 
   const currentSidebarItems = useMemo(() => {
     const items: SidebarItem[] = [];
-    const isPgOnlyDept = deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18" || deptKey === "mba" || deptKey === "management-studies" || deptKey === "5";
     sidebarItems.forEach(item => {
       if (item.id === "under-graduate") {
-        if (isPgOnlyDept) {
-          if (pgData) {
-            items.push({
-              id: "post-graduate",
-              label: "Post Graduate",
-              icon: GraduationCap,
-              subItems: pgData.subTabs || [
-                { id: "obe", label: "OBE" },
-                { id: "timetable", label: "Timetables" }
-              ]
-            });
-          }
-        } else {
+        items.push({
+          ...item,
+          subItems: ugData.subTabs || [
+            { id: "ug", label: "UG" },
+            { id: "course-syllabus", label: "Course Syllabus" },
+          ]
+        });
+        if (pgData) {
           items.push({
-            ...item,
-            subItems: ugData.subTabs || [
-              { id: "ug", label: "UG" },
-              { id: "course-syllabus", label: "Course Syllabus" },
+            id: "post-graduate",
+            label: "Post Graduate",
+            icon: GraduationCap,
+            subItems: pgData.subTabs || [
+              { id: "pg-course-syllabus", label: "Course Syllabus" }
             ]
           });
-          if (pgData) {
-            items.push({
-              id: "post-graduate",
-              label: "Post Graduate",
-              icon: GraduationCap,
-              subItems: pgData.subTabs || [
-                { id: "pg-course-syllabus", label: "Course Syllabus" }
-              ]
-            });
-          }
         }
       } else if (item.id === "more") {
         items.push({
@@ -219,6 +204,15 @@ const DepartmentPage = () => {
 
   useEffect(() => {
     setSelectedProfile(null);
+
+    if (deptKey === "bba") {
+      navigate('/department/mba#under-graduate', { replace: true });
+      return;
+    }
+    if (deptKey === "bca") {
+      navigate('/department/mca#under-graduate', { replace: true });
+      return;
+    }
 
     if (!dept && deptKey) {
       navigate('/departments', { replace: true });
@@ -2341,7 +2335,7 @@ const DepartmentPage = () => {
                                 </div>
                                 <div className="flex items-center gap-2 shrink-0">
                                   <span className="px-2.5 py-1 bg-card border border-border text-secondary rounded-full text-xs font-bold">
-                                    {table.title.includes("R20") ? "R20" : "R23"}
+                                    {table.title.includes("R20") ? "R20" : table.title.includes("R26") ? "R26" : "R23"}
                                   </span>
                                   <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold shadow-xs">
                                     Total: {calculateTableCredits(table.rows)} Credits
@@ -2696,12 +2690,22 @@ const DepartmentPage = () => {
                         <div className="grid sm:grid-cols-3 gap-4 pt-4 border-t border-border/60">
                           <div className="bg-muted/20 border border-border/70 rounded-xl p-4">
                             <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider block mb-1">Degree Type</span>
-                            <span className="text-sm font-bold text-secondary">B.Tech (4 Years / 8 Semesters)</span>
+                            <span className="text-sm font-bold text-secondary">
+                              {dept.key === "mba" || deptKey === "mba" || deptKey === "management-studies" || deptKey === "bba"
+                                ? "BBA (3 Years / 6 Semesters)"
+                                : dept.key === "mca" || deptKey === "mca" || deptKey === "computer-applications" || deptKey === "bca"
+                                ? "BCA (3 Years / 6 Semesters)"
+                                : "B.Tech (4 Years / 8 Semesters)"}
+                            </span>
                           </div>
                           <div className="bg-muted/20 border border-border/70 rounded-xl p-4">
                             <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider block mb-1">Regulation</span>
                             <span className="text-sm font-bold text-secondary">
-                              {ugData.syllabusTables?.some(t => t.title.includes("R20")) ? "R23 & R20 Schemes" : "R23 Autonomous Scheme"}
+                              {dept.key === "mba" || dept.key === "mca" || deptKey === "mba" || deptKey === "mca" || deptKey === "bba" || deptKey === "bca"
+                                ? "R26 Autonomous Scheme"
+                                : ugData.syllabusTables?.some(t => t.title.includes("R20"))
+                                ? "R23 & R20 Schemes"
+                                : "R23 Autonomous Scheme"}
                             </span>
                           </div>
                           <div className="bg-muted/20 border border-border/70 rounded-xl p-4">
@@ -2735,12 +2739,34 @@ const DepartmentPage = () => {
                               )}
                               {sec.points && sec.points.length > 0 && (
                                 <ul className="space-y-2">
-                                  {sec.points.map((pt, pIdx) => (
-                                    <li key={pIdx} className="text-muted-foreground text-sm flex gap-2">
-                                      <span className="text-primary font-bold shrink-0">•</span>
-                                      <span className="leading-relaxed">{pt}</span>
-                                    </li>
-                                  ))}
+                                  {sec.points.map((pt, pIdx) => {
+                                    const isLink = pt.includes("https://");
+                                    if (isLink) {
+                                      const parts = pt.split(": https://");
+                                      const label = parts[0];
+                                      const url = "https://" + parts[1];
+                                      return (
+                                        <li key={pIdx} className="text-muted-foreground text-sm flex gap-2 items-center">
+                                          <span className="text-primary font-bold shrink-0">•</span>
+                                          <a
+                                            href={url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="font-semibold text-primary hover:underline inline-flex items-center gap-1.5"
+                                          >
+                                            <span>{label}</span>
+                                            <ExternalLink className="w-3.5 h-3.5" />
+                                          </a>
+                                        </li>
+                                      );
+                                    }
+                                    return (
+                                      <li key={pIdx} className="text-muted-foreground text-sm flex gap-2">
+                                        <span className="text-primary font-bold shrink-0">•</span>
+                                        <span className="leading-relaxed">{pt}</span>
+                                      </li>
+                                    );
+                                  })}
                                 </ul>
                               )}
                             </CardContent>

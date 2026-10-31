@@ -24,8 +24,7 @@ const schools = [
       "Computer Science & Engineering",
       "Computer Science & Technology",
       "Computer Science and Engineering (Cyber Security)",
-      "BCA",
-      "Master of Computer Applications"
+      "Computer Applications (BCA & MCA)"
     ],
     icon: Monitor,
   },
@@ -42,8 +41,7 @@ const schools = [
   {
     name: "School of Management",
     depts: [
-      "BBA",
-      "MBA"
+      "Management Studies (BBA & MBA)"
     ],
     icon: Users,
   }

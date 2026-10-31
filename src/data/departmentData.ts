@@ -2468,8 +2468,8 @@ percentage: "96%", avgPackage: "₹8 LPA", highestPackage: "₹20 LPA", recruite
 
   mca: {
     key: "mca",
-    name: "Master of Computer Applications",
-    shortName: "MCA",
+    name: "Computer Applications",
+    shortName: "Computer Applications",
     established: "2004",
     bannerImage: deptImg("mca"),
     about: "The Department has grown steadily since its inception in 2004 and currently offers a two-year MCA program. The program governed by AICTE, New Delhi, and are affiliated with JNTU Ananthapuramu. The Department is committed to foster value-based education and socially responsible professionalism, contributing to the holistic development of students and society. Its primary objective is to educate and prepare students to become dynamic, competent, and knowledgeable professionals. The Department’s core strengths are excellent academic results, state-of-the-art computer laboratories, well-defined & well-documented academic and administrative processes, and comprehensive student counselling services encompassing both personal and academic guidance.\n\nThe Department was granted UGC Autonomous status in 2014 and has been successfully offering its programs in full compliance with all prescribed requirements. The College Academic Council and the Department’s Board of Studies continuously strive to deliver quality education through a contemporary and industry-oriented curriculum, equipping students with the skills and knowledge required to excel in today’s competitive and dynamic business environment.\n\nThe Department regularly organizes Faculty Development Programs, conferences, seminars, symposiums, and workshops focusing on emerging areas and advanced technologies. Guest lectures are conducted by eminent professors and experienced industry professionals from reputed IT organizations and top-ranked universities. The Department has an excellent placement record, with all eligible and competent students securing positions in renowned national and international organizations. Maintaining global standards in teaching and learning, achieving consistent placement success, and recording 100% admissions year after year are the hallmark achievements of the Department.\n\nThe M.C.A. program offered by the Department of Computer Applications is accredited by the National Board of Accreditation (NBA) under the All India Council for Technical Education (AICTE)",
@@ -2488,7 +2488,7 @@ percentage: "96%", avgPackage: "₹8 LPA", highestPackage: "₹20 LPA", recruite
     hod: { name: "Dr. N. Naveen Kumar", designation: "Professor & Head", qualification: "Ph.D. (S V University, Tirupathi)", image: "https://mits.ac.in/public/uploads/faculty/Naveen Kumar.JPG", profileUrl: "https://mits.ac.in/facultyprofile/254" },
     achievements: { consultancyAmount: "₹6+ Lakhs", researchProjects: "6+", patents: "4+", publications: "90+" },
     teachingApproach: { description: "Outcome-based teaching with industry projects, case studies, and research-oriented labs.", points: ["Industry-oriented mini and major projects", "Hands-on training in full-stack and enterprise development", "Research paper and patent mentoring", "Guest lectures from IT professionals", "Internship-integrated learning"] },
-    courses: ["Master of Computer Applications"],
+    courses: ["BCA", "MCA"],
     contactInfo: { email: "mcahod@mits.ac.in", phone: "+91-8571-280255" },
     faculty: [
       /*
@@ -2584,8 +2584,8 @@ percentage: "95%", avgPackage: "₹8 LPA", highestPackage: "₹14 LPA", recruite
 
   mba: {
     key: "mba",
-    name: "MBA",
-    shortName: "MBA",
+    name: "Management Studies",
+    shortName: "Management Studies",
     established: "2004",
     bannerImage: deptImg("mba"),
     about: "The Department offers a full time M.B.A. programme affiliated to JNTUA, Anantapur governed by AICTE. The programme was started in the year 2004 with a very good infrastructure and an environment that is conducive for learning. It has been a hub of innovative activities and is constantly on the look out for the opportunities to collaborate with the industry as well as the educational institutions around the globe. The specializations offered are HR, Marketing, Systems and Finance.\n\nThe Department has obtained UGC-Autonomous Status in the year 2014 and is running the programme successfully by meeting all the requirements. The College Academic Council, Board of Studies of the department strive to provide quality education with the most advanced curriculum to make the students industry ready and excel in the contemporary business world.\n\nThe M.B.A. Programme under the Department of Management Studies was accredited by the National Board of Accreditation (NBA) of All India Council for Technical Education (AICTE).",
@@ -2600,7 +2600,7 @@ percentage: "95%", avgPackage: "₹8 LPA", highestPackage: "₹14 LPA", recruite
     hod: { name: "Dr. Bhanu Sree Reddy", designation: "Professor & Dean-School of Management", qualification: "Ph.D. (Sri Venkateswara University)", image: "https://mits.ac.in/public/uploads/faculty/Bhanu Sree Reddy.JPG", profileUrl: "https://mits.ac.in/facultyprofile/701" },
     achievements: { consultancyAmount: "₹5+ Lakhs", researchProjects: "4+", patents: "0", publications: "50+" },
     teachingApproach: { description: "Case-study based pedagogy with industry mentorship and live consulting projects.", points: ["Harvard case study methodology", "Industry mentorship programs", "Business simulation exercises", "National case competitions", "Live consulting projects"] },
-    courses: ["MBA"],
+    courses: ["BBA", "MBA"],
     contactInfo: { email: "mbahod@mits.ac.in", phone: "+91-8571-280255" },
     faculty: [
       /*
@@ -2851,115 +2851,6 @@ percentage: "N/A", avgPackage: "N/A", highestPackage: "N/A", recruiters: []
     ],
   },
 
-  bba: {
-    key: "bba",
-    name: "BBA",
-    shortName: "BBA",
-    established: "2020",
-    bannerImage: deptImg("bba"),
-    isUnderUpdate: true,
-    about: "The Department of Business Administration (BBA) provides foundational business, leadership, and management education aligned with contemporary industry requirements.",
-    vision: "To develop ethically grounded, innovative business leaders and entrepreneurs equipped for the dynamic global economy.",
-    mission: [
-      "To provide high quality undergraduate business management education with practical application.",
-      "To foster analytical, leadership, and entrepreneurial capabilities through experiential learning."
-    ],
-    nbaAccredited: false,
-    hod: {
-      name: "Dr. P. Bhanu Sree Reddy",
-      designation: "Professor & Dean, Management Studies",
-      qualification: "Ph.D.",
-      image: "https://mits.ac.in/public/uploads/faculty/Dr. P. Bhanu Sree Reddy.JPG",
-      profileUrl: "https://mits.ac.in/facultyprofile/339"
-    },
-    achievements: {
-      consultancyAmount: "N/A",
-      researchProjects: "N/A",
-      patents: "N/A",
-      publications: "N/A"
-    },
-    teachingApproach: {
-      description: "Interactive case studies, industry seminars, and practical management exercises.",
-      points: ["Case study analysis", "Business presentations", "Industry interactions"]
-    },
-    courses: ["BBA"],
-    contactInfo: {
-      email: "bbahod@mits.ac.in",
-      phone: "+91-8571-280255"
-    },
-    faculty: [],
-    detailedAchievements: [],
-    facilities: [],
-    patents: [],
-    publications: [],
-    consultancy: [],
-    events: [],
-    mous: [],
-    placement: {
-      percentage: "N/A",
-      avgPackage: "N/A",
-      highestPackage: "N/A",
-      recruiters: []
-    },
-    studentProjects: [],
-    subjects: [],
-    documents: []
-  },
-
-  bca: {
-    key: "bca",
-    name: "BCA",
-    shortName: "BCA",
-    established: "2020",
-    bannerImage: deptImg("bca"),
-    isUnderUpdate: true,
-    about: "The Department of Computer Applications (BCA) provides foundational and advanced education in computer applications, programming, and software systems.",
-    vision: "To deliver top quality computing education and foster skilled software professionals capable of meeting IT industry challenges.",
-    mission: [
-      "To impart comprehensive knowledge of software development, web applications, and database management.",
-      "To cultivate practical problem-solving skills and professional ethics in future computer specialists."
-    ],
-    nbaAccredited: false,
-    hod: {
-      name: "Dr. N. Naveen Kumar",
-      designation: "Assoc. Professor & Head",
-      qualification: "Ph.D.",
-      image: "https://mits.ac.in/public/uploads/faculty/Dr. N. Naveen Kumar.JPG",
-      profileUrl: "https://mits.ac.in/facultyprofile/272"
-    },
-    achievements: {
-      consultancyAmount: "N/A",
-      researchProjects: "N/A",
-      patents: "N/A",
-      publications: "N/A"
-    },
-    teachingApproach: {
-      description: "Hands-on software development laboratory sessions and practical computing projects.",
-      points: ["Practical programming labs", "Project-based learning", "Industry tool workshops"]
-    },
-    courses: ["BCA"],
-    contactInfo: {
-      email: "bcahod@mits.ac.in",
-      phone: "+91-8571-280255"
-    },
-    faculty: [],
-    detailedAchievements: [],
-    facilities: [],
-    patents: [],
-    publications: [],
-    consultancy: [],
-    events: [],
-    mous: [],
-    placement: {
-      percentage: "N/A",
-      avgPackage: "N/A",
-      highestPackage: "N/A",
-      recruiters: []
-    },
-    studentProjects: [],
-    subjects: [],
-    documents: []
-  },
 };
 
 // Helper to get all department keys
@@ -2974,6 +2865,8 @@ export const getDepartmentByKey = (key: string): DepartmentData | undefined => {
   if (key === "civil" || key === "ce" || key === "6") return departmentsData.ce;
   if (key === "eee" || key === "electrical-electronics-engineering" || key === "electrical-and-electronics-engineering" || key === "ee" || key === "2") return departmentsData.eee;
   if (key === "cst" || key === "4") return departmentsData.cst;
+  if (key === "mba" || key === "management-studies" || key === "bba" || key === "5") return departmentsData.mba;
+  if (key === "mca" || key === "computer-applications" || key === "bca" || key === "18") return departmentsData.mca;
   return undefined;
 };
 
@@ -3873,10 +3766,10 @@ export const mbaPostGraduateData: PostGraduateData = {
  * Returns postgraduate program and syllabus data for any department.
  */
 export function getDepartmentPostGraduate(deptKey: string): PostGraduateData | undefined {
-  if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "5") {
+  if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "bba" || deptKey === "5") {
     return mbaPostGraduateData;
   }
-  if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+  if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "bca" || deptKey === "18") {
     return mcaPostGraduateData;
   }
   if (deptKey === "cse") {
@@ -5856,10 +5749,273 @@ export const eceUnderGraduateData: UnderGraduateData = {
   ]
 };
 
+
+export const mbaUnderGraduateData: UnderGraduateData = {
+  programTitle: "Bachelor of Business Administration (BBA)",
+  programOverview:
+    "The Department of Management Studies offers a comprehensive 3-year undergraduate Bachelor of Business Administration (BBA) programme. Designed under the autonomous R26 curriculum framework of MITS - Deemed to be University, the programme develops ethically grounded, innovative business leaders and entrepreneurs equipped for the dynamic global economy. The curriculum delivers strong fundamentals in management principles, financial accounting, marketing, organizational behavior, business analytics, human resource management, and strategic decision-making, complemented by Harvard case-study pedagogy, corporate seminars, and industry internships.",
+  subTabs: [
+    { id: "ug", label: "UG" },
+    { id: "course-syllabus", label: "Course Syllabus" },
+    { id: "timetable", label: "Timetable" }
+  ],
+  sections: [
+    {
+      title: "Curriculum & Specializations",
+      description:
+        "The BBA curriculum provides students with a solid foundation in core business concepts followed by specialized elective tracks in Marketing Management, Financial Management, Human Resource Management, and Business Analytics. Practical projects, business simulation games, and field studies ensure strong corporate readiness.",
+      points: [
+        "Interactive case study analysis and business presentations",
+        "Functional specializations in Marketing, Finance, HR, and Analytics",
+        "Mandatory summer internships with leading corporate organizations",
+        "Skill-oriented courses in Advanced Excel, Python for Business, and Soft Skills"
+      ]
+    },
+    {
+      title: "Pedagogy & Industry Exposure",
+      description:
+        "Learning at the Department of Management Studies combines classroom discussions with real-world business challenges. Regular industrial visits, management fest (Man-Meets), guest lectures by industry executives, and entrepreneurship incubation support empower students to emerge as confident managers and visionary entrepreneurs."
+    },
+    {
+      title: "Official Academic Documents",
+      points: [
+        "Course Structure & Syllabi (R26): https://mits.ac.in/public/uploads/ugc/BBA%20-%20R26%20MITS%20DTBU-1.pdf",
+        "Academic Regulations (R26): https://mits.ac.in/public/uploads/ugc/BBA%20R26_AR_28.8.26.pdf",
+        "Academic Calendar 2026-27: https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/4.%20Academic%20Calendar%202026-27%20For%20BBA%20I%20Year%20I%20&%20II%20Semesters.pdf"
+      ]
+    }
+  ],
+  timeTables: [
+    {
+      groupTitle: "Academic Year 2026-27 Timetables",
+      items: [
+        {
+          title: "BBA I Year (I & II Semesters) Class Timetable 2026-27",
+          pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/4.%20Academic%20Calendar%202026-27%20For%20BBA%20I%20Year%20I%20&%20II%20Semesters.pdf",
+          academicYear: "2026-27",
+          category: "Class Time Table"
+        }
+      ]
+    }
+  ],
+  syllabusTables: [
+    {
+      title: "BBA First Year I Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Principles of Management", type: "Theory", credits: "3" },
+        { sno: "2", name: "Business Economics", type: "Theory", credits: "3" },
+        { sno: "3", name: "Financial Accounting for Managers", type: "Theory", credits: "3" },
+        { sno: "4", name: "Business Communication", type: "Theory", credits: "2" },
+        { sno: "5", name: "IT Applications for Business", type: "Theory", credits: "3" },
+        { sno: "6", name: "Business Communication Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "IT Applications Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "8", name: "Universal Human Values and Ethics", type: "Theory", credits: "2" }
+      ]
+    },
+    {
+      title: "BBA First Year II Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Organizational Behaviour", type: "Theory", credits: "3" },
+        { sno: "2", name: "Business Statistics & Quantitative Techniques", type: "Theory", credits: "3" },
+        { sno: "3", name: "Marketing Management", type: "Theory", credits: "3" },
+        { sno: "4", name: "Cost and Management Accounting", type: "Theory", credits: "3" },
+        { sno: "5", name: "Business Environment and Corporate Governance", type: "Theory", credits: "3" },
+        { sno: "6", name: "Spreadsheet Modeling for Business Lab", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Soft Skills & Personality Development Lab", type: "Lab", credits: "1.5" }
+      ]
+    },
+    {
+      title: "BBA Second Year I Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Financial Management", type: "Theory", credits: "3" },
+        { sno: "2", name: "Human Resource Management", type: "Theory", credits: "3" },
+        { sno: "3", name: "Production and Operations Management", type: "Theory", credits: "3" },
+        { sno: "4", name: "Research Methodology in Management", type: "Theory", credits: "3" },
+        { sno: "5", name: "Business Analytics Fundamentals", type: "Theory", credits: "3" },
+        { sno: "6", name: "Business Analytics & Data Visualization Lab", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Summer Internship-I Evaluation", type: "Project", credits: "2" }
+      ]
+    },
+    {
+      title: "BBA Second Year II Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Business Law and Legal Framework", type: "Theory", credits: "3" },
+        { sno: "2", name: "Digital Marketing and E-Commerce", type: "Theory", credits: "3" },
+        { sno: "3", name: "Elective - I (Marketing / Finance / HR / Analytics)", type: "Theory", credits: "3" },
+        { sno: "4", name: "Elective - II (Marketing / Finance / HR / Analytics)", type: "Theory", credits: "3" },
+        { sno: "5", name: "Entrepreneurship and New Venture Planning", type: "Theory", credits: "3" },
+        { sno: "6", name: "Employability & Interview Skills Lab", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Community Service Project / Field Study", type: "Project", credits: "2" }
+      ]
+    },
+    {
+      title: "BBA Third Year I Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Strategic Management", type: "Theory", credits: "3" },
+        { sno: "2", name: "International Business Management", type: "Theory", credits: "3" },
+        { sno: "3", name: "Elective - III (Specialization)", type: "Theory", credits: "3" },
+        { sno: "4", name: "Elective - IV (Specialization)", type: "Theory", credits: "3" },
+        { sno: "5", name: "Interdisciplinary Open Elective", type: "Theory", credits: "3" },
+        { sno: "6", name: "Industry Internship Phase-I", type: "Project", credits: "3" }
+      ]
+    },
+    {
+      title: "BBA Third Year II Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Innovation, Incubation & Enterprise Development", type: "Theory", credits: "3" },
+        { sno: "2", name: "Elective - V (Specialization)", type: "Theory", credits: "3" },
+        { sno: "3", name: "Elective - VI (Specialization)", type: "Theory", credits: "3" },
+        { sno: "4", name: "Comprehensive Project Work & Viva-Voce", type: "Project", credits: "8" }
+      ]
+    }
+  ]
+};
+
+export const mcaUnderGraduateData: UnderGraduateData = {
+  programTitle: "Bachelor of Computer Applications (BCA)",
+  programOverview:
+    "The Department of Computer Applications offers a future-ready 3-year undergraduate Bachelor of Computer Applications (BCA) programme. Formulated under the autonomous R26 scheme of MITS - Deemed to be University, the programme delivers comprehensive foundational and specialized education in computer science, programming methodologies, software development, database design, web and mobile technologies, cloud computing, and emerging digital innovations. Equipped with state-of-the-art computer laboratories, the BCA program prepares students for rewarding careers across global software industries and higher studies.",
+  subTabs: [
+    { id: "ug", label: "UG" },
+    { id: "course-syllabus", label: "Course Syllabus" },
+    { id: "timetable", label: "Timetable" }
+  ],
+  sections: [
+    {
+      title: "Curriculum & Technical Competencies",
+      description:
+        "The BCA curriculum is structured to bridge conceptual computer science with practical application engineering. Students gain intensive hands-on mastery in programming languages, object-oriented software design, full-stack web applications, cloud deployment, and database administration.",
+      points: [
+        "Core languages: Problem Solving using C, C++, Java, and Python",
+        "Full-Stack Web Development: HTML5, CSS3, JavaScript, React, and Node.js",
+        "Enterprise Database Systems: Relational (MySQL, Oracle) and NoSQL (MongoDB)",
+        "Modern Paradigms: Cloud Computing, DevOps, Cyber Security, and AI/ML basics",
+        "Industry capstone development projects and internships"
+      ]
+    },
+    {
+      title: "Laboratories & Infrastructure",
+      description:
+        "Department features high-configuration computer laboratories with dedicated internet connectivity, industry software tools, cloud sandbox environments, and collaborative development centers where students build production-grade applications."
+    },
+    {
+      title: "Official Academic Documents",
+      points: [
+        "Course Structure & Syllabi (R26): https://mits.ac.in/public/uploads/ugc/BCA%20-%20R26%20MITS%20DTBU-1.pdf",
+        "Academic Regulations (R26): https://mits.ac.in/public/uploads/ugc/BCA%20R26_AR_05.09.2026.pdf",
+        "Academic Calendar 2026-27: https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/3.%20Academic%20Calendar%202026-27%20For%20BCA%20I%20Year%20I%20&%20II%20Semesters.pdf"
+      ]
+    }
+  ],
+  timeTables: [
+    {
+      groupTitle: "Academic Year 2026-27 Timetables",
+      items: [
+        {
+          title: "BCA I Year (I & II Semesters) Class Timetable 2026-27",
+          pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/3.%20Academic%20Calendar%202026-27%20For%20BCA%20I%20Year%20I%20&%20II%20Semesters.pdf",
+          academicYear: "2026-27",
+          category: "Class Time Table"
+        }
+      ]
+    }
+  ],
+  syllabusTables: [
+    {
+      title: "BCA First Year I Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Problem Solving and Programming in C", type: "Theory", credits: "3" },
+        { sno: "2", name: "Mathematical Foundations of Computer Science", type: "Theory", credits: "3" },
+        { sno: "3", name: "Computer Organization and Digital Logic", type: "Theory", credits: "3" },
+        { sno: "4", name: "Communicative English", type: "Theory", credits: "2" },
+        { sno: "5", name: "C Programming Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "6", name: "IT and Office Automation Workshop", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "English Communication Skills Laboratory", type: "Lab", credits: "1" },
+        { sno: "8", name: "Environmental Studies and Sustainability", type: "Theory", credits: "1" }
+      ]
+    },
+    {
+      title: "BCA First Year II Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Data Structures using C++", type: "Theory", credits: "3" },
+        { sno: "2", name: "Object-Oriented Programming through Java", type: "Theory", credits: "3" },
+        { sno: "3", name: "Discrete Mathematical Structures", type: "Theory", credits: "3" },
+        { sno: "4", name: "Operating Systems Principles", type: "Theory", credits: "3" },
+        { sno: "5", name: "Data Structures Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "6", name: "Java Programming Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Soft Skills and Professional Ethics Lab", type: "Lab", credits: "1" }
+      ]
+    },
+    {
+      title: "BCA Second Year I Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Database Management Systems", type: "Theory", credits: "3" },
+        { sno: "2", name: "Python Programming & Applications", type: "Theory", credits: "3" },
+        { sno: "3", name: "Computer Networks & Data Communications", type: "Theory", credits: "3" },
+        { sno: "4", name: "Software Engineering & Agile Methodologies", type: "Theory", credits: "3" },
+        { sno: "5", name: "Database Management Systems Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "6", name: "Python Programming Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Summer Internship-I Evaluation", type: "Project", credits: "2" }
+      ]
+    },
+    {
+      title: "BCA Second Year II Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Web Technologies & Web Services", type: "Theory", credits: "3" },
+        { sno: "2", name: "Design and Analysis of Algorithms", type: "Theory", credits: "3" },
+        { sno: "3", name: "Cloud Computing Fundamentals", type: "Theory", credits: "3" },
+        { sno: "4", name: "Elective - I (Mobile Application Development / Linux Systems)", type: "Theory", credits: "3" },
+        { sno: "5", name: "Web Technologies Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "6", name: "Cloud and Virtualization Lab", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Mini Project / Full Stack Project", type: "Project", credits: "2" }
+      ]
+    },
+    {
+      title: "BCA Third Year I Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Cyber Security & Information Assurance", type: "Theory", credits: "3" },
+        { sno: "2", name: "Data Science and Machine Learning with Python", type: "Theory", credits: "3" },
+        { sno: "3", name: "Elective - II (Advanced Java & Spring Boot / DevOps Essentials)", type: "Theory", credits: "3" },
+        { sno: "4", name: "Elective - III (UI/UX Design / Internet of Things)", type: "Theory", credits: "3" },
+        { sno: "5", name: "Interdisciplinary Open Elective", type: "Theory", credits: "3" },
+        { sno: "6", name: "Machine Learning & Analytics Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "7", name: "Industry Internship Phase-I", type: "Project", credits: "2" }
+      ]
+    },
+    {
+      title: "BCA Third Year II Semester - R26",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Full-Stack Development with React and Node.js", type: "Theory", credits: "3" },
+        { sno: "2", name: "Elective - IV (Big Data Analytics / Blockchain Fundamentals)", type: "Theory", credits: "3" },
+        { sno: "3", name: "Full-Stack Development Laboratory", type: "Lab", credits: "1.5" },
+        { sno: "4", name: "Major Project Work and Comprehensive Viva-Voce", type: "Project", credits: "8" }
+      ]
+    }
+  ]
+};
+
 export function getDepartmentUnderGraduate(deptKey: string, deptSubjects: Subject[] = []): UnderGraduateData {
   const dept = departmentsData[deptKey];
   if (dept && dept.underGraduate) {
     return dept.underGraduate;
+  }
+  if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "bba" || deptKey === "5") {
+    return mbaUnderGraduateData;
+  }
+  if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "bca" || deptKey === "18") {
+    return mcaUnderGraduateData;
   }
   if (deptKey === "ece" || deptKey === "electronics-communication-engineering" || deptKey === "electronics-and-communication-engineering" || deptKey === "3") {
     return eceUnderGraduateData;
@@ -8594,7 +8750,7 @@ export const mbaMoreData: DepartmentMoreData = {
 };
 
 export function getDepartmentMore(deptKey: string): DepartmentMoreData {
-  if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "5") {
+  if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "bba" || deptKey === "5") {
     return mbaMoreData;
   }
   const dept = departmentsData[deptKey];
@@ -8604,7 +8760,7 @@ export function getDepartmentMore(deptKey: string): DepartmentMoreData {
   if (deptKey === "ece" || deptKey === "electronics-communication-engineering" || deptKey === "electronics-and-communication-engineering" || deptKey === "3") {
     return eceMoreData;
   }
-  if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+  if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "bca" || deptKey === "18") {
     return mcaMoreData;
   }
   if (deptKey === "cst" || deptKey === "computer-science-and-technology" || deptKey === "computer-science-technology" || deptKey === "4") {
@@ -10568,13 +10724,13 @@ export function getDepartmentTopTabs(deptKey: string): DepartmentTopTab[] | unde
   if (dept && dept.topTabs && dept.topTabs.length > 0) {
     return dept.topTabs;
   }
-  if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "5") {
+  if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "bba" || deptKey === "5") {
     return mbaTopTabs;
   }
   if (deptKey === "ece" || deptKey === "electronics-communication-engineering" || deptKey === "electronics-and-communication-engineering" || deptKey === "3") {
     return eceTopTabs;
   }
-  if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "18") {
+  if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "bca" || deptKey === "18") {
     return mcaTopTabs;
   }
   if (deptKey === "cst" || deptKey === "computer-science-and-technology" || deptKey === "computer-science-technology" || deptKey === "4") {

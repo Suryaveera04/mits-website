@@ -72,7 +72,7 @@ const programsByTab: Record<ProgramBucket, SchoolGroup[]> = {
         { name: "Computer Science & Engineering", icon: Cpu, link: "/department/cse" },
         { name: "Computer Science & Technology", icon: Cpu, link: "/department/cst" },
         { name: "Computer Science and Engineering (Cyber Security)", icon: ShieldCheck, link: "/department/csecs" },
-        { name: "BCA", icon: Monitor, link: "/department/bca" },
+        { name: "Bachelor of Computer Applications (BCA)", icon: Monitor, link: "/department/mca" },
       ],
     },
     {
@@ -86,7 +86,7 @@ const programsByTab: Record<ProgramBucket, SchoolGroup[]> = {
     },
     {
       school: "School of Management",
-      courses: [{ name: "BBA", icon: BriefcaseBusiness, link: "/department/bba" }],
+      courses: [{ name: "Bachelor of Business Administration (BBA)", icon: BriefcaseBusiness, link: "/department/mba" }],
     },
   ],
   pg: [
@@ -100,7 +100,7 @@ const programsByTab: Record<ProgramBucket, SchoolGroup[]> = {
       school: "School of Computing",
       courses: [
         { name: "Computer Science and Engineering", icon: Network, link: "/department/cse" },
-        { name: "Master of Computer Applications", icon: Code2, link: "/department/mca" },
+        { name: "Master of Computer Applications (MCA)", icon: Code2, link: "/department/mca" },
       ],
     },
     {
@@ -114,7 +114,7 @@ const programsByTab: Record<ProgramBucket, SchoolGroup[]> = {
     },
     {
       school: "School of Management",
-      courses: [{ name: "MBA", icon: Landmark, link: "/department/mba" }],
+      courses: [{ name: "Master of Business Administration (MBA)", icon: Landmark, link: "/department/mba" }],
     },
   ],
   phd: [
