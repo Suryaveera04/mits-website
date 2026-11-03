@@ -97,7 +97,9 @@ const sidebarItems: SidebarItem[] = [
 ];
 
 const DepartmentPage = () => {
-  const { deptKey } = useParams<{ deptKey: string }>();
+  const { deptKey: rawDeptKey } = useParams<{ deptKey: string }>();
+  const dept = getDepartmentByKey(rawDeptKey || "");
+  const deptKey = dept?.key || (rawDeptKey ? rawDeptKey.toLowerCase().trim() : "");
   const location = useLocation();
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState("about");
@@ -128,7 +130,6 @@ const DepartmentPage = () => {
   const [selectedPlacement, setSelectedPlacement] = useState<CMSPlacement | null>(null);
   const [selectedProject, setSelectedProject] = useState<CMSProject | null>(null);
   const [activeTopTab, setActiveTopTab] = useState<string>("department");
-  const dept = getDepartmentByKey(deptKey || "");
   const ugData = getDepartmentUnderGraduate(deptKey || "", dept?.subjects || []);
   const pgData = getDepartmentPostGraduate(deptKey || "");
   const moreData = getDepartmentMore(deptKey || "");

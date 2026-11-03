@@ -11,12 +11,13 @@
  *   - Accepts:  GET /public_api/<endpoint>?<params>
  *   - Forwards: to https://aicampus.mits.ac.in/mits-cms/backend/public_api/<endpoint>?<params>
  *   - Strips the duplicate Access-Control-Allow-Origin header the CMS sends
- *   - Sets a single clean Access-Control-Allow-Origin: https://mits.edu
+ *   - Sets a single clean Access-Control-Allow-Origin: * (or https://mits.edu)
+ *   - Supports /public_api/all_events.php to aggregate all department events in one call
  */
 
 const CMS_ORIGIN = "https://aicampus.mits.ac.in";
 const CMS_BASE   = "/mits-cms/backend/public_api";
-const ALLOWED_ORIGIN = "https://mits.edu";
+const ALLOWED_ORIGIN = "*";
 
 // AES-128-CBC challenge solver (InfinityFree bot protection)
 async function solveChallenge(html) {
@@ -77,6 +78,67 @@ async function cmsRequest(path) {
   return body2;
 }
 
+const ALL_DEPT_CODES = ["CSE", "CE", "ME", "BSH", "ECE", "EEE", "AI", "AIML", "CSECS", "MCA", "MBA", "CST"];
+const STANDALONE_EVENT_IDS = [48, 33];
+
+async function handleAllEvents() {
+  const eventMap = new Map();
+
+  const results = await Promise.all(
+    ALL_DEPT_CODES.map(async (d) => {
+      try {
+        const text = await cmsRequest(`${CMS_BASE}/events.php?dept=${encodeURIComponent(d)}`);
+        const json = JSON.parse(text);
+        return json.success ? (json.events || []) : [];
+      } catch {
+        return [];
+      }
+    })
+  );
+
+  for (const list of results) {
+    for (const ev of list) {
+      if (ev && typeof ev.id === "number") eventMap.set(ev.id, ev);
+    }
+  }
+
+  await Promise.all(
+    STANDALONE_EVENT_IDS.map(async (id) => {
+      if (!eventMap.has(id)) {
+        try {
+          const text = await cmsRequest(`${CMS_BASE}/event_detail.php?id=${id}`);
+          const json = JSON.parse(text);
+          if (json.success && json.event) {
+            const e = json.event;
+            eventMap.set(id, {
+              id: e.id,
+              title: e.title,
+              date: e.date || e.from_date,
+              from_date: e.from_date,
+              to_date: e.to_date,
+              type: e.type || e.event_type,
+              event_type: e.event_type || e.type,
+              venue: e.venue,
+              department: e.department,
+              description: e.description,
+              poster: e.poster || null,
+            });
+          }
+        } catch {}
+      }
+    })
+  );
+
+  const events = Array.from(eventMap.values()).sort((a, b) => {
+    const da = a.from_date || a.date || "";
+    const db = b.from_date || b.date || "";
+    if (da && db && da !== db) return db.localeCompare(da);
+    return b.id - a.id;
+  });
+
+  return JSON.stringify({ success: true, count: events.length, events });
+}
+
 export default {
   async fetch(request) {
     const url = new URL(request.url);
@@ -104,7 +166,34 @@ export default {
       return new Response("Not Found", { status: 404 });
     }
 
-    const cmsPath = CMS_BASE + url.pathname.slice("/public_api".length) + url.search;
+    const endpoint = url.pathname.slice("/public_api".length);
+
+    // Aggregate all events
+    if (endpoint === "/all_events.php" || (endpoint === "/events.php" && (!url.searchParams.get("dept") || url.searchParams.get("dept") === "all"))) {
+      try {
+        const body = await handleAllEvents();
+        return new Response(body, {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+            "Access-Control-Allow-Credentials": "true",
+            "Cache-Control": "public, max-age=120",
+          },
+        });
+      } catch (err) {
+        return new Response(JSON.stringify({ success: false, error: err.message }), {
+          status: 502,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+            "Access-Control-Allow-Credentials": "true",
+          },
+        });
+      }
+    }
+
+    const cmsPath = CMS_BASE + endpoint + url.search;
 
     try {
       const body = await cmsRequest(cmsPath);

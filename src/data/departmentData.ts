@@ -2858,15 +2858,22 @@ export const getAllDepartmentKeys = () => Object.keys(departmentsData);
 
 // Helper to find department by key
 export const getDepartmentByKey = (key: string): DepartmentData | undefined => {
-  if (departmentsData[key]) return departmentsData[key];
-  if (key === "cse-ds" || key === "csd" || key === "ds") return departmentsData.cseds;
-  if (key === "cse-ai-ml" || key === "cai") return departmentsData.aiml;
-  if (key === "cse-cs" || key === "csc" || key === "cs" || key === "cyber-security" || key === "csec") return departmentsData.csecs;
-  if (key === "civil" || key === "ce" || key === "6") return departmentsData.ce;
-  if (key === "eee" || key === "electrical-electronics-engineering" || key === "electrical-and-electronics-engineering" || key === "ee" || key === "2") return departmentsData.eee;
-  if (key === "cst" || key === "4") return departmentsData.cst;
-  if (key === "mba" || key === "management-studies" || key === "bba" || key === "5") return departmentsData.mba;
-  if (key === "mca" || key === "computer-applications" || key === "bca" || key === "18") return departmentsData.mca;
+  const k = (key || "").toLowerCase().trim();
+  if (departmentsData[k]) return departmentsData[k];
+  if (k === "cse-ds" || k === "csd" || k === "ds" || k === "aids" || k === "cse-aids" || k === "26") return departmentsData.cseds;
+  if (k === "cse-ai-ml" || k === "cai" || k === "ai-ml" || k === "ai&ml") return departmentsData.aiml;
+  if (k === "cse-cs" || k === "csc" || k === "cs" || k === "cyber-security" || k === "csec" || k === "27") return departmentsData.csecs;
+  if (k === "civil" || k === "ce" || k === "civil-engineering" || k === "6") return departmentsData.ce;
+  if (k === "mechanical" || k === "mech" || k === "me" || k === "mechanical-engineering" || k === "8") return departmentsData.me;
+  if (k === "eee" || k === "electrical-electronics-engineering" || k === "electrical-and-electronics-engineering" || k === "ee" || k === "2" || k === "11") return departmentsData.eee;
+  if (k === "ece" || k === "electronics-communication-engineering" || k === "electronics-and-communication-engineering" || k === "ec" || k === "3") return departmentsData.ece;
+  if (k === "cst" || k === "computer-science-technology" || k === "computer-science-and-technology" || k === "4") return departmentsData.cst;
+  if (k === "mca" || k === "computer-applications" || k === "master-of-computer-applications" || k === "18") return departmentsData.mca;
+  if (k === "mba" || k === "mna" || k === "management" || k === "management-studies" || k === "master-of-business-administration" || k === "5") return departmentsData.mba;
+  if (k === "bsh" || k === "basic-sciences" || k === "basic-sciences-humanities" || k === "humanities") return departmentsData.bsh;
+  if (k === "bba") return departmentsData.bba;
+  if (k === "bca") return departmentsData.bca;
+  if (k === "ai" || k === "cse-ai" || k === "28") return departmentsData.ai;
   return undefined;
 };
 

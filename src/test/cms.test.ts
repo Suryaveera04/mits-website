@@ -5,17 +5,12 @@
  * Network calls are mocked so tests run offline / in CI.
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { CMS_CODE, CMS_ALT_CODES, isEventForDepartment } from "@/hooks/useDeptCMSData";
 
 // ── constants mirrored from the hook ────────────────────────────────────────
 const WORKER_URL = "https://mits-cms-proxy.23691a4054.workers.dev/public_api";
 const CMS_BASE   = WORKER_URL;
 const APP_BASENAME = "/university";
-
-const CMS_CODE: Record<string, string> = {
-  cse: "CSE", ce: "CE", civil: "CE", eee: "EEE", me: "MECH",
-  ece: "ECE", ai: "AI", aiml: "AIML", cseds: "CSEDS",
-  csecs: "CSECS", mca: "MCA", mba: "MBA",
-};
 
 // ── helpers (duplicated from hook so tests are self-contained) ───────────────
 function stripPhpWarnings(text: string): string {
@@ -84,13 +79,53 @@ describe("App routing (BrowserRouter)", () => {
 // ── 2. CMS_CODE mapping ──────────────────────────────────────────────────────
 describe("CMS_CODE mapping", () => {
   it("maps all expected department keys", () => {
-    const expected = ["cse", "ce", "civil", "eee", "me", "ece", "ai", "aiml", "cseds", "csecs", "mca", "mba"];
+    const expected = ["cse", "ce", "civil", "eee", "me", "mech", "mechanical", "ece", "ai", "aiml", "cseds", "csecs", "mca", "mba", "mna", "bsh"];
     expected.forEach((k) => expect(CMS_CODE[k]).toBeTruthy());
   });
 
   it("maps cse → CSE", () => expect(CMS_CODE["cse"]).toBe("CSE"));
-  it("maps civil → CE (same as ce)", () => expect(CMS_CODE["civil"]).toBe("CE"));
-  it("maps me → MECH", () => expect(CMS_CODE["me"]).toBe("MECH"));
+  it("maps civil and ce → CE", () => {
+    expect(CMS_CODE["civil"]).toBe("CE");
+    expect(CMS_CODE["ce"]).toBe("CE");
+  });
+  it("maps me, mech, mechanical → ME (CMS backend live query code)", () => {
+    expect(CMS_CODE["me"]).toBe("ME");
+    expect(CMS_CODE["mech"]).toBe("ME");
+    expect(CMS_CODE["mechanical"]).toBe("ME");
+  });
+  it("maps bsh → BSH", () => expect(CMS_CODE["bsh"]).toBe("BSH"));
+  it("maps mca → MCA", () => expect(CMS_CODE["mca"]).toBe("MCA"));
+  it("maps mba and mna → MBA", () => {
+    expect(CMS_CODE["mba"]).toBe("MBA");
+    expect(CMS_CODE["mna"]).toBe("MBA");
+  });
+
+  it("CMS_ALT_CODES includes secondary aliases", () => {
+    expect(CMS_ALT_CODES["me"]).toContain("MECH");
+    expect(CMS_ALT_CODES["ce"]).toContain("CIVIL");
+    expect(CMS_ALT_CODES["bsh"]).toContain("Basic Sciences & Humanities");
+    expect(CMS_ALT_CODES["mca"]).toContain("Computer Applications");
+  });
+});
+
+// ── 2.1 isEventForDepartment ─────────────────────────────────────────────────
+describe("isEventForDepartment", () => {
+  it("correctly identifies MCA event with 'Computer Applications'", () => {
+    expect(isEventForDepartment({ id: 48, title: "Workshop", department: "Computer Applications" }, "mca")).toBe(true);
+  });
+
+  it("correctly identifies Mechanical event with 'MECH'", () => {
+    expect(isEventForDepartment({ id: 49, title: "Mech Expo", department: "MECH" }, "me")).toBe(true);
+  });
+
+  it("correctly identifies Civil event with 'CIVIL'", () => {
+    expect(isEventForDepartment({ id: 29, title: "Earth Day", department: "CIVIL" }, "ce")).toBe(true);
+    expect(isEventForDepartment({ id: 29, title: "Earth Day", department: "CIVIL" }, "civil")).toBe(true);
+  });
+
+  it("correctly identifies BSH event with 'Basic Sciences & Humanities'", () => {
+    expect(isEventForDepartment({ id: 46, title: "Cambridge Event", department: "Basic Sciences & Humanities" }, "bsh")).toBe(true);
+  });
 });
 
 // ── 3. stripPhpWarnings ──────────────────────────────────────────────────────

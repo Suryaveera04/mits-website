@@ -85,7 +85,14 @@ export function useFacultyData() {
    */
   const getFacultyByDept = useCallback(
     (deptKey: string): FacultyMember[] => {
-      const normalizedKey = deptKey.toLowerCase().trim();
+      const rawKey = deptKey.toLowerCase().trim();
+      const normalizedKey =
+        rawKey === "civil" || rawKey === "civil-engineering" ? "ce" :
+        rawKey === "mechanical" || rawKey === "mech" || rawKey === "mechanical-engineering" ? "me" :
+        rawKey === "mna" || rawKey === "management" || rawKey === "management-studies" ? "mba" :
+        rawKey === "computer-applications" ? "mca" :
+        rawKey === "basic-sciences" || rawKey === "basic-sciences-humanities" || rawKey === "humanities" ? "bsh" :
+        rawKey;
       const filtered = facultyList.filter((f) => {
         const mapped = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
         return mapped === normalizedKey;
