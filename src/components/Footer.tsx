@@ -57,7 +57,7 @@ const Footer = () => {
                   Get the details now
                 </Link>
                 <a
-                  href="https://mits.ac.in/public/uploads/static-pdf/MITS%20Deemed%20to%20be%20University%20Brochure%202026.pdf"
+                  href="https://mits.ac.in/public/uploads/static-pdf/MITS%20Deemed%20to%20be%20University%20Brochure%202027.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-4 py-2.5 rounded-md bg-[#b31317] hover:bg-[#990000] text-white text-sm font-bold uppercase tracking-wider transition-colors shadow-sm text-center"
@@ -187,7 +187,7 @@ const Footer = () => {
       </div>
       <div className="border-t border-white/10 py-6">
         <div className="container mx-auto px-4 text-center flex flex-col md:flex-row items-center justify-between gap-2">
-          <p className="font-body text-white/70 text-sm">© 2026 Madanapalle Institute of Technology & Science. All rights reserved.</p>
+          <p className="font-body text-white/70 text-sm">© 2027 Madanapalle Institute of Technology & Science. All rights reserved.</p>
         </div>
       </div>
     </footer>

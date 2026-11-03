@@ -14,7 +14,7 @@ const FloatingAutonomousTab = () => {
       href={ADMISSIONS_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Admissions 2026 - Apply Online"
+      aria-label="Admissions 2027 - Apply Online"
       className="group fixed right-0 top-1/2 z-[60] w-11 -translate-y-1/2 p-2 sm:w-12 lg:w-14 focus:outline-none focus-visible:-translate-x-1 focus-visible:ring-2 focus-visible:ring-white/70"
       style={{
         backgroundColor: "#B30000",
@@ -46,7 +46,7 @@ const FloatingAutonomousTab = () => {
       }}
     >
       <span className="block py-3 text-[13px] sm:py-4 sm:text-sm lg:py-5 lg:text-base font-bold tracking-wide">
-        🎓 Admissions 2026
+        🎓 Admissions 2027
       </span>
     </a>
   );

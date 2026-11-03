@@ -31,7 +31,7 @@ const InternationalAdmissionsProcedure = () => {
         <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
         <div className="relative z-10 container mx-auto px-4 md:px-8 text-center space-y-4">
           <p className="text-[#ffb300] font-bold tracking-[0.2em] uppercase text-sm sm:text-sm">
-            Academic Year 2026-27
+            Academic Year 2027-28
           </p>
           <h1 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
             International <span className="text-[#ffd15c]">Admission Policy</span>

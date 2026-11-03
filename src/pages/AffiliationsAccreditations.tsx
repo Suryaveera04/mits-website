@@ -308,12 +308,12 @@ const AffiliationsAccreditations = () => {
                                 highlight
                               />
                               <PdfLink
-                                title="NIRF 2026 Engineering Data"
-                                url="https://mits.ac.in/public/uploads/scholarship/Engg.NIRF_2026.pdf"
+                                title="NIRF 2027 Engineering Data"
+                                url="https://mits.ac.in/public/uploads/scholarship/Engg.NIRF_2027.pdf"
                               />
                               <PdfLink
-                                title="NIRF 2026 Overall Data"
-                                url="https://mits.ac.in/public/uploads/scholarship/Overall.NIRF_2026.pdf"
+                                title="NIRF 2027 Overall Data"
+                                url="https://mits.ac.in/public/uploads/scholarship/Overall.NIRF_2027.pdf"
                               />
                             </div>
                           </div>

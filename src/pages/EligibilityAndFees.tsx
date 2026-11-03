@@ -81,7 +81,7 @@ const EligibilityAndFees = () => (
         <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
         <div className="relative z-10 container mx-auto px-4 md:px-8 text-center space-y-4">
           <p className="text-[#ffd15c] font-bold tracking-[0.2em] uppercase text-sm sm:text-sm">
-            AY 2026-27 Admissions
+            AY 2027-28 Admissions
           </p>
           <h1 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
             Eligibility &amp; <span className="text-[#ffd15c]">Fee Structure</span>
@@ -173,7 +173,7 @@ const EligibilityAndFees = () => (
                     <span className="text-xs text-slate-300">• Approved by Competent Authority</span>
                   </div>
                   <h3 className="text-base md:text-lg font-bold text-white mt-1">
-                    MITS Deemed to be University Fee Structure (AY 2026-27)
+                    MITS Deemed to be University Fee Structure (AY 2027-28)
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-300 mt-0.5">
                     Download the official notified fee schedule, tuition rules, and scholarship criteria PDF.
@@ -181,7 +181,7 @@ const EligibilityAndFees = () => (
                 </div>
               </div>
               <a
-                href="https://mits.ac.in/assets/pdf/admin/Fee_str_2026-27.pdf"
+                href="https://mits.ac.in/assets/pdf/admin/Fee_str_2027-28.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-md hover:scale-[1.02]"

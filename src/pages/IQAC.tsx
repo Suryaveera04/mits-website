@@ -1016,10 +1016,10 @@ const IQAC = () => {
                       />
                     </div>
 
-                    {/* Official IQAC Action Plan 2026-27 Infographic */}
+                    {/* Official IQAC Action Plan 2027-28 Infographic */}
                     <div className="mt-6 bg-white rounded-2xl border border-[#0f2a44]/10 p-4 md:p-6 shadow-sm">
                       <div className="flex items-center justify-between mb-4">
-                        <h3 className="font-display text-lg font-bold text-[#0f2a44]">IQAC Action Plan 2026-27</h3>
+                        <h3 className="font-display text-lg font-bold text-[#0f2a44]">IQAC Action Plan 2027-28</h3>
                         <a
                           href={actionPlanImg}
                           target="_blank"
@@ -1031,7 +1031,7 @@ const IQAC = () => {
                       </div>
                       <img
                         src={actionPlanImg}
-                        alt="MITS IQAC Action Plan 2026-27"
+                        alt="MITS IQAC Action Plan 2027-28"
                         className="w-full h-auto rounded-xl border border-slate-200"
                         onError={(e) => {
                           (e.currentTarget as HTMLImageElement).style.display = 'none';

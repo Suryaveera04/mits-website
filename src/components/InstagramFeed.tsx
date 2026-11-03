@@ -17,10 +17,10 @@ const PROFILE_URL = `https://www.instagram.com/${USERNAME}/`;
 
 const STATIC_ITEMS: IGItem[] = [
   {
-    id: "ashv-2026",
+    id: "ashv-2027",
     url: PROFILE_URL,
     image: `${import.meta.env.BASE_URL}gallery/ashv(2k26).jpg`,
-    caption: "ASHV 2026 moments from the campus cultural festival",
+    caption: "ASHV 2027 moments from the campus cultural festival",
     date: "",
     isReel: true,
     order: 1,

@@ -118,8 +118,8 @@ export const aqarReportsYearly: Doc[] = [
 
 export const compositionYearly: Doc[] = [
   {
-    title: "Composition of Committee Members for Year 2026-2027",
-    url: "https://mits.ac.in/assets/pdf/iqac/Composition of committee members for Year 2026-2027.pdf",
+    title: "Composition of Committee Members for Year 2027-2028",
+    url: "https://mits.ac.in/assets/pdf/iqac/Composition of committee members for Year 2027-2028.pdf",
     type: "pdf"
   },
   {

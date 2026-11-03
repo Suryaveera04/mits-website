@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const notices = [
-  { title: "Inauguration of AI Learning Hub", body: 'Student Activity Center [SAC] organized "Inauguration of AI Learning Hub" on 26th May 2026.', link: "https://mits.ac.in/public/uploads/sac/Inauguration of AI Learning Hub.pdf", linkText: "Click here for Report on Event" },
-  { title: "28th Annual Day Celebrations 2026", body: "Student Activity Center [SAC] organized the 28th Annual Day Celebrations-2026 for the Academic year 2025-26 at MITS. Date: 18th April 2026", link: "https://mits.ac.in/public/uploads/sac/28th Annual Day Celebrations 2026.pdf", linkText: "Click here for Report on Event" },
+  { title: "Inauguration of AI Learning Hub", body: 'Student Activity Center [SAC] organized "Inauguration of AI Learning Hub" on 26th May 2027.', link: "https://mits.ac.in/public/uploads/sac/Inauguration of AI Learning Hub.pdf", linkText: "Click here for Report on Event" },
+  { title: "28th Annual Day Celebrations 2027", body: "Student Activity Center [SAC] organized the 28th Annual Day Celebrations-2027 for the Academic year 2025-26 at MITS. Date: 18th April 2027", link: "https://mits.ac.in/public/uploads/sac/28th Annual Day Celebrations 2027.pdf", linkText: "Click here for Report on Event" },
   { title: "Workshop", body: 'The MITS Web Club under Student Activity Center (SAC), organized a workshop on "Introduction to Development Environment". Date: 12th September 2025', link: "https://mits.ac.in/public/uploads/sac/Introduction to Development Environment.pdf", linkText: "Click here for Event Details" },
   { title: "Anti-Ragging Logo League", body: "Anti-Ragging Logo League under Skill Bee Club was organized by Student Activity Center & Anti-Ragging Cell at MITS in association with Department of CSE - Data Science. Date: 14th August 2025", link: "", linkText: "" },
   { title: "Anti-Ragging Art Competition", body: "Anti-Ragging Art Competition was organized at MITS in association Arts and Cultural Club. Date: 14th August 2025", link: "", linkText: "" },

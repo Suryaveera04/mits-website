@@ -335,7 +335,7 @@ const Careers = () => {
                     </div>
                     <div className="text-center md:text-right shrink-0">
                       <p className="font-extrabold text-white text-sm sm:text-lg tracking-wider uppercase">
-                        LAST DATE : 15 MAY 2026
+                        LAST DATE : 15 MAY 2027
                       </p>
                     </div>
                   </div>
@@ -379,7 +379,7 @@ const Careers = () => {
                     </div>
                     <div className="text-center md:text-right shrink-0">
                       <p className="font-extrabold text-white text-sm sm:text-lg tracking-wider uppercase">
-                        LAST DATE : 20 MAY 2026
+                        LAST DATE : 20 MAY 2027
                       </p>
                     </div>
                   </div>
@@ -395,13 +395,13 @@ const Careers = () => {
                 <div className="bg-card border border-border rounded-2xl p-6 md:p-8 space-y-6">
                   <div className="text-center space-y-3">
                     <h2 className="font-display text-2xl md:text-3xl font-extrabold text-foreground">
-                      Deans Recruitment Drive for the Academic Year 2026-27
+                      Deans Recruitment Drive for the Academic Year 2027-28
                     </h2>
                     <p className="text-muted-foreground text-sm md:text-sm max-w-4xl mx-auto leading-relaxed text-justify">
                       Madanapalle Institute of Technology &amp; Science (MITS) since its establishment in 1998, has evolved into an Autonomous Institution in 2014 and was conferred Deemed to be University status by Ministry of Education &amp; UGC, New Delhi vide Notification No. 9-1/2025-U.3(A) dated 15th July, 2025. MITS Deemed to be University is poised for exponential growth invites applications from self-motivated, committed and competent academic leaders who can make a difference and add significant value to the University.
                     </p>
                     <p className="text-red-700 dark:text-red-400 font-bold text-sm md:text-sm pt-2">
-                      Applications received for the mentioned positions till 30.04.2026 will be scrutinized and Interviews shall be conducted in the month of May 2026.
+                      Applications received for the mentioned positions till 30.04.2027 will be scrutinized and Interviews shall be conducted in the month of May 2027.
                     </p>
                   </div>
 
@@ -445,7 +445,7 @@ const Careers = () => {
                   {/* Red Notice Box & Contact Card */}
                   <div className="space-y-4 pt-4">
                     <div className="bg-[#8b0000] text-white text-center p-4 rounded-xl font-semibold text-sm md:text-sm shadow-md">
-                      Applications received for the above mentioned positions till 30.04.2026, will be scrutinized and interviews shall be conducted in the month of May 2026. Selected applicants shall be sent offer letters and can join the university on or before 01-07-2026.
+                      Applications received for the above mentioned positions till 30.04.2027, will be scrutinized and interviews shall be conducted in the month of May 2027. Selected applicants shall be sent offer letters and can join the university on or before 01-07-2027.
                     </div>
 
                     <div className="bg-card border-2 border-red-800/40 rounded-xl p-6 text-center space-y-2 shadow-sm">
@@ -472,7 +472,7 @@ const Careers = () => {
                 <div className="bg-card border border-border rounded-2xl p-6 md:p-8 space-y-6">
                   <div className="text-center space-y-3">
                     <h2 className="font-display text-2xl md:text-3xl font-extrabold text-foreground">
-                      Faculty Recruitment Drive for the Academic Year 2026-27
+                      Faculty Recruitment Drive for the Academic Year 2027-28
                     </h2>
                     <p className="text-muted-foreground text-sm md:text-sm max-w-4xl mx-auto leading-relaxed text-justify">
                       Madanapalle Institute of Technology &amp; Science (MITS) since its establishment in 1998, has evolved into an Autonomous Institution in 2014 and was conferred Deemed to be University status by Ministry of Education &amp; UGC, New Delhi vide Notification No. 9-1/2025-U.3(A) dated 15th July, 2025. MITS Deemed to be University is poised for exponential growth invites applications from self-motivated, committed and competent academic leaders who can make a difference and add significant value to the University.

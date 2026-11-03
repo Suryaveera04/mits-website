@@ -95,13 +95,13 @@ const Header = () => {
         <div className="h-9 flex items-center justify-between">
           <div className="flex items-center h-full overflow-hidden flex-1">
             <div className="bg-accent text-accent-foreground font-bold text-sm px-4 h-full flex items-center shrink-0 z-10">
-              🎓 ADMISSIONS 2026
+              🎓 ADMISSIONS 2027
             </div>
             <div className="overflow-hidden flex-1 relative">
               <div className="flex whitespace-nowrap animate-marquee">
                 {[1, 2].map((n) => (
                   <span key={n} className="inline-flex items-center gap-6 px-8 text-sm font-semibold">
-                    <span className="text-accent font-bold tracking-wide">🌟 Admissions for 2026 are NOW OPEN!</span>
+                    <span className="text-accent font-bold tracking-wide">🌟 Admissions for 2027 are NOW OPEN!</span>
                     <span className="text-primary-foreground/60">•</span>
                     <span>Apply today at MITS — Deemed to be University</span>
                     <span className="text-primary-foreground/60">•</span>

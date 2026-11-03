@@ -662,7 +662,7 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
                   <div>
                     <p className="text-sm text-[#caa74d] font-semibold uppercase tracking-wider mb-1">Official</p>
                     <p className="font-display font-bold text-base">Download Brochure</p>
-                    <p className="text-white/60 text-sm mt-0.5">MITS Deemed to be University 2026</p>
+                    <p className="text-white/60 text-sm mt-0.5">MITS Deemed to be University 2027</p>
                   </div>
                   <Download className="w-6 h-6 text-[#caa74d] group-hover:scale-110 transition-transform shrink-0" />
                 </a>

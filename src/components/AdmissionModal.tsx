@@ -57,7 +57,7 @@ export const AdmissionModal = () => {
               <div className="relative overflow-hidden bg-slate-100">
                 <img
                   src="https://mits.ac.in/mitsuniversity.jpg"
-                  alt="MITS Deemed University Admissions 2026-27"
+                  alt="MITS Deemed University Admissions 2027-28"
                   className="w-full h-auto max-h-[75vh] object-contain transition-transform duration-500 group-hover:scale-[1.01]"
                   onError={(e) => {
                     // Fallback if live image fails
@@ -70,7 +70,7 @@ export const AdmissionModal = () => {
             {/* Action Bar */}
             <div className="p-4 bg-gradient-to-r from-slate-900 to-[#0f2a44] flex items-center justify-between gap-4">
               <div>
-                <p className="text-[#ffd15c] font-bold text-sm">Admissions Open 2026-27</p>
+                <p className="text-[#ffd15c] font-bold text-sm">Admissions Open 2027-28</p>
                 <p className="text-white/70 text-xs">MITS Deemed to be University</p>
               </div>
               <div className="flex items-center gap-2">

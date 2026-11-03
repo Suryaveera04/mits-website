@@ -17,13 +17,13 @@ export const NIRF_INSTITUTE_ID = "IR-C-26902";
 
 export const nirfYears: NirfYear[] = [
   {
-    year: "NIRF 2026",
-    key: "2026",
+    year: "NIRF 2027",
+    key: "2027",
     docs: [
-      { title: "Engineering Data", category: "IR-E-C-26902", url: "https://mits.ac.in/public/uploads/scholarship/Engg.NIRF_2026.pdf" },
-      { title: "Overall Data", category: "IR-O-C-26902", url: "https://mits.ac.in/public/uploads/scholarship/Overall.NIRF_2026.pdf" },
-      { title: "Innovation Data", category: "IR-I-C-26902", url: "https://mits.ac.in/public/uploads/scholarship/Innovation.NIRF_2026.pdf" },
-      { title: "Sustainable Institutions Data", category: "IR-B-C-26902", url: "https://mits.ac.in/public/uploads/scholarship/NIRF_SDG_Submission_2026.pdf" },
+      { title: "Engineering Data", category: "IR-E-C-26902", url: "https://mits.ac.in/public/uploads/scholarship/Engg.NIRF_2027.pdf" },
+      { title: "Overall Data", category: "IR-O-C-26902", url: "https://mits.ac.in/public/uploads/scholarship/Overall.NIRF_2027.pdf" },
+      { title: "Innovation Data", category: "IR-I-C-26902", url: "https://mits.ac.in/public/uploads/scholarship/Innovation.NIRF_2027.pdf" },
+      { title: "Sustainable Institutions Data", category: "IR-B-C-26902", url: "https://mits.ac.in/public/uploads/scholarship/NIRF_SDG_Submission_2027.pdf" },
     ],
   },
   {

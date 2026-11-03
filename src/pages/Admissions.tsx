@@ -139,8 +139,8 @@ const Admissions = () => {
     <div className="min-h-screen bg-[#f5f5f5]">
       <Header />
       <SEO
-        title="MITS Admissions 2026 – B.Tech, MBA & MCA | Madanapalle"
-        description="Apply for MITS Madanapalle admissions 2026. B.Tech via AP EAMCET, direct admission for MBA & MCA. NAAC A+ deemed university. 94% placement rate. Apply at admission.mits.ac.in."
+        title="MITS Admissions 2027 – B.Tech, MBA & MCA | Madanapalle"
+        description="Apply for MITS Madanapalle admissions 2027. B.Tech via AP EAMCET, direct admission for MBA & MCA. NAAC A+ deemed university. 94% placement rate. Apply at admission.mits.ac.in."
         canonical="/admissions"
         jsonLd={admissionsFaqSchema}
       />
@@ -173,7 +173,7 @@ const Admissions = () => {
               initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}
               className="inline-flex items-center gap-2 bg-[#b30000] text-white text-sm font-bold tracking-[0.15em] uppercase px-6 py-2.5 rounded-full mb-8 shadow-2xl border border-white/20"
             >
-              🎓 Admissions 2026 — Now Open
+              🎓 Admissions 2027 — Now Open
             </motion.span>
 
             <motion.h1
@@ -203,7 +203,7 @@ const Admissions = () => {
                   Apply Now <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </a>
-              <a href="https://mits.ac.in/public/uploads/static-pdf/MITS%20Deemed%20to%20be%20University%20Brochure%202026.pdf" target="_blank" rel="noreferrer">
+              <a href="https://mits.ac.in/public/uploads/static-pdf/MITS%20Deemed%20to%20be%20University%20Brochure%202027.pdf" target="_blank" rel="noreferrer">
                 <Button variant="outline" className="border-2 border-white text-white bg-white/15 hover:bg-white hover:text-[#0f2a44] font-bold px-8 py-3 text-base rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105">
                   <Download className="mr-2 w-5 h-5" /> Download Brochure
                 </Button>
@@ -512,7 +512,7 @@ const Admissions = () => {
                 Start Your Journey<br />at MITS
               </h2>
               <p className="text-white/75 text-xl max-w-2xl mx-auto mb-10">
-                Join thousands of students who chose MITS to build their careers. Applications for 2026 are open — don't miss your chance.
+                Join thousands of students who chose MITS to build their careers. Applications for 2027 are open — don't miss your chance.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a href="https://admission.mits.ac.in/" target="_blank" rel="noreferrer">

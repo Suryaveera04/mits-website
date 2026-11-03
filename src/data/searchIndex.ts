@@ -191,12 +191,12 @@ const coreWebsiteItems: SearchItem[] = [
   // Admissions & Fees
   {
     id: "admissions-main",
-    title: "Admissions 2026 - Apply Online",
+    title: "Admissions 2027 - Apply Online",
     category: "Admissions & Fees",
-    description: "Admissions process for B.Tech, M.Tech, MBA, MCA, and Ph.D. programs for the academic year 2026.",
+    description: "Admissions process for B.Tech, M.Tech, MBA, MCA, and Ph.D. programs for the academic year 2027.",
     href: "/admissions",
-    tags: ["admissions", "apply online", "admission 2026", "btech admission", "mtech", "mba", "mca", "enrollment", "seats"],
-    metaBadge: "Admissions 2026",
+    tags: ["admissions", "apply online", "admission 2027", "btech admission", "mtech", "mba", "mca", "enrollment", "seats"],
+    metaBadge: "Admissions 2027",
   },
   {
     id: "admissions-national",
@@ -229,7 +229,7 @@ const coreWebsiteItems: SearchItem[] = [
     id: "admissions-portal",
     title: "Official Online Admission Application Portal",
     category: "Admissions & Fees",
-    description: "Direct online application portal for registering and applying for 2026 admissions at MITS.",
+    description: "Direct online application portal for registering and applying for 2027 admissions at MITS.",
     href: "https://admission.mits.ac.in/",
     isExternal: true,
     tags: ["admission portal", "apply now", "application form", "registration", "online application", "admission link"],
@@ -934,7 +934,7 @@ export function searchWebsite(
 
 // Popular / Trending search suggestions
 export const popularSearchSuggestions = [
-  "Admissions 2026",
+  "Admissions 2027",
   "Fee Structure",
   "Placement Statistics",
   "Computer Science (CSE)",

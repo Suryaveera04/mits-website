@@ -5788,16 +5788,16 @@ export const mbaUnderGraduateData: UnderGraduateData = {
       points: [
         "Course Structure & Syllabi (R26): https://mits.ac.in/public/uploads/ugc/BBA%20-%20R26%20MITS%20DTBU-1.pdf",
         "Academic Regulations (R26): https://mits.ac.in/public/uploads/ugc/BBA%20R26_AR_28.8.26.pdf",
-        "Academic Calendar 2026-27: https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/4.%20Academic%20Calendar%202026-27%20For%20BBA%20I%20Year%20I%20&%20II%20Semesters.pdf"
+        "Academic Calendar 2027-28: https://mits.ac.in/public/uploads/Academic-Calendars-2027-28/4.%20Academic%20Calendar%202027-28%20For%20BBA%20I%20Year%20I%20&%20II%20Semesters.pdf"
       ]
     }
   ],
   timeTables: [
     {
-      groupTitle: "Academic Year 2026-27 Timetables",
+      groupTitle: "Academic Year 2027-28 Timetables",
       items: [
         {
-          title: "BBA I Year (I & II Semesters) Class Timetable 2026-27",
+          title: "BBA I Year (I & II Semesters) Class Timetable 2027-28",
           pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/4.%20Academic%20Calendar%202026-27%20For%20BBA%20I%20Year%20I%20&%20II%20Semesters.pdf",
           academicYear: "2026-27",
           category: "Class Time Table"
@@ -5916,16 +5916,16 @@ export const mcaUnderGraduateData: UnderGraduateData = {
       points: [
         "Course Structure & Syllabi (R26): https://mits.ac.in/public/uploads/ugc/BCA%20-%20R26%20MITS%20DTBU-1.pdf",
         "Academic Regulations (R26): https://mits.ac.in/public/uploads/ugc/BCA%20R26_AR_05.09.2026.pdf",
-        "Academic Calendar 2026-27: https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/3.%20Academic%20Calendar%202026-27%20For%20BCA%20I%20Year%20I%20&%20II%20Semesters.pdf"
+        "Academic Calendar 2027-28: https://mits.ac.in/public/uploads/Academic-Calendars-2027-28/3.%20Academic%20Calendar%202027-28%20For%20BCA%20I%20Year%20I%20&%20II%20Semesters.pdf"
       ]
     }
   ],
   timeTables: [
     {
-      groupTitle: "Academic Year 2026-27 Timetables",
+      groupTitle: "Academic Year 2027-28 Timetables",
       items: [
         {
-          title: "BCA I Year (I & II Semesters) Class Timetable 2026-27",
+          title: "BCA I Year (I & II Semesters) Class Timetable 2027-28",
           pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/3.%20Academic%20Calendar%202026-27%20For%20BCA%20I%20Year%20I%20&%20II%20Semesters.pdf",
           academicYear: "2026-27",
           category: "Class Time Table"
@@ -7770,7 +7770,7 @@ export const mcaMoreData: DepartmentMoreData = {
     groupTitle: "Department Committees",
     documents: [
       {
-        title: "Various Committee's for the Academic Year 2026-27",
+        title: "Various Committee's for the Academic Year 2027-28",
         url: "https://mits.ac.in/assets/pdf/ca/Department%20Commitee%202026-2027.pdf"
       },
       {

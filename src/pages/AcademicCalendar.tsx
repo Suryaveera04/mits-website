@@ -19,23 +19,23 @@ interface CalendarItem {
 const ugCalendars: CalendarItem[] = [
   {
     sno: 5,
-    title: "Academic Calendar 2026-27 For B.Tech I Year I & II Semesters",
-    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/5.%20Academic%20Calendar%202026-27%20For%20B.Tech%20I%20Year%20I%20&%20II%20Semesters.pdf",
+    title: "Academic Calendar 2027-28 For B.Tech I Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2027-28/5.%20Academic%20Calendar%202026-27%20For%20B.Tech%20I%20Year%20I%20&%20II%20Semesters.pdf",
   },
   {
     sno: 4,
-    title: "Academic Calendar 2026-27 For BBA I Year I & II Semesters",
-    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/4.%20Academic%20Calendar%202026-27%20For%20BBA%20I%20Year%20I%20&%20II%20Semesters.pdf",
+    title: "Academic Calendar 2027-28 For BBA I Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2027-28/4.%20Academic%20Calendar%202026-27%20For%20BBA%20I%20Year%20I%20&%20II%20Semesters.pdf",
   },
   {
     sno: 3,
-    title: "Academic Calendar 2026-27 For BCA I Year I & II Semesters",
-    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/3.%20Academic%20Calendar%202026-27%20For%20BCA%20I%20Year%20I%20&%20II%20Semesters.pdf",
+    title: "Academic Calendar 2027-28 For BCA I Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2027-28/3.%20Academic%20Calendar%202026-27%20For%20BCA%20I%20Year%20I%20&%20II%20Semesters.pdf",
   },
   {
     sno: 2,
-    title: "Academic Calendar 2026-27 For B.Tech II Year I & II Semesters",
-    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/2.%20Academic%20Calendar%202026-27%20For%20B.Tech%20II%20Year%20I%20&%20II%20Semesters.pdf",
+    title: "Academic Calendar 2027-28 For B.Tech II Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2027-28/2.%20Academic%20Calendar%202026-27%20For%20B.Tech%20II%20Year%20I%20&%20II%20Semesters.pdf",
   },
   {
     sno: 1,
@@ -48,18 +48,18 @@ const ugCalendars: CalendarItem[] = [
 const pgCalendars: CalendarItem[] = [
   {
     sno: 6,
-    title: "Academic Calendar 2026-27 For M.B.A. II Year I & II Semesters",
-    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/6.%20Academic%20Calendar%202026-27%20For%20M.B.A.%20II%20Year%20I%20&%20II%20Semesters.pdf",
+    title: "Academic Calendar 2027-28 For M.B.A. II Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2027-28/6.%20Academic%20Calendar%202026-27%20For%20M.B.A.%20II%20Year%20I%20&%20II%20Semesters.pdf",
   },
   {
     sno: 5,
-    title: "Academic Calendar 2026-27 For M.C.A. II Year I & II Semesters",
-    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/5.%20Academic%20Calendar%202026-27%20For%20M.C.A.%20II%20Year%20I%20&%20II%20Semesters.pdf",
+    title: "Academic Calendar 2027-28 For M.C.A. II Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2027-28/5.%20Academic%20Calendar%202026-27%20For%20M.C.A.%20II%20Year%20I%20&%20II%20Semesters.pdf",
   },
   {
     sno: 4,
-    title: "Academic Calendar 2026-27 For M.Tech. II Year I & II Semesters",
-    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2026-27/4.%20Academic%20Calendar%202026-27%20For%20M.Tech.%20II%20Year%20I%20&%20II%20Semesters.pdf",
+    title: "Academic Calendar 2027-28 For M.Tech. II Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2027-28/4.%20Academic%20Calendar%202026-27%20For%20M.Tech.%20II%20Year%20I%20&%20II%20Semesters.pdf",
   },
   {
     sno: 3,

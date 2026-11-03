@@ -8,7 +8,7 @@ const processSteps = [
   { title: "Registration",  description: "Fill the online form with basic details.",                      icon: UserRoundPlus },
   { title: "Verification",  description: "Verify email and mobile number via OTP.",                       icon: ShieldCheck    },
   { title: "Application",   description: "Upload documents and submit the application.",                  icon: ClipboardCheck },
-  { title: "MITSUCET 2026", description: "Appear for entrance test and proceed to counseling.",           icon: CalendarDays   },
+  { title: "MITSUCET 2027", description: "Appear for entrance test and proceed to counseling.",           icon: CalendarDays   },
 ];
 
 const AdmissionHighlight = () => (
@@ -31,13 +31,13 @@ const AdmissionHighlight = () => (
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
               <div>
                 <p className="inline-flex rounded-full border border-white/25 bg-[#2a4a6b] px-4 py-1 text-sm md:text-sm font-semibold tracking-wide text-white mb-3">
-                  Register for Admissions 2026
+                  Register for Admissions 2027
                 </p>
                 <h2 className="font-display text-2xl md:text-4xl font-bold text-white leading-tight">
-                  Admissions 2026  -  MITS Deemed to be University
+                  Admissions 2027  -  MITS Deemed to be University
                 </h2>
                 <p className="mt-2 text-sm md:text-base text-white/90 leading-relaxed max-w-3xl">
-                  Join MITS through the official admission portal. Explore industry-aligned programs and complete your admission process for AY 2026-27.
+                  Join MITS through the official admission portal. Explore industry-aligned programs and complete your admission process for AY 2027-28.
                 </p>
               </div>
               <a href="https://admission.mits.ac.in/" target="_blank" rel="noreferrer" className="shrink-0">

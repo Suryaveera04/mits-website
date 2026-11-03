@@ -22,31 +22,31 @@ interface SportsDoc {
   description?: string;
 }
 
-const currentEvents2026_27: SportsDoc[] = [
+const currentEvents2027_28: SportsDoc[] = [
   {
-    title: 'The "80th Independence Day Celebration" was organized by Department of Physical Education at MITS Deemed to be University on 15th August 2026.',
+    title: 'The "80th Independence Day Celebration" was organized by Department of Physical Education at MITS Deemed to be University on 15th August 2027.',
     url: "https://mits.ac.in/assets/pdf/assoc/80th Independence Day Celebration.pdf",
-    year: "2026-27",
+    year: "2027-28",
   },
   {
-    title: 'A Campaign on "Tiranga Rally – Har Ghar Tiranga" was organized by MITS NCC, NSS and Sports Teams on 14th August 2026.',
+    title: 'A Campaign on "Tiranga Rally – Har Ghar Tiranga" was organized by MITS NCC, NSS and Sports Teams on 14th August 2027.',
     url: "https://mits.ac.in/assets/pdf/assoc/Tiranga Rally.pdf",
-    year: "2026-27",
+    year: "2027-28",
   },
   {
-    title: 'A "World International Yoga Day Programme-2026" was organized by Department of Physical Education and Sports & Yoga and Meditation Club on 21st June 2026.',
-    url: "https://mits.ac.in/assets/pdf/facility/World International Yoga Day Programme-2026.pdf",
-    year: "2026-27",
+    title: 'A "World International Yoga Day Programme-2027" was organized by Department of Physical Education and Sports & Yoga and Meditation Club on 21st June 2027.',
+    url: "https://mits.ac.in/assets/pdf/facility/World International Yoga Day Programme-2027.pdf",
+    year: "2027-28",
   },
   {
-    title: "MITS Inter Department Faculty Cricket Tournament 2026-2027 was organized by Department of Physical Education & Sports from 19th to 25th May 2026.",
-    url: "https://mits.ac.in/assets/pdf/facility/MITS Inter Department Faculty Cricket Tournament 2026-2027.pdf",
-    year: "2026-27",
+    title: "MITS Inter Department Faculty Cricket Tournament 2027-2028 was organized by Department of Physical Education & Sports from 19th to 25th May 2027.",
+    url: "https://mits.ac.in/assets/pdf/facility/MITS Inter Department Faculty Cricket Tournament 2027-2028.pdf",
+    year: "2027-28",
   },
   {
     title: "Report on International Conference on Sports (SRM)",
     url: "https://mits.ac.in/assets/pdf/facility/Report on international conference on sports (SRM)-compressed.pdf",
-    year: "2026-27",
+    year: "2027-28",
   },
   {
     title: "79th Independence Day Celebration Event Report",
@@ -160,7 +160,7 @@ export const SportsFacilities: React.FC = () => {
 
         {/* Right Content Panel */}
         <div className="lg:col-span-8 p-5 sm:p-7">
-          {/* Subtab 1: About Sports with Current Events 2026-27 Accordion */}
+          {/* Subtab 1: About Sports with Current Events 2027-28 Accordion */}
           {activeSubTab === "about" && (
             <div className="space-y-6">
               <div>
@@ -172,7 +172,7 @@ export const SportsFacilities: React.FC = () => {
                 </p>
               </div>
 
-              {/* Accordion: Current Events 2026-27 matching reference image */}
+              {/* Accordion: Current Events 2027-28 matching reference image */}
               <div className="rounded-xl border border-slate-200 overflow-hidden shadow-xs">
                 <button
                   onClick={() => setCurrentEventsOpen(!currentEventsOpen)}
@@ -180,7 +180,7 @@ export const SportsFacilities: React.FC = () => {
                 >
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4 text-[#b30000]" />
-                    <span className="font-bold text-sm text-[#b30000]">Current Events 2026-27</span>
+                    <span className="font-bold text-sm text-[#b30000]">Current Events 2027-28</span>
                   </div>
                   {currentEventsOpen ? (
                     <ChevronUp className="w-4 h-4 text-slate-500" />
@@ -191,7 +191,7 @@ export const SportsFacilities: React.FC = () => {
 
                 {currentEventsOpen && (
                   <div className="p-4 bg-white divide-y divide-slate-100 space-y-3">
-                    {currentEvents2026_27.map((event, idx) => (
+                    {currentEvents2027_28.map((event, idx) => (
                       <div key={idx} className="pt-3 first:pt-0">
                         <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                           {event.title}

@@ -29,8 +29,8 @@ export interface NoticeBoardItem {
 
 export const noticeBoardData: NoticeBoardItem = {
   title: "Inauguration of AI Learning Hub",
-  description: 'Student Activity Center [SAC] organized "Inauguration of AI Learning Hub" on 26th May 2026.',
-  date: "26th May 2026",
+  description: 'Student Activity Center [SAC] organized "Inauguration of AI Learning Hub" on 26th May 2027.',
+  date: "26th May 2027",
   reportUrl: "https://mits.ac.in/public/uploads/sac/Inauguration%20of%20AI%20Learning%20Hub.pdf"
 };
 
