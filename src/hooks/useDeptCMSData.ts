@@ -1,8 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 
-const IS_LOCAL = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+const isLocal = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+const isProdDomain = typeof window !== "undefined" && (window.location.hostname === "mits.edu" || window.location.hostname.endsWith(".mits.edu"));
 const WORKER_URL = "https://mits-cms-proxy.23691a4054.workers.dev/public_api";
-export const CMS_BASE = IS_LOCAL ? "/cms-api" : WORKER_URL;
+// On local dev use /cms-api; on production domain use Cloudflare worker; on Azure/staging IP use same-origin /university/cms-proxy
+export const CMS_BASE = isLocal ? "/cms-api" : (isProdDomain ? WORKER_URL : "/university/cms-proxy");
+export const IS_LOCAL = isLocal;
 
 // Primary CMS department code mapping
 export const CMS_CODE: Record<string, string> = {

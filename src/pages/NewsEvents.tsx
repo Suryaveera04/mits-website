@@ -4,10 +4,11 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import {
   Calendar, MapPin, Search, Filter, Sparkles, Building2,
-  Tag, ExternalLink, ChevronRight, Loader2, PartyPopper, RefreshCw
+  Tag, ExternalLink, ChevronRight, Loader2, PartyPopper, RefreshCw, Pin
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { getNewsEventImageSrc, newsEvents } from "@/data/newsEvents";
+import { getNewsEventImageSrc } from "@/data/newsEvents";
+import { useLiveEvents } from "@/hooks/useLiveEvents";
 import { useAllCMSEvents, type CMSEvent } from "@/hooks/useDeptCMSData";
 import EventDetailModal from "@/components/EventDetailModal";
 import { Badge } from "@/components/ui/badge";
@@ -46,11 +47,12 @@ function matchesDeptFilter(e: CMSEvent, filterId: string): boolean {
 }
 
 const NewsEvents = () => {
+  const { events: liveEvents } = useLiveEvents();
   const { events: cmsEvents, loading: cmsLoading, refresh } = useAllCMSEvents();
   const [selectedDept, setSelectedDept] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<"cms" | "highlights">("cms");
+  const [activeTab, setActiveTab] = useState<"highlights" | "cms">("highlights");
 
   const filteredCmsEvents = useMemo(() => {
     return cmsEvents.filter((e) => {
@@ -101,22 +103,6 @@ const NewsEvents = () => {
             {/* View Switcher Tabs */}
             <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
               <button
-                onClick={() => setActiveTab("cms")}
-                className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
-                  activeTab === "cms"
-                    ? "bg-primary text-white shadow-md shadow-primary/20"
-                    : "bg-card text-muted-foreground hover:text-foreground border border-border"
-                }`}
-              >
-                <PartyPopper className="w-4 h-4" />
-                Live CMS Events
-                <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
-                  activeTab === "cms" ? "bg-white/20 text-white" : "bg-muted text-foreground"
-                }`}>
-                  {cmsEvents.length}
-                </span>
-              </button>
-              <button
                 onClick={() => setActiveTab("highlights")}
                 className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
                   activeTab === "highlights"
@@ -125,11 +111,27 @@ const NewsEvents = () => {
                 }`}
               >
                 <Building2 className="w-4 h-4" />
-                Institutional Highlights
+                Campus Events &amp; Highlights
                 <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
                   activeTab === "highlights" ? "bg-white/20 text-white" : "bg-muted text-foreground"
                 }`}>
-                  {newsEvents.length}
+                  {liveEvents.length}
+                </span>
+              </button>
+              <button
+                onClick={() => setActiveTab("cms")}
+                className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                  activeTab === "cms"
+                    ? "bg-primary text-white shadow-md shadow-primary/20"
+                    : "bg-card text-muted-foreground hover:text-foreground border border-border"
+                }`}
+              >
+                <PartyPopper className="w-4 h-4" />
+                Departmental CMS Events
+                <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                  activeTab === "cms" ? "bg-white/20 text-white" : "bg-muted text-foreground"
+                }`}>
+                  {cmsEvents.length}
                 </span>
               </button>
             </div>
@@ -208,26 +210,25 @@ const NewsEvents = () => {
                       <div
                         key={item.id}
                         onClick={() => setSelectedEventId(item.id)}
-                        className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 border border-border flex flex-col cursor-pointer group"
+                        className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col cursor-pointer group"
                       >
-                        <div className="relative aspect-[16/10] bg-slate-100 overflow-hidden">
+                        <div className="relative aspect-[16/10] bg-slate-900 overflow-hidden">
                           {item.poster ? (
                             <img
-                              src={item.poster}
+                              src={item.poster.startsWith("http") ? item.poster : `${import.meta.env.BASE_URL}${item.poster.replace(/^\//, "")}`}
                               alt={item.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                               loading="lazy"
                             />
                           ) : (
-                            <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 text-slate-400 p-6 text-center">
-                              <Calendar className="w-10 h-10 mb-2 opacity-50 text-primary" />
-                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                                {item.department || "MITS Event"}
-                              </span>
+                            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-900 to-slate-800 text-slate-300">
+                              <Calendar className="w-10 h-10 mb-2 text-secondary opacity-80" />
+                              <span className="text-xs uppercase tracking-wider font-semibold text-slate-400">Department of</span>
+                              <span className="font-bold text-sm text-white mt-0.5">{item.department || "MITS"}</span>
                             </div>
                           )}
                           {item.department && (
-                            <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-secondary/90 text-white backdrop-blur-sm shadow-sm">
+                            <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wide bg-secondary/90 text-white backdrop-blur-sm shadow-sm">
                               {item.department}
                             </span>
                           )}
@@ -273,39 +274,48 @@ const NewsEvents = () => {
                 )}
               </>
             ) : (
-              /* Institutional Highlights / Static News Section */
+              /* Campus Events & Highlights (Google Sheet + Baseline Events) */
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-                {newsEvents.map((item) => (
+                {liveEvents.map((item) => (
                   <Link
                     key={item.slug}
                     to={`/news-events/${item.slug}`}
-                    className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-border group"
+                    className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-border group relative flex flex-col justify-between"
                   >
-                    <div className="aspect-[16/10] overflow-hidden">
-                      <img
-                        src={getNewsEventImageSrc(item.image)}
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
+                    <div>
+                      <div className="aspect-[16/10] overflow-hidden relative">
+                        {item.pinned && (
+                          <div className="absolute top-3 left-3 z-10 inline-flex items-center gap-1 rounded-full bg-[#b30000] px-2.5 py-1 text-[11px] font-bold text-white shadow-md backdrop-blur">
+                            <Pin className="w-3 h-3 fill-white" /> Pinned
+                          </div>
+                        )}
+                        <img
+                          src={getNewsEventImageSrc(item.image)}
+                          alt={item.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="p-5">
+                        <span className="text-sm font-semibold text-secondary uppercase tracking-wider">{item.category}</span>
+                        <h2 className="font-display text-lg font-semibold text-card-foreground mt-2 mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                          {item.title}
+                        </h2>
+                        <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{item.excerpt}</p>
+                      </div>
                     </div>
-                    <div className="p-5">
-                      <span className="text-sm font-semibold text-secondary uppercase tracking-wider">{item.category}</span>
-                      <h2 className="font-display text-lg font-semibold text-card-foreground mt-2 mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                        {item.title}
-                      </h2>
-                      <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{item.excerpt}</p>
 
-                      <div className="space-y-2 text-sm text-muted-foreground">
+                    <div className="p-5 pt-0 space-y-2 text-sm text-muted-foreground border-t border-border/40 mt-2">
+                      <div className="flex items-center gap-2 pt-3">
+                        <Calendar className="w-4 h-4 text-primary" />
+                        <span>{item.date}</span>
+                      </div>
+                      {item.location && (
                         <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4" />
-                          <span>{item.date}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4" />
+                          <MapPin className="w-4 h-4 text-secondary" />
                           <span className="line-clamp-1">{item.location}</span>
                         </div>
-                      </div>
+                      )}
                     </div>
                   </Link>
                 ))}

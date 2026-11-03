@@ -1,91 +1,15 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Instagram, Play, ExternalLink, ArrowLeft, ArrowRight, Pause, PlayCircle } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Instagram, Play, ExternalLink, ArrowLeft, ArrowRight, Pause, PlayCircle, Pin } from "lucide-react";
+import { useTrendingFeed } from "@/hooks/useTrendingFeed";
+import { SHEETS_CONFIG } from "@/config/sheetsConfig";
 
-interface IGItem {
-  id: string;
-  url: string;
-  image: string;
-  caption: string;
-  date: string;
-  isReel: boolean;
-  pinned?: boolean;
-  order: number;
-}
-
-const USERNAME = "mits_mpl";
-const PROFILE_URL = `https://www.instagram.com/${USERNAME}/`;
-
-const STATIC_ITEMS: IGItem[] = [
-  {
-    id: "ashv-2027",
-    url: PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/ashv(2k26).jpg`,
-    caption: "ASHV 2027 moments from the campus cultural festival",
-    date: "",
-    isReel: true,
-    order: 1,
-  },
-  {
-    id: "alumni-connect",
-    url: PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/alumni.jpg`,
-    caption: "Alumni connect and career inspiration at MITS",
-    date: "",
-    isReel: false,
-    order: 2,
-  },
-  {
-    id: "computer-lab",
-    url: PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/computer_Lab1.jpg`,
-    caption: "Digital learning spaces and hands-on lab experiences",
-    date: "",
-    isReel: false,
-    order: 3,
-  },
-  {
-    id: "seminar-hall",
-    url: PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/seminar_hall_audience.jpg`,
-    caption: "Guest lectures, seminars, and student engagement",
-    date: "",
-    isReel: true,
-    order: 4,
-  },
-  {
-    id: "sports-ground",
-    url: PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/Ground-1.JPG`,
-    caption: "Sports and fitness culture across campus",
-    date: "",
-    isReel: false,
-    order: 5,
-  },
-  {
-    id: "campus-activities",
-    url: PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/camp1.JPG`,
-    caption: "Student activities, industry visits, and campus life",
-    date: "",
-    isReel: true,
-    order: 6,
-  },
-];
+const USERNAME = SHEETS_CONFIG.INSTAGRAM_HANDLE;
+const PROFILE_URL = SHEETS_CONFIG.INSTAGRAM_PROFILE_URL;
 
 const InstagramFeed = () => {
-  const [items] = useState<IGItem[]>(STATIC_ITEMS);
+  const { items: visibleItems } = useTrendingFeed();
   const [isPaused, setIsPaused] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  const visibleItems = useMemo(
-    () => [...items].sort((a, b) => {
-      const pinnedA = a.pinned ? 1 : 0;
-      const pinnedB = b.pinned ? 1 : 0;
-      if (pinnedA !== pinnedB) return pinnedB - pinnedA;
-      return a.order - b.order;
-    }),
-    [items]
-  );
 
   const scrollByCardRow = (direction: -1 | 1) => {
     const el = scrollRef.current;
@@ -189,7 +113,9 @@ const InstagramFeed = () => {
               href={p.url}
               target="_blank"
               rel="noreferrer"
-              className="group snap-start w-[250px] sm:w-[268px] flex-shrink-0 rounded-[1.35rem] border border-border bg-white overflow-hidden shadow-[0_10px_30px_rgba(15,23,42,0.08)] hover:shadow-[0_18px_40px_rgba(15,23,42,0.16)] hover:-translate-y-1 transition-all duration-300 flex flex-col"
+              className={`group snap-start w-[250px] sm:w-[268px] flex-shrink-0 rounded-[1.35rem] border ${
+                p.pinned ? "border-[#b30000]/60 ring-2 ring-[#b30000]/20" : "border-border"
+              } bg-white overflow-hidden shadow-[0_10px_30px_rgba(15,23,42,0.08)] hover:shadow-[0_18px_40px_rgba(15,23,42,0.16)] hover:-translate-y-1 transition-all duration-300 flex flex-col`}
             >
               <div className="px-3.5 py-2.5 border-b border-border/70 bg-white/95 backdrop-blur flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] flex items-center justify-center flex-shrink-0 shadow-sm">
@@ -215,9 +141,17 @@ const InstagramFeed = () => {
                   className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-white/90 px-2 py-1 text-[10px] font-semibold text-[#0f172a] shadow-sm backdrop-blur">
-                  Featured
-                </div>
+                
+                {p.pinned ? (
+                  <div className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-[#b30000] px-2.5 py-1 text-[10px] font-bold text-white shadow-md backdrop-blur">
+                    <Pin className="w-3 h-3 fill-white" /> Pinned
+                  </div>
+                ) : (
+                  <div className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-white/90 px-2 py-1 text-[10px] font-semibold text-[#0f172a] shadow-sm backdrop-blur">
+                    Featured
+                  </div>
+                )}
+
                 {p.isReel && (
                   <span className="absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/72 text-white text-[10px] font-semibold backdrop-blur">
                     <Play className="w-2.5 h-2.5 fill-white" /> Reel
@@ -228,7 +162,10 @@ const InstagramFeed = () => {
                 </span>
               </div>
               <div className="px-3.5 py-3 bg-white flex-1 flex flex-col gap-2">
-                <p className="text-[11px] text-muted-foreground">{p.isReel ? "Reel" : "Post"}</p>
+                <div className="flex items-center justify-between gap-1 text-[11px] text-muted-foreground">
+                  <span>{p.isReel ? "Reel" : "Post"}</span>
+                  {p.date && <span>{p.date}</span>}
+                </div>
                 <p className="text-sm leading-relaxed text-foreground/85 line-clamp-3">{p.caption || "View on Instagram"}</p>
               </div>
             </a>

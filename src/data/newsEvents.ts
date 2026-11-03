@@ -7,6 +7,8 @@ export type NewsEventItem = {
   location: string;
   excerpt: string;
   details: string;
+  pdfUrl?: string;
+  pinned?: boolean;
 };
 
 export type LatestNewsItem = {

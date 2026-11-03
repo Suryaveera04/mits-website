@@ -212,18 +212,24 @@ export function getBshSubDepartment(code?: string, name?: string): string {
  */
 export function getFacultyPhotoUrl(photoPath?: string): string | undefined {
   if (!photoPath) return undefined;
-  if (photoPath.startsWith("http://") || photoPath.startsWith("https://")) {
-    return photoPath;
+  
+  let clean = photoPath.trim();
+  // Strip any local dev host/port regardless of scheme or format
+  clean = clean.replace(/^(?:https?:)?\/\/(?:127\.0\.0\.1|localhost):5005/i, "");
+  clean = clean.replace(/^(?:127\.0\.0\.1|localhost):5005/i, "");
+  clean = clean.replace(/(?:127\.0\.0\.1|localhost):5005/gi, "");
+
+  if (!clean || clean === "/") return undefined;
+
+  if (clean.startsWith("http://") || clean.startsWith("https://")) {
+    return clean;
   }
-  const cleanPath = photoPath.startsWith("/") ? photoPath : `/${photoPath}`;
+  const cleanPath = clean.startsWith("/") ? clean : `/${clean}`;
   const isLocal = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
   const base = isLocal ? "/faculty-api/v1" : PHOTO_BASE_URL;
   return `${base}${cleanPath}`;
 }
 
-/**
- * Converts an API faculty object into a standard FacultyMember for department listings
- */
 export function apiFacultyToFacultyMember(f: APIFacultyMember, staticImageFallback?: string): FacultyMember {
   const deptKey = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
   const subDept = deptKey === "bsh" ? getBshSubDepartment(f.department?.code, f.department?.name) : undefined;
@@ -434,7 +440,7 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
   };
 }
 
-const CACHE_KEY = "mits_faculty_api_cache_v1";
+const CACHE_KEY = "mits_faculty_api_cache_v2";
 const CACHE_TIME_KEY = "mits_faculty_api_cache_time_v1";
 const CACHE_TTL_MS = 1000 * 60 * 30; // 30 minutes
 
@@ -445,6 +451,12 @@ export function sanitizeFacultyList(list: APIFacultyMember[]): APIFacultyMember[
   return list.map((f) => ({
     ...f,
     fullName: cleanFacultyName(f.fullName),
+    profilePhoto: f.profilePhoto
+      ? f.profilePhoto
+          .replace(/^(?:https?:)?\/\/(?:127\.0\.0\.1|localhost):5005/i, "")
+          .replace(/^(?:127\.0\.0\.1|localhost):5005/i, "")
+          .replace(/(?:127\.0\.0\.1|localhost):5005/gi, "")
+      : undefined,
   }));
 }
 

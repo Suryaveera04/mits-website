@@ -1,40 +1,61 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { Calendar, ChevronLeft, MapPin, Users, BookOpen, Clock, ExternalLink, Loader2 } from "lucide-react";
-import { Link, useParams } from "react-router-dom";
+import {
+  Calendar, ChevronLeft, MapPin, Users, BookOpen, Clock,
+  ExternalLink, Loader2, FileText, Download
+} from "lucide-react";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { getNewsEventBySlug, getNewsEventImageSrc } from "@/data/newsEvents";
 import { fetchEventDetail, type CMSEvent } from "@/hooks/useDeptCMSData";
+import { useLiveEvents } from "@/hooks/useLiveEvents";
 
 const NewsEventDetail = () => {
   const { slug } = useParams<{ slug: string }>();
+  const { getEventBySlug, loading: liveLoading } = useLiveEvents();
   const [cmsEvent, setCmsEvent] = useState<CMSEvent | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [cmsLoading, setCmsLoading] = useState(false);
 
-  const staticItem = slug ? getNewsEventBySlug(slug) : undefined;
+  // 1. Check live Google Sheet events & static baseline
+  const liveItem = slug ? (getEventBySlug(slug) || getNewsEventBySlug(slug)) : undefined;
 
+  // 2. If not found in live/static, check if slug points to a CMS numeric ID or cms-prefix
   useEffect(() => {
-    if (!slug || staticItem) return;
+    if (!slug || liveItem) return;
 
-    // Check if slug is a numeric CMS ID or starts with "cms-"
     const numId = Number(slug.replace(/^cms-/, ""));
     if (!isNaN(numId) && numId > 0) {
-      setLoading(true);
+      setCmsLoading(true);
       fetchEventDetail(numId)
         .then((ev) => setCmsEvent(ev))
-        .finally(() => setLoading(false));
+        .finally(() => setCmsLoading(false));
     }
-  }, [slug, staticItem]);
+  }, [slug, liveItem]);
 
-  if (staticItem) {
+  // Loading state
+  if (liveLoading && !liveItem && !cmsEvent) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col justify-between">
+        <Header />
+        <div className="flex flex-col items-center justify-center py-40 gap-3">
+          <Loader2 className="w-8 h-8 animate-spin text-primary" />
+          <p className="text-muted-foreground font-medium">Loading event details…</p>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  // Render Live Sheet or Static Event
+  if (liveItem) {
     return (
       <div className="min-h-screen bg-background">
         <Header />
         <SEO
-          title={`${staticItem.title} – MITS Madanapalle`}
-          description={staticItem.excerpt}
+          title={`${liveItem.title} – MITS Madanapalle`}
+          description={liveItem.excerpt}
           canonical={`/news-events/${slug}`}
         />
         <main className="pt-24 pb-20">
@@ -48,25 +69,77 @@ const NewsEventDetail = () => {
               </Button>
 
               <article className="bg-card border border-border rounded-2xl overflow-hidden shadow-md">
-                <img src={getNewsEventImageSrc(staticItem.image)} alt={staticItem.title} className="w-full h-64 md:h-80 object-cover" />
+                <div className="relative">
+                  {liveItem.pinned && (
+                    <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 rounded-full bg-[#b30000] px-3 py-1 text-xs font-bold text-white shadow-md">
+                      📌 Pinned Event
+                    </div>
+                  )}
+                  <img
+                    src={getNewsEventImageSrc(liveItem.image)}
+                    alt={liveItem.title}
+                    className="w-full h-64 md:h-96 object-cover"
+                  />
+                </div>
+
                 <div className="p-6 md:p-8">
-                  <p className="text-sm font-semibold text-secondary uppercase tracking-wider mb-3">{staticItem.category}</p>
+                  <p className="text-sm font-semibold text-secondary uppercase tracking-wider mb-3">
+                    {liveItem.category || "Campus Event"}
+                  </p>
                   <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground leading-tight mb-4">
-                    {staticItem.title}
+                    {liveItem.title}
                   </h1>
 
                   <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
-                      <span>{staticItem.date}</span>
+                      <Calendar className="w-4 h-4 text-primary" />
+                      <span>{liveItem.date}</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
-                      <span>{staticItem.location}</span>
-                    </div>
+                    {liveItem.location && (
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4 text-secondary" />
+                        <span>{liveItem.location}</span>
+                      </div>
+                    )}
                   </div>
 
-                  <p className="text-muted-foreground text-lg leading-relaxed">{staticItem.details}</p>
+                  {/* Short summary / excerpt */}
+                  {liveItem.excerpt && liveItem.excerpt !== liveItem.details && (
+                    <p className="text-lg font-medium text-foreground/90 leading-relaxed mb-6 bg-muted/40 p-4 rounded-xl border border-border/40">
+                      {liveItem.excerpt}
+                    </p>
+                  )}
+
+                  {/* Full details */}
+                  <div className="text-muted-foreground text-base md:text-lg leading-relaxed whitespace-pre-line space-y-4">
+                    {liveItem.details}
+                  </div>
+
+                  {/* Optional PDF Report Download Link */}
+                  {liveItem.pdfUrl && (
+                    <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-muted/30 p-5 rounded-xl border border-border/60">
+                      <div>
+                        <h4 className="font-semibold text-foreground text-base flex items-center gap-2">
+                          <FileText className="w-4 h-4 text-[#b30000]" />
+                          Event Report Document
+                        </h4>
+                        <p className="text-sm text-muted-foreground mt-0.5">
+                          Download or view the official event proceedings report (PDF).
+                        </p>
+                      </div>
+
+                      <a
+                        href={liveItem.pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#b30000] text-white font-semibold text-sm hover:bg-[#8f0000] transition-colors shadow-sm shrink-0"
+                      >
+                        <Download className="w-4 h-4" />
+                        View Event Report
+                        <ExternalLink className="w-3.5 h-3.5 ml-0.5 opacity-80" />
+                      </a>
+                    </div>
+                  )}
                 </div>
               </article>
             </div>
@@ -77,26 +150,18 @@ const NewsEventDetail = () => {
     );
   }
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex flex-col justify-between">
-        <Header />
-        <div className="flex flex-col items-center justify-center py-40 gap-3">
-          <Loader2 className="w-8 h-8 animate-spin text-primary" />
-          <p className="text-muted-foreground font-medium">Loading event details…</p>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-
+  // Render CMS Event (if loaded from database)
   if (cmsEvent) {
+    const posterSrc = cmsEvent.poster
+      ? (cmsEvent.poster.startsWith("http") ? cmsEvent.poster : `${import.meta.env.BASE_URL}${cmsEvent.poster.replace(/^\//, "")}`)
+      : null;
+
     return (
       <div className="min-h-screen bg-background">
         <Header />
         <SEO
           title={`${cmsEvent.title} – MITS Madanapalle`}
-          description={cmsEvent.description || cmsEvent.title}
+          description={cmsEvent.description || `Event hosted by Department of ${cmsEvent.department || "MITS"}`}
           canonical={`/news-events/${slug}`}
         />
         <main className="pt-24 pb-20">
@@ -110,28 +175,30 @@ const NewsEventDetail = () => {
               </Button>
 
               <article className="bg-card border border-border rounded-2xl overflow-hidden shadow-md">
-                {cmsEvent.poster && (
-                  <img src={cmsEvent.poster} alt={cmsEvent.title} className="w-full max-h-96 object-contain bg-slate-900" />
+                {posterSrc && (
+                  <div className="w-full bg-slate-900 flex justify-center max-h-[460px] overflow-hidden">
+                    <img src={posterSrc} alt={cmsEvent.title} className="w-full h-auto object-contain max-h-[460px]" />
+                  </div>
                 )}
                 <div className="p-6 md:p-8">
                   <div className="flex flex-wrap items-center gap-2 mb-3">
                     {cmsEvent.department && (
-                      <span className="px-3 py-1 rounded-full text-xs font-bold uppercase bg-secondary text-white">
+                      <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-secondary text-white">
                         {cmsEvent.department}
                       </span>
                     )}
                     {cmsEvent.type && (
-                      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary">
+                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-muted text-foreground">
                         {cmsEvent.type}
                       </span>
                     )}
                   </div>
 
-                  <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground leading-tight mb-4">
+                  <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-4">
                     {cmsEvent.title}
                   </h1>
 
-                  <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground">
+                  <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground pb-6 border-b border-border">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-primary" />
                       <span>{cmsEvent.date || cmsEvent.from_date || "Date TBA"}</span>
@@ -145,9 +212,9 @@ const NewsEventDetail = () => {
                   </div>
 
                   {cmsEvent.description && (
-                    <p className="text-muted-foreground text-lg leading-relaxed mb-6 whitespace-pre-line">
+                    <div className="text-muted-foreground text-base leading-relaxed whitespace-pre-line mb-6">
                       {cmsEvent.description}
-                    </p>
+                    </div>
                   )}
 
                   {cmsEvent.coordinators && cmsEvent.coordinators.length > 0 && (
@@ -197,9 +264,9 @@ const NewsEventDetail = () => {
     );
   }
 
-  // Not found fallback
+  // Not found
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col justify-between">
       <Header />
       <div className="container mx-auto px-4 py-32 text-center">
         <h1 className="text-2xl font-bold mb-4">Event Not Found</h1>
