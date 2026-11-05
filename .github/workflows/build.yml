@@ -61,12 +61,14 @@ jobs:
           set -euo pipefail
           : "${CPANEL_HOST:?Add CPANEL_HOST in GitHub repository Actions secrets}"
           : "${CPANEL_SSH_KEY:?Add CPANEL_SSH_KEY in GitHub repository Actions secrets}"
-          CPANEL_PORT="${CPANEL_PORT:-22133}"
+          CPANEL_PORT="${CPANEL_PORT:-22}"
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           printf '%s\n' "$CPANEL_SSH_KEY" > ~/.ssh/cpanel_deploy_key
           chmod 600 ~/.ssh/cpanel_deploy_key
-          ssh-keyscan -p "$CPANEL_PORT" -H "$CPANEL_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          touch ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+          ssh-keyscan -p "$CPANEL_PORT" -H "$CPANEL_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
           chmod 600 ~/.ssh/known_hosts
           echo "SSH host key collected for $CPANEL_HOST:$CPANEL_PORT"
 
@@ -78,11 +80,11 @@ jobs:
           CPANEL_USER: ${{ secrets.CPANEL_USER }}
         run: |
           set -euo pipefail
-          CPANEL_PORT="${CPANEL_PORT:-22133}"
+          CPANEL_PORT="${CPANEL_PORT:-22}"
           : "${CPANEL_USER:?Add CPANEL_USER in GitHub repository Actions secrets}"
           ssh -i ~/.ssh/cpanel_deploy_key \
             -p "$CPANEL_PORT" \
-            -o BatchMode=yes \
+            -o StrictHostKeyChecking=accept-new -o BatchMode=yes \
             -o ConnectTimeout=15 \
             "$CPANEL_USER@$CPANEL_HOST" \
             'printf "SSH_CONNECTION_OK user=%s host=%s\n" "$(id -un)" "$(hostname)"'
@@ -95,13 +97,13 @@ jobs:
           CPANEL_USER: ${{ secrets.CPANEL_USER }}
         run: |
           set -euo pipefail
-          CPANEL_PORT="${CPANEL_PORT:-22133}"
-          REMOTE_DIR="/home/$CPANEL_USER/public_html/university"
+          CPANEL_PORT="${CPANEL_PORT:-22}"
+          REMOTE_DIR="public_html/university"
           ssh -i ~/.ssh/cpanel_deploy_key -p "$CPANEL_PORT" \
-            -o BatchMode=yes "$CPANEL_USER@$CPANEL_HOST" \
-            "test -d '$REMOTE_DIR' && test -w '$REMOTE_DIR'"
+            -o StrictHostKeyChecking=accept-new -o BatchMode=yes "$CPANEL_USER@$CPANEL_HOST" \
+            "mkdir -p '$REMOTE_DIR'"
           rsync -az --itemize-changes \
             --exclude='.htaccess' \
-            -e "ssh -i ~/.ssh/cpanel_deploy_key -p $CPANEL_PORT -o BatchMode=yes" \
+            -e "ssh -i ~/.ssh/cpanel_deploy_key -p $CPANEL_PORT -o StrictHostKeyChecking=accept-new -o BatchMode=yes" \
             dist/ "$CPANEL_USER@$CPANEL_HOST:$REMOTE_DIR/"
           echo "Deployment copy completed. Existing files not present in dist were preserved."
