@@ -818,7 +818,7 @@ export const coeOffice = {
   designation: "Controller of Examinations",
   address: "Madanapalle Institute of Technology & Science (Deemed to be University), Madanapalle-Kadiri Road, Kurabalakota Mandal, Madanapalle-517325, Andhra Pradesh, India",
   phone: "08571-280255, 280706",
-  email: "coe@mits.ac.in",
+  email: "coeu@mits.ac.in",
 };
 
 // -------------------- CoE RESPONSIBILITIES --------------------

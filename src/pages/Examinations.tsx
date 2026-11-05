@@ -178,36 +178,46 @@ const Examinations = () => {
       <Header />
       <main className="flex-1">
         {/* HERO */}
-        <section
-          className="relative pt-32 md:pt-44 pb-24 overflow-hidden"
-          style={{
-            backgroundImage: `url("${BASE}Hero-Section/image-5.jpg")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
-          <div className="relative z-10 container mx-auto px-4 text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-[#ffb300] font-bold tracking-[0.2em] uppercase text-sm sm:text-sm mb-4 inline-flex items-center gap-2"
-            >
-              <Sparkles className="w-4 h-4 text-[#ffb300]" /> MITS Deemed to be University
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Office of <span className="text-[#ffd15c]">Controller of Examinations</span>
-            </motion.h1>
+        <section className="relative pt-28 md:pt-36 pb-20 md:pb-28 overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src={`${BASE}Hero-Section/image-5.jpg`}
+              alt="Office of Controller of Examinations"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0f2a44]/95 via-[#0f2a44]/85 to-[#800000]/80" />
+          </div>
+          <div className="relative z-10 container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-[#ffb300] font-semibold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4 inline-flex items-center justify-center gap-2"
+              >
+                <Sparkles className="w-4 h-4 text-[#ffb300]" /> Office of CoE • Examinations
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4 leading-tight"
+              >
+                Office of <span className="text-[#ffd15c]">Controller of Examinations</span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-white/85 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+              >
+                Ensuring integrity, transparency, and academic excellence across all university evaluations and certifications.
+              </motion.p>
+            </div>
           </div>
           <div className="absolute bottom-4 left-6 z-10">
             <nav aria-label="Breadcrumb">
-              <ol className="flex items-center gap-1.5 text-sm text-white/90">
+              <ol className="flex items-center gap-1.5 text-xs sm:text-sm text-white/90">
                 <li>
                   <Link to="/" className="text-white/70 hover:text-white transition-colors">
                     Home
@@ -512,19 +522,6 @@ const Overview = () => (
       <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-4xl">
         The office of the Controller of Examinations is vital to the University. The O/o CoE is responsible for the entire examination system, including preparation, scheduling, and the conduct of Continuous Internal Assessments and End Semester Examinations. Key functions include ensuring the integrity and fairness of the evaluation process, processing and publishing results, managing examination records, handling student grievances, and ensuring compliance with academic regulations. The O/o CoE works closely with various academic departments to ensure the smooth functioning of the overall examination process.
       </p>
-    </div>
-    <div className="grid md:grid-cols-3 gap-4 mb-10">
-      {[
-        { v: "5,000+", l: "Students Examined / Year", i: GraduationCap },
-        { v: "100%",   l: "Result Accuracy",          i: ShieldCheck },
-        { v: "15 Days", l: "Result Declaration",       i: Clock },
-      ].map((s) => (
-        <div key={s.l} className="rounded-xl border border-border bg-card p-5 shadow-sm">
-          <s.i className="w-7 h-7 text-primary mb-3" />
-          <p className="font-display text-3xl font-bold text-foreground">{s.v}</p>
-          <p className="text-sm text-muted-foreground">{s.l}</p>
-        </div>
-      ))}
     </div>
     <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-4">Functions & Responsibilities</h3>
     <ul className="grid md:grid-cols-2 gap-3">

@@ -17,7 +17,7 @@ const contactCards = [
 
 const departments = [
   { name: "Admissions Office", phone: "+91 7330803555", email: "admissions@mits.ac.in" },
-  { name: "Examinations Cell", phone: "+91 8571 280255", email: "coe@mits.ac.in" },
+  { name: "Examinations Cell", phone: "+91 8571 280255", email: "coeu@mits.ac.in" },
   { name: "Placement Cell", phone: "+91 7330852557", email: "placements@mits.ac.in" },
   { name: "Research & Development", phone: "+91 8571 280256", email: "rnd@mits.ac.in" },
   { name: "Library", phone: "+91 8571 280258", email: "library@mits.ac.in" },
