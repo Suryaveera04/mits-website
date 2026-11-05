@@ -162,9 +162,18 @@ const Examinations = () => {
   const pgItems = officeItems.filter((item) => item.id.startsWith("pg-"));
 
   const pgDownloadsGroups = useMemo(() => {
-    const mba = pgDownloads.filter((item) => item.title.toLowerCase().includes("mba question papers"));
-    const mca = pgDownloads.filter((item) => item.title.toLowerCase().includes("mca question papers"));
-    const mtech = pgDownloads.filter((item) => item.title.toLowerCase().includes("m.tech question papers"));
+    const mba = pgDownloads.filter((item) => {
+      const t = item.title.toLowerCase();
+      return t.includes("mba") || t.includes("m.b.a");
+    });
+    const mca = pgDownloads.filter((item) => {
+      const t = item.title.toLowerCase();
+      return t.includes("mca") || t.includes("m.c.a");
+    });
+    const mtech = pgDownloads.filter((item) => {
+      const t = item.title.toLowerCase();
+      return t.includes("m.tech") || t.includes("mtech");
+    });
 
     return {
       mba,
