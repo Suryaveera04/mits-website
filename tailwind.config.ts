@@ -14,6 +14,13 @@ export default {
       },
     },
     extend: {
+      fontSize: {
+        xs: ['0.8125rem', { lineHeight: '1.25rem' }],
+        sm: ['0.9375rem', { lineHeight: '1.45rem' }],
+        base: ['1rem', { lineHeight: '1.65rem' }],
+        lg: ['1.125rem', { lineHeight: '1.75rem' }],
+        xl: ['1.25rem', { lineHeight: '1.75rem' }],
+      },
       fontFamily: {
         display: ['Playfair Display', 'Georgia', 'serif'],
         body: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],

@@ -47,6 +47,21 @@ const ugCalendars: CalendarItem[] = [
 // PG Academic Calendars - Exact order and S.No matching official mits.ac.in screenshot
 const pgCalendars: CalendarItem[] = [
   {
+    sno: 9,
+    title: "Academic Calendar 2026-27 For M.Tech. I Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/Academic%20Calendar%202026-27%20M.%20Tech%20I%20Year%20I%20&%20II%20Semesters.pdf",
+  },
+  {
+    sno: 8,
+    title: "Academic Calendar 2026-27 For M.B.A. I Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/I%20MBA%20(DTBU)%20AC%2026-27.pdf",
+  },
+  {
+    sno: 7,
+    title: "Academic Calendar 2026-27 For M.C.A. I Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/I%20MCA%20(DTBU)%20AC%2026-27.pdf",
+  },
+  {
     sno: 6,
     title: "Academic Calendar 2027-28 For M.B.A. II Year I & II Semesters",
     pdfUrl: "https://mits.ac.in/public/uploads/Academic-Calendars-2027-28/6.%20Academic%20Calendar%202026-27%20For%20M.B.A.%20II%20Year%20I%20&%20II%20Semesters.pdf",

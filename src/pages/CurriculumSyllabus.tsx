@@ -181,6 +181,27 @@ const pgSyllabus: SyllabusItem[] = [
     level: "PG",
     regulation: "R25",
   },
+  {
+    id: 10,
+    title: "Academic Calendar 2026-27 For M.Tech. I Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/Academic%20Calendar%202026-27%20M.%20Tech%20I%20Year%20I%20&%20II%20Semesters.pdf",
+    level: "PG",
+    regulation: "R25",
+  },
+  {
+    id: 11,
+    title: "Academic Calendar 2026-27 For M.B.A. I Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/I%20MBA%20(DTBU)%20AC%2026-27.pdf",
+    level: "PG",
+    regulation: "R25",
+  },
+  {
+    id: 12,
+    title: "Academic Calendar 2026-27 For M.C.A. I Year I & II Semesters",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/I%20MCA%20(DTBU)%20AC%2026-27.pdf",
+    level: "PG",
+    regulation: "R25",
+  },
 ];
 
 const CurriculumSyllabus = () => {
