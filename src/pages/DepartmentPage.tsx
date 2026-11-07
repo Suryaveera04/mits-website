@@ -3181,15 +3181,13 @@ const DepartmentPage = () => {
                         </h3>
                       </div>
                     </div>
-                    <a
-                      href="https://mits.ac.in/phd-admissions-2026-27-july-session"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      to="/phd-admissions"
                       className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-semibold text-xs rounded-xl hover:bg-primary/90 transition-colors shadow-xs"
                     >
-                      <span>Ph.D. Admissions (July Session)</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
+                      <span>Ph.D. Admissions Portal</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </Link>
                   </div>
                   <div className="p-6 sm:p-8 space-y-4">
                     <p className="text-muted-foreground leading-relaxed text-sm sm:text-base text-justify">

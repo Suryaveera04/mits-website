@@ -70,6 +70,7 @@ const SportsAthletics = lazy(() => import("./pages/SportsAthletics"));
 const VentureStudio = lazy(() => import("./pages/VentureStudio"));
 const StudentClubs = lazy(() => import("./pages/StudentClubs"));
 const FacultyInformation = lazy(() => import("./pages/FacultyInformation"));
+const PhdAdmissions = lazy(() => import("./pages/PhdAdmissions"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -127,6 +128,9 @@ const App = () => (
             <Route path="/academic-syllabus" element={<CurriculumSyllabus />} />
             <Route path="/syllabus" element={<CurriculumSyllabus />} />
             <Route path="/admissions" element={<Admissions />} />
+            <Route path="/phd-admissions" element={<PhdAdmissions />} />
+            <Route path="/phd-admissions-2026-27-july-session" element={<PhdAdmissions />} />
+            <Route path="/phd" element={<PhdAdmissions />} />
             <Route path="/research" element={<Research />} />
             <Route path="/placements" element={<Placements />} />
             <Route path="/placements/:section" element={<Placements />} />

@@ -286,36 +286,28 @@ const Admissions = () => {
                       Explore Full-Time and Part-Time Ph.D. programs across Engineering, Management, and Basic Sciences. Institutional fellowships, eligibility, and entrance guidelines.
                     </p>
                     <div className="pt-2 space-y-2">
-                      <a
-                        href="https://mits.ac.in/phd-admissions-2026-27-july-session"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        to="/phd-admissions-2026-27-july-session"
                         className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-red-50/50 border border-slate-200 hover:border-[#b31317]/40 text-xs font-semibold text-[#0f2a44] hover:text-[#b31317] transition-all"
                       >
                         <span>Ph.D. Admissions (July Session)</span>
                         <ArrowRight className="w-3.5 h-3.5 text-[#b31317]" />
-                      </a>
-                      <a
-                        href="https://mits.ac.in/phd-admissions"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      </Link>
+                      <Link
+                        to="/phd-admissions"
                         className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-[#caa74d] text-xs font-semibold text-[#0f2a44] transition-all"
                       >
-                        <span>Ph.D. Admissions Overview</span>
+                        <span>Ph.D. Admissions Portal &amp; Guidelines</span>
                         <ArrowRight className="w-3.5 h-3.5 text-[#0f2a44]" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="pt-4">
-                    <a
-                      href="https://mits.ac.in/phd-admissions-2026-27-july-session"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <Link to="/phd-admissions">
                       <Button className="w-full bg-[#b31317] hover:bg-[#8b0000] text-white font-bold py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 group-hover:translate-y-[-2px]">
-                        Apply for Ph.D. Admissions <ArrowRight className="w-4 h-4" />
+                        Explore Ph.D. Admissions <ArrowRight className="w-4 h-4" />
                       </Button>
-                    </a>
+                    </Link>
                   </div>
                 </Card>
               </ScrollReveal>
