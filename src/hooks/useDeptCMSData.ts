@@ -177,14 +177,44 @@ export interface CMSPlacement {
 
 export interface CMSProject {
   id: number;
+  _id?: string;
+  projectId?: string;
   title: string;
+  department?: string;
+  department_id?: number;
+  academicYear?: string;
+  team?: string;
   students?: string;
   guide?: string;
   stack?: string;
   github?: string;
   demo?: string;
+  abstract?: string;
   description?: string;
-  academicYear?: string;
+  status?: string;
+  type?: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface CMSSubject {
+  id: number;
+  _id?: string;
+  subjectId?: string;
+  code: string;
+  name: string;
+  title?: string;
+  department: string;
+  department_id?: number;
+  regulation?: string;
+  semester?: string;
+  credits?: string | number;
+  faculty?: string;
+  resources?: string;
+  status?: string;
+  type?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface CMSDeptData {
@@ -195,6 +225,7 @@ export interface CMSDeptData {
   publications: CMSPublication[];
   placements: CMSPlacement[];
   projects: CMSProject[];
+  subjects: CMSSubject[];
 }
 
 // Solve the AES-CBC cookie challenge the CMS server sends to non-browser clients.
@@ -261,6 +292,53 @@ export function normalizeMoUs(items: CMSMoU[]): CMSMoU[] {
     ...m,
     organization: m.organization || m.partner_org || "",
   }));
+}
+
+export function cleanString(s?: string | null): string {
+  if (!s) return "";
+  let res = s.trim();
+  if ((res.startsWith('"') && res.endsWith('"')) || (res.startsWith("'") && res.endsWith("'"))) {
+    res = res.slice(1, -1).trim();
+  }
+  return res;
+}
+
+export function normalizeSubjects(items: CMSSubject[]): CMSSubject[] {
+  return items.map((s) => ({
+    ...s,
+    code: cleanString(s.code),
+    name: cleanString(s.name || s.title),
+    title: cleanString(s.title || s.name),
+    department: cleanString(s.department),
+    regulation: cleanString(s.regulation),
+    semester: cleanString(s.semester),
+    credits: typeof s.credits === "string" ? cleanString(s.credits) : (s.credits ?? ""),
+    faculty: cleanString(s.faculty),
+    resources: cleanString(s.resources),
+    type: cleanString(s.type) || "core",
+  }));
+}
+
+export function normalizeProjects(items: CMSProject[]): CMSProject[] {
+  return items.map((p) => {
+    const raw = p as Record<string, any>;
+    return {
+      ...p,
+      title: cleanString(p.title),
+      department: cleanString(raw.department),
+      students: cleanString(p.students || raw.team),
+      team: cleanString(raw.team || p.students),
+      guide: cleanString(p.guide),
+      stack: cleanString(p.stack),
+      description: cleanString(p.description || raw.abstract),
+      abstract: cleanString(raw.abstract || p.description),
+      academicYear: cleanString(p.academicYear),
+      github: cleanString(p.github),
+      demo: cleanString(p.demo),
+      status: cleanString(raw.status),
+      type: cleanString(raw.type),
+    };
+  });
 }
 
 export async function fetchEventDetail(id: number): Promise<CMSEvent | null> {
@@ -464,12 +542,14 @@ export function useAllCMSEvents() {
 }
 
 /**
- * Checks whether an event belongs to a given department key based on department name/code
+ * Checks whether an item's department matches a given department key based on department name/code
  */
-export function isEventForDepartment(event: CMSEvent, deptKey: string): boolean {
+export function isDepartmentMatch(itemDept: string | undefined | null, deptKey: string): boolean {
+  if (!itemDept || !deptKey) return false;
   const k = deptKey.toLowerCase().trim();
-  const d = (event.department || "").toLowerCase().trim();
+  const d = itemDept.toLowerCase().trim();
 
+  if (k === d) return true;
   if (k === "cse") return d === "cse" || d.includes("computer science & eng") || d.includes("computer science and eng");
   if (k === "cst") return d === "cst" || d.includes("computer science and tech") || d.includes("computer science & tech");
   if (k === "ce" || k === "civil" || k === "civil-engineering") return d === "ce" || d === "civil" || d.includes("civil");
@@ -489,7 +569,14 @@ export function isEventForDepartment(event: CMSEvent, deptKey: string): boolean 
   if (k === "bsh" || k === "basic-sciences" || k === "basic-sciences-humanities" || k === "humanities") {
     return d === "bsh" || d.includes("basic science") || d.includes("humanities");
   }
-  return false;
+  return d.includes(k) || k.includes(d);
+}
+
+/**
+ * Checks whether an event belongs to a given department key based on department name/code
+ */
+export function isEventForDepartment(event: CMSEvent, deptKey: string): boolean {
+  return isDepartmentMatch(event.department, deptKey);
 }
 
 /**
@@ -498,7 +585,7 @@ export function isEventForDepartment(event: CMSEvent, deptKey: string): boolean 
 export function useDeptCMSData(deptKey: string) {
   const [data, setData] = useState<CMSDeptData>({
     events: [], mous: [], achievements: [],
-    patents: [], publications: [], placements: [], projects: [],
+    patents: [], publications: [], placements: [], projects: [], subjects: [],
   });
   const [loading, setLoading] = useState(false);
 
@@ -506,14 +593,14 @@ export function useDeptCMSData(deptKey: string) {
     const normalizedKey = (deptKey || "").toLowerCase().trim();
     const primaryCode = CMS_CODE[normalizedKey];
     if (!normalizedKey || !primaryCode) {
-      setData({ events: [], mous: [], achievements: [], patents: [], publications: [], placements: [], projects: [] });
+      setData({ events: [], mous: [], achievements: [], patents: [], publications: [], placements: [], projects: [], subjects: [] });
       setLoading(false);
       return;
     }
     let cancelled = false;
 
     // Reset to empty + show loading immediately
-    setData({ events: [], mous: [], achievements: [], patents: [], publications: [], placements: [], projects: [] });
+    setData({ events: [], mous: [], achievements: [], patents: [], publications: [], placements: [], projects: [], subjects: [] });
     setLoading(true);
 
     const codes = CMS_ALT_CODES[normalizedKey] || [primaryCode];
@@ -548,8 +635,9 @@ export function useDeptCMSData(deptKey: string) {
       queryAcrossCodes<CMSPatent>     ("patents",      "patents"),
       queryAcrossCodes<CMSPublication>("publications", "publications"),
       queryAcrossCodes<CMSPlacement>  ("placements",   "placements"),
-      queryAcrossCodes<CMSProject>    ("projects",     "projects"),
-    ]).then(async ([events, mous, achievements, patents, publications, placements, projects]) => {
+      queryAcrossCodes<CMSProject>    ("get_projects", "projects"),
+      queryAcrossCodes<CMSSubject>    ("get_subjects", "subjects"),
+    ]).then(async ([events, mous, achievements, patents, publications, placements, projectsRaw, subjectsRaw]) => {
       if (cancelled) return;
 
       let finalEvents = normalizeEvents(events);
@@ -574,6 +662,36 @@ export function useDeptCMSData(deptKey: string) {
         } catch {}
       }
 
+      // Projects: if queryAcrossCodes returned empty, query global get_projects.php or fallback projects.php
+      let projectsList = projectsRaw;
+      if (projectsList.length === 0) {
+        try {
+          const globalProjects = await safeFetch<CMSProject>("get_projects.php", "projects");
+          const matched = globalProjects.filter((p: any) => isDepartmentMatch(p.department, normalizedKey));
+          if (matched.length > 0) {
+            projectsList = matched;
+          } else {
+            const fallbackProjects = await safeFetch<CMSProject>("projects.php", "projects");
+            projectsList = fallbackProjects.filter((p: any) => isDepartmentMatch(p.department, normalizedKey));
+          }
+        } catch {}
+      }
+
+      // Subjects: if queryAcrossCodes returned empty, query global get_subjects.php or fallback subjects.php
+      let subjectsList = subjectsRaw;
+      if (subjectsList.length === 0) {
+        try {
+          const globalSubjects = await safeFetch<CMSSubject>("get_subjects.php", "subjects");
+          const matched = globalSubjects.filter((s: any) => isDepartmentMatch(s.department, normalizedKey));
+          if (matched.length > 0) {
+            subjectsList = matched;
+          } else {
+            const fallbackSubjects = await safeFetch<CMSSubject>("subjects.php", "subjects");
+            subjectsList = fallbackSubjects.filter((s: any) => isDepartmentMatch(s.department, normalizedKey));
+          }
+        } catch {}
+      }
+
       if (!cancelled) {
         setData({
           events: finalEvents,
@@ -582,7 +700,8 @@ export function useDeptCMSData(deptKey: string) {
           patents,
           publications,
           placements,
-          projects,
+          projects: normalizeProjects(projectsList),
+          subjects: normalizeSubjects(subjectsList),
         });
         setLoading(false);
       }

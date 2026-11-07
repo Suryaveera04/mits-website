@@ -96,7 +96,8 @@ function cmsProxyPlugin() {
           }
         }
         if (!req.url?.startsWith("/cms-api")) return next();
-        const urlPath = "/backend/public_api" + req.url.slice("/cms-api".length);
+        const apiPath = req.url.slice("/cms-api".length);
+        const [endpointOnly, queryStr] = apiPath.split("?");
         const isImage = req.url.includes("get_content_image.php");
         if (isImage) {
           // Serve image as binary, not JSON
@@ -133,6 +134,87 @@ function cmsProxyPlugin() {
             .catch(() => { res.statusCode = 404; res.end(); });
           return;
         }
+
+        const isDeptMatch = (itemDept: string | undefined | null, targetDept: string): boolean => {
+          if (!itemDept || !targetDept) return false;
+          const a = itemDept.toLowerCase().trim();
+          const b = targetDept.toLowerCase().trim();
+          if (a === b) return true;
+          if (b === "cse" && (a === "cse" || a.includes("computer science & eng") || a.includes("computer science and eng"))) return true;
+          if (b === "cst" && (a === "cst" || a.includes("computer science and tech") || a.includes("computer science & tech"))) return true;
+          if ((b === "ce" || b === "civil") && (a === "ce" || a === "civil" || a.includes("civil"))) return true;
+          if ((b === "me" || b === "mech" || b === "mechanical") && (a === "me" || a === "mech" || a.includes("mech") || a.includes("mechanical"))) return true;
+          if (b === "eee" && (a === "eee" || a.includes("electrical"))) return true;
+          if (b === "ece" && (a === "ece" || a.includes("electronics"))) return true;
+          if (b === "ai" && (a === "ai" || a === "cse-ai")) return true;
+          if (b === "aiml" && (a === "aiml" || a.includes("aiml") || a.includes("machine learning"))) return true;
+          if (b === "cseds" && (a === "cseds" || a === "ds" || a.includes("data science"))) return true;
+          if (b === "csecs" && (a === "csecs" || a === "cs" || a.includes("cyber"))) return true;
+          if ((b === "mca" || b === "ca" || b === "computer applications") && (a === "mca" || a === "ca" || a.includes("computer application") || a.includes("mca"))) return true;
+          if (b === "mba" && (a === "mba" || a.includes("management"))) return true;
+          if (b === "bsh" && (a === "bsh" || a.includes("basic science") || a.includes("humanities"))) return true;
+          return a.includes(b) || b.includes(a);
+        };
+
+        // Subjects routing to /backend/get_subjects.php
+        if (endpointOnly === "/get_subjects.php" || endpointOnly === "/subjects.php") {
+          const searchParams = new URLSearchParams(queryStr || "");
+          const deptParam = searchParams.get("dept") || searchParams.get("department");
+          cmsRequest("/backend/get_subjects.php")
+            .then((body) => {
+              try {
+                const json = JSON.parse(body);
+                let subjects = json.success ? (json.subjects || []) : [];
+                if (deptParam && deptParam !== "all") {
+                  subjects = subjects.filter((s: any) => isDeptMatch(s.department, deptParam));
+                }
+                res.setHeader("Content-Type", "application/json; charset=utf-8");
+                res.setHeader("Access-Control-Allow-Origin", "*");
+                res.statusCode = 200;
+                res.end(JSON.stringify({ success: true, count: subjects.length, subjects }));
+              } catch (e: any) {
+                res.statusCode = 502;
+                res.end(JSON.stringify({ success: false, error: e?.message, subjects: [] }));
+              }
+            })
+            .catch((err) => {
+              console.error("[cms-proxy] Subjects error:", err.message);
+              res.statusCode = 502;
+              res.end(JSON.stringify({ success: false, error: err.message, subjects: [] }));
+            });
+          return;
+        }
+
+        // Student projects routing to /backend/get_projects.php
+        if (endpointOnly === "/get_projects.php" || endpointOnly === "/projects.php") {
+          const searchParams = new URLSearchParams(queryStr || "");
+          const deptParam = searchParams.get("dept") || searchParams.get("department");
+          cmsRequest("/backend/get_projects.php")
+            .then((body) => {
+              try {
+                const json = JSON.parse(body);
+                let projects = json.success ? (json.projects || []) : [];
+                if (deptParam && deptParam !== "all") {
+                  projects = projects.filter((p: any) => isDeptMatch(p.department, deptParam));
+                }
+                res.setHeader("Content-Type", "application/json; charset=utf-8");
+                res.setHeader("Access-Control-Allow-Origin", "*");
+                res.statusCode = 200;
+                res.end(JSON.stringify({ success: true, count: projects.length, projects }));
+              } catch (e: any) {
+                res.statusCode = 502;
+                res.end(JSON.stringify({ success: false, error: e?.message, projects: [] }));
+              }
+            })
+            .catch((err) => {
+              console.error("[cms-proxy] Projects error:", err.message);
+              res.statusCode = 502;
+              res.end(JSON.stringify({ success: false, error: err.message, projects: [] }));
+            });
+          return;
+        }
+
+        const urlPath = "/backend/public_api" + apiPath;
         cmsRequest(urlPath)
           .then((body) => {
             res.setHeader("Content-Type", "application/json; charset=utf-8");

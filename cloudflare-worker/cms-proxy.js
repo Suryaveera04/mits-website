@@ -19,6 +19,27 @@ const CMS_ORIGIN = "https://aicampus.mits.ac.in";
 const CMS_BASE   = "/mits-cms/backend/public_api";
 const ALLOWED_ORIGIN = "*";
 
+function isDeptMatch(itemDept, targetDept) {
+  if (!itemDept || !targetDept) return false;
+  const a = itemDept.toLowerCase().trim();
+  const b = targetDept.toLowerCase().trim();
+  if (a === b) return true;
+  if (b === "cse" && (a === "cse" || a.includes("computer science & eng") || a.includes("computer science and eng"))) return true;
+  if (b === "cst" && (a === "cst" || a.includes("computer science and tech") || a.includes("computer science & tech"))) return true;
+  if ((b === "ce" || b === "civil") && (a === "ce" || a === "civil" || a.includes("civil"))) return true;
+  if ((b === "me" || b === "mech" || b === "mechanical") && (a === "me" || a === "mech" || a.includes("mech") || a.includes("mechanical"))) return true;
+  if (b === "eee" && (a === "eee" || a.includes("electrical"))) return true;
+  if (b === "ece" && (a === "ece" || a.includes("electronics"))) return true;
+  if (b === "ai" && (a === "ai" || a === "cse-ai")) return true;
+  if (b === "aiml" && (a === "aiml" || a.includes("aiml") || a.includes("machine learning"))) return true;
+  if (b === "cseds" && (a === "cseds" || a === "ds" || a.includes("data science"))) return true;
+  if (b === "csecs" && (a === "csecs" || a === "cs" || a.includes("cyber"))) return true;
+  if ((b === "mca" || b === "ca" || b === "computer applications") && (a === "mca" || a === "ca" || a.includes("computer application") || a.includes("mca"))) return true;
+  if (b === "mba" && (a === "mba" || a.includes("management"))) return true;
+  if (b === "bsh" && (a === "bsh" || a.includes("basic science") || a.includes("humanities"))) return true;
+  return a.includes(b) || b.includes(a);
+}
+
 // AES-128-CBC challenge solver (InfinityFree bot protection)
 async function solveChallenge(html) {
   const get = (pat) => { const m = html.match(pat); return m ? m[1] : null; };
@@ -199,12 +220,76 @@ export default {
       return new Response("Method Not Allowed", { status: 405 });
     }
 
-    // Route: /public_api/<anything>
-    if (!url.pathname.startsWith("/public_api/")) {
+    // Route: /public_api/<anything> or direct endpoint
+    let endpoint = url.pathname;
+    if (endpoint.startsWith("/public_api/")) {
+      endpoint = endpoint.slice("/public_api".length);
+    } else if (!endpoint.startsWith("/get_subjects.php") && !endpoint.startsWith("/subjects.php") &&
+               !endpoint.startsWith("/get_projects.php") && !endpoint.startsWith("/projects.php")) {
       return new Response("Not Found", { status: 404 });
     }
 
-    const endpoint = url.pathname.slice("/public_api".length);
+    // Subjects routing to origin /mits-cms/backend/get_subjects.php
+    if (endpoint === "/get_subjects.php" || endpoint === "/subjects.php") {
+      try {
+        const body = await cmsRequest("/mits-cms/backend/get_subjects.php");
+        const json = JSON.parse(body);
+        let subjects = json.success ? (json.subjects || []) : [];
+        const deptParam = url.searchParams.get("dept") || url.searchParams.get("department");
+        if (deptParam && deptParam !== "all") {
+          subjects = subjects.filter((s) => isDeptMatch(s.department, deptParam));
+        }
+        return new Response(JSON.stringify({ success: true, count: subjects.length, subjects }), {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+            "Access-Control-Allow-Credentials": "true",
+            "Cache-Control": "public, max-age=60",
+          },
+        });
+      } catch (err) {
+        return new Response(JSON.stringify({ success: false, error: err.message, subjects: [] }), {
+          status: 502,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+            "Access-Control-Allow-Credentials": "true",
+          },
+        });
+      }
+    }
+
+    // Student projects routing to origin /mits-cms/backend/get_projects.php
+    if (endpoint === "/get_projects.php" || endpoint === "/projects.php") {
+      try {
+        const body = await cmsRequest("/mits-cms/backend/get_projects.php");
+        const json = JSON.parse(body);
+        let projects = json.success ? (json.projects || []) : [];
+        const deptParam = url.searchParams.get("dept") || url.searchParams.get("department");
+        if (deptParam && deptParam !== "all") {
+          projects = projects.filter((p) => isDeptMatch(p.department, deptParam));
+        }
+        return new Response(JSON.stringify({ success: true, count: projects.length, projects }), {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+            "Access-Control-Allow-Credentials": "true",
+            "Cache-Control": "public, max-age=60",
+          },
+        });
+      } catch (err) {
+        return new Response(JSON.stringify({ success: false, error: err.message, projects: [] }), {
+          status: 502,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+            "Access-Control-Allow-Credentials": "true",
+          },
+        });
+      }
+    }
 
     // Aggregate all events
     if (endpoint === "/all_events.php" || (endpoint === "/events.php" && (!url.searchParams.get("dept") || url.searchParams.get("dept") === "all"))) {

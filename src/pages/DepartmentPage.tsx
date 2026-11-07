@@ -36,7 +36,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import InlineFacultyProfile from "@/components/InlineFacultyProfile";
 import { getFacultyProfile, type FacultyProfile } from "@/data/facultyProfiles";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
-import { useDeptCMSData, type CMSMoU, type CMSAchievement, type CMSPatent, type CMSPublication, type CMSPlacement, type CMSProject } from "@/hooks/useDeptCMSData";
+import { useDeptCMSData, type CMSMoU, type CMSAchievement, type CMSPatent, type CMSPublication, type CMSPlacement, type CMSProject, type CMSSubject } from "@/hooks/useDeptCMSData";
 import { useFacultyData, getFacultySeniorityPriority } from "@/hooks/useFacultyData";
 import EventDetailModal from "@/components/EventDetailModal";
 import MouDetailModal from "@/components/MouDetailModal";
@@ -138,6 +138,7 @@ const DepartmentPage = () => {
   const [selectedPublication, setSelectedPublication] = useState<CMSPublication | null>(null);
   const [selectedPlacement, setSelectedPlacement] = useState<CMSPlacement | null>(null);
   const [selectedProject, setSelectedProject] = useState<CMSProject | null>(null);
+  const [selectedSubjectRegulation, setSelectedSubjectRegulation] = useState<string>("all");
   const [activeTopTab, setActiveTopTab] = useState<string>("department");
   const ugData = getDepartmentUnderGraduate(deptKey || "", dept?.subjects || []);
   const pgData = getDepartmentPostGraduate(deptKey || "");
@@ -3878,44 +3879,122 @@ const DepartmentPage = () => {
 
             {activeSection === "projects" && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-                <h2 className="text-2xl font-bold text-secondary mb-6" style={{ fontFamily: "var(--font-display)" }}>Student Projects</h2>
-                {(() => {
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                  <div>
+                    <h2 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                      Student Projects
+                    </h2>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Capstone, innovative, and industry-sponsored student projects.
+                    </p>
+                  </div>
+                  {cms.projects.length > 0 && (
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                      {cms.projects.length} Projects
+                    </span>
+                  )}
+                </div>
+
+                {cmsLoading ? (
+                  <div className="flex items-center justify-center gap-2 py-12 text-sm text-muted-foreground">
+                    <Loader2 className="w-5 h-5 animate-spin text-primary" />
+                    <span>Loading student projects...</span>
+                  </div>
+                ) : (() => {
                   const allProjects = (!cmsLoading && cms.projects.length > 0) ? cms.projects : dept.studentProjects;
-                  if (allProjects.length === 0) {
+                  if (!allProjects || allProjects.length === 0) {
                     return <p className="text-muted-foreground text-sm py-8">No student project records available at this time.</p>;
                   }
                   return (
                     <div className="grid md:grid-cols-2 gap-4">
                       {allProjects.map((p, i) => {
-                      const isCMS = 'id' in p && typeof p.id === 'number';
-                      return (
-                        <Card key={i} onClick={() => isCMS && setSelectedProject(p as CMSProject)}
-                          className={`transition-all ${
-                            isCMS ? "hover:shadow-lg hover:-translate-y-1 cursor-pointer" : "hover:shadow-lg"
-                          }`}>
-                          <CardContent className="p-4">
-                            <h4 className="font-semibold text-sm text-secondary">{p.title}</h4>
-                            <p className="text-sm text-muted-foreground mt-1">{p.students}</p>
-                            {'guide' in p && p.guide && <p className="text-sm text-primary font-medium mt-0.5">Guide: {p.guide}</p>}
-                            {'stack' in p && p.stack && <p className="text-sm text-muted-foreground mt-0.5">Stack: {p.stack}</p>}
-                            {p.description && <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{p.description}</p>}
-                            {'academicYear' in p && p.academicYear && <span className="text-sm bg-muted px-2 py-0.5 rounded-full mt-2 inline-block">{p.academicYear}</span>}
-                            {isCMS && <p className="text-sm text-primary font-medium mt-2 flex items-center gap-1"><ChevronRight className="w-3 h-3" />View Details</p>}
-                            {!isCMS && (
-                              <div className="flex gap-2 mt-2">
-                                {'github' in p && p.github && <a href={p.github} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">GitHub</a>}
-                                {'demo' in p && p.demo && <a href={p.demo} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">Demo</a>}
+                        const isCMS = 'id' in p && typeof p.id === 'number';
+                        const teamMembers = p.students || (p as any).team;
+                        const projectDesc = p.description || (p as any).abstract;
+                        return (
+                          <Card
+                            key={i}
+                            onClick={() => isCMS && setSelectedProject(p as CMSProject)}
+                            className={`transition-all ${
+                              isCMS ? "hover:shadow-lg hover:-translate-y-1 cursor-pointer border-border/80" : "hover:shadow-lg border-border/80"
+                            }`}
+                          >
+                            <CardContent className="p-5 flex flex-col justify-between h-full">
+                              <div>
+                                <div className="flex items-start justify-between gap-2 mb-2">
+                                  <h4 className="font-bold text-base text-secondary flex-1 leading-snug">{p.title}</h4>
+                                  {'academicYear' in p && p.academicYear && (
+                                    <span className="text-xs font-semibold bg-orange-100 text-orange-700 dark:bg-orange-950 dark:text-orange-300 px-2.5 py-0.5 rounded-full shrink-0">
+                                      {p.academicYear}
+                                    </span>
+                                  )}
+                                </div>
+                                {teamMembers && (
+                                  <p className="text-xs text-muted-foreground flex items-center gap-1.5 mt-1">
+                                    <Users className="w-3.5 h-3.5 text-primary shrink-0" />
+                                    <span>Team: <strong className="text-secondary font-medium">{teamMembers}</strong></span>
+                                  </p>
+                                )}
+                                {'guide' in p && p.guide && (
+                                  <p className="text-xs text-primary font-medium mt-1 flex items-center gap-1.5">
+                                    <BookOpen className="w-3.5 h-3.5 shrink-0" />
+                                    <span>Guide: {p.guide}</span>
+                                  </p>
+                                )}
+                                {'stack' in p && p.stack && (
+                                  <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1.5">
+                                    <Layers className="w-3.5 h-3.5 shrink-0 text-slate-400" />
+                                    <span>Stack: {p.stack}</span>
+                                  </p>
+                                )}
+                                {projectDesc && (
+                                  <p className="text-xs text-muted-foreground mt-2.5 line-clamp-3 leading-relaxed">
+                                    {projectDesc}
+                                  </p>
+                                )}
                               </div>
-                            )}
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
-                );
-              })()}
-            </motion.div>
-          )}
+
+                              <div className="pt-3 mt-3 border-t border-border/60 flex items-center justify-between">
+                                {isCMS ? (
+                                  <p className="text-xs text-primary font-semibold flex items-center gap-1">
+                                    <span>View Project Details</span>
+                                    <ChevronRight className="w-3.5 h-3.5" />
+                                  </p>
+                                ) : (
+                                  <div className="flex gap-3">
+                                    {'github' in p && p.github && (
+                                      <a href={p.github} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline flex items-center gap-1">
+                                        <ExternalLink className="w-3 h-3" />GitHub
+                                      </a>
+                                    )}
+                                    {'demo' in p && p.demo && (
+                                      <a href={p.demo} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline flex items-center gap-1">
+                                        <ExternalLink className="w-3 h-3" />Demo
+                                      </a>
+                                    )}
+                                  </div>
+                                )}
+                                {('demo' in p && p.demo) && (
+                                  <a
+                                    href={p.demo}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="text-xs font-semibold text-primary hover:underline flex items-center gap-1"
+                                  >
+                                    <ExternalLink className="w-3 h-3" />Live Demo
+                                  </a>
+                                )}
+                              </div>
+                            </CardContent>
+                          </Card>
+                        );
+                      })}
+                    </div>
+                  );
+                })()}
+              </motion.div>
+            )}
 
             {activeSection === "subjects" && (
               <motion.div
@@ -3923,35 +4002,195 @@ const DepartmentPage = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                <h2 className="text-2xl font-bold text-secondary mb-6" style={{ fontFamily: "var(--font-display)" }}>Subjects</h2>
-                {dept.subjects.length === 0 ? (
-                  <p className="text-muted-foreground text-sm py-8">No curriculum / syllabus records available at this time.</p>
-                ) : (
-                  ["core", "elective", "professional-skill", "optional-training"].map(type => {
-                  const filtered = dept.subjects.filter(s => s.type === type);
-                  if (filtered.length === 0) return null;
-                  const label = type === "core" ? "Core Subjects" : type === "elective" ? "Elective Subjects" : type === "professional-skill" ? "Professional Skills" : "Optional Training (Industry)";
-                  const color = type === "core" ? "primary" : type === "elective" ? "accent-foreground" : type === "professional-skill" ? "violet-600" : "emerald-600";
-                  return (
-                    <div key={type} className="mb-6">
-                      <h3 className="font-semibold text-primary mb-3">{label}</h3>
-                      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-                        {filtered.map((s, i) => (
-                          <Card key={i} className="hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-                            <CardContent className="p-4">
-                              <div className="flex items-start justify-between gap-2 mb-2">
-                                <h4 className="font-semibold text-sm text-secondary flex-1">{s.name}</h4>
-                                <span className="shrink-0 text-sm font-bold text-muted-foreground bg-muted px-2 py-0.5 rounded-full">Sem {s.semester}</span>
-                              </div>
-                              {(s as Record<string, unknown>).code && <p className="text-sm text-muted-foreground">Code: {String((s as Record<string, unknown>).code)}</p>}
-                              {(s as Record<string, unknown>).credits && <p className="text-sm text-primary font-medium">Credits: {String((s as Record<string, unknown>).credits)}</p>}
-                            </CardContent>
-                          </Card>
-                        ))}
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                  <div>
+                    <h2 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>
+                      Curriculum & Subjects
+                    </h2>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Academic courses, laboratory practicals, and syllabus structure.
+                    </p>
+                  </div>
+                  {cms.subjects.length > 0 && (
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                      {cms.subjects.length} Subjects
+                    </span>
+                  )}
+                </div>
+
+                {cmsLoading ? (
+                  <div className="flex items-center justify-center gap-2 py-12 text-sm text-muted-foreground">
+                    <Loader2 className="w-5 h-5 animate-spin text-primary" />
+                    <span>Loading department curriculum and subjects...</span>
+                  </div>
+                ) : cms.subjects.length > 0 ? (
+                  (() => {
+                    const regulations = Array.from(
+                      new Set(cms.subjects.map((s) => s.regulation).filter(Boolean))
+                    ) as string[];
+
+                    const filtered = selectedSubjectRegulation === "all"
+                      ? cms.subjects
+                      : cms.subjects.filter((s) => s.regulation === selectedSubjectRegulation);
+
+                    return (
+                      <div className="space-y-6">
+                        {regulations.length > 1 && (
+                          <div className="flex flex-wrap gap-2 pb-2 border-b border-border">
+                            <button
+                              type="button"
+                              onClick={() => setSelectedSubjectRegulation("all")}
+                              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                                selectedSubjectRegulation === "all"
+                                  ? "bg-primary text-white shadow-xs"
+                                  : "bg-muted text-muted-foreground hover:text-secondary hover:bg-muted/80"
+                              }`}
+                            >
+                              All Regulations ({cms.subjects.length})
+                            </button>
+                            {regulations.map((reg) => {
+                              const count = cms.subjects.filter((s) => s.regulation === reg).length;
+                              return (
+                                <button
+                                  key={reg}
+                                  type="button"
+                                  onClick={() => setSelectedSubjectRegulation(reg)}
+                                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                                    selectedSubjectRegulation === reg
+                                      ? "bg-primary text-white shadow-xs"
+                                      : "bg-muted text-muted-foreground hover:text-secondary hover:bg-muted/80"
+                                  }`}
+                                >
+                                  {reg} ({count})
+                                </button>
+                              );
+                            })}
+                          </div>
+                        )}
+
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                          {filtered.map((s) => (
+                            <Card
+                              key={s.id}
+                              className="hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 border-border/80 flex flex-col justify-between"
+                            >
+                              <CardContent className="p-4 flex-1 flex flex-col justify-between">
+                                <div>
+                                  <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                                    {s.code && (
+                                      <span className="font-mono text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-md border border-primary/20">
+                                        {s.code}
+                                      </span>
+                                    )}
+                                    {s.regulation && (
+                                      <span className="text-xs font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20 px-2 py-0.5 rounded-md">
+                                        {s.regulation}
+                                      </span>
+                                    )}
+                                    {s.semester && (
+                                      <span className="text-xs font-medium bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 px-2 py-0.5 rounded-md">
+                                        {s.semester}
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  <h4 className="font-bold text-sm sm:text-base text-secondary leading-snug mb-2">
+                                    {s.name || s.title}
+                                  </h4>
+
+                                  <div className="space-y-1.5 text-xs text-muted-foreground mt-3">
+                                    {s.credits !== undefined && s.credits !== "" && (
+                                      <p className="flex items-center gap-1.5">
+                                        <Award className="w-3.5 h-3.5 text-primary shrink-0" />
+                                        <span>
+                                          Credits: <strong className="text-secondary">{String(s.credits)}</strong>
+                                        </span>
+                                      </p>
+                                    )}
+                                    {s.faculty && (
+                                      <p className="flex items-start gap-1.5">
+                                        <Users className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                                        <span className="leading-tight">
+                                          Faculty: <strong className="text-secondary font-medium">{s.faculty}</strong>
+                                        </span>
+                                      </p>
+                                    )}
+                                    {s.type && s.type !== "Subject" && (
+                                      <p className="flex items-center gap-1.5">
+                                        <Layers className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+                                        <span>Type: {s.type}</span>
+                                      </p>
+                                    )}
+                                  </div>
+                                </div>
+
+                                {s.resources && (
+                                  <div className="pt-3 mt-3 border-t border-border/60">
+                                    <a
+                                      href={s.resources}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
+                                    >
+                                      <ExternalLink className="w-3.5 h-3.5" />
+                                      <span>Syllabus / Resources</span>
+                                    </a>
+                                  </div>
+                                )}
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  );
-                }))}
+                    );
+                  })()
+                ) : dept.subjects && dept.subjects.length > 0 ? (
+                  ["core", "elective", "professional-skill", "optional-training"].map((type) => {
+                    const filtered = dept.subjects.filter((s) => s.type === type);
+                    if (filtered.length === 0) return null;
+                    const label =
+                      type === "core"
+                        ? "Core Subjects"
+                        : type === "elective"
+                        ? "Elective Subjects"
+                        : type === "professional-skill"
+                        ? "Professional Skills"
+                        : "Optional Training (Industry)";
+                    return (
+                      <div key={type} className="mb-6">
+                        <h3 className="font-semibold text-primary mb-3">{label}</h3>
+                        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+                          {filtered.map((s, i) => (
+                            <Card key={i} className="hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                              <CardContent className="p-4">
+                                <div className="flex items-start justify-between gap-2 mb-2">
+                                  <h4 className="font-semibold text-sm text-secondary flex-1">{s.name}</h4>
+                                  <span className="shrink-0 text-sm font-bold text-muted-foreground bg-muted px-2 py-0.5 rounded-full">
+                                    Sem {s.semester}
+                                  </span>
+                                </div>
+                                {(s as Record<string, unknown>).code && (
+                                  <p className="text-sm text-muted-foreground">
+                                    Code: {String((s as Record<string, unknown>).code)}
+                                  </p>
+                                )}
+                                {(s as Record<string, unknown>).credits && (
+                                  <p className="text-sm text-primary font-medium">
+                                    Credits: {String((s as Record<string, unknown>).credits)}
+                                  </p>
+                                )}
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <p className="text-muted-foreground text-sm py-8">
+                    No curriculum / syllabus records available at this time.
+                  </p>
+                )}
               </motion.div>
             )}
 

@@ -45,7 +45,8 @@ const DeptCMSStrip = ({ deptKey }: Props) => {
 
   const hasContent = data.events.length > 0 || data.mous.length > 0 ||
     data.achievements.length > 0 || data.patents.length > 0 ||
-    data.publications.length > 0 || data.placements.length > 0 || data.projects.length > 0;
+    data.publications.length > 0 || data.placements.length > 0 || data.projects.length > 0 ||
+    (data.subjects && data.subjects.length > 0);
 
   if (loading) {
     return (
@@ -272,6 +273,34 @@ const DeptCMSStrip = ({ deptKey }: Props) => {
                     {p.github && <a href={p.github} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">GitHub</a>}
                     {p.demo && <a href={p.demo} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">Demo</a>}
                   </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {data.subjects && data.subjects.length > 0 && (
+          <div>
+            <SectionTitle icon={Layers} title="Curriculum & Subjects" count={data.subjects.length} color="#7c3aed" />
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+              {data.subjects.slice(0, 6).map(s => (
+                <motion.div key={s.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+                  className="bg-white rounded-xl border border-slate-200 p-4 hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+                      {s.code && <span className="font-mono text-[11px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">{s.code}</span>}
+                      {s.regulation && <span className="text-[11px] font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20 px-1.5 py-0.5 rounded">{s.regulation}</span>}
+                      {s.semester && <span className="text-[11px] font-medium bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded">{s.semester}</span>}
+                    </div>
+                    <h4 className="font-semibold text-sm text-slate-800 leading-snug">{s.name || s.title}</h4>
+                    {s.faculty && <p className="text-xs text-slate-500 mt-1.5">Faculty: <span className="font-medium text-slate-700">{s.faculty}</span></p>}
+                    {s.credits !== undefined && s.credits !== "" && <p className="text-xs text-primary font-medium mt-0.5">Credits: {String(s.credits)}</p>}
+                  </div>
+                  {s.resources && (
+                    <a href={s.resources} target="_blank" rel="noopener noreferrer" className="text-xs text-primary font-semibold hover:underline flex items-center gap-1 mt-2.5 pt-2 border-t border-slate-100">
+                      <ExternalLink className="w-3 h-3" />Syllabus / Resources
+                    </a>
+                  )}
                 </motion.div>
               ))}
             </div>
