@@ -51,6 +51,207 @@ export function matchFacultyNameScore(name1: string, name2: string): number {
   return matches / Math.max(t1.length, t2.length);
 }
 
+export const DEPT_KNOWN_HODS: Record<string, string> = {
+  eee: "Dr. Manavaalan Gunasekaran",
+  ece: "Dr. S. Baskaran",
+  me: "Dr. Sanjay Kumar C. Gowre",
+  ce: "Dr. Brahm Prakash",
+  cse: "Dr. M. Sreedevi",
+  cst: "Dr. Vijayakumar Natesan",
+  csit: "Dr. S. Kusuma",
+  aiml: "Dr. S. Padma",
+  aids: "Dr. R. Kalpana",
+  iot: "Dr. R. Kalpana",
+  mca: "Dr. N. Naveen Kumar",
+  mba: "Dr. Bhanu Sree Reddy",
+  bsh: "Dr. Sudhakar Beedam",
+};
+
+/**
+ * Detects whether a faculty member possesses a Ph.D. degree
+ * Evaluates:
+ * 1. "Dr." prefix in name
+ * 2. Qualification explicitly containing Ph.D / PhD / Doctorate
+ * 3. Ph.D. status 'Awarded' or valid award year/university
+ */
+export function hasPhdDegree(
+  name?: string,
+  qualification?: string,
+  phdObj?: { status?: string; yearOfAward?: number | string; university?: string; topic?: string }
+): boolean {
+  const n = (name || "").trim();
+  const q = (qualification || "").toLowerCase();
+
+  if (/^dr\.?\s+/i.test(n) || /\bdr\.?\s+[a-z]/i.test(n)) {
+    return true;
+  }
+  if (q.includes("ph.d") || q.includes("phd") || q.includes("doctorate") || q.includes("d.phil")) {
+    return true;
+  }
+  if (phdObj) {
+    if (phdObj.status === "Awarded") return true;
+    if (phdObj.yearOfAward && Number(phdObj.yearOfAward) > 1900) return true;
+    if (phdObj.university && phdObj.status !== "Not Applicable" && phdObj.status !== "Pursuing") return true;
+  }
+  return false;
+}
+
+/**
+ * Calculates faculty seniority ranking priority:
+ * 1. Vice Principal (Highest priority if present in department)
+ * 2. Principal / Vice Chancellor
+ * 3. Registrar
+ * 4. HOD (Head of Department)
+ * 4.5. Deans / Directors
+ * 5.1. Professors WITH Ph.D.
+ * 5.2. Other Professors (without Ph.D.)
+ * 6.1. Associate Professors WITH Ph.D.
+ * 6.2. Other Associate Professors (without Ph.D.)
+ * 7.1. Senior / Selection Grade Assistant Professors WITH Ph.D.
+ * 7.2. Senior / Selection Grade Assistant Professors WITHOUT Ph.D.
+ * 7.3. Assistant Professors WITH Ph.D.
+ * 7.4. Other Assistant Professors (without Ph.D.)
+ * 8.1. Other Academic Roles (Lecturer / Practice / Adjunct) WITH Ph.D.
+ * 8.2. Other Academic Roles WITHOUT Ph.D.
+ * 9.0. Others
+ */
+export function getFacultySeniorityPriority(
+  member: {
+    fullName?: string;
+    name?: string;
+    designation?: string;
+    qualification?: string;
+    academicAdministrationRoles?: { roleTitle?: string }[];
+    phd?: { status?: string; yearOfAward?: number | string; university?: string; topic?: string };
+    roles?: string;
+  },
+  deptKey?: string
+): number {
+  const des = (member.designation || "").toLowerCase();
+  const rawRoles = member.academicAdministrationRoles
+    ? member.academicAdministrationRoles.map((r) => (r.roleTitle || "").toLowerCase()).join(" ")
+    : (member.roles || "").toLowerCase();
+  const name = (member.fullName || member.name || "").trim();
+  const cleanName = cleanFacultyName(name).toLowerCase();
+  const isPhd = hasPhdDegree(name, member.qualification, member.phd);
+
+  // 1. Vice Principal (Highest priority in any department)
+  if (
+    des.includes("vice principal") ||
+    des.includes("vice-principal") ||
+    rawRoles.includes("vice principal") ||
+    rawRoles.includes("vice-principal") ||
+    cleanName.includes("kamal basha")
+  ) {
+    return 1;
+  }
+
+  // 2. Principal / Vice Chancellor
+  if (
+    des.includes("vice chancellor") ||
+    des.includes("pro-vice-chancellor") ||
+    des.includes("principal") ||
+    rawRoles.includes("principal") ||
+    rawRoles.includes("vice chancellor") ||
+    cleanName.includes("yuvaraj") ||
+    cleanName.includes("ramanathan")
+  ) {
+    return 2;
+  }
+
+  // 3. Registrar
+  if (
+    des.includes("registrar") ||
+    rawRoles.includes("registrar") ||
+    (cleanName.includes("pradeep") &&
+      cleanName.includes("kumar") &&
+      (des.includes("registrar") ||
+        rawRoles.includes("registrar") ||
+        cleanName.includes("pradeep kumar d") ||
+        cleanName.includes("d pradeep kumar") ||
+        cleanName.includes("d. pradeep kumar")))
+  ) {
+    return 3;
+  }
+
+  // 4. HOD (Head of Department)
+  const normKey = deptKey ? deptKey.toLowerCase().trim() : "";
+  const knownHod = normKey ? DEPT_KNOWN_HODS[normKey] : null;
+  const isNamedHod =
+    knownHod &&
+    cleanName.includes(
+      knownHod.replace(/^dr\.?\s*/i, "").split(" ")[0].toLowerCase()
+    );
+
+  if (
+    isNamedHod ||
+    des.includes("head of department") ||
+    des.includes("head of the department") ||
+    des.includes("& head") ||
+    rawRoles.includes("head of department") ||
+    rawRoles.includes("head of the department") ||
+    rawRoles.includes("hod") ||
+    (/\b(hod|head)\b/.test(des) && !des.includes("lab") && !des.includes("club"))
+  ) {
+    return 4;
+  }
+
+  // 4.5 Deans / Directors
+  if (
+    des.includes("dean") ||
+    des.includes("director") ||
+    rawRoles.includes("dean") ||
+    rawRoles.includes("director")
+  ) {
+    return 4.5;
+  }
+
+  // 5. Professors (with PhD before non-PhD)
+  if (
+    des.includes("professor") &&
+    !des.includes("assistant") &&
+    !des.includes("associate")
+  ) {
+    return isPhd ? 5.1 : 5.2;
+  }
+
+  // 6. Associate Professors (with PhD before non-PhD)
+  if (
+    des.includes("associate professor") ||
+    des.includes("assoc. prof") ||
+    des.includes("associate professors")
+  ) {
+    return isPhd ? 6.1 : 6.2;
+  }
+
+  // 7. Assistant Professors (with PhD before non-PhD)
+  if (
+    des.includes("assistant professor") ||
+    des.includes("asst. prof") ||
+    des.includes("assistant professors")
+  ) {
+    const isSr =
+      des.includes("sr") || des.includes("senior") || des.includes("selection");
+    if (isSr) {
+      return isPhd ? 7.1 : 7.2;
+    }
+    return isPhd ? 7.3 : 7.4;
+  }
+
+  // 8. Other Academic Roles (Lecturer, Adjunct, Practice, Teaching Fellow)
+  if (
+    des.includes("lecturer") ||
+    des.includes("adjunct") ||
+    des.includes("practice") ||
+    des.includes("teaching")
+  ) {
+    return isPhd ? 8.1 : 8.2;
+  }
+
+  // 9. Staff / Technical / Others
+  return 9;
+}
+
 export function useFacultyData() {
   const [facultyList, setFacultyList] = useState<APIFacultyMember[]>(sharedFacultyCache);
   const [loading, setLoading] = useState<boolean>(false);
@@ -98,46 +299,10 @@ export function useFacultyData() {
         return mapped === normalizedKey;
       });
 
-      // Designation sorting priority (HoD/Leadership -> Professors -> Associate -> Assistant -> Others)
-      const getPriority = (f: APIFacultyMember) => {
-        const des = (f.designation || "").toLowerCase();
-        const roles = (f.academicAdministrationRoles || [])
-          .map((r) => (r.roleTitle || "").toLowerCase())
-          .join(" ");
-
-        if (
-          des.includes("head of department") ||
-          des.includes("head of the department") ||
-          des.includes("& head") ||
-          des.includes("vice chancellor") ||
-          des.includes("pro-vice-chancellor") ||
-          des.includes("registrar") ||
-          des.includes("principal") ||
-          des.includes("dean") ||
-          des.includes("director") ||
-          roles.includes("head of department") ||
-          roles.includes("head of the department") ||
-          roles.includes("hod") ||
-          roles.includes("dean") ||
-          roles.includes("registrar")
-        ) {
-          return 1;
-        }
-        if (/\b(hod|head)\b/.test(des) && !des.includes("lab") && !des.includes("club")) return 1;
-        if (des.includes("professor") && !des.includes("assistant") && !des.includes("associate")) return 2;
-        if (des.includes("associate professor") || des.includes("assoc. prof") || des.includes("associate professors")) return 3;
-        if (des.includes("assistant professor") || des.includes("asst. prof") || des.includes("assistant professors")) {
-          if (des.includes("sr") || des.includes("senior") || des.includes("selection")) return 4.1;
-          return 4.2;
-        }
-        if (des.includes("lecturer") || des.includes("adjunct") || des.includes("practice") || des.includes("teaching")) return 5;
-        return 6;
-      };
-
       return [...filtered]
         .sort((a, b) => {
-          const pA = getPriority(a);
-          const pB = getPriority(b);
+          const pA = getFacultySeniorityPriority(a, normalizedKey);
+          const pB = getFacultySeniorityPriority(b, normalizedKey);
           if (pA !== pB) return pA - pB;
           return cleanFacultyName(a.fullName).localeCompare(cleanFacultyName(b.fullName));
         })
@@ -150,14 +315,20 @@ export function useFacultyData() {
   );
 
   /**
-   * Returns raw API faculty records for a department
+   * Returns raw API faculty records for a department, sorted by institutional seniority
    */
   const getRawFacultyByDept = useCallback(
     (deptKey: string): APIFacultyMember[] => {
       const normalizedKey = deptKey.toLowerCase().trim();
-      return facultyList.filter((f) => {
+      const filtered = facultyList.filter((f) => {
         const mapped = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
         return mapped === normalizedKey;
+      });
+      return [...filtered].sort((a, b) => {
+        const pA = getFacultySeniorityPriority(a, normalizedKey);
+        const pB = getFacultySeniorityPriority(b, normalizedKey);
+        if (pA !== pB) return pA - pB;
+        return cleanFacultyName(a.fullName).localeCompare(cleanFacultyName(b.fullName));
       });
     },
     [facultyList]
@@ -240,22 +411,6 @@ export function useFacultyData() {
       const deptStatic = departmentsData[normalizedKey];
       const staticHod = deptStatic?.hod;
       const knownHead = departmentHeads.find((h) => h.deptKey === normalizedKey);
-
-      const DEPT_KNOWN_HODS: Record<string, string> = {
-        eee: "Dr. Manavaalan Gunasekaran",
-        ece: "Dr. S. Baskaran",
-        me: "Dr. Sanjay Kumar C. Gowre",
-        ce: "Dr. Brahm Prakash",
-        cse: "Dr. M. Sreedevi",
-        cst: "Dr. Vijayakumar Natesan",
-        csit: "Dr. S. Kusuma",
-        aiml: "Dr. S. Padma",
-        aids: "Dr. R. Kalpana",
-        iot: "Dr. R. Kalpana",
-        mca: "Dr. N. Naveen Kumar",
-        mba: "Dr. Bhanu Sree Reddy",
-        bsh: "Dr. Sudhakar Beedam",
-      };
 
       const hodTargetName = targetNameOrSubDept || DEPT_KNOWN_HODS[normalizedKey] || staticHod?.name || knownHead?.name;
 

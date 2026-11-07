@@ -35,9 +35,9 @@ import { getDepartmentByKey, getDepartmentUnderGraduate, getDepartmentPostGradua
 import { Card, CardContent } from "@/components/ui/card";
 import InlineFacultyProfile from "@/components/InlineFacultyProfile";
 import { getFacultyProfile, type FacultyProfile } from "@/data/facultyProfiles";
-import { slugifyFaculty } from "@/lib/facultySlug";
+import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
 import { useDeptCMSData, type CMSMoU, type CMSAchievement, type CMSPatent, type CMSPublication, type CMSPlacement, type CMSProject } from "@/hooks/useDeptCMSData";
-import { useFacultyData } from "@/hooks/useFacultyData";
+import { useFacultyData, getFacultySeniorityPriority } from "@/hooks/useFacultyData";
 import EventDetailModal from "@/components/EventDetailModal";
 import MouDetailModal from "@/components/MouDetailModal";
 import AchievementDetailModal from "@/components/AchievementDetailModal";
@@ -1283,12 +1283,20 @@ const DepartmentPage = () => {
   const hod = dynamicHod || dept.hod;
 
   const liveFaculty = getFacultyByDept(deptKey || "");
-  const effectiveFaculty =
-    deptKey === "aiml"
-      ? liveFaculty
-      : liveFaculty.length > 0
-      ? liveFaculty
-      : dept.faculty || [];
+  const effectiveFaculty = useMemo(() => {
+    const rawList =
+      deptKey === "aiml"
+        ? liveFaculty
+        : liveFaculty.length > 0
+        ? liveFaculty
+        : dept.faculty || [];
+    return [...rawList].sort((a, b) => {
+      const pA = getFacultySeniorityPriority(a, deptKey);
+      const pB = getFacultySeniorityPriority(b, deptKey);
+      if (pA !== pB) return pA - pB;
+      return cleanFacultyName(a.name).localeCompare(cleanFacultyName(b.name));
+    });
+  }, [liveFaculty, dept.faculty, deptKey]);
 
   const filteredFaculty = effectiveFaculty.filter((f) => {
     const q = facultySearch.toLowerCase().trim();
@@ -1309,7 +1317,15 @@ const DepartmentPage = () => {
     } else if (designationFilter === "assistant") {
       matchesDesignation = des.includes("assistant professor");
     } else if (designationFilter === "hod") {
-      matchesDesignation = des.includes("hod") || des.includes("head");
+      matchesDesignation =
+        des.includes("vice principal") ||
+        des.includes("vice-principal") ||
+        des.includes("principal") ||
+        des.includes("registrar") ||
+        des.includes("hod") ||
+        des.includes("head") ||
+        des.includes("dean") ||
+        des.includes("director");
     }
 
     return matchesSearch && matchesDesignation;

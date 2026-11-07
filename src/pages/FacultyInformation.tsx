@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
-import { useFacultyData } from "@/hooks/useFacultyData";
+import { useFacultyData, getFacultySeniorityPriority } from "@/hooks/useFacultyData";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
 import { departmentsData } from "@/data/departmentData";
 import { Card } from "@/components/ui/card";
@@ -78,11 +78,31 @@ const FacultyInformation = () => {
         } else if (selectedDesignation === "asst") {
           matchesDes = des.includes("assistant professor") || des.includes("assistant professors");
         } else if (selectedDesignation === "head") {
-          matchesDes = des.includes("hod") || des.includes("head") || des.includes("dean") || des.includes("director") || des.includes("registrar");
+          matchesDes =
+            des.includes("vice principal") ||
+            des.includes("vice-principal") ||
+            des.includes("principal") ||
+            des.includes("registrar") ||
+            des.includes("hod") ||
+            des.includes("head") ||
+            des.includes("dean") ||
+            des.includes("director");
         }
       }
 
       return matchesSearch && matchesDept && matchesDes;
+    });
+
+    return [...list].sort((a, b) => {
+      const deptA = getDeptKey(a.department?.code, a.department?.name);
+      const deptB = getDeptKey(b.department?.code, b.department?.name);
+      if (selectedDept === "all" && deptA !== deptB) {
+        return deptA.localeCompare(deptB);
+      }
+      const pA = getFacultySeniorityPriority(a, deptA);
+      const pB = getFacultySeniorityPriority(b, deptB);
+      if (pA !== pB) return pA - pB;
+      return cleanFacultyName(a.fullName).localeCompare(cleanFacultyName(b.fullName));
     });
   }, [facultyList, searchTerm, selectedDept, selectedDesignation]);
 
