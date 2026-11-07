@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/about</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/admissions</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/academics</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/departments</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/placements</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/research</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/campus-life</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/infrastructure</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/library</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/news-events</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/gallery</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/contact</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/eligibility-and-fees</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/examinations</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/academic-calendar</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Accreditation & compliance -->
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/naac</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/nirf</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/iqac</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/affiliations-accreditations</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/psd</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- About sub-pages -->
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/about/leadership</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/about/academic-leadership</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/about/deans</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/about/department-heads</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/about/executive-council</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/about/academic-council</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/about/bos</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/about/organogram</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/about/mandatory-disclosures</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/university-finance-committee</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/finance-committee</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Campus life sub-pages -->
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/campus-life/student-clubs</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/campus-life/cultural-life</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/sports</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/hostels</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- International -->
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/international-relations</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/international-relations/stanford-initiative</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Department pages -->
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/cse</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/ce</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/eee</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/me</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/ece</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/cseds</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/csecs</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/ai</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/aiml</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/mca</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/mba</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/department/bsh</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ragupathi05.github.io/MITS-Design1/#/Venture-Studio</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+</urlset>
