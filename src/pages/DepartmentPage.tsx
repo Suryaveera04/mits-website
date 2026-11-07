@@ -46,7 +46,7 @@ import PublicationDetailModal from "@/components/PublicationDetailModal";
 import PlacementDetailModal from "@/components/PlacementDetailModal";
 import ProjectDetailModal from "@/components/ProjectDetailModal";
 import {
-  Users, Award, FlaskConical, FileText, BookOpen, Calendar, Handshake, Briefcase, FolderOpen, GraduationCap, Building2, ChevronRight, Eye, Target, Trophy, Lightbulb, Mail, Phone, ExternalLink, Search, Filter, Sparkles, RefreshCw, ChevronDown, Layers, Download, Clock, MoreHorizontal
+  Users, Award, FlaskConical, FileText, BookOpen, Calendar, Handshake, Briefcase, FolderOpen, GraduationCap, Building2, ChevronRight, Eye, Target, Trophy, Lightbulb, Mail, Phone, ExternalLink, Search, Filter, Sparkles, RefreshCw, ChevronDown, Layers, Download, Clock, MoreHorizontal, Loader2
 } from "lucide-react";
 
 interface SidebarSubItem {
