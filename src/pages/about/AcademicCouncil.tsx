@@ -47,6 +47,11 @@ const AcademicCouncil = () => {
             <div className="space-y-4">
               {[
                 {
+                  title: "Minutes of 4th Academic Council Meeting",
+                  date: "August 14, 2026",
+                  url: "https://mits.ac.in/assets/pdf/admin/Minutes of the 4th Academic Council.pdf",
+                },
+                {
                   title: "Minutes of 3rd Academic Council Meeting",
                   date: "June 2026",
                   url: "https://mits.ac.in/public/uploads/mandatory/MoM-%203rd%20AC%20meeting%20DTBU%20Jun%202026.pdf",

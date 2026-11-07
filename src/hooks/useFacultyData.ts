@@ -98,20 +98,46 @@ export function useFacultyData() {
         return mapped === normalizedKey;
       });
 
-      // Designation sorting priority (Professors -> Associate -> Assistant -> Others)
-      const getPriority = (d: string) => {
-        const des = (d || "").toLowerCase();
-        if (des.includes("hod") || des.includes("head")) return 1;
+      // Designation sorting priority (HoD/Leadership -> Professors -> Associate -> Assistant -> Others)
+      const getPriority = (f: APIFacultyMember) => {
+        const des = (f.designation || "").toLowerCase();
+        const roles = (f.academicAdministrationRoles || [])
+          .map((r) => (r.roleTitle || "").toLowerCase())
+          .join(" ");
+
+        if (
+          des.includes("head of department") ||
+          des.includes("head of the department") ||
+          des.includes("& head") ||
+          des.includes("vice chancellor") ||
+          des.includes("pro-vice-chancellor") ||
+          des.includes("registrar") ||
+          des.includes("principal") ||
+          des.includes("dean") ||
+          des.includes("director") ||
+          roles.includes("head of department") ||
+          roles.includes("head of the department") ||
+          roles.includes("hod") ||
+          roles.includes("dean") ||
+          roles.includes("registrar")
+        ) {
+          return 1;
+        }
+        if (/\b(hod|head)\b/.test(des) && !des.includes("lab") && !des.includes("club")) return 1;
         if (des.includes("professor") && !des.includes("assistant") && !des.includes("associate")) return 2;
-        if (des.includes("associate professor")) return 3;
-        if (des.includes("assistant professor")) return 4;
-        return 5;
+        if (des.includes("associate professor") || des.includes("assoc. prof") || des.includes("associate professors")) return 3;
+        if (des.includes("assistant professor") || des.includes("asst. prof") || des.includes("assistant professors")) {
+          if (des.includes("sr") || des.includes("senior") || des.includes("selection")) return 4.1;
+          return 4.2;
+        }
+        if (des.includes("lecturer") || des.includes("adjunct") || des.includes("practice") || des.includes("teaching")) return 5;
+        return 6;
       };
 
       return [...filtered]
         .sort((a, b) => {
-          const pA = getPriority(a.designation);
-          const pB = getPriority(b.designation);
+          const pA = getPriority(a);
+          const pB = getPriority(b);
           if (pA !== pB) return pA - pB;
           return cleanFacultyName(a.fullName).localeCompare(cleanFacultyName(b.fullName));
         })
@@ -214,7 +240,24 @@ export function useFacultyData() {
       const deptStatic = departmentsData[normalizedKey];
       const staticHod = deptStatic?.hod;
       const knownHead = departmentHeads.find((h) => h.deptKey === normalizedKey);
-      const hodTargetName = targetNameOrSubDept || staticHod?.name || knownHead?.name;
+
+      const DEPT_KNOWN_HODS: Record<string, string> = {
+        eee: "Dr. Manavaalan Gunasekaran",
+        ece: "Dr. S. Baskaran",
+        me: "Dr. Sanjay Kumar C. Gowre",
+        ce: "Dr. Brahm Prakash",
+        cse: "Dr. M. Sreedevi",
+        cst: "Dr. Vijayakumar Natesan",
+        csit: "Dr. S. Kusuma",
+        aiml: "Dr. S. Padma",
+        aids: "Dr. R. Kalpana",
+        iot: "Dr. R. Kalpana",
+        mca: "Dr. N. Naveen Kumar",
+        mba: "Dr. Bhanu Sree Reddy",
+        bsh: "Dr. Sudhakar Beedam",
+      };
+
+      const hodTargetName = targetNameOrSubDept || DEPT_KNOWN_HODS[normalizedKey] || staticHod?.name || knownHead?.name;
 
       // 1. Get raw faculty for this department
       const deptRawFaculty = facultyList.filter((f) => {
@@ -222,20 +265,9 @@ export function useFacultyData() {
         return mapped === normalizedKey;
       });
 
-      // 2. Check if any faculty member in this department is designated as HOD (only when no specific target name is requested)
+      // 2. Prioritize matching the known HOD by name first!
       let apiHodMatch: APIFacultyMember | undefined;
-      if (!targetNameOrSubDept) {
-        apiHodMatch = deptRawFaculty.find((f) => {
-          const des = (f.designation || "").toLowerCase();
-          const roles = (f.academicAdministrationRoles || [])
-            .map((r) => (r.roleTitle || "").toLowerCase())
-            .join(" ");
-          return des.includes("hod") || des.includes("head") || roles.includes("head of department");
-        });
-      }
-
-      // 3. If not found by explicit HOD designation, match by known HOD name
-      if (!apiHodMatch && hodTargetName) {
+      if (hodTargetName) {
         const cleanTarget = cleanFacultyName(hodTargetName);
         let bestScore = 0;
         for (const f of deptRawFaculty) {
@@ -245,7 +277,7 @@ export function useFacultyData() {
             apiHodMatch = f;
           }
         }
-        if (bestScore < 0.5) {
+        if (bestScore < 0.4) {
           apiHodMatch = undefined;
         }
 
@@ -259,17 +291,34 @@ export function useFacultyData() {
               apiHodMatch = f;
             }
           }
-          if (globalBestScore < 0.5) {
+          if (globalBestScore < 0.4) {
             apiHodMatch = undefined;
           }
         }
       }
 
+      // 3. If no named match found, find faculty designated explicitly as Head of Department
+      if (!apiHodMatch && !targetNameOrSubDept) {
+        apiHodMatch = deptRawFaculty.find((f) => {
+          const des = (f.designation || "").toLowerCase();
+          const roles = (f.academicAdministrationRoles || [])
+            .map((r) => (r.roleTitle || "").toLowerCase())
+            .join(" ");
+          return (
+            des.includes("head of the department") ||
+            des.includes("head of department") ||
+            des.includes("& head") ||
+            roles.includes("head of department") ||
+            roles.includes("head of the department")
+          );
+        });
+      }
+
       // 4. If an API match is found, build the enriched FacultyMember
       if (apiHodMatch) {
         const member = apiFacultyToFacultyMember(apiHodMatch);
-        // Only set image if API match has a profile photo in the database; do not use any old URL
-        member.image = getFacultyPhotoUrl(apiHodMatch.profilePhoto) || undefined;
+        // Only set image if API match has a profile photo in the database; otherwise fallback to static hod image
+        member.image = getFacultyPhotoUrl(apiHodMatch.profilePhoto) || staticHod?.image || knownHead?.image;
         member.name = cleanFacultyName(apiHodMatch.fullName);
         member.profileUrl = `/department/${normalizedKey}/faculty/${slugifyFaculty(member.name)}`;
 

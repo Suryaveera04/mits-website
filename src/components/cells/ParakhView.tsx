@@ -21,7 +21,7 @@ const objectives = [
 ];
 
 const documents = [
-  { title: "Coordination Team for PARAKH (AY 2027-28)", href: "https://mits.ac.in/assets/pdf/assoc/PARAKH Co-coordinators 2027-28.pdf" },
+  { title: "Coordination Team for PARAKH (AY 2024-25)", href: "https://mits.ac.in/assets/pdf/assoc/PARAKH Co-coordinators 2024-25.pdf" },
   { title: "AICTE PARAKH - Institute Profile", href: "https://mits.ac.in/assets/pdf/assoc/AICTE PARAKH - Institute Profile.pdf" },
   { title: "AICTE PARAKH - Committee Office Order 2025-26", href: "https://mits.ac.in/assets/pdf/assoc/Office Order-PARAKH.pdf" },
   { title: "AICTE PARAKH - Committee Office Order 2024-25", href: "https://mits.ac.in/assets/pdf/assoc/AICTE PARAKH - Committee Office Order-2025.pdf" },

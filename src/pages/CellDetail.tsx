@@ -41,6 +41,25 @@ const CELL_TABS: Record<string, { id: TabId; label: string }[]> = {
     { id: "financial-aid", label: "Financial Aid" },
     { id: "contact", label: "Contact Us" },
   ],
+  grc: [
+    { id: "home", label: "Home" },
+    { id: "documents", label: "Documents" },
+    { id: "contact", label: "Contact Us" },
+  ],
+  "ncc-air": [
+    { id: "home", label: "Home" },
+    { id: "documents", label: "Documents" },
+    { id: "events", label: "Events" },
+    { id: "gallery", label: "Gallery" },
+    { id: "contact", label: "Contact Us" },
+  ],
+  "ncc-army": [
+    { id: "home", label: "Home" },
+    { id: "documents", label: "Documents" },
+    { id: "events", label: "Events" },
+    { id: "gallery", label: "Gallery" },
+    { id: "contact", label: "Contact Us" },
+  ],
 };
 
 const DEFAULT_TABS: { id: TabId; label: string }[] = [
@@ -579,7 +598,9 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
                           ))}
                         </tbody>
                       </table>
-                    ) : (
+                    ) : (() => {
+                      const hasEmailColumn = cell.members.some((m) => !!m.email);
+                      return (
                       <table className="w-full text-sm border-collapse">
                         <thead>
                           <tr className="bg-[#0f2a44] text-white text-sm uppercase tracking-wider">
@@ -587,6 +608,7 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
                             <th className="py-3 px-4 text-left">Name</th>
                             <th className="py-3 px-4 text-left hidden sm:table-cell">Designation</th>
                             <th className="py-3 px-4 text-left">Position</th>
+                            {hasEmailColumn && <th className="py-3 px-4 text-left">Email ID</th>}
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-100">
@@ -600,11 +622,23 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
                                   {m.position}
                                 </span>
                               </td>
+                              {hasEmailColumn && (
+                                <td className="py-3 px-4 text-sm">
+                                  {m.email ? (
+                                    <a href={`mailto:${m.email}`} className="text-[#b31317] hover:underline font-medium">
+                                      {m.email}
+                                    </a>
+                                  ) : (
+                                    <span className="text-gray-400">—</span>
+                                  )}
+                                </td>
+                              )}
                             </tr>
                           ))}
                         </tbody>
                       </table>
-                    )}
+                    );
+                    })()}
                   </div>
                 </section>
               </ScrollReveal>

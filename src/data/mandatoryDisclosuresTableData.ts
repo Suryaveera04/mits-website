@@ -73,316 +73,326 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
   },
   {
     "sno": "14",
+    "title": "Audited statement (DTBU) for 2025-26",
+    "href": "https://mits.ac.in/assets/pdf/admin/Audited statement (DTBU) for 2025-26.pdf"
+  },
+  {
+    "sno": "15",
+    "title": "Audited statement for 2025-26",
+    "href": "https://mits.ac.in/assets/pdf/admin/Audited statement for 2025-26.pdf"
+  },
+  {
+    "sno": "16",
     "title": "Audited statement for 2024-25",
     "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2024-25.pdf"
   },
   {
-    "sno": "15",
+    "sno": "17",
     "title": "Audited statement for 2023-24",
     "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2023-24.pdf"
   },
   {
-    "sno": "16",
+    "sno": "18",
     "title": "Audited statement for 2022-23",
     "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2022-23.pdf"
   },
   {
-    "sno": "17",
+    "sno": "19",
     "title": "Audited statement for 2021-22",
     "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2021-22.pdf"
   },
   {
-    "sno": "18",
+    "sno": "20",
     "title": "Audited statement for 2020-21",
     "href": "https://mits.ac.in/assets/pdf/admin/AUDITED%20STATEMENT%202020-21-min.pdf"
   },
   {
-    "sno": "19",
+    "sno": "21",
     "title": "Audited statement for 2019-20",
     "href": "https://mits.ac.in/assets/pdf/admin/AUDITED%20STATEMENT%202019-20.pdf"
   },
   {
-    "sno": "20",
+    "sno": "22",
     "title": "Audited statement for 2018-19",
     "href": "https://mits.ac.in/assets/pdf/admin/AUDITED%20STATEMENT%202018-19.pdf"
   },
   {
-    "sno": "21",
+    "sno": "23",
     "title": "Audited statement for 2017-18",
     "href": "https://mits.ac.in/assets/pdf/admin/I%20&amp;%20E,%20Bal%20%20fin%20statement%202017-18.pdf"
   },
   {
-    "sno": "22",
+    "sno": "24",
     "title": "Audited statement for 2016-17",
     "href": "https://mits.ac.in/assets/pdf/admin/I%20&amp;%20E,%20BAL%202016-17%20MITS%20Audit%20Statement.pdf"
   },
   {
-    "sno": "23",
+    "sno": "25",
     "title": "Audited statement for 2015-16",
     "href": "https://mits.ac.in/assets/pdf/admin/I%20&amp;%20E,%20BAL%202015-16%20MITS%20Audit%20Statement.pdf"
   },
   {
-    "sno": "24",
+    "sno": "26",
     "title": "Audited statement for 2014-15",
     "href": "https://mits.ac.in/assets/pdf/admin/I%20&amp;%20E,%20BAL%202014-15%20MITS%20Audit%20Statement.pdf"
   },
   {
-    "sno": "25",
+    "sno": "27",
     "title": "AICTE Mandatory Disclosure 2025-26",
     "href": "https://mits.ac.in/assets/pdf/admin/MITS Mandatory Disclosure 2025-26.pdf"
   },
   {
-    "sno": "26",
+    "sno": "28",
     "title": "AICTE Mandatory Disclosure 2024-25",
     "href": "https://mits.ac.in/assets/pdf/admin/Mandatory Disclosures_2024-25.pdf"
   },
   {
-    "sno": "27",
+    "sno": "29",
     "title": "AICTE Mandatory Disclosure 2018-19",
     "href": "https://mits.ac.in/assets/pdf/admin/AICTE%20Mandatory%20Disclosure%202018-19.pdf"
   },
   {
-    "sno": "28",
+    "sno": "30",
     "title": "AICTE Approval 2026-27",
     "href": "https://mits.ac.in/assets/pdf/admin/EOA Report 2026-2027.PDF"
   },
   {
-    "sno": "29",
+    "sno": "31",
     "title": "AICTE Approval 2025-26",
     "href": "https://mits.ac.in/public/uploads/affiliations/AICTE EoA 2026-26 [16.01.2026].pdf"
   },
   {
-    "sno": "30",
+    "sno": "32",
     "title": "AICTE Approval 2024-25",
     "href": "https://mits.ac.in/public/uploads/affiliations/EOA%20Report%202024-2025.PDF"
   },
   {
-    "sno": "31",
+    "sno": "33",
     "title": "AICTE Approval 2023-24",
     "href": "https://mits.ac.in/public/uploads/affiliations/EOA-Report-2023-2024.PDF"
   },
   {
-    "sno": "32",
+    "sno": "34",
     "title": "AICTE Approval 2022-23",
     "href": "https://mits.ac.in/assets/pdf/admin/AICTE-%20Affiliation-EOA%20_2022-23%20Report.PDF"
   },
   {
-    "sno": "33",
+    "sno": "35",
     "title": "AICTE Approval 2021-22",
     "href": "https://mits.ac.in/assets/pdf/admin/AICTE-%20Affiliation-EOA%20Report_2021-22.PDF"
   },
   {
-    "sno": "34",
+    "sno": "36",
     "title": "AICTE Approval 2020-21",
     "href": "https://mits.ac.in/assets/pdf/admin/EOA_Report_2020-21.PDF"
   },
   {
-    "sno": "35",
+    "sno": "37",
     "title": "AICTE Approval 2019-20",
     "href": "https://mits.ac.in/assets/pdf/admin/Corrigendum%20Report%20for%20EOA%202019-2020.PDF"
   },
   {
-    "sno": "36",
+    "sno": "38",
     "title": "AICTE Approval 2018-19",
     "href": "https://mits.ac.in/assets/pdf/admin/EOA%20Report_2018-19.pdf"
   },
   {
-    "sno": "37",
+    "sno": "39",
     "title": "AICTE Approval 2017-18",
     "href": "https://mits.ac.in/assets/pdf/admin/Corrigendum%20Report%20for%20EOA%202017-2018.pdf"
   },
   {
-    "sno": "38",
+    "sno": "40",
     "title": "AICTE Approval 2016-17",
     "href": "https://mits.ac.in/assets/pdf/admin/EOA%20Report-2016-17.pdf"
   },
   {
-    "sno": "39",
+    "sno": "41",
     "title": "AICTE Approval 2015-16",
     "href": "https://mits.ac.in/assets/pdf/admin/Corrigendum_Report_for_EOA_2015-2016[4].pdf"
   },
   {
-    "sno": "40",
+    "sno": "42",
     "title": "AICTE Approval 2014-15",
     "href": "https://mits.ac.in/assets/pdf/admin/AICTE%20APPROVAL(2014-15).pdf"
   },
   {
-    "sno": "41",
+    "sno": "43",
     "title": "BOS - Computer Science &amp; Technology",
     "href": "https://mits.ac.in/assets/pdf/admin/BOS-CST.pdf"
   },
   {
-    "sno": "42",
+    "sno": "44",
     "title": "BOS - Computer Science &amp; Information Technology",
     "href": "https://mits.ac.in/assets/pdf/admin/BOS-CSIT.pdf"
   },
   {
-    "sno": "43",
+    "sno": "45",
     "title": "BOS - Department of Management Studies (MBA)",
     "href": "https://mits.ac.in/assets/pdf/admin/BOS-MBA.pdf"
   },
   {
-    "sno": "44",
+    "sno": "46",
     "title": "BOS - Department of Computer Applications (MCA)",
     "href": "https://mits.ac.in/assets/pdf/admin/BOS-MCA.pdf"
   },
   {
-    "sno": "45",
+    "sno": "47",
     "title": "BOS - Department of Mathematics",
     "href": "https://mits.ac.in/assets/pdf/admin/BoS%20Mathematics.pdf"
   },
   {
-    "sno": "46",
+    "sno": "48",
     "title": "BOS - Department of Physics",
     "href": "https://mits.ac.in/assets/pdf/admin/Physics_BOS_MOM.pdf"
   },
   {
-    "sno": "47",
+    "sno": "49",
     "title": "BOS - Department of Chemistry",
     "href": "https://mits.ac.in/assets/pdf/admin/Chemistry-BOS-MOM.pdf"
   },
   {
-    "sno": "48",
+    "sno": "50",
     "title": "BOS - Department of English &amp; Foreign Languages",
     "href": "https://mits.ac.in/assets/pdf/admin/BOS-EFL.pdf"
   },
   {
-    "sno": "49",
+    "sno": "51",
     "title": "BOS - Department of Humanities",
     "href": "https://mits.ac.in/assets/pdf/admin/BOS-Humanities.pdf"
   },
   {
-    "sno": "50",
+    "sno": "52",
     "title": "MITS TEQIP Revised IDP",
     "href": "https://mits.ac.in/assets/pdf/teqip/IDP.pdf"
   },
   {
-    "sno": "51",
+    "sno": "53",
     "title": "SWAYAM-NPTEL Certificate",
     "href": "https://mits.ac.in/assets/pdf/admin/MITS-NPTEL.pdf"
   },
   {
-    "sno": "52",
+    "sno": "54",
     "title": "2f &amp; 12B Certificates",
     "href": "https://mits.ac.in/assets/pdf/admin/2f%20&amp;%2012B.pdf"
   },
   {
-    "sno": "53",
+    "sno": "55",
     "title": "ISO 21001:2018 Certificate",
     "href": "https://mits.ac.in/assets/pdf/admin/Madanapalle%20Institute%20of%20Technology%20&%20Science-ISO.pdf"
   },
   {
-    "sno": "54",
+    "sno": "56",
     "title": "NABL Accredited Certificate for Labs",
     "href": "https://mits.ac.in/assets/pdf/admin/Certificate TC-15590.pdf"
   },
   {
-    "sno": "55",
+    "sno": "57",
     "title": "Fire safety NOC 2022-2027",
     "href": "https://mits.ac.in/assets/pdf/admin/Fire safety NOC 2022-2027.pdf"
   },
   {
-    "sno": "56",
+    "sno": "58",
     "title": "NBA Accreditation for PG Programme (MBA) (2025 - 2028)",
     "href": "https://mits.ac.in/public/uploads/affiliations/MBA%20NBA%20Cetificate-2025.pdf"
   },
   {
-    "sno": "57",
+    "sno": "59",
     "title": "NBA Accreditation for PG Programme (MCA) (2025 - 2028)",
     "href": "https://mits.ac.in/public/uploads/affiliations/MCA%20NBA%20Cetificate-2025.pdf"
   },
   {
-    "sno": "58",
+    "sno": "60",
     "title": "NBA Accreditation for UG Programmes (Civil, CSE, ECE, EEE &amp; ME) (2025 - 2028)",
     "href": "https://mits.ac.in/public/uploads/affiliations/Madanapalle%20Institute%20of%20Technology%20_%20Science,%20Andhra%20Pradesh19_6_2025_12_45_57.pdf"
   },
   {
-    "sno": "59",
+    "sno": "61",
     "title": "NBA Accreditation for PG Programme (MCA) (2024 - 2025)",
     "href": "https://mits.ac.in/public/uploads/affiliations/NBA-MCA%20Extention%20till%202025%20June.pdf"
   },
   {
-    "sno": "60",
+    "sno": "62",
     "title": "NBA Accreditation for UG Programme (CST) (2024 - 2027)",
     "href": "https://mits.ac.in/public/uploads/affiliations/NBA%20-%20CST-%20confirmation%20-till%2030.6.2027.pdf"
   },
   {
-    "sno": "61",
+    "sno": "63",
     "title": "NBA Accreditation for UG Programmes (Civil, CSE, ECE, EEE &amp; ME) (2022 - 2025)",
     "href": "https://mits.ac.in/public/uploads/affiliations/b6c8a081779294cbbd70a1180dc7746f.pdf"
   },
   {
-    "sno": "62",
+    "sno": "64",
     "title": "NBA Accreditation for PG Programme (MCA) (2022 - 2024)",
     "href": "https://mits.ac.in/public/uploads/affiliations/NBA-MCA-2022-24.pdf"
   },
   {
-    "sno": "63",
+    "sno": "65",
     "title": "NBA Accreditation for PG Programme (MBA) (2022 - 2025)",
     "href": "https://mits.ac.in/public/uploads/affiliations/NBA-MBA-2022-25.pdf"
   },
   {
-    "sno": "64",
+    "sno": "66",
     "title": "NBA Accreditation for UG Programmes (CSE, ECE, EEE &amp; ME) (2019 - 2022) &amp; PG Programme (MBA) (2019 - 2022)",
     "href": "https://mits.ac.in/assets/pdf/admin/Madanapalle%20Institute%20of%20Technology%20_%20Science21_11_2019_12_47_22.pdf"
   },
   {
-    "sno": "65",
+    "sno": "67",
     "title": "NBA Accreditation for UG Programme (Civil) (2019 - 2022) &amp; PG Programme (MCA) (2019 - 2021)",
     "href": "https://mits.ac.in/assets/pdf/admin/NBA%20-%20Accreditation%20-%20MCA%20Civil%20-%20Till%202021%202022.pdf"
   },
   {
-    "sno": "66",
+    "sno": "68",
     "title": "Annual Reports 2024-25",
     "href": "https://mits.ac.in/assets/pdf/admin/AnnualReport 2024-25.pdf"
   },
   {
-    "sno": "67",
+    "sno": "69",
     "title": "Annual Reports 2023-24",
     "href": "https://mits.ac.in/assets/pdf/admin/AnnualReport 2023-24.pdf"
   },
   {
-    "sno": "68",
+    "sno": "70",
     "title": "Annual Reports 2022-23",
     "href": "https://mits.ac.in/assets/pdf/admin/Annual Report 2022-23.pdf"
   },
   {
-    "sno": "69",
+    "sno": "71",
     "title": "Annual Reports 2021-22",
     "href": "https://mits.ac.in/assets/pdf/admin/Annual Report AY 2021-22.pdf"
   },
   {
-    "sno": "70",
+    "sno": "72",
     "title": "Annual Reports 2018-19",
     "href": "https://mits.ac.in/assets/pdf/admin/2018-19%20Annual%20Report.pdf"
   },
   {
-    "sno": "71",
+    "sno": "73",
     "title": "Annual Reports 2017-18",
     "href": "https://mits.ac.in/assets/pdf/admin/2017-18%20Annual%20Report.pdf"
   },
   {
-    "sno": "72",
+    "sno": "74",
     "title": "Annual Reports 2016-17",
     "href": "https://mits.ac.in/assets/pdf/admin/2016-17%20Annual%20Report.pdf"
   },
   {
-    "sno": "73",
+    "sno": "75",
     "title": "Annual Reports 2015-16",
     "href": "https://mits.ac.in/assets/pdf/admin/2015-16%20Annual%20Report.pdf"
   },
   {
-    "sno": "74",
+    "sno": "76",
     "title": "Annual Reports 2014-15",
     "href": "https://mits.ac.in/assets/pdf/admin/2014-15%20Annual%20Report.pdf"
   },
   {
-    "sno": "75",
+    "sno": "77",
     "title": "Implementing Food Safety & Standard Act",
     "href": "https://mits.ac.in/assets/pdf/admin/Implementing Food Safety & Standard Act. sign.pdf"
   },
   {
-    "sno": "76",
+    "sno": "78",
     "title": "Insurance for Students upto June Sign 2025",
     "href": "https://mits.ac.in/assets/pdf/admin/Insurance for Students upto June  Sign 2025.pdf"
   }

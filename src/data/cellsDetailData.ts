@@ -666,8 +666,12 @@ export const cellsDetailData: Record<string, CellDetail> = {
   "pcc": {
     "name": "Psychological Counselling Cell",
     "aboutText": [
-      "In today's ever-changing complex world, educational institutions play a crucial role in shaping young minds by preparing them for future success. Academic achievement is undeniably important, but it is equally vital to address students' emotional and mental well-being. Hence, MITS initiated Counselling services through Mrs. Vijaya Lakshmi, Institutional Counsellor, who completed Masters in Guidance & Counselling in NCERT, Mysore. She has been rendering Mental Health & Counselling services to MITS students. Psychological problems, parental counselling, interpersonal relationship, stress related problems are dealt with. How to promote mental health, significance of yoga and meditation, healthy habits and positive thinking and trends in the life style etc are being addressed in the campus. She also coordinates with Dr. Sujay Nama an External Expert Counsellor & Psychiatrist to handle the vulnerable cases.",
-      "◆ To empower the students in recognizing their unique potentials and skills"
+      "In today\'s ever-changing complex world, educational institutions play a crucial role in shaping young minds by preparing them for future success. Academic achievement is undeniably important, but it is equally vital to address students\' emotional and mental well-being. Hence, MITS initiated Counselling services through Mrs. Vijaya Lakshmi, Institutional Counsellor, who completed Masters in Guidance & Counselling in NCERT, Mysore. She has been rendering Mental Health & Counselling services to MITS students. Psychological problems, parental counselling, interpersonal relationship, stress related problems are dealt with. How to promote mental health, significance of yoga and meditation, healthy habits and positive thinking and trends in the life style etc are being addressed in the campus. She also coordinates with Dr. Sujay Nama an External Expert Counsellor & Psychiatrist to handle the vulnerable cases.",
+      "Importance of Counselling: Guidance and counselling are essential pillars for youth development, fostering emotional resilience, interpersonal skills, conflict resolution, career clarity, and holistic personal growth.",
+      "Objectives of Psychological Counselling Cell: To empower students in recognizing their unique potential, strengths, and skills; provide psychological and emotional support for academic stress and anxiety; foster mental health awareness, mindfulness, yoga, meditation, and healthy lifestyle choices; and offer a safe, strictly confidential environment.",
+      "The Three Pillars of Student Support: 1. Prevention (Workshops & Awareness Drives) | 2. Intervention (Individual Counselling & Psychiatric Consultation) | 3. Postvention & Continuity (Follow-up sessions & Peer Mentoring).",
+      "The Seven Guiding Principles of Counselling: 1. Confidentiality | 2. Empathy | 3. Non-Discrimination | 4. Accessibility | 5. Professional Ethics | 6. Collaborative Problem-Solving | 7. Holistic Empowerment.",
+      "Online Counselling Registration & Appointment: Students and staff can register for personal confidential counselling sessions through the official institutional portal: https://forms.office.com/r/vKhj6MSXEs"
     ],
     "members": [
       {
@@ -750,31 +754,31 @@ export const cellsDetailData: Record<string, CellDetail> = {
     ],
     "documents": [
       {
-        "title": "Document Link",
+        "title": "SSC Cell 2025 26",
         "href": "https://mits.ac.in/assets/pdf/admin/SSC Cell-2025-26.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "SSC 2025 26",
         "href": "https://mits.ac.in/assets/pdf/admin/SSC-2025-26.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Institute Counsellor Office Order",
         "href": "https://mits.ac.in/assets/pdf/admin/Institute Counsellor Office Order.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Action taken counselling 30th nov 2019",
         "href": "https://mits.ac.in/assets/pdf/admin/Action taken_counselling_30th nov 2019.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Psychological Counselling Committee Office Order",
         "href": "https://mits.ac.in/assets/pdf/admin/Psychological Counselling Committee Office Order.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MoM 01 & 02",
         "href": "https://mits.ac.in/assets/pdf/admin/MoM-01 & 02.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Acknowledgement Office Order Student Counsellor",
         "href": "https://mits.ac.in/assets/pdf/admin/Acknowledgement-Office Order - Student Counsellor.pdf"
       },
       {
@@ -2027,923 +2031,923 @@ export const cellsDetailData: Record<string, CellDetail> = {
     ],
     "documents": [
       {
-        "title": "Document Link",
+        "title": "IQAC poster PDP",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC poster_PDP.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NITTTR Banner",
         "href": "https://mits.ac.in/assets/pdf/iqac/NITTTR Banner.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NITTTR Brochure",
         "href": "https://mits.ac.in/assets/pdf/iqac/NITTTR Brochure.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Institution wise NAAC Criterion Coordinators 2026",
         "href": "https://mits.ac.in/assets/pdf/iqac/Institution-wise NAAC Criterion Coordinators_2026.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Department wise NAAC Coordinators",
         "href": "https://mits.ac.in/assets/pdf/iqac/Department-wise NAAC Coordinators.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Institutional Cells & Committee Incharges Details",
         "href": "https://mits.ac.in/assets/pdf/iqac/Institutional Cells & Committee Incharges Details.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Major Reforms in Accreditation Press Release 27January 2024",
         "href": "http://naac.gov.in/images/docs/NAAC-Major_Reforms_in_Accreditation-Press_Release-27January_2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "DrRadhakrishnanCommittee FinalReport",
         "href": "http://naac.gov.in/images/docs/DrRadhakrishnanCommittee-FinalReport.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Reforms 2024 Announcements 29thJune2024 240629 143341",
         "href": "http://naac.gov.in/images/docs/announcement/NAAC_Reforms_2024-Announcements-29thJune2024_240629_143341.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Press Release 10022025",
         "href": "http://naac.gov.in/images/docs/announcement/NAAC_Press_Release_10022025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "validity extension notification 5 12 25",
         "href": "http://naac.gov.in/images/docs/notification/validity_extension_notification_5_12_25.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "New Reforms Correlation and MIts Responsibilities",
         "href": "https://mits.ac.in/assets/pdf/iqac/New Reforms Correlation and MIts Responsibilities.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Accreditation Preparedness 21 04 2026 Dr.K.Sathesh",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC Accreditation Preparedness 21-04-2026- Dr.K.Sathesh.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Survey 21 04 2026 Dr.K.Sathesh",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC_Survey 21-04-2026- Dr.K.Sathesh.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Department wise Stakeholder Feedback Coordinators",
         "href": "https://mits.ac.in/assets/pdf/iqac/Department-wise Stakeholder Feedback Coordinators.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Reforms 2024 Pilot Survey for Binary Accreditation Framework (University) (Draft Copy) Data Template.docx",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC Reforms 2024 Pilot Survey for Binary Accreditation Framework (University) (Draft Copy)_Data_Template.docx"
       },
       {
-        "title": "Document Link",
+        "title": "MITS NAAC Survey– QnM & QlM Data Collection Manual (Draft Copy).docx",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS NAAC Survey– QnM & QlM Data Collection Manual (Draft Copy).docx"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Accreditation Preparedness Supporting Document Manual (Draft Copy).docx",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC Accreditation Preparedness _Supporting_Document_Manual (Draft Copy).docx"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Supporting Document Manual Based on Dr. K. Radhakrishnan Report, November 2023 (Draft Copy).docx",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC Supporting Document Manual Based on Dr. K. Radhakrishnan Report, November 2023 (Draft Copy).docx"
       },
       {
-        "title": "Document Link",
+        "title": "Composition of committee members for Year 2025 2026",
         "href": "https://mits.ac.in/assets/pdf/iqac/Composition of committee members for Year 2025-2026.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Composition of committee members for Year 2024 2025",
         "href": "https://mits.ac.in/assets/pdf/iqac/Composition of committee members for Year 2024-2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Composition of committee members for Year 2023 2024",
         "href": "https://mits.ac.in/assets/pdf/iqac/Composition%20of%20committee%20members%20for%20Year%202023-2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Composition of committee members for Year 2022 2023",
         "href": "https://mits.ac.in/assets/pdf/iqac/Composition%20of%20committee%20members%20for%20Year%202022-2023.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Composition of committee members for Year 2021 2022",
         "href": "https://mits.ac.in/assets/pdf/iqac/Composition%20of%20committee%20members%20for%20Year%202021-2022.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Composition of committee members for Year 2020 2021",
         "href": "https://mits.ac.in/assets/pdf/iqac/Composition%20of%20committee%20members%20for%20Year%202020-2021.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Composition of committee members for Year 2019 2020",
         "href": "https://mits.ac.in/assets/pdf/iqac/Composition%20of%20committee%20members%20for%20Year%202019-2020.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Composition of committee members for Year 2018 2019",
         "href": "https://mits.ac.in/assets/pdf/iqac/Composition%20of%20committee%20members%20for%20Year%202018-2019.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Composition of committee members for Year 2015 2016",
         "href": "https://mits.ac.in/assets/pdf/iqac/Composition%20of%20committee%20members%20for%20Year%202015-2016.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AICTE QUALITY INITIATIVES IN TECHNICAL EDUCATION",
         "href": "https://www.aicte-india.org/sites/default/files/AICTE%20QUALITY%20INITIATIVES%20IN%20TECHNICAL%20EDUCATION.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AICTE ExaminationReforms (Nov 2018) (uploaded on 20231102)",
         "href": "https://mits.ac.in/assets/pdf/iqac/AICTE -ExaminationReforms (Nov 2018) (uploaded on 20231102).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AICTE Model Question Paper (uploaded on 20231102)",
         "href": "https://mits.ac.in/assets/pdf/iqac/AICTE-Model Question Paper (uploaded on 20231102).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Gazette Notification No. 9 1 2025 U.3A dated 15.07.2025 1",
         "href": "https://mits.ac.in/assets/pdf/admin/Gazette%20Notification%20No.%209-1-2025-U.3A%20dated%2015.07.2025-1.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "EOA Report 2026 2027",
         "href": "https://mits.ac.in/assets/pdf/admin/EOA%20Report%202026-2027.PDF"
       },
       {
-        "title": "Document Link",
+        "title": "EOA Corrigendum 2025 26 1 44642479593 (1)",
         "href": "https://mits.ac.in/public/uploads/affiliations/EOA-Corrigendum%202025-26_1-44642479593%20(1).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "EOA Report 2024 2025",
         "href": "https://mits.ac.in/public/uploads/affiliations/EOA%20Report%202024-2025.PDF"
       },
       {
-        "title": "Document Link",
+        "title": "EOA Report 2023 2024",
         "href": "https://mits.ac.in/public/uploads/affiliations/EOA-Report-2023-2024.PDF"
       },
       {
-        "title": "Document Link",
+        "title": "9b55cb6cdd40bf4ca955cdd3a5383031",
         "href": "https://mits.ac.in/public/uploads/naac/9b55cb6cdd40bf4ca955cdd3a5383031.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MBA NBA Cetificate 2025",
         "href": "https://mits.ac.in/public/uploads/affiliations/MBA%20NBA%20Cetificate-2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MCA NBA Cetificate 2025",
         "href": "https://mits.ac.in/public/uploads/affiliations/MCA%20NBA%20Cetificate-2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Madanapalle Institute of Technology Science, Andhra Pradesh19 6 2025 12 45 57",
         "href": "https://mits.ac.in/public/uploads/affiliations/Madanapalle%20Institute%20of%20Technology%20_%20Science,%20Andhra%20Pradesh19_6_2025_12_45_57.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NBA CST confirmation till 30.6.2027",
         "href": "https://mits.ac.in/public/uploads/affiliations/NBA%20-%20CST-%20confirmation%20-till%2030.6.2027.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NBA MCA Extention till 2025 June",
         "href": "https://mits.ac.in/public/uploads/affiliations/NBA-MCA%20Extention%20till%202025%20June.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NBA MBA 2022 25",
         "href": "https://mits.ac.in/public/uploads/affiliations/NBA-MBA-2022-25.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "b6c8a081779294cbbd70a1180dc7746f",
         "href": "https://mits.ac.in/public/uploads/affiliations/b6c8a081779294cbbd70a1180dc7746f.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NBA MCA 2022 24",
         "href": "https://mits.ac.in/public/uploads/affiliations/NBA-MCA-2022-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "UGC 2025 35 Madanapalle Institute of Technology Science.pdf",
         "href": "https://mits.ac.in/assets/pdf/admin/UGC-2025-35-Madanapalle%20Institute%20of%20Technology%20Science.pdf "
       },
       {
-        "title": "Document Link",
+        "title": "UGC Autonomous 2020 25",
         "href": "https://mits.ac.in/assets/pdf/admin/UGC-Autonomous%202020-25.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "UGC Autonomous 2014 20",
         "href": "https://mits.ac.in/assets/pdf/admin/UGC-Autonomous%202014-20.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS Engg ranking 2025",
         "href": "https://mits.ac.in/public/uploads/scholarship/MITS_Engg_ranking-2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS Engg ranking 2024",
         "href": "https://mits.ac.in/public/uploads/scholarship/MITS_Engg_ranking-2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS RankBand 251 300",
         "href": "https://mits.ac.in/public/uploads/scholarship/MITS-RankBand-251-300.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ISO Certificarte",
         "href": "https://mits.ac.in/assets/pdf/admin/ISO%20Certificarte.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ISO 210012018 cerificate",
         "href": "https://mits.ac.in/assets/pdf/admin/ISO-210012018-cerificate.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Corrigendum Exemption from 360 degree feedback",
         "href": "https://www.aicte-india.org/sites/default/files/Corrigendum%20Exemption%20from%20360%20degree%20feedback.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Coordinator Office Order",
         "href": "https://mits.ac.in/assets/pdf/iqac/Coordinator- Office-Order.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AICTE 360 ° office order",
         "href": "https://mits.ac.in/assets/pdf/iqac/AICTE 360 ° office order.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Certificate SMC 2023 AWD100197",
         "href": "https://mits.ac.in/assets/pdf/admin/Certificate_SMC-2023-AWD100197.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AWD100195",
         "href": "https://mits.ac.in/assets/pdf/admin/AWD100195.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Cert AICTE 360 Degree Feedback 2023 24",
         "href": "https://mits.ac.in/assets/pdf/admin/Cert AICTE 360 Degree Feedback-2023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AWD100203",
         "href": "https://mits.ac.in/assets/pdf/admin/AWD100203.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS Stakeholder Feedback Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS-Stakeholder Feedback-Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS Stakeholder Feedback Questionnaire",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS_Stakeholder Feedback Questionnaire.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS Stakeholder Feedback Questionnaire from (AY 2024 25 Onwards)",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS Stakeholder Feedback Questionnaire from (AY 2024-25 Onwards).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Action Taken Report 2024 25",
         "href": "https://mits.ac.in/assets/pdf/iqac/Action Taken Report 2024-25.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Action Taken Report 2023 24",
         "href": "https://mits.ac.in/assets/pdf/iqac/Action Taken Report 2023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Action Taken Report 2022 23",
         "href": "https://mits.ac.in/assets/pdf/iqac/Action Taken Report 2022-23.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ATR 2021 22",
         "href": "https://mits.ac.in/public/uploads/naac/ATR 2021-22.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ATR 2020 21",
         "href": "https://mits.ac.in/public/uploads/naac/ATR 2020-21.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ATR 2019 20",
         "href": "https://mits.ac.in/public/uploads/naac/ATR 2019-20.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ATR 2018 19",
         "href": "https://mits.ac.in/public/uploads/naac/ATR 2018-19.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "CSE ATR 24 25",
         "href": "https://mits.ac.in/assets/pdf/iqac/CSE ATR 24-25.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Evidence ATR 2023 24",
         "href": "https://mits.ac.in/assets/pdf/iqac/Evidence ATR 2023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Evidence on ATR 2022 23",
         "href": "https://mits.ac.in/assets/pdf/iqac/Evidence_on_ATR_2022-23.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Evidence on ATR 2021 22",
         "href": "https://mits.ac.in/assets/pdf/iqac/Evidence_on_ATR_2021-22.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC (1st Cycle) Self Study Report (SSR)",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC (1st Cycle) - Self Study Report (SSR).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Autonomous College Benchmarks December 2022",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC Autonomous_College Benchmarks December 2022.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Autonomous College SOP December 2022",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC Autonomous_College_SOP December 2022.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Autonomous College Manual 29 03 2023 Updated 9 8 2023",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC Autonomous_College Manual_29-03-2023_Updated_9-8-2023.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Comparison of NAAC Criteria and ISO 210012018 EOMS Clauses",
         "href": "https://mits.ac.in/assets/pdf/iqac/Comparison of NAAC Criteria and ISO 210012018 EOMS Clauses.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NBA Guidelines for Faculty Updated 22 08 2023",
         "href": "https://mits.ac.in/assets/pdf/iqac/NBA_Guidelines for Faculty Updated 22-08-2023.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NBA UGEngg Tier I Manual (uploaded on 20231102) 2",
         "href": "https://mits.ac.in/assets/pdf/iqac/NBA_UGEngg_Tier_I_Manual (uploaded on 20231102)-2.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2 SAR UG EG T1 1 August 2024 revised Format 20240801144723",
         "href": "https://www.nbaind.org/files/2-SAR-UG-EG-T1_1%20August%202024_revised_Format_20240801144723.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "SAR PG MAG 18 4 2024 Format 20240514144527",
         "href": "https://www.nbaind.org/files/SAR-PG-MAG-18-4-2024_Format_20240514144527.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2 SAR MCA final 21 12 2023",
         "href": "https://www.nbaind.org/Files/MCA_New/2-SAR-MCA-final-21-12-2023.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2 SAR UG EG T1 1 August 2024 Format 20240801124948",
         "href": "https://nbaind.org/files/2-SAR-UG-EG-T1_1%20August%202024_Format_20240801124948.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "PG Eng SAR 13 8 24 Format 20240813153128",
         "href": "https://www.nbaind.org/files/PG-Eng-SAR-13-8-24_Format_20240813153128.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NIRF 2023 Methodology Engineering",
         "href": "https://mits.ac.in/assets/pdf/iqac/NIRF 2023 Methodology - Engineering.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NIRF 2023 Methodology Management",
         "href": "https://mits.ac.in/assets/pdf/iqac/NIRF 2023 Methodology - Management.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NIRF 2023 Methodology Overall",
         "href": "https://mits.ac.in/assets/pdf/iqac/NIRF 2023 Methodology - Overall.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS IQAC Academic Audit Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS%20IQAC%20Academic%20Audit%20Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "External Audit Report 2023 24",
         "href": "https://mits.ac.in/assets/pdf/iqac/External Audit Report 2023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "External Audit Report 2022 23",
         "href": "https://mits.ac.in/assets/pdf/iqac/External Audit Report 2022-23.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "External Audit Report 2021 22",
         "href": "https://mits.ac.in/assets/pdf/iqac/External Audit Report 2021-22.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Internal Audit Report 2024 25",
         "href": "https://mits.ac.in/assets/pdf/iqac/Internal Audit Report 2024-25.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Internal Audit Report 2023 24",
         "href": "https://mits.ac.in/assets/pdf/iqac/Internal Audit Report 2023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Internal Audit Report 2022 23",
         "href": "https://mits.ac.in/assets/pdf/iqac/Internal Audit Report 2022-23.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Internal Audit Report 2021 22",
         "href": "https://mits.ac.in/assets/pdf/iqac/Internal Audit Report 2021-22.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "External Audit ATR 2023 24",
         "href": "https://mits.ac.in/assets/pdf/iqac/External Audit ATR 2023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "External Audit ATR 2022 23",
         "href": "https://mits.ac.in/assets/pdf/iqac/External Audit ATR 2022-23.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "External Audit ATR 2021 22",
         "href": "https://mits.ac.in/assets/pdf/iqac/External Audit ATR 2021-22.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Internal Audit ATR 2023 24",
         "href": "https://mits.ac.in/assets/pdf/iqac/Internal Audit ATR 2023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Internal Audit ATR 2022 23",
         "href": "https://mits.ac.in/assets/pdf/iqac/Internal Audit ATR 2022-23.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Internal Audit ATR 2021 22",
         "href": "https://mits.ac.in/assets/pdf/iqac/Internal Audit ATR 2021-22.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "23 24 GAp ANalysis Report",
         "href": "https://mits.ac.in/assets/pdf/iqac/23-24_GAp ANalysis Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "22 23 GAp ANalysis Report",
         "href": "https://mits.ac.in/assets/pdf/iqac/22-23_GAp ANalysis Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Strategic Plan 2022 27",
         "href": "https://mits.ac.in/assets/pdf/admin/Strategic%20Plan%202022-27.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Strategic Plan Implementation",
         "href": "https://mits.ac.in/assets/pdf/admin/Strategic-Plan-Implementation.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS DTBU Mpl Best Practices 1",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS-DTBU-Mpl-Best Practices-1.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS DTBU Mpl Best Practices 2",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS-DTBU-Mpl-Best Practices-2.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS e Content",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS e-Content.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "E Content Facilities in MITS CRS",
         "href": "https://mits.ac.in/assets/pdf/iqac/E- Content Facilities in MITS CRS.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "E Content Preparation Declaration Form",
         "href": "https://mits.ac.in/assets/pdf/iqac/E- Content Preparation _ Declaration Form.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "E Content Preparation Standard Operating Procedure SOP",
         "href": "https://mits.ac.in/assets/pdf/iqac/E- Content Preparation Standard Operating Procedure-SOP.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ed46c87d7524601b5488d7516cf131d5",
         "href": "https://mits.ac.in/public/uploads/courseattainment/ed46c87d7524601b5488d7516cf131d5.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "CSE UG PEOs & POs",
         "href": "https://mits.ac.in/public/uploads/courseattainment/CSE%20UG%20PEOs%20&%20POs.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "5bd07f16cbebedd4a2ae66f779cb8412",
         "href": "https://mits.ac.in/public/uploads/courseattainment/5bd07f16cbebedd4a2ae66f779cb8412.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "bf5cbf47b24c0038d0214b4c63a286fb",
         "href": "https://mits.ac.in/public/uploads/courseattainment/bf5cbf47b24c0038d0214b4c63a286fb.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "3085fc5bac5d124dfac551ddc5c04bc4",
         "href": "https://mits.ac.in/public/uploads/courseattainment/3085fc5bac5d124dfac551ddc5c04bc4.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "dad4367ee11ac4205b47349921354e98",
         "href": "https://mits.ac.in/public/uploads/courseattainment/dad4367ee11ac4205b47349921354e98.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "a362fcdaee05429e6c443f6b052b7282",
         "href": "https://mits.ac.in/public/uploads/courseattainment/a362fcdaee05429e6c443f6b052b7282.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "3246f8050efcce5e4666346725a26690",
         "href": "https://mits.ac.in/public/uploads/courseattainment/3246f8050efcce5e4666346725a26690.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AnnualReport 2024 25",
         "href": "https://mits.ac.in/assets/pdf/admin/AnnualReport%202024-25.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AnnualReport 2023 24",
         "href": "https://mits.ac.in/assets/pdf/admin/AnnualReport%202023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Annual Report 2022 23",
         "href": "https://mits.ac.in/assets/pdf/admin/Annual%20Report%202022-23.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Annual Report AY 2021 22",
         "href": "https://mits.ac.in/assets/pdf/admin/Annual%20Report%20AY%202021-22.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2018 19 Annual Report",
         "href": "https://mits.ac.in/assets/pdf/admin/2018-19%20Annual%20Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2017 18 Annual Report",
         "href": "https://mits.ac.in/assets/pdf/admin/2017-18%20Annual%20Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2016 17 Annual Report",
         "href": "https://mits.ac.in/assets/pdf/admin/2016-17%20Annual%20Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2015 16 Annual Report",
         "href": "https://mits.ac.in/assets/pdf/admin/2015-16%20Annual%20Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2014 15 Annual Report",
         "href": "https://mits.ac.in/assets/pdf/admin/2014-15%20Annual%20Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours July 2024 to June 2025(ENGG,MBA , MCA & BSH)",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours July 2024 to June 2025(ENGG,MBA , MCA & BSH).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours May 2025",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours May 2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours April 2025",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours April 2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours March 2025",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours March 2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours February 2025",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours February 2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours January 2025",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours January 2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours December 2024",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours December 2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC HOURS November 2024 Report",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC HOURS November 2024 Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC HOURS October 2024 Report",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC HOURS October 2024 Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC 2024 ENGG",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC 2024 ENGG.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC 2024 BSH",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC 2024 BSH.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours ENGG MBA MCA July to June 2024",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours ENGG_MBA_MCA July to June 2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours BSH July 2023 Jun 2024",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours BSH July 2023 - Jun 2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours June 2024",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours June 2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours May 2024",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours May 2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours April",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours April.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours March",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours March.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC HOURS February 2024 Report",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC HOURS February 2024 Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC HOURS January 2024 Report",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC HOURS January 2024 Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC HOURS December 2023 Report",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC HOURS December 2023 Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC HOURS November 2023 Report",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC HOURS November 2023 Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Hours July to Oct 2023",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Hours July to Oct 2023.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITSU IQAC Handbook",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITSU_IQAC_Handbook.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "8308176 NAAC Grading",
         "href": "https://www.ugc.gov.in/pdfnews/8308176_NAAC-Grading.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "1238790 Dr Radhakrishnan Committee Final Report",
         "href": "https://www.ugc.gov.in/pdfnews/1238790_Dr_Radhakrishnan-Committee-Final-Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Quality Mandate E BOOK",
         "href": "https://www.ugc.gov.in/e-book/Quality%20Mandate%20E-BOOK.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "3830821 DeeksharambhEnglish",
         "href": "https://www.ugc.gov.in/pdfnews/3830821_DeeksharambhEnglish.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "locf",
         "href": "https://www.ugc.gov.in/e-book/locf.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "4874522 Draft Curriculum for Life SKill Jeevan Kaushal",
         "href": "https://www.ugc.gov.in/pdfnews/4874522_Draft-Curriculum-for-Life-SKill-Jeevan-Kaushal.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "UNNAT BHARAT ABHIYAN",
         "href": "https://www.ugc.gov.in/e-book/UNNAT%20BHARAT%20ABHIYAN.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "CARE ENGLISH",
         "href": "https://www.ugc.gov.in/e-book/CARE%20ENGLISH.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2089255 STRIDE FINAL BOOK",
         "href": "https://www.ugc.gov.in/pdfnews/2089255_STRIDE_FINAL_BOOK.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "8799370 Mulya Parvah Guideline",
         "href": "https://www.ugc.gov.in/pdfnews/8799370_Mulya-Parvah_Guideline.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "GURU DAKSHTA English",
         "href": "https://www.ugc.gov.in/e-book/GURU%20DAKSHTA%20English.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "0899501 IQAC guidelines for University",
         "href": "https://www.ugc.gov.in/pdfnews/0899501_IQAC-guidelines-for-University.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "5172195 Guideline IQACs",
         "href": "https://www.ugc.gov.in/pdfnews/5172195_Guideline_IQACs.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "EVALUATION ENGLISH",
         "href": "https://www.ugc.gov.in/e-book/EVALUATION%20ENGLISH.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "1031121 Guidelines Innovative Pedagogical Approaches Evaluation Reforms",
         "href": "https://www.ugc.gov.in/pdfnews/1031121_Guidelines-Innovative-Pedagogical-Approaches-Evaluation-Reforms.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2990035 Final NHEQF",
         "href": "https://www.ugc.gov.in/pdfnews/2990035_Final-NHEQF.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "9028476 Report of National Credit Framework",
         "href": "https://www.ugc.gov.in/pdfnews/9028476_Report-of-National-Credit-Framework.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NEP Final English 0",
         "href": "https://www.education.gov.in/sites/upload_files/mhrd/files/NEP_Final_English_0.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "1566510 SAARTHI GUIDELINES",
         "href": "https://www.ugc.gov.in/pdfnews/1566510_SAARTHI-GUIDELINES.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "GL Multipe Entry Exit",
         "href": "https://www.ugc.gov.in/e-book/GL%20Multipe%20Entry%20Exit.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "6769753 UGC Letter Implementation of NEP",
         "href": "https://www.ugc.gov.in/pdfnews/6769753_UGC-Letter-Implementation-of-NEP.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NSQF Gazette Notification",
         "href": "https://nqr.gov.in/downloads/pdfs/NSQF_Gazette_Notification.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "0920543 Public Notice UG and PG Regulations 2025",
         "href": "https://www.ugc.gov.in/pdfnews/0920543_Public-Notice-UG-and-PG-Regulations-2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Curriculum and Credit Framework for Postgraduate Programmes",
         "href": "https://mits.ac.in/assets/pdf/iqac/Curriculum-and-Credit-Framework-for-Postgraduate-Programmes.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AI in teaching and Learning",
         "href": "https://mits.ac.in/assets/pdf/iqac/AI in teaching and Learning.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ISO Surveillnace 2 Audit Report 22nd & 24th January 2026",
         "href": "https://mits.ac.in/assets/pdf/iqac/ISO Surveillnace 2 Audit Report 22nd & 24th January 2026.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Report UI UX Design",
         "href": "https://mits.ac.in/assets/pdf/iqac/Report_UI  UX Design.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ISO 210012018 Surveillance Audit EOMS",
         "href": "https://mits.ac.in/assets/pdf/iqac/ISO 210012018 Surveillance Audit - EOMS.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "SDP",
         "href": "https://mits.ac.in/assets/pdf/iqac/SDP.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Report National Education Policy 2020 & Institutional Development",
         "href": "https://mits.ac.in/assets/pdf/iqac/Report_National Education Policy 2020 & Institutional Development.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Augmented Reality & Virtual Reality",
         "href": "https://mits.ac.in/assets/pdf/iqac/Augmented Reality & Virtual Reality.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AICTE 360 Feedback System Published Report",
         "href": "https://mits.ac.in/assets/pdf/iqac/AICTE 360 Feedback System Published Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AICTE360 Report 1.2.2025",
         "href": "https://mits.ac.in/assets/pdf/iqac/AICTE360-Report-1.2.2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "one day workshop on National Credit Framework (NCrF)",
         "href": "https://mits.ac.in/assets/pdf/iqac/one-day workshop on National Credit Framework (NCrF).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "External Academic and Administrative Audit 2023 24",
         "href": "https://mits.ac.in/assets/pdf/iqac/External Academic and Administrative Audit 2023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Published Generative AI Report",
         "href": "https://mits.ac.in/assets/pdf/iqac/Published_Generative_AI _Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Guru Dakshta Faculty Induction Program",
         "href": "https://mits.ac.in/assets/pdf/iqac/Guru-Dakshta Faculty Induction Program.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Block Chain Technologies",
         "href": "https://mits.ac.in/assets/pdf/iqac/Block Chain Technologies.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "5 Days Professional Development Programme (PDP) on NBA ACCREDITATION in association with NITTTR, Chennai 12.02.2024 – 16.02.2024",
         "href": "https://mits.ac.in/assets/pdf/iqac/5 Days Professional Development Programme (PDP) on NBA ACCREDITATION in association with NITTTR, Chennai _12.02.2024 – 16.02.2024.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ISO Stage 2 Audit Report",
         "href": "https://mits.ac.in/assets/pdf/iqac/ISO Stage 2 Audit Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ADMIN AUDIT FORMAT",
         "href": "https://mits.ac.in/assets/pdf/iqac/ADMIN AUDIT FORMAT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "External Department Audit Format",
         "href": "https://mits.ac.in/assets/pdf/iqac/External Department Audit Format.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "External Audit Frame work Mapping of P Files & Supporting FIles",
         "href": "https://mits.ac.in/assets/pdf/iqac/External Audit Frame work - Mapping of P Files & Supporting FIles.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "FACULTY AUDIT FORMAT",
         "href": "https://mits.ac.in/assets/pdf/iqac/FACULTY AUDIT FORMAT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS EOMS NCR Report ISO 21001",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS NCR Report ISO 21001.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS EOMS Department Check List ISO 21001",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Department Check List ISO 21001.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS EOMS Internal Audit Notes ISO 21001",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Internal Audit Notes ISO 21001.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS EOMS Course File Audit ISO 21001",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Course File Audit ISO 21001.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS Check List Laboratory Audit",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS Check List Laboratory Audit.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS EOMS Theory Course File Audit ISO 21001 2024 25",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Theory Course File Audit ISO 21001 2024-25.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS EOMS Lab Course File Audit ISO 21001 2024 25",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Lab Course File Audit ISO 21001 2024-25.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR MITS Support Documents",
         "href": "https://mits.ac.in/assets/pdf/iqac/AQAR_MITS Support Documents.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Supporting Document Manual Quantitative Inputs For AQAR",
         "href": "https://mits.ac.in/assets/pdf/iqac/Supporting Document Manual - Quantitative Inputs For AQAR.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS benchmarks IQAC.xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS_benchmarks-_IQAC.xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "MITS AQAR Benchmarks SOP",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS-AQAR-Benchmarks-SOP.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS Dept Stakeholders Action Taken Report format.docx",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS Dept_Stakeholders Action Taken Report_format.docx"
       },
       {
-        "title": "Document Link",
+        "title": "Correlation between New NAAC Reforms 2024 & Existing NAAC Criterion Key Indicators",
         "href": "https://mits.ac.in/assets/pdf/iqac/Correlation between New NAAC Reforms 2024 & Existing NAAC Criterion Key Indicators.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NBA Supporting Document Manual Program Specific Files",
         "href": "https://mits.ac.in/assets/pdf/iqac/NBA Supporting Document Manual - Program Specific Files.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "BSH NBA Files List",
         "href": "https://mits.ac.in/assets/pdf/iqac/BSH_NBA_Files List.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AICTE CO PO Mapping Template CSE Allied Branches.xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/AICTE CO-PO Mapping Template_CSE Allied Branches.xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "AICTE CO PO Mapping Template Core Branches.xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/AICTE CO-PO Mapping Template_Core Branches.xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "Complex Engineering Problem Solving CPS Form.xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/Complex Engineering Problem-Solving _CPS_Form.xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "Program Outcomes (PO) Mapping with WA & WK.xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/Program Outcomes (PO) Mapping with WA & WK.xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "SDG Mapping.xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/SDG Mapping.xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "IEA GAPC2021 GRADUATE ATTRIBUTES & PROFESSIONAL COMPETENCIES.xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/IEA-GAPC2021_GRADUATE ATTRIBUTES & PROFESSIONAL COMPETENCIES.xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "NIRF Department data template MITS(3).xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/NIRF- Department_data_template_MITS(3).xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "NIRF Financial data template MITS(3).xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/NIRF - Financial_data_template_MITS(3).xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "Check List Anti Ragging Committee (ARC)",
         "href": "https://mits.ac.in/assets/pdf/iqac/Check List- Anti-Ragging Committee (ARC).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Check List Culturals",
         "href": "https://mits.ac.in/assets/pdf/iqac/Check List- Culturals.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Check List EVENTS ORGANIZED (NSS NCC)",
         "href": "https://mits.ac.in/assets/pdf/iqac/Check List- EVENTS ORGANIZED (NSS_NCC).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Check List Events Organized",
         "href": "https://mits.ac.in/assets/pdf/iqac/Check List- Events Organized.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Check List Grievances and Redressal Committee (GRC)",
         "href": "https://mits.ac.in/assets/pdf/iqac/Check List- Grievances and Redressal Committee (GRC).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Check List Internal Complaint Committee (ICC)",
         "href": "https://mits.ac.in/assets/pdf/iqac/Check List- Internal Complaint Committee (ICC).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Check List Sports",
         "href": "https://mits.ac.in/assets/pdf/iqac/Check List- Sports.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Check List Stakeholders Feedback",
         "href": "https://mits.ac.in/assets/pdf/iqac/Check List- Stakeholders Feedback.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS Check List DAB, PAC & IAAB",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS Check List - DAB, PAC & IAAB.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Check lIst Value Added Course",
         "href": "https://mits.ac.in/assets/pdf/iqac/Check lIst-Value Added Course.pdf"
       },
       {
@@ -2975,11 +2979,11 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/iqac/Department Internal - Exam Result Analysis.xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "MITS DTBU Theory Course File.rar",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU Theory Course File.rar"
       },
       {
-        "title": "Document Link",
+        "title": "Course File Theory.rar",
         "href": "https://mits.ac.in/assets/pdf/iqac/Course File Theory.rar"
       },
       {
@@ -2991,7 +2995,7 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.Tech Theory Course File.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Course File Theory MCA.rar",
         "href": "https://mits.ac.in/assets/pdf/iqac/Course File Theory-MCA.rar"
       },
       {
@@ -2999,7 +3003,7 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.C.A Theory Course File.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Coursefile Theory MBA.rar",
         "href": "https://mits.ac.in/assets/pdf/iqac/Coursefile Theory-MBA.rar"
       },
       {
@@ -3007,11 +3011,11 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.B.A Theory Course File.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS DTBU Laboratory Course FIle.rar",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU Laboratory Course FIle.rar"
       },
       {
-        "title": "Document Link",
+        "title": "Course File Laboratory.rar",
         "href": "https://mits.ac.in/assets/pdf/iqac/Course File Laboratory.rar"
       },
       {
@@ -3019,7 +3023,7 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_B.Tech Laboratory Course File.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Lab Coursefile Theory MBA.rar",
         "href": "https://mits.ac.in/assets/pdf/iqac/Lab Coursefile Theory-MBA.rar"
       },
       {
@@ -3027,7 +3031,7 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.B.A Laboratory Course File.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Course File Laboratory MCA.rar",
         "href": "https://mits.ac.in/assets/pdf/iqac/Course File_Laboratory_MCA.rar"
       },
       {
@@ -3403,319 +3407,319 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU_ AI Tools Teaching & Learning-compressed.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Quality Framework",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC%20Quality%20Framework.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "QA Initiatives",
         "href": "https://mits.ac.in/public/uploads/naac/QA%20Initiatives.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "QA 2022 23",
         "href": "https://mits.ac.in/public/uploads/naac/QA 2022-23.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "QA 2021 22",
         "href": "https://mits.ac.in/public/uploads/naac/QA 2021-22.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS IQAC Hours",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS-IQAC Hours.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "TQM in HEIs",
         "href": "https://mits.ac.in/assets/pdf/iqac/TQM in HEIs.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Academic Audit Process of IQAC",
         "href": "https://mits.ac.in/assets/pdf/iqac/Academic Audit Process of IQAC.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Student Feedback Process Flow",
         "href": "https://mits.ac.in/assets/pdf/iqac/Student Feedback Process Flow.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Fish Bone Chart",
         "href": "https://mits.ac.in/assets/pdf/iqac/Fish Bone Chart.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Faculty Professional Growth Plan",
         "href": "https://mits.ac.in/assets/pdf/iqac/Faculty Professional Growth Plan.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS DTBU Internal Quality Assurnace Cell Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU Internal Quality Assurnace Cell Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Anti Bribery Corruption Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Anti%20Bribery%20%20Corruption%20Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Climate Action Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Climate%20Action%20Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Diversity and Inclusion Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Diversity%20and%20Inclusion%20Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Equality",
         "href": "https://mits.ac.in/assets/pdf/iqac/Equality.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Sustainable Investment Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Sustainable%20Investment%20Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Industry Relations Cell Policy Document 2026",
         "href": "https://mits.ac.in/assets/pdf/iqac/Industry Relations Cell _ Policy Document_2026.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Approved IMS Policy ISO",
         "href": "https://mits.ac.in/assets/pdf/iqac/Approved%20IMS%20Policy_ISO.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Minority Cell Policy Document(1) 1",
         "href": "https://mits.ac.in/assets/pdf/iqac/Minority Cell Policy Document(1)-1.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "POLICY DOCUMENT MITS Radio Signed",
         "href": "https://mits.ac.in/assets/pdf/iqac/POLICY DOCUMENT _ MITS Radio _ Signed.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS IEEE SB DTBU Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS IEEE SB DTBU Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS IETE Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS IETE Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "WEC Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/WEC Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "UHV Cell Policy document ver01 25 26",
         "href": "https://mits.ac.in/assets/pdf/assoc/UHV%20Cell%20Policy%20document%20ver01_25-26.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/IQAC Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "EOMS Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/EOMS Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Central Library Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Central Library Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Consultancy Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Consultancy Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Examination Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Examination Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Information Security Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Information Security Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Innovation & Startup Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Innovation & Startup Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "International Relations Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/International Relations Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IPR Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/IPR Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Research & Development Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Research & Development Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Sports Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Sports Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Teaching Learning Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Teaching - Learning Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Training and Placement Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Training and Placement Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Teacher Training Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Teacher Training Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Transport Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Transport Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Alumni Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Alumni Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS Stakeholder Feedback Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS-Stakeholder%20Feedback-Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS IQAC Academic Audit Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS IQAC Academic Audit Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Anti Discrimination Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Anti-Discrimination Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ANTI HARASSMENT POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/ANTI-HARASSMENT POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "DISABILITY ACCOMMODATION POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/DISABILITY ACCOMMODATION POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ENERGY EFFICIENT RENOVATION AND BUILDING POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/ENERGY EFFICIENT RENOVATION AND BUILDING POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "GENDER EQUITY POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/GENDER EQUITY POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "LIFE LONG LEARNING ACCESS POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/LIFE LONG LEARNING ACCESS POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "POLICY ADDRESSING POVERTY",
         "href": "https://mits.ac.in/assets/pdf/iqac/POLICY ADDRESSING POVERTY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "POLICY DEVELOPMENT FOR CLEAN ENERGY TECHNOLOGY",
         "href": "https://mits.ac.in/assets/pdf/iqac/POLICY DEVELOPMENT FOR CLEAN ENERGY TECHNOLOGY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "POLICY FOR MINIMIZATION OF PLASTIC USE",
         "href": "https://mits.ac.in/assets/pdf/iqac/POLICY FOR MINIMIZATION OF PLASTIC USE.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "POLICY WASTE DISPOSAL – HAZARDOUS MATERIALS",
         "href": "https://mits.ac.in/assets/pdf/iqac/POLICY WASTE DISPOSAL – HAZARDOUS MATERIALS.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "SMOKE FREE CAMPUS POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/SMOKE-FREE CAMPUS POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "WATER REUSE POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/WATER REUSE POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IMS Policy MITS",
         "href": "https://mits.ac.in/assets/pdf/iqac/IMS-Policy MITS.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR 2023 24",
         "href": "https://mits.ac.in/assets/pdf/iqac/AQAR 2023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR 2022 23",
         "href": "https://mits.ac.in/public/uploads/naac/AQAR 2022-23.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR 2021 2022",
         "href": "https://mits.ac.in/public/uploads/naac/AQAR%202021-2022.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR 2020 2021",
         "href": "https://mits.ac.in/public/uploads/naac/AQAR%202020-2021.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR2019 20",
         "href": "https://mits.ac.in/public/uploads/naac/AQAR2019-20.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR2018 19",
         "href": "https://mits.ac.in/public/uploads/naac/AQAR2018-19.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR2017 18",
         "href": "https://mits.ac.in/public/uploads/naac/AQAR2017-18.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MoM 2023 24",
         "href": "https://mits.ac.in/public/uploads/naac/MoM 2023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MoM 2022 2023",
         "href": "https://mits.ac.in/public/uploads/naac/MoM_2022-2023.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC MINUTES OF MEETING 2021 2022",
         "href": "https://mits.ac.in/public/uploads/naac/IQAC%20MINUTES%20OF%20MEETING%202021%20-2022.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "0fde145546a6c0e9d269571626392b6d",
         "href": "https://mits.ac.in/public/uploads/naac/0fde145546a6c0e9d269571626392b6d.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2dba8e25c77e6c7ac33aa492458bb520",
         "href": "https://mits.ac.in/public/uploads/naac/2dba8e25c77e6c7ac33aa492458bb520.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "86b13e657eeba50d11452a0f0f0c54fd",
         "href": "https://mits.ac.in/public/uploads/naac/86b13e657eeba50d11452a0f0f0c54fd.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MoM 2025 26",
         "href": "https://mits.ac.in/public/uploads/naac/MoM-2025-26.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ADMIN AUDIT FORMAT",
         "href": "https://mits.ac.in/public/uploads/naac/ADMIN%20AUDIT%20FORMAT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "DEPARTMENT AUDIT FORMAT",
         "href": "https://mits.ac.in/public/uploads/naac/DEPARTMENT%20AUDIT%20FORMAT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "FACULTY AUDIT FORMAT",
         "href": "https://mits.ac.in/public/uploads/naac/FACULTY%20AUDIT%20FORMAT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC PEER TEAM REPORT",
         "href": "https://mits.ac.in/public/uploads/naac/NAAC PEER TEAM REPORT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Peer Team Metric wise Score Report",
         "href": "https://mits.ac.in/public/uploads/naac/NAAC Peer Team Metric wise Score Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Report of External Peer Team Visit of IQAC during UGC Autonomy",
         "href": "https://mits.ac.in/public/uploads/naac/Report of External Peer Team Visit of IQAC during UGC Autonomy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Student Satisfaction Survey AY 2024 25",
         "href": "https://mits.ac.in/public/uploads/naac/Student Satisfaction Survey AY 2024-25.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Student Satisfaction Survey AY 2023 24",
         "href": "https://mits.ac.in/public/uploads/naac/Student Satisfaction Survey AY 2023-24.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Student Satisfaction Survey AY 2022 23",
         "href": "https://mits.ac.in/public/uploads/naac/Student Satisfaction Survey AY 2022-23.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Student Satisfaction Survey 2021 2022",
         "href": "https://mits.ac.in/public/uploads/naac/Student%20Satisfaction%20Survey%202021-%202022.pdf"
       },
       {
@@ -4014,407 +4018,407 @@ export const cellsDetailData: Record<string, CellDetail> = {
     ],
     "documents": [
       {
-        "title": "Document Link",
+        "title": "The Impact Rankings 2025 Results",
         "href": "https://mits.ac.in/assets/pdf/iqac/The Impact Rankings 2025 Results.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Anti Discrimination Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Anti-Discrimination Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ANTI HARASSMENT POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/ANTI-HARASSMENT POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "DISABILITY ACCOMMODATION POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/DISABILITY ACCOMMODATION POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ENERGY EFFICIENT RENOVATION AND BUILDING POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/ENERGY EFFICIENT RENOVATION AND BUILDING POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "GENDER EQUITY POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/GENDER EQUITY POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "LIFE LONG LEARNING ACCESS POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/LIFE LONG LEARNING ACCESS POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "POLICY ADDRESSING POVERTY",
         "href": "https://mits.ac.in/assets/pdf/iqac/POLICY ADDRESSING POVERTY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "POLICY DEVELOPMENT FOR CLEAN ENERGY TECHNOLOGY",
         "href": "https://mits.ac.in/assets/pdf/iqac/POLICY DEVELOPMENT FOR CLEAN ENERGY TECHNOLOGY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "POLICY FOR MINIMIZATION OF PLASTIC USE",
         "href": "https://mits.ac.in/assets/pdf/iqac/POLICY FOR MINIMIZATION OF PLASTIC USE.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "POLICY WASTE DISPOSAL – HAZARDOUS MATERIALS",
         "href": "https://mits.ac.in/assets/pdf/iqac/POLICY WASTE DISPOSAL – HAZARDOUS MATERIALS.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "SMOKE FREE CAMPUS POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/SMOKE-FREE CAMPUS POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "WATER REUSE POLICY",
         "href": "https://mits.ac.in/assets/pdf/iqac/WATER REUSE POLICY.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Anti Bribery Corruption Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Anti Bribery  Corruption Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Climate Action Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Climate Action Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Diversity and Inclusion Policy",
         "href": "https://mits.ac.in/assets/pdf/iqac/Diversity and Inclusion Policy.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Equality",
         "href": "https://mits.ac.in/assets/pdf/iqac/Equality.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Sustainable Procurement Policy compressed",
         "href": "https://mits.ac.in/assets/pdf/iqac/Sustainable Procurement Policy-compressed.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AICTE ExaminationReforms (Nov 2018) (uploaded on 20231102)",
         "href": "https://mits.ac.in/assets/pdf/iqac/AICTE -ExaminationReforms (Nov 2018) (uploaded on 20231102).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AICTE Model Question Paper (uploaded on 20231102)",
         "href": "https://mits.ac.in/assets/pdf/iqac/AICTE-Model Question Paper (uploaded on 20231102).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC (1st Cycle) Self Study Report (SSR)",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC (1st Cycle) - Self Study Report (SSR).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Autonomous College Benchmarks December 2022",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC Autonomous_College Benchmarks December 2022.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Autonomous College SOP December 2022",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC Autonomous_College_SOP December 2022.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Autonomous College Manual 29 03 2023 Updated 9 8 2023",
         "href": "https://mits.ac.in/assets/pdf/iqac/NAAC Autonomous_College Manual_29-03-2023_Updated_9-8-2023.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "QMS IN HE 1772022",
         "href": "http://naac.gov.in/images/docs/Publication/books/QMS_IN_HE_1772022.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "EQUAM BI NAAC Project Document",
         "href": "http://naac.gov.in/images/docs/Publication/EQUAM-BI-NAAC-Project-Document.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Comparison of NAAC Criteria and ISO 210012018 EOMS Clauses",
         "href": "https://mits.ac.in/assets/pdf/iqac/Comparison of NAAC Criteria and ISO 210012018 EOMS Clauses.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NBA Guidelines for Faculty Updated 22 08 2023",
         "href": "https://mits.ac.in/assets/pdf/iqac/NBA_Guidelines for Faculty Updated 22-08-2023.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NBA UGEngg Tier I Manual (uploaded on 20231102) 2",
         "href": "https://mits.ac.in/assets/pdf/iqac/NBA_UGEngg_Tier_I_Manual (uploaded on 20231102)-2.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NIRF 2023 Methodology Engineering",
         "href": "https://mits.ac.in/assets/pdf/iqac/NIRF 2023 Methodology - Engineering.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NIRF 2023 Methodology Management",
         "href": "https://mits.ac.in/assets/pdf/iqac/NIRF 2023 Methodology - Management.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NIRF 2023 Methodology Overall",
         "href": "https://mits.ac.in/assets/pdf/iqac/NIRF 2023 Methodology - Overall.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS e Content",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS e-Content.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "E Content Facilities in MITS CRS",
         "href": "https://mits.ac.in/assets/pdf/iqac/E- Content Facilities in MITS CRS.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "E Content Preparation Declaration Form",
         "href": "https://mits.ac.in/assets/pdf/iqac/E- Content Preparation _ Declaration Form.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "E Content Preparation Standard Operating Procedure SOP",
         "href": "https://mits.ac.in/assets/pdf/iqac/E- Content Preparation Standard Operating Procedure-SOP.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ed46c87d7524601b5488d7516cf131d5",
         "href": "https://mits.ac.in/public/uploads/courseattainment/ed46c87d7524601b5488d7516cf131d5.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "CSE UG PEOs & POs",
         "href": "https://mits.ac.in/public/uploads/courseattainment/CSE%20UG%20PEOs%20&%20POs.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "5bd07f16cbebedd4a2ae66f779cb8412",
         "href": "https://mits.ac.in/public/uploads/courseattainment/5bd07f16cbebedd4a2ae66f779cb8412.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "bf5cbf47b24c0038d0214b4c63a286fb",
         "href": "https://mits.ac.in/public/uploads/courseattainment/bf5cbf47b24c0038d0214b4c63a286fb.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "3085fc5bac5d124dfac551ddc5c04bc4",
         "href": "https://mits.ac.in/public/uploads/courseattainment/3085fc5bac5d124dfac551ddc5c04bc4.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "dad4367ee11ac4205b47349921354e98",
         "href": "https://mits.ac.in/public/uploads/courseattainment/dad4367ee11ac4205b47349921354e98.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "a362fcdaee05429e6c443f6b052b7282",
         "href": "https://mits.ac.in/public/uploads/courseattainment/a362fcdaee05429e6c443f6b052b7282.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "3246f8050efcce5e4666346725a26690",
         "href": "https://mits.ac.in/public/uploads/courseattainment/3246f8050efcce5e4666346725a26690.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Quality Mandate E BOOK",
         "href": "https://www.ugc.gov.in/e-book/Quality%20Mandate%20E-BOOK.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "3830821 DeeksharambhEnglish",
         "href": "https://www.ugc.gov.in/pdfnews/3830821_DeeksharambhEnglish.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "locf",
         "href": "https://www.ugc.gov.in/e-book/locf.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "4874522 Draft Curriculum for Life SKill Jeevan Kaushal",
         "href": "https://www.ugc.gov.in/pdfnews/4874522_Draft-Curriculum-for-Life-SKill-Jeevan-Kaushal.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "UNNAT BHARAT ABHIYAN",
         "href": "https://www.ugc.gov.in/e-book/UNNAT%20BHARAT%20ABHIYAN.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "CARE ENGLISH",
         "href": "https://www.ugc.gov.in/e-book/CARE%20ENGLISH.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2089255 STRIDE FINAL BOOK",
         "href": "https://www.ugc.gov.in/pdfnews/2089255_STRIDE_FINAL_BOOK.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "8799370 Mulya Parvah Guideline",
         "href": "https://www.ugc.gov.in/pdfnews/8799370_Mulya-Parvah_Guideline.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "GURU DAKSHTA English",
         "href": "https://www.ugc.gov.in/e-book/GURU%20DAKSHTA%20English.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "0899501 IQAC guidelines for University",
         "href": "https://www.ugc.gov.in/pdfnews/0899501_IQAC-guidelines-for-University.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "5172195 Guideline IQACs",
         "href": "https://www.ugc.gov.in/pdfnews/5172195_Guideline_IQACs.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "EVALUATION ENGLISH",
         "href": "https://www.ugc.gov.in/e-book/EVALUATION%20ENGLISH.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "1031121 Guidelines Innovative Pedagogical Approaches Evaluation Reforms",
         "href": "https://www.ugc.gov.in/pdfnews/1031121_Guidelines-Innovative-Pedagogical-Approaches-Evaluation-Reforms.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2990035 Final NHEQF",
         "href": "https://www.ugc.gov.in/pdfnews/2990035_Final-NHEQF.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "9028476 Report of National Credit Framework",
         "href": "https://www.ugc.gov.in/pdfnews/9028476_Report-of-National-Credit-Framework.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NEP Final English 0",
         "href": "https://www.education.gov.in/sites/upload_files/mhrd/files/NEP_Final_English_0.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "1566510 SAARTHI GUIDELINES",
         "href": "https://www.ugc.gov.in/pdfnews/1566510_SAARTHI-GUIDELINES.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "GL Multipe Entry Exit",
         "href": "https://www.ugc.gov.in/e-book/GL%20Multipe%20Entry%20Exit.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "6769753 UGC Letter Implementation of NEP",
         "href": "https://www.ugc.gov.in/pdfnews/6769753_UGC-Letter-Implementation-of-NEP.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ADMIN AUDIT FORMAT",
         "href": "https://mits.ac.in/assets/pdf/iqac/ADMIN AUDIT FORMAT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "DEPARTMENT AUDIT FORMAT",
         "href": "https://mits.ac.in/assets/pdf/iqac/DEPARTMENT AUDIT FORMAT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "FACULTY AUDIT FORMAT",
         "href": "https://mits.ac.in/assets/pdf/iqac/FACULTY AUDIT FORMAT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR MITS Support Documents",
         "href": "https://mits.ac.in/assets/pdf/iqac/AQAR_MITS Support Documents.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Supporting Document Manual Quantitative Inputs For AQAR",
         "href": "https://mits.ac.in/assets/pdf/iqac/Supporting Document Manual - Quantitative Inputs For AQAR.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS benchmarks IQAC.xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS_benchmarks-_IQAC.xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "MITS AQAR Benchmarks SOP",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS-AQAR-Benchmarks-SOP.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NIRF Financial data template MITS.xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/NIRF - Financial_data_template_MITS.xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "NIRF Department data template MITS.xlsx",
         "href": "https://mits.ac.in/assets/pdf/iqac/NIRF- Department_data_template_MITS.xlsx"
       },
       {
-        "title": "Document Link",
+        "title": "Energy Generated & Consumed",
         "href": "https://mits.ac.in/assets/pdf/sdg/Energy_Generated & Consumed.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Green Coverage Details",
         "href": "https://mits.ac.in/assets/pdf/sdg/Green Coverage Details.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Health and Well Being Details",
         "href": "https://mits.ac.in/assets/pdf/sdg/Health and Well Being Details.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Sustainable Communities and Patnership Details",
         "href": "https://mits.ac.in/assets/pdf/sdg/Sustainable Communities and Patnership Details.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Waste Management Details",
         "href": "https://mits.ac.in/assets/pdf/sdg/Waste Management Details.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Water Management Details",
         "href": "https://mits.ac.in/assets/pdf/sdg/Water Management Details.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "QA Initiatives",
         "href": "https://mits.ac.in/public/uploads/naac/QA%20Initiatives.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "MITS IQAC Hours",
         "href": "https://mits.ac.in/assets/pdf/iqac/MITS-IQAC Hours.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "TQM in HEIs",
         "href": "https://mits.ac.in/assets/pdf/iqac/TQM in HEIs.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Academic Audit Process of IQAC",
         "href": "https://mits.ac.in/assets/pdf/iqac/Academic Audit Process of IQAC.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Student Feedback Process Flow",
         "href": "https://mits.ac.in/assets/pdf/iqac/Student Feedback Process Flow.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Fish Bone Chart",
         "href": "https://mits.ac.in/assets/pdf/iqac/Fish Bone Chart.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Faculty Professional Growth Plan",
         "href": "https://mits.ac.in/assets/pdf/iqac/Faculty Professional Growth Plan.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR 2021 2022",
         "href": "https://mits.ac.in/public/uploads/naac/AQAR%202021-2022.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR 2020 2021",
         "href": "https://mits.ac.in/public/uploads/naac/AQAR%202020-2021.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR2019 20",
         "href": "https://mits.ac.in/public/uploads/naac/AQAR2019-20.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR2018 19",
         "href": "https://mits.ac.in/public/uploads/naac/AQAR2018-19.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "AQAR2017 18",
         "href": "https://mits.ac.in/public/uploads/naac/AQAR2017-18.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IQAC MINUTES OF MEETING 2021 2022",
         "href": "https://mits.ac.in/public/uploads/naac/IQAC%20MINUTES%20OF%20MEETING%202021%20-2022.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "0fde145546a6c0e9d269571626392b6d",
         "href": "https://mits.ac.in/public/uploads/naac/0fde145546a6c0e9d269571626392b6d.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "2dba8e25c77e6c7ac33aa492458bb520",
         "href": "https://mits.ac.in/public/uploads/naac/2dba8e25c77e6c7ac33aa492458bb520.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "86b13e657eeba50d11452a0f0f0c54fd",
         "href": "https://mits.ac.in/public/uploads/naac/86b13e657eeba50d11452a0f0f0c54fd.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "ADMIN AUDIT FORMAT",
         "href": "https://mits.ac.in/public/uploads/naac/ADMIN%20AUDIT%20FORMAT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "DEPARTMENT AUDIT FORMAT",
         "href": "https://mits.ac.in/public/uploads/naac/DEPARTMENT%20AUDIT%20FORMAT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "FACULTY AUDIT FORMAT",
         "href": "https://mits.ac.in/public/uploads/naac/FACULTY%20AUDIT%20FORMAT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "db689e5eef62bf46b6430dfdf1c0ed07",
         "href": "https://mits.ac.in/public/uploads/naac/db689e5eef62bf46b6430dfdf1c0ed07.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC PEER TEAM REPORT",
         "href": "https://mits.ac.in/public/uploads/naac/NAAC PEER TEAM REPORT.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "NAAC Peer Team Metric wise Score Report",
         "href": "https://mits.ac.in/public/uploads/naac/NAAC Peer Team Metric wise Score Report.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Student Satisfaction Survey 2021 2022",
         "href": "https://mits.ac.in/public/uploads/naac/Student%20Satisfaction%20Survey%202021-%202022.pdf"
       },
       {
@@ -4890,459 +4894,459 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/assoc/Institute Innovation Council (IIC) Reconstitution.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Bhuwalka Castings & Forging Pvt. Ltd., & Vishwakarma Refractories Pvt. Ltd",
         "href": "https://mits.ac.in/assets/pdf/ece/Bhuwalka Castings & Forging Pvt. Ltd., & Vishwakarma Refractories Pvt. Ltd.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Multidisciplinary Research Proposal Writing",
         "href": "https://mits.ac.in/assets/pdf/mech/Multidisciplinary Research Proposal Writing.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Kajaria Ceramics Limited",
         "href": "https://mits.ac.in/assets/pdf/ece/Kajaria Ceramics Limited.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Design Thinking, Critical Thinking Innovation Design",
         "href": "https://mits.ac.in/assets/pdf/civil/Design Thinking, Critical Thinking Innovation Design.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS Spark Innovation Day Celebration",
         "href": "https://mits.ac.in/assets/pdf/cse/MITS Spark Innovation Day Celebration.pdf"
       },
       {
-        "title": "View Document",
+        "title": "A Department Level Hackathon SMART INDIA HACKATHON 2K25",
         "href": "https://mits.ac.in/assets/pdf/cse/A Department Level Hackathon SMART INDIA HACKATHON 2K25.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Next Gen Tech Mastery Cloud, DevOps & AI Prompting",
         "href": "https://mits.ac.in/assets/pdf/cse/Next-Gen Tech Mastery Cloud, DevOps & AI Prompting.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Angel Investment VC Funding Opportunity for Early Stage Entrepreneurs",
         "href": "https://mits.ac.in/assets/pdf/cse/Angel Investment VC Funding Opportunity for Early-Stage Entrepreneurs.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Generative AI Using Microservices Architecture",
         "href": "https://mits.ac.in/assets/pdf/ca/Generative AI Using Microservices Architecture.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Environment Day 2025",
         "href": "https://mits.ac.in/assets/pdf/civil/World Environment Day 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Integrating Sustainability into Business Strategy Challenges Opportunities and Best Practices",
         "href": "https://mits.ac.in/assets/pdf/mba/Integrating Sustainability into Business Strategy Challenges Opportunities and Best Practices.pdf"
       },
       {
-        "title": "View Document",
+        "title": "UI UX Design min",
         "href": "https://mits.ac.in/assets/pdf/aids/UI-UX Design-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Innovation, Leadership and the Spirit of Swami Vivekananda",
         "href": "https://mits.ac.in/assets/pdf/cse/Innovation, Leadership and the Spirit of Swami Vivekananda.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Innovate with AI Tools A KNIME based Approach",
         "href": "https://mits.ac.in/assets/pdf/aids/Innovate with AI Tools A KNIME based Approach.pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Education Day 2024",
         "href": "https://mits.ac.in/assets/pdf/ca/National Education Day-2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "API Attack Vectors and AI Exploits Learn by Doing",
         "href": "https://mits.ac.in/assets/pdf/cse/API Attack Vectors and AI Exploits Learn by Doing.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Intellectual Property Rights 2024",
         "href": "https://mits.ac.in/assets/pdf/cst/Intellectual Property Rights-2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Empowering Innovation through Cloud Storage and Security",
         "href": "https://mits.ac.in/assets/pdf/aids/Empowering Innovation through Cloud Storage and Security.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Launching Your Tech Career From Front End Development to Data Analytics Mastery",
         "href": "https://mits.ac.in/assets/pdf/cse/Launching Your Tech Career From Front-End Development to Data Analytics Mastery.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Design Thinking in IoT Development 20 11 2024",
         "href": "https://mits.ac.in/assets/pdf/ece/Design Thinking in IoT Development-20-11-2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Intellectual Property Rights 13 11 2024",
         "href": "https://mits.ac.in/assets/pdf/cse/Intellectual Property Rights 13-11-2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Journey from a Tinkerer to an Entrepreneur",
         "href": "https://mits.ac.in/assets/pdf/mech/Journey from a Tinkerer to an Entrepreneur.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Microwave Instrumentation 8 11 2024",
         "href": "https://mits.ac.in/assets/pdf/ece/Microwave Instrumentation-8-11-2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Basics of IPR and Patent Filing",
         "href": "https://mits.ac.in/assets/pdf/aids/Basics of IPR and Patent Filing.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Smart Grid and Renewable Energy with AI Tools",
         "href": "https://mits.ac.in/assets/pdf/eee/Smart Grid and Renewable Energy with AI Tools.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Recent trends in Ground Improvement Techniques",
         "href": "https://mits.ac.in/assets/pdf/civil/Recent trends in Ground Improvement Techniques.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Design Thinking, Research and Innovation",
         "href": "https://mits.ac.in/assets/pdf/ece/Design Thinking, Research and Innovation.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Innovators of Tomorrow A Hands On STEM and Creativity Program for Young Minds",
         "href": "https://mits.ac.in/assets/pdf/eee/Innovators of Tomorrow A Hands-On STEM and Creativity Program for Young Minds.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Department Level Internal Hackathon",
         "href": "https://mits.ac.in/assets/pdf/aids/Department-Level Internal Hackathon.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Departmental Level Hackathon CST",
         "href": "https://mits.ac.in/assets/pdf/cst/Departmental Level Hackathon-CST.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Departmental Level Hackathon",
         "href": "https://mits.ac.in/assets/pdf/cse/Departmental Level Hackathon.pdf"
       },
       {
-        "title": "View Document",
+        "title": "A Talk on Journey towards Entrepreneurship",
         "href": "https://mits.ac.in/assets/pdf/mech/A Talk on Journey towards Entrepreneurship.pdf"
       },
       {
-        "title": "View Document",
+        "title": "VC Funding Opportunity for Early Stage Entrepreneurs",
         "href": "https://mits.ac.in/assets/pdf/cse/VC Funding Opportunity for Early-Stage Entrepreneurs.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Empower Yourself as a Computer Science Entrepreneur",
         "href": "https://mits.ac.in/assets/pdf/cst/Empower Yourself as a Computer Science Entrepreneur.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Value Proposition Fit & Business Fit",
         "href": "https://mits.ac.in/assets/pdf/aids/Value Proposition Fit & Business Fit.pdf"
       },
       {
-        "title": "View Document",
+        "title": "How to Write a Patent Application",
         "href": "https://mits.ac.in/assets/pdf/cse/How to Write a Patent Application.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Deep Learning Techniques for Data Mining, Predictive Maintenance",
         "href": "https://mits.ac.in/assets/pdf/cst/Deep Learning Techniques for Data Mining, Predictive Maintenance.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Legal Structures and Ethical Steps in Establishing Startups",
         "href": "https://mits.ac.in/assets/pdf/ca/Legal Structures and Ethical Steps in Establishing Startups.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Innovation & Technology",
         "href": "https://mits.ac.in/assets/pdf/cse/Innovation & Technology.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS Prototype Challenge 2.0 & Inauguration of Startup Cell",
         "href": "https://mits.ac.in/assets/pdf/mech/MITS Prototype Challenge 2.0 & Inauguration of Startup Cell.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Mechonanace 2K24",
         "href": "https://mits.ac.in/assets/pdf/mech/Mechonanace-2K24.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Internal Project Expo 2024",
         "href": "https://mits.ac.in/assets/pdf/cst/Internal Project Expo-2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "An Interactive Session on Opportunities in Japan",
         "href": "https://mits.ac.in/assets/pdf/aids/An Interactive Session on Opportunities in Japan.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Designing Your Digital Presence",
         "href": "https://mits.ac.in/assets/pdf/aids/Designing Your Digital Presence.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Inno Tech Spark 2024",
         "href": "https://mits.ac.in/assets/pdf/mech/Inno-Tech Spark 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Awareness on IPR",
         "href": "https://mits.ac.in/assets/pdf/ca/Awareness on IPR.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report Expert Tal 29 Feb 2024 Intellectual Property Rights",
         "href": "https://mits.ac.in/assets/pdf/eee/Report Expert Tal_29_Feb_2024_Intellectual Property Rights.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Unveiling Emerging Trends in Artificial Intelligence and Data Renaissance",
         "href": "https://mits.ac.in/assets/pdf/cse/Unveiling Emerging Trends in Artificial Intelligence and Data Renaissance.pdf"
       },
       {
-        "title": "View Document",
+        "title": "One Week Bootcamp",
         "href": "https://mits.ac.in/assets/pdf/assoc/One Week Bootcamp.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Expert talk on Beyond Boundaries Design Thinking as The Catalyst For Innovation",
         "href": "https://mits.ac.in/assets/pdf/eee/Expert talk on Beyond Boundaries Design Thinking as The Catalyst For Innovation.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report National Energy Conservaion Day 14 12 2023",
         "href": "https://mits.ac.in/assets/pdf/eee/Report_National Energy Conservaion Day_14-12-2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Pollution Control Day",
         "href": "https://mits.ac.in/assets/pdf/civil/National Pollution Control Day.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship and Innovation",
         "href": "https://mits.ac.in/assets/pdf/assoc/Entrepreneurship and Innovation.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Motivational session on Design Thinking",
         "href": "https://mits.ac.in/assets/pdf/eee/Motivational session on Design Thinking.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Crafting Embedded Systems with C C++Getting into Open BMC Project",
         "href": "https://mits.ac.in/assets/pdf/cse/Crafting Embedded Systems with C C++Getting into Open BMC Project.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship and the Companies Act 2013",
         "href": "https://mits.ac.in/assets/pdf/assoc/Entrepreneurship and the Companies Act 2013.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Primer on Containers and Microservices",
         "href": "https://mits.ac.in/assets/pdf/aids/Primer on Containers and Microservices.pdf"
       },
       {
-        "title": "View Document",
+        "title": "ARTS & CRAFTS EXHIBITION 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/ARTS & CRAFTS EXHIBITION 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "AGRIBUSINESS INCUBATION SCHEME",
         "href": "https://mits.ac.in/assets/pdf/assoc/AGRIBUSINESS INCUBATION SCHEME.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS Ideathon 1.0 2023 Report min",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS Ideathon 1.0 2023 - Report-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MSME Day 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/MSME Day 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "IMAGE PROCESSING using MATLAB",
         "href": "https://mits.ac.in/assets/pdf/aids/IMAGE PROCESSING using MATLAB.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Recent Advancement in Smart Grid and Renewable Energy with Modern Computational Technique min",
         "href": "https://mits.ac.in/ assets/pdf/facility/Recent Advancement in Smart Grid and Renewable Energy with Modern Computational Technique-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Application of Automated Machine Learning in Electrical Industry",
         "href": "https://mits.ac.in/assets/pdf/eee/Application of Automated Machine Learning in Electrical Industry.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Bigdata Technologies 2023",
         "href": "https://mits.ac.in/ assets/pdf/facility/Bigdata Technologies-2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Intellectual Property Rights IPRs and IP Management for Startup",
         "href": "https://mits.ac.in/assets/pdf/assoc/Intellectual Property Rights _IPRs_ and IP Management for Startup.pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Technology Day 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/National Technology Day 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NARL 2023",
         "href": "https://mits.ac.in/ assets/pdf/facility/NARL-2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "How to plan for start up and Legal Ethical Steps",
         "href": "https://mits.ac.in/assets/pdf/assoc/How to plan for start-up and Legal Ethical Steps.pdf"
       },
       {
-        "title": "View Document",
+        "title": "RAIDS2023",
         "href": "https://mits.ac.in/ assets/pdf/facility/RAIDS2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "INVICTA 2k23 CST",
         "href": "https://mits.ac.in/ assets/pdf/facility/INVICTA-2k23-CST.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Cutting Edge Technology on Cloud Computing",
         "href": "https://mits.ac.in/ assets/pdf/facility/Cutting Edge Technology on Cloud Computing.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Encouraging Students for Research",
         "href": "https://mits.ac.in/ assets/pdf/facility/Encouraging Students for Research.pdf"
       },
       {
-        "title": "View Document",
+        "title": "IIC Event Report on 23.02.2023 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/IIC Event  Report on 23.02.2023-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "IIC Event Report on 21.02.2023 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/IIC Event  Report on 21.02.2023-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Machine Learning and its Applications min",
         "href": "https://mits.ac.in/ assets/pdf/facility/Machine Learning and its Applications-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurial Uses of AI min",
         "href": "https://mits.ac.in/ assets/pdf/facility/Entrepreneurial Uses of AI-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "How to Groom Entrepreneurs",
         "href": "https://mits.ac.in/ assets/pdf/facility/How to Groom Entrepreneurs.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Challenges and Opportunities in IT Sector",
         "href": "https://mits.ac.in/ assets/pdf/facility/Challenges and Opportunities in IT Sector.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Linux and Databases",
         "href": "https://mits.ac.in/ assets/pdf/facility/Linux and Databases.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Seminar 12.01.2023 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Seminar 12.01.2023-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship Opportunities in Solar Power min",
         "href": "https://mits.ac.in/ assets/pdf/facility/Entrepreneurship Opportunities in Solar Power-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report of Guest talk on 27 12 22 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Report of Guest talk on 27-12-22-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "An Introduction to Research Document Preparation using LaTex min",
         "href": "https://mits.ac.in/ assets/pdf/facility/An Introduction to Research Document Preparation using LaTex-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report Guest Lecture 14 12 2022 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Report_Guest Lecture_14-12-2022-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report Poster Presentation 14 12 2022 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Report_Poster Presentation_14-12-2022-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Guest Lecture VLSI 2023",
         "href": "https://mits.ac.in/ assets/pdf/facility/Guest Lecture VLSI-2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS INTRA hackathon 2022",
         "href": "https://mits.ac.in/assets/event/MITS-INTRA hackathon-2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "My Story – Motivational Session by a Start up Founder min",
         "href": "https://mits.ac.in/assets/pdf/assoc/My Story – Motivational Session by a Start-up Founder-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Fundamentals of PCB design",
         "href": "https://mits.ac.in/ assets/pdf/facility/Fundamentals of PCB design.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Real Time Cyber Security solutions",
         "href": "https://mits.ac.in/ assets/pdf/facility/Real Time Cyber Security solutions.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report National Education Day min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Report-National Education Day-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report of Webinar on ENTREPRENEURSHIP INNOVATION AND CAREER OPPORTUNITY min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Report of Webinar on ENTREPRENEURSHIP INNOVATION AND CAREER OPPORTUNITY-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report of Workshop on Design Thinking Innovation 2022 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Report of Workshop on Design Thinking Innovation 2022-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report on National Innovation Day 2022 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Report on National Innovation Day 2022-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Recent Tools & Techniques for Data Science and Artificial Intelligence",
         "href": "https://mits.ac.in/ assets/pdf/facility/Recent Tools & Techniques for Data Science and Artificial Intelligence.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report Guest Lecture 17 09 2022 min",
         "href": "https://mits.ac.in/ assets/pdf/facility/Report_Guest Lecture_17-09-2022-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MATLAB Toolbox for IOT Application Development",
         "href": "https://mits.ac.in/ assets/pdf/facility/MATLAB Toolbox for IOT Application Development.pdf"
       },
       {
-        "title": "View Document",
+        "title": "IMPACT LECTURE SERIES REPORT",
         "href": "https://mits.ac.in/assets/pdf/assoc/IMPACT LECTURE SERIES REPORT.pdf"
       },
       {
-        "title": "View Document",
+        "title": "REPORT ON SIH INTERNAL HACKATHON 2022 PDF FORMAT min",
         "href": "https://mits.ac.in/assets/pdf/assoc/REPORT ON -SIH-INTERNAL HACKATHON-2022 PDF FORMAT-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Promoting Innovative Ventures Role of Technology Business Incubator",
         "href": "https://mits.ac.in/assets/pdf/assoc/Promoting Innovative Ventures Role of Technology Business Incubator.pdf"
       },
       {
-        "title": "View Document",
+        "title": "A Brief Overview of Thermal Power Plant",
         "href": "https://mits.ac.in/assets/pdf/assoc/A Brief Overview of Thermal Power Plant.pdf"
       },
       {
-        "title": "View Document",
+        "title": "world youth skills day min",
         "href": "https://mits.ac.in/assets/pdf/assoc/world youth skills day-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Innovation Day 15 Oct 2019",
         "href": "https://mits.ac.in/assets/pdf/assoc/Innovation Day-15-Oct-2019.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS INNOVATION CLUB ANNUAL MEET 2019 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS INNOVATION CLUB ANNUAL MEET-2019-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report on Felicitation one day program",
         "href": "https://mits.ac.in/assets/pdf/assoc/Report on Felicitation one day program.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship Awareness Camp",
         "href": "https://mits.ac.in/assets/pdf/assoc/Entrepreneurship Awareness Camp.pdf"
       },
       {
-        "title": "View Document",
+        "title": "DESIGN THINKING WORKSHOP REPORT WITH STILLS min",
         "href": "https://mits.ac.in/assets/pdf/assoc/DESIGN THINKING WORKSHOP REPORT WITH STILLS-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "OFF LINE WORKSHOP",
         "href": "https://mits.ac.in/assets/pdf/assoc/OFF-LINE WORKSHOP.pdf"
       },
       {
-        "title": "View Document",
+        "title": "FB LIVE WORKSHOP",
         "href": "https://mits.ac.in/assets/pdf/assoc/FB LIVE WORKSHOP.pdf"
       },
       {
-        "title": "View Document",
+        "title": "innovationclub min",
         "href": "https://mits.ac.in/assets/pdf/assoc/innovationclub-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "JNANABHERI",
         "href": "https://mits.ac.in/assets/pdf/assoc/JNANABHERI.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Android Applications",
         "href": "https://mits.ac.in/assets/pdf/assoc/Android Applications.pdf"
       },
       {
-        "title": "View Document",
+        "title": "3 DAY WORKSHOP ON IoT",
         "href": "https://mits.ac.in/assets/pdf/assoc/3-DAY WORKSHOP ON IoT.pdf"
       },
       {
@@ -5453,291 +5457,291 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "members": [],
     "documents": [
       {
-        "title": "Document Link",
+        "title": "Office order ED CELL 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/Office order-ED CELL-2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "WORLD WATER DAY 2026",
         "href": "https://mits.ac.in/assets/pdf/civil/WORLD WATER DAY 2026.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Business Plan Development",
         "href": "https://mits.ac.in/assets/pdf/mba/Business Plan Development.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Building Growth and Innovation Mindset using AI",
         "href": "https://mits.ac.in/assets/pdf/ca/Building Growth and Innovation Mindset using AI.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Design Thinking, Critical Thinking Innovation Design",
         "href": "https://mits.ac.in/assets/pdf/civil/Design Thinking, Critical Thinking Innovation Design.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Effective sales And Marketing Strategies For Start ups",
         "href": "https://mits.ac.in/assets/pdf/cse/Effective sales And Marketing Strategies For Start-ups.pdf"
       },
       {
-        "title": "View Document",
+        "title": "GUVI – HCL Corporation Pvt",
         "href": "https://mits.ac.in/assets/pdf/aids/GUVI – HCL Corporation Pvt.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Finance for Everyone",
         "href": "https://mits.ac.in/assets/pdf/mba/Finance for Everyone.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Art & Craft Exhibition",
         "href": "https://mits.ac.in/assets/pdf/mba/Art & Craft Exhibition.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Exhibition on Value Chain Activities",
         "href": "https://mits.ac.in/assets/pdf/mba/Exhibition on Value Chain Activities.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship & Innovation as Career opportunities",
         "href": "https://mits.ac.in/assets/pdf/mech/Entrepreneurship & Innovation as Career opportunities.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship Awareness Program 13 11 2025",
         "href": "https://mits.ac.in/assets/pdf/mba/Entrepreneurship Awareness Program-13-11-2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Celebrating Entrepreneurship Day",
         "href": "https://mits.ac.in/assets/pdf/mba/Celebrating Entrepreneurship Day.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship Talk 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/Entrepreneurship Talk-2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "From Passion to Profit Turning Your Idea into a Business",
         "href": "https://mits.ac.in/assets/pdf/ca/From Passion to Profit Turning Your Idea into a Business.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report on Entrepreneurial Mindset 11th February 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/Report on Entrepreneurial Mindset-11th February 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report on business idea contest 12th December 2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/Report on business idea contest-12th December 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Startup Success Turning Ambition into Achievement",
         "href": "https://mits.ac.in/assets/pdf/cse/Startup Success Turning Ambition into Achievement.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Pathways to Entrepreneurship Building a Successful Career as an Entrepreneur",
         "href": "https://mits.ac.in/assets/pdf/ca/Pathways to Entrepreneurship Building a Successful Career as an Entrepreneur.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship Opportunities on Embedded Systems 11 11 2024",
         "href": "https://mits.ac.in/assets/pdf/ece/Entrepreneurship Opportunities on Embedded Systems-11-11-2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Basics of IPR and Patent Filing",
         "href": "https://mits.ac.in/assets/pdf/aids/Basics of IPR and Patent Filing.pdf"
       },
       {
-        "title": "View Document",
+        "title": "From IDEA to Execution",
         "href": "https://mits.ac.in/assets/pdf/cse/From IDEA to Execution.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Ice breaking session on Entrepreneurship 22.10.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/Ice-breaking session on Entrepreneurship 22.10.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship Development Pathway to Innovation & Success 04.10.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/Entrepreneurship Development- Pathway to Innovation & Success-04.10.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Economic Indicators and understanding their importance in Start up business 01.10.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/Economic Indicators and understanding their importance in Start-up business 01.10.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Young Entrepreneurs in India Inspiring stories Shaping the future of Indias Economy 30.9.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/Young Entrepreneurs in India Inspiring stories Shaping the future of Indias Economy 30.9.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "How to reinforce the Structured Career",
         "href": "https://mits.ac.in/assets/pdf/civil/How to reinforce the Structured Career.pdf"
       },
       {
-        "title": "View Document",
+        "title": "A Talk on Journey towards Entrepreneurship",
         "href": "https://mits.ac.in/assets/pdf/mech/A Talk on Journey towards Entrepreneurship.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Internal Project Expo 2024",
         "href": "https://mits.ac.in/assets/pdf/cst/Internal Project Expo-2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report Company registration and Documentations to start a new Business",
         "href": "https://mits.ac.in/assets/pdf/eee/Report_Company registration and Documentations to start a new Business.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition December 2nd week",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition December 2nd week.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition December 1st week",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition December 1st week.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition November week 5",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition November week 5.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition November week 4",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition November week 4.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship and Innovation",
         "href": "https://mits.ac.in/assets/pdf/assoc/Entrepreneurship and Innovation.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Company registration and Documentations to start a new Business",
         "href": "https://mits.ac.in/assets/pdf/assoc/Company%20registration%20and%20Documentations%20to%20start%20a%20new%20Business.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Soft Skills for Managers and Entrepreneurs",
         "href": "https://mits.ac.in/assets/pdf/assoc/Soft Skills for Managers and Entrepreneurs.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition 16 11 23",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition-16-11-23.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition 08 11 23",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition-08-11-23.pdf"
       },
       {
-        "title": "View Document",
+        "title": "The Seven Habits of Highly Effective People",
         "href": "https://mits.ac.in/assets/pdf/assoc/The Seven Habits of Highly Effective People.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition November week1",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition November week1.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Orientation Programme on Entrepreneurship and Career Development",
         "href": "https://mits.ac.in/assets/pdf/assoc/Orientation Programme on Entrepreneurship and Career Development.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition October week 4",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition October week 4.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Networking for Entrepreneurial Success",
         "href": "https://mits.ac.in/assets/pdf/assoc/Networking for Entrepreneurial Success.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition October week3",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition October week3.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Unlocking Indias Wealth Potential",
         "href": "https://mits.ac.in/assets/pdf/assoc/Unlocking Indias Wealth Potential.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition October week2",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition October week2.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition October week1",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition October week1.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition 27 9 23",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition-27-9-23.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Online Current Affairs Quiz Competition",
         "href": "https://mits.ac.in/assets/pdf/assoc/Online Current Affairs Quiz Competition.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Inclination of Construction Industries Towards Geospatial Technology",
         "href": "https://mits.ac.in/assets/pdf/assoc/Inclination of Construction Industries Towards Geospatial Technology.pdf"
       },
       {
-        "title": "View Document",
+        "title": "week2 Report on Online Current Affairs Quiz Competition",
         "href": "https://mits.ac.in/assets/pdf/assoc/week2 Report on Online Current Affairs Quiz Competition.pdf"
       },
       {
-        "title": "View Document",
+        "title": "week1 Report on Online Current Affairs Quiz Competition",
         "href": "https://mits.ac.in/assets/pdf/assoc/week1 Report on Online Current Affairs Quiz Competition.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship and the Companies Act 2013",
         "href": "https://mits.ac.in/assets/pdf/assoc/Entrepreneurship and the Companies Act 2013.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurship Opportunities in the Livestock Sector",
         "href": "https://mits.ac.in/assets/pdf/assoc/Entrepreneurship Opportunities in the Livestock Sector.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Orphanage Visit",
         "href": "https://mits.ac.in/assets/pdf/mba/Orphanage Visit.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Role of Women in Tech Leadership",
         "href": "https://mits.ac.in/assets/pdf/assoc/Role of Women in Tech Leadership.pdf"
       },
       {
-        "title": "View Document",
+        "title": "ARTS & CRAFTS EXHIBITION 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/ARTS & CRAFTS EXHIBITION 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "AGRIBUSINESS INCUBATION SCHEME",
         "href": "https://mits.ac.in/assets/pdf/assoc/AGRIBUSINESS INCUBATION SCHEME.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Legal System for Startups",
         "href": "https://mits.ac.in/assets/pdf/assoc/Legal System for Startups.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MSME Day 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/MSME Day 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "AWARENESS GENERATION PROGRAM ON ENTREPRENEURSHIP",
         "href": "https://mits.ac.in/assets/pdf/assoc/AWARENESS GENERATION PROGRAM ON ENTREPRENEURSHIP.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Industry led training orientation and selection",
         "href": "https://mits.ac.in/assets/pdf/assoc/Industry led training orientation and selection.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Values of Advertising",
         "href": "https://mits.ac.in/assets/pdf/assoc/Values of Advertising.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Empowering Workplace Managing Stress for Better Performance",
         "href": "https://mits.ac.in/assets/pdf/assoc/Empowering Workplace Managing Stress for Better Performance.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Application of Automated Machine Learning in Electrical Industry",
         "href": "https://mits.ac.in/assets/pdf/eee/Application of Automated Machine Learning in Electrical Industry.pdf"
       },
       {
-        "title": "View Document",
+        "title": "ENTREPRENEURSHIP CHALLENGES IN 21STCENTURY",
         "href": "https://mits.ac.in/assets/pdf/assoc/ENTREPRENEURSHIP CHALLENGES IN 21STCENTURY.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Entrepreneurial Uses of AI",
         "href": "https://mits.ac.in/assets/pdf/assoc/Entrepreneurial Uses of AI.pdf"
       },
       {
-        "title": "View Document",
+        "title": "How to Groom Entrepreneurs",
         "href": "https://mits.ac.in/assets/pdf/assoc/How to Groom Entrepreneurs.pdf"
       },
       {
-        "title": "View Document",
+        "title": "A talk on Entrepreneurship Skill, Attitude and Behavior Development",
         "href": "https://mits.ac.in/assets/pdf/assoc/A talk on Entrepreneurship Skill, Attitude and Behavior Development.pdf"
       },
       {
-        "title": "View Document",
+        "title": "APSCHE Start Up Programmes & MSME Schemes",
         "href": "https://mits.ac.in/assets/pdf/assoc/APSCHE Start-Up Programmes & MSME Schemes.pdf"
       },
       {
-        "title": "View Document",
+        "title": "APSCHE Start Up Programmes MSME Schemes",
         "href": "https://mits.ac.in/assets/pdf/cse/APSCHE Start-Up Programmes MSME Schemes.pdf"
       },
       {
@@ -6125,923 +6129,923 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/public/uploads/paars/NSS%20PO%20Appointment%20order.pdf"
       },
       {
-        "title": "View Document",
+        "title": "International Yoga Day 2026",
         "href": "https://mits.ac.in/assets/pdf/assoc/International Yoga Day-2026.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Yogandhra Program 2026",
         "href": "https://mits.ac.in/assets/pdf/assoc/Yogandhra Program-2026.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Environment Day Celebration",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Environment Day Celebration.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MyBhoomi Clean Up Drive (25 04 2026)",
         "href": "https://mits.ac.in/assets/pdf/assoc/MyBhoomi Clean-Up Drive (25-04-2026).pdf"
       },
       {
-        "title": "View Document",
+        "title": "Dr.B.R. Ambedkar Jayanthi (14 04 2026)",
         "href": "https://mits.ac.in/assets/pdf/assoc/Dr.B.R. Ambedkar Jayanthi-(14-04-2026).pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Health Day Walkathon 07 04 2026",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Health Day Walkathon 07-04-2026.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Rajadhaniki Pattina Grahanam Veedindi (02 04 2026)",
         "href": "https://mits.ac.in/assets/pdf/assoc/Rajadhaniki Pattina Grahanam Veedindi (02-04-2026).pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Science Day Celebrations 2026",
         "href": "https://mits.ac.in/assets/pdf/bsh/National%20Science%20Day%20Celebrations-2026.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS NSS Speical Camp 2026 compressed",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS_NSS_Speical Camp 2026-compressed.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS NSS Report on Blood Donation Camp on 19th November 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS-NSS Report on Blood Donation Camp on 19th November 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS NSS Report on Blood Donation Ophthalmology and Dental Camp on 8th October 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS-NSS Report on Blood Donation Ophthalmology and Dental Camp on 8th October 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS NSS Report on Ektha Diwas on 31st October 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS-NSS Report on Ektha Diwas on 31st October 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS NSS Report on Gandhi Jayanthi on 2nd October 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS-NSS Report on Gandhi Jayanthi on 2nd October 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Suicide Prevention Day 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Suicide Prevention Day 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS NSS Report on Blood Donation Camp on 17th September 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS-NSS Report on Blood Donation Camp on 17th September 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS NSS Report on World Suicide Prevention Day on 10th September 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS-NSS Report on World Suicide Prevention Day on 10th September 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS NSS Report on Fire Fighting Techniques and Emergency Response Procedures on 8th September 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS-NSS Report on Fire Fighting Techniques and Emergency Response Procedures on 8th September 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS NSS Report on Teachers Day on 5th September 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS-NSS Report on Teachers Day on 5th September 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Environment Day 2025",
         "href": "https://mits.ac.in/assets/pdf/civil/World Environment Day 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "01 MITS NSS Program on PRIKSHA PE CHARCHA on 10th February 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/01 MITS - NSS Program on PRIKSHA PE CHARCHA on 10th February 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "02 MITS NSS Blood Donation Camp on 5th February 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/02 MITS - NSS Blood Donation Camp on 5th February 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "03 MITS NSS Save Earth No War rally on 3rd February 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/03 MITS - NSS Save Earth-No War rally on 3rd February 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "04 MITS NSS Program on Republic Day on 26th January 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/04 MITS - NSS Program on Republic Day on 26th January 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "05 MITS NSS Program on National Voter's Day on 25th January 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/05 MITS - NSS Program on National Voter's Day on 25th January 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "06 MITS NSS 1st Clothes Donation Drive in Association with the EEE department at Velugu Orphanage on 27th November 2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/06 MITS - NSS 1st Clothes Donation Drive in Association with the EEE department at Velugu Orphanage on 27th November 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "07 MITS NSS Program on BLOOD DONATION CAMP in Collaboration with NTR BLOOD BANK Association with HDFC BANK on 20th November 2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/07 MITS - NSS Program on BLOOD DONATION CAMP in Collaboration with NTR BLOOD BANK Association with HDFC BANK on 20th November 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Safe Mobile Application usage for School students",
         "href": "https://mits.ac.in/assets/pdf/aids/Safe Mobile Application usage for School students.pdf"
       },
       {
-        "title": "View Document",
+        "title": "08 MITS NSS Clothes Collection Camp on 29th October to 6th November 2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/08 MITS - NSS  Clothes Collection Camp on 29th October to 6th November 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "09 MITS NSS Event on EYE CHECK UP CAMP IN ASSOCIATION WITH THE DR.AGARWAL'S EYE HOSPITAL on 29th October 2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/09 MITS - NSS Event on EYE CHECK UP CAMP IN ASSOCIATION WITH THE DR.AGARWAL'S EYE HOSPITAL on 29th October 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "10 MITS NSS Event on EKTHA DIWAS WEEK on 22nd October to 24th October 2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/10 MITS - NSS Event on EKTHA DIWAS WEEK on 22nd October to 24th October 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "11 MITS NSS Program on GANDHI JAYANTHI on 2nd October 2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/11 MITS - NSS Program on GANDHI JAYANTHI on 2nd October 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "12 MITS NSS Program on Swachtaa Hi Sewa on 30th September 2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/12 MITS - NSS Program on Swachtaa Hi Sewa on 30th September 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "5. Heart check up on 27th September 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/5. Heart check-up on 27th September 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "14 MITS NSS Event on National Service Scheme (NSS) DAY on 24th September 2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/14 MITS - NSS Event on National Service Scheme (NSS) DAY on 24th September 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "15 MITS NSS Fundraising event for the Vijayawada floods on 5th September to 12th September 2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/15 MITS - NSS  Fundraising event for the Vijayawada floods on 5th September to 12th September 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "16 MITS NSS EYE CHECK UP Camp in Association With the DR. Agarwal's Eye Hospital on 30th August 2024",
         "href": "https://mits.ac.in/assets/pdf//assoc/16 MITS - NSS EYE CHECK UP Camp in Association With the DR. Agarwal's Eye Hospital on 30th August 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "17 MITS NSS Program on National Space Day on 23rd August 2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/17 MITS - NSS Program on National Space Day on 23rd August 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "18 MITS NSS Program on EK PED MAA KE NAAM Campaign on 15th August 2024",
         "href": "https://mits.ac.in/assets/pdf//assoc/18 MITS - NSS Program on EK PED MAA KE NAAM Campaign on 15th August 2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Organ Donation Day 2024",
         "href": "https://mits.ac.in/assets/pdf/civil/World Organ Donation Day-2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Master Trainers on My Bharat Portal and Digital Literacy",
         "href": "https://mits.ac.in/assets/pdf/assoc/Master Trainers on My Bharat Portal and Digital Literacy.pdf"
       },
       {
-        "title": "View Document",
+        "title": "69 NSS Unit MITS NSS Special Camp Report 2023 24",
         "href": "https://mits.ac.in/assets/pdf/assoc/69_NSS Unit_MITS_NSS Special Camp Report 2023-24.pdf"
       },
       {
-        "title": "View Document",
+        "title": "10.University level NSS programme officers Orientation on Planning, training & Review meeting on 23.3.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/10.University level NSS programme officers Orientation on Planning, training & Review meeting on 23.3.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "9.Mera Pehla Vote Desh Ke Liye on 11.3.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/9.Mera Pehla Vote Desh Ke Liye on 11.3.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "8.National Science Day on 28.02.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/8.National Science Day on 28.02.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "7.75th Republic Day on 26.01.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/7.75th Republic Day on 26.01.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "6.National Voters Day on 25.01.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/6.National Voters Day on 25.01.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "5.Free Eye Check up Camp on 23.01.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/5.Free Eye Check-up Camp on 23.01.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "4.Blood Donation Camp on 23.01.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/4.Blood Donation Camp on 23.01.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "3.National Youth Day on 12.01.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/3.National Youth Day on 12.01.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "2.Vote Enrolment Awareness Program on 09.01.2024",
         "href": "https://mits.ac.in/assets/pdf/assoc/2.Vote Enrolment Awareness Program on 09.01.2024.pdf"
       },
       {
-        "title": "View Document",
+        "title": "1. Viksit Bharat@2047 Promotions on 19.12.2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/1. Viksit Bharat@2047 Promotions on 19.12.2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "12. Awareness on Drug Abuse on 13th December 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/12. Awareness on Drug Abuse on 13th December 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "11. Sexual Harassement on 29th November 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/11. Sexual Harassement on 29th November 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "10. Awareness on Voter Enrolment on 23rd November 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/10. Awareness on Voter Enrolment on 23rd November 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "9. Ektha Diwas National unity Day on 31 st October 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/9. Ektha Diwas National unity Day on 31 st October 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "8. Road Safety Awareness on 12th October 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/8. Road Safety Awareness on 12th October 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "7. gandhi jayanthi on 2nd October 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/7. gandhi jayanthi on 2nd October 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "6. swachataa hi sewa on 1st October 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/6. swachataa hi sewa on 1st October 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "4. Teacher's day on 5th September 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/4. Teacher's day on 5th September 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "3. 77th Independence Day on 15th August 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/3. 77th Independence Day on 15th August 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "2. Har Ghar Tiranga on 15th August 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/2. Har Ghar Tiranga on 15th August 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "1. Meri Maati Mera Desh Campaign on 11th August 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/1. Meri Maati Mera Desh Campaign on 11th August 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "43 International Day Aganist Drug Abuse and implicit Trafficking on 26th June 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/43_International Day Aganist Drug Abuse and implicit Trafficking on 26th June 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "42 INTERNATIONAL YOGA DAY on 21st June 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/42_INTERNATIONAL YOGA DAY on 21st June 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "41 world food safety day on 7th June 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/41_world food safety day on 7th June 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "40 world envirnment day on 5th June 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/40_world envirnment day on 5th June 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "39 NSS Delegation meet on 26th May 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/39_ NSS Delegation meet on 26th May 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "38 NATIONAL TECHNOLOGY DAY on 11th May 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/38_NATIONAL TECHNOLOGY DAY on 11th May 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "37 blood donatioin on 27th April 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/37_blood donatioin on 27th April 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "36 blood donatioin on 17th April 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/36_blood donatioin on 17th April 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "35 Ambedkar Jayanti on 14th April 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/35_Ambedkar Jayanti on 14th April 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "34 World Water Day on 22nd March 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/34_World Water Day on 22nd March 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "33 INTERNATIONAL WOMEN'S DAY on 7th March 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/33_INTERNATIONAL WOMEN'S DAY on 7th March 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "31 World Radio Day on 13th Feb 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/31_World Radio Day on 13th Feb 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "30 Republic Day on 26th Jan 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/30_Republic Day on 26th Jan 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "29 national voters day on 25th Jan 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/29_national voters day on 25th Jan 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "28 National YOUTH DAY on 12th Jan 2023",
         "href": "https://mits.ac.in/assets/pdf/assoc/28_National YOUTH DAY on 12th Jan 2023.pdf"
       },
       {
-        "title": "View Document",
+        "title": "27 Anti drug awareness camp on 21st December 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/27_Anti drug awareness camp on 21st December 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "26 Awarness on Electrol ENrollment during 3rd December to 6th December 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/26_Awarness on Electrol ENrollment during 3rd December to 6th December 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "25 Constution Day on 26th November 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/25_Constution Day on 26th November 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "24 womens day on 24th November 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/24_womens day on 24th November 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "23 Cultural unity day on 23rd November 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/23_Cultural unity day on 23rd November 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "22 Weaker Section Day on 22nd November 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/22_Weaker Section Day on 22nd November 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "21 Linguistic Harmony Day on 21st November 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/21_Linguistic Harmony Day on 21st November 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "20 Welfare of Minorities Day on 19th November 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/20_Welfare of Minorities Day on 19th November 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "19 national education day on 11th November 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/19_national education day on 11th November 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "18 national unity day on 31st October 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/18_national unity day on 31st October 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "17 APJ Abdul Kalam BIrth Anniversary on 15th October 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/17_APJ Abdul Kalam BIrth Anniversary on 15th October 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "16. International Girl Child Day 11th October 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/16. International Girl Child Day 11th October 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "15 mahatham gandhi jayanthi on 2nd October 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/15_mahatham gandhi jayanthi on 2nd October 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "14 Free Mega Camp by Mobile Speech and Hearing Out Reach Clinic 27th September 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/14_Free Mega Camp by Mobile Speech and Hearing Out Reach Clinic 27th September 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "13 NSS FOUNDATION DAY on 24th September 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/13_NSS FOUNDATION DAY on 24th September 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "12 Free Eye Check up Camp on 8th September 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/12_Free Eye Check-up Camp on 8th September 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "11 Suicide Prevention Awareness on 7th September 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/11_Suicide Prevention Awareness on 7th September 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "10 Teachers Day 5th September 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/10_Teachers Day 5th September 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "9 Suicide Prevention Awareness on 2nd September 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/9_Suicide Prevention Awareness on 2nd September 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "8 blood donatioin camp 23rd August 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/8_blood donatioin camp 23rd August 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "7 COVID 19 Vaccination Drive 16th to 22nd August 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/7_COVID-19 Vaccination Drive 16th to 22nd August 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "6 report on 76th independence day 15th August 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/6_report on 76th independence day 15th August 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "5 Azadi Ka Amrut Mahostav 12th August 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/5_Azadi Ka Amrut Mahostav 12th August 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "4 Har Ghar Ka Tirang promotions 11th August 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/4_Har Ghar Ka Tirang promotions 11th August 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "3 Dr. APJ Abdul Kalam Death Anniversary on 27th July 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/3_Dr. APJ Abdul Kalam Death Anniversary on 27th July 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "2 COVID 19 Vaccination Drive during 19 to 22th July 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/2_COVID-19 Vaccination Drive during 19 to 22th July 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Blood Donors Day on 14th June 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Blood Donors Day on 14th June 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World No Tobacco Day on 31st May 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/World No Tobacco Day on 31st May 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Technology Day on 11th May 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/National Technology Day on 11th May 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Awareness Programme on Disha AOS app on 6th May 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/Awareness Programme on Disha AOS app on 6th May 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Electoral Enrollment on 28th April 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/Electoral Enrollment on 28th April 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Ralley on Vote System and Electoral Enrollment on 26th April 2022pdf",
         "href": "https://mits.ac.in/assets/pdf/assoc/Ralley on Vote System and Electoral Enrollment on 26th April 2022pdf"
       },
       {
-        "title": "View Document",
+        "title": "Systematic Voter Education and Electoral Program on 19th April 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/Systematic Voter Education and Electoral Program on 19th April 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Ambedkar jayanthi on 14th April 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/Ambedkar jayanthi on 14th April 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "1 Alluri Seetharamaraju Jayanthi on 7th April 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/1_Alluri Seetharamaraju Jayanthi on 7th April 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Science Day 28th February 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/National Science Day 28th February 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "International Mother Language Day on 21st February 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/International Mother Language Day on 21st February 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS Delegation meet on 5th February 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS Delegation meet on 5th February 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Cancer Day on 4th February 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Cancer Day on 4th February 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "73rd Republic Day Celebrations 26th January 2022",
         "href": "https://mits.ac.in/assets/pdf/assoc/73rd Republic Day Celebrations 26th January 2022.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS Special Camp Programme",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS Special Camp Programme.pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Farmers Day 23rd December 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/National Farmers Day 23rd December 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Tree Plantation Programme 21st December 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/Tree Plantation Programme 21st December 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "International Human Rights Day 10th December 2009",
         "href": "https://mits.ac.in/assets/pdf/assoc/International Human Rights Day 10th December 2009.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Mega Vaccine Drive from 9th & 10th December 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/Mega Vaccine Drive from 9th & 10th December 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Integration Day 27th November 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/National Integration Day 27th November 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Unity Day 31st October 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/National Unity Day 31st October 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Clean India 23rd October 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/Clean India 23rd October 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Gandhi Jayanthi 2nd October 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/Gandhi Jayanthi 2nd October 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS Foundation Day 24th September 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS Foundation Day 24th September 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "International Day of Peace 21st September 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/International Day of Peace 21st September 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Mega Vaccine Drive from 16th & 20th September 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/Mega Vaccine Drive from 16th & 20th September 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Ozone day 16th September 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/Ozone day 16th September 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Engineers Day 15th September 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/Engineers Day 15th September 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World First Aid Day 11th September 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/World First Aid Day 11th September 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Teachers Day 5th September 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/Teachers Day 5th September 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Fit India Freedom Run on 21st August 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/Fit India Freedom Run on 21st August 2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS World Nature Conservation Day Program 2021 28 7 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS-World Nature Conservation Day Program 2021-28-7-2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS Dr. APJ Abdul Kalam Death Anniversary Program 2021 27 7 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS-Dr. APJ Abdul Kalam Death Anniversary Program 2021-27-7-2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS Awareness on DISHA App Program 2021 21 7 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS-Awareness on DISHA App Program 2021-21-7-2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "International Day of Yoga 21 6 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/International Day of Yoga-21-6-2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Covid Care Program 16 6 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/Covid Care Program-16-6-2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Environmental Day 5 6 2021",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Environmental Day-5-6-2021.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Ambedhkar Jayanthi 2021 report",
         "href": "https://mits.ac.in/assets/pdf/assoc/Ambedhkar Jayanthi 2021 report.pdf"
       },
       {
-        "title": "View Document",
+        "title": "yoga day 2019 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/yoga day 2019-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NATIONAL YOUTH DAY",
         "href": "https://mits.ac.in/assets/pdf/assoc/NATIONAL YOUTH DAY.pdf"
       },
       {
-        "title": "View Document",
+        "title": "votersday2019 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/votersday2019-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Aids Day Awareness Rally 2018 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Aids Day Awareness Rally 2018-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Rashtriya Ekta Diwas 2018 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Rashtriya Ekta Diwas-2018-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "GANDHI JAYANTHI 2018 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/GANDHI JAYANTHI 2018-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Swachhata Hi Seva 2018 (SHS) was organized by NSS at MITS from 15 September to 2 October 2018",
         "href": "https://mits.ac.in/assets/pdf/assoc/Swachhata Hi Seva 2018 (SHS) was organized by NSS at MITS from 15 September to 2 October 2018.pdf"
       },
       {
-        "title": "View Document",
+        "title": "vanam 2018 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/vanam 2018-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Swachhata Hi Seva min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Swachhata Hi Seva-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NATIONAL SERVICE SCHEME DAY 2018 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/NATIONAL SERVICE SCHEME DAY 2018-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Peace Day 2018 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Peace Day 2018-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "International Literacy Day 2018 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/International Literacy Day 2018-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Teachers Day min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Teachers Day-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "report vanam Manam 21 7 2018",
         "href": "https://mits.ac.in/assets/pdf/assoc/report_vanam Manam 21-7-2018.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Yoga day 21 7 2018",
         "href": "https://mits.ac.in/assets/pdf/assoc/Yoga day 21-7-2018.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NATIONAL VOTERS DAY 2018 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/NATIONAL VOTERS DAY 2018-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Swami Vivekananda Jayanti min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Swami Vivekananda Jayanti-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Flag day 07 12 17",
         "href": "https://mits.ac.in/assets/pdf/assoc/Flag day 07-12-17.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Human Immunodeficiency Virus Awareness Rally",
         "href": "https://mits.ac.in/assets/pdf/assoc/Human Immunodeficiency Virus Awareness Rally.pdf"
       },
       {
-        "title": "View Document",
+        "title": "DONATION FOR NATIONAL FOUNDATION FOR COMMUNAL HARMONY",
         "href": "https://mits.ac.in/assets/pdf/assoc/DONATION FOR NATIONAL FOUNDATION FOR COMMUNAL HARMONY.pdf"
       },
       {
-        "title": "View Document",
+        "title": "report on Swachh survekshan 2018",
         "href": "https://mits.ac.in/assets/pdf/assoc/report on Swachh survekshan 2018.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Children’s Day Celebrations 2017",
         "href": "https://mits.ac.in/assets/pdf/assoc/Children’s Day Celebrations 2017.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Moving towards the Nature min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Moving towards the Nature-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Blood Donation Camp min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Blood Donation Camp-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Cancer Awareness Day min",
         "href": "https://mits.ac.in/assets/pdf/assoc/National Cancer Awareness Day-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "CORRUPTION FREE INDIA",
         "href": "https://mits.ac.in/assets/pdf/assoc/CORRUPTION FREE INDIA.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Sardar Vallabhbhai Patel",
         "href": "https://mits.ac.in/assets/pdf/assoc/Sardar Vallabhbhai Patel.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Dr A P J Abdul Kalams Birthday Global Hand washing Day Celebrations",
         "href": "https://mits.ac.in/assets/pdf/assoc/Dr A P J Abdul Kalams Birthday - Global Hand-washing Day Celebrations.pdf"
       },
       {
-        "title": "View Document",
+        "title": "report swachata",
         "href": "https://mits.ac.in/assets/pdf/assoc/report swachata.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS Day Celebrations 2017",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS Day Celebrations 2017.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Peace Day Rally",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Peace Day Rally.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Rivers",
         "href": "https://mits.ac.in/assets/pdf/assoc/Rivers.pdf"
       },
       {
-        "title": "View Document",
+        "title": "teachersday2017",
         "href": "https://mits.ac.in/assets/pdf/assoc/teachersday2017.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Literacy Day 2017",
         "href": "https://mits.ac.in/assets/pdf/assoc/Literacy Day 2017.pdf"
       },
       {
-        "title": "View Document",
+        "title": "International Yoga Day Celebrations 2017",
         "href": "https://mits.ac.in/assets/pdf/assoc/International Yoga Day Celebrations - 2017.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Ambedkar Jayanthi 126",
         "href": "https://mits.ac.in/assets/pdf/assoc/Ambedkar Jayanthi 126.pdf"
       },
       {
-        "title": "View Document",
+        "title": "report Mega Financial Literacy Training Program 2016 17",
         "href": "https://mits.ac.in/assets/pdf/assoc/report_Mega Financial Literacy Training Program 2016-17.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Cashless Transactions",
         "href": "https://mits.ac.in/assets/pdf/assoc/Cashless Transactions.pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Foundation for Communal Harmony",
         "href": "https://mits.ac.in/assets/pdf/assoc/National Foundation for Communal Harmony.pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Education Day",
         "href": "https://mits.ac.in/assets/pdf/assoc/National Education Day.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Aids Day Awareness Rally",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Aids Day Awareness Rally.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Central Vigilance Awareness week, Integrity Pledge organized by MITS NSS on 04 11 2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/Central Vigilance Awareness week, Integrity Pledge organized by MITS - NSS on 04-11-2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Rastriya Ekta Diwas",
         "href": "https://mits.ac.in/assets/pdf/assoc/Rastriya Ekta Diwas.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Global Hand Washing Day2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/Global Hand Washing Day2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "abdulkalam",
         "href": "https://mits.ac.in/assets/pdf/assoc/abdulkalam.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Relaxation & Meditation",
         "href": "https://mits.ac.in/assets/pdf/assoc/Relaxation & Meditation.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Gandhi Jayanti",
         "href": "https://mits.ac.in/assets/pdf/assoc/Gandhi Jayanti.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Blood Donation Camp sept 2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/Blood Donation Camp sept 2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "report DENGUE preventive medicines 28 09 2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/report_DENGUE preventive medicines 28-09-2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS Day Celebrations 2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS Day Celebrations - 2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Mosquitoes Conducted rally on 23 09 2016 by NSS CELL",
         "href": "https://mits.ac.in/assets/pdf/assoc/Mosquitoes Conducted rally on 23-09-2016 by NSS CELL .pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Peace Day 2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Peace Day - 2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "PLANITATION RALLY AT ANGALLU ON 18 09 2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/PLANITATION RALLY AT ANGALLU  ON 18-09-2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "International Literacy Day Celebrations1",
         "href": "https://mits.ac.in/assets/pdf/assoc/International Literacy Day Celebrations1.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Teachers' Day celebrations 2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/Teachers' Day celebrations - 2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "smart pulse survey 2016 17",
         "href": "https://mits.ac.in/assets/pdf/assoc/smart pulse survey 2016-17.pdf"
       },
       {
-        "title": "View Document",
+        "title": "VANAM MANAM ON 29 07 2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/VANAM-MANAM ON 29-07-2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "70th independence day celebrations” FREEDOM RALLY” and sporting events organized on 19 08 16",
         "href": "https://mits.ac.in/assets/pdf/assoc/70th independence day celebrations” FREEDOM RALLY” and sporting events  organized on 19-08-16.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Independence day celebrations 15 8 2015",
         "href": "https://mits.ac.in/assets/pdf/assoc/Independence day celebrations-15-8-2015.pdf"
       },
       {
-        "title": "View Document",
+        "title": "KRISHNA PUSHKARALU 12 08 2016 to 23 08 2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/KRISHNA PUSHKARALU - 12-08-2016 to 23-08-2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Quit India Day",
         "href": "https://mits.ac.in/assets/pdf/assoc/Quit India Day.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Socio Economic Survey",
         "href": "https://mits.ac.in/assets/pdf/assoc/Socio Economic Survey.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Plantation",
         "href": "https://mits.ac.in/assets/pdf/assoc/Plantation.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Second International Yoga Day Celebrations 2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/Second International Yoga Day Celebrations - 2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "BLOOD DONATION PROGRAM",
         "href": "https://mits.ac.in/assets/pdf/assoc/BLOOD DONATION PROGRAM.pdf"
       },
       {
-        "title": "View Document",
+        "title": "INTERNATIONAL WATER DAY HELD ON 22 03 2016",
         "href": "https://mits.ac.in/assets/pdf/assoc/INTERNATIONAL WATER DAY HELD ON 22-03-2016.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Science Day Celebrations",
         "href": "https://mits.ac.in/assets/pdf/assoc/Science Day Celebrations.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Swami Vivekananda",
         "href": "https://mits.ac.in/assets/pdf/assoc/Swami Vivekananda.pdf"
       },
       {
-        "title": "View Document",
+        "title": "nss",
         "href": "https://mits.ac.in/assets/pdf/assoc/nss.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Swachh Bharat 2015",
         "href": "https://mits.ac.in/assets/pdf/assoc/Swachh Bharat 2015.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS Day Celebrations 2015",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS Day Celebrations - 2015.pdf"
       },
       {
-        "title": "View Document",
+        "title": "MEGA BLOOD DONATION CAMP",
         "href": "https://mits.ac.in/assets/pdf/assoc/MEGA BLOOD DONATION CAMP.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Peace Day 2015",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Peace Day - 2015.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World First Aid Day Save Life",
         "href": "https://mits.ac.in/assets/pdf/assoc/World First Aid Day - Save Life.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Anti Suicide Day Life Matters",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Anti- Suicide Day Life Matters.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Training Program for Girl Students SELF DEFENCE",
         "href": "https://mits.ac.in/assets/pdf/assoc/Training Program for Girl Students SELF DEFENCE.pdf"
       },
       {
-        "title": "View Document",
+        "title": "International Literacy Day Celebrations",
         "href": "https://mits.ac.in/assets/pdf/assoc/International%20Literacy%20Day%20Celebrations.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Mega Medical Health Camp at Angallu",
         "href": "https://mits.ac.in/assets/pdf/assoc/Mega Medical Health Camp at Angallu.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NAVA NIRMANA DEEKSHA RALLY 02 06 15",
         "href": "https://mits.ac.in/assets/pdf/assoc/NAVA NIRMANA DEEKSHA RALLY-02-06-15.pdf"
       },
       {
-        "title": "View Document",
+        "title": "SWINE FLU Awareness Program (2)",
         "href": "https://mits.ac.in/assets/pdf/assoc/SWINE FLU - Awareness Program (2).pdf"
       },
       {
-        "title": "View Document",
+        "title": "SWACHH BHARAT 24 11 2014 (1)",
         "href": "https://mits.ac.in/assets/pdf/assoc/SWACHH BHARAT 24-11-2014 (1).pdf"
       },
       {
-        "title": "View Document",
+        "title": "National Unity Day (1)",
         "href": "https://mits.ac.in/assets/pdf/assoc/National Unity Day (1).pdf"
       },
       {
-        "title": "View Document",
+        "title": "Global Hand washing Day (1)",
         "href": "https://mits.ac.in/assets/pdf/assoc/Global Hand washing Day (1).pdf"
       },
       {
-        "title": "View Document",
+        "title": "SWACHH BHARAT (1)",
         "href": "https://mits.ac.in/assets/pdf/assoc/SWACHH BHARAT (1).pdf"
       },
       {
-        "title": "View Document",
+        "title": "Report on Blood Donation Camp (1)",
         "href": "https://mits.ac.in/assets/pdf/assoc/Report on Blood Donation Camp (1).pdf"
       },
       {
-        "title": "View Document",
+        "title": "MITS NSS UNIT JAN 2014 (1)",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS NSS UNIT JAN 2014 (1).pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS Votersday (1)",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS Votersday (1).pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS Polio (1)",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS Polio (1).pdf"
       },
       {
-        "title": "View Document",
+        "title": "NSS Voter (1)",
         "href": "https://mits.ac.in/assets/pdf/assoc/NSS Voter (1).pdf"
       },
       {
@@ -7258,115 +7262,115 @@ export const cellsDetailData: Record<string, CellDetail> = {
     ],
     "documents": [
       {
-        "title": "Document Link",
+        "title": "NCC Cell Committee 2025 26",
         "href": "https://mits.ac.in/assets/pdf/assoc/NCC Cell Committee 2025-26.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Trekking camp at Darjeeling 25 May 3 June 2026",
         "href": "https://mits.ac.in/assets/pdf/assoc/Trekking camp at Darjeeling 25 May-3 June 2026.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Sikkim Camp 8th April to 5th May 2026",
         "href": "https://mits.ac.in/assets/pdf/assoc/Sikkim Camp 8th April to 5th May 2026.pdf"
       },
       {
-        "title": "View Document",
+        "title": "One day ANO's conclave 30 01 2026",
         "href": "https://mits.ac.in/assets/pdf/assoc/One day ANO's conclave 30-01-2026.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Republic Day Celebrations at MITS 26 01 2026",
         "href": "https://mits.ac.in/assets/pdf/assoc/Republic Day Celebrations at MITS 26-01-2026.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Republic Day Celebrations at Madanapalle 26 01 2026",
         "href": "https://mits.ac.in/assets/pdf/assoc/Republic Day Celebrations at Madanapalle 26-01-2026.pdf"
       },
       {
-        "title": "View Document",
+        "title": "LRDC at Amaravathi 26 01 2026",
         "href": "https://mits.ac.in/assets/pdf/assoc/LRDC at Amaravathi 26-01-2026.pdf"
       },
       {
-        "title": "View Document",
+        "title": "HORSELY HILLS 21 DEC 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/HORSELY HILLS-21-DEC-2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "PARENTS MEETING 20 DEC 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/PARENTS MEETING-20-DEC-2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "ARMED FORCE FLAG DAY14 DEC 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/ARMED FORCE FLAG DAY14-DEC-2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "UNITY MARCH 31 OCT 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/UNITY MARCH-31-OCT-2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "swach Bharat 25 OCT 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/swach Bharat-25-OCT-2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "CERTIFICATE DISTRIBUTION 30 SEP 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/CERTIFICATE DISTRIBUTION- 30-SEP-2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "WORLD RIVER DAY 29 SEP 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/WORLD RIVER DAY-29-SEP-2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Suicide Prevention Day 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/World Suicide Prevention Day 2025.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NCC Day 2018 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/NCC%20Day%202018-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "INTER GROUP COMPETITION min",
         "href": "https://mits.ac.in/assets/pdf/assoc/INTER%20GROUP%20COMPETITION-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Swachhata Hi Seva min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Swachhata%20Hi%20Seva-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Significance of Team Work & Tree Plantation min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Significance%20of%20Team%20Work%20&%20Tree%20Plantation-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Enumulavaripalli Village min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Enumulavaripalli%20Village-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "World Water Day 2018 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/World%20Water%20Day%202018-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "NATIONAL VOTERS DAY 2018 min",
         "href": "https://mits.ac.in/assets/pdf/assoc/NATIONAL%20VOTERS%20DAY%202018-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Swami Vivekananda Jayanti min",
         "href": "https://mits.ac.in/assets/pdf/assoc/Swami%20Vivekananda%20Jayanti-min.pdf"
       },
       {
-        "title": "View Document",
+        "title": "ARMED FORCES FLAG DAY",
         "href": "https://mits.ac.in/assets/pdf/assoc/ARMED%20FORCES%20FLAG%20DAY.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Human Immunodeficiency Virus Awareness Rally",
         "href": "https://mits.ac.in/assets/pdf/assoc/Human%20Immunodeficiency%20Virus%20Awareness%20Rally.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Helping Hands Program",
         "href": "https://mits.ac.in/assets/pdf/assoc/Helping%20Hands%20Program.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Sardar Vallabhbhai Patel",
         "href": "https://mits.ac.in/assets/pdf/assoc/Sardar%20Vallabhbhai%20Patel.pdf"
       },
       {
-        "title": "View Document",
+        "title": "Dr A P J Abdul Kalams Birthday Global Hand washing Day Celebrations",
         "href": "https://mits.ac.in/assets/pdf/assoc/Dr%20A%20P%20J%20Abdul%20Kalams%20Birthday%20-%20Global%20Hand-washing%20Day%20Celebrations.pdf"
       },
       {
@@ -8666,6 +8670,20 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "address": "Madanapalle Institute of Technology & Science"
       }
     ],
+    "gallery": [
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-05-19 at 8.17.02 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-05-19 at 8.55.26 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-05-07 at 10.05.39 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-05-15 at 8.05.06 AM (1).jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.31 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.32 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-04-06 at 8.07.33 AM.jpeg",
+      "https://mits.ac.in/public/uploads/gallery/886a22fa-24a3-4f01-897e-2b7c1fa67cc6.jpg",
+      "https://mits.ac.in/public/uploads/gallery/aa98f6e3-3f9b-471d-942f-1594d8244609.jpg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-03-05 at 2.51.59 PM.jpg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-03-09 at 3.43.27 PM.jpg",
+      "https://mits.ac.in/public/uploads/gallery/WhatsApp Image 2026-03-09 at 3.43.28 PM.jpg"
+    ],
     "id": "ncc-air",
     "url": "https://mits.ac.in/ncc-airwing"
   },
@@ -8894,8 +8912,9 @@ export const cellsDetailData: Record<string, CellDetail> = {
   "csi": {
     "name": "Computer Society of India (CSI) Student Branch",
     "aboutText": [
-      "The Computer Society of India (CSI) Student Branch at Madanapalle Institute of Technology & Science (Branch Code: 500127) is a premier technical society cultivating programming prowess, algorithmic problem solving, software engineering, and emerging computing skills.",
-      "The Branch organizes coding hackathons, technical conferences, generative AI seminars, and open-source contributions, creating an exceptional platform for computer science enthusiasts to thrive."
+      "The Computer Society of India (CSI) Student Branch at Madanapalle Institute of Technology & Science (Branch Code: M10660) is a premier technical society cultivating programming prowess, algorithmic problem solving, software engineering, and emerging computing skills.",
+      "The Branch organizes coding hackathons, technical conferences, generative AI seminars, and open-source contributions, creating an exceptional platform for computer science enthusiasts to thrive.",
+      "Mission & Objectives of CSI Student Branch: To facilitate research, knowledge sharing, learning, and career enhancement for computing professionals and student members; to inspire youth to develop indigenous software products and AI tools; and to organize national hackathons, international conferences, and professional IT certification drives."
     ],
     "members": [
       {
@@ -8932,11 +8951,11 @@ export const cellsDetailData: Record<string, CellDetail> = {
     ],
     "contacts": [
       {
-        "name": "Dr. M. Sakthivel",
-        "designation": "Associate Professor (CSE) & CSI Student Branch Counselor",
+        "name": "Dr. R. Nidhya",
+        "designation": "Professor (CSE) & CSI Student Branch Counselor",
         "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
         "phone": "+91-8571-280255",
-        "email": "csi@mits.ac.in"
+        "email": "drnidhyar@mits.ac.in"
       }
     ],
     "id": "csi",
@@ -8982,9 +9001,10 @@ export const cellsDetailData: Record<string, CellDetail> = {
   "iete": {
     "name": "Institution of Electronics and Telecommunication Engineers (IETE) Chapter",
     "aboutText": [
-      "The Institution of Electronics and Telecommunication Engineers (IETE) Students' Forum (ISF) at Madanapalle Institute of Technology & Science is dedicated to advancing the disciplines of electronics, telecommunications, semiconductor systems, and information technology.",
+      "The Institution of Electronics and Telecommunication Engineers (IETE) Students\' Forum (ISF) at Madanapalle Institute of Technology & Science (ISF Centre No. ISFC-1155) is dedicated to advancing the disciplines of electronics, telecommunications, semiconductor systems, and information technology.",
       "The Forum provides a platform for engineering students to bridge academic theory with industry requirements through hands-on technical workshops, industrial seminars, and hardware project exhibitions.",
-      "In active collaboration with the Department of ECE and EEE, MITS IETE organizes state-of-the-art skill development initiatives in Full Stack Development, VLSI semiconductor design, and embedded telecommunication infrastructure."
+      "In active collaboration with the Department of ECE and EEE, MITS IETE organizes state-of-the-art skill development initiatives in Full Stack Development, VLSI semiconductor design, and embedded telecommunication infrastructure.",
+      "Objectives of IETE Students\' Forum (ISFC-1155): To organize technical lectures, seminars, symposia, and exhibitions for students to enhance their professional engineering competencies; to encourage student membership in IETE; to arrange career counseling and industrial visits; and to promote innovation, circuit designing, and IoT prototyping."
     ],
     "members": [
       {
@@ -9123,11 +9143,11 @@ export const cellsDetailData: Record<string, CellDetail> = {
     ],
     "contacts": [
       {
-        "name": "Dr. P. Ramanathan",
-        "designation": "Vice-Principal (Administration) & Coordinator - NASSCOM Cell",
+        "name": "Dr. E. Sandhya",
+        "designation": "Chief Coordinator & SPOC - NASSCOM Cell, Assoc. Professor - Dept. of CSE (AI&ML)",
         "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
         "phone": "+91-8571-280255",
-        "email": "nasscom@mits.ac.in"
+        "email": "drsandhyae@mits.ac.in"
       }
     ],
     "id": "nasscom",
@@ -9272,39 +9292,39 @@ export const cellsDetailData: Record<string, CellDetail> = {
     ],
     "documents": [
       {
-        "title": "Document Link",
+        "title": "Faculty Members IEI",
         "href": "https://mits.ac.in/assets/pdf/assoc/Faculty Members IEI.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "IEI Committee Office Order 2025",
         "href": "https://mits.ac.in/assets/pdf/assoc/IEI Committee Office Order 2025.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Chapter Certificate ME",
         "href": "https://mits.ac.in/assets/pdf/assoc/Chapter Certificate-ME.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Chapter Certificate EEE",
         "href": "https://mits.ac.i88n/assets/pdf/assoc/Chapter Certificate-EEE.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Chapter Certificate ECE",
         "href": "https://mits.ac.in/assets/pdf/assoc/Chapter Certificate-ECE.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Chapter Certificate CSE",
         "href": "https://mits.ac.in/assets/pdf/assoc/Chapter Certificate CSE.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Chapter Certificate CSE (AI&ML)",
         "href": "https://mits.ac.in/assets/pdf/assoc/Chapter Certificate CSE (AI&ML).pdf"
       },
       {
-        "title": "Document Link",
+        "title": "Chapter Certificate DS",
         "href": "https://mits.ac.in/assets/pdf/assoc/Chapter Certificate DS.pdf"
       },
       {
-        "title": "Document Link",
+        "title": "The Institution Engineers (IEI) certificate",
         "href": "https://mits.ac.in/assets/pdf/assoc/The Institution Engineers (IEI) certificate.pdf"
       },
       {

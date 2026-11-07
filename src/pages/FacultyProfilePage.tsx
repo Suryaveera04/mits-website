@@ -8,6 +8,7 @@ import { getDepartmentByKey, type FacultyMember } from "@/data/departmentData";
 import { facultyProfiles, getFacultyProfile, type FacultyProfile, type FacultySection } from "@/data/facultyProfiles";
 import { departmentHeads, deansList } from "@/data/aboutData";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
+import { getBshSubDepartment } from "@/lib/facultyApi";
 import { useFacultyData } from "@/hooks/useFacultyData";
 import {
   ArrowLeft, ArrowRight, Mail, GraduationCap, BookOpen,
@@ -306,13 +307,55 @@ const FacultyProfilePage = () => {
       ? { ...rich, name: cleanFacultyName(rich.name), image: rich.image || f?.image, email: rich.email || f?.email }
       : f ? buildFromFacultyMember(f) : undefined;
 
+    // Scoped Prev / Next navigation for BSH constituent disciplines (English, Mathematics, Physics, Chemistry)
+    const bshSubDeptByFacultyName: Record<string, string> = {
+      "Dr. Prageetha G Raju": "Department of Humanities",
+      "Dr. Sudhakar Beedam": "Department of English & Foreign Languages",
+      "Dr. S. Shanmuga Priya": "Department of English & Foreign Languages",
+      "Dr. Bishnu Paramguru Mahapatra": "Department of English & Foreign Languages",
+      "Dr. P. Athahar": "Department of English & Foreign Languages",
+      "Dr. B. Anitha": "Department of English & Foreign Languages",
+      "Dr. K. Lakshmi Devi": "Department of English & Foreign Languages",
+      "Dr.  G. Hemalatha": "Department of English & Foreign Languages",
+      "Dr. S. Mohankumar": "Department of English & Foreign Languages",
+      "Dr. R. Sriganesh": "Department of English & Foreign Languages",
+      "Dr. Saktheeswar V. B.": "Department of English & Foreign Languages",
+      "Dr. Suresh Chimata": "Department of English & Foreign Languages",
+      "Dr. M. Parvathi": "Department of English & Foreign Languages",
+      "Dr. Md Nasir Hossain": "Department of English & Foreign Languages",
+      "Mr. Naresh Maruboina": "Department of English & Foreign Languages",
+      "Dr. R. Saravana": "Department of Mathematics",
+      "Dr. K. V. Narasimha Murthy": "Department of Mathematics",
+      "Dr. Jagadeesh Babu Bellam": "Department of Physics",
+      "Dr. M. Chandra Sekhar": "Department of Physics",
+      "Dr. Renjith Bhaskaran": "Department of Chemistry",
+    };
+
+    const getMemberSubDept = (member: FacultyMember, rawItem?: any): string => {
+      if (member.subDepartment) return member.subDepartment;
+      const clean = cleanFacultyName(member.name);
+      if (bshSubDeptByFacultyName[clean]) return bshSubDeptByFacultyName[clean];
+      if (bshSubDeptByFacultyName[member.name]) return bshSubDeptByFacultyName[member.name];
+      if (rawItem?.department) {
+        return getBshSubDepartment(rawItem.department.code, rawItem.department.name);
+      }
+      return "Department of Basic Sciences";
+    };
+
+    const currentSubDept = deptKey === "bsh" && f ? getMemberSubDept(f, raw) : undefined;
+    const scopedList = (deptKey === "bsh" && currentSubDept && currentSubDept !== "Department of Basic Sciences")
+      ? effectiveDeptFaculty.filter((m) => getMemberSubDept(m) === currentSubDept)
+      : effectiveDeptFaculty;
+
+    const scopedIdx = scopedList.findIndex((m) => slugifyFaculty(m.name) === slug);
+
     return {
       faculty: f,
       profile: merged,
       rawFaculty: raw,
-      prev: idx > 0 ? effectiveDeptFaculty[idx - 1] : undefined,
-      next: idx >= 0 && idx < effectiveDeptFaculty.length - 1 ? effectiveDeptFaculty[idx + 1] : undefined,
-      index: idx,
+      prev: scopedIdx > 0 ? scopedList[scopedIdx - 1] : undefined,
+      next: scopedIdx >= 0 && scopedIdx < scopedList.length - 1 ? scopedList[scopedIdx + 1] : undefined,
+      index: scopedIdx,
     };
   }, [dept, slug, deptKey, getFacultyByDept, getFacultyProfileBySlug, getRawFacultyBySlug]);
 

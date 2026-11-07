@@ -215,18 +215,18 @@ const Admissions = () => {
           </div>
         </section>
 
-        {/* ── ADMISSION PROCEDURES ── */}
-        <section className="py-20 bg-slate-50 border-y border-slate-200/50">
+        {/* ── ADMISSION PROCEDURES & PATHS ── */}
+        <section className="py-20 bg-slate-50 border-y border-slate-200/50" id="phd">
           <div className="container mx-auto px-4">
             <ScrollReveal>
               <div className="text-center mb-14">
                 <p className="text-[#b30000] font-semibold tracking-widest uppercase text-sm mb-2">Admission Paths</p>
                 <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0f2a44] mb-3">Admission Procedures</h2>
-                <p className="text-gray-500 max-w-xl mx-auto">Please select the appropriate pathway based on your residency status to review eligibility, quotas, and registration steps.</p>
+                <p className="text-gray-500 max-w-xl mx-auto">Please select the appropriate pathway based on your residency status or program level to review eligibility, quotas, and registration steps.</p>
               </div>
             </ScrollReveal>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
               <ScrollReveal delay={0.1}>
                 <Card className="p-8 bg-white border border-slate-200 hover:border-[#caa74d] rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group flex flex-col justify-between h-full">
                   <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#0f2a44] group-hover:bg-[#caa74d] transition-colors" />
@@ -267,6 +267,55 @@ const Admissions = () => {
                         Explore International Procedure <ArrowRight className="w-4 h-4" />
                       </Button>
                     </Link>
+                  </div>
+                </Card>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.3}>
+                <Card className="p-8 bg-white border-2 border-[#b31317]/20 hover:border-[#b31317] rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group flex flex-col justify-between h-full">
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#b31317] transition-colors" />
+                  <div className="space-y-4">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-[#b31317] text-[10px] uppercase font-bold tracking-wider border border-red-200">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#b31317] animate-pulse" /> Doctoral Research
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-display text-2xl font-bold text-[#0f2a44]">Ph.D. Admissions</h3>
+                      <span className="bg-[#b31317] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">New</span>
+                    </div>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      Explore Full-Time and Part-Time Ph.D. programs across Engineering, Management, and Basic Sciences. Institutional fellowships, eligibility, and entrance guidelines.
+                    </p>
+                    <div className="pt-2 space-y-2">
+                      <a
+                        href="https://mits.ac.in/phd-admissions-2026-27-july-session"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-red-50/50 border border-slate-200 hover:border-[#b31317]/40 text-xs font-semibold text-[#0f2a44] hover:text-[#b31317] transition-all"
+                      >
+                        <span>Ph.D. Admissions (July Session)</span>
+                        <ArrowRight className="w-3.5 h-3.5 text-[#b31317]" />
+                      </a>
+                      <a
+                        href="https://mits.ac.in/phd-admissions"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-[#caa74d] text-xs font-semibold text-[#0f2a44] transition-all"
+                      >
+                        <span>Ph.D. Admissions Overview</span>
+                        <ArrowRight className="w-3.5 h-3.5 text-[#0f2a44]" />
+                      </a>
+                    </div>
+                  </div>
+                  <div className="pt-4">
+                    <a
+                      href="https://mits.ac.in/phd-admissions-2026-27-july-session"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button className="w-full bg-[#b31317] hover:bg-[#8b0000] text-white font-bold py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 group-hover:translate-y-[-2px]">
+                        Apply for Ph.D. Admissions <ArrowRight className="w-4 h-4" />
+                      </Button>
+                    </a>
                   </div>
                 </Card>
               </ScrollReveal>

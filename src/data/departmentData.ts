@@ -3769,18 +3769,140 @@ export const mbaPostGraduateData: PostGraduateData = {
   }
 };
 
+export const ecePostGraduateData: PostGraduateData = {
+  programTitle: "Master of Technology (M.Tech) in VLSI & Embedded Systems",
+  programOverview:
+    "The Department of Electronics and Communication Engineering offers M.Tech in VLSI & Embedded Systems. The program focuses on advanced VLSI architecture, FPGA prototyping, ASIC design, SoC architecture, and real-time embedded computing systems with industry-grade EDA tools.",
+  subTabs: [
+    { id: "pg-course-syllabus", label: "Course Syllabus" }
+  ],
+  syllabusTables: [
+    {
+      title: "M.Tech (VLSI & Embedded Systems) - First Year I Semester - R24",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Digital CMOS VLSI Design", type: "Theory", credits: "3" },
+        { sno: "2", name: "Embedded System Design & Architecture", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective – I", type: "Theory", credits: "3" },
+        { sno: "4", name: "Professional Elective – II", type: "Theory", credits: "3" },
+        { sno: "5", name: "VLSI Design Laboratory", type: "Lab", credits: "2" },
+        { sno: "6", name: "Embedded Systems Laboratory", type: "Lab", credits: "2" },
+        { sno: "7", name: "Research Methodology and IPR", type: "Theory", credits: "2" },
+      ]
+    },
+    {
+      title: "M.Tech (VLSI & Embedded Systems) - First Year II Semester - R24",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Analog & Mixed Signal IC Design", type: "Theory", credits: "3" },
+        { sno: "2", name: "Real Time Operating Systems (RTOS)", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective – III", type: "Theory", credits: "3" },
+        { sno: "4", name: "Professional Elective – IV", type: "Theory", credits: "3" },
+        { sno: "5", name: "Analog IC Design Laboratory", type: "Lab", credits: "2" },
+        { sno: "6", name: "RTOS & IoT Systems Laboratory", type: "Lab", credits: "2" },
+        { sno: "7", name: "Mini Project with Seminar", type: "Lab", credits: "2" },
+      ]
+    }
+  ]
+};
+
+export const eeePostGraduateData: PostGraduateData = {
+  programTitle: "Master of Technology (M.Tech) in Electrical Power Systems",
+  programOverview:
+    "The Department of Electrical and Electronics Engineering offers M.Tech in Electrical Power Systems. The curriculum emphasizes smart grids, power electronics in renewable energy, power system dynamics, high voltage engineering, and advanced power simulation tools.",
+  subTabs: [
+    { id: "pg-course-syllabus", label: "Course Syllabus" }
+  ],
+  syllabusTables: [
+    {
+      title: "M.Tech (Electrical Power Systems) - First Year I Semester - R24",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Advanced Power System Analysis", type: "Theory", credits: "3" },
+        { sno: "2", name: "Power Electronics Applications in Power Systems", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective – I", type: "Theory", credits: "3" },
+        { sno: "4", name: "Professional Elective – II", type: "Theory", credits: "3" },
+        { sno: "5", name: "Power Systems Simulation Laboratory", type: "Lab", credits: "2" },
+        { sno: "6", name: "Power Electronics Laboratory", type: "Lab", credits: "2" },
+        { sno: "7", name: "Research Methodology and IPR", type: "Theory", credits: "2" },
+      ]
+    }
+  ]
+};
+
+export const mePostGraduateData: PostGraduateData = {
+  programTitle: "Master of Technology (M.Tech) in Advanced Manufacturing & Robotics",
+  programOverview:
+    "The Department of Mechanical Engineering offers M.Tech in Advanced Manufacturing & Robotics. The program equips postgraduates with modern industrial automation, additive manufacturing, finite element analysis, robotics programming, and smart manufacturing systems.",
+  subTabs: [
+    { id: "pg-course-syllabus", label: "Course Syllabus" }
+  ],
+  syllabusTables: [
+    {
+      title: "M.Tech (Advanced Manufacturing & Robotics) - First Year I Semester - R24",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Advanced Manufacturing Processes", type: "Theory", credits: "3" },
+        { sno: "2", name: "Robotics and Industrial Automation", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective – I", type: "Theory", credits: "3" },
+        { sno: "4", name: "Professional Elective – II", type: "Theory", credits: "3" },
+        { sno: "5", name: "Advanced CAD/CAM & Robotics Laboratory", type: "Lab", credits: "2" },
+        { sno: "6", name: "Automation & Simulation Laboratory", type: "Lab", credits: "2" },
+        { sno: "7", name: "Research Methodology and IPR", type: "Theory", credits: "2" },
+      ]
+    }
+  ]
+};
+
+export const cePostGraduateData: PostGraduateData = {
+  programTitle: "Master of Technology (M.Tech) in Structural Engineering",
+  programOverview:
+    "The Department of Civil Engineering offers M.Tech in Structural Engineering. The program provides in-depth education in theory of elasticity, advanced concrete technology, earthquake resistant design, structural dynamics, and finite element modeling.",
+  subTabs: [
+    { id: "pg-course-syllabus", label: "Course Syllabus" }
+  ],
+  syllabusTables: [
+    {
+      title: "M.Tech (Structural Engineering) - First Year I Semester - R24",
+      headers: ["S.No", "Name of the Subject", "Theory/Lab", "Credits"],
+      rows: [
+        { sno: "1", name: "Advanced Structural Analysis", type: "Theory", credits: "3" },
+        { sno: "2", name: "Theory of Elasticity and Plasticity", type: "Theory", credits: "3" },
+        { sno: "3", name: "Professional Elective – I", type: "Theory", credits: "3" },
+        { sno: "4", name: "Professional Elective – II", type: "Theory", credits: "3" },
+        { sno: "5", name: "Structural Design & CAD Laboratory", type: "Lab", credits: "2" },
+        { sno: "6", name: "Advanced Concrete Testing Laboratory", type: "Lab", credits: "2" },
+        { sno: "7", name: "Research Methodology and IPR", type: "Theory", credits: "2" },
+      ]
+    }
+  ]
+};
+
 /**
  * Returns postgraduate program and syllabus data for any department.
  */
 export function getDepartmentPostGraduate(deptKey: string): PostGraduateData | undefined {
-  if (deptKey === "mba" || deptKey === "management-studies" || deptKey === "bba" || deptKey === "5") {
+  const k = deptKey.toLowerCase().trim();
+  if (k === "mba" || k === "management-studies" || k === "bba" || k === "5") {
     return mbaPostGraduateData;
   }
-  if (deptKey === "mca" || deptKey === "computer-applications" || deptKey === "bca" || deptKey === "18") {
+  if (k === "mca" || k === "computer-applications" || k === "bca" || k === "18") {
     return mcaPostGraduateData;
   }
-  if (deptKey === "cse") {
+  if (k === "cse") {
     return csePostGraduateData;
+  }
+  if (k === "ece") {
+    return ecePostGraduateData;
+  }
+  if (k === "eee") {
+    return eeePostGraduateData;
+  }
+  if (k === "me" || k === "mech" || k === "mechanical") {
+    return mePostGraduateData;
+  }
+  if (k === "ce" || k === "civil") {
+    return cePostGraduateData;
   }
   return undefined;
 }

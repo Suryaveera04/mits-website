@@ -24,6 +24,7 @@ const navItems: NavItem[] = [
     children: [
       { label: "Programs Offered", href: "/academics" },
       { label: "Departments", href: "/departments" },
+      { label: "University Faculty Information", href: "/faculty-information" },
       { label: "Academic Regulations", href: "/academic-regulations" },
       { label: "Curriculum & Syllabus", href: "/curriculum-academic-syllabus" },
       { label: "Academic Calendar", href: "/academic-calendar" },
@@ -36,6 +37,7 @@ const navItems: NavItem[] = [
     href: "/admissions",
     children: [
       { label: "Admission Process", href: "/admissions" },
+      { label: "💥 Ph.D. Admissions", href: "/admissions#phd" },
       { label: "National Admission Procedure", href: "/national-admissions-procedure" },
       { label: "International Admission Procedure", href: "/international-admissions-procedure" },
       { label: "Eligibility & Fees", href: "/eligibility-and-fees" },
@@ -114,7 +116,18 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-3 px-3 sm:px-5 text-sm font-semibold shrink-0 z-20 bg-primary h-full">
+          <div className="flex items-center gap-2.5 px-3 sm:px-5 text-sm font-semibold shrink-0 z-20 bg-primary h-full">
+            {/* Ph.D Admissions Quick Link */}
+            <a
+              href="https://mits.ac.in/phd-admissions-2026-27-july-session"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#caa74d] hover:bg-[#b8953d] text-[#0f2a44] text-xs font-bold px-2.5 sm:px-3 py-1 rounded-md shadow-xs hover:shadow transition-all flex items-center gap-1.5 shrink-0 tracking-wide"
+              title="Ph.D. Admissions 2026-27 (July Session)"
+            >
+              <span>💥</span>
+              <span>Ph.D. Admissions</span>
+            </a>
             {/* Blue Box Autonomous Institution Link */}
             <a
               href="https://mits.ac.in/ugc-autonomous"
