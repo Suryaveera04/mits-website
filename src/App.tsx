@@ -189,6 +189,8 @@ const App = () => (
             <Route path="/ipfc" element={<CellDetail overrideId="ipfc" />} />
             <Route path="/edc" element={<CellDetail overrideId="edc" />} />
             <Route path="/ed-cell" element={<CellDetail overrideId="edc" />} />
+            <Route path="/pcc" element={<CellDetail overrideId="pcc" />} />
+            <Route path="/psychological-counselling-cell" element={<CellDetail overrideId="pcc" />} />
             <Route path="/career" element={<Careers />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/Venture-Studio" element={<VentureStudio />} />
