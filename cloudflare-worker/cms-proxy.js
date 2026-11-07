@@ -79,7 +79,7 @@ async function cmsRequest(path) {
 }
 
 const ALL_DEPT_CODES = ["CSE", "CE", "ME", "BSH", "ECE", "EEE", "AI", "AIML", "CSECS", "MCA", "MBA", "CST"];
-const STANDALONE_EVENT_IDS = [48, 33];
+const STANDALONE_EVENT_IDS = [29, 31, 33, 46, 49, 60, 61, 80, 81, 84, 85, 86, 87];
 
 async function handleAllEvents() {
   const eventMap = new Map();
@@ -128,6 +128,44 @@ async function handleAllEvents() {
       }
     })
   );
+
+  // Dynamic discovery: probe gap IDs and forward window up to maxId + 15
+  const existingIds = Array.from(eventMap.keys());
+  if (existingIds.length > 0) {
+    const maxId = Math.max(...existingIds);
+    const candidateIds = [];
+    for (let id = 1; id <= maxId + 15; id++) {
+      if (!eventMap.has(id)) candidateIds.push(id);
+    }
+    const BATCH_SIZE = 15;
+    for (let i = 0; i < candidateIds.length; i += BATCH_SIZE) {
+      const batch = candidateIds.slice(i, i + BATCH_SIZE);
+      await Promise.all(
+        batch.map(async (id) => {
+          try {
+            const text = await cmsRequest(`${CMS_BASE}/event_detail.php?id=${id}`);
+            const json = JSON.parse(text);
+            if (json.success && json.event && json.event.id) {
+              const e = json.event;
+              eventMap.set(e.id, {
+                id: e.id,
+                title: e.title,
+                date: e.date || e.from_date,
+                from_date: e.from_date,
+                to_date: e.to_date,
+                type: e.type || e.event_type,
+                event_type: e.event_type || e.type,
+                venue: e.venue,
+                department: e.department,
+                description: e.description,
+                poster: e.poster || null,
+              });
+            }
+          } catch {}
+        })
+      );
+    }
+  }
 
   const events = Array.from(eventMap.values()).sort((a, b) => {
     const da = a.from_date || a.date || "";

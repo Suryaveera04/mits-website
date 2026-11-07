@@ -5,7 +5,7 @@
  * Network calls are mocked so tests run offline / in CI.
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { CMS_CODE, CMS_ALT_CODES, isEventForDepartment } from "@/hooks/useDeptCMSData";
+import { CMS_CODE, CMS_ALT_CODES, isEventForDepartment, KNOWN_STANDALONE_EVENT_IDS } from "@/hooks/useDeptCMSData";
 
 // ── constants mirrored from the hook ────────────────────────────────────────
 const WORKER_URL = "https://mits-cms-proxy.23691a4054.workers.dev/public_api";
@@ -110,12 +110,23 @@ describe("CMS_CODE mapping", () => {
 
 // ── 2.1 isEventForDepartment ─────────────────────────────────────────────────
 describe("isEventForDepartment", () => {
-  it("correctly identifies MCA event with 'Computer Applications'", () => {
-    expect(isEventForDepartment({ id: 48, title: "Workshop", department: "Computer Applications" }, "mca")).toBe(true);
+  it("correctly identifies MCA events with 'Computer Applications'", () => {
+    expect(isEventForDepartment({ id: 60, title: "Drone Workshop", department: "Computer Applications" }, "mca")).toBe(true);
+    expect(isEventForDepartment({ id: 61, title: "STPI Visit", department: "Computer Applications" }, "mca")).toBe(true);
+    expect(isEventForDepartment({ id: 80, title: "Unix Training", department: "Computer Applications" }, "mca")).toBe(true);
+    expect(isEventForDepartment({ id: 81, title: "Cisco Academy", department: "Computer Applications" }, "mca")).toBe(true);
+    expect(isEventForDepartment({ id: 80, title: "Unix Training", department: "Computer Applications" }, "computer-applications")).toBe(true);
+  });
+
+  it("correctly identifies MBA events with 'Management Studies'", () => {
+    expect(isEventForDepartment({ id: 84, title: "Industry Collaboration", department: "Management Studies" }, "mba")).toBe(true);
+    expect(isEventForDepartment({ id: 85, title: "Zoho Training", department: "Management Studies" }, "mna")).toBe(true);
+    expect(isEventForDepartment({ id: 86, title: "Tally Training", department: "Management Studies" }, "management")).toBe(true);
   });
 
   it("correctly identifies Mechanical event with 'MECH'", () => {
     expect(isEventForDepartment({ id: 49, title: "Mech Expo", department: "MECH" }, "me")).toBe(true);
+    expect(isEventForDepartment({ id: 82, title: "Satellites", department: "MECH" }, "me")).toBe(true);
   });
 
   it("correctly identifies Civil event with 'CIVIL'", () => {
@@ -125,6 +136,23 @@ describe("isEventForDepartment", () => {
 
   it("correctly identifies BSH event with 'Basic Sciences & Humanities'", () => {
     expect(isEventForDepartment({ id: 46, title: "Cambridge Event", department: "Basic Sciences & Humanities" }, "bsh")).toBe(true);
+  });
+});
+
+// ── 2.2 KNOWN_STANDALONE_EVENT_IDS ───────────────────────────────────────────
+describe("KNOWN_STANDALONE_EVENT_IDS seed", () => {
+  it("contains all live MCA event IDs (60, 61, 80, 81)", () => {
+    expect(KNOWN_STANDALONE_EVENT_IDS).toContain(60);
+    expect(KNOWN_STANDALONE_EVENT_IDS).toContain(61);
+    expect(KNOWN_STANDALONE_EVENT_IDS).toContain(80);
+    expect(KNOWN_STANDALONE_EVENT_IDS).toContain(81);
+  });
+
+  it("contains all live MBA event IDs (84, 85, 86, 87)", () => {
+    expect(KNOWN_STANDALONE_EVENT_IDS).toContain(84);
+    expect(KNOWN_STANDALONE_EVENT_IDS).toContain(85);
+    expect(KNOWN_STANDALONE_EVENT_IDS).toContain(86);
+    expect(KNOWN_STANDALONE_EVENT_IDS).toContain(87);
   });
 });
 

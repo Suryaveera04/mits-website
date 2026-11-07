@@ -24,9 +24,13 @@ export const CMS_CODE: Record<string, string> = {
   csecs: "CSECS",
   mca:   "MCA",
   "computer-applications": "MCA",
+  "master-of-computer-applications": "MCA",
+  ca:    "MCA",
   mba:   "MBA",
   mna:   "MBA",
   management: "MBA",
+  "management-studies": "MBA",
+  "master-of-business-administration": "MBA",
   bsh:   "BSH",
   "basic-sciences": "BSH",
   "basic-sciences-humanities": "BSH",
@@ -44,9 +48,12 @@ export const CMS_ALT_CODES: Record<string, string[]> = {
   "basic-sciences-humanities": ["BSH", "Basic Sciences & Humanities", "Basic Sciences"],
   mca:   ["MCA", "Computer Applications", "CA"],
   "computer-applications": ["MCA", "Computer Applications", "CA"],
-  mba:   ["MBA", "MNA", "Management"],
-  mna:   ["MBA", "MNA", "Management"],
-  management: ["MBA", "MNA", "Management"],
+  "master-of-computer-applications": ["MCA", "Computer Applications", "CA"],
+  ca:    ["MCA", "Computer Applications", "CA"],
+  mba:   ["MBA", "MNA", "Management", "Management Studies"],
+  mna:   ["MBA", "MNA", "Management", "Management Studies"],
+  management: ["MBA", "MNA", "Management", "Management Studies"],
+  "management-studies": ["MBA", "MNA", "Management", "Management Studies"],
   cseds: ["CSEDS", "DS", "AIDS"],
   csecs: ["CSECS", "CS"],
   cst:   ["CST", "CSE"],
@@ -296,12 +303,16 @@ const ALL_CMS_DEPT_CODES = [
 ];
 
 // Standalone event IDs known to exist in the database where department query parameter
-// was entered under alternate string (e.g. ID 48 "Computer Applications", ID 33 "Biomedical Informatics")
-const KNOWN_STANDALONE_EVENT_IDS = [48, 33];
+// was entered under alternate string (e.g. MCA "Computer Applications" [60, 61, 80, 81],
+// MBA "Management Studies" [84, 85, 86, 87], MECH [49, 82, 83], CIVIL [29, 31], BSH [46], Biomedical [33])
+export const KNOWN_STANDALONE_EVENT_IDS = [29, 31, 33, 46, 49, 60, 61, 80, 81, 84, 85, 86, 87];
 
 /**
  * Fetches all events present in the CMS database across all departments and standalone records.
- * Uses a 2-minute in-memory cache to guarantee fast response and avoid redundant network load.
+ * Uses a robust multi-pass connectivity algorithm:
+ *   1. Parallel department-code queries (ALL_CMS_DEPT_CODES) + seed standalone IDs.
+ *   2. Dynamic gap and forward-range probing (maxId + 15) to automatically discover newly created events.
+ *   3. 2-minute in-memory cache to guarantee fast responses and avoid redundant network load.
  */
 export async function fetchAllCMSEvents(forceRefresh = false): Promise<CMSEvent[]> {
   const now = Date.now();
@@ -321,7 +332,17 @@ export async function fetchAllCMSEvents(forceRefresh = false): Promise<CMSEvent[
       return list;
     });
 
-    const deptResults = await Promise.all(deptFetches);
+    // Also fetch known seed standalone IDs in parallel with department queries
+    const seedFetches = KNOWN_STANDALONE_EVENT_IDS.map(async (id) => {
+      const detail = await fetchEventDetail(id);
+      return detail;
+    });
+
+    const [deptResults, seedResults] = await Promise.all([
+      Promise.all(deptFetches),
+      Promise.all(seedFetches),
+    ]);
+
     for (const list of deptResults) {
       for (const ev of list) {
         if (ev && typeof ev.id === "number") {
@@ -330,31 +351,69 @@ export async function fetchAllCMSEvents(forceRefresh = false): Promise<CMSEvent[
       }
     }
 
-    // 2. Fetch standalone / unqueried event IDs directly via event_detail.php
-    const standaloneFetches = KNOWN_STANDALONE_EVENT_IDS.map(async (id) => {
-      if (!eventMap.has(id)) {
-        const detail = await fetchEventDetail(id);
-        if (detail && detail.id) {
-          eventMap.set(detail.id, {
-            id: detail.id,
-            title: detail.title,
-            date: detail.date || detail.from_date,
-            from_date: detail.from_date,
-            to_date: detail.to_date,
-            from_time: detail.from_time,
-            to_time: detail.to_time,
-            type: detail.type || detail.event_type,
-            event_type: detail.event_type || detail.type,
-            venue: detail.venue,
-            department: detail.department,
-            description: detail.description,
-            poster: detail.poster,
-          });
+    for (const detail of seedResults) {
+      if (detail && typeof detail.id === "number") {
+        eventMap.set(detail.id, {
+          id: detail.id,
+          title: detail.title,
+          date: detail.date || detail.from_date,
+          from_date: detail.from_date,
+          to_date: detail.to_date,
+          from_time: detail.from_time,
+          to_time: detail.to_time,
+          type: detail.type || detail.event_type,
+          event_type: detail.event_type || detail.type,
+          venue: detail.venue,
+          department: detail.department,
+          description: detail.description,
+          poster: detail.poster,
+        });
+      }
+    }
+
+    // 2. Dynamic discovery: Probe gaps and forward range to discover any newly added events
+    const existingIds = Array.from(eventMap.keys());
+    if (existingIds.length > 0) {
+      const maxId = Math.max(...existingIds);
+      // Probe missing gap IDs (from 1 to maxId) and forward window (up to maxId + 15)
+      const candidateIds: number[] = [];
+      for (let id = 1; id <= maxId + 15; id++) {
+        if (!eventMap.has(id)) {
+          candidateIds.push(id);
         }
       }
-    });
 
-    await Promise.all(standaloneFetches);
+      if (candidateIds.length > 0) {
+        const BATCH_SIZE = 15;
+        for (let i = 0; i < candidateIds.length; i += BATCH_SIZE) {
+          const batch = candidateIds.slice(i, i + BATCH_SIZE);
+          await Promise.all(
+            batch.map(async (id) => {
+              try {
+                const detail = await fetchEventDetail(id);
+                if (detail && detail.id) {
+                  eventMap.set(detail.id, {
+                    id: detail.id,
+                    title: detail.title,
+                    date: detail.date || detail.from_date,
+                    from_date: detail.from_date,
+                    to_date: detail.to_date,
+                    from_time: detail.from_time,
+                    to_time: detail.to_time,
+                    type: detail.type || detail.event_type,
+                    event_type: detail.event_type || detail.type,
+                    venue: detail.venue,
+                    department: detail.department,
+                    description: detail.description,
+                    poster: detail.poster,
+                  });
+                }
+              } catch {}
+            })
+          );
+        }
+      }
+    }
 
     // 3. Normalize and sort descending by date (or ID if date missing)
     const normalized = normalizeEvents(Array.from(eventMap.values())).sort((a, b) => {
@@ -411,19 +470,23 @@ export function isEventForDepartment(event: CMSEvent, deptKey: string): boolean 
   const k = deptKey.toLowerCase().trim();
   const d = (event.department || "").toLowerCase().trim();
 
-  if (k === "cse") return d === "cse" || d.includes("computer science & eng");
-  if (k === "cst") return d === "cst" || d.includes("computer science and tech");
-  if (k === "ce" || k === "civil") return d === "ce" || d === "civil" || d.includes("civil");
-  if (k === "me" || k === "mech" || k === "mechanical") return d === "me" || d === "mech" || d.includes("mech");
-  if (k === "eee") return d === "eee" || d.includes("electrical");
-  if (k === "ece") return d === "ece" || d.includes("electronics & comm");
-  if (k === "ai") return d === "ai" || d === "cse-ai";
-  if (k === "aiml") return d === "aiml" || d.includes("aiml") || d.includes("ai & ml") || d.includes("machine learning");
-  if (k === "cseds") return d === "cseds" || d === "ds" || d === "aids" || d.includes("data science");
-  if (k === "csecs") return d === "csecs" || d === "cs" || d.includes("cyber security");
-  if (k === "mca" || k === "computer-applications") return d === "mca" || d.includes("computer application");
-  if (k === "mba" || k === "mna" || k === "management" || k === "management-studies") return d === "mba" || d === "mna" || d.includes("management");
-  if (k === "bsh" || k === "basic-sciences" || k === "basic-sciences-humanities") {
+  if (k === "cse") return d === "cse" || d.includes("computer science & eng") || d.includes("computer science and eng");
+  if (k === "cst") return d === "cst" || d.includes("computer science and tech") || d.includes("computer science & tech");
+  if (k === "ce" || k === "civil" || k === "civil-engineering") return d === "ce" || d === "civil" || d.includes("civil");
+  if (k === "me" || k === "mech" || k === "mechanical" || k === "mechanical-engineering") return d === "me" || d === "mech" || d.includes("mech") || d.includes("mechanical");
+  if (k === "eee" || k === "electrical-electronics-engineering" || k === "electrical-and-electronics-engineering") return d === "eee" || d.includes("electrical");
+  if (k === "ece" || k === "electronics-communication-engineering" || k === "electronics-and-communication-engineering") return d === "ece" || d.includes("electronics");
+  if (k === "ai" || k === "cse-ai") return d === "ai" || d === "cse-ai";
+  if (k === "aiml" || k === "cse-ai-ml" || k === "ai-ml" || k === "ai&ml") return d === "aiml" || d.includes("aiml") || d.includes("ai & ml") || d.includes("machine learning");
+  if (k === "cseds" || k === "cse-ds") return d === "cseds" || d === "ds" || d === "aids" || d.includes("data science");
+  if (k === "csecs" || k === "cse-cs" || k === "cyber-security") return d === "csecs" || d === "cs" || d.includes("cyber");
+  if (k === "mca" || k === "computer-applications" || k === "master-of-computer-applications" || k === "ca" || k === "18") {
+    return d === "mca" || d === "ca" || d.includes("computer application") || d.includes("mca");
+  }
+  if (k === "mba" || k === "mna" || k === "management" || k === "management-studies" || k === "master-of-business-administration" || k === "5") {
+    return d === "mba" || d === "mna" || d.includes("management");
+  }
+  if (k === "bsh" || k === "basic-sciences" || k === "basic-sciences-humanities" || k === "humanities") {
     return d === "bsh" || d.includes("basic science") || d.includes("humanities");
   }
   return false;
@@ -471,6 +534,13 @@ export function useDeptCMSData(deptKey: string) {
       return Array.from(map.values());
     }
 
+    // Start fetchAllCMSEvents in parallel if deptKey is known to have alternate naming (MCA, MBA, ME, CE, BSH)
+    const isSpecialDept = normalizedKey === "mca" || normalizedKey === "computer-applications" ||
+      normalizedKey === "mba" || normalizedKey === "mna" || normalizedKey === "management" ||
+      normalizedKey === "bsh" || normalizedKey === "me" || normalizedKey === "mech" || normalizedKey === "ce" || normalizedKey === "civil";
+
+    const prefetchGlobalEventsPromise = isSpecialDept ? fetchAllCMSEvents() : null;
+
     Promise.all([
       queryAcrossCodes<CMSEvent>      ("events",       "events"),
       queryAcrossCodes<CMSMoU>        ("mous",         "mous"),
@@ -484,15 +554,22 @@ export function useDeptCMSData(deptKey: string) {
 
       let finalEvents = normalizeEvents(events);
 
-      // If department events list is still empty, check the global CMS events pool
-      // (covers cases like MCA where event is saved with department "Computer Applications"
-      // or BSH / Civil / Mechanical aliases)
-      if (finalEvents.length === 0) {
+      // If department events list is empty or special dept, query the global events pool
+      if (finalEvents.length === 0 || isSpecialDept) {
         try {
-          const all = await fetchAllCMSEvents();
+          const all = prefetchGlobalEventsPromise ? await prefetchGlobalEventsPromise : await fetchAllCMSEvents();
           const matched = all.filter((e) => isEventForDepartment(e, normalizedKey));
           if (matched.length > 0) {
-            finalEvents = matched;
+            // Merge & deduplicate if any events already present
+            const evMap = new Map<number, CMSEvent>();
+            for (const ev of finalEvents) evMap.set(ev.id, ev);
+            for (const ev of matched) evMap.set(ev.id, ev);
+            finalEvents = Array.from(evMap.values()).sort((a, b) => {
+              const da = a.from_date || a.date || "";
+              const db = b.from_date || b.date || "";
+              if (da && db && da !== db) return db.localeCompare(da);
+              return b.id - a.id;
+            });
           }
         } catch {}
       }
