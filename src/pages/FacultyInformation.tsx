@@ -1,15 +1,32 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Search, Users, ExternalLink, GraduationCap, Mail, ArrowRight, Building2, Filter } from "lucide-react";
+import { Search, Users, ExternalLink, GraduationCap, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useFacultyData, getFacultySeniorityPriority } from "@/hooks/useFacultyData";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
-import { mapApiDeptToDeptKey, getFacultyPhotoUrl } from "@/lib/facultyApi";
-import { Card } from "@/components/ui/card";
+import { getFacultyPhotoUrl } from "@/lib/facultyApi";
 import { Button } from "@/components/ui/button";
+import officialFacultyData from "@/data/officialFacultyList.json";
+
+interface OfficialFacultyItem {
+  sno: string;
+  name: string;
+  qualification: string;
+  designation: string;
+  department: string;
+  deptKey: string;
+  dbId: string | null;
+  dbFullName: string;
+  slug: string;
+  email: string | null;
+  profilePhoto: string | null;
+  oldProfileUrl: string | null;
+}
+
+const DEPT_ORDER = ["ce", "me", "eee", "ece", "cse", "ai", "cseds", "csecs", "aiml", "mba", "mca", "bsh"];
 
 const DEPT_FILTERS = [
   { key: "all", label: "All Departments" },
@@ -22,7 +39,6 @@ const DEPT_FILTERS = [
   { key: "aiml", label: "CSE (AI & ML)" },
   { key: "cseds", label: "Data Science" },
   { key: "csecs", label: "Cyber Security" },
-  { key: "cst", label: "CST" },
   { key: "mca", label: "Computer Applications (MCA)" },
   { key: "mba", label: "Management Studies (MBA)" },
   { key: "bsh", label: "Basic Sciences & Humanities" },
@@ -34,13 +50,49 @@ const FacultyInformation = () => {
   const [selectedDept, setSelectedDept] = useState("all");
   const [selectedDesignation, setSelectedDesignation] = useState("all");
 
+  // Enrich the strict official roster of 189 faculties with database profiles
+  const enrichedFacultyList = useMemo(() => {
+    const dbMapById = new Map<string, (typeof facultyList)[0]>();
+    const dbMapBySlug = new Map<string, (typeof facultyList)[0]>();
+
+    for (const db of facultyList) {
+      if (db._id) dbMapById.set(db._id, db);
+      const s = slugifyFaculty(db.fullName);
+      if (s) dbMapBySlug.set(s, db);
+    }
+
+    return (officialFacultyData as OfficialFacultyItem[]).map((item) => {
+      const dbMatch =
+        (item.dbId ? dbMapById.get(item.dbId) : null) ||
+        dbMapBySlug.get(item.slug) ||
+        dbMapBySlug.get(slugifyFaculty(item.name)) ||
+        dbMapBySlug.get(slugifyFaculty(item.dbFullName));
+
+      const rawPhoto = dbMatch?.profilePhoto || item.profilePhoto;
+      const photoUrl = getFacultyPhotoUrl(rawPhoto) || (rawPhoto?.startsWith("http") ? rawPhoto : undefined);
+      const email = dbMatch?.email || item.email || undefined;
+      const cleanName = cleanFacultyName(item.name);
+      const slug = item.slug || slugifyFaculty(cleanName);
+
+      return {
+        ...item,
+        fullName: item.name,
+        cleanName,
+        slug,
+        email,
+        photoUrl,
+        dbMatch,
+      };
+    });
+  }, [facultyList]);
+
   const filteredFaculty = useMemo(() => {
-    const list = facultyList.filter((f) => {
-      const name = (f.fullName || "").toLowerCase();
+    const list = enrichedFacultyList.filter((f) => {
+      const name = (f.name || "").toLowerCase();
       const email = (f.email || "").toLowerCase();
       const des = (f.designation || "").toLowerCase();
-      const deptName = (f.department?.name || "").toLowerCase();
-      const deptKey = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
+      const deptName = (f.department || "").toLowerCase();
+      const qual = (f.qualification || "").toLowerCase();
 
       // Search filter
       const matchesSearch =
@@ -48,13 +100,11 @@ const FacultyInformation = () => {
         name.includes(searchTerm.toLowerCase()) ||
         email.includes(searchTerm.toLowerCase()) ||
         des.includes(searchTerm.toLowerCase()) ||
-        deptName.includes(searchTerm.toLowerCase());
+        deptName.includes(searchTerm.toLowerCase()) ||
+        qual.includes(searchTerm.toLowerCase());
 
       // Department filter
-      let matchesDept = selectedDept === "all";
-      if (!matchesDept) {
-        matchesDept = deptKey === selectedDept;
-      }
+      const matchesDept = selectedDept === "all" || f.deptKey === selectedDept;
 
       // Designation filter
       let matchesDes = selectedDesignation === "all";
@@ -64,7 +114,10 @@ const FacultyInformation = () => {
         } else if (selectedDesignation === "assoc") {
           matchesDes = des.includes("associate professor") || des.includes("assoc. prof");
         } else if (selectedDesignation === "asst") {
-          matchesDes = des.includes("assistant professor") || des.includes("asst. prof") || des.includes("assistant professors");
+          matchesDes =
+            des.includes("assistant professor") ||
+            des.includes("asst. prof") ||
+            des.includes("assistant professors");
         } else if (selectedDesignation === "head") {
           matchesDes =
             des.includes("vice principal") ||
@@ -82,17 +135,41 @@ const FacultyInformation = () => {
     });
 
     return [...list].sort((a, b) => {
-      const deptA = mapApiDeptToDeptKey(a.department?.code, a.department?.name);
-      const deptB = mapApiDeptToDeptKey(b.department?.code, b.department?.name);
-      if (selectedDept === "all" && deptA !== deptB) {
-        return deptA.localeCompare(deptB);
+      // Group by department in official order when showing all
+      if (selectedDept === "all" && a.deptKey !== b.deptKey) {
+        const orderA = DEPT_ORDER.indexOf(a.deptKey);
+        const orderB = DEPT_ORDER.indexOf(b.deptKey);
+        const idxA = orderA === -1 ? 99 : orderA;
+        const idxB = orderB === -1 ? 99 : orderB;
+        if (idxA !== idxB) return idxA - idxB;
       }
-      const pA = getFacultySeniorityPriority(a, deptA);
-      const pB = getFacultySeniorityPriority(b, deptB);
+
+      // Hierarchy: Vice Principal -> Principal -> Registrar -> HODs -> PhD Professors -> Professors -> Associate Professors -> Assistant Professors
+      const pA = getFacultySeniorityPriority(
+        {
+          fullName: a.name,
+          designation: a.designation,
+          qualification: a.qualification,
+          academicAdministrationRoles: a.dbMatch?.academicAdministrationRoles,
+          phd: a.dbMatch?.phd,
+        },
+        a.deptKey
+      );
+      const pB = getFacultySeniorityPriority(
+        {
+          fullName: b.name,
+          designation: b.designation,
+          qualification: b.qualification,
+          academicAdministrationRoles: b.dbMatch?.academicAdministrationRoles,
+          phd: b.dbMatch?.phd,
+        },
+        b.deptKey
+      );
+
       if (pA !== pB) return pA - pB;
-      return cleanFacultyName(a.fullName).localeCompare(cleanFacultyName(b.fullName));
+      return a.cleanName.localeCompare(b.cleanName);
     });
-  }, [facultyList, searchTerm, selectedDept, selectedDesignation]);
+  }, [enrichedFacultyList, searchTerm, selectedDept, selectedDesignation]);
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
@@ -100,7 +177,7 @@ const FacultyInformation = () => {
       <SEO
         title="University Faculty Information – MITS Madanapalle"
         description="Comprehensive directory of distinguished faculty members, researchers, and professors across all academic departments at MITS Deemed to be University."
-        canonical="/faculty-information"
+        canonical="/university/faculty-information"
       />
 
       {/* Hero Header */}
@@ -124,7 +201,7 @@ const FacultyInformation = () => {
               University Faculty Information
             </h1>
             <p className="text-slate-200 text-base md:text-lg leading-relaxed max-w-2xl">
-              Meet our world-class faculty of dedicated scholars, researchers, and mentors shaping the next generation of engineers, managers, and innovators.
+              Official faculty directory of distinguished professors, researchers, and academic leaders at MITS Deemed to be University.
             </p>
           </div>
         </div>
@@ -139,7 +216,7 @@ const FacultyInformation = () => {
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search by faculty name, designation, or department..."
+                placeholder="Search by faculty name, qualification, designation, or department..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-hidden focus:border-[#caa74d] focus:ring-2 focus:ring-[#caa74d]/20 transition-all"
@@ -165,7 +242,7 @@ const FacultyInformation = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors"
-                title="Open live faculty directory on mits.ac.in"
+                title="Verify official faculty information on mits.ac.in"
               >
                 <span>Live Portal</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -212,12 +289,7 @@ const FacultyInformation = () => {
           )}
         </div>
 
-        {loading && filteredFaculty.length === 0 ? (
-          <div className="py-24 text-center">
-            <div className="w-10 h-10 border-4 border-[#0f2a44] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-slate-500 font-medium">Loading faculty directory...</p>
-          </div>
-        ) : filteredFaculty.length === 0 ? (
+        {filteredFaculty.length === 0 ? (
           <div className="bg-white rounded-2xl border border-slate-200 p-12 text-center max-w-md mx-auto">
             <Users className="w-12 h-12 text-slate-300 mx-auto mb-3" />
             <h3 className="text-lg font-bold text-slate-800">No faculty members found</h3>
@@ -236,13 +308,10 @@ const FacultyInformation = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredFaculty.map((f, i) => {
-              const deptKey = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
-              const slug = slugifyFaculty(f.fullName);
-              const profileLink = `/department/${deptKey}/faculty/${slug}`;
-              const photoUrl = getFacultyPhotoUrl(f.profilePhoto);
+              const profileLink = `/department/${f.deptKey}/faculty/${f.slug}`;
 
               return (
-                <ScrollReveal key={f._id || `${f.fullName}-${i}`} delay={Math.min(0.2, (i % 8) * 0.03)}>
+                <ScrollReveal key={f.dbId || `${f.name}-${i}`} delay={Math.min(0.2, (i % 8) * 0.03)}>
                   <Link
                     to={profileLink}
                     className="group bg-white rounded-2xl border border-slate-200 p-5 shadow-xs hover:shadow-xl hover:border-[#caa74d]/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full no-underline"
@@ -250,10 +319,10 @@ const FacultyInformation = () => {
                     <div>
                       {/* Photo */}
                       <div className="w-32 h-32 mx-auto rounded-2xl bg-slate-100 overflow-hidden mb-4 border-2 border-slate-100 group-hover:border-[#caa74d]/40 transition-colors shadow-xs relative">
-                        {photoUrl ? (
+                        {f.photoUrl ? (
                           <img
-                            src={photoUrl}
-                            alt={f.fullName}
+                            src={f.photoUrl}
+                            alt={f.name}
                             loading="lazy"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             onError={(e) => {
@@ -265,23 +334,28 @@ const FacultyInformation = () => {
                         ) : null}
                         <div
                           className={`avatar-fallback w-full h-full ${
-                            photoUrl ? "hidden" : "flex"
+                            f.photoUrl ? "hidden" : "flex"
                           } items-center justify-center bg-gradient-to-br from-[#0f2a44]/10 to-slate-200 text-[#0f2a44] font-bold text-2xl`}
                         >
-                          {f.fullName.split(" ").filter(Boolean).slice(0, 2).map((n) => n[0]).join("")}
+                          {f.cleanName.split(" ").filter(Boolean).slice(0, 2).map((n) => n[0].toUpperCase()).join("")}
                         </div>
                       </div>
 
-                      {/* Name & Designation */}
+                      {/* Name & Designation & Department */}
                       <div className="text-center space-y-1">
                         <h3 className="font-display font-bold text-base text-[#0f2a44] group-hover:text-[#b31317] transition-colors line-clamp-1">
-                          {f.fullName}
+                          {f.name}
                         </h3>
+                        {f.qualification && (
+                          <p className="text-[11px] font-medium text-slate-500 line-clamp-1">
+                            {f.qualification}
+                          </p>
+                        )}
                         <p className="text-xs font-semibold text-[#b31317] line-clamp-1">
-                          {f.designation || "Faculty"}
+                          {f.designation}
                         </p>
-                        <p className="text-[11px] text-slate-500 font-medium line-clamp-1">
-                          {f.department?.name || f.department?.code}
+                        <p className="text-[11px] text-slate-400 font-medium line-clamp-1">
+                          {f.department}
                         </p>
                       </div>
                     </div>
