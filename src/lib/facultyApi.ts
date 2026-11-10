@@ -143,23 +143,39 @@ export const PHOTO_BASE_URL = "https://engageai.mits.ac.in/mitsfaculty/api/v1";
  * Maps department code or name from the API to website department keys
  */
 export function mapApiDeptToDeptKey(code?: string, name?: string): string {
-  const c = (code || "").toUpperCase().trim();
+  const rawC = (code || "").toUpperCase().trim();
+  const c = rawC.replace(/\s*-\s*/g, "-");
   const n = (name || "").toUpperCase().trim();
 
   // 1. Exact Department Code Checks
-  if (c === "CSE-AIML" || c === "AIML" || c === "AI&ML" || c === "AI-ML" || c.includes("AIML")) return "aiml";
+  if (c === "CSE-AIML" || c === "AIML" || c === "AI&ML" || c === "AI-ML" || c.includes("AIML") || c.includes("AI AND ML")) return "aiml";
   if (c === "CSE-AIDS" || c === "CSE-DS" || c === "AIDS" || c === "DS") return "cseds";
   if (c === "CSE-AI" || c === "AI") return "ai";
   if (c === "CSE") return "cse";
   if (c === "CST") return "cst";
-  if (c === "CSE-CS") return "csecs";
+  if (c === "CSE-CS" || c === "CS") return "csecs";
   if (c === "ECE") return "ece";
   if (c === "EEE") return "eee";
   if (c === "CE" || c === "CIVIL") return "ce";
   if (c === "ME" || c === "MECH") return "me";
   if (c === "MCA") return "mca";
   if (c === "MBA") return "mba";
-  if (c === "CHY" || c === "PHY" || c === "EFL" || c === "MATH" || c === "HUM" || c === "BSH") return "bsh";
+  if (
+    c === "CHY" ||
+    c === "PHY" ||
+    c === "EFL" ||
+    c === "MATH" ||
+    c === "HUM" ||
+    c === "BSH" ||
+    c === "M" ||
+    c === "HU" ||
+    c.includes("ENGLISH") ||
+    c.includes("MATH") ||
+    c.includes("PHYSIC") ||
+    c.includes("CHEMIS")
+  ) {
+    return "bsh";
+  }
   if (c === "BIO" || c === "BIOINFO") return "bioinfo";
   if (c === "CTO" || c === "ADMIN") return "admin";
 
@@ -514,15 +530,34 @@ export async function fetchFacultyProfiles(forceRefresh = false): Promise<APIFac
       const json = (await res.json()) as APIFacultyResponse;
       if (json.success && Array.isArray(json.data) && json.data.length > 0) {
         const cleaned = sanitizeFacultyList(json.data);
+        // Merge official fallback roster to ensure 100% faculty coverage even if live database has omissions
+        const fallbackList = getInitialFacultyData();
+        const mergedMap = new Map<string, APIFacultyMember>();
+        for (const f of cleaned) {
+          mergedMap.set(f._id, f);
+        }
+        for (const f of fallbackList) {
+          if (!mergedMap.has(f._id)) {
+            const fSlug = slugifyFaculty(f.fullName);
+            const exists = Array.from(mergedMap.values()).some(
+              (m) => slugifyFaculty(m.fullName) === fSlug
+            );
+            if (!exists) {
+              mergedMap.set(f._id, f);
+            }
+          }
+        }
+        const merged = Array.from(mergedMap.values());
+
         if (typeof window !== "undefined") {
           try {
-            localStorage.setItem(CACHE_KEY, JSON.stringify(cleaned));
+            localStorage.setItem(CACHE_KEY, JSON.stringify(merged));
             localStorage.setItem(CACHE_TIME_KEY, String(Date.now()));
           } catch {
             // storage limit or disabled
           }
         }
-        return cleaned;
+        return merged;
       }
     }
   } catch {

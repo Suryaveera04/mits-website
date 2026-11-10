@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { getDepartmentByKey, type FacultyMember } from "@/data/departmentData";
+import { getDepartmentByKey, departmentsData, type FacultyMember } from "@/data/departmentData";
 import { facultyProfiles, getFacultyProfile, type FacultyProfile, type FacultySection } from "@/data/facultyProfiles";
 import { departmentHeads, deansList } from "@/data/aboutData";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
-import { getBshSubDepartment } from "@/lib/facultyApi";
+import { getBshSubDepartment, mapApiDeptToDeptKey, getFacultyPhotoUrl } from "@/lib/facultyApi";
 import { useFacultyData } from "@/hooks/useFacultyData";
 import {
   ArrowLeft, ArrowRight, Mail, GraduationCap, BookOpen,
@@ -225,12 +225,19 @@ const SECTION_ICONS: Record<string, React.ComponentType<{ className?: string }>>
 };
 
 const FacultyProfilePage = () => {
-  const { deptKey, slug } = useParams<{ deptKey: string; slug: string }>();
+  const { deptKey: urlDeptKey, slug } = useParams<{ deptKey?: string; slug: string }>();
   const navigate = useNavigate();
-  const dept = getDepartmentByKey(deptKey || "");
   const { getFacultyByDept, getFacultyProfileBySlug, getRawFacultyBySlug, loading: facultyLoading } = useFacultyData();
 
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
+
+  // Attempt global search for faculty member if deptKey not given or mismatched
+  const rawCandidate = slug ? getRawFacultyBySlug(slug, urlDeptKey) : undefined;
+  const inferredDeptKey = rawCandidate?.department
+    ? mapApiDeptToDeptKey(rawCandidate.department.code, rawCandidate.department.name)
+    : undefined;
+  const deptKey = urlDeptKey || inferredDeptKey || "cse";
+  const dept = getDepartmentByKey(deptKey) || (departmentsData as Record<string, any>)[deptKey] || departmentsData.cse;
 
   const { faculty, profile, rawFaculty, prev, next, index } = useMemo(() => {
     if (!dept || !slug) return { faculty: undefined, profile: undefined, rawFaculty: undefined, prev: undefined, next: undefined, index: -1 };
@@ -251,7 +258,7 @@ const FacultyProfilePage = () => {
     const staticProfile = staticProfileMatch ? staticProfileMatch[1] : undefined;
 
     // If not found in current department list, attempt global slug search
-    const raw = getRawFacultyBySlug(slug, deptKey);
+    const raw = rawCandidate || getRawFacultyBySlug(slug, deptKey);
     const liveProfile = getFacultyProfileBySlug(deptKey || "", slug);
 
     // If still not found, check department heads or deans list
@@ -359,18 +366,36 @@ const FacultyProfilePage = () => {
     };
   }, [dept, slug, deptKey, getFacultyByDept, getFacultyProfileBySlug, getRawFacultyBySlug]);
 
-  useEffect(() => {
-    if (!facultyLoading && deptKey && dept && !faculty) {
-      navigate(`/department/${deptKey}/faculty`, { replace: true });
-    }
-  }, [deptKey, dept, faculty, facultyLoading, navigate]);
-
   if (!dept || !faculty || !profile) {
+    if (!facultyLoading) {
+      return (
+        <div className="min-h-screen flex flex-col bg-slate-50">
+          <Header />
+          <div className="h-16 md:h-[100px] xl:h-[116px] shrink-0" />
+          <div className="container mx-auto px-4 py-24 text-center max-w-md my-auto">
+            <GraduationCap className="w-16 h-16 text-slate-300 mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-slate-800 mb-2">Faculty Profile Not Found</h2>
+            <p className="text-sm text-slate-500 mb-6">The requested faculty profile could not be located in the university directory.</p>
+            <Link
+              to="/university/faculty-information"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0f2a44] text-white font-semibold text-sm hover:bg-[#1a3a5c] transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back to Faculty Directory</span>
+            </Link>
+          </div>
+          <Footer />
+        </div>
+      );
+    }
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen flex flex-col bg-slate-50">
         <Header />
         <div className="h-16 md:h-[100px] xl:h-[116px] shrink-0" />
-        <div className="container mx-auto px-4 py-24 text-center">Loading…</div>
+        <div className="container mx-auto px-4 py-24 text-center flex-1 flex flex-col items-center justify-center">
+          <div className="w-10 h-10 border-4 border-[#0f2a44] border-t-transparent rounded-full animate-spin mb-4" />
+          <p className="text-slate-500 font-medium">Loading faculty profile...</p>
+        </div>
         <Footer />
       </div>
     );

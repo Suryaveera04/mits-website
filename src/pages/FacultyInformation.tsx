@@ -7,7 +7,7 @@ import SEO from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useFacultyData, getFacultySeniorityPriority } from "@/hooks/useFacultyData";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
-import { departmentsData } from "@/data/departmentData";
+import { mapApiDeptToDeptKey, getFacultyPhotoUrl } from "@/lib/facultyApi";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -35,12 +35,12 @@ const FacultyInformation = () => {
   const [selectedDesignation, setSelectedDesignation] = useState("all");
 
   const filteredFaculty = useMemo(() => {
-    return facultyList.filter((f) => {
+    const list = facultyList.filter((f) => {
       const name = (f.fullName || "").toLowerCase();
       const email = (f.email || "").toLowerCase();
       const des = (f.designation || "").toLowerCase();
       const deptName = (f.department?.name || "").toLowerCase();
-      const deptCode = (f.department?.code || "").toLowerCase();
+      const deptKey = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
 
       // Search filter
       const matchesSearch =
@@ -53,19 +53,7 @@ const FacultyInformation = () => {
       // Department filter
       let matchesDept = selectedDept === "all";
       if (!matchesDept) {
-        if (selectedDept === "bsh") {
-          matchesDept = ["chy", "phy", "mat", "eng", "hum", "bsh"].includes(deptCode) || deptName.includes("humanities") || deptName.includes("chemistry") || deptName.includes("physics") || deptName.includes("mathematics");
-        } else if (selectedDept === "me") {
-          matchesDept = deptCode === "me" || deptCode === "mech" || deptName.includes("mechanical");
-        } else if (selectedDept === "ce") {
-          matchesDept = deptCode === "ce" || deptCode === "civil" || deptName.includes("civil");
-        } else if (selectedDept === "mca") {
-          matchesDept = deptCode === "mca" || deptCode === "ca" || deptName.includes("computer application");
-        } else if (selectedDept === "mba") {
-          matchesDept = deptCode === "mba" || deptCode === "mna" || deptName.includes("management");
-        } else {
-          matchesDept = deptCode === selectedDept || deptName.includes(selectedDept);
-        }
+        matchesDept = deptKey === selectedDept;
       }
 
       // Designation filter
@@ -74,9 +62,9 @@ const FacultyInformation = () => {
         if (selectedDesignation === "prof") {
           matchesDes = des.includes("professor") && !des.includes("assistant") && !des.includes("associate");
         } else if (selectedDesignation === "assoc") {
-          matchesDes = des.includes("associate professor");
+          matchesDes = des.includes("associate professor") || des.includes("assoc. prof");
         } else if (selectedDesignation === "asst") {
-          matchesDes = des.includes("assistant professor") || des.includes("assistant professors");
+          matchesDes = des.includes("assistant professor") || des.includes("asst. prof") || des.includes("assistant professors");
         } else if (selectedDesignation === "head") {
           matchesDes =
             des.includes("vice principal") ||
@@ -94,8 +82,8 @@ const FacultyInformation = () => {
     });
 
     return [...list].sort((a, b) => {
-      const deptA = getDeptKey(a.department?.code, a.department?.name);
-      const deptB = getDeptKey(b.department?.code, b.department?.name);
+      const deptA = mapApiDeptToDeptKey(a.department?.code, a.department?.name);
+      const deptB = mapApiDeptToDeptKey(b.department?.code, b.department?.name);
       if (selectedDept === "all" && deptA !== deptB) {
         return deptA.localeCompare(deptB);
       }
@@ -105,25 +93,6 @@ const FacultyInformation = () => {
       return cleanFacultyName(a.fullName).localeCompare(cleanFacultyName(b.fullName));
     });
   }, [facultyList, searchTerm, selectedDept, selectedDesignation]);
-
-  const getDeptKey = (code?: string, name?: string) => {
-    const c = (code || "").toLowerCase().trim();
-    const n = (name || "").toLowerCase().trim();
-    if (["chy", "phy", "mat", "eng", "hum", "bsh"].includes(c) || n.includes("humanities") || n.includes("physics") || n.includes("chemistry") || n.includes("mathematics")) return "bsh";
-    if (c === "me" || c === "mech" || n.includes("mechanical")) return "me";
-    if (c === "ce" || c === "civil" || n.includes("civil")) return "ce";
-    if (c === "mca" || c === "ca" || n.includes("computer application")) return "mca";
-    if (c === "mba" || c === "mna" || n.includes("management")) return "mba";
-    if (c === "cse" || n.includes("computer science and engineering")) return "cse";
-    if (c === "ece" || n.includes("electronics")) return "ece";
-    if (c === "eee" || n.includes("electrical")) return "eee";
-    if (c === "cst" || n.includes("technology")) return "cst";
-    if (c === "ai" || n.includes("artificial intelligence")) return "ai";
-    if (c === "aiml" || n.includes("machine learning")) return "aiml";
-    if (c === "cseds" || n.includes("data science")) return "cseds";
-    if (c === "csecs" || n.includes("cyber security")) return "csecs";
-    return "cse";
-  };
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
@@ -267,9 +236,10 @@ const FacultyInformation = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredFaculty.map((f, i) => {
-              const deptKey = getDeptKey(f.department?.code, f.department?.name);
+              const deptKey = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
               const slug = slugifyFaculty(f.fullName);
               const profileLink = `/department/${deptKey}/faculty/${slug}`;
+              const photoUrl = getFacultyPhotoUrl(f.profilePhoto);
 
               return (
                 <ScrollReveal key={f._id || `${f.fullName}-${i}`} delay={Math.min(0.2, (i % 8) * 0.03)}>
@@ -280,9 +250,9 @@ const FacultyInformation = () => {
                     <div>
                       {/* Photo */}
                       <div className="w-32 h-32 mx-auto rounded-2xl bg-slate-100 overflow-hidden mb-4 border-2 border-slate-100 group-hover:border-[#caa74d]/40 transition-colors shadow-xs relative">
-                        {f.profilePhoto ? (
+                        {photoUrl ? (
                           <img
-                            src={f.profilePhoto.startsWith("http") ? f.profilePhoto : `https://aicampus.mits.ac.in/mits-cms/backend${f.profilePhoto}`}
+                            src={photoUrl}
                             alt={f.fullName}
                             loading="lazy"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -295,7 +265,7 @@ const FacultyInformation = () => {
                         ) : null}
                         <div
                           className={`avatar-fallback w-full h-full ${
-                            f.profilePhoto ? "hidden" : "flex"
+                            photoUrl ? "hidden" : "flex"
                           } items-center justify-center bg-gradient-to-br from-[#0f2a44]/10 to-slate-200 text-[#0f2a44] font-bold text-2xl`}
                         >
                           {f.fullName.split(" ").filter(Boolean).slice(0, 2).map((n) => n[0]).join("")}
