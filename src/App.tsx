@@ -71,6 +71,7 @@ const VentureStudio = lazy(() => import("./pages/VentureStudio"));
 const StudentClubs = lazy(() => import("./pages/StudentClubs"));
 const FacultyInformation = lazy(() => import("./pages/FacultyInformation"));
 const PhdAdmissions = lazy(() => import("./pages/PhdAdmissions"));
+const ResearchAreas = lazy(() => import("./pages/ResearchAreas"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -131,6 +132,7 @@ const App = () => (
             <Route path="/phd-admissions" element={<PhdAdmissions />} />
             <Route path="/phd-admissions-2026-27-july-session" element={<PhdAdmissions />} />
             <Route path="/phd" element={<PhdAdmissions />} />
+            <Route path="/research-areas" element={<ResearchAreas />} />
             <Route path="/research" element={<Research />} />
             <Route path="/placements" element={<Placements />} />
             <Route path="/placements/:section" element={<Placements />} />
