@@ -29,6 +29,8 @@ import IiicView from "@/components/cells/IiicView";
 import EdcView from "@/components/cells/EdcView";
 import PccView from "@/components/cells/PccView";
 import IeteView from "@/components/cells/IeteView";
+import CsiView from "@/components/cells/CsiView";
+import NccArmyView from "@/components/cells/NccArmyView";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -192,6 +194,14 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "iete") {
     return <IeteView />;
+  }
+
+  if (targetId === "csi") {
+    return <CsiView />;
+  }
+
+  if (targetId === "ncc-army" || targetId === "ncc") {
+    return <NccArmyView />;
   }
 
   if (!cell) {

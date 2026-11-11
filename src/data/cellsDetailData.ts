@@ -8951,14 +8951,14 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "contacts": [
       {
         "name": "Dr. R. Nidhya",
-        "designation": "Professor (CSE) & CSI Student Branch Counselor",
-        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
-        "phone": "+91-8571-280255",
+        "designation": "Professor - Department of Computer Science & Engineering",
+        "address": "Madanapalle Institute of Technology & Science, Deemed to be University, Madanapalle-Kadiri Road, Kurabalakota Mandal, Madanapalle-517325, Andhra Pradesh, India",
+        "phone": "+91-8571-280255, 280706",
         "email": "drnidhyar@mits.ac.in"
       }
     ],
     "id": "csi",
-    "url": "https://mits.ac.in/csi",
+    "url": "https://mits.ac.in/csi-content",
     "events": [
       {
         "title": "Seminar on Human Centered Applied AI Research",
