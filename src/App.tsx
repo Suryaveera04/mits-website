@@ -184,6 +184,9 @@ const App = () => (
             <Route path="/newsletter" element={<NewsletterPage />} />
             <Route path="/cells" element={<Cells />} />
             <Route path="/cells/:id" element={<CellDetail />} />
+            <Route path="/university/cells" element={<Cells />} />
+            <Route path="/university/cells/:id" element={<CellDetail />} />
+            <Route path="/iete" element={<CellDetail overrideId="iete" />} />
             <Route path="/student-clubs-sac" element={<StudentClubs />} />
             <Route path="/faculty-information" element={<FacultyInformation />} />
             <Route path="/university/faculty-information" element={<FacultyInformation />} />

@@ -28,6 +28,7 @@ import IpfcView from "@/components/cells/IpfcView";
 import IiicView from "@/components/cells/IiicView";
 import EdcView from "@/components/cells/EdcView";
 import PccView from "@/components/cells/PccView";
+import IeteView from "@/components/cells/IeteView";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -187,6 +188,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "pcc") {
     return <PccView />;
+  }
+
+  if (targetId === "iete") {
+    return <IeteView />;
   }
 
   if (!cell) {

@@ -9052,10 +9052,10 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "contacts": [
       {
         "name": "Mrs. K. Revathi",
-        "designation": "Assistant Professor (EEE) & Coordinator of IETE",
-        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
-        "phone": "+91-8571-280255",
-        "email": "iete@mits.ac.in"
+        "designation": "Coordinator of IETE, Assistant Professor, Department of ECE",
+        "address": "Madanapalle Institute of Technology & Science, Deemed to be University, Madanapalle-Kadiri Road, Kurabalakota Mandal, Madanapalle-517325",
+        "phone": "+91-8571-280255, 280706",
+        "email": "iete-sf@mits.ac.in"
       }
     ],
     "id": "iete",
