@@ -190,6 +190,8 @@ const App = () => (
             <Route path="/csi" element={<CellDetail overrideId="csi" />} />
             <Route path="/ncc" element={<CellDetail overrideId="ncc-army" />} />
             <Route path="/ncc-army" element={<CellDetail overrideId="ncc-army" />} />
+            <Route path="/ncc-air" element={<CellDetail overrideId="ncc-air" />} />
+            <Route path="/ncc-airwing" element={<CellDetail overrideId="ncc-air" />} />
             <Route path="/student-clubs-sac" element={<StudentClubs />} />
             <Route path="/faculty-information" element={<FacultyInformation />} />
             <Route path="/university/faculty-information" element={<FacultyInformation />} />
