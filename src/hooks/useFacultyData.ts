@@ -11,6 +11,7 @@ import {
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
 import { departmentsData, type FacultyMember } from "@/data/departmentData";
 import { departmentHeads } from "@/data/aboutData";
+import officialFacultyList from "@/data/officialFacultyList.json";
 
 // Shared in-memory cache pre-populated with bundled snapshot for instant 0ms initial render
 let sharedFacultyCache: APIFacultyMember[] = getInitialFacultyData();
@@ -294,6 +295,57 @@ export function useFacultyData() {
         rawKey === "computer-applications" ? "mca" :
         rawKey === "basic-sciences" || rawKey === "basic-sciences-humanities" || rawKey === "humanities" ? "bsh" :
         rawKey;
+
+      // Filter strictly from officialFacultyList for this department to avoid extraneous non-roster entries
+      const officialDeptMembers = (officialFacultyList as any[]).filter(
+        (o) => o.deptKey === normalizedKey
+      );
+
+      if (officialDeptMembers.length > 0) {
+        return [...officialDeptMembers]
+          .sort((a, b) => {
+            const dbA = a.dbId ? facultyList.find((f) => f._id === a.dbId) : undefined;
+            const dbB = b.dbId ? facultyList.find((f) => f._id === b.dbId) : undefined;
+            const pA = getFacultySeniorityPriority(
+              {
+                fullName: a.name,
+                designation: a.designation,
+                qualification: a.qualification,
+                academicAdministrationRoles: dbA?.academicAdministrationRoles,
+                phd: dbA?.phd,
+              },
+              normalizedKey
+            );
+            const pB = getFacultySeniorityPriority(
+              {
+                fullName: b.name,
+                designation: b.designation,
+                qualification: b.qualification,
+                academicAdministrationRoles: dbB?.academicAdministrationRoles,
+                phd: dbB?.phd,
+              },
+              normalizedKey
+            );
+            if (pA !== pB) return pA - pB;
+            return cleanFacultyName(a.name).localeCompare(cleanFacultyName(b.name));
+          })
+          .map((o) => {
+            const db = o.dbId ? facultyList.find((f) => f._id === o.dbId) : undefined;
+            const photoUrl =
+              getFacultyPhotoUrl(db?.profilePhoto || o.profilePhoto) ||
+              (o.profilePhoto?.startsWith("http") ? o.profilePhoto : undefined);
+            return {
+              name: o.name,
+              designation: o.designation,
+              qualification: o.qualification,
+              email: db?.email || o.email || undefined,
+              image: photoUrl,
+              profileUrl: `/department/${o.deptKey}/faculty/${o.slug}`,
+              profile: db ? apiFacultyToFacultyMember(db).profile : undefined,
+            };
+          });
+      }
+
       const filtered = facultyList.filter((f) => {
         const mapped = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
         return mapped === normalizedKey;
@@ -339,6 +391,21 @@ export function useFacultyData() {
    */
   const getFacultyProfileBySlug = useCallback(
     (deptKey: string, slug: string): ReturnType<typeof apiFacultyToFacultyProfile> | undefined => {
+      // 1. Check official match first
+      const officialMatch = (officialFacultyList as any[]).find(
+        (o) => o.slug === slug || slugifyFaculty(o.name) === slug || o.dbId === slug
+      );
+      if (officialMatch?.dbId) {
+        const found = facultyList.find((f) => f._id === officialMatch.dbId);
+        if (found) {
+          const prof = apiFacultyToFacultyProfile(found);
+          if (officialMatch.name) prof.name = officialMatch.name;
+          if (officialMatch.designation) prof.designation = officialMatch.designation;
+          return prof;
+        }
+      }
+
+      // 2. Direct database lookup
       const normalizedKey = deptKey.toLowerCase().trim();
       const match = facultyList.find((f) => {
         const memberDept = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
@@ -360,17 +427,29 @@ export function useFacultyData() {
    */
   const getRawFacultyBySlug = useCallback(
     (slugOrId: string, deptKey?: string): APIFacultyMember | undefined => {
+      // 1. Check official match first
+      const officialMatch = (officialFacultyList as any[]).find(
+        (o) => o.slug === slugOrId || slugifyFaculty(o.name) === slugOrId || o.dbId === slugOrId
+      );
+      if (officialMatch?.dbId) {
+        const found = facultyList.find((f) => f._id === officialMatch.dbId);
+        if (found) return found;
+      }
+
+      // 2. Direct database lookup
       const normalizedKey = deptKey?.toLowerCase().trim();
-      return facultyList.find((f) => {
-        if (f._id === slugOrId) return true;
-        const memberSlug = slugifyFaculty(f.fullName);
-        if (memberSlug !== slugOrId) return false;
-        if (normalizedKey) {
-          const memberDept = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
-          return memberDept === normalizedKey;
-        }
-        return true;
-      }) || facultyList.find((f) => slugifyFaculty(f.fullName) === slugOrId || f._id === slugOrId);
+      return (
+        facultyList.find((f) => {
+          if (f._id === slugOrId) return true;
+          const memberSlug = slugifyFaculty(f.fullName);
+          if (memberSlug !== slugOrId) return false;
+          if (normalizedKey) {
+            const memberDept = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
+            return memberDept === normalizedKey;
+          }
+          return true;
+        }) || facultyList.find((f) => slugifyFaculty(f.fullName) === slugOrId || f._id === slugOrId)
+      );
     },
     [facultyList]
   );

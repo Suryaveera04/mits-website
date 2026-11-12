@@ -36,7 +36,7 @@
     "deptKey": "ce",
     "dbId": "6a8cf981deb7302af99f2d9e",
     "dbFullName": "Dr Vijayakumar N",
-    "slug": "dr-vijayakumar-n",
+    "slug": "dr-vijayakumar-natesan",
     "email": "drvijayakumarn@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Vijayakumar_Natesan-1793774956091-917547386.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/7"
@@ -78,7 +78,7 @@
     "deptKey": "me",
     "dbId": "6a8cffb14a60b7dd6ea7a24b",
     "dbFullName": "Dr Yuvaraj C",
-    "slug": "dr-yuvaraj-c",
+    "slug": "dr-c-yuvaraj",
     "email": "drcyuvaraj@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Yuvaraj-1793787189932-6051879.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/245"
@@ -92,7 +92,7 @@
     "deptKey": "me",
     "dbId": "6a8cf9c9deb7302af99f2dd4",
     "dbFullName": "Dr Baskaran S",
-    "slug": "dr-baskaran-s",
+    "slug": "dr-s-baskaran",
     "email": "drbaskarans@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-BASKARAN-1793786550753-459239145.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/306"
@@ -106,7 +106,7 @@
     "deptKey": "me",
     "dbId": "6a8cf9cfdeb7302af99f2dd8",
     "dbFullName": "Sivaiah P",
-    "slug": "sivaiah-p",
+    "slug": "dr-p-sivaiah",
     "email": "sivaiahp@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Sivaiah-1793787025688-891616114.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/308"
@@ -120,7 +120,7 @@
     "deptKey": "me",
     "dbId": "6a8cf9ebdeb7302af99f2dec",
     "dbFullName": "Dr Bala Narasimha Guniputi",
-    "slug": "dr-bala-narasimha-guniputi",
+    "slug": "dr-guniputi-balanarasimha",
     "email": "drbalanarasimhag@mits.ac.in",
     "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-Bala_Narasimha-1792729026920-119433342.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/702"
@@ -176,7 +176,7 @@
     "deptKey": "me",
     "dbId": "6adeeb1ed3e20f62945f95f0",
     "dbFullName": "Ranjit Kumar Dehury",
-    "slug": "ranjit-kumar-dehury",
+    "slug": "dr-ranjit-kumar-dehury",
     "email": "drranjitkumard@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Dr_Ranjit_Ku_Dehury-1792996152567-840809513.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1146"
@@ -190,7 +190,7 @@
     "deptKey": "me",
     "dbId": "6a8cf9e3deb7302af99f2de6",
     "dbFullName": "Dr.Guruguntla Veeresalingam",
-    "slug": "dr-guruguntla-veeresalingam",
+    "slug": "dr-g-veeresalingam",
     "email": "drveeresalingamg@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Veeresh_Pic-1792737977949-98622792.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/613"
@@ -218,7 +218,7 @@
     "deptKey": "me",
     "dbId": "6a8cf9e6deb7302af99f2de8",
     "dbFullName": "A Pruthvi Deep",
-    "slug": "a-pruthvi-deep",
+    "slug": "dr-a-pruthvi-deep",
     "email": "pruthvideepa@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-PRUTVI_DEEP-1793786800886-911602411.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/623"
@@ -232,7 +232,7 @@
     "deptKey": "me",
     "dbId": "6adeea9cd3e20f62945f94d4",
     "dbFullName": "Siddanna Awarasang",
-    "slug": "siddanna-awarasang",
+    "slug": "dr-siddanna-awarasang",
     "email": "drsiddannaa@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Siddanna_Awarasng-1793786891533-846911462.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1143"
@@ -260,7 +260,7 @@
     "deptKey": "eee",
     "dbId": "6a8cffaf4a60b7dd6ea7a249",
     "dbFullName": "Kamal Basha C",
-    "slug": "kamal-basha-c",
+    "slug": "dr-c-kamal-basha",
     "email": "kamalbashac@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-kamalbasha-1793785613740-68493283.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/223"
@@ -274,7 +274,7 @@
     "deptKey": "eee",
     "dbId": "6a8cf998deb7302af99f2dae",
     "dbFullName": "Pavan Kumar A V",
-    "slug": "pavan-kumar-a-v",
+    "slug": "dr-a-v-pavan-kumar",
     "email": "pavankumarav@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-A_V_Pavan_Kumar-1787822145631-664942746.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/224"
@@ -288,7 +288,7 @@
     "deptKey": "eee",
     "dbId": "6a8cf9c5deb7302af99f2dcc",
     "dbFullName": "Dr Manavaalan G",
-    "slug": "dr-manavaalan-g",
+    "slug": "dr-manavaalan-gunasekaran",
     "email": "drmanavaalang@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Manavaalan_Gunasekaran-1793785737370-853101763.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/931"
@@ -302,7 +302,7 @@
     "deptKey": "eee",
     "dbId": "6a8cf9bddeb7302af99f2dc6",
     "dbFullName": "Dr Vijaya Bhaskar Somu",
-    "slug": "dr-vijaya-bhaskar-somu",
+    "slug": "dr-somu-vijaya-bhaskar",
     "email": "drvijayabhaskars@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Somu_Vijaya_Bhaskar-1793785906996-228429527.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/694"
@@ -316,7 +316,7 @@
     "deptKey": "eee",
     "dbId": "6a8cf9b6deb7302af99f2dc2",
     "dbFullName": "Dr Vineet Kumar a",
-    "slug": "dr-vineet-kumar-a",
+    "slug": "dr-vineet-kumar",
     "email": "drvineetkumar@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-DrVineetKumar-1792668262790-489332884.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/597"
@@ -342,11 +342,11 @@
     "designation": "Assistant Professor",
     "department": "EEE",
     "deptKey": "eee",
-    "dbId": "6a6b156afa74501cd10e0850",
-    "dbFullName": "G R Hemanth Kumar",
-    "slug": "g-r-hemanth-kumar",
-    "email": "ato@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Hemanth-1793789241521-983363677.JPG",
+    "dbId": "6a8cf998deb7302af99f2dae",
+    "dbFullName": "Pavan Kumar A V",
+    "slug": "dr-r-saravana-kumar",
+    "email": "pavankumarav@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-A_V_Pavan_Kumar-1787822145631-664942746.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/583"
   },
   {
@@ -372,7 +372,7 @@
     "deptKey": "eee",
     "dbId": "6a8d00b64a60b7dd6ea7a305",
     "dbFullName": "Karthik A",
-    "slug": "karthik-a",
+    "slug": "mr-a-karthik",
     "email": "karthika@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Karthik-1793785672118-711817023.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1097"
@@ -384,11 +384,11 @@
     "designation": "Assistant Professor",
     "department": "EEE",
     "deptKey": "eee",
-    "dbId": "6a8d018f4a60b7dd6ea7a3a3",
-    "dbFullName": "Dr Srinivasan J",
-    "slug": "dr-srinivasan-j",
-    "email": "drsrinivasanj@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Srinivasan_Jagannathan-1787808921809-138131666.jpg",
+    "dbId": "6a8cf9aedeb7302af99f2dbc",
+    "dbFullName": "Srinivas Chodagam",
+    "slug": "mr-ch-srinivas",
+    "email": "srinivasc@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Ch_Srinivas-1792671439336-11256467.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/480"
   },
   {
@@ -414,7 +414,7 @@
     "deptKey": "ece",
     "dbId": "6a8cfa38deb7302af99f2e22",
     "dbFullName": "Dr Sree Phani Kishore D",
-    "slug": "dr-sree-phani-kishore-d",
+    "slug": "dr-sree-phani-kishore",
     "email": "drsreephanikishored@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Sree_Phani_Kishore-1793785492299-166005970.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1116"
@@ -428,7 +428,7 @@
     "deptKey": "ece",
     "dbId": "6a8cfa3bdeb7302af99f2e24",
     "dbFullName": "Dr N V R Vikram Gelli",
-    "slug": "dr-n-v-r-vikram-gelli",
+    "slug": "dr-n-v-r-vikram-g",
     "email": "drnvrvikramg@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-N_V_R_Vikram_G-1793785046661-546730161.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1120"
@@ -442,7 +442,7 @@
     "deptKey": "ece",
     "dbId": "6a8cfa00deb7302af99f2dfa",
     "dbFullName": "Dr Sathesh K",
-    "slug": "dr-sathesh-k",
+    "slug": "dr-k-sathesh",
     "email": "drsatheshk@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Sathesh-1793785393053-24489718.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/177"
@@ -484,7 +484,7 @@
     "deptKey": "ece",
     "dbId": "6a8cfa41deb7302af99f2e28",
     "dbFullName": "Dr Ranjeeth M",
-    "slug": "dr-ranjeeth-m",
+    "slug": "dr-m-ranjeeth",
     "email": "drranjeethm@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Ranjeeth-1793785204162-149403832.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1135"
@@ -496,11 +496,11 @@
     "designation": "Assistant Professor",
     "department": "ECE",
     "deptKey": "ece",
-    "dbId": "6a8cf9c2deb7302af99f2dca",
-    "dbFullName": "Dr Sarat Kumar Mishra",
-    "slug": "dr-sarat-kumar-mishra",
-    "email": "drsaratkumarm@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Sarat_Kumar_Mishra-1793785808346-834638332.JPG",
+    "dbId": "6a8cfa32deb7302af99f2e1e",
+    "dbFullName": "Dr Ashwini Kumar M A",
+    "slug": "dr-ashwini-kumar-mishra",
+    "email": "drashwinikumarm@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Ashwini_Kumar_Mishra-1793784779027-562802475.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1112"
   },
   {
@@ -540,7 +540,7 @@
     "deptKey": "ece",
     "dbId": "6a8cf9f7deb7302af99f2df4",
     "dbFullName": "Dr Reddy Hemantha G a",
-    "slug": "dr-reddy-hemantha-g-a",
+    "slug": "dr-g-reddy-hemantha",
     "email": "drhemanthagr@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Reddy_Hemantha-1793785258201-226858037.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/396"
@@ -554,7 +554,7 @@
     "deptKey": "ece",
     "dbId": "6a8cfa24deb7302af99f2e14",
     "dbFullName": "Dr Anurag Kumar Pandey A",
-    "slug": "dr-anurag-kumar-pandey-a",
+    "slug": "dr-anurag-kumar-pandey",
     "email": "dranuragkumarp@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Anurag_Kumar_Pandey-1793784730595-455457478.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/731"
@@ -568,7 +568,7 @@
     "deptKey": "ece",
     "dbId": "6a8cfa2cdeb7302af99f2e1a",
     "dbFullName": "Dr Rakesh Singh A",
-    "slug": "dr-rakesh-singh-a",
+    "slug": "dr-rakesh-singh",
     "email": "drrakeshsingh@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Rakesh_Singh-1793785148974-247521741.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/742"
@@ -580,11 +580,11 @@
     "designation": "Assistant Professor",
     "department": "ECE",
     "deptKey": "ece",
-    "dbId": "6a8d01b74a60b7dd6ea7a3bf",
-    "dbFullName": "Dr. A. Subba Rao",
-    "slug": "dr-a-subba-rao",
-    "email": "subbaraoa@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Subba_rao-1793787947466-742631532.JPG",
+    "dbId": "6adb0329f986bd73142ff244",
+    "dbFullName": "Subbarao Genikala",
+    "slug": "dr-g-subbarao",
+    "email": "subbaraog@mits.ac.in",
+    "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-Photo_-1793877171715-360247254.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/212"
   },
   {
@@ -624,7 +624,7 @@
     "deptKey": "ece",
     "dbId": "6a8d01f44a60b7dd6ea7a3ed",
     "dbFullName": "Tipu Rahaman Shaik",
-    "slug": "tipu-rahaman-shaik",
+    "slug": "mr-shaik-tipu-rahaman",
     "email": "tipurahamans@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Shaik_Tipu_Rahaman-1793785414294-908229112.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/797"
@@ -638,7 +638,7 @@
     "deptKey": "cse",
     "dbId": "6a8cffd44a60b7dd6ea7a261",
     "dbFullName": "Dr Nidhya R",
-    "slug": "dr-nidhya-r",
+    "slug": "dr-r-nidhya",
     "email": "drnidhyar@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Dr_R_Nidhya_Paasport_size_phto-1790241014703-666554685.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/83"
@@ -650,11 +650,10 @@
     "designation": "Associate Professor",
     "department": "CSE",
     "deptKey": "cse",
-    "dbId": "6a6b156afa74501cd10e0850",
-    "dbFullName": "G R Hemanth Kumar",
-    "slug": "g-r-hemanth-kumar",
-    "email": "ato@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Hemanth-1793789241521-983363677.JPG",
+    "dbId": "6a8cffcb4a60b7dd6ea7a25b",
+    "dbFullName": "Dr Arunkumar G A",
+    "slug": "dr-g-arun-kumar",
+    "email": "drarunkumarg@mits.ac.in",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/84"
   },
   {
@@ -666,7 +665,7 @@
     "deptKey": "cse",
     "dbId": "6a8d00484a60b7dd6ea7a2b3",
     "dbFullName": "Dr Kavitha P",
-    "slug": "dr-kavitha-p",
+    "slug": "dr-p-kavitha",
     "email": "drkavithap@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Kavitha-1793941761358-723330139.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1129"
@@ -680,7 +679,7 @@
     "deptKey": "cse",
     "dbId": "6a8d003d4a60b7dd6ea7a2ab",
     "dbFullName": "Dr Krishnaiah N",
-    "slug": "dr-krishnaiah-n",
+    "slug": "dr-n-krishnaiah",
     "email": "drkrishnaiahn@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Krishnaiah-1793776357963-158990588.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1093"
@@ -694,7 +693,7 @@
     "deptKey": "cse",
     "dbId": "6a8cffd14a60b7dd6ea7a25f",
     "dbFullName": "Ashpin Pabi D J A",
-    "slug": "ashpin-pabi-d-j-a",
+    "slug": "dr-d-j-ashpin-pabi",
     "email": "ashpinpabidj@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Ashpin_Pabi-1793941806501-682062491.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/90"
@@ -708,7 +707,7 @@
     "deptKey": "cse",
     "dbId": "6a8d003a4a60b7dd6ea7a2a9",
     "dbFullName": "Dr Thanikaivel B A",
-    "slug": "dr-thanikaivel-b-a",
+    "slug": "dr-thanikaivel-b",
     "email": "drthanikaivelb@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-thani-1793776395984-211494076.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/749"
@@ -722,7 +721,7 @@
     "deptKey": "cse",
     "dbId": "6a8d002c4a60b7dd6ea7a29f",
     "dbFullName": "Dr K SENTHIL KUMAR",
-    "slug": "dr-k-senthil-kumar",
+    "slug": "dr-senthil-kumar",
     "email": "drsenthilkumark@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Myphoto-1792748350122-517746510.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/679"
@@ -736,7 +735,7 @@
     "deptKey": "cse",
     "dbId": "6a8d00314a60b7dd6ea7a2a3",
     "dbFullName": "Prasath B",
-    "slug": "prasath-b",
+    "slug": "dr-prasath-b",
     "email": "prasathb@mits.ac.in",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/690"
   },
@@ -776,7 +775,7 @@
     "deptKey": "cse",
     "dbId": "6a8d00374a60b7dd6ea7a2a7",
     "dbFullName": "Nitin Baburao R A",
-    "slug": "nitin-baburao-r-a",
+    "slug": "mr-nitin-b-raut",
     "email": "nitinbr@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Nitin_B-1793776431213-898419403.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/747"
@@ -790,7 +789,7 @@
     "deptKey": "cse",
     "dbId": "6a8d00014a60b7dd6ea7a281",
     "dbFullName": "Aleemullakhan Pathan",
-    "slug": "aleemullakhan-pathan",
+    "slug": "mr-aleemullakhan-pathan",
     "email": "aleemulakhanp@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Aleemullakhan_Pathan-1793776827325-176295638.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/101"
@@ -804,7 +803,7 @@
     "deptKey": "cse",
     "dbId": "6a8d00624a60b7dd6ea7a2c7",
     "dbFullName": "Saikiran N",
-    "slug": "saikiran-n",
+    "slug": "mr-n-saikiran",
     "email": "saikirann@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-saikiran-1793776198420-74945426.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/448"
@@ -818,7 +817,7 @@
     "deptKey": "cse",
     "dbId": "6a8d00354a60b7dd6ea7a2a5",
     "dbFullName": "Varshadevi S",
-    "slug": "varshadevi-s",
+    "slug": "mrs-s-varshadevi",
     "email": "varshadevis@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Photo-1793939067265-860317940.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/746"
@@ -830,11 +829,11 @@
     "designation": "Assistant Professor",
     "department": "CSE",
     "deptKey": "cse",
-    "dbId": "6a6b156afa74501cd10e0850",
-    "dbFullName": "G R Hemanth Kumar",
-    "slug": "g-r-hemanth-kumar",
-    "email": "ato@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Hemanth-1793789241521-983363677.JPG",
+    "dbId": "6a8d00104a60b7dd6ea7a28b",
+    "dbFullName": "Akuthota Kumar",
+    "slug": "mr-a-kumar",
+    "email": "akuthotakumar@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-MITS_PHOTO-1793003654788-421287250.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/456"
   },
   {
@@ -846,7 +845,7 @@
     "deptKey": "cse",
     "dbId": "6a8d004a4a60b7dd6ea7a2b5",
     "dbFullName": "Peer Mohideen",
-    "slug": "peer-mohideen",
+    "slug": "mr-peer-modideen",
     "email": "peermohideeny@mits.ac.in",
     "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-Peer_Modideen1-1793861755627-509759815.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1134"
@@ -860,7 +859,7 @@
     "deptKey": "cse",
     "dbId": "6a8d003f4a60b7dd6ea7a2ad",
     "dbFullName": "Vandana Gangarapu",
-    "slug": "vandana-gangarapu",
+    "slug": "ms-gangarapu-vandana",
     "email": "vandanag@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-vandana__2_-1793247965940-649048961.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1117"
@@ -874,7 +873,7 @@
     "deptKey": "cse",
     "dbId": "6a8d004d4a60b7dd6ea7a2b7",
     "dbFullName": "K. Lokesh A",
-    "slug": "k-lokesh-a",
+    "slug": "mr-lokesh-k",
     "email": "lokeshk@mits.ac.in",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1136"
   },
@@ -901,7 +900,7 @@
     "deptKey": "ai",
     "dbId": "6a8cffc74a60b7dd6ea7a259",
     "dbFullName": "Dr Kalpana R",
-    "slug": "dr-kalpana-r",
+    "slug": "dr-r-kalpana",
     "email": "drkalpanar@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Dr_R_Kalpana_photo_new-1787828488270-73739451.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/80"
@@ -915,7 +914,7 @@
     "deptKey": "ai",
     "dbId": "6a8d00ae4a60b7dd6ea7a2ff",
     "dbFullName": "Dr Satheesh Kumar S",
-    "slug": "dr-satheesh-kumar-s",
+    "slug": "dr-s-satheesh-kumar",
     "email": "drsatheeshkumars@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-DrSatheesh_Photo-1787825175979-966657424.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/743"
@@ -929,7 +928,7 @@
     "deptKey": "ai",
     "dbId": "6a8d01814a60b7dd6ea7a397",
     "dbFullName": "Chokkanathan K",
-    "slug": "chokkanathan-k",
+    "slug": "dr-k-chokkanathan",
     "email": "chokkanathank@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-DP-1787822118655-963622330.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/121"
@@ -943,7 +942,7 @@
     "deptKey": "ai",
     "dbId": "6a8d00b34a60b7dd6ea7a303",
     "dbFullName": "K Venkata Subramanyam",
-    "slug": "k-venkata-subramanyam",
+    "slug": "mr-k-venkata-surbamanyam",
     "email": "venkatasubramanyamk@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Venkata_Subramanyam-1793860365046-542577778.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1096"
@@ -955,11 +954,11 @@
     "designation": "Assistant Professor",
     "department": "CSE - AI",
     "deptKey": "ai",
-    "dbId": "6a6b22e4fa74501cd10e0bc0",
-    "dbFullName": "Chandra Sekhar M",
-    "slug": "chandra-sekhar-m",
-    "email": "drchandrasekharm@mits.ac.in",
-    "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-Chandra-1794207722808-829551790.JPG",
+    "dbId": "6a8d00914a60b7dd6ea7a2e7",
+    "dbFullName": "Chandra Sekhar K",
+    "slug": "mr-k-chandra-sekhar",
+    "email": "kchandrasekhar@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Chandra_Sekhar-1793781204671-891013801.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/494"
   },
   {
@@ -971,7 +970,7 @@
     "deptKey": "ai",
     "dbId": "6a8cfff14a60b7dd6ea7a275",
     "dbFullName": "Viswanath J",
-    "slug": "viswanath-j",
+    "slug": "mr-j-viswanath",
     "email": "viswanathj@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Viswanath-1793790345964-273860738.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/129"
@@ -985,7 +984,7 @@
     "deptKey": "ai",
     "dbId": "6a8d008d4a60b7dd6ea7a2e5",
     "dbFullName": "Vasudevan M",
-    "slug": "vasudevan-m",
+    "slug": "mr-vasudevan-m",
     "email": "vasudevanm@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-VASU_PHOTO-1793779252138-5323245.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/488"
@@ -999,7 +998,7 @@
     "deptKey": "ai",
     "dbId": "6a8d00874a60b7dd6ea7a2e1",
     "dbFullName": "Jaganathan D",
-    "slug": "jaganathan-d",
+    "slug": "mr-d-jaganathan",
     "email": "jaganathand@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Jagan_7-1793939844578-378927299.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/457"
@@ -1013,7 +1012,7 @@
     "deptKey": "cseds",
     "dbId": "6a8d012f4a60b7dd6ea7a35b",
     "dbFullName": "Dr Persis Urbana Ivy B",
-    "slug": "dr-persis-urbana-ivy-b",
+    "slug": "dr-b-persis-urbana-ivy",
     "email": "drpersisurbanaivyb@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Persis_Urbana_IVY-1793781597374-49091034.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1022"
@@ -1027,7 +1026,7 @@
     "deptKey": "cseds",
     "dbId": "6a8cffc14a60b7dd6ea7a255",
     "dbFullName": "Kusuma S",
-    "slug": "kusuma-s",
+    "slug": "dr-s-kusuma",
     "email": "kusumas@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-kusuma-1793784005592-487862409.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/98"
@@ -1041,7 +1040,7 @@
     "deptKey": "cseds",
     "dbId": "6a8cffc44a60b7dd6ea7a257",
     "dbFullName": "Kiran Kumar M",
-    "slug": "kiran-kumar-m",
+    "slug": "dr-m-kiran-kumar",
     "email": "kirankumarm@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Kiran-1793863021182-768534990.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/408"
@@ -1055,7 +1054,7 @@
     "deptKey": "cseds",
     "dbId": "6a8d00c74a60b7dd6ea7a311",
     "dbFullName": "Dr Pugazharasi K",
-    "slug": "dr-pugazharasi-k",
+    "slug": "dr-k-pugazharasi",
     "email": "pugazharasik@mits.ac.in",
     "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-K_Pugazharasi-1793774944723-613887839.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/548"
@@ -1069,7 +1068,7 @@
     "deptKey": "cseds",
     "dbId": "6a8d00c14a60b7dd6ea7a30d",
     "dbFullName": "Roopa R",
-    "slug": "roopa-r",
+    "slug": "mrs-r-roopa",
     "email": "roopar@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Roopa-1793781824402-531534101.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/508"
@@ -1083,7 +1082,7 @@
     "deptKey": "cseds",
     "dbId": "6a8d00de4a60b7dd6ea7a321",
     "dbFullName": "Dr Srinivasa Raghupraveen K",
-    "slug": "dr-srinivasa-raghupraveen-k",
+    "slug": "dr-konduri-srinivasa-raghupraveen",
     "email": "drsrinivasaraghupraveenk@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-passport_size-1793777464933-469468106.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1119"
@@ -1097,7 +1096,7 @@
     "deptKey": "cseds",
     "dbId": "6a8cffc44a60b7dd6ea7a257",
     "dbFullName": "Kiran Kumar M",
-    "slug": "kiran-kumar-m",
+    "slug": "mr-g-kiran-kumar",
     "email": "kirankumarm@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Kiran-1793863021182-768534990.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/511"
@@ -1111,7 +1110,7 @@
     "deptKey": "cseds",
     "dbId": "6a8d00db4a60b7dd6ea7a31f",
     "dbFullName": "Balaji Prasath M",
-    "slug": "balaji-prasath-m",
+    "slug": "mr-m-balaji-prasath",
     "email": "balajiprasathm@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Balaji_Prasath-1793781674822-384513820.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1115"
@@ -1125,7 +1124,7 @@
     "deptKey": "cseds",
     "dbId": "6a8d00d64a60b7dd6ea7a31b",
     "dbFullName": "Bhargav Krishna N A",
-    "slug": "bhargav-krishna-n-a",
+    "slug": "mr-nukala-bhargav-krishna",
     "email": "bhargavkrishnan@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Nukala_Bhargav_Krishna-1793863141774-793155169.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/750"
@@ -1139,7 +1138,7 @@
     "deptKey": "cseds",
     "dbId": "6a8d00e14a60b7dd6ea7a323",
     "dbFullName": "Siva Raghavendra Koneti",
-    "slug": "siva-raghavendra-koneti",
+    "slug": "mr-k-siva-raghavendra",
     "email": "sivaraghavendrak@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-CANDIDATE_IMAGE-1793160604671-379050585.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1132"
@@ -1179,11 +1178,11 @@
     "designation": "Associate Professor",
     "department": "CSE - CS",
     "deptKey": "csecs",
-    "dbId": "6a8d00874a60b7dd6ea7a2e1",
-    "dbFullName": "Jaganathan D",
-    "slug": "jaganathan-d",
-    "email": "jaganathand@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Jagan_7-1793939844578-378927299.jpg",
+    "dbId": "6a8d01444a60b7dd6ea7a36b",
+    "dbFullName": "Dr Jaganathan M",
+    "slug": "dr-m-jaganathan",
+    "email": "drjaganathanm@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Jaganathan-1793784402213-236896786.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1103"
   },
   {
@@ -1209,7 +1208,7 @@
     "deptKey": "csecs",
     "dbId": "6a8d01374a60b7dd6ea7a361",
     "dbFullName": "Sandeep Kumar R",
-    "slug": "sandeep-kumar-r",
+    "slug": "dr-r-sandeep-kumar",
     "email": "drsandeepkumarr@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Dr_R_Sandeep_Kumar-1793959285795-619625075.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1092"
@@ -1223,7 +1222,7 @@
     "deptKey": "csecs",
     "dbId": "6a8cffbb4a60b7dd6ea7a251",
     "dbFullName": "Komala A",
-    "slug": "komala-a",
+    "slug": "mrs-a-komala",
     "email": "komalaa@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-komala-photo-1793792633296-267786702.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/95"
@@ -1237,7 +1236,7 @@
     "deptKey": "csecs",
     "dbId": "6a8d01344a60b7dd6ea7a35f",
     "dbFullName": "Tumikipalli Nagaraju Yadav",
-    "slug": "tumikipalli-nagaraju-yadav",
+    "slug": "mr-tunikipalli-nagaraju-yadav",
     "email": "nagarajuyadavt@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Tunikipalli_Nagaraju_Yadav-1793857059211-834064224.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1091"
@@ -1251,7 +1250,7 @@
     "deptKey": "csecs",
     "dbId": "6a8d014c4a60b7dd6ea7a371",
     "dbFullName": "Bhabani Samantray",
-    "slug": "bhabani-samantray",
+    "slug": "mr-bhabani-sankar-samantray",
     "email": "bhabanisankars@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Bhabani_Sankar_Samantray-1793857182084-750857585.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1128"
@@ -1265,7 +1264,7 @@
     "deptKey": "csecs",
     "dbId": "6a8d011b4a60b7dd6ea7a34d",
     "dbFullName": "Fathima Begum M",
-    "slug": "fathima-begum-m",
+    "slug": "mrs-m-fathima-begum",
     "email": "fathimabegumm@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-fathima_passphoto-1793971236804-394102459.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/566"
@@ -1279,7 +1278,7 @@
     "deptKey": "csecs",
     "dbId": "6a8d01214a60b7dd6ea7a351",
     "dbFullName": "Goli Nageswararao",
-    "slug": "goli-nageswararao",
+    "slug": "mr-goli-nageswararao",
     "email": "nageswararaog@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Goli_Nageswararao-1793784495989-851277582.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/719"
@@ -1293,7 +1292,7 @@
     "deptKey": "csecs",
     "dbId": "6a8d01264a60b7dd6ea7a355",
     "dbFullName": "Roni Das",
-    "slug": "roni-das",
+    "slug": "mr-roni-das",
     "email": "ronidas@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Roni_Das-1793856835649-76040348.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/741"
@@ -1307,7 +1306,7 @@
     "deptKey": "csecs",
     "dbId": "6a8d013f4a60b7dd6ea7a367",
     "dbFullName": "Mohanraj K.C",
-    "slug": "mohanraj-k-c",
+    "slug": "mr-k-c-mohanraj",
     "email": "mohanrajkc@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-K_C_Mohanraj-1787633967684-238040911.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1101"
@@ -1321,7 +1320,7 @@
     "deptKey": "csecs",
     "dbId": "6a8d013c4a60b7dd6ea7a365",
     "dbFullName": "Ushapriya C",
-    "slug": "ushapriya-c",
+    "slug": "mrs-c-ushapriya",
     "email": "ushapriyac@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Ushapriya-1793784425117-858259362.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1099"
@@ -1335,7 +1334,7 @@
     "deptKey": "csecs",
     "dbId": "6a8d014a4a60b7dd6ea7a36f",
     "dbFullName": "Naveena Pagadala",
-    "slug": "naveena-pagadala",
+    "slug": "mrs-pagadala-naveena",
     "email": "naveenap@mits.ac.in",
     "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-Naveena-1793971766155-737927745.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1106"
@@ -1363,7 +1362,7 @@
     "deptKey": "csecs",
     "dbId": "6a8d01474a60b7dd6ea7a36d",
     "dbFullName": "Aparna C",
-    "slug": "aparna-c",
+    "slug": "ms-chinnapapanngari-aparna",
     "email": "aparnac@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Ms_Chinnapapannagari_Aparna-1793963814074-125102520.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1104"
@@ -1377,7 +1376,7 @@
     "deptKey": "aiml",
     "dbId": "6a6b156afa74501cd10e084e",
     "dbFullName": "SANATH HEGDE",
-    "slug": "sanath-hegde",
+    "slug": "mr-sanath-hegde",
     "email": "cto@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-SanathPhoto1-1785755347629-657542921.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/884"
@@ -1389,11 +1388,11 @@
     "designation": "Professor of Practice & Technical Training - Head",
     "department": "CSE - AI and ML",
     "deptKey": "aiml",
-    "dbId": "6a6b22e4fa74501cd10e0bc0",
-    "dbFullName": "Chandra Sekhar M",
-    "slug": "chandra-sekhar-m",
-    "email": "drchandrasekharm@mits.ac.in",
-    "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-Chandra-1794207722808-829551790.JPG",
+    "dbId": "6a8d01124a60b7dd6ea7a347",
+    "dbFullName": "Chandra sekhar",
+    "slug": "dr-v-chandra-sekhar",
+    "email": "chandrasekharvo@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-1548968168275-1794040743744-650824539.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1130"
   },
   {
@@ -1419,7 +1418,7 @@
     "deptKey": "aiml",
     "dbId": "6a8d00f24a60b7dd6ea7a32f",
     "dbFullName": "Dr Rajeswari M",
-    "slug": "dr-rajeswari-m",
+    "slug": "dr-m-rajeswari",
     "email": "drrajeswarim@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Rajeswari-1793856490124-575362266.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/744"
@@ -1433,7 +1432,7 @@
     "deptKey": "aiml",
     "dbId": "6a8d00ff4a60b7dd6ea7a339",
     "dbFullName": "Dr Suresh Kurumalla",
-    "slug": "dr-suresh-kurumalla",
+    "slug": "dr-kurumalla-suresh",
     "email": "drsureshk@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Kurumalla_Suresh-1793789784408-592229197.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1110"
@@ -1459,11 +1458,11 @@
     "designation": "Assistant Professor",
     "department": "CSE - AI and ML",
     "deptKey": "aiml",
-    "dbId": "6a8cf9f1deb7302af99f2df0",
-    "dbFullName": "Dr Praveen Kumar B a",
-    "slug": "dr-praveen-kumar-b-a",
-    "email": "drpraveenkumarb@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-PRAVEEN_KUMAR_BANNARVAVURI-1793786764047-91219683.JPG",
+    "dbId": "6a8d00e34a60b7dd6ea7a325",
+    "dbFullName": "Dr Praveen Kumar R",
+    "slug": "dr-r-praveen-kumar",
+    "email": "drpraveenkumarr@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Praveen_Kumar-1793790310540-165232588.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/628"
   },
   {
@@ -1489,7 +1488,7 @@
     "deptKey": "aiml",
     "dbId": "6a8d010d4a60b7dd6ea7a343",
     "dbFullName": "Harsharani K",
-    "slug": "harsharani-k",
+    "slug": "dr-harsharani",
     "email": "harsharanik@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Harsharani-1793856669737-174937958.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1124"
@@ -1517,7 +1516,7 @@
     "deptKey": "aiml",
     "dbId": "6a8d00fc4a60b7dd6ea7a337",
     "dbFullName": "Anbarasan C",
-    "slug": "anbarasan-c",
+    "slug": "mr-c-anbarasan",
     "email": "anbarasanc@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Anbarasan-1793856627094-602302571.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1107"
@@ -1531,7 +1530,7 @@
     "deptKey": "aiml",
     "dbId": "6aec59ffaf902f4a81185ef7",
     "dbFullName": "BSH Shayeez Ahamed",
-    "slug": "bsh-shayeez-ahamed",
+    "slug": "mr-b-s-h-shayeez-ahamed",
     "email": "shayeezahamedbsh@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Shayeez-1793875104868-625934863.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/108"
@@ -1545,7 +1544,7 @@
     "deptKey": "aiml",
     "dbId": "6a8d00f44a60b7dd6ea7a331",
     "dbFullName": "Manoj Kumar K",
-    "slug": "manoj-kumar-k",
+    "slug": "mr-manoj-kumar-k",
     "email": "manojkumark@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-MITS-Photo-1787633964169-260474496.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1095"
@@ -1559,7 +1558,7 @@
     "deptKey": "aiml",
     "dbId": "6a8d00ef4a60b7dd6ea7a32d",
     "dbFullName": "Subhas Das",
-    "slug": "subhas-das",
+    "slug": "mr-subhas-das",
     "email": "subhasdas@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Subhas_Das-1793784210202-443081848.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/737"
@@ -1573,7 +1572,7 @@
     "deptKey": "aiml",
     "dbId": "6a8d01074a60b7dd6ea7a33f",
     "dbFullName": "Rama Krushna Rath",
-    "slug": "rama-krushna-rath",
+    "slug": "mr-rama-krushna-rath",
     "email": "ramakrushnar@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Rama_Krushna_Rath-1793784150549-703581161.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1123"
@@ -1587,7 +1586,7 @@
     "deptKey": "aiml",
     "dbId": "6a8d01024a60b7dd6ea7a33b",
     "dbFullName": "Nighitha V",
-    "slug": "nighitha-v",
+    "slug": "ms-nighitha-varghese",
     "email": "nighithav@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Nighitha_Varghese-1793947281985-806332374.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1111"
@@ -1601,7 +1600,7 @@
     "deptKey": "aiml",
     "dbId": "6a8d01394a60b7dd6ea7a363",
     "dbFullName": "Annapurna Shobitha S",
-    "slug": "annapurna-shobitha-s",
+    "slug": "mrs-s-annapurna-shohitha",
     "email": "annapurnas@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Annapurna_Shobitha-1793784106721-468659616.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1098"
@@ -1615,7 +1614,7 @@
     "deptKey": "aiml",
     "dbId": "6a8d00f74a60b7dd6ea7a333",
     "dbFullName": "Esakkiraj M",
-    "slug": "esakkiraj-m",
+    "slug": "mr-m-esakkiraj",
     "email": "esakkirajm@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-5542-1793806735713-498581272.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1094"
@@ -1629,7 +1628,7 @@
     "deptKey": "aiml",
     "dbId": "6a8d010a4a60b7dd6ea7a341",
     "dbFullName": "Shivani Jha",
-    "slug": "shivani-jha",
+    "slug": "ms-shivani-jha",
     "email": "shivani@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Shivani_Jha-1793784136417-626206279.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1122"
@@ -1643,7 +1642,7 @@
     "deptKey": "mba",
     "dbId": "6a8d01684a60b7dd6ea7a385",
     "dbFullName": "Bhanu Sree Reddy Dornadula",
-    "slug": "bhanu-sree-reddy-dornadula",
+    "slug": "dr-bhanu-sree-reddy",
     "email": "drbhanusreereddy@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-BSR_Blazer_pic-1793345122921-98556439.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/701"
@@ -1655,11 +1654,11 @@
     "designation": "Professor",
     "department": "MBA",
     "deptKey": "mba",
-    "dbId": "6a8d01b44a60b7dd6ea7a3bd",
-    "dbFullName": "Dr Nagarajan B",
-    "slug": "dr-nagarajan-b",
-    "email": "drnagarajanbagavathi@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-BNRPhoto-1787916327860-167517494.jpg",
+    "dbId": "mits_fac_mba_631",
+    "dbFullName": "Dr. Nagarajan. G",
+    "slug": "dr-nagarajan-g",
+    "email": "nagarajang@mits.ac.in",
+    "profilePhoto": "https://mits.ac.in/public/uploads/faculty/Nagarajan.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/636"
   },
   {
@@ -1671,7 +1670,7 @@
     "deptKey": "mba",
     "dbId": "6a8d014f4a60b7dd6ea7a373",
     "dbFullName": "Pradeep Kumar D",
-    "slug": "pradeep-kumar-d",
+    "slug": "dr-d-pradeep-kumar",
     "email": "drpradeep@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Photo-1793704658311-981126188.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/270"
@@ -1685,7 +1684,7 @@
     "deptKey": "mba",
     "dbId": "6a8d01524a60b7dd6ea7a375",
     "dbFullName": "N Gangisetty A",
-    "slug": "n-gangisetty-a",
+    "slug": "dr-n-gangisetty",
     "email": "gangisetty@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Gangi_Setty-1793788744345-274656960.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/271"
@@ -1713,7 +1712,7 @@
     "deptKey": "mba",
     "dbId": "6a8d01654a60b7dd6ea7a383",
     "dbFullName": "Dr Venkateswarlu K",
-    "slug": "dr-venkateswarlu-k",
+    "slug": "dr-venkateswarlu-karumuri",
     "email": "drvenkateswarluk@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-venkaesearlu-1793789068379-248025127.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/554"
@@ -1727,7 +1726,7 @@
     "deptKey": "mba",
     "dbId": "6a8d015d4a60b7dd6ea7a37d",
     "dbFullName": "Dr Dasthagiri Basha K",
-    "slug": "dr-dasthagiri-basha-k",
+    "slug": "dr-k-dasthagiri-basha",
     "email": "drdasthagiribashak@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-dathagiri-1793788719766-986622086.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/284"
@@ -1741,7 +1740,7 @@
     "deptKey": "mba",
     "dbId": "6a8d01624a60b7dd6ea7a381",
     "dbFullName": "Dr Gnanaprasuna E",
-    "slug": "dr-gnanaprasuna-e",
+    "slug": "dr-e-gnanaprasuna",
     "email": "drgnanaprasunae@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-GP_Photo-1792668291597-220568942.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/537"
@@ -1753,11 +1752,11 @@
     "designation": "Assistant Professor",
     "department": "MBA",
     "deptKey": "mba",
-    "dbId": "6a6b156afa74501cd10e0850",
-    "dbFullName": "G R Hemanth Kumar",
-    "slug": "g-r-hemanth-kumar",
-    "email": "ato@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Hemanth-1793789241521-983363677.JPG",
+    "dbId": "6a8d014f4a60b7dd6ea7a373",
+    "dbFullName": "Pradeep Kumar D",
+    "slug": "dr-b-rajesh-kumar",
+    "email": "drpradeep@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Photo-1793704658311-981126188.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/499"
   },
   {
@@ -1783,7 +1782,7 @@
     "deptKey": "mba",
     "dbId": "6a8d016b4a60b7dd6ea7a387",
     "dbFullName": "Dr Sireesha Kosaraju",
-    "slug": "dr-sireesha-kosaraju",
+    "slug": "dr-kosaraju-sireesha",
     "email": "drsireeshak@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Kosaraju_Sireesha-1793788808826-604626829.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/712"
@@ -1825,7 +1824,7 @@
     "deptKey": "mba",
     "dbId": "6a8d01574a60b7dd6ea7a379",
     "dbFullName": "Sreekanth Bonthala",
-    "slug": "sreekanth-bonthala",
+    "slug": "mr-b-sreekanth",
     "email": "sreekanthb@mits.ac.in",
     "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-532f8c20-fdf1-435e-b673-bdfcc17faa85-1792667357159-228909551.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/399"
@@ -1839,7 +1838,7 @@
     "deptKey": "mba",
     "dbId": "6a8d01fd4a60b7dd6ea7a3f3",
     "dbFullName": "Sameer Kumar DV",
-    "slug": "sameer-kumar-dv",
+    "slug": "mr-d-v-sameer-kumar",
     "email": "sameerkumardv@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Sameer_kumar-1793788982160-765457892.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1149"
@@ -1851,11 +1850,11 @@
     "designation": "Assistant Professor",
     "department": "MBA",
     "deptKey": "mba",
-    "dbId": "6a8d01844a60b7dd6ea7a39b",
-    "dbFullName": "N Naveen Kumar",
-    "slug": "n-naveen-kumar",
-    "email": "drnaveenkumarn@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-nnk_IMAGE-1793171702382-320386539.JPG",
+    "dbId": "6a8d020a4a60b7dd6ea7a3fd",
+    "dbFullName": "Naveen Kumar S",
+    "slug": "mr-s-naveen-kumar",
+    "email": "naveenkumars@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Naveen_kumar-1793788906085-383795785.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1150"
   },
   {
@@ -1867,7 +1866,7 @@
     "deptKey": "mca",
     "dbId": "6a8d01874a60b7dd6ea7a39d",
     "dbFullName": "Dr Ganga Devi S V S",
-    "slug": "dr-ganga-devi-s-v-s",
+    "slug": "dr-s-v-s-ganga-devi",
     "email": "drgangadevisvs@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-gangadevi-1793789207624-638922066.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/253"
@@ -1881,7 +1880,7 @@
     "deptKey": "mca",
     "dbId": "6a8d01844a60b7dd6ea7a39b",
     "dbFullName": "N Naveen Kumar",
-    "slug": "n-naveen-kumar",
+    "slug": "dr-n-naveen-kumar",
     "email": "drnaveenkumarn@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-nnk_IMAGE-1793171702382-320386539.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/254"
@@ -1895,7 +1894,7 @@
     "deptKey": "mca",
     "dbId": "6ae1a0961889446f1941d98f",
     "dbFullName": "Somasundaram R S",
-    "slug": "somasundaram-r-s",
+    "slug": "dr-somasundaram-r-s",
     "email": "drsomasundaramrs@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-SOMASUNDARAM-1793789507055-678240951.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1145"
@@ -1909,7 +1908,7 @@
     "deptKey": "mca",
     "dbId": "6a8d01b44a60b7dd6ea7a3bd",
     "dbFullName": "Dr Nagarajan B",
-    "slug": "dr-nagarajan-b",
+    "slug": "dr-b-nagarajan",
     "email": "drnagarajanbagavathi@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-BNRPhoto-1787916327860-167517494.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1126"
@@ -1937,7 +1936,7 @@
     "deptKey": "mca",
     "dbId": "6a8d01ab4a60b7dd6ea7a3b7",
     "dbFullName": "Dr Prathapchandran K",
-    "slug": "dr-prathapchandran-k",
+    "slug": "dr-k-prathapchandran",
     "email": "drprathapchandrank@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Prathapchandran-1793789437302-294778557.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/736"
@@ -1951,7 +1950,7 @@
     "deptKey": "mca",
     "dbId": "6a8d01924a60b7dd6ea7a3a5",
     "dbFullName": "Dr Maruthamuthu R",
-    "slug": "dr-maruthamuthu-r",
+    "slug": "dr-r-maruthamuthu",
     "email": "drmaruthamuthur@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Maruthamuthu-1793789349093-55502197.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/260"
@@ -1965,7 +1964,7 @@
     "deptKey": "mca",
     "dbId": "6a8d01784a60b7dd6ea7a391",
     "dbFullName": "Dr Althaf Ali A",
-    "slug": "dr-althaf-ali-a",
+    "slug": "dr-a-althaf-ali",
     "email": "althafalia@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Althaf_Ali-1793789118175-616120960.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/262"
@@ -1977,11 +1976,11 @@
     "designation": "Assistant Professor",
     "department": "MCA",
     "deptKey": "mca",
-    "dbId": "6a8cf9aedeb7302af99f2dbc",
-    "dbFullName": "Srinivas Chodagam",
-    "slug": "srinivas-chodagam",
-    "email": "srinivasc@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Ch_Srinivas-1792671439336-11256467.jpeg",
+    "dbId": "6a8d018f4a60b7dd6ea7a3a3",
+    "dbFullName": "Dr Srinivasan J",
+    "slug": "dr-srinivasan-jagannathan",
+    "email": "drsrinivasanj@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Srinivasan_Jagannathan-1787808921809-138131666.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/263"
   },
   {
@@ -2005,11 +2004,11 @@
     "designation": "Assistant Professor",
     "department": "MCA",
     "deptKey": "mca",
-    "dbId": "6a8d00d34a60b7dd6ea7a319",
-    "dbFullName": "Dr. Nirmala Devi K",
-    "slug": "dr-nirmala-devi-k",
-    "email": "drnirmaladevikathamuthu@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Nirmala_Devi-1793781765706-689556939.JPG",
+    "dbId": "6a8d01a04a60b7dd6ea7a3af",
+    "dbFullName": "Dr. N. Nirmala Devi",
+    "slug": "dr-n-nirmala-devi",
+    "email": "drnirmaladevin@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Nirmala_Devi-1793789418648-749264536.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/544"
   },
   {
@@ -2021,7 +2020,7 @@
     "deptKey": "mca",
     "dbId": "6a8d01a34a60b7dd6ea7a3b1",
     "dbFullName": "Dr Jude Moses Anto Devakanth J",
-    "slug": "dr-jude-moses-anto-devakanth-j",
+    "slug": "dr-j-jude-moses-anto-devakanth",
     "email": "drjudedevakanthj@mits.ac.in",
     "profilePhoto": "http://127.0.0.1:5005/uploads/profile/file-Jude-1787810404183-919361828.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/634"
@@ -2049,7 +2048,7 @@
     "deptKey": "mca",
     "dbId": "6a8d01a54a60b7dd6ea7a3b3",
     "dbFullName": "SUGANYA S",
-    "slug": "suganya-s",
+    "slug": "mrs-s-suganya",
     "email": "suganyas@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Suganya-1793789536114-789367010.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/639"
@@ -2061,11 +2060,11 @@
     "designation": "Assistant Professor",
     "department": "MCA",
     "deptKey": "mca",
-    "dbId": "6a6b156afa74501cd10e0850",
-    "dbFullName": "G R Hemanth Kumar",
-    "slug": "g-r-hemanth-kumar",
-    "email": "ato@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Hemanth-1793789241521-983363677.JPG",
+    "dbId": "6a8d01844a60b7dd6ea7a39b",
+    "dbFullName": "N Naveen Kumar",
+    "slug": "mr-g-r-hemanth-kumar",
+    "email": "drnaveenkumarn@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-nnk_IMAGE-1793171702382-320386539.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/125"
   },
   {
@@ -2077,7 +2076,7 @@
     "deptKey": "mca",
     "dbId": "6a8d01974a60b7dd6ea7a3a9",
     "dbFullName": "Seshu Kumar P",
-    "slug": "seshu-kumar-p",
+    "slug": "mr-p-seshu-kumar",
     "email": "seshukumarp@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Seshu_Kumar-1793789483402-982249047.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/473"
@@ -2089,11 +2088,11 @@
     "designation": "Assistant Professor",
     "department": "MCA",
     "deptKey": "mca",
-    "dbId": "6a8d00c14a60b7dd6ea7a30d",
-    "dbFullName": "Roopa R",
-    "slug": "roopa-r",
-    "email": "roopar@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Roopa-1793781824402-531534101.JPG",
+    "dbId": "6a8d019d4a60b7dd6ea7a3ad",
+    "dbFullName": "Roopa Kalluri",
+    "slug": "mrs-roopa",
+    "email": "roopak@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Roopa-1793789463619-157930883.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/506"
   },
   {
@@ -2105,7 +2104,7 @@
     "deptKey": "mca",
     "dbId": "6a8d019a4a60b7dd6ea7a3ab",
     "dbFullName": "Naveen Chandra A",
-    "slug": "naveen-chandra-a",
+    "slug": "mr-a-naveen-chandra",
     "email": "naveenchandraa@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Naveen-1793789389778-883567379.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/487"
@@ -2119,7 +2118,7 @@
     "deptKey": "mca",
     "dbId": "6a8d01a94a60b7dd6ea7a3b5",
     "dbFullName": "Mallikarjuna Repana",
-    "slug": "mallikarjuna-repana",
+    "slug": "mr-repana-mallikarjuna",
     "email": "mallikarjunar@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-MallikarjunaPhoto-1787811625183-137979498.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/678"
@@ -2131,11 +2130,11 @@
     "designation": "Assistant Professor",
     "department": "MCA",
     "deptKey": "mca",
-    "dbId": "6a8d00484a60b7dd6ea7a2b3",
-    "dbFullName": "Dr Kavitha P",
-    "slug": "dr-kavitha-p",
-    "email": "drkavithap@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Kavitha-1793941761358-723330139.JPG",
+    "dbId": "6ae19fa71889446f1941d535",
+    "dbFullName": "Kudumu Kavitha",
+    "slug": "mrs-k-kavitha",
+    "email": "kavithak@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Kavitha-1793789326405-524960454.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/460"
   },
   {
@@ -2161,7 +2160,7 @@
     "deptKey": "bsh",
     "dbId": "6a6c3207fa74501cd10e5777",
     "dbFullName": "Shanmuga Priya Selva",
-    "slug": "shanmuga-priya-selva",
+    "slug": "dr-shanmuga-priya",
     "email": "shanmugapriyas@mits.ac.in",
     "profilePhoto": "http://127.0.0.1:5005/uploads/profile/file-IMG_2759-1787029720662-132671245.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/281"
@@ -2175,7 +2174,7 @@
     "deptKey": "bsh",
     "dbId": "6a6c3323fa74501cd10e57c7",
     "dbFullName": "Bishnu Paramguru Mahapatra",
-    "slug": "bishnu-paramguru-mahapatra",
+    "slug": "dr-bishnu-paramguru-mahapatra",
     "email": "drbishnupm@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Bishnu_Paramguru_Mahapatra-1793787559129-834436253.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/697"
@@ -2187,11 +2186,11 @@
     "designation": "Assistant Professor",
     "department": "English & FL",
     "deptKey": "bsh",
-    "dbId": "6a8d01ae4a60b7dd6ea7a3b9",
-    "dbFullName": "Dr.Anitha P T",
-    "slug": "dr-anitha-p-t",
-    "email": "dranithapt@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-PTA-1793784181268-409879267.png",
+    "dbId": "6a6c404ffa74501cd10e65db",
+    "dbFullName": "Anitha Bolimela",
+    "slug": "dr-b-anitha",
+    "email": "dranithab@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Anitha-1793789161519-850024523.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/413"
   },
   {
@@ -2203,7 +2202,7 @@
     "deptKey": "bsh",
     "dbId": "6a6c422cfa74501cd10e6808",
     "dbFullName": "Lakshmi Devi",
-    "slug": "lakshmi-devi",
+    "slug": "dr-k-lakshmi-devi",
     "email": "lakshmikasangari@gmail.com",
     "profilePhoto": "/uploads/profile/profilePhoto-IMG_20260801_212524-1786518574428-183153047.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/321"
@@ -2217,7 +2216,7 @@
     "deptKey": "bsh",
     "dbId": "6a6c43c0fa74501cd10e680c",
     "dbFullName": "R Sriganesh",
-    "slug": "r-sriganesh",
+    "slug": "dr-r-sriganesh",
     "email": "sriganesh.nitt@gmail.com",
     "profilePhoto": "/uploads/profile/profilePhoto-Sriganesh_MITS-1793160137408-876697424.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/332"
@@ -2231,7 +2230,7 @@
     "deptKey": "bsh",
     "dbId": "6a6c34c2fa74501cd10e586c",
     "dbFullName": "Dr. Parvathi Malepati",
-    "slug": "dr-parvathi-malepati",
+    "slug": "dr-m-parvathi",
     "email": "parvathim@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Photo_recent-1785827313620-245204151.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/346"
@@ -2245,7 +2244,7 @@
     "deptKey": "bsh",
     "dbId": "6a6c42e1fa74501cd10e680a",
     "dbFullName": "RAJESH THULASIDASS",
-    "slug": "rajesh-thulasidass",
+    "slug": "dr-rajesh-thulasidass",
     "email": "rajesht@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-ghgh-1792667463923-914183745.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/699"
@@ -2257,11 +2256,11 @@
     "designation": "Associate Professor & Head (I/c)",
     "department": "Mathematics",
     "deptKey": "bsh",
-    "dbId": "6a8cf9b4deb7302af99f2dc0",
-    "dbFullName": "Dr SaravanaKumar R",
-    "slug": "dr-saravanakumar-r",
-    "email": "saravanakumarr@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Mits_photoshot-1790152619285-70138308.JPG",
+    "dbId": "6a8d01c74a60b7dd6ea7a3c9",
+    "dbFullName": "Dr. Saravana R",
+    "slug": "dr-r-saravana",
+    "email": "drsaravanar@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Saravana-1793167397628-574650471.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/351"
   },
   {
@@ -2273,7 +2272,7 @@
     "deptKey": "bsh",
     "dbId": "6a8d01c14a60b7dd6ea7a3c5",
     "dbFullName": "Dr Sudhakar Reddy M",
-    "slug": "dr-sudhakar-reddy-m",
+    "slug": "dr-m-sudhakar-reddy",
     "email": "drsudhakarreddym@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-sudhakar-1793787980285-244991101.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/752"
@@ -2287,7 +2286,7 @@
     "deptKey": "bsh",
     "dbId": "6a8d01d94a60b7dd6ea7a3d9",
     "dbFullName": "Dr Chalapathi T",
-    "slug": "dr-chalapathi-t",
+    "slug": "dr-t-chalapathi",
     "email": "drchalapathit@mits.ac.in",
     "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-Screenshot_2026-10-29-12-02-58-28_99c04817c0de5652397fc8b56c3b3817-1793255926691-904699258.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/446"
@@ -2315,7 +2314,7 @@
     "deptKey": "bsh",
     "dbId": "6ae2cacdc0576269b4c8f5bd",
     "dbFullName": "Surjeet K",
-    "slug": "surjeet-k",
+    "slug": "dr-surjeet",
     "email": "drsurjeet@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Surjeet_Kaushik-1793788003575-217994718.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1144"
@@ -2329,7 +2328,7 @@
     "deptKey": "bsh",
     "dbId": "6a8d01dc4a60b7dd6ea7a3db",
     "dbFullName": "Dr Sreelakshmi Kata",
-    "slug": "dr-sreelakshmi-kata",
+    "slug": "dr-kata-sreelakshmi",
     "email": "drsreelakshmik@mits.ac.in",
     "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-Sree_Photo-1793171711916-639180535.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/536"
@@ -2369,11 +2368,11 @@
     "designation": "Assistant Professor",
     "department": "Mathematics",
     "deptKey": "bsh",
-    "dbId": "6a8d00154a60b7dd6ea7a28f",
-    "dbFullName": "Sangeetha Murugan",
-    "slug": "sangeetha-murugan",
-    "email": "sangeetham@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Sangeetha-1793776692307-92422684.JPG",
+    "dbId": "mits_fac_math_1137",
+    "dbFullName": "Dr. Sangeetha Dhawan",
+    "slug": "dr-sangeetha-dhawan",
+    "email": "sangeethadhawan@mits.ac.in",
+    "profilePhoto": "https://mits.ac.in/public/uploads/faculty/Sangeetha Dhawan.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/693"
   },
   {
@@ -2385,7 +2384,7 @@
     "deptKey": "bsh",
     "dbId": "6adedb007a3a13081d7bbb4d",
     "dbFullName": "vivekanand mishra",
-    "slug": "vivekanand-mishra",
+    "slug": "dr-vivekanand-mishra",
     "email": "drvivekanandm@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-vivek-1793788645623-519605178.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1147"
@@ -2399,7 +2398,7 @@
     "deptKey": "bsh",
     "dbId": "6a6b22e4fa74501cd10e0bc0",
     "dbFullName": "Chandra Sekhar M",
-    "slug": "chandra-sekhar-m",
+    "slug": "dr-m-chandra-sekhar",
     "email": "drchandrasekharm@mits.ac.in",
     "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-Chandra-1794207722808-829551790.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/372"
@@ -2413,7 +2412,7 @@
     "deptKey": "bsh",
     "dbId": "6a76b335641f2ccd8273d49d",
     "dbFullName": "N Nanda Kumar Reddy",
-    "slug": "n-nanda-kumar-reddy",
+    "slug": "dr-n-nanda-kumar-reddy",
     "email": "nandakumarreddy@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Photo-1793777927460-668340268.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/378"
@@ -2427,7 +2426,7 @@
     "deptKey": "bsh",
     "dbId": "6a6b29a2fa74501cd10e165d",
     "dbFullName": "Sanjaya Brahma",
-    "slug": "sanjaya-brahma",
+    "slug": "dr-sanjaya-brahma",
     "email": "drsanjayabrahma@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-San-1785829777880-630435213.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/715"
@@ -2441,7 +2440,7 @@
     "deptKey": "bsh",
     "dbId": "6a6b2092fa74501cd10e086b",
     "dbFullName": "Reddeppa Nadimicherla",
-    "slug": "reddeppa-nadimicherla",
+    "slug": "dr-n-reddeppa",
     "email": "drreddeppan@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-mits_snap_2-1785830496291-84286661.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/370"
@@ -2455,7 +2454,7 @@
     "deptKey": "bsh",
     "dbId": "6a6b224afa74501cd10e0b71",
     "dbFullName": "Jagadeesh Babu Bellam",
-    "slug": "jagadeesh-babu-bellam",
+    "slug": "dr-jagadeesh-babu-bellam",
     "email": "jagadeeshbabub@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Jagadeesh_Babu_Bellam_Profile_pic-1785409443771-569127641.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/375"
@@ -2469,7 +2468,7 @@
     "deptKey": "bsh",
     "dbId": "6a6b2a6cfa74501cd10e1793",
     "dbFullName": "SUNKU SREEDHAR",
-    "slug": "sunku-sreedhar",
+    "slug": "dr-sunku-sreedhar",
     "email": "drsreedhars@mits.ac.in",
     "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-DrSunku_Sreedhar-1793702862664-80438056.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/379"
@@ -2483,7 +2482,7 @@
     "deptKey": "bsh",
     "dbId": "6a6b2142fa74501cd10e086d",
     "dbFullName": "Rajesh Dagupati",
-    "slug": "rajesh-dagupati",
+    "slug": "dr-rajesh-dagupati",
     "email": "drrajeshd@mits.ac.in",
     "profilePhoto": "http://127.0.0.1:5005/uploads/profile/file-DSC_1811-1786163276550-645998963.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/550"
@@ -2525,7 +2524,7 @@
     "deptKey": "bsh",
     "dbId": "6a6af86dfa74501cd10db7a5",
     "dbFullName": "Chandramohan Kukkambakam",
-    "slug": "chandramohan-kukkambakam",
+    "slug": "dr-k-chandra-mohan",
     "email": "drkchandramohan@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Chandra_Mohan_PP-1792670348086-396649100.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/376"
@@ -2539,7 +2538,7 @@
     "deptKey": "bsh",
     "dbId": "6a6af86dfa74501cd10db7a7",
     "dbFullName": "Amaladass P",
-    "slug": "amaladass-p",
+    "slug": "dr-p-amaladass",
     "email": "amaladass@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Amaladass-1793787315452-852845208.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/368"
@@ -2553,7 +2552,7 @@
     "deptKey": "bsh",
     "dbId": "6a71871f397480a8f2eb3ee3",
     "dbFullName": "Renjith Bhaskaran",
-    "slug": "renjith-bhaskaran",
+    "slug": "dr-renjith-bhaskaran",
     "email": "drrenjithb@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-rb-1792667706760-373878832.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/377"
@@ -2580,7 +2579,7 @@
     "deptKey": "bsh",
     "dbId": "6a6af86cfa74501cd10db79d",
     "dbFullName": "Rajaram R",
-    "slug": "rajaram-r",
+    "slug": "dr-rajaram-r",
     "email": "drrajaramr@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-DSC_1838-1785827982259-468328849.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/491"
@@ -2594,7 +2593,7 @@
     "deptKey": "bsh",
     "dbId": "6a6af86cfa74501cd10db79b",
     "dbFullName": "Venkateswara raju C",
-    "slug": "venkateswara-raju-c",
+    "slug": "dr-v-raju",
     "email": "drvenkateswararajuc@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Venkateswara_Raju-1793787513998-702617099.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/380"
@@ -2608,7 +2607,7 @@
     "deptKey": "bsh",
     "dbId": "6a6af86efa74501cd10db7ab",
     "dbFullName": "Imran Kondakamarla",
-    "slug": "imran-kondakamarla",
+    "slug": "dr-k-imran",
     "email": "imrank@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Imran-1793787417798-335601525.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/381"
@@ -2636,7 +2635,7 @@
     "deptKey": "bsh",
     "dbId": "6a6af86cfa74501cd10db79b",
     "dbFullName": "Venkateswara raju C",
-    "slug": "venkateswara-raju-c",
+    "slug": "dr-c-v-raju",
     "email": "drvenkateswararajuc@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Venkateswara_Raju-1793787513998-702617099.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/602"

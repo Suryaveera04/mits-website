@@ -247,7 +247,9 @@ const FacultyProfilePage = () => {
     const effectiveDeptFaculty = liveDeptFaculty.length > 0 ? liveDeptFaculty : dept.faculty;
 
     // 2. Find faculty member by slug in department list
-    let idx = effectiveDeptFaculty.findIndex((f) => slugifyFaculty(f.name) === slug);
+    let idx = effectiveDeptFaculty.findIndex(
+      (f) => slugifyFaculty(f.name) === slug || f.profileUrl?.endsWith(`/${slug}`)
+    );
     let f = idx >= 0 ? effectiveDeptFaculty[idx] : undefined;
 
     // If not found in department list, check static facultyProfiles for this department
@@ -354,7 +356,9 @@ const FacultyProfilePage = () => {
       ? effectiveDeptFaculty.filter((m) => getMemberSubDept(m) === currentSubDept)
       : effectiveDeptFaculty;
 
-    const scopedIdx = scopedList.findIndex((m) => slugifyFaculty(m.name) === slug);
+    const scopedIdx = scopedList.findIndex(
+      (m) => slugifyFaculty(m.name) === slug || m.profileUrl?.endsWith(`/${slug}`)
+    );
 
     return {
       faculty: f,

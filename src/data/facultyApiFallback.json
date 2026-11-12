@@ -1,6 +1,6 @@
 {
   "success": true,
-  "count": 319,
+  "count": 321,
   "data": [
     {
       "_id": "6a6af86cfa74501cd10db79b",
@@ -176897,6 +176897,54 @@
         "degree": "M.Sc. (Chemistry)",
         "university": "IIT Roorkee",
         "yearOfPassing": 2017
+      }
+    },
+    {
+      "_id": "mits_fac_mba_631",
+      "fullName": "Dr. Nagarajan. G",
+      "email": "nagarajang@mits.ac.in",
+      "department": {
+        "_id": "dept_mba",
+        "name": "Management Studies",
+        "code": "MBA"
+      },
+      "designation": "Assistant Professor",
+      "profilePhoto": "https://mits.ac.in/public/uploads/faculty/Nagarajan.jpg",
+      "experience": 8,
+      "specialization": [
+        "Financial Management",
+        "Corporate Finance",
+        "Investment Analysis"
+      ],
+      "phd": {
+        "topic": "Management Studies (Finance)",
+        "university": "Bharathidasan University",
+        "yearOfAward": 2018,
+        "status": "Awarded"
+      }
+    },
+    {
+      "_id": "mits_fac_math_1137",
+      "fullName": "Dr. Sangeetha Dhawan",
+      "email": "sangeethadhawan@mits.ac.in",
+      "department": {
+        "_id": "dept_mat",
+        "name": "Mathematics",
+        "code": "MATH"
+      },
+      "designation": "Assistant Professor",
+      "profilePhoto": "https://mits.ac.in/public/uploads/faculty/Sangeetha Dhawan.jpg",
+      "experience": 6,
+      "specialization": [
+        "Applied Mathematics",
+        "Differential Equations",
+        "Mathematical Modeling"
+      ],
+      "phd": {
+        "topic": "Mathematics",
+        "university": "IIT Roorkee",
+        "yearOfAward": 2019,
+        "status": "Awarded"
       }
     }
   ]
