@@ -7,7 +7,7 @@ import SEO from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useFacultyData, getFacultySeniorityPriority } from "@/hooks/useFacultyData";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
-import { getFacultyPhotoUrl } from "@/lib/facultyApi";
+import { getFacultyPhotoUrl, mapApiDeptToDeptKey } from "@/lib/facultyApi";
 import { Button } from "@/components/ui/button";
 import officialFacultyData from "@/data/officialFacultyList.json";
 
@@ -53,26 +53,40 @@ const FacultyInformation = () => {
   // Enrich the strict official roster of 189 faculties with database profiles
   const enrichedFacultyList = useMemo(() => {
     const dbMapById = new Map<string, (typeof facultyList)[0]>();
-    const dbMapBySlug = new Map<string, (typeof facultyList)[0]>();
+    const dbMapByDeptAndSlug = new Map<string, (typeof facultyList)[0]>();
+    const dbMapByGlobalSlug = new Map<string, (typeof facultyList)[0]>();
 
     for (const db of facultyList) {
       if (db._id) dbMapById.set(db._id, db);
+      const dept = mapApiDeptToDeptKey(db.department?.code, db.department?.name);
       const s = slugifyFaculty(db.fullName);
-      if (s) dbMapBySlug.set(s, db);
+      if (s) {
+        if (dept) dbMapByDeptAndSlug.set(`${dept}:${s}`, db);
+        if (!dbMapByGlobalSlug.has(s)) dbMapByGlobalSlug.set(s, db);
+      }
     }
 
     return (officialFacultyData as OfficialFacultyItem[]).map((item) => {
+      const cleanName = cleanFacultyName(item.name);
+      const slug = item.slug || slugifyFaculty(cleanName);
+      const deptSlugKey = `${item.deptKey}:${slug}`;
+      const deptNameKey = `${item.deptKey}:${slugifyFaculty(item.name)}`;
+
+      // Strictly prioritize:
+      // 1. Exact unique dbId match
+      // 2. Department-scoped slug match
+      // 3. Department-scoped raw name match
+      // 4. Global slug match fallback
       const dbMatch =
         (item.dbId ? dbMapById.get(item.dbId) : null) ||
-        dbMapBySlug.get(item.slug) ||
-        dbMapBySlug.get(slugifyFaculty(item.name)) ||
-        dbMapBySlug.get(slugifyFaculty(item.dbFullName));
+        dbMapByDeptAndSlug.get(deptSlugKey) ||
+        dbMapByDeptAndSlug.get(deptNameKey) ||
+        dbMapByGlobalSlug.get(slug) ||
+        dbMapByGlobalSlug.get(slugifyFaculty(item.name));
 
       const rawPhoto = dbMatch?.profilePhoto || item.profilePhoto;
       const photoUrl = getFacultyPhotoUrl(rawPhoto) || (rawPhoto?.startsWith("http") ? rawPhoto : undefined);
       const email = dbMatch?.email || item.email || undefined;
-      const cleanName = cleanFacultyName(item.name);
-      const slug = item.slug || slugifyFaculty(cleanName);
 
       return {
         ...item,
@@ -306,12 +320,18 @@ const FacultyInformation = () => {
             </Button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div
+            key={`${selectedDept}-${selectedDesignation}-${searchTerm ? "search" : "all"}`}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          >
             {filteredFaculty.map((f, i) => {
               const profileLink = `/department/${f.deptKey}/faculty/${f.slug}`;
 
               return (
-                <ScrollReveal key={f.dbId || `${f.name}-${i}`} delay={Math.min(0.2, (i % 8) * 0.03)}>
+                <ScrollReveal
+                  key={`${selectedDept}-${f.deptKey}-${f.sno}-${f.slug || f.name}`}
+                  delay={Math.min(0.2, (i % 8) * 0.03)}
+                >
                   <Link
                     to={profileLink}
                     className="group bg-white rounded-2xl border border-slate-200 p-5 shadow-xs hover:shadow-xl hover:border-[#caa74d]/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full no-underline"

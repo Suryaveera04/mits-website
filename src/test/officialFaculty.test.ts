@@ -42,4 +42,21 @@ describe("Official University Faculty Roster", () => {
 
     expect(resolved).toBe(189);
   });
+
+  it("must contain no duplicate dbIds across all 189 faculty members", () => {
+    const ids = officialList.map((f) => f.dbId).filter(Boolean);
+    const uniqueIds = new Set(ids);
+    expect(uniqueIds.size).toBe(ids.length);
+  });
+
+  it("filtering by department must strictly return only faculty belonging to that department", () => {
+    const departments = ["ce", "me", "eee", "ece", "cse", "ai", "cseds", "csecs", "aiml", "mba", "mca", "bsh"];
+    departments.forEach((deptKey) => {
+      const deptMembers = officialList.filter((f) => f.deptKey === deptKey);
+      expect(deptMembers.length).toBeGreaterThan(0);
+      deptMembers.forEach((member) => {
+        expect(member.deptKey).toBe(deptKey);
+      });
+    });
+  });
 });

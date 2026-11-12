@@ -391,10 +391,17 @@ export function useFacultyData() {
    */
   const getFacultyProfileBySlug = useCallback(
     (deptKey: string, slug: string): ReturnType<typeof apiFacultyToFacultyProfile> | undefined => {
-      // 1. Check official match first
-      const officialMatch = (officialFacultyList as any[]).find(
-        (o) => o.slug === slug || slugifyFaculty(o.name) === slug || o.dbId === slug
-      );
+      const normalizedKey = deptKey.toLowerCase().trim();
+      // 1. Check official match first within the requested department
+      const officialMatch =
+        (officialFacultyList as any[]).find(
+          (o) =>
+            (normalizedKey === "" || normalizedKey === "all" || o.deptKey === normalizedKey) &&
+            (o.slug === slug || slugifyFaculty(o.name) === slug || o.dbId === slug)
+        ) ||
+        (officialFacultyList as any[]).find(
+          (o) => o.slug === slug || slugifyFaculty(o.name) === slug || o.dbId === slug
+        );
       if (officialMatch?.dbId) {
         const found = facultyList.find((f) => f._id === officialMatch.dbId);
         if (found) {
@@ -406,7 +413,6 @@ export function useFacultyData() {
       }
 
       // 2. Direct database lookup
-      const normalizedKey = deptKey.toLowerCase().trim();
       const match = facultyList.find((f) => {
         const memberDept = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
         const memberSlug = slugifyFaculty(f.fullName);
@@ -427,17 +433,23 @@ export function useFacultyData() {
    */
   const getRawFacultyBySlug = useCallback(
     (slugOrId: string, deptKey?: string): APIFacultyMember | undefined => {
-      // 1. Check official match first
-      const officialMatch = (officialFacultyList as any[]).find(
-        (o) => o.slug === slugOrId || slugifyFaculty(o.name) === slugOrId || o.dbId === slugOrId
-      );
+      const normalizedKey = deptKey?.toLowerCase().trim();
+      // 1. Check official match first within the requested department
+      const officialMatch =
+        (officialFacultyList as any[]).find(
+          (o) =>
+            (!normalizedKey || normalizedKey === "all" || o.deptKey === normalizedKey) &&
+            (o.slug === slugOrId || slugifyFaculty(o.name) === slugOrId || o.dbId === slugOrId)
+        ) ||
+        (officialFacultyList as any[]).find(
+          (o) => o.slug === slugOrId || slugifyFaculty(o.name) === slugOrId || o.dbId === slugOrId
+        );
       if (officialMatch?.dbId) {
         const found = facultyList.find((f) => f._id === officialMatch.dbId);
         if (found) return found;
       }
 
       // 2. Direct database lookup
-      const normalizedKey = deptKey?.toLowerCase().trim();
       return (
         facultyList.find((f) => {
           if (f._id === slugOrId) return true;
