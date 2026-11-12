@@ -1,4 +1,5 @@
-import { FileText, ExternalLink, Landmark, ArrowRight, ShieldCheck } from "lucide-react";
+import { useState } from "react";
+import { FileText, ExternalLink, Landmark, ArrowRight, ShieldCheck, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageShell from "@/components/about/PageShell";
 
@@ -8,25 +9,43 @@ interface MeetingItem {
   url: string;
 }
 
+// All 5 Finance Committee (DTBU) 2025-26 meetings verified with live https://mits.ac.in/university-finance-committee
 const dtbuFinanceMeetings: MeetingItem[] = [
   {
     sno: 1,
-    title: "Minutes of 3rd Finance Committee meeting",
-    url: "https://mits.ac.in/assets/pdf/admin/Minutes of 3rd Finance Committee meeting.pdf",
+    title: "Minutes of 5th Finance Committee meeting",
+    url: "https://mits.ac.in/assets/pdf/admin/5th Finance Comittee Meeting-protected.pdf",
   },
   {
     sno: 2,
-    title: "Minutes of 2nd Finance Committee Meeting",
-    url: "https://mits.ac.in/assets/pdf/admin/Minutes of 2nd Finance Committee meeting.pdf",
+    title: "Minutes of 4th Finance Committee meeting",
+    url: "https://mits.ac.in/assets/pdf/admin/Minutes of 4th Finance Committee meeting-protected.pdf",
   },
   {
     sno: 3,
+    title: "Minutes of 3rd Finance Committee meeting",
+    url: "https://mits.ac.in/assets/pdf/admin/Minutes of 3rd Finance Committee meeting-protected.pdf",
+  },
+  {
+    sno: 4,
+    title: "Minutes of 2nd Finance Committee Meeting",
+    url: "https://mits.ac.in/assets/pdf/admin/Minutes of 2nd Finance Committee meeting-protected.pdf",
+  },
+  {
+    sno: 5,
     title: "Minutes of 1st Finance Committee Meeting",
-    url: "https://mits.ac.in/assets/pdf/admin/Minutes of 1st Finance Committee Meeting.pdf",
+    url: "https://mits.ac.in/assets/pdf/admin/Minutes of 1st Finance Committee Meeting-protected.pdf",
   },
 ];
 
 const UniversityFinanceCommitteePage = () => {
+  const [search, setSearch] = useState("");
+
+  const filteredMeetings = dtbuFinanceMeetings.filter((item) =>
+    item.title.toLowerCase().includes(search.toLowerCase()) ||
+    item.sno.toString().includes(search)
+  );
+
   return (
     <PageShell
       eyebrow="Governance & Finance"
@@ -61,127 +80,98 @@ const UniversityFinanceCommitteePage = () => {
           </div>
 
           <p className="text-sm text-slate-600 leading-relaxed">
-            The Finance Committee of MITS Deemed to be University is a statutory body constituted as per UGC
-            regulations. It advises the Executive Council on financial matters, scrutinizes the annual budget estimates,
-            reviews audited accounts, oversees recurring and non-recurring expenditures, and monitors the institutional
-            financial policies.
+            The Finance Committee of MITS Deemed to be University exercises overarching statutory oversight regarding annual budget forecasts, audited statements, capital allocation, statutory reserves, and financial governance standards as stipulated under University Grants Commission (UGC) norms.
           </p>
-
-          <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-3 border-t border-slate-100">
-            <span className="flex items-center gap-1.5 font-medium text-slate-700">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" /> UGC Deemed to be University Compliance
-            </span>
-            <span className="text-slate-300">•</span>
-            <span>Academic Year: 2025–26</span>
-            <span className="text-slate-300">•</span>
-            <span>All records verified and signed</span>
-          </div>
         </div>
 
-        {/* Meetings Table */}
-        <div className="bg-white border border-[#0f2a44]/15 rounded-2xl overflow-hidden shadow-sm">
-          <div className="px-6 py-4 bg-slate-50/80 border-b border-[#0f2a44]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <h3 className="font-display font-bold text-base text-[#0f2a44]">
-              Minutes of Finance Committee Meetings
-            </h3>
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#8b0000]/10 text-[#8b0000] self-start sm:self-auto">
-              {dtbuFinanceMeetings.length} Meetings on Record
-            </span>
+        {/* Search & Records Section */}
+        <div className="bg-white border border-[#0f2a44]/15 rounded-2xl p-6 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
+            <div>
+              <h3 className="font-display font-bold text-lg text-[#0f2a44]">
+                Proceedings of Finance Committee Meetings
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Official signed minutes of Deemed to be University meetings
+              </p>
+            </div>
+
+            <div className="relative w-full sm:w-72">
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+              <input
+                type="text"
+                placeholder="Search meeting (e.g. 5th)..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#8b0000]/20 focus:border-[#8b0000]"
+              />
+            </div>
           </div>
 
-          <div className="overflow-x-auto">
+          {/* Table */}
+          <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
             <table className="w-full border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-[#8b0000] text-white">
-                  <th className="py-3.5 px-5 font-semibold w-20 text-center border border-white/20">
+                  <th className="py-3 px-4 font-semibold w-16 text-center border-r border-white/20">
                     S.No
                   </th>
-                  <th className="py-3.5 px-5 font-semibold border border-white/20">
+                  <th className="py-3 px-4 font-semibold border-r border-white/20">
                     Finance Committee
                   </th>
-                  <th className="py-3.5 px-5 font-semibold w-32 text-center border border-white/20">
-                    View Document
+                  <th className="py-3 px-4 font-semibold w-28 text-center">
+                    View
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {dtbuFinanceMeetings.map((item, idx) => (
-                  <tr
-                    key={item.sno}
-                    className={`hover:bg-amber-50/50 transition-colors ${
-                      idx % 2 === 0 ? "bg-white" : "bg-slate-50/60"
-                    }`}
-                  >
-                    <td className="py-4 px-5 font-semibold text-slate-600 text-center border border-slate-100">
-                      {item.sno}
-                    </td>
-                    <td className="py-4 px-5 text-slate-800 font-medium border border-slate-100">
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2.5 text-slate-800 hover:text-[#8b0000] font-medium transition-colors group"
-                      >
-                        <FileText className="w-4 h-4 text-[#8b0000] shrink-0 group-hover:scale-110 transition-transform" />
-                        <span>{item.title}</span>
-                      </a>
-                    </td>
-                    <td className="py-4 px-5 text-center border border-slate-100">
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#8b0000]/10 text-[#8b0000] hover:bg-[#8b0000] hover:text-white transition-all shadow-xs"
-                      >
-                        <span>View</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
+                {filteredMeetings.length === 0 ? (
+                  <tr>
+                    <td colSpan={3} className="py-8 text-center text-slate-500 text-xs">
+                      No meeting found matching your query.
                     </td>
                   </tr>
-                ))}
+                ) : (
+                  filteredMeetings.map((item, idx) => (
+                    <tr
+                      key={item.sno}
+                      className={`hover:bg-amber-50/40 transition-colors ${
+                        idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"
+                      }`}
+                    >
+                      <td className="py-3.5 px-4 font-bold text-slate-600 text-center border-r border-slate-100">
+                        {item.sno}
+                      </td>
+                      <td className="py-3.5 px-4 text-slate-800 font-medium border-r border-slate-100">
+                        <span className="flex items-center gap-2">
+                          <FileText className="w-4 h-4 text-[#8b0000] shrink-0" />
+                          <span>{item.title}</span>
+                        </span>
+                      </td>
+                      <td className="py-3.5 px-4 text-center">
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-[#8b0000] hover:text-white hover:bg-[#8b0000] border border-[#8b0000]/30 transition-all shadow-xs"
+                        >
+                          <span>View</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>
 
-          <div className="px-6 py-3.5 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <p className="text-xs text-slate-500">
-              Official records maintained by the Registrar & Finance Office, MITS Deemed to be University.
-            </p>
-            <p className="text-xs text-slate-400">PDF format • Opens in new tab</p>
+          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span>Showing {filteredMeetings.length} of {dtbuFinanceMeetings.length} Recorded Meetings</span>
+            <span className="flex items-center gap-1 text-[#8b0000] font-semibold">
+              <ShieldCheck className="w-3.5 h-3.5" /> UGC Compliance Verified
+            </span>
           </div>
-        </div>
-
-        {/* Quick Navigation Footer */}
-        <div className="grid sm:grid-cols-2 gap-4">
-          <Link
-            to="/about/mandatory-disclosures"
-            className="p-5 rounded-2xl bg-white border border-[#0f2a44]/15 hover:border-[#8b0000]/40 transition-all shadow-xs flex items-center justify-between group"
-          >
-            <div>
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                Related Governance
-              </p>
-              <h4 className="font-bold text-slate-800 group-hover:text-[#8b0000] transition-colors mt-0.5">
-                Mandatory Disclosures
-              </h4>
-            </div>
-            <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-[#8b0000] group-hover:translate-x-1 transition-all" />
-          </Link>
-
-          <Link
-            to="/finance-committee"
-            className="p-5 rounded-2xl bg-[#0f2a44]/5 border border-[#0f2a44]/15 hover:bg-[#0f2a44]/10 hover:border-[#0f2a44]/30 transition-all shadow-xs flex items-center justify-between group"
-          >
-            <div>
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                Archive
-              </p>
-              <h4 className="font-bold text-[#0f2a44] transition-colors mt-0.5">
-                Finance Committee 2015–16 to 2025–26
-              </h4>
-            </div>
-            <ArrowRight className="w-5 h-5 text-[#0f2a44]/60 group-hover:text-[#0f2a44] group-hover:translate-x-1 transition-all" />
-          </Link>
         </div>
       </div>
     </PageShell>

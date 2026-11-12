@@ -5,7 +5,6 @@ import { ChevronDown, FileText, ExternalLink, Search, ShieldCheck } from "lucide
 import PageShell from "@/components/about/PageShell";
 import { Input } from "@/components/ui/input";
 import { mandatoryDisclosures } from "@/data/aboutData";
-
 import { mandatoryDisclosureRecords } from "@/data/mandatoryDisclosuresTableData";
 
 const MandatoryDisclosures = () => {
@@ -35,7 +34,7 @@ const MandatoryDisclosures = () => {
       title="Mandatory Disclosures"
       intro="Statutory documents, audit reports, AICTE/NBA approvals, UGC certifications and annual reports of MITS Deemed to be University."
     >
-      {/* KEY MANDATORY DISCLOSURES TABLE — Complete 76 Official Records */}
+      {/* KEY MANDATORY DISCLOSURES TABLE — Complete 78 Official Records */}
       <div className="mb-12 bg-white border border-[#0f2a44]/15 rounded-2xl p-5 sm:p-7 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5 pb-4 border-b border-[#0f2a44]/10">
           <div className="flex items-center gap-3">
@@ -69,13 +68,13 @@ const MandatoryDisclosures = () => {
           />
         </div>
 
-        <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm max-h-[550px] overflow-y-auto">
+        <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm max-h-[580px] overflow-y-auto">
           <table className="w-full border-collapse text-left text-sm">
             <thead className="sticky top-0 z-10">
               <tr className="bg-[#8b0000] text-white">
                 <th className="py-3.5 px-4 font-semibold w-20 text-center border border-white/20">S.No</th>
                 <th className="py-3.5 px-4 font-semibold border border-white/20">Mandatory Disclosure</th>
-                <th className="py-3.5 px-4 font-semibold w-28 text-center border border-white/20">View</th>
+                <th className="py-3.5 px-4 font-semibold w-32 text-center border border-white/20">View</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
@@ -101,13 +100,24 @@ const MandatoryDisclosures = () => {
                       {doc.sno}
                     </td>
                     <td className="py-3 px-4 font-medium text-slate-800 border border-slate-200/80 leading-snug">
-                      {doc.title}
+                      <div className="flex items-center gap-2">
+                        {isInternal ? (
+                          <span className="shrink-0 text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-blue-50 text-[#0f2a44] border border-blue-200">
+                            Portal
+                          </span>
+                        ) : (
+                          <span className="shrink-0 text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-red-50 text-[#8b0000] border border-red-200">
+                            PDF
+                          </span>
+                        )}
+                        <span>{doc.title}</span>
+                      </div>
                     </td>
                     <td className="py-3 px-4 text-center border border-slate-200/80">
                       {isInternal ? (
                         <Link
                           to={targetUrl}
-                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold bg-[#8b0000]/10 text-[#8b0000] hover:bg-[#8b0000] hover:text-white transition-all shadow-xs"
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold bg-[#0f2a44] text-white hover:bg-[#11355a] transition-all shadow-xs"
                         >
                           <span>View</span>
                           <ExternalLink className="w-3 h-3" />

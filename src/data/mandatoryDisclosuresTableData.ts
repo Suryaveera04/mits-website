@@ -9,7 +9,7 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
   {
     "sno": "1",
     "title": "MITS Handbook Service Rules",
-    "href": "https://mits.ac.in/assets/pdf/admin/Staff Hand Book Service Rules-2024-25.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/MITS_DU_Staff_Handbook_Service_Rules_2026-27.pdf"
   },
   {
     "sno": "2",
@@ -49,17 +49,17 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
   {
     "sno": "9",
     "title": "Minutes of Governing Council Meeting 2014-2026",
-    "href": "https://mits.ac.in/bog"
+    "href": "/bog"
   },
   {
     "sno": "10",
     "title": "Minutes of Academic Council Meeting 2014-2026",
-    "href": "https://mits.ac.in/minutes-ac"
+    "href": "/minutes-ac"
   },
   {
     "sno": "11",
     "title": "Delegation of Financial Power",
-    "href": "https://mits.ac.in/assets/pdf/admin/DELEGATION OF FINANCIAL-POWER.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/DELEGATION OF FINANCIAL-POWER-protected.pdf"
   },
   {
     "sno": "12",
@@ -74,67 +74,67 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
   {
     "sno": "14",
     "title": "Audited statement (DTBU) for 2025-26",
-    "href": "https://mits.ac.in/assets/pdf/admin/Audited statement (DTBU) for 2025-26.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/MITS DTU Audit report for 2025-26-protected.pdf"
   },
   {
     "sno": "15",
     "title": "Audited statement for 2025-26",
-    "href": "https://mits.ac.in/assets/pdf/admin/Audited statement for 2025-26.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/Audit report 2025 - 26-protected.pdf"
   },
   {
     "sno": "16",
     "title": "Audited statement for 2024-25",
-    "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2024-25.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2024-25-protected.pdf"
   },
   {
     "sno": "17",
     "title": "Audited statement for 2023-24",
-    "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2023-24.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2023-24-protected.pdf"
   },
   {
     "sno": "18",
     "title": "Audited statement for 2022-23",
-    "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2022-23.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2022-23-protected.pdf"
   },
   {
     "sno": "19",
     "title": "Audited statement for 2021-22",
-    "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2021-22.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/Audit Report 2021-22-protected.pdf"
   },
   {
     "sno": "20",
     "title": "Audited statement for 2020-21",
-    "href": "https://mits.ac.in/assets/pdf/admin/AUDITED%20STATEMENT%202020-21-min.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/AUDITED%20STATEMENT%202020-21-min-protected.pdf"
   },
   {
     "sno": "21",
     "title": "Audited statement for 2019-20",
-    "href": "https://mits.ac.in/assets/pdf/admin/AUDITED%20STATEMENT%202019-20.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/AUDITED%20STATEMENT%202019-20-protected.pdf"
   },
   {
     "sno": "22",
     "title": "Audited statement for 2018-19",
-    "href": "https://mits.ac.in/assets/pdf/admin/AUDITED%20STATEMENT%202018-19.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/AUDITED%20STATEMENT%202018-19-protected.pdf"
   },
   {
     "sno": "23",
     "title": "Audited statement for 2017-18",
-    "href": "https://mits.ac.in/assets/pdf/admin/I%20&amp;%20E,%20Bal%20%20fin%20statement%202017-18.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/I%20&%20E,%20Bal%20fin%20statement%202017-18-protected.pdf"
   },
   {
     "sno": "24",
     "title": "Audited statement for 2016-17",
-    "href": "https://mits.ac.in/assets/pdf/admin/I%20&amp;%20E,%20BAL%202016-17%20MITS%20Audit%20Statement.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/I%20&%20E,%20BAL%202016-17%20MITS%20Audit%20Statement-protected.pdf"
   },
   {
     "sno": "25",
     "title": "Audited statement for 2015-16",
-    "href": "https://mits.ac.in/assets/pdf/admin/I%20&amp;%20E,%20BAL%202015-16%20MITS%20Audit%20Statement.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/I%20&%20E,%20BAL%202015-16%20MITS%20Audit%20Statement-protected.pdf"
   },
   {
     "sno": "26",
     "title": "Audited statement for 2014-15",
-    "href": "https://mits.ac.in/assets/pdf/admin/I%20&amp;%20E,%20BAL%202014-15%20MITS%20Audit%20Statement.pdf"
+    "href": "https://mits.ac.in/assets/pdf/admin/I%20&%20E,%20BAL%202014-15%20MITS%20Audit%20Statement-protected.pdf"
   },
   {
     "sno": "27",
@@ -218,12 +218,12 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
   },
   {
     "sno": "43",
-    "title": "BOS - Computer Science &amp; Technology",
+    "title": "BOS - Computer Science & Technology",
     "href": "https://mits.ac.in/assets/pdf/admin/BOS-CST.pdf"
   },
   {
     "sno": "44",
-    "title": "BOS - Computer Science &amp; Information Technology",
+    "title": "BOS - Computer Science & Information Technology",
     "href": "https://mits.ac.in/assets/pdf/admin/BOS-CSIT.pdf"
   },
   {
@@ -253,7 +253,7 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
   },
   {
     "sno": "50",
-    "title": "BOS - Department of English &amp; Foreign Languages",
+    "title": "BOS - Department of English & Foreign Languages",
     "href": "https://mits.ac.in/assets/pdf/admin/BOS-EFL.pdf"
   },
   {
@@ -273,8 +273,8 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
   },
   {
     "sno": "54",
-    "title": "2f &amp; 12B Certificates",
-    "href": "https://mits.ac.in/assets/pdf/admin/2f%20&amp;%2012B.pdf"
+    "title": "2f & 12B Certificates",
+    "href": "https://mits.ac.in/assets/pdf/admin/2f%20&%2012B.pdf"
   },
   {
     "sno": "55",
@@ -303,7 +303,7 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
   },
   {
     "sno": "60",
-    "title": "NBA Accreditation for UG Programmes (Civil, CSE, ECE, EEE &amp; ME) (2025 - 2028)",
+    "title": "NBA Accreditation for UG Programmes (Civil, CSE, ECE, EEE & ME) (2025 - 2028)",
     "href": "https://mits.ac.in/public/uploads/affiliations/Madanapalle%20Institute%20of%20Technology%20_%20Science,%20Andhra%20Pradesh19_6_2025_12_45_57.pdf"
   },
   {
@@ -318,7 +318,7 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
   },
   {
     "sno": "63",
-    "title": "NBA Accreditation for UG Programmes (Civil, CSE, ECE, EEE &amp; ME) (2022 - 2025)",
+    "title": "NBA Accreditation for UG Programmes (Civil, CSE, ECE, EEE & ME) (2022 - 2025)",
     "href": "https://mits.ac.in/public/uploads/affiliations/b6c8a081779294cbbd70a1180dc7746f.pdf"
   },
   {
@@ -333,12 +333,12 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
   },
   {
     "sno": "66",
-    "title": "NBA Accreditation for UG Programmes (CSE, ECE, EEE &amp; ME) (2019 - 2022) &amp; PG Programme (MBA) (2019 - 2022)",
+    "title": "NBA Accreditation for UG Programmes (CSE, ECE, EEE & ME) (2019 - 2022) & PG Programme (MBA) (2019 - 2022)",
     "href": "https://mits.ac.in/assets/pdf/admin/Madanapalle%20Institute%20of%20Technology%20_%20Science21_11_2019_12_47_22.pdf"
   },
   {
     "sno": "67",
-    "title": "NBA Accreditation for UG Programme (Civil) (2019 - 2022) &amp; PG Programme (MCA) (2019 - 2021)",
+    "title": "NBA Accreditation for UG Programme (Civil) (2019 - 2022) & PG Programme (MCA) (2019 - 2021)",
     "href": "https://mits.ac.in/assets/pdf/admin/NBA%20-%20Accreditation%20-%20MCA%20Civil%20-%20Till%202021%202022.pdf"
   },
   {
