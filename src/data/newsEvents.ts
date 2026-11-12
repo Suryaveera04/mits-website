@@ -9,6 +9,10 @@ export type NewsEventItem = {
   details: string;
   pdfUrl?: string;
   pinned?: boolean;
+  department?: string;
+  deptKey?: string;
+  departmentBadge?: string;
+  id?: number;
 };
 
 export type LatestNewsItem = {
@@ -20,9 +24,51 @@ export type LatestNewsItem = {
   image: string;
 };
 
-export const getNewsEventImageSrc = (imagePath: string) => {
-  const normalizedPath = imagePath.replace(/^\/+/, "");
-  return `${import.meta.env.BASE_URL}${normalizedPath}`;
+export const getNewsEventImageSrc = (imagePath?: string | null) => {
+  if (!imagePath || typeof imagePath !== "string") {
+    return `${import.meta.env.BASE_URL}Hero-Section/image-2.jpg`;
+  }
+  const trimmed = imagePath.trim();
+  if (!trimmed) {
+    return `${import.meta.env.BASE_URL}Hero-Section/image-2.jpg`;
+  }
+
+  const isLocal =
+    typeof window !== "undefined" &&
+    (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+
+  const baseUrl = import.meta.env.BASE_URL || "/";
+
+  // In local development, proxy aicampus.mits.ac.in get_content_image requests through local /cms-api
+  if (trimmed.includes("aicampus.mits.ac.in/mits-cms/backend/get_content_image.php")) {
+    const query = trimmed.split("get_content_image.php")[1] || "";
+    if (isLocal) {
+      return `${baseUrl}cms-api/get_content_image.php${query}`;
+    }
+    return trimmed;
+  }
+
+  // If already pointing to /cms-api
+  if (trimmed.startsWith("/cms-api") || trimmed.startsWith("cms-api")) {
+    const cleanProxy = trimmed.replace(/^\/+/, "");
+    return `${baseUrl}${cleanProxy}`;
+  }
+
+  if (
+    trimmed.startsWith("http://") ||
+    trimmed.startsWith("https://") ||
+    trimmed.startsWith("data:") ||
+    trimmed.startsWith("blob:")
+  ) {
+    return trimmed;
+  }
+
+  let cleanPath = trimmed;
+  if (baseUrl !== "/" && cleanPath.startsWith(baseUrl)) {
+    cleanPath = cleanPath.slice(baseUrl.length);
+  }
+  cleanPath = cleanPath.replace(/^\/+/, "");
+  return `${baseUrl}${cleanPath}`;
 };
 
 export const newsEvents: NewsEventItem[] = [

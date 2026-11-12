@@ -225,8 +225,27 @@ export default {
     if (endpoint.startsWith("/public_api/")) {
       endpoint = endpoint.slice("/public_api".length);
     } else if (!endpoint.startsWith("/get_subjects.php") && !endpoint.startsWith("/subjects.php") &&
-               !endpoint.startsWith("/get_projects.php") && !endpoint.startsWith("/projects.php")) {
+               !endpoint.startsWith("/get_projects.php") && !endpoint.startsWith("/projects.php") &&
+               !endpoint.startsWith("/get_content_image.php")) {
       return new Response("Not Found", { status: 404 });
+    }
+
+    // Images routing to origin /mits-cms/backend/get_content_image.php
+    if (endpoint === "/get_content_image.php") {
+      try {
+        const res = await fetchCMS("/mits-cms/backend/get_content_image.php" + url.search);
+        return new Response(res.body, {
+          status: res.status,
+          headers: {
+            "Content-Type": res.headers.get("content-type") || "image/jpeg",
+            "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+            "Access-Control-Allow-Credentials": "true",
+            "Cache-Control": "public, max-age=86400",
+          },
+        });
+      } catch (err) {
+        return new Response("Image proxy error: " + err.message, { status: 502 });
+      }
     }
 
     // Subjects routing to origin /mits-cms/backend/get_subjects.php

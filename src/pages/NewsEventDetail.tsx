@@ -25,7 +25,8 @@ const NewsEventDetail = () => {
   useEffect(() => {
     if (!slug || liveItem) return;
 
-    const numId = Number(slug.replace(/^cms-/, ""));
+    const match = slug.match(/^cms-(\d+)/);
+    const numId = match ? Number(match[1]) : Number(slug.replace(/^cms-/, ""));
     if (!isNaN(numId) && numId > 0) {
       setCmsLoading(true);
       fetchEventDetail(numId)

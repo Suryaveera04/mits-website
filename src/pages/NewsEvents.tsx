@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -6,9 +6,9 @@ import {
   Calendar, MapPin, Search, Filter, Sparkles, Building2,
   Tag, ExternalLink, ChevronRight, Loader2, PartyPopper, RefreshCw, Pin
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { getNewsEventImageSrc } from "@/data/newsEvents";
-import { useLiveEvents } from "@/hooks/useLiveEvents";
+import { useLiveEvents, getCanonicalDept } from "@/hooks/useLiveEvents";
 import { useAllCMSEvents, type CMSEvent } from "@/hooks/useDeptCMSData";
 import EventDetailModal from "@/components/EventDetailModal";
 import { Badge } from "@/components/ui/badge";
@@ -21,29 +21,18 @@ const deptFilters = [
   { id: "me", label: "Mechanical (ME)" },
   { id: "bsh", label: "BSH" },
   { id: "mca", label: "MCA" },
-  { id: "mba", label: "MBA / MNA" },
+  { id: "mba", label: "MBA" },
   { id: "ece", label: "ECE" },
   { id: "eee", label: "EEE" },
   { id: "aiml", label: "AI & ML" },
   { id: "ai", label: "AI" },
-  { id: "csecs", label: "CSE-CS" },
+  { id: "csecs", label: "Cyber Security" },
 ];
 
 function matchesDeptFilter(e: CMSEvent, filterId: string): boolean {
   if (filterId === "all") return true;
-  const d = (e.department || "").toLowerCase().trim();
-  if (filterId === "cse") return d === "cse" || d.includes("computer science & eng");
-  if (filterId === "ce") return d === "ce" || d === "civil" || d.includes("civil");
-  if (filterId === "me") return d === "me" || d === "mech" || d.includes("mech") || d.includes("mechanical");
-  if (filterId === "bsh") return d === "bsh" || d.includes("basic science") || d.includes("humanities");
-  if (filterId === "mca") return d === "mca" || d.includes("computer application");
-  if (filterId === "mba") return d === "mba" || d === "mna" || d.includes("management");
-  if (filterId === "ece") return d === "ece" || d.includes("electronics");
-  if (filterId === "eee") return d === "eee" || d.includes("electrical");
-  if (filterId === "aiml") return d === "aiml" || d.includes("aiml") || d.includes("machine learning");
-  if (filterId === "ai") return d === "ai" || d === "cse-ai";
-  if (filterId === "csecs") return d === "csecs" || d === "cs" || d.includes("cyber");
-  return true;
+  const canonical = getCanonicalDept(e.department);
+  return canonical.key === filterId;
 }
 
 const NewsEvents = () => {
@@ -52,7 +41,23 @@ const NewsEvents = () => {
   const [selectedDept, setSelectedDept] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<"highlights" | "cms">("highlights");
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const urlTab = searchParams.get("tab");
+  const [activeTab, setActiveTab] = useState<"highlights" | "cms">(
+    urlTab === "highlights" ? "highlights" : "cms"
+  );
+
+  useEffect(() => {
+    if (urlTab === "highlights" || urlTab === "cms") {
+      setActiveTab(urlTab);
+    }
+  }, [urlTab]);
+
+  const handleTabChange = (tab: "highlights" | "cms") => {
+    setActiveTab(tab);
+    setSearchParams({ tab });
+  };
 
   const filteredCmsEvents = useMemo(() => {
     return cmsEvents.filter((e) => {
@@ -103,23 +108,7 @@ const NewsEvents = () => {
             {/* View Switcher Tabs */}
             <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
               <button
-                onClick={() => setActiveTab("highlights")}
-                className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
-                  activeTab === "highlights"
-                    ? "bg-primary text-white shadow-md shadow-primary/20"
-                    : "bg-card text-muted-foreground hover:text-foreground border border-border"
-                }`}
-              >
-                <Building2 className="w-4 h-4" />
-                Campus Events &amp; Highlights
-                <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
-                  activeTab === "highlights" ? "bg-white/20 text-white" : "bg-muted text-foreground"
-                }`}>
-                  {liveEvents.length}
-                </span>
-              </button>
-              <button
-                onClick={() => setActiveTab("cms")}
+                onClick={() => handleTabChange("cms")}
                 className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
                   activeTab === "cms"
                     ? "bg-primary text-white shadow-md shadow-primary/20"
@@ -127,11 +116,27 @@ const NewsEvents = () => {
                 }`}
               >
                 <PartyPopper className="w-4 h-4" />
-                Departmental CMS Events
+                Departmental Events
                 <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
                   activeTab === "cms" ? "bg-white/20 text-white" : "bg-muted text-foreground"
                 }`}>
                   {cmsEvents.length}
+                </span>
+              </button>
+              <button
+                onClick={() => handleTabChange("highlights")}
+                className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                  activeTab === "highlights"
+                    ? "bg-primary text-white shadow-md shadow-primary/20"
+                    : "bg-card text-muted-foreground hover:text-foreground border border-border"
+                }`}
+              >
+                <Building2 className="w-4 h-4" />
+                Institutional Highlights
+                <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                  activeTab === "highlights" ? "bg-white/20 text-white" : "bg-muted text-foreground"
+                }`}>
+                  {liveEvents.length}
                 </span>
               </button>
             </div>
@@ -206,70 +211,80 @@ const NewsEvents = () => {
                   </div>
                 ) : (
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filteredCmsEvents.map((item) => (
-                      <div
-                        key={item.id}
-                        onClick={() => setSelectedEventId(item.id)}
-                        className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col cursor-pointer group"
-                      >
-                        <div className="relative aspect-[16/10] bg-slate-900 overflow-hidden">
-                          {item.poster ? (
-                            <img
-                              src={item.poster.startsWith("http") ? item.poster : `${import.meta.env.BASE_URL}${item.poster.replace(/^\//, "")}`}
-                              alt={item.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                              loading="lazy"
-                            />
-                          ) : (
-                            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-900 to-slate-800 text-slate-300">
-                              <Calendar className="w-10 h-10 mb-2 text-secondary opacity-80" />
-                              <span className="text-xs uppercase tracking-wider font-semibold text-slate-400">Department of</span>
-                              <span className="font-bold text-sm text-white mt-0.5">{item.department || "MITS"}</span>
-                            </div>
-                          )}
-                          {item.department && (
-                            <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wide bg-secondary/90 text-white backdrop-blur-sm shadow-sm">
-                              {item.department}
-                            </span>
-                          )}
-                          {item.type && (
-                            <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/90 text-primary backdrop-blur-sm shadow-sm">
-                              {item.type}
-                            </span>
-                          )}
-                        </div>
+                    {filteredCmsEvents.map((item) => {
+                      const dept = getCanonicalDept(item.department);
+                      const posterSrc = getNewsEventImageSrc(item.poster);
 
-                        <div className="p-5 flex-1 flex flex-col justify-between">
-                          <div>
-                            <h2 className="font-display text-base font-bold text-card-foreground group-hover:text-primary transition-colors line-clamp-2 leading-snug mb-2">
-                              {item.title}
-                            </h2>
-                            {item.description ? (
-                              <p className="text-sm text-muted-foreground line-clamp-2 mb-4 leading-relaxed">
-                                {item.description}
-                              </p>
+                      return (
+                        <div
+                          key={item.id}
+                          onClick={() => setSelectedEventId(item.id)}
+                          className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col cursor-pointer group"
+                        >
+                          <div className="relative aspect-[16/10] bg-slate-900 overflow-hidden">
+                            {item.poster ? (
+                              <img
+                                src={posterSrc}
+                                alt={item.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                loading="lazy"
+                                onError={(e) => {
+                                  const target = e.currentTarget;
+                                  const fallback = `${import.meta.env.BASE_URL}Hero-Section/image-2.jpg`;
+                                  if (target.src !== fallback) {
+                                    target.src = fallback;
+                                  }
+                                }}
+                              />
                             ) : (
-                              <p className="text-sm text-muted-foreground/70 italic line-clamp-2 mb-4">
-                                Click to view complete event schedule, resource persons, and coordinators.
-                              </p>
-                            )}
-                          </div>
-
-                          <div className="pt-3 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
-                            <div className="flex items-center gap-1.5 font-medium">
-                              <Calendar className="w-3.5 h-3.5 text-primary" />
-                              <span>{item.date || item.from_date || "Date TBA"}</span>
-                            </div>
-                            {item.venue && (
-                              <div className="flex items-center gap-1 line-clamp-1 max-w-[140px]">
-                                <MapPin className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
-                                <span className="truncate">{item.venue}</span>
+                              <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-300">
+                                <Calendar className="w-10 h-10 mb-2 text-secondary opacity-80" />
+                                <span className="text-xs uppercase tracking-wider font-semibold text-slate-400">Department of</span>
+                                <span className="font-bold text-sm text-white mt-0.5">{dept.name}</span>
                               </div>
                             )}
+                            <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wide bg-secondary/90 text-white backdrop-blur-sm shadow-sm">
+                              {dept.badge}
+                            </span>
+                            {item.type && (
+                              <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/90 text-primary backdrop-blur-sm shadow-sm">
+                                {item.type}
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                              <h2 className="font-display text-base font-bold text-card-foreground group-hover:text-primary transition-colors line-clamp-2 leading-snug mb-2">
+                                {item.title}
+                              </h2>
+                              {item.description ? (
+                                <p className="text-sm text-muted-foreground line-clamp-2 mb-4 leading-relaxed">
+                                  {item.description.replace(/<[^>]+>/g, "")}
+                                </p>
+                              ) : (
+                                <p className="text-sm text-muted-foreground/70 italic line-clamp-2 mb-4">
+                                  Click to view complete event schedule, resource persons, and coordinators.
+                                </p>
+                              )}
+                            </div>
+
+                            <div className="pt-3 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
+                              <div className="flex items-center gap-1.5 font-medium">
+                                <Calendar className="w-3.5 h-3.5 text-primary" />
+                                <span>{item.date || item.from_date || "Date TBA"}</span>
+                              </div>
+                              {item.venue && (
+                                <div className="flex items-center gap-1 line-clamp-1 max-w-[140px]">
+                                  <MapPin className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
+                                  <span className="truncate">{item.venue}</span>
+                                </div>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 )}
               </>
@@ -294,6 +309,13 @@ const NewsEvents = () => {
                           alt={item.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
+                          onError={(e) => {
+                            const target = e.currentTarget;
+                            const fallback = `${import.meta.env.BASE_URL}Hero-Section/image-2.jpg`;
+                            if (target.src !== fallback) {
+                              target.src = fallback;
+                            }
+                          }}
                         />
                       </div>
                       <div className="p-5">

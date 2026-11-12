@@ -6,6 +6,8 @@
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { CMS_CODE, CMS_ALT_CODES, isEventForDepartment, KNOWN_STANDALONE_EVENT_IDS } from "@/hooks/useDeptCMSData";
+import { getCanonicalDept } from "@/hooks/useLiveEvents";
+import { getNewsEventImageSrc } from "@/data/newsEvents";
 
 // ── constants mirrored from the hook ────────────────────────────────────────
 const WORKER_URL = "https://mits-cms-proxy.23691a4054.workers.dev/public_api";
@@ -307,5 +309,128 @@ describe("fetchEventDetail URL", () => {
     const json = await res.json() as { success: boolean; event: typeof event };
     expect(json.success).toBe(true);
     expect(json.event.title).toBe("Hackathon");
+  });
+});
+
+// ── 11. Canonical Department Mapping ─────────────────────────────────────────
+describe("getCanonicalDept", () => {
+  it("normalizes department aliases to canonical keys and badges", () => {
+    expect(getCanonicalDept("MCA").key).toBe("mca");
+    expect(getCanonicalDept("Computer Applications").key).toBe("mca");
+    expect(getCanonicalDept("CIVIL").key).toBe("ce");
+    expect(getCanonicalDept("CE").key).toBe("ce");
+    expect(getCanonicalDept("MECH").key).toBe("me");
+    expect(getCanonicalDept("ME").key).toBe("me");
+    expect(getCanonicalDept("Basic Sciences & Humanities").key).toBe("bsh");
+    expect(getCanonicalDept("BSH").key).toBe("bsh");
+    expect(getCanonicalDept("CS").key).toBe("csecs");
+    expect(getCanonicalDept("Cyber Security").key).toBe("csecs");
+    expect(getCanonicalDept("Management Studies").key).toBe("mba");
+    expect(getCanonicalDept("MBA").key).toBe("mba");
+    expect(getCanonicalDept("AI").key).toBe("ai");
+    expect(getCanonicalDept("AIML").key).toBe("aiml");
+    expect(getCanonicalDept("CSE").key).toBe("cse");
+  });
+
+  it("handles empty or missing department safely", () => {
+    const fallback = getCanonicalDept(null);
+    expect(fallback.key).toBe("campus");
+    expect(fallback.badge).toBe("MITS");
+  });
+});
+
+// ── 12. getNewsEventImageSrc ─────────────────────────────────────────────────
+describe("getNewsEventImageSrc", () => {
+  it("preserves external HTTP/HTTPS/data URLs", () => {
+    const httpUrl = "http://example.com/poster.jpg";
+    expect(getNewsEventImageSrc(httpUrl)).toBe(httpUrl);
+
+    const dataUrl = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUg==";
+    expect(getNewsEventImageSrc(dataUrl)).toBe(dataUrl);
+  });
+
+  it("handles aicampus CMS image proxying appropriately", () => {
+    const cmsUrl = "https://aicampus.mits.ac.in/mits-cms/backend/get_content_image.php?table=event_images&id=53";
+    const result = getNewsEventImageSrc(cmsUrl);
+    // In Node (non-local) or with proxy, it should retain the query params and image target
+    expect(result).toContain("get_content_image.php?table=event_images&id=53");
+  });
+
+  it("returns fallback hero image for null, undefined, or empty path", () => {
+    expect(getNewsEventImageSrc(null)).toContain("Hero-Section/image-2.jpg");
+    expect(getNewsEventImageSrc(undefined)).toContain("Hero-Section/image-2.jpg");
+    expect(getNewsEventImageSrc("")).toContain("Hero-Section/image-2.jpg");
+  });
+
+  it("correctly prepends BASE_URL to relative paths without duplication", () => {
+    const rel = "news-events/3k-run.jpg";
+    const result = getNewsEventImageSrc(rel);
+    expect(result).toContain("news-events/3k-run.jpg");
+    expect(result).not.toContain("//news-events");
+  });
+});
+
+// ── 13. Strictly 1 Event Per Department (Home Page Logic) ────────────────────
+describe("1-Event-Per-Department Home Page Selection", () => {
+  it("picks strictly one event per department prioritizing events with posters", () => {
+    // Simulated raw CMS events across departments with multiple events per dept
+    const mockEvents = [
+      { id: 91, department: "CS", from_date: "2026-08-13", title: "Cloud Computing", image: "" },
+      { id: 24, department: "CS", from_date: "2026-06-09", title: "Placement Training", image: "https://aicampus.mits.ac.in/...id=12" },
+      { id: 90, department: "MECH", from_date: "2026-09-28", title: "Surface Texturing", image: "" },
+      { id: 49, department: "MECH", from_date: "2026-10-03", title: "Innovation Startup", image: "https://aicampus.mits.ac.in/...id=52" },
+      { id: 89, department: "MCA", from_date: "2026-08-01", title: "WWW Day", image: "https://aicampus.mits.ac.in/...id=112" },
+      { id: 88, department: "MCA", from_date: "2026-05-15", title: "Quanta Wave", image: "" },
+      { id: 87, department: "Management Studies", from_date: "2026-04-04", title: "Beyond Limits", image: "" },
+      { id: 79, department: "AI", from_date: "2026-03-04", title: "AWS Training", image: "https://aicampus.mits.ac.in/...id=105" },
+      { id: 46, department: "Basic Sciences & Humanities", from_date: "2026-11-02", title: "Cambridge Event", image: "" },
+      { id: 45, department: "CSE", from_date: "2026-08-29", title: "Computer Networks", image: "https://aicampus.mits.ac.in/...id=50" },
+      { id: 31, department: "CIVIL", from_date: "2026-05-07", title: "Earth Day", image: "https://aicampus.mits.ac.in/...id=35" },
+    ];
+
+    // Group by canonical dept
+    const deptGroups = new Map<string, typeof mockEvents>();
+    for (const ev of mockEvents) {
+      const k = getCanonicalDept(ev.department).key;
+      if (!deptGroups.has(k)) deptGroups.set(k, []);
+      deptGroups.get(k)!.push(ev);
+    }
+
+    const deptRepresentatives: { item: typeof mockEvents[0]; hasImage: boolean }[] = [];
+    for (const [, list] of deptGroups) {
+      list.sort((a, b) => b.id - a.id);
+      const withPoster = list.find((e) => e.image && e.image.trim().length > 0);
+      if (withPoster) {
+        deptRepresentatives.push({ item: withPoster, hasImage: true });
+      } else {
+        deptRepresentatives.push({ item: list[0], hasImage: false });
+      }
+    }
+
+    deptRepresentatives.sort((a, b) => {
+      if (a.hasImage !== b.hasImage) return a.hasImage ? -1 : 1;
+      return b.item.id - a.item.id;
+    });
+
+    const top6 = deptRepresentatives.slice(0, 6).map((d) => d.item);
+    expect(top6).toHaveLength(6);
+
+    // Verify all 6 are from unique canonical departments (no duplicates!)
+    const deptKeys = top6.map((e) => getCanonicalDept(e.department).key);
+    const uniqueKeys = new Set(deptKeys);
+    expect(uniqueKeys.size).toBe(6);
+
+    // Verify all top 6 have poster images
+    top6.forEach((e) => {
+      expect(e.image).toBeTruthy();
+    });
+
+    // Verify specific chosen events with images
+    expect(top6.some((e) => e.id === 89 && getCanonicalDept(e.department).key === "mca")).toBe(true);
+    expect(top6.some((e) => e.id === 79 && getCanonicalDept(e.department).key === "ai")).toBe(true);
+    expect(top6.some((e) => e.id === 49 && getCanonicalDept(e.department).key === "me")).toBe(true);
+    expect(top6.some((e) => e.id === 45 && getCanonicalDept(e.department).key === "cse")).toBe(true);
+    expect(top6.some((e) => e.id === 31 && getCanonicalDept(e.department).key === "ce")).toBe(true);
+    expect(top6.some((e) => e.id === 24 && getCanonicalDept(e.department).key === "csecs")).toBe(true);
   });
 });

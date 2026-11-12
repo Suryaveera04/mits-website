@@ -85,7 +85,8 @@ function cmsProxyPlugin() {
     name: "cms-proxy",
     configureServer(server: import("vite").ViteDevServer) {
       server.middlewares.use((req, res, next) => {
-        const cleanUrl = (req.url || "").split("?")[0];
+        const rawUrl = req.url || "";
+        const cleanUrl = rawUrl.split("?")[0];
         if (cleanUrl === "/site.webmanifest" || cleanUrl === "/manifest.json" || cleanUrl === "/university/site.webmanifest" || cleanUrl === "/university/manifest.json") {
           const manifestPath = path.resolve(__dirname, "public/site.webmanifest");
           if (fs.existsSync(manifestPath)) {
@@ -95,10 +96,11 @@ function cmsProxyPlugin() {
             return;
           }
         }
-        if (!req.url?.startsWith("/cms-api")) return next();
-        const apiPath = req.url.slice("/cms-api".length);
+        const strippedUrl = rawUrl.replace(/^\/university/, "");
+        if (!strippedUrl.startsWith("/cms-api")) return next();
+        const apiPath = strippedUrl.slice("/cms-api".length);
         const [endpointOnly, queryStr] = apiPath.split("?");
-        const isImage = req.url.includes("get_content_image.php");
+        const isImage = rawUrl.includes("get_content_image.php");
         if (isImage) {
           // Serve image as binary, not JSON
           const imgReq = () => new Promise<Buffer>((resolve, reject) => {
@@ -108,7 +110,7 @@ function cmsProxyPlugin() {
             };
             if (cachedCookie) headers["Cookie"] = "__test=" + cachedCookie;
             const r = https.request(
-              { hostname: "aicampus.mits.ac.in", path: "/mits-cms/backend" + req.url!.slice("/cms-api".length), method: "GET", headers, rejectUnauthorized: false },
+              { hostname: "aicampus.mits.ac.in", path: "/mits-cms/backend" + apiPath, method: "GET", headers, rejectUnauthorized: false },
               (resp) => {
                 const chunks: Buffer[] = [];
                 resp.on("data", (c) => chunks.push(c));
@@ -237,8 +239,10 @@ function facultyProxyPlugin() {
     name: "faculty-proxy",
     configureServer(server: import("vite").ViteDevServer) {
       server.middlewares.use((req, res, next) => {
-        if (!req.url || !req.url.startsWith("/faculty-api")) return next();
-        const urlPath = "/mitsfaculty/api" + req.url.slice("/faculty-api".length);
+        const rawUrl = req.url || "";
+        const strippedUrl = rawUrl.replace(/^\/university/, "");
+        if (!strippedUrl.startsWith("/faculty-api")) return next();
+        const urlPath = "/mitsfaculty/api" + strippedUrl.slice("/faculty-api".length);
         const headers: Record<string, string> = {
           "User-Agent": "Mozilla/5.0 (compatible; MITSWeb/1.0)",
           "Accept": "*/*",
