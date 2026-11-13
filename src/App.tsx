@@ -193,6 +193,8 @@ const App = () => (
             <Route path="/ncc-army" element={<CellDetail overrideId="ncc-army" />} />
             <Route path="/ncc-air" element={<CellDetail overrideId="ncc-air" />} />
             <Route path="/ncc-airwing" element={<CellDetail overrideId="ncc-air" />} />
+            <Route path="/nep" element={<CellDetail overrideId="nep" />} />
+            <Route path="/nep-cell" element={<CellDetail overrideId="nep" />} />
             <Route path="/student-clubs-sac" element={<StudentClubs />} />
             <Route path="/faculty-information" element={<FacultyInformation />} />
             <Route path="/university/faculty-information" element={<FacultyInformation />} />
