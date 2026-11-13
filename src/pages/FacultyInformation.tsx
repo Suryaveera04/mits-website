@@ -185,6 +185,33 @@ const FacultyInformation = () => {
     });
   }, [enrichedFacultyList, searchTerm, selectedDept, selectedDesignation]);
 
+  const deptSections = useMemo(() => {
+    if (selectedDept !== "all") {
+      const deptFilter = DEPT_FILTERS.find((d) => d.key === selectedDept);
+      return [
+        {
+          key: selectedDept,
+          name: deptFilter?.label || selectedDept.toUpperCase(),
+          members: filteredFaculty,
+        },
+      ];
+    }
+
+    const sections: { key: string; name: string; members: typeof filteredFaculty }[] = [];
+    for (const dKey of DEPT_ORDER) {
+      const members = filteredFaculty.filter((f) => f.deptKey === dKey);
+      if (members.length > 0) {
+        const deptFilter = DEPT_FILTERS.find((d) => d.key === dKey);
+        sections.push({
+          key: dKey,
+          name: deptFilter?.label || dKey.toUpperCase(),
+          members,
+        });
+      }
+    }
+    return sections;
+  }, [filteredFaculty, selectedDept]);
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <Header />
@@ -322,73 +349,100 @@ const FacultyInformation = () => {
         ) : (
           <div
             key={`${selectedDept}-${selectedDesignation}-${searchTerm ? "search" : "all"}`}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+            className="space-y-12"
           >
-            {filteredFaculty.map((f, i) => {
-              const profileLink = `/department/${f.deptKey}/faculty/${f.slug}`;
+            {deptSections.map((section) => (
+              <section key={section.key} className="space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b-2 border-slate-200">
+                  <div className="flex items-center gap-3">
+                    <span className="w-3.5 h-3.5 rounded-full bg-[#b31317] shrink-0" />
+                    <h2 className="text-xl md:text-2xl font-bold text-[#0f2a44] font-display">
+                      {section.name.startsWith("Department") || section.name.startsWith("Basic") ? section.name : `Department of ${section.name}`}
+                    </h2>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-bold text-[#b31317] bg-[#b31317]/10 px-3 py-1 rounded-full">
+                      {section.members.length} {section.members.length === 1 ? "Member" : "Members"}
+                    </span>
+                    <Link
+                      to={`/department/${section.key}`}
+                      className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1"
+                    >
+                      <span>Explore Department</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
 
-              return (
-                <ScrollReveal
-                  key={`${selectedDept}-${f.deptKey}-${f.sno}-${f.slug || f.name}`}
-                  delay={Math.min(0.2, (i % 8) * 0.03)}
-                >
-                  <Link
-                    to={profileLink}
-                    className="group bg-white rounded-2xl border border-slate-200 p-5 shadow-xs hover:shadow-xl hover:border-[#caa74d]/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full no-underline"
-                  >
-                    <div>
-                      {/* Photo */}
-                      <div className="w-32 h-32 mx-auto rounded-2xl bg-slate-100 overflow-hidden mb-4 border-2 border-slate-100 group-hover:border-[#caa74d]/40 transition-colors shadow-xs relative">
-                        {f.photoUrl ? (
-                          <img
-                            src={f.photoUrl}
-                            alt={f.name}
-                            loading="lazy"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            onError={(e) => {
-                              (e.currentTarget as HTMLElement).style.display = "none";
-                              const fallback = e.currentTarget.parentElement?.querySelector(".avatar-fallback") as HTMLElement;
-                              if (fallback) fallback.style.display = "flex";
-                            }}
-                          />
-                        ) : null}
-                        <div
-                          className={`avatar-fallback w-full h-full ${
-                            f.photoUrl ? "hidden" : "flex"
-                          } items-center justify-center bg-gradient-to-br from-[#0f2a44]/10 to-slate-200 text-[#0f2a44] font-bold text-2xl`}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {section.members.map((f, i) => {
+                    const profileLink = `/department/${f.deptKey}/faculty/${f.slug}`;
+
+                    return (
+                      <ScrollReveal
+                        key={`${section.key}-${f.sno}-${f.slug || f.name}`}
+                        delay={Math.min(0.2, (i % 8) * 0.03)}
+                      >
+                        <Link
+                          to={profileLink}
+                          className="group bg-white rounded-2xl border border-slate-200 p-5 shadow-xs hover:shadow-xl hover:border-[#caa74d]/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full no-underline"
                         >
-                          {f.cleanName.split(" ").filter(Boolean).slice(0, 2).map((n) => n[0].toUpperCase()).join("")}
-                        </div>
-                      </div>
+                          <div>
+                            {/* Photo */}
+                            <div className="w-32 h-32 mx-auto rounded-2xl bg-slate-100 overflow-hidden mb-4 border-2 border-slate-100 group-hover:border-[#caa74d]/40 transition-colors shadow-xs relative">
+                              {f.photoUrl ? (
+                                <img
+                                  src={f.photoUrl}
+                                  alt={f.name}
+                                  loading="lazy"
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                  onError={(e) => {
+                                    (e.currentTarget as HTMLElement).style.display = "none";
+                                    const fallback = e.currentTarget.parentElement?.querySelector(".avatar-fallback") as HTMLElement;
+                                    if (fallback) fallback.style.display = "flex";
+                                  }}
+                                />
+                              ) : null}
+                              <div
+                                className={`avatar-fallback w-full h-full ${
+                                  f.photoUrl ? "hidden" : "flex"
+                                } items-center justify-center bg-gradient-to-br from-[#0f2a44]/10 to-slate-200 text-[#0f2a44] font-bold text-2xl`}
+                              >
+                                {f.cleanName.split(" ").filter(Boolean).slice(0, 2).map((n) => n[0].toUpperCase()).join("")}
+                              </div>
+                            </div>
 
-                      {/* Name & Designation & Department */}
-                      <div className="text-center space-y-1">
-                        <h3 className="font-display font-bold text-base text-[#0f2a44] group-hover:text-[#b31317] transition-colors line-clamp-1">
-                          {f.name}
-                        </h3>
-                        {f.qualification && (
-                          <p className="text-[11px] font-medium text-slate-500 line-clamp-1">
-                            {f.qualification}
-                          </p>
-                        )}
-                        <p className="text-xs font-semibold text-[#b31317] line-clamp-1">
-                          {f.designation}
-                        </p>
-                        <p className="text-[11px] text-slate-400 font-medium line-clamp-1">
-                          {f.department}
-                        </p>
-                      </div>
-                    </div>
+                            {/* Name & Designation & Department */}
+                            <div className="text-center space-y-1">
+                              <h3 className="font-display font-bold text-base text-[#0f2a44] group-hover:text-[#b31317] transition-colors line-clamp-1">
+                                {f.name}
+                              </h3>
+                              {f.qualification && (
+                                <p className="text-[11px] font-medium text-slate-500 line-clamp-1">
+                                  {f.qualification}
+                                </p>
+                              )}
+                              <p className="text-xs font-semibold text-[#b31317] line-clamp-1">
+                                {f.designation}
+                              </p>
+                              <p className="text-[11px] text-slate-400 font-medium line-clamp-1">
+                                {f.department}
+                              </p>
+                            </div>
+                          </div>
 
-                    {/* Footer View Profile */}
-                    <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0f2a44] group-hover:text-[#caa74d] transition-colors">
-                      <span>View Profile</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </Link>
-                </ScrollReveal>
-              );
-            })}
+                          {/* Footer View Profile */}
+                          <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0f2a44] group-hover:text-[#caa74d] transition-colors">
+                            <span>View Profile</span>
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </Link>
+                      </ScrollReveal>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
           </div>
         )}
       </main>

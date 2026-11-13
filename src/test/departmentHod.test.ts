@@ -152,4 +152,34 @@ describe("Department Head of Department (HOD) Resolution", () => {
     expect(chemistryHead).toBeDefined();
     expect(chemistryHead?.name.toLowerCase()).toContain("renjith");
   });
+
+  it("getFacultyByDept for BSH must categorize all members into their specific constituent subDepartments", () => {
+    const { result } = renderHook(() => useFacultyData());
+    const { getFacultyByDept } = result.current;
+
+    const bshMembers = getFacultyByDept("bsh");
+    expect(bshMembers.length).toBe(36);
+
+    const validSubDepts = new Set([
+      "Department of English & Foreign Languages",
+      "Department of Mathematics",
+      "Department of Physics",
+      "Department of Chemistry",
+    ]);
+
+    bshMembers.forEach((m) => {
+      expect(m.subDepartment).toBeDefined();
+      expect(validSubDepts.has(m.subDepartment!)).toBe(true);
+    });
+
+    const counts: Record<string, number> = {};
+    bshMembers.forEach((m) => {
+      counts[m.subDepartment!] = (counts[m.subDepartment!] || 0) + 1;
+    });
+
+    expect(counts["Department of English & Foreign Languages"]).toBe(8);
+    expect(counts["Department of Mathematics"]).toBe(9);
+    expect(counts["Department of Physics"]).toBe(10);
+    expect(counts["Department of Chemistry"]).toBe(9);
+  });
 });

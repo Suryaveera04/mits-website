@@ -1866,8 +1866,8 @@ const DepartmentPage = () => {
                         </div>
                       </div>
                     )}
-                    <div className="grid md:grid-cols-3 gap-6">
-                      <div className="md:col-span-2">
+                    <div className={deptKey === "bsh" ? "w-full" : "grid md:grid-cols-3 gap-6"}>
+                      <div className={deptKey === "bsh" ? "w-full" : "md:col-span-2"}>
                         <h2 className="text-2xl font-bold text-secondary mb-4" style={{ fontFamily: "var(--font-display)" }}>About Us</h2>
                         <div className="space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
                           {dept.about.split("\n\n").map((para, pIdx) => (
@@ -1875,49 +1875,51 @@ const DepartmentPage = () => {
                           ))}
                         </div>
                       </div>
-                      <div>
-                        <Card className="overflow-hidden border-2 border-primary/10 group hover:border-primary/30 transition-all duration-300 shadow-sm hover:shadow-md">
-                          <div className="bg-gradient-to-br from-primary to-primary/80 p-4 text-center">
-                            <div className="w-20 h-20 mx-auto rounded-full bg-white/20 flex items-center justify-center overflow-hidden mb-2 ring-2 ring-white/30">
-                              {hod.image ? (
-                                <img
-                                  src={hod.image}
-                                  alt={hod.name}
-                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                  onError={(e) => {
-                                    if (dept?.hod?.image && (e.currentTarget as HTMLImageElement).src !== dept.hod.image) {
-                                      (e.currentTarget as HTMLImageElement).src = dept.hod.image;
-                                    }
-                                  }}
-                                />
-                              ) : (
-                                <Users className="w-8 h-8 text-primary-foreground" />
+                      {deptKey !== "bsh" && hod && (
+                        <div>
+                          <Card className="overflow-hidden border-2 border-primary/10 group hover:border-primary/30 transition-all duration-300 shadow-sm hover:shadow-md">
+                            <div className="bg-gradient-to-br from-primary to-primary/80 p-4 text-center">
+                              <div className="w-20 h-20 mx-auto rounded-full bg-white/20 flex items-center justify-center overflow-hidden mb-2 ring-2 ring-white/30">
+                                {hod.image ? (
+                                  <img
+                                    src={hod.image}
+                                    alt={hod.name}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    onError={(e) => {
+                                      if (dept?.hod?.image && (e.currentTarget as HTMLImageElement).src !== dept.hod.image) {
+                                        (e.currentTarget as HTMLImageElement).src = dept.hod.image;
+                                      }
+                                    }}
+                                  />
+                                ) : (
+                                  <Users className="w-8 h-8 text-primary-foreground" />
+                                )}
+                              </div>
+                              <h4 className="text-primary-foreground font-bold text-sm">{hod.name}</h4>
+                              <p className="text-primary-foreground/80 text-xs mt-0.5">{hod.designation}</p>
+                              {hod.qualification && (
+                                <p className="text-primary-foreground/60 text-xs mt-0.5">{hod.qualification}</p>
                               )}
                             </div>
-                            <h4 className="text-primary-foreground font-bold text-sm">{hod.name}</h4>
-                            <p className="text-primary-foreground/80 text-xs mt-0.5">{hod.designation}</p>
-                            {hod.qualification && (
-                              <p className="text-primary-foreground/60 text-xs mt-0.5">{hod.qualification}</p>
-                            )}
-                          </div>
-                          <CardContent className="p-3 text-center bg-card">
-                            <span className="inline-block text-xs font-semibold text-accent-foreground bg-accent/20 px-2.5 py-1 rounded-full mb-2">
-                              Head of Department
-                            </span>
-                            {hod.name && (
-                              <div>
-                                <Link
-                                  to={hod.profileUrl || `/department/${deptKey}/faculty/${slugifyFaculty(hod.name)}`}
-                                  className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
-                                >
-                                  <span>View Profile</span>
-                                  <ChevronRight className="w-3.5 h-3.5" />
-                                </Link>
-                              </div>
-                            )}
-                          </CardContent>
-                        </Card>
-                      </div>
+                            <CardContent className="p-3 text-center bg-card">
+                              <span className="inline-block text-xs font-semibold text-accent-foreground bg-accent/20 px-2.5 py-1 rounded-full mb-2">
+                                Head of Department
+                              </span>
+                              {hod.name && (
+                                <div>
+                                  <Link
+                                    to={hod.profileUrl || `/department/${deptKey}/faculty/${slugifyFaculty(hod.name)}`}
+                                    className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+                                  >
+                                    <span>View Profile</span>
+                                    <ChevronRight className="w-3.5 h-3.5" />
+                                  </Link>
+                                </div>
+                              )}
+                            </CardContent>
+                          </Card>
+                        </div>
+                      )}
                     </div>
 
                     {deptKey === "bsh" && (

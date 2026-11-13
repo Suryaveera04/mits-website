@@ -391,12 +391,27 @@ export function useFacultyData() {
             const photoUrl =
               getFacultyPhotoUrl(db?.profilePhoto || o.profilePhoto) ||
               (o.profilePhoto?.startsWith("http") ? o.profilePhoto : undefined);
+            const subDept =
+              o.deptKey === "bsh"
+                ? (o.department === "English & FL" || o.department === "English" || (o.department || "").toLowerCase().includes("english"))
+                  ? "Department of English & Foreign Languages"
+                  : (o.department || "").toLowerCase().includes("math")
+                  ? "Department of Mathematics"
+                  : (o.department || "").toLowerCase().includes("physic")
+                  ? "Department of Physics"
+                  : (o.department || "").toLowerCase().includes("chemis")
+                  ? "Department of Chemistry"
+                  : (o.department || "").toLowerCase().includes("humanit")
+                  ? "Department of Humanities"
+                  : `Department of ${o.department}`
+                : undefined;
             return {
               name: o.name,
               designation: o.designation,
               qualification: o.qualification,
               email: db?.email || o.email || undefined,
               image: photoUrl,
+              subDepartment: subDept,
               profileUrl: `/department/${o.deptKey}/faculty/${o.slug}`,
               profile: db ? apiFacultyToFacultyMember(db).profile : undefined,
             };
@@ -417,7 +432,17 @@ export function useFacultyData() {
         })
         .map((f) => {
           // Strictly only database images; no old static image fallback
-          return apiFacultyToFacultyMember(f);
+          const member = apiFacultyToFacultyMember(f);
+          if (normalizedKey === "bsh" && !member.subDepartment) {
+            const code = (f.department?.code || "").toUpperCase();
+            const name = (f.department?.name || "").toUpperCase();
+            if (code === "EFL" || name.includes("ENGLISH")) member.subDepartment = "Department of English & Foreign Languages";
+            else if (code === "M" || code === "MATH" || name.includes("MATH")) member.subDepartment = "Department of Mathematics";
+            else if (code === "PHY" || name.includes("PHYSIC")) member.subDepartment = "Department of Physics";
+            else if (code === "CHY" || name.includes("CHEMIS")) member.subDepartment = "Department of Chemistry";
+            else if (code === "HUM" || code === "HU" || name.includes("HUMANIT")) member.subDepartment = "Department of Humanities";
+          }
+          return member;
         });
     },
     [facultyList]
