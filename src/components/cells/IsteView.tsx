@@ -105,7 +105,7 @@ export default function IsteView() {
             <span className="w-2 h-2 rounded-full bg-[#ffd15c]" />
             <span>Professional Societies &amp; Chapters</span>
           </p>
-          <h1 className="font-serif text-3xl md:text-5xl font-bold mb-4 tracking-tight !text-white text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
+          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight !text-white text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
             Indian Society for Technical Education (ISTE) Chapter
           </h1>
           <p className="!text-white/90 text-white text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-xs">
@@ -189,7 +189,7 @@ export default function IsteView() {
             {/* 2. ABOUT ISTE SECTION */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-gray-200/90 shadow-sm p-6 md:p-8">
-                <h2 className="text-2xl md:text-3xl font-bold font-serif text-[#0f2a44] mb-5 flex items-center gap-3">
+                <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] mb-5 flex items-center gap-3">
                   <span className="p-2 rounded-xl bg-red-50 text-[#990000] shrink-0">
                     <Award className="w-6 h-6 text-[#990000]" />
                   </span>
@@ -201,7 +201,7 @@ export default function IsteView() {
 
                 {/* 3. ISTE AP STATE AWARDS (PDF LIST) */}
                 <div className="mt-8 pt-6 border-t border-gray-100">
-                  <h3 className="text-lg md:text-xl font-bold font-serif text-[#0f2a44] mb-4 flex items-center gap-2">
+                  <h3 className="text-lg md:text-xl font-bold font-display text-[#0f2a44] mb-4 flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#990000]" />
                     <span>ISTE AP State Awards</span>
                   </h3>
@@ -241,7 +241,7 @@ export default function IsteView() {
 
                 {/* 4. MAJOR OBJECTIVES */}
                 <div className="mt-8 pt-6 border-t border-gray-100">
-                  <h3 className="text-lg md:text-xl font-bold font-serif text-[#0f2a44] mb-4">
+                  <h3 className="text-lg md:text-xl font-bold font-display text-[#0f2a44] mb-4">
                     The major objectives of the ISTE are :
                   </h3>
                   <ul className="space-y-2.5">
@@ -258,7 +258,7 @@ export default function IsteView() {
 
                 {/* 5. FOCUS AREAS */}
                 <div className="mt-8 pt-6 border-t border-gray-100">
-                  <h3 className="text-lg md:text-xl font-bold font-serif text-[#0f2a44] mb-4">
+                  <h3 className="text-lg md:text-xl font-bold font-display text-[#0f2a44] mb-4">
                     The MITS-ISTE Chapter major focus areas are:
                   </h3>
                   <ul className="space-y-2.5">
@@ -273,7 +273,7 @@ export default function IsteView() {
 
                 {/* 6. CONSOLIDATED DATA & OFFICE ORDERS */}
                 <div className="mt-8 pt-6 border-t border-gray-100">
-                  <h3 className="text-lg md:text-xl font-bold font-serif text-[#0f2a44] mb-4">
+                  <h3 className="text-lg md:text-xl font-bold font-display text-[#0f2a44] mb-4">
                     ISTE Institutional Documents &amp; Faculty Lists
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -317,7 +317,7 @@ export default function IsteView() {
               <section className="bg-white rounded-2xl border border-gray-200/90 shadow-sm p-6 md:p-8">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-gray-100">
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-bold font-serif text-[#0f2a44] flex items-center gap-2.5">
+                    <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] flex items-center gap-2.5">
                       <Calendar className="w-7 h-7 text-[#990000]" />
                       <span>Activities Organized</span>
                     </h2>
@@ -455,7 +455,7 @@ export default function IsteView() {
               <div className="bg-white rounded-2xl border border-gray-200/90 shadow-sm overflow-hidden sticky top-24">
                 {/* Header with crimson background and CRISP WHITE TEXT */}
                 <div className="bg-[#990000] px-6 py-3.5 border-b border-[#800000]">
-                  <h2 className="!text-white text-white font-serif text-base sm:text-lg font-bold tracking-wider uppercase m-0 p-0 flex items-center gap-2">
+                  <h2 className="!text-white text-white font-display text-base sm:text-lg font-bold tracking-wider uppercase m-0 p-0 flex items-center gap-2">
                     Coordinator of ISTE
                   </h2>
                 </div>
@@ -463,7 +463,7 @@ export default function IsteView() {
                 <div className="p-6 space-y-5">
                   {/* Coordinator profile */}
                   <div className="pb-4 border-b border-gray-100">
-                    <h3 className="font-serif text-xl font-bold text-[#0f2a44] leading-snug">
+                    <h3 className="font-display text-xl font-bold text-[#0f2a44] leading-snug">
                       {isteCoordinator.name}
                     </h3>
                     <p className="text-sm text-slate-600 font-medium mt-0.5">
@@ -534,7 +534,7 @@ export default function IsteView() {
 
                   {/* Committee Members (Matching Screenshot with Crimson Header) */}
                   <div className="pt-5 border-t border-gray-200">
-                    <h3 className="font-serif text-base sm:text-lg font-bold text-[#990000] flex items-center gap-2 mb-3 pb-1 border-b border-red-100">
+                    <h3 className="font-display text-base sm:text-lg font-bold text-[#990000] flex items-center gap-2 mb-3 pb-1 border-b border-red-100">
                       <Users className="w-4 h-4 text-[#990000]" />
                       <span>Committee Members</span>
                     </h3>
@@ -544,7 +544,7 @@ export default function IsteView() {
                           key={idx}
                           className="p-3 rounded-xl bg-slate-50 border border-gray-100 hover:border-red-200 transition-colors"
                         >
-                          <p className="text-sm font-serif font-bold text-[#0f2a44]">{member.name}</p>
+                          <p className="text-sm font-bold text-[#0f2a44]">{member.name}</p>
                           <p className="text-xs text-slate-600 font-medium">
                             {member.designation}
                           </p>
@@ -562,7 +562,7 @@ export default function IsteView() {
             {/* RELATED SOCIETIES & PORTALS */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-gray-200/80 shadow-sm p-6 space-y-4">
-                <h4 className="font-serif text-sm font-bold text-[#0f2a44] uppercase tracking-wider">
+                <h4 className="font-display text-sm font-bold text-[#0f2a44] uppercase tracking-wider">
                   Related Chapters &amp; Cells
                 </h4>
                 <div className="divide-y divide-gray-100 text-sm">
