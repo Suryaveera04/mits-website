@@ -96,8 +96,68 @@ export const ugCirculars: ExamLink[] = [
   }
 ];
 
-// 3. UG Mid Term Tests (22 items)
+// 3. UG Mid Term Tests (32 items)
 export const ugMidTermTimetables: ExamLink[] = [
+  {
+    "no": 33,
+    "title": "B.Tech II Year I Semester (R25) SEC I Mid Term Test II November 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/B. Tech II Year I Semester (R25) SEC -  I Mid Term Test -II  - November 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 32,
+    "title": "Civil - B.Tech II Year I Semester (R25) Model Laboratory Examinations November 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/Civil - B. Tech II Year I Semester (R25) Model Laboratory Examinations - November 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 31,
+    "title": "CSE - B.Tech II Year I Semester (R25) Model Laboratory Examinations November 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/CSE - B. Tech II Year I Semester (R25) Model Laboratory Examinations - November 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 30,
+    "title": "CSE (AI & ML) - B.Tech II Year I Semester (R25) Model Laboratory Examinations November 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/CSE ( AI &ML ) - B. Tech II Year I Semester (R25) Model Laboratory Examinations - November 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 29,
+    "title": "CSE (AI) - B.Tech II Year I Semester (R25) Model Laboratory Examinations - November 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/CSE ( AI ) - B. Tech II Year I Semester (R25) Model Laboratory Examinations - November 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 28,
+    "title": "CSE (CS) - B.Tech II Year I Semester (R25) Model Laboratory Examinations November 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/CSE ( CS ) - B. Tech II Year I Semester (R25) Model Laboratory Examinations - November 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 27,
+    "title": "CSE (DS) - B.Tech II Year I Semester (R25) Model Laboratory Examinations November 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/CSE ( DS ) - B. Tech II Year I Semester (R25) Model Laboratory Examinations - November 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 26,
+    "title": "ECE - B.Tech II Year I Semester (R25) Model Laboratory Examinations November 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/ECE - B. Tech II Year I Semester (R25) Model Laboratory Examinations - November 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 25,
+    "title": "EEE - B.Tech II Year I Semester (R25) Model Laboratory Examinations November 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/EEE - B. Tech II Year I Semester (R25) Model Laboratory Examinations - November 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 24,
+    "title": "ME - B.Tech II Year I Semester (R25) Model Laboratory Examinations November 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/ME - B. Tech II Year I Semester (R25) Model Laboratory Examinations - November 2026.pdf",
+    "kind": "pdf"
+  },
   {
     "no": 23,
     "title": "BBA I Year I Semester (R26) AEC I Mid Term Test I October 2026",
