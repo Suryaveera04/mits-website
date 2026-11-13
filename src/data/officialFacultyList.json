@@ -2358,7 +2358,7 @@
     "dbFullName": "Dr. Sangeetha Dhawan",
     "slug": "dr-sangeetha-dhawan",
     "email": "sangeethadhawan@mits.ac.in",
-    "profilePhoto": "https://mits.ac.in/public/uploads/faculty/Sangeetha Dhawan.jpg",
+    "profilePhoto": "https://mits.ac.in/public/uploads/faculty/Dr. Sangeeta Dhawan.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/693"
   },
   {
@@ -2542,19 +2542,6 @@
     "email": "drrenjithb@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-rb-1792667706760-373878832.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/377"
-  },
-  {
-    "sno": "184",
-    "name": "Dr. Sanoop P",
-    "qualification": "Ph.D. (University of Kerala)",
-    "designation": "Assistant Professor",
-    "department": "Chemistry",
-    "deptKey": "bsh",
-    "dbId": "mits_fac_chy_1139",
-    "dbFullName": "Dr. Sanoop P",
-    "slug": "dr-sanoop-p",
-    "email": "sanoopp@mits.ac.in",
-    "oldProfileUrl": "https://mits.ac.in/facultyprofile/500"
   },
   {
     "sno": "185",

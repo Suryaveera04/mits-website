@@ -515,6 +515,17 @@ const FacultyProfilePage = () => {
                     alt={profile.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {
+                      const fallbackImage = dept.faculty.find(
+                        (member) => slugifyFaculty(member.name) === slug
+                      )?.image;
+                      if (
+                        fallbackImage &&
+                        e.currentTarget.dataset.fallbackAttempted !== "true"
+                      ) {
+                        e.currentTarget.dataset.fallbackAttempted = "true";
+                        e.currentTarget.src = fallbackImage;
+                        return;
+                      }
                       (e.currentTarget as HTMLElement).style.display = "none";
                       const fallback = (e.currentTarget.parentElement?.querySelector(".avatar-fallback") as HTMLElement);
                       if (fallback) fallback.style.display = "flex";

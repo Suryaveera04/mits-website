@@ -3,14 +3,27 @@ import officialList from "@/data/officialFacultyList.json";
 import fallbackData from "@/data/facultyApiFallback.json";
 
 describe("Official University Faculty Roster", () => {
-  it("must contain 188 faculty members after removing the CSE (AI) listing", () => {
-    expect(officialList.length).toBe(188);
+  it("must contain 187 faculty members after the CSE (AI) and BSH removals", () => {
+    expect(officialList.length).toBe(187);
   });
 
   it("must not include Dr. Ben Sujin in the CSE (AI) faculty listing", () => {
     expect(
       officialList.some((faculty) => faculty.deptKey === "ai" && faculty.name === "Dr. Ben Sujin")
     ).toBe(false);
+  });
+
+  it("must not include Dr. Sanoop P in the BSH faculty listing", () => {
+    expect(
+      officialList.some((faculty) => faculty.deptKey === "bsh" && faculty.name === "Dr. Sanoop P")
+    ).toBe(false);
+  });
+
+  it("must use the working official profile photo for Dr. Sangeetha Dhawan", () => {
+    const faculty = officialList.find((member) => member.slug === "dr-sangeetha-dhawan");
+    expect(faculty?.profilePhoto).toBe(
+      "https://mits.ac.in/public/uploads/faculty/Dr. Sangeeta Dhawan.JPG"
+    );
   });
 
   it("every official faculty member must map to a valid department key and have non-empty slugs", () => {
@@ -46,10 +59,10 @@ describe("Official University Faculty Roster", () => {
       if (match) resolved++;
     });
 
-    expect(resolved).toBe(188);
+    expect(resolved).toBe(187);
   });
 
-  it("must contain no duplicate dbIds across all 188 faculty members", () => {
+  it("must contain no duplicate dbIds across all 187 faculty members", () => {
     const ids = officialList.map((f) => f.dbId).filter(Boolean);
     const uniqueIds = new Set(ids);
     expect(uniqueIds.size).toBe(ids.length);

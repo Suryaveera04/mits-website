@@ -397,6 +397,15 @@ const FacultyInformation = () => {
                                   loading="lazy"
                                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                   onError={(e) => {
+                                    const fallbackPhoto = getFacultyPhotoUrl(f.profilePhoto || undefined);
+                                    if (
+                                      fallbackPhoto &&
+                                      e.currentTarget.dataset.fallbackAttempted !== "true"
+                                    ) {
+                                      e.currentTarget.dataset.fallbackAttempted = "true";
+                                      e.currentTarget.src = fallbackPhoto;
+                                      return;
+                                    }
                                     (e.currentTarget as HTMLElement).style.display = "none";
                                     const fallback = e.currentTarget.parentElement?.querySelector(".avatar-fallback") as HTMLElement;
                                     if (fallback) fallback.style.display = "flex";
