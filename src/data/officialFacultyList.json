@@ -878,20 +878,6 @@
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1136"
   },
   {
-    "sno": "64",
-    "name": "Dr. Ben Sujin",
-    "qualification": "Ph.D. (Karunya University)",
-    "designation": "Professor",
-    "department": "CSE - AI",
-    "deptKey": "ai",
-    "dbId": "mits_fac_ai_1132",
-    "dbFullName": "Dr. Ben Sujin",
-    "slug": "dr-ben-sujin",
-    "email": "bensujin@mits.ac.in",
-    "profilePhoto": "https://mits.ac.in/public/uploads/faculty/Mr. K. Siva Raghavendra.JPG",
-    "oldProfileUrl": "https://mits.ac.in/facultyprofile/564"
-  },
-  {
     "sno": "65",
     "name": "Dr. R. Kalpana",
     "qualification": "Ph.D. (Anna University)",

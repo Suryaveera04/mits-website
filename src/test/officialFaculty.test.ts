@@ -3,8 +3,14 @@ import officialList from "@/data/officialFacultyList.json";
 import fallbackData from "@/data/facultyApiFallback.json";
 
 describe("Official University Faculty Roster", () => {
-  it("must contain exactly the 189 faculty members from mits.ac.in/faculty-information", () => {
-    expect(officialList.length).toBe(189);
+  it("must contain 188 faculty members after removing the CSE (AI) listing", () => {
+    expect(officialList.length).toBe(188);
+  });
+
+  it("must not include Dr. Ben Sujin in the CSE (AI) faculty listing", () => {
+    expect(
+      officialList.some((faculty) => faculty.deptKey === "ai" && faculty.name === "Dr. Ben Sujin")
+    ).toBe(false);
   });
 
   it("every official faculty member must map to a valid department key and have non-empty slugs", () => {
@@ -40,10 +46,10 @@ describe("Official University Faculty Roster", () => {
       if (match) resolved++;
     });
 
-    expect(resolved).toBe(189);
+    expect(resolved).toBe(188);
   });
 
-  it("must contain no duplicate dbIds across all 189 faculty members", () => {
+  it("must contain no duplicate dbIds across all 188 faculty members", () => {
     const ids = officialList.map((f) => f.dbId).filter(Boolean);
     const uniqueIds = new Set(ids);
     expect(uniqueIds.size).toBe(ids.length);
