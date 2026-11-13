@@ -541,8 +541,26 @@ export const pgCirculars: ExamLink[] = [
   }
 ];
 
-// 3. PG Mid Term Tests (31 items)
+// 3. PG Mid Term Tests (34 items)
 export const pgMidTermTimetables: ExamLink[] = [
+  {
+    "no": 31,
+    "title": "MBA I Year I Semester (R25) I Mid Term Test Schedule November 2026 (For 2026 Admitted batch)",
+    "href": "https://mits.ac.in/public/uploads/files/MBA I Year I Semester (R25) I Mid Term Test Schedule November 2026 (For 2026 Admitted batch).pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 30,
+    "title": "MCA I Year I Semester (R25) I Mid Term Test Schedule November 2026 (For 2026 Admitted batch)",
+    "href": "https://mits.ac.in/public/uploads/files/MCA I Year I Semester (R25) I Mid Term Test Schedule November 2026 (For 2026 Admitted batch).pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 29,
+    "title": "MBA I Year I Semester (R25) SEC I Mid Term Test I Schedule November 2026",
+    "href": "https://mits.ac.in/public/uploads/files/MBA I Year I Semester (R25) SEC I Mid Term Test I Schedule November 2026.pdf",
+    "kind": "pdf"
+  },
   {
     "no": 28,
     "title": "M.Tech (VES) II Year I Semester (R25) SEC III Mid Term Test I Time Table October 2026",
