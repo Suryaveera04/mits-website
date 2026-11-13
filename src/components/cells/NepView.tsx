@@ -1,19 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
   ChevronRight,
-  ChevronLeft,
   MapPin,
   Phone,
   Mail,
-  Play,
-  Pause,
   Maximize2,
   X,
   Download,
   ExternalLink,
-  Shield,
+  GraduationCap,
   BookOpen,
   Calendar,
   Users,
@@ -21,37 +18,34 @@ import {
   FileText,
   CheckCircle2,
   Award,
-  GraduationCap,
-  Sparkles,
-  Lightbulb,
-  Layers,
-  Globe,
-  Compass,
-  Clock,
-  Send,
   Eye,
-  Filter,
+  Building,
+  Bell,
+  Target,
+  Compass,
+  Layers,
+  Sparkles,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import {
-  nepCarouselSlides,
   nepTabs,
-  nepCommitteeMembers,
-  nepPolicyDocuments,
-  nepCommitteesDocs,
-  nepDigitalDocs,
-  nepInternshipDocs,
-  nepResearchDocs,
-  nepStudentDocs,
-  nepPlanningDocs,
-  nepNoticesDocs,
-  nepAccreditationDocs,
-  nepEvents,
-  nepGalleryImages,
-  NepDocument,
-  NepEvent,
+  nepAboutData,
+  nepPolicyFrameworks,
+  nepCommitteesTaskForces,
+  nepDigitalLearning,
+  nepInternshipCollaboration,
+  nepResearchCommunity,
+  nepStudentCentric,
+  nepInstitutionalPlanning,
+  nepNoticesDownloads,
+  nepAccreditationData,
+  nepEventsData,
+  nepGalleryItems,
+  nepContactData,
+  NepLinkItem,
+  NepEventItem,
 } from "./nepData";
 
 const BASE = import.meta.env.BASE_URL;
@@ -90,16 +84,18 @@ function PdfIcon({ className = "w-7 h-7" }: { className?: string }) {
   );
 }
 
-// Reusable Document Card/Row component
-function DocumentRow({
-  doc,
+// Clean Document Row matching official MITS publication-list
+function PublicationLinkRow({
+  item,
   index,
   onPreview,
 }: {
-  doc: NepDocument;
+  item: NepLinkItem;
   index: number;
-  onPreview: (doc: NepDocument) => void;
+  onPreview: (item: NepLinkItem) => void;
 }) {
+  const isDirectPdf = item.url.toLowerCase().endsWith(".pdf");
+
   return (
     <div className="group bg-white rounded-xl border border-slate-200/90 p-4 sm:p-5 hover:border-[#b31317]/50 hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
       <div className="flex items-start sm:items-center gap-3.5 flex-1 min-w-0">
@@ -107,22 +103,15 @@ function DocumentRow({
           {index + 1}
         </span>
         <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2 flex-wrap mb-1">
-            {doc.category && (
-              <span className="inline-block px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[11px] font-semibold tracking-wide border border-slate-200">
-                {doc.category}
-              </span>
-            )}
-          </div>
           <h4 className="text-sm sm:text-base font-semibold text-slate-800 group-hover:text-[#b31317] transition-colors leading-snug">
-            {doc.title}
+            {item.title}
           </h4>
         </div>
       </div>
 
       <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
         <button
-          onClick={() => onPreview(doc)}
+          onClick={() => onPreview(item)}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-[#b31317] text-slate-700 hover:text-white text-xs font-semibold border border-slate-200 hover:border-[#b31317] transition-all"
           title="Preview Document"
         >
@@ -130,13 +119,17 @@ function DocumentRow({
           <span>View</span>
         </button>
         <a
-          href={doc.url}
+          href={item.url}
           target="_blank"
           rel="noopener noreferrer"
           className="p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
-          title="Open in New Tab"
+          title={isDirectPdf ? "Open PDF" : "Open Link"}
         >
-          <PdfIcon className="w-6 h-6 sm:w-7 sm:h-7" />
+          {isDirectPdf ? (
+            <PdfIcon className="w-6 h-6 sm:w-7 sm:h-7" />
+          ) : (
+            <ExternalLink className="w-5 h-5 text-slate-500 hover:text-[#b31317]" />
+          )}
         </a>
       </div>
     </div>
@@ -146,75 +139,28 @@ function DocumentRow({
 export default function NepView() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("about");
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [lightboxImg, setLightboxImg] = useState<{ src: string; title: string; subtitle?: string } | null>(null);
+  const [lightboxImg, setLightboxImg] = useState<{ src: string; title: string } | null>(null);
   const [previewPdf, setPreviewPdf] = useState<{ title: string; url: string } | null>(null);
 
-  // Search & Filter States
+  // Search state for Notices & Downloads
   const [noticesSearch, setNoticesSearch] = useState("");
-  const [noticesCategory, setNoticesCategory] = useState("all");
-
+  // Search state for Events
   const [eventSearch, setEventSearch] = useState("");
-  const [eventYear, setEventYear] = useState("all");
 
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const filteredNotices = nepNoticesDownloads.filter((doc) =>
+    doc.title.toLowerCase().includes(noticesSearch.toLowerCase())
+  );
 
-  // Auto-scroll Hero Carousel
-  useEffect(() => {
-    if (isPaused) {
-      if (timerRef.current) clearInterval(timerRef.current);
-      return;
-    }
-
-    timerRef.current = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % nepCarouselSlides.length);
-    }, 5000);
-
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [isPaused]);
-
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + nepCarouselSlides.length) % nepCarouselSlides.length);
-  };
-
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % nepCarouselSlides.length);
-  };
-
-  // Filtered Notices
-  const noticeCategories = [
-    "all",
-    ...Array.from(new Set(nepNoticesDocs.map((d) => d.category).filter(Boolean))),
-  ];
-
-  const filteredNotices = nepNoticesDocs.filter((doc) => {
-    const matchesSearch =
-      doc.title.toLowerCase().includes(noticesSearch.toLowerCase()) ||
-      (doc.category && doc.category.toLowerCase().includes(noticesSearch.toLowerCase()));
-    const matchesCategory =
-      noticesCategory === "all" || doc.category === noticesCategory;
-    return matchesSearch && matchesCategory;
-  });
-
-  // Filtered Events
-  const eventYears = ["all", "2026-27", "2025-26", "2024-25"];
-
-  const filteredEvents = nepEvents.filter((ev) => {
-    const matchesSearch =
-      ev.title.toLowerCase().includes(eventSearch.toLowerCase()) ||
-      ev.date.toLowerCase().includes(eventSearch.toLowerCase());
-    const matchesYear = eventYear === "all" || ev.academicYear === eventYear;
-    return matchesSearch && matchesYear;
-  });
+  const filteredEvents = nepEventsData.filter((ev) =>
+    ev.title.toLowerCase().includes(eventSearch.toLowerCase()) ||
+    ev.date.toLowerCase().includes(eventSearch.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen bg-[#fafaf7] text-slate-800 flex flex-col font-sans">
       <Header />
 
-      {/* HERO BANNER */}
+      {/* HERO BANNER - Exact project standard */}
       <section
         className="relative pt-32 md:pt-44 pb-20 overflow-hidden"
         style={{
@@ -223,7 +169,7 @@ export default function NepView() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/35 bg-gradient-to-b from-black/40 via-black/25 to-black/60" />
+        <div className="absolute inset-0 bg-black/40 bg-gradient-to-b from-black/45 via-black/30 to-black/60" />
 
         <div className="relative z-10 container mx-auto px-4 text-center">
           <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm flex items-center justify-center gap-2">
@@ -260,7 +206,7 @@ export default function NepView() {
         </nav>
       </section>
 
-      {/* ALL 13 TABS NAVIGATION BAR */}
+      {/* ALL 13 TABS NAVIGATION BAR - Sticky underneath hero */}
       <section className="bg-white border-b border-gray-200 sticky top-16 z-30 shadow-sm">
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-1 overflow-x-auto py-2.5 no-scrollbar">
@@ -284,9 +230,9 @@ export default function NepView() {
         </div>
       </section>
 
-      {/* MAIN CONTENT CONTAINER - FULL WIDTH max-w-[1400px] without blank side space */}
+      {/* MAIN CONTENT CONTAINER - FULL WIDTH max-w-[1400px] */}
       <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex-1">
-        {/* Back Button & Badge */}
+        {/* Top Control Bar */}
         <div className="mb-6 flex items-center justify-between flex-wrap gap-3">
           <button
             onClick={() => navigate("/cells")}
@@ -297,457 +243,191 @@ export default function NepView() {
           </button>
 
           <span className="text-xs text-slate-500 font-medium bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">
-            Official Portal: <span className="font-semibold text-slate-700">mits.ac.in/nep-cell</span>
+            Source: <a href="https://www.mits.ac.in/nep-cell" target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-700 hover:underline">mits.ac.in/nep-cell</a>
           </span>
         </div>
 
         {/* ============================================================== */}
-        {/* TAB 1: ABOUT NEP CELL */}
+        {/* TAB 1: ABOUT NATIONAL EDUCATION POLICY CELL (ug-tab20) */}
         {/* ============================================================== */}
         {activeTab === "about" && (
           <ScrollReveal>
-            <div className="space-y-10">
-              {/* Full-width Big Hero Carousel */}
-              <div className="relative w-full h-[380px] sm:h-[480px] md:h-[560px] lg:h-[620px] rounded-2xl overflow-hidden shadow-2xl bg-black border border-slate-800 group">
-                <img
-                  src={nepCarouselSlides[currentSlide].src}
-                  alt={nepCarouselSlides[currentSlide].title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out transform scale-100 group-hover:scale-105"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = `${BASE}images/nep/nep-hero.jpeg`;
-                  }}
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
-
-                {/* Caption */}
-                <div className="absolute bottom-6 sm:bottom-10 left-6 sm:left-10 right-6 sm:right-10 z-10 text-white max-w-3xl">
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#990000]/90 text-white text-xs font-bold tracking-wider uppercase mb-2 shadow-md">
-                    {nepCarouselSlides[currentSlide].tag}
-                  </span>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-serif text-white drop-shadow-md leading-tight">
-                    {nepCarouselSlides[currentSlide].title}
-                  </h2>
-                  <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-200 drop-shadow line-clamp-2 sm:line-clamp-none max-w-2xl">
-                    {nepCarouselSlides[currentSlide].subtitle}
-                  </p>
-                </div>
-
-                {/* Navigation Arrows */}
-                <button
-                  onClick={handlePrevSlide}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-[#990000] text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all opacity-80 hover:opacity-100 z-20 shadow-lg"
-                  title="Previous Slide"
-                >
-                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-                </button>
-                <button
-                  onClick={handleNextSlide}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-[#990000] text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all opacity-80 hover:opacity-100 z-20 shadow-lg"
-                  title="Next Slide"
-                >
-                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-                </button>
-
-                {/* Controls (Pause/Play) */}
-                <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
-                  <button
-                    onClick={() => setIsPaused(!isPaused)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 hover:bg-black/80 text-white text-xs font-medium backdrop-blur-md border border-white/20 transition-all"
-                  >
-                    {isPaused ? <Play className="w-3.5 h-3.5 text-green-400" /> : <Pause className="w-3.5 h-3.5 text-amber-400" />}
-                    <span>{isPaused ? "Play" : "Pause"}</span>
-                  </button>
-                </div>
-
-                {/* Dots */}
-                <div className="absolute bottom-3 right-6 z-20 flex items-center gap-1.5">
-                  {nepCarouselSlides.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentSlide(idx)}
-                      className={`h-2 rounded-full transition-all ${
-                        currentSlide === idx ? "w-6 bg-[#ffb300]" : "w-2 bg-white/50 hover:bg-white/80"
-                      }`}
-                      title={`Go to slide ${idx + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* Overview & About NEP Cell */}
-              <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 md:p-10 shadow-sm">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#990000]/10 flex items-center justify-center text-[#990000]">
-                    <Sparkles className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
-                      About National Education Policy (NEP) Cell
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-500">
-                      Transformative Academic &amp; Institutional Governance Reforms
-                    </p>
-                  </div>
-                </div>
-
-                <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-4 text-sm sm:text-base">
-                  <p>
-                    The <strong>National Education Policy (NEP) 2020</strong> envisions an education system rooted in Indian ethos that contributes directly to transforming India sustainably into an equitable and vibrant knowledge society. In accordance with directives and frameworks issued by the <strong>University Grants Commission (UGC)</strong> and the <strong>Ministry of Education, Government of India</strong>, Madanapalle Institute of Technology &amp; Science established the <strong>NEP Cell</strong> to spearhead the institutional implementation of multidisciplinary, learner-centric, and holistic higher education.
-                  </p>
-                  <p>
-                    The NEP Cell acts as the nodal agency facilitating seamless transition to flexible credit frameworks (CCFUP / FYUP), operationalization of the <strong>Academic Bank of Credits (ABC)</strong>, active pedagogical interventions, multiple entry and exit pathways, embedded degree programmes, industry-academia linkages, and the promotion of the <strong>Indian Knowledge System (IKS)</strong> across all undergraduate and postgraduate engineering disciplines.
-                  </p>
-                </div>
-              </div>
-
-              {/* Vision & Mission - 2 Full-Width Columns */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Vision Card */}
-                <div className="bg-gradient-to-br from-[#0f2a44] to-[#1a4066] text-white rounded-2xl p-6 sm:p-8 shadow-md border border-slate-700/50 flex flex-col justify-between">
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-[#ffd15c] mb-4">
-                      <Compass className="w-6 h-6" />
-                    </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-[#ffd15c]">Institutional Horizon</span>
-                    <h3 className="font-serif text-2xl font-bold mt-1 mb-4 text-white">Our Vision</h3>
-                    <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
-                      To transform higher technical education into an inclusive, holistic, multidisciplinary, and globally competitive learning ecosystem that fosters critical inquiry, research innovation, ethical leadership, and sustainable nation-building in alignment with the National Education Policy 2020.
-                    </p>
-                  </div>
-                  <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs text-white/70">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                    <span>UGC &amp; AICTE Compliant Quality Framework</span>
-                  </div>
-                </div>
-
-                {/* Mission Card */}
-                <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/90 flex flex-col justify-between">
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#990000]/10 flex items-center justify-center text-[#990000] mb-4">
-                      <Award className="w-6 h-6" />
-                    </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-[#990000]">Core Mandates</span>
-                    <h3 className="font-serif text-2xl font-bold mt-1 mb-4 text-slate-900">Our Mission</h3>
-                    <ul className="space-y-3 text-sm text-slate-700">
-                      <li className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0 mt-0.5" />
-                        <span><strong>Multidisciplinary Flexibility:</strong> Implement flexible choice-based credit systems, minor degrees, and multiple entry-exit options supported by ABC.</span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0 mt-0.5" />
-                        <span><strong>Experiential &amp; Value-Based Learning:</strong> Integrate hands-on internships, community immersion (Unnat Bharat Abhiyan), and Indian Knowledge Systems (IKS).</span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0 mt-0.5" />
-                        <span><strong>Pedagogical Innovation:</strong> Institutionalize 200+ active learning strategies, continuous formative evaluation, and blended digital education via SWAYAM.</span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0 mt-0.5" />
-                        <span><strong>Student Leadership:</strong> Mentor UGC-approved NEP SAARTHIs to foster peer advocacy, digital literacy, and student-driven campus governance.</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Objectives Grid - 4 Columns Full Width */}
-              <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-[#0f2a44]/10 flex items-center justify-center text-[#0f2a44]">
-                    <Lightbulb className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900">
-                      Key Objectives of the NEP Cell
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-500">
-                      Pillars of educational transformation at MITS
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {[
-                    {
-                      icon: Layers,
-                      title: "Academic Bank of Credits",
-                      desc: "Complete onboarding on DigiLocker / ABC portal for seamless credit storage and institutional transfer.",
-                    },
-                    {
-                      icon: GraduationCap,
-                      title: "Curricular Flexibility",
-                      desc: "Adoption of UGC CCFUP with Honors, Minors, multidisciplinary electives and skill-based learning.",
-                    },
-                    {
-                      icon: BookOpen,
-                      title: "200+ Active Pedagogies",
-                      desc: "Promoting WIT & WIL, flipped classrooms, case-based learning, and continuous formative assessment.",
-                    },
-                    {
-                      icon: Globe,
-                      title: "Digital & IKS Integration",
-                      desc: "Integration of SWAYAM courses, regional language learning, and traditional Indian knowledge systems.",
-                    },
-                    {
-                      icon: Users,
-                      title: "NEP SAARTHI Leadership",
-                      desc: "UGC student ambassadors driving campus awareness, peer mentorship, and reform advocacy.",
-                    },
-                    {
-                      icon: Shield,
-                      title: "Accreditation Readiness",
-                      desc: "Continuous academic, administrative, and faculty audits aligned with NAAC & NIRF standards.",
-                    },
-                    {
-                      icon: Award,
-                      title: "Industry Apprenticeships",
-                      desc: "Mandatory embedded industry internships, corporate tracks, and Capstone project rubrics.",
-                    },
-                    {
-                      icon: Sparkles,
-                      title: "Holistic Student Induction",
-                      desc: "Deeksharambh Student Induction Programme, Jeevan Kaushal life skills, and wellness initiatives.",
-                    },
-                  ].map((item, idx) => {
-                    const Icon = item.icon;
-                    return (
-                      <div
-                        key={idx}
-                        className="bg-slate-50/70 rounded-xl border border-slate-200/80 p-5 hover:bg-white hover:border-[#b31317]/40 hover:shadow-sm transition-all"
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-[#b31317]/10 flex items-center justify-center text-[#b31317] mb-3">
-                          <Icon className="w-4 h-4" />
-                        </div>
-                        <h4 className="font-bold text-sm text-slate-900 mb-1.5">{item.title}</h4>
-                        <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Bottom Section: E-Notice Board (8 cols) & Contact Card (4 cols) */}
+            <div className="space-y-8">
+              {/* Notice Board Banner + About Header */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                {/* E-Notice Board (8 Cols) */}
-                <div className="lg:col-span-8 bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100 flex-wrap gap-2">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-[#b31317]/10 flex items-center justify-center text-[#b31317]">
-                        <FileText className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <h3 className="font-serif text-xl font-bold text-slate-900">
-                          E-Notice Board &amp; Latest Highlights
-                        </h3>
-                        <p className="text-xs text-slate-500">Key notifications and recent institutional orders</p>
-                      </div>
+                {/* Main Content (8 cols) */}
+                <div className="lg:col-span-8 bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 md:p-10 shadow-sm">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-[#990000]/10 flex items-center justify-center text-[#990000]">
+                      <GraduationCap className="w-5 h-5" />
                     </div>
-                    <button
-                      onClick={() => setActiveTab("notices")}
-                      className="text-xs font-bold text-[#b31317] hover:underline flex items-center gap-1"
-                    >
-                      View All 27 Downloads <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
+                    <div>
+                      <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+                        {nepAboutData.title}
+                      </h2>
+                      <p className="text-xs sm:text-sm text-slate-500">
+                        Madanapalle Institute of Technology &amp; Science - Deemed to be University
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="space-y-3">
-                    {nepNoticesDocs.slice(0, 5).map((doc, idx) => (
-                      <DocumentRow
-                        key={doc.id}
-                        doc={doc}
-                        index={idx}
-                        onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
-                      />
-                    ))}
+                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-8">
+                    {nepAboutData.description}
+                  </p>
+
+                  {/* Vision & Mission */}
+                  <div className="space-y-6">
+                    {/* Vision */}
+                    <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/80">
+                      <div className="flex items-center gap-2 mb-2 text-[#990000]">
+                        <Compass className="w-5 h-5" />
+                        <h3 className="font-bold text-base sm:text-lg text-slate-900">Vision</h3>
+                      </div>
+                      <p className="text-sm text-slate-700 leading-relaxed pl-7">
+                        {nepAboutData.vision}
+                      </p>
+                    </div>
+
+                    {/* Mission */}
+                    <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/80">
+                      <div className="flex items-center gap-2 mb-3 text-[#0f2a44]">
+                        <Target className="w-5 h-5" />
+                        <h3 className="font-bold text-base sm:text-lg text-slate-900">Mission</h3>
+                      </div>
+                      <ul className="space-y-2.5 text-sm text-slate-700 pl-7">
+                        {nepAboutData.mission.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5">
+                            <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Core Objectives */}
+                    <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/80">
+                      <div className="flex items-center gap-2 mb-3 text-[#990000]">
+                        <Layers className="w-5 h-5" />
+                        <h3 className="font-bold text-base sm:text-lg text-slate-900">Core Objectives</h3>
+                      </div>
+                      <ul className="space-y-2.5 text-sm text-slate-700 pl-7">
+                        {nepAboutData.coreObjectives.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5">
+                            <CheckCircle2 className="w-4 h-4 text-[#0f2a44] shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Key Activities */}
+                    <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/80">
+                      <div className="flex items-center gap-2 mb-3 text-[#0f2a44]">
+                        <Award className="w-5 h-5" />
+                        <h3 className="font-bold text-base sm:text-lg text-slate-900">Key Activities</h3>
+                      </div>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-slate-700 pl-7">
+                        {nepAboutData.keyActivities.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5">
+                            <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
 
-                {/* Coordinator & Contact Card (4 Cols) */}
-                <div className="lg:col-span-4 bg-[#990000] text-white rounded-2xl p-6 sm:p-8 shadow-md border border-[#800000] flex flex-col justify-between">
-                  <div>
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-[11px] font-bold tracking-wider uppercase mb-4">
+                {/* Sidebar (4 cols): E-Notice Board + Coordinator Card */}
+                <div className="lg:col-span-4 space-y-6">
+                  {/* NEP E-Notice Board (Exact official right-box) */}
+                  <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-sm">
+                    <div className="bg-[#990000] text-white px-5 py-3.5 flex items-center gap-2 font-bold text-sm tracking-wide">
+                      <Bell className="w-4 h-4 text-white" />
+                      <span>NEP E-Notice Board</span>
+                    </div>
+                    <div className="p-5">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-red-100 text-[#990000] text-xs font-bold mb-2">
+                        {nepAboutData.noticeBoard.badge}
+                      </span>
+                      <h4 className="font-bold text-base text-slate-900">
+                        {nepAboutData.noticeBoard.title}
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-1">
+                        Official mandates and ongoing institutional implementation.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Coordinator & Contact Details */}
+                  <div className="bg-[#990000] text-white rounded-2xl p-6 shadow-md border border-[#800000]">
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-[11px] font-bold tracking-wider uppercase mb-3">
                       NEP Cell Secretariat
                     </span>
-                    <h3 className="font-serif text-2xl font-bold text-white mb-2">Coordinator Contact</h3>
-                    <p className="text-white/85 text-xs mb-6">
-                      Madanapalle Institute of Technology &amp; Science (Deemed to be University)
-                    </p>
+                    <h3 className="font-serif text-xl font-bold text-white mb-4">Contact Coordinator</h3>
 
-                    <div className="space-y-4 text-xs sm:text-sm text-white">
-                      <div className="flex items-start gap-3 bg-white/10 p-3.5 rounded-xl border border-white/10">
+                    <div className="space-y-3.5 text-xs sm:text-sm text-white">
+                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/10">
                         <Users className="w-4 h-4 text-[#ffd15c] shrink-0 mt-0.5" />
                         <div>
-                          <p className="font-bold text-white text-sm">Mr. E. Sathiyanarayanan</p>
-                          <p className="text-white/80 text-xs">Assistant Professor, Dept. of ECE</p>
-                          <p className="text-[#ffd15c] text-xs font-semibold mt-0.5">Coordinator, NEP Cell</p>
+                          <p className="font-bold text-white text-sm">{nepContactData.coordinator}</p>
+                          <p className="text-white/80 text-xs">{nepContactData.role}</p>
                         </div>
                       </div>
 
-                      <div className="flex items-start gap-3 bg-white/10 p-3.5 rounded-xl border border-white/10">
+                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/10">
                         <Phone className="w-4 h-4 text-[#ffd15c] shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white/70 text-xs">Direct Phone &amp; Helpline</p>
-                          <a href="tel:+919100973376" className="font-semibold text-white hover:text-[#ffd15c] transition-colors block">
-                            +91 9100973376
-                          </a>
-                          <span className="text-white/80 text-xs">08571-280255</span>
+                          <p className="text-white/70 text-xs">Phone</p>
+                          <p className="font-semibold text-white">{nepContactData.phone}</p>
                         </div>
                       </div>
 
-                      <div className="flex items-start gap-3 bg-white/10 p-3.5 rounded-xl border border-white/10">
+                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/10">
                         <Mail className="w-4 h-4 text-[#ffd15c] shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white/70 text-xs">Official Email</p>
-                          <a href="mailto:nep@mits.ac.in" className="font-semibold text-white hover:text-[#ffd15c] transition-colors break-all">
-                            nep@mits.ac.in
+                          <p className="text-white/70 text-xs">Email</p>
+                          <a href={`mailto:${nepContactData.email}`} className="font-semibold text-white hover:text-[#ffd15c] transition-colors break-all">
+                            {nepContactData.email}
                           </a>
                         </div>
                       </div>
 
-                      <div className="flex items-start gap-3 bg-white/10 p-3.5 rounded-xl border border-white/10">
+                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/10">
                         <MapPin className="w-4 h-4 text-[#ffd15c] shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white/70 text-xs">Office Location</p>
+                          <p className="text-white/70 text-xs">Address</p>
                           <p className="text-white/90 text-xs leading-relaxed">
-                            Academic Block, MITS Campus, Post Box No: 14, Angallu, Madanapalle-517325, Andhra Pradesh
+                            {nepContactData.address.join(", ")}
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  <div className="mt-6 pt-4 border-t border-white/20 flex items-center justify-between">
-                    <button
-                      onClick={() => setActiveTab("contact")}
-                      className="text-xs font-bold text-white hover:text-[#ffd15c] flex items-center gap-1 transition-colors"
-                    >
-                      <span>Full Contact Details</span>
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                    <span className="text-[11px] text-white/70">Mon - Sat: 9 AM - 5 PM</span>
-                  </div>
                 </div>
               </div>
-            </div>
-          </ScrollReveal>
-        )}
 
-        {/* ============================================================== */}
-        {/* TAB 2: POLICY FRAMEWORKS */}
-        {/* ============================================================== */}
-        {activeTab === "policy" && (
-          <ScrollReveal>
-            <div className="space-y-6">
+              {/* Publication / Document List (7 Official Links in About Tab) */}
               <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-xl bg-[#0f2a44]/10 flex items-center justify-center text-[#0f2a44]">
-                    <BookOpen className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
-                      NEP Policy Frameworks &amp; Statutory Guidelines
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-500">
-                      National and institutional policy frameworks governing undergraduate &amp; postgraduate degrees
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 gap-3">
-                {nepPolicyDocuments.map((doc, idx) => (
-                  <DocumentRow
-                    key={doc.id}
-                    doc={doc}
-                    index={idx}
-                    onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
-                  />
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-        )}
-
-        {/* ============================================================== */}
-        {/* TAB 3: COMMITTEES & TASK FORCES */}
-        {/* ============================================================== */}
-        {activeTab === "committees" && (
-          <ScrollReveal>
-            <div className="space-y-8">
-              {/* Committee Members Table */}
-              <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-[#990000]/10 flex items-center justify-center text-[#990000]">
-                    <Users className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
-                      NEP Implementation Committee Members
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-500">
-                      Statutory institutional committee constituted by the Vice Chancellor
-                    </p>
-                  </div>
-                </div>
-
-                <div className="overflow-x-auto rounded-xl border border-slate-200">
-                  <table className="w-full text-left border-collapse text-sm">
-                    <thead>
-                      <tr className="bg-[#0f2a44] text-white">
-                        <th className="py-3 px-4 font-semibold text-xs uppercase tracking-wider w-16">S.No</th>
-                        <th className="py-3 px-4 font-semibold text-xs uppercase tracking-wider">Name of Member</th>
-                        <th className="py-3 px-4 font-semibold text-xs uppercase tracking-wider">Designation / Department</th>
-                        <th className="py-3 px-4 font-semibold text-xs uppercase tracking-wider">Position in Cell</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-200 bg-white">
-                      {nepCommitteeMembers.map((m, idx) => (
-                        <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                          <td className="py-3.5 px-4 font-bold text-slate-600">{m.sno}</td>
-                          <td className="py-3.5 px-4 font-bold text-slate-900">{m.name}</td>
-                          <td className="py-3.5 px-4 text-slate-700">{m.designation}</td>
-                          <td className="py-3.5 px-4">
-                            <span
-                              className={`inline-block px-2.5 py-1 rounded-full text-xs font-bold ${
-                                m.position === "Chairperson"
-                                  ? "bg-amber-100 text-amber-900 border border-amber-300"
-                                  : m.position === "Coordinator"
-                                  ? "bg-red-100 text-red-900 border border-red-300"
-                                  : "bg-slate-100 text-slate-700 border border-slate-300"
-                              }`}
-                            >
-                              {m.position}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* Committees Documents & Official Notifications */}
-              <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-6 pb-3 border-b border-slate-100">
                   <div className="w-10 h-10 rounded-xl bg-[#0f2a44]/10 flex items-center justify-center text-[#0f2a44]">
                     <FileText className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
-                      Committees, Notifications &amp; NEP SAARTHI Orders
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900">
+                      NEP Cell Official Notifications &amp; Documents
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      Official notifications, organograms, UGC SAARTHI national selections and activity roadmaps
+                      Committee orders, action plans, and governance documents
                     </p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-3">
-                  {nepCommitteesDocs.map((doc, idx) => (
-                    <DocumentRow
+                  {nepAboutData.documents.map((doc, idx) => (
+                    <PublicationLinkRow
                       key={doc.id}
-                      doc={doc}
+                      item={doc}
                       index={idx}
                       onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
                     />
@@ -759,32 +439,32 @@ export default function NepView() {
         )}
 
         {/* ============================================================== */}
-        {/* TAB 4: DIGITAL & ONLINE LEARNING */}
+        {/* TAB 2: POLICY FRAMEWORKS (ug-tab21) */}
         {/* ============================================================== */}
-        {activeTab === "digital" && (
+        {activeTab === "policy" && (
           <ScrollReveal>
             <div className="space-y-6">
               <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-xl bg-[#0f2a44]/10 flex items-center justify-center text-[#0f2a44]">
-                    <Globe className="w-5 h-5" />
+                    <BookOpen className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
-                      Digital &amp; Online Learning Initiatives
-                    </h3>
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
+                      Policy Frameworks
+                    </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      LMS integration, SWAYAM / NPTEL credit transfer frameworks, and multilingual technical modules
+                      Official policy documents, curriculum frameworks, and degree schemes
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-3">
-                {nepDigitalDocs.map((doc, idx) => (
-                  <DocumentRow
-                    key={doc.id}
-                    doc={doc}
+                {nepPolicyFrameworks.map((item, idx) => (
+                  <PublicationLinkRow
+                    key={item.id}
+                    item={item}
                     index={idx}
                     onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
                   />
@@ -795,7 +475,79 @@ export default function NepView() {
         )}
 
         {/* ============================================================== */}
-        {/* TAB 5: INTERNSHIP & INDUSTRY COLLABORATION */}
+        {/* TAB 3: COMMITTEES & TASK FORCES (ug-tab22) */}
+        {/* ============================================================== */}
+        {activeTab === "committees" && (
+          <ScrollReveal>
+            <div className="space-y-6">
+              <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-[#990000]/10 flex items-center justify-center text-[#990000]">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
+                      Committees &amp; Task Forces
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-500">
+                      Committee orders, organogram, NEP SAARTHI lists, and activity calendar
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-3">
+                {nepCommitteesTaskForces.map((item, idx) => (
+                  <PublicationLinkRow
+                    key={item.id}
+                    item={item}
+                    index={idx}
+                    onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
+                  />
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        )}
+
+        {/* ============================================================== */}
+        {/* TAB 4: DIGITAL & ONLINE LEARNING (ug-tab23) */}
+        {/* ============================================================== */}
+        {activeTab === "digital" && (
+          <ScrollReveal>
+            <div className="space-y-6">
+              <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-[#0f2a44]/10 flex items-center justify-center text-[#0f2a44]">
+                    <Layers className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
+                      Digital &amp; Online Learning
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-500">
+                      Digital learning initiatives, SWAYAM adoption, MOOC courses, and Indian Knowledge System
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-3">
+                {nepDigitalLearning.map((item, idx) => (
+                  <PublicationLinkRow
+                    key={item.id}
+                    item={item}
+                    index={idx}
+                    onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
+                  />
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        )}
+
+        {/* ============================================================== */}
+        {/* TAB 5: INTERNSHIP & INDUSTRY COLLABORATION (ug-tab24) */}
         {/* ============================================================== */}
         {activeTab === "internship" && (
           <ScrollReveal>
@@ -806,21 +558,21 @@ export default function NepView() {
                     <Award className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
                       Internship &amp; Industry Collaboration
-                    </h3>
+                    </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      Apprenticeship-embedded degree programs, CRC corporate frameworks, and summer internship reports
+                      Internship policy, embedded degree programmes, summer reports, and corporate collaborations
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-3">
-                {nepInternshipDocs.map((doc, idx) => (
-                  <DocumentRow
-                    key={doc.id}
-                    doc={doc}
+                {nepInternshipCollaboration.map((item, idx) => (
+                  <PublicationLinkRow
+                    key={item.id}
+                    item={item}
                     index={idx}
                     onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
                   />
@@ -831,7 +583,7 @@ export default function NepView() {
         )}
 
         {/* ============================================================== */}
-        {/* TAB 6: RESEARCH & INNOVATION */}
+        {/* TAB 6: RESEARCH, INNOVATION & COMMUNITY ENGAGEMENT (ug-tab54) */}
         {/* ============================================================== */}
         {activeTab === "research" && (
           <ScrollReveal>
@@ -842,21 +594,21 @@ export default function NepView() {
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
                       Research, Innovation &amp; Community Engagement
-                    </h3>
+                    </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      RDC directives, Innovation &amp; Incubation Center (IIC) seed funds, and Unnat Bharat Abhiyan outreach
+                      Research and Development Cell, Incubation Center, community engagement, and novel courses
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-3">
-                {nepResearchDocs.map((doc, idx) => (
-                  <DocumentRow
-                    key={doc.id}
-                    doc={doc}
+                {nepResearchCommunity.map((item, idx) => (
+                  <PublicationLinkRow
+                    key={item.id}
+                    item={item}
                     index={idx}
                     onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
                   />
@@ -867,7 +619,7 @@ export default function NepView() {
         )}
 
         {/* ============================================================== */}
-        {/* TAB 7: STUDENT-CENTRIC INITIATIVES */}
+        {/* TAB 7: STUDENT-CENTRIC INITIATIVES (ug-tab55) */}
         {/* ============================================================== */}
         {activeTab === "student" && (
           <ScrollReveal>
@@ -878,21 +630,21 @@ export default function NepView() {
                     <Users className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
-                      Student-Centric Initiatives &amp; Inclusion
-                    </h3>
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
+                      Student-Centric Initiatives
+                    </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      Learner-centric pathways, B.Tech Honours regulations, SEDG equity mechanisms, and faculty vitality
+                      Learner-centric education, honours programmes, SEDGs support, and faculty initiatives
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-3">
-                {nepStudentDocs.map((doc, idx) => (
-                  <DocumentRow
-                    key={doc.id}
-                    doc={doc}
+                {nepStudentCentric.map((item, idx) => (
+                  <PublicationLinkRow
+                    key={item.id}
+                    item={item}
                     index={idx}
                     onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
                   />
@@ -903,7 +655,7 @@ export default function NepView() {
         )}
 
         {/* ============================================================== */}
-        {/* TAB 8: INSTITUTIONAL PLANNING */}
+        {/* TAB 8: INSTITUTIONAL PLANNING & REGULATIONS (ug-tab53) */}
         {/* ============================================================== */}
         {activeTab === "planning" && (
           <ScrollReveal>
@@ -911,24 +663,24 @@ export default function NepView() {
               <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-xl bg-[#0f2a44]/10 flex items-center justify-center text-[#0f2a44]">
-                    <Layers className="w-5 h-5" />
+                    <Building className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
                       Institutional Planning &amp; Regulations
-                    </h3>
+                    </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      Institutional Development Plan (IDP 2022-2027), thesis guidelines, statutory matrix, and plagiarism code
+                      Institutional Development Plan, project/thesis rules, UGC regulatory compliance, and plagiarism policy
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-3">
-                {nepPlanningDocs.map((doc, idx) => (
-                  <DocumentRow
-                    key={doc.id}
-                    doc={doc}
+                {nepInstitutionalPlanning.map((item, idx) => (
+                  <PublicationLinkRow
+                    key={item.id}
+                    item={item}
                     index={idx}
                     onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
                   />
@@ -939,78 +691,45 @@ export default function NepView() {
         )}
 
         {/* ============================================================== */}
-        {/* TAB 9: NOTICES & DOWNLOADS (27 Documents) */}
+        {/* TAB 9: NOTICES & DOWNLOADS (ug-tab61 - 27 Links) */}
         {/* ============================================================== */}
         {activeTab === "notices" && (
           <ScrollReveal>
             <div className="space-y-6">
-              {/* Search & Filter Header */}
               <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-[#b31317]/10 flex items-center justify-center text-[#b31317]">
                     <Download className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
-                      Notices, Active Learning Tools &amp; Official Downloads
-                    </h3>
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
+                      Notices &amp; Downloads
+                    </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      Complete collection of 27 official guidelines, ABSS resolutions, SIP, LOCF, and pedagogical templates
+                      Official circulars, national frameworks, guidelines, and schemes (27 documents)
                     </p>
                   </div>
                 </div>
 
-                {/* Filter Controls */}
-                <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
-                  {/* Search */}
-                  <div className="relative flex-1">
-                    <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                    <input
-                      type="text"
-                      placeholder="Search across 27 official documents..."
-                      value={noticesSearch}
-                      onChange={(e) => setNoticesSearch(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#b31317]/20 focus:border-[#b31317]"
-                    />
-                  </div>
-
-                  {/* Category filter */}
-                  <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
-                    <Filter className="w-4 h-4 text-slate-400 shrink-0" />
-                    <button
-                      onClick={() => setNoticesCategory("all")}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                        noticesCategory === "all"
-                          ? "bg-[#0f2a44] text-white"
-                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                      }`}
-                    >
-                      All ({nepNoticesDocs.length})
-                    </button>
-                    {noticeCategories.slice(1).map((cat) => (
-                      <button
-                        key={cat}
-                        onClick={() => setNoticesCategory(cat!)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                          noticesCategory === cat
-                            ? "bg-[#0f2a44] text-white"
-                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                        }`}
-                      >
-                        {cat}
-                      </button>
-                    ))}
-                  </div>
+                {/* Search Bar */}
+                <div className="relative">
+                  <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    placeholder="Search across all 27 downloads..."
+                    value={noticesSearch}
+                    onChange={(e) => setNoticesSearch(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#b31317]/20 focus:border-[#b31317]"
+                  />
                 </div>
               </div>
 
-              {/* Documents List */}
               <div className="grid grid-cols-1 gap-3">
                 {filteredNotices.length > 0 ? (
-                  filteredNotices.map((doc, idx) => (
-                    <DocumentRow
-                      key={doc.id}
-                      doc={doc}
+                  filteredNotices.map((item, idx) => (
+                    <PublicationLinkRow
+                      key={item.id}
+                      item={item}
                       index={idx}
                       onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
                     />
@@ -1026,95 +745,141 @@ export default function NepView() {
         )}
 
         {/* ============================================================== */}
-        {/* TAB 10: ACCREDITATION READINESS */}
+        {/* TAB 10: ACCREDITATION READINESS (ug-tab56 to ug-tab515) */}
         {/* ============================================================== */}
         {activeTab === "accreditation" && (
           <ScrollReveal>
-            <div className="space-y-6">
+            <div className="space-y-8">
+              {/* Header */}
               <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-xl bg-[#0f2a44]/10 flex items-center justify-center text-[#0f2a44]">
-                    <Shield className="w-5 h-5" />
+                    <Award className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
-                      Accreditation Readiness &amp; Quality Audits
-                    </h3>
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
+                      Accreditation Readiness
+                    </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      Academic, admin &amp; faculty audit formats, NAAC reports, Student Satisfaction Surveys &amp; AQAR reports
+                      Audit formats, reports, student satisfaction surveys, and AQAR documentation
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-3">
-                {nepAccreditationDocs.map((doc, idx) => (
-                  <DocumentRow
-                    key={doc.id}
-                    doc={doc}
-                    index={idx}
-                    onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
-                  />
-                ))}
+              {/* General Accreditation Readiness */}
+              <div className="bg-white rounded-2xl border border-slate-200/90 p-6 shadow-sm">
+                <h3 className="font-bold text-lg text-slate-900 mb-4">Accreditation Readiness (NAAC, NBA, NIRF, etc.)</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {nepAccreditationData.general.map((item, idx) => (
+                    <PublicationLinkRow
+                      key={item.id}
+                      item={item}
+                      index={idx}
+                      onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Audit Formats */}
+              <div className="bg-white rounded-2xl border border-slate-200/90 p-6 shadow-sm">
+                <h3 className="font-bold text-lg text-slate-900 mb-4">Audit Formats</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {nepAccreditationData.auditFormats.map((item, idx) => (
+                    <PublicationLinkRow
+                      key={item.id}
+                      item={item}
+                      index={idx}
+                      onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Reports */}
+              <div className="bg-white rounded-2xl border border-slate-200/90 p-6 shadow-sm">
+                <h3 className="font-bold text-lg text-slate-900 mb-4">Reports</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {nepAccreditationData.reports.map((item, idx) => (
+                    <PublicationLinkRow
+                      key={item.id}
+                      item={item}
+                      index={idx}
+                      onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Student Satisfaction Survey */}
+              <div className="bg-white rounded-2xl border border-slate-200/90 p-6 shadow-sm">
+                <h3 className="font-bold text-lg text-slate-900 mb-4">Student Satisfaction Survey</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {nepAccreditationData.studentSatisfactionSurvey.map((item, idx) => (
+                    <PublicationLinkRow
+                      key={item.id}
+                      item={item}
+                      index={idx}
+                      onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* AQAR */}
+              <div className="bg-white rounded-2xl border border-slate-200/90 p-6 shadow-sm">
+                <h3 className="font-bold text-lg text-slate-900 mb-4">AQAR</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {nepAccreditationData.aqar.map((item, idx) => (
+                    <PublicationLinkRow
+                      key={item.id}
+                      item={item}
+                      index={idx}
+                      onPreview={(d) => setPreviewPdf({ title: d.title, url: d.url })}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </ScrollReveal>
         )}
 
         {/* ============================================================== */}
-        {/* TAB 11: EVENTS & COLLABORATIONS (15 Events) */}
+        {/* TAB 11: EVENTS & COLLABORATIONS (ug-tab25 - 15 Events) */}
         {/* ============================================================== */}
         {activeTab === "events" && (
           <ScrollReveal>
             <div className="space-y-6">
-              {/* Header with Search and Year Filters */}
               <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-[#990000]/10 flex items-center justify-center text-[#990000]">
                     <Calendar className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
-                      Events, Awareness Rallies &amp; NEP SAARTHI Activities
-                    </h3>
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
+                      Events &amp; Collaborations
+                    </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      Chronological record of 15 institutional programs, wellness sessions, and NITTTR workshops
+                      Official activities, awareness rallies, guest lectures, and workshops (15 events)
                     </p>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-                  <div className="relative flex-1">
-                    <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                    <input
-                      type="text"
-                      placeholder="Search events, topics, or dates..."
-                      value={eventSearch}
-                      onChange={(e) => setEventSearch(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000]"
-                    />
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold text-slate-500">Academic Year:</span>
-                    {eventYears.map((yr) => (
-                      <button
-                        key={yr}
-                        onClick={() => setEventYear(yr)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                          eventYear === yr
-                            ? "bg-[#990000] text-white"
-                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                        }`}
-                      >
-                        {yr === "all" ? "All" : yr}
-                      </button>
-                    ))}
-                  </div>
+                {/* Search Events */}
+                <div className="relative">
+                  <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    placeholder="Search events by title or date..."
+                    value={eventSearch}
+                    onChange={(e) => setEventSearch(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000]"
+                  />
                 </div>
               </div>
 
-              {/* Event Cards Grid */}
+              {/* Event Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {filteredEvents.length > 0 ? (
                   filteredEvents.map((ev) => (
@@ -1128,9 +893,7 @@ export default function NepView() {
                             <Calendar className="w-3.5 h-3.5 text-[#990000]" />
                             {ev.date}
                           </span>
-                          <span className="px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200 text-[11px] font-bold">
-                            AY {ev.academicYear}
-                          </span>
+                          <span className="text-xs text-slate-400 font-medium">#{ev.id}</span>
                         </div>
                         <h4 className="font-semibold text-sm sm:text-base text-slate-800 leading-snug line-clamp-3">
                           {ev.title}
@@ -1138,31 +901,28 @@ export default function NepView() {
                       </div>
 
                       <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                        <span className="text-xs text-slate-500 font-medium">Activity #{ev.id}</span>
-                        <div className="flex items-center gap-2">
-                          <button
-                            onClick={() => setPreviewPdf({ title: ev.title, url: ev.url })}
-                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 hover:bg-[#990000] text-slate-700 hover:text-white text-xs font-semibold transition-all"
-                          >
-                            <Eye className="w-3.5 h-3.5" />
-                            <span>Preview</span>
-                          </button>
-                          <a
-                            href={ev.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-1 rounded hover:bg-slate-100 transition-colors"
-                            title="Open Official Report PDF"
-                          >
-                            <PdfIcon className="w-6 h-6" />
-                          </a>
-                        </div>
+                        <button
+                          onClick={() => setPreviewPdf({ title: ev.title, url: ev.url })}
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 hover:bg-[#990000] text-slate-700 hover:text-white text-xs font-semibold transition-all"
+                        >
+                          <Eye className="w-3.5 h-3.5" />
+                          <span>Preview Report</span>
+                        </button>
+                        <a
+                          href={ev.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-1 rounded hover:bg-slate-100 transition-colors"
+                          title="Open Report PDF"
+                        >
+                          <PdfIcon className="w-6 h-6" />
+                        </a>
                       </div>
                     </div>
                   ))
                 ) : (
                   <div className="col-span-2 bg-white rounded-xl p-12 text-center border border-slate-200">
-                    <p className="text-slate-500 font-medium">No events found matching your filter.</p>
+                    <p className="text-slate-500 font-medium">No events found matching your search.</p>
                   </div>
                 )}
               </div>
@@ -1171,7 +931,7 @@ export default function NepView() {
         )}
 
         {/* ============================================================== */}
-        {/* TAB 12: GALLERY (10 Local High-Res Images) */}
+        {/* TAB 12: GALLERY (ug-tab42 - MITS' NEP SAARTHI's) */}
         {/* ============================================================== */}
         {activeTab === "gallery" && (
           <ScrollReveal>
@@ -1182,50 +942,44 @@ export default function NepView() {
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
-                      NEP Cell Photo Gallery
-                    </h3>
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
+                      Gallery
+                    </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      Photographic coverage of rallies, poster presentations, IKS discussions, and campus events
+                      MITS' NEP SAARTHI's photo highlights
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Responsive Grid - 3 Columns Full Width */}
+              {/* Responsive Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {nepGalleryImages.map((img, idx) => (
+                {nepGalleryItems.map((img, idx) => (
                   <div
                     key={idx}
                     onClick={() => setLightboxImg(img)}
                     className="group bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col"
                   >
-                    <div className="relative h-56 sm:h-64 overflow-hidden bg-slate-900">
+                    <div className="relative h-60 sm:h-64 overflow-hidden bg-slate-900">
                       <img
                         src={img.src}
                         alt={img.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = `${BASE}images/nep/nep-hero.jpeg`;
+                          (e.target as HTMLImageElement).src = `${BASE}images/nep/nep-gallery-1.jpg`;
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 text-slate-900 text-xs font-bold backdrop-blur-sm shadow">
-                          <Maximize2 className="w-3.5 h-3.5" /> Click to Enlarge
+                          <Maximize2 className="w-3.5 h-3.5" /> Enlarge
                         </span>
                       </div>
                     </div>
-                    <div className="p-4 flex-1 flex flex-col justify-between">
-                      <div>
-                        <h4 className="font-bold text-sm sm:text-base text-slate-900 group-hover:text-[#b31317] transition-colors line-clamp-1">
-                          {img.title}
-                        </h4>
-                        <p className="text-xs text-slate-500 mt-1 line-clamp-2">{img.subtitle}</p>
-                      </div>
-                      <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
-                        <span>Photo #{idx + 1}</span>
-                        <span className="font-semibold text-[#b31317]">View Photo</span>
-                      </div>
+                    <div className="p-4 flex items-center justify-between">
+                      <h4 className="font-bold text-sm text-slate-900 group-hover:text-[#b31317] transition-colors">
+                        {img.title}
+                      </h4>
+                      <span className="text-xs text-slate-400">Photo #{idx + 1}</span>
                     </div>
                   </div>
                 ))}
@@ -1235,178 +989,86 @@ export default function NepView() {
         )}
 
         {/* ============================================================== */}
-        {/* TAB 13: CONTACT US */}
+        {/* TAB 13: CONTACT US (ug-tab43) */}
         {/* ============================================================== */}
         {activeTab === "contact" && (
           <ScrollReveal>
-            <div className="space-y-8">
+            <div className="space-y-6">
               <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-xl bg-[#990000]/10 flex items-center justify-center text-[#990000]">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
-                      Contact National Education Policy (NEP) Cell
-                    </h3>
+                    <h2 className="font-serif text-2xl font-bold text-slate-900">
+                      Contact Us
+                    </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      Reach out to our coordinator, secretariat, or submit institutional inquiries
+                      Official coordinator and secretariat contact information
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Grid: Contact Info + Inquiry Form */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                {/* Left: Contact Info (5 Cols) */}
-                <div className="lg:col-span-5 bg-[#990000] text-white rounded-2xl p-6 sm:p-8 shadow-lg border border-[#800000] flex flex-col justify-between">
-                  <div>
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold tracking-wider uppercase mb-4">
-                      NEP Cell Secretariat
-                    </span>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">Get in Touch</h3>
-                    <p className="text-white/85 text-sm mb-6 leading-relaxed">
-                      For curriculum guidelines, ABC credit registration queries, NEP SAARTHI activities, or academic collaborations.
-                    </p>
+              {/* Exact Contact Card */}
+              <div className="bg-[#990000] text-white rounded-2xl p-6 sm:p-8 shadow-lg border border-[#800000] max-w-2xl">
+                <div className="space-y-6">
+                  {/* Coordinator */}
+                  <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/10">
+                    <Users className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="font-bold text-white text-lg sm:text-xl">
+                        {nepContactData.coordinator}
+                      </h3>
+                      <p className="text-white/80 text-sm font-medium mt-0.5">
+                        {nepContactData.role}
+                      </p>
+                    </div>
+                  </div>
 
-                    <div className="space-y-4 text-white">
-                      <div className="flex items-start gap-3.5 bg-white/10 p-4 rounded-xl border border-white/10">
-                        <Users className="w-5 h-5 text-[#ffd15c] shrink-0 mt-0.5" />
-                        <div>
-                          <p className="font-bold text-white text-base">Mr. E. Sathiyanarayanan</p>
-                          <p className="text-white/80 text-xs">Assistant Professor, Dept. of ECE</p>
-                          <p className="text-[#ffd15c] text-xs font-bold mt-1">Coordinator, NEP Cell</p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-3.5 bg-white/10 p-4 rounded-xl border border-white/10">
-                        <Phone className="w-5 h-5 text-[#ffd15c] shrink-0 mt-0.5" />
-                        <div>
-                          <p className="text-white/70 text-xs">Telephone Helpline</p>
-                          <a href="tel:+919100973376" className="font-bold text-white text-sm hover:text-[#ffd15c] transition-colors block">
-                            +91 9100973376
-                          </a>
-                          <span className="text-white/80 text-xs">08571-280255 / 280788</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-3.5 bg-white/10 p-4 rounded-xl border border-white/10">
-                        <Mail className="w-5 h-5 text-[#ffd15c] shrink-0 mt-0.5" />
-                        <div>
-                          <p className="text-white/70 text-xs">Email Address</p>
-                          <a href="mailto:nep@mits.ac.in" className="font-bold text-white text-sm hover:text-[#ffd15c] transition-colors break-all">
-                            nep@mits.ac.in
-                          </a>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-3.5 bg-white/10 p-4 rounded-xl border border-white/10">
-                        <MapPin className="w-5 h-5 text-[#ffd15c] shrink-0 mt-0.5" />
-                        <div>
-                          <p className="text-white/70 text-xs">Campus Address</p>
-                          <p className="text-white/90 text-xs leading-relaxed">
-                            Madanapalle Institute of Technology &amp; Science (Deemed to be University), Post Box No: 14, Kadiri Road, Angallu, Madanapalle-517325, Chittoor Dist, Andhra Pradesh, India.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-3.5 bg-white/10 p-4 rounded-xl border border-white/10">
-                        <Clock className="w-5 h-5 text-[#ffd15c] shrink-0 mt-0.5" />
-                        <div>
-                          <p className="text-white/70 text-xs">Working Hours</p>
-                          <p className="text-white/90 text-xs">Monday – Saturday: 9:00 AM – 5:00 PM</p>
-                          <p className="text-white/70 text-xs">Sunday &amp; Public Holidays: Closed</p>
-                        </div>
+                  {/* Address */}
+                  <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/10">
+                    <MapPin className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-white/70 text-xs font-bold uppercase tracking-wider mb-1">
+                        Address
+                      </p>
+                      <div className="text-white/95 text-sm leading-relaxed space-y-0.5">
+                        {nepContactData.address.map((line, idx) => (
+                          <p key={idx}>{line}</p>
+                        ))}
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Right: Quick Query Form (7 Cols) */}
-                <div className="lg:col-span-7 bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
-                  <h4 className="font-serif text-xl font-bold text-slate-900 mb-2">Send an Inquiry to NEP Cell</h4>
-                  <p className="text-xs sm:text-sm text-slate-500 mb-6">
-                    Fill out the form below and the NEP Cell coordinator will respond promptly.
-                  </p>
-
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      alert("Thank you! Your inquiry has been submitted to the NEP Cell.");
-                    }}
-                    className="space-y-4 text-sm"
-                  >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-700 mb-1.5">Full Name *</label>
-                        <input
-                          type="text"
-                          required
-                          placeholder="Your Name"
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000]"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-700 mb-1.5">Email Address *</label>
-                        <input
-                          type="email"
-                          required
-                          placeholder="you@domain.com"
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000]"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-700 mb-1.5">Phone Number</label>
-                        <input
-                          type="tel"
-                          placeholder="+91 "
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000]"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-700 mb-1.5">Query Category</label>
-                        <select className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000]">
-                          <option>Academic Bank of Credits (ABC / DigiLocker)</option>
-                          <option>Multiple Entry &amp; Exit / FYUP</option>
-                          <option>NEP SAARTHI Student Ambassadors</option>
-                          <option>Active Pedagogical Techniques</option>
-                          <option>Internships &amp; Embedded Degrees</option>
-                          <option>General Inquiry / Other</option>
-                        </select>
-                      </div>
-                    </div>
-
+                  {/* Phone */}
+                  <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/10">
+                    <Phone className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
                     <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1.5">Subject *</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Inquiry Subject"
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000]"
-                      />
+                      <p className="text-white/70 text-xs font-bold uppercase tracking-wider mb-1">
+                        Phone :
+                      </p>
+                      <p className="font-bold text-white text-base">
+                        {nepContactData.phone}
+                      </p>
                     </div>
+                  </div>
 
+                  {/* Email */}
+                  <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/10">
+                    <Mail className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
                     <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1.5">Message / Inquiry Details *</label>
-                      <textarea
-                        rows={4}
-                        required
-                        placeholder="Please write your questions or details here..."
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000]"
-                      />
+                      <p className="text-white/70 text-xs font-bold uppercase tracking-wider mb-1">
+                        Email :
+                      </p>
+                      <a
+                        href={`mailto:${nepContactData.email}`}
+                        className="font-bold text-white text-base hover:text-[#ffd15c] underline transition-colors"
+                      >
+                        {nepContactData.email}
+                      </a>
                     </div>
-
-                    <button
-                      type="submit"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#990000] hover:bg-[#800000] text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg"
-                    >
-                      <Send className="w-4 h-4" />
-                      <span>Submit Inquiry</span>
-                    </button>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1458,7 +1120,7 @@ export default function NepView() {
                 rel="noopener noreferrer"
                 className="font-bold text-[#b31317] hover:underline inline-flex items-center gap-1"
               >
-                <span>Download PDF</span>
+                <span>Open / Download</span>
                 <Download className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -1489,9 +1151,6 @@ export default function NepView() {
             />
             <div className="mt-3 text-center text-white">
               <h4 className="font-bold text-base sm:text-lg">{lightboxImg.title}</h4>
-              {lightboxImg.subtitle && (
-                <p className="text-xs sm:text-sm text-slate-300 mt-0.5">{lightboxImg.subtitle}</p>
-              )}
             </div>
           </div>
         </div>
