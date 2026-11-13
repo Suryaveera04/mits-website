@@ -943,41 +943,33 @@ export default function NepView() {
                       Gallery
                     </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      MITS' NEP SAARTHI's photo highlights • All 48 Photos
+                      Photo highlights (48 Photos)
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Responsive Grid */}
+              {/* Responsive Grid - Pure Images */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 {nepGalleryItems.map((img, idx) => (
                   <div
                     key={idx}
                     onClick={() => setLightboxIndex(idx)}
-                    className="group bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col"
+                    className="group relative h-64 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer bg-slate-900 border border-slate-200"
                   >
-                    <div className="relative h-56 sm:h-60 overflow-hidden bg-slate-900">
-                      <img
-                        src={img.src}
-                        alt={img.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = `${BASE}images/nep/gallery/nep-gallery-1.jpg`;
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 text-slate-900 text-xs font-bold backdrop-blur-sm shadow">
-                          <Maximize2 className="w-3.5 h-3.5" /> Enlarge
-                        </span>
-                      </div>
-                    </div>
-                    <div className="p-3.5 flex items-center justify-between">
-                      <h4 className="font-bold text-xs sm:text-sm text-slate-900 group-hover:text-[#b31317] transition-colors truncate">
-                        {img.title}
-                      </h4>
-                      <span className="text-[11px] font-semibold text-slate-400 shrink-0 ml-2">#{idx + 1}</span>
+                    <img
+                      src={img.src}
+                      alt={`Gallery Photo ${idx + 1}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = `${BASE}images/nep/gallery/nep-gallery-1.jpg`;
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/70 text-white text-xs font-semibold backdrop-blur-md shadow-lg border border-white/20">
+                        <Maximize2 className="w-3.5 h-3.5" /> View Photo
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -1181,14 +1173,11 @@ export default function NepView() {
               }}
             />
 
-            {/* Caption */}
-            <div className="mt-4 text-center text-white">
-              <h4 className="font-bold text-base sm:text-lg">
-                {nepGalleryItems[lightboxIndex].title}
-              </h4>
-              <p className="text-xs text-white/70 mt-1">
+            {/* Photo Counter */}
+            <div className="mt-3 text-center text-white">
+              <span className="inline-block px-3.5 py-1 rounded-full bg-white/10 text-white text-xs font-semibold tracking-wider">
                 Photo {lightboxIndex + 1} of {nepGalleryItems.length}
-              </p>
+              </span>
             </div>
           </div>
         </div>

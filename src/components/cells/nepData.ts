@@ -698,198 +698,54 @@ export const nepEventsData: NepEventItem[] = [
 
 // TAB 12: Gallery (All 48 MITS' NEP SAARTHI's photos)
 export const nepGalleryItems = [
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-1.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-2.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-3.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-4.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-5.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-6.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-7.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-8.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-9.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-10.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-11.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-12.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-13.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-14.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-15.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-16.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-17.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-18.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-19.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-20.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-21.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-22.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-23.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-24.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-25.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-26.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-27.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-28.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-29.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-30.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-31.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-32.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-33.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-34.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-35.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-36.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-37.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-38.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-39.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-40.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-41.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-42.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-43.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-44.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-45.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-46.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-47.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
-  {
-    src: `${BASE}images/nep/gallery/nep-gallery-48.jpg`,
-    title: "MITS' NEP SAARTHI's",
-  },
+  { src: `${BASE}images/nep/gallery/nep-gallery-1.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-2.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-3.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-4.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-5.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-6.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-7.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-8.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-9.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-10.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-11.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-12.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-13.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-14.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-15.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-16.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-17.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-18.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-19.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-20.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-21.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-22.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-23.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-24.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-25.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-26.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-27.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-28.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-29.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-30.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-31.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-32.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-33.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-34.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-35.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-36.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-37.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-38.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-39.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-40.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-41.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-42.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-43.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-44.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-45.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-46.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-47.jpg` },
+  { src: `${BASE}images/nep/gallery/nep-gallery-48.jpg` },
 ];
 
 // TAB 13: Contact Us Exact Details
