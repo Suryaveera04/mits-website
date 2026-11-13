@@ -49,7 +49,7 @@ const AcademicCouncil = () => {
                 {
                   title: "Minutes of 4th Academic Council Meeting",
                   date: "August 14, 2026",
-                  url: "https://mits.ac.in/assets/pdf/admin/Minutes of the 4th Academic Council.pdf",
+                  url: "https://mits.ac.in/public/uploads/static-pdf/MoM-4th%20Academic%20Council%20Meeting_30.09.2026.pdf",
                 },
                 {
                   title: "Minutes of 3rd Academic Council Meeting",
