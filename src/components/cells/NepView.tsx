@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
+  ChevronLeft,
   ChevronRight,
   MapPin,
   Phone,
@@ -139,7 +140,7 @@ function PublicationLinkRow({
 export default function NepView() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("about");
-  const [lightboxImg, setLightboxImg] = useState<{ src: string; title: string } | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [previewPdf, setPreviewPdf] = useState<{ title: string; url: string } | null>(null);
 
   // Search state for Notices & Downloads
@@ -241,10 +242,6 @@ export default function NepView() {
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Cells &amp; Committees</span>
           </button>
-
-          <span className="text-xs text-slate-500 font-medium bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">
-            Source: <a href="https://www.mits.ac.in/nep-cell" target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-700 hover:underline">mits.ac.in/nep-cell</a>
-          </span>
         </div>
 
         {/* ============================================================== */}
@@ -946,27 +943,28 @@ export default function NepView() {
                       Gallery
                     </h2>
                     <p className="text-xs sm:text-sm text-slate-500">
-                      MITS' NEP SAARTHI's photo highlights
+                      MITS' NEP SAARTHI's photo highlights • All 48 Photos
                     </p>
                   </div>
                 </div>
               </div>
 
               {/* Responsive Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 {nepGalleryItems.map((img, idx) => (
                   <div
                     key={idx}
-                    onClick={() => setLightboxImg(img)}
+                    onClick={() => setLightboxIndex(idx)}
                     className="group bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col"
                   >
-                    <div className="relative h-60 sm:h-64 overflow-hidden bg-slate-900">
+                    <div className="relative h-56 sm:h-60 overflow-hidden bg-slate-900">
                       <img
                         src={img.src}
                         alt={img.title}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = `${BASE}images/nep/nep-gallery-1.jpg`;
+                          (e.target as HTMLImageElement).src = `${BASE}images/nep/gallery/nep-gallery-1.jpg`;
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
@@ -975,11 +973,11 @@ export default function NepView() {
                         </span>
                       </div>
                     </div>
-                    <div className="p-4 flex items-center justify-between">
-                      <h4 className="font-bold text-sm text-slate-900 group-hover:text-[#b31317] transition-colors">
+                    <div className="p-3.5 flex items-center justify-between">
+                      <h4 className="font-bold text-xs sm:text-sm text-slate-900 group-hover:text-[#b31317] transition-colors truncate">
                         {img.title}
                       </h4>
-                      <span className="text-xs text-slate-400">Photo #{idx + 1}</span>
+                      <span className="text-[11px] font-semibold text-slate-400 shrink-0 ml-2">#{idx + 1}</span>
                     </div>
                   </div>
                 ))}
@@ -1128,29 +1126,67 @@ export default function NepView() {
         </div>
       )}
 
-      {/* LIGHTBOX MODAL FOR GALLERY */}
-      {lightboxImg && (
+      {/* LIGHTBOX MODAL FOR ALL 48 GALLERY IMAGES */}
+      {lightboxIndex !== null && nepGalleryItems[lightboxIndex] && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
-          onClick={() => setLightboxImg(null)}
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 select-none"
+          onClick={() => setLightboxIndex(null)}
         >
           <div
-            className="relative max-w-4xl max-h-[90vh] flex flex-col items-center bg-black/60 rounded-2xl p-4"
+            className="relative max-w-5xl max-h-[92vh] flex flex-col items-center bg-black/70 rounded-2xl p-4 sm:p-6 border border-white/10"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close Button */}
             <button
-              onClick={() => setLightboxImg(null)}
-              className="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-white text-slate-900 flex items-center justify-center hover:bg-slate-200 transition-colors shadow-lg z-10"
+              onClick={() => setLightboxIndex(null)}
+              className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center hover:bg-slate-200 transition-colors shadow-xl z-20"
+              title="Close"
             >
               <X className="w-5 h-5" />
             </button>
+
+            {/* Prev Arrow */}
+            <button
+              onClick={() =>
+                setLightboxIndex(
+                  (lightboxIndex - 1 + nepGalleryItems.length) % nepGalleryItems.length
+                )
+              }
+              className="absolute left-2 sm:-left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/70 hover:bg-[#b31317] text-white flex items-center justify-center border border-white/20 transition-all shadow-xl z-20"
+              title="Previous Photo"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            {/* Next Arrow */}
+            <button
+              onClick={() =>
+                setLightboxIndex((lightboxIndex + 1) % nepGalleryItems.length)
+              }
+              className="absolute right-2 sm:-right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/70 hover:bg-[#b31317] text-white flex items-center justify-center border border-white/20 transition-all shadow-xl z-20"
+              title="Next Photo"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            {/* Image */}
             <img
-              src={lightboxImg.src}
-              alt={lightboxImg.title}
-              className="max-w-full max-h-[75vh] object-contain rounded-lg"
+              src={nepGalleryItems[lightboxIndex].src}
+              alt={nepGalleryItems[lightboxIndex].title}
+              className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = `${BASE}images/nep/gallery/nep-gallery-1.jpg`;
+              }}
             />
-            <div className="mt-3 text-center text-white">
-              <h4 className="font-bold text-base sm:text-lg">{lightboxImg.title}</h4>
+
+            {/* Caption */}
+            <div className="mt-4 text-center text-white">
+              <h4 className="font-bold text-base sm:text-lg">
+                {nepGalleryItems[lightboxIndex].title}
+              </h4>
+              <p className="text-xs text-white/70 mt-1">
+                Photo {lightboxIndex + 1} of {nepGalleryItems.length}
+              </p>
             </div>
           </div>
         </div>
