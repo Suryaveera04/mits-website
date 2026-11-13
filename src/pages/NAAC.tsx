@@ -33,9 +33,8 @@ import {
   criteria,
   criteriaWithMetrics,
   extendedProfileDVV,
-  iqacLinks,
-  highlights,
-  coordinator,
+  naacOfficeOrders,
+  naacContacts,
   NAAC_GRADE,
   NAAC_CYCLE,
   type DocLink,
@@ -297,31 +296,45 @@ const NAAC = () => {
                     <SectionHeader
                       eyebrow="About"
                       title="NAAC at MITS"
-                      description="Madanapalle Institute of Technology & Science (MITS), established in 1998, has been conferred the status of a Deemed to be University by the Government of India under Section 3 of the UGC Act, 1956 (Notification dated 15th July 2025)."
                     />
                     <div className="bg-white rounded-2xl border border-[#0f2a44]/10 p-6 md:p-10 shadow-sm">
                       <div className="prose max-w-none font-body text-[#0f2a44]/85 leading-relaxed space-y-4">
                         <p>
-                          MITS is accredited by the <strong>National Assessment and Accreditation Council (NAAC)</strong>,
-                          a hallmark of quality across teaching-learning, research, infrastructure, governance and student
-                          support. MITS has successfully completed its <strong>first cycle of NAAC accreditation with an A+ Grade</strong>,
-                          and is now preparing for the next cycle with a strengthened focus on outcome-based education,
-                          research impact and global engagement.
+                          Madanapalle Institute of Technology &amp; Science (MITS), established in 1998, is a premier
+                          institution with a strong legacy of academic excellence. The Government of India conferred
+                          Deemed to be University status under Section 3 of the UGC Act, 1956 (Notification dated
+                          15 July 2025).
                         </p>
                         <p>
-                          Through its <strong>Internal Quality Assurance Cell (IQAC)</strong>, MITS continuously monitors and
-                          enhances academic and administrative performance through quality benchmarks, stakeholder
-                          feedback and systematic documentation aligned with the NAAC framework.
+                          MITS is committed to excellence in higher education through continuous quality enhancement,
+                          innovation, and institutional best practices.
                         </p>
+                        <p>
+                          The institution is accredited by the <strong>National Assessment and Accreditation Council
+                          (NAAC)</strong>, a hallmark of quality in teaching-learning processes, research, infrastructure,
+                          governance, and student support systems. NAAC accreditation reflects MITS&apos; adherence to
+                          well-defined standards and commitment to fostering a culture of academic and administrative excellence.
+                        </p>
+                        <p>
+                          MITS has successfully completed its <strong>first cycle of NAAC accreditation with an A+ Grade</strong>,
+                          demonstrating its foundation in quality education, research, and holistic student development.
+                          The institution is progressing towards its next accreditation cycle, focusing on outcome-based
+                          education, research impact, innovation ecosystems, and global engagement.
+                        </p>
+                        <p>
+                          Through its <strong>Internal Quality Assurance Cell (IQAC)</strong>, MITS monitors and enhances
+                          academic and administrative performance by implementing quality benchmarks, collecting
+                          stakeholder feedback, and ensuring systematic documentation and compliance with NAAC criteria.
+                        </p>
+                        <p><strong>The university emphasizes:</strong></p>
                       </div>
                       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-8">
                         {[
-                          "Student-centric learning & OBE",
-                          "Research, innovation & consultancy",
-                          "Industry interaction & skill development",
-                          "Inclusive practices & social responsibility",
-                          "Sustainable & green campus initiatives",
-                          "Transparent governance & accountability",
+                          "Student-centric learning and outcome-based education",
+                          "Research, innovation, and consultancy",
+                          "Industry interaction and skill development",
+                          "Inclusive practices and social responsibility",
+                          "Sustainable and green campus initiatives",
                         ].map((t) => (
                           <div
                             key={t}
@@ -332,37 +345,85 @@ const NAAC = () => {
                           </div>
                         ))}
                       </div>
+                      <p className="font-body text-[#0f2a44]/85 leading-relaxed mt-6">
+                        <strong>MITS is dedicated to maintaining the highest standards of quality, accountability,
+                        and continuous improvement</strong>, aligned with national and global educational benchmarks.
+                      </p>
                     </div>
 
                     <div className="mt-8">
-                      <h3 className="font-display text-xl font-bold text-[#0f2a44] mb-4">Quick Access</h3>
-                      <DocGrid docs={accreditationCore} />
+                      <h3 className="font-display text-xl font-bold text-[#0f2a44] mb-4">NAAC Office Orders</h3>
+                      <DocGrid docs={naacOfficeOrders} />
                     </div>
 
                     <div className="mt-8">
-                      <h3 className="font-display text-xl font-bold text-[#0f2a44] mb-4">IQAC Office &amp; Coordinator</h3>
+                      <h3 className="font-display text-xl font-bold text-[#0f2a44] mb-4">Contact Us</h3>
                       <div className="bg-white rounded-2xl border border-[#0f2a44]/10 p-6 md:p-8 shadow-sm">
-                        <p className="font-display text-xl font-bold text-[#0f2a44]">{coordinator.office}</p>
-                        <p className="font-body text-[#0f2a44]/70 mt-1">{coordinator.institute}</p>
-                        <div className="grid md:grid-cols-3 gap-4 mt-6">
-                          <div className="flex items-start gap-3 p-4 rounded-lg bg-[#faf7f2]">
+                        <p className="font-display text-xl font-bold text-[#0f2a44]">IQAC &amp; NAAC Office</p>
+                        <p className="font-body text-[#0f2a44]/70 mt-1">{naacContacts.institute}</p>
+                        <div className="grid md:grid-cols-2 gap-4 mt-6">
+                          {naacContacts.coordinators.map((contact) => (
+                            <div
+                              key={contact.name}
+                              className="flex items-start gap-3 p-4 rounded-lg bg-[#faf7f2]"
+                            >
+                              <Users className="w-5 h-5 text-[#caa74d] shrink-0 mt-0.5" />
+                              <div>
+                                <p className="font-semibold text-sm text-[#0f2a44]">{contact.name}</p>
+                                <p className="font-body text-sm text-[#0f2a44]/70 mt-1">{contact.role}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="grid gap-4 lg:grid-cols-2 mt-4 items-stretch">
+                          <div className="h-full min-w-0 flex items-start gap-3 p-4 rounded-lg bg-[#faf7f2] lg:col-span-2">
                             <MapPin className="w-5 h-5 text-[#caa74d] shrink-0 mt-0.5" />
-                            <p className="font-body text-sm text-[#0f2a44]/85">{coordinator.address}</p>
+                            <div className="min-w-0">
+                              <p className="font-semibold text-sm text-[#0f2a44] mb-2">Address</p>
+                              <address className="not-italic font-body text-sm text-[#0f2a44]/85 leading-relaxed">
+                                Room No: {naacContacts.room}<br />
+                                {naacContacts.institute}<br />
+                                Deemed to be University<br />
+                                {naacContacts.address}
+                              </address>
+                            </div>
                           </div>
-                          <a
-                            href={`mailto:${coordinator.email}`}
-                            className="flex items-start gap-3 p-4 rounded-lg bg-[#faf7f2] hover:bg-[#caa74d]/10 transition-colors"
-                          >
-                            <Mail className="w-5 h-5 text-[#caa74d] shrink-0 mt-0.5" />
-                            <p className="font-body text-sm text-[#0f2a44]/85">{coordinator.email}</p>
-                          </a>
-                          <a
-                            href={`tel:${coordinator.phone}`}
-                            className="flex items-start gap-3 p-4 rounded-lg bg-[#faf7f2] hover:bg-[#caa74d]/10 transition-colors"
-                          >
+                          <div className="h-full min-w-0 flex items-start gap-3 p-4 rounded-lg bg-[#faf7f2]">
                             <Phone className="w-5 h-5 text-[#caa74d] shrink-0 mt-0.5" />
-                            <p className="font-body text-sm text-[#0f2a44]/85">{coordinator.phone}</p>
-                          </a>
+                            <div className="min-w-0">
+                              <p className="font-semibold text-sm text-[#0f2a44] mb-2">Phone</p>
+                              <div className="flex items-center gap-1 whitespace-nowrap">
+                                {naacContacts.phones.map((phone, index) => (
+                                  <span key={phone} className="inline-flex items-center gap-1">
+                                    {index > 0 && <span aria-hidden="true">,</span>}
+                                    <a
+                                      href={`tel:${phone.replace(/\s/g, "")}`}
+                                      className="font-body text-sm text-[#0f2a44]/85 hover:text-[#b31317]"
+                                    >
+                                      {phone}
+                                    </a>
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="h-full min-w-0 flex items-start gap-3 p-4 rounded-lg bg-[#faf7f2]">
+                            <Mail className="w-5 h-5 text-[#caa74d] shrink-0 mt-0.5" />
+                            <div className="min-w-0">
+                              <p className="font-semibold text-sm text-[#0f2a44] mb-2">Email</p>
+                              <div className="space-y-1">
+                                {naacContacts.emails.map((email) => (
+                                  <a
+                                    key={email}
+                                    href={`mailto:${email}`}
+                                    className="block font-body text-sm text-[#0f2a44]/85 hover:text-[#b31317]"
+                                  >
+                                    {email}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

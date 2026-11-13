@@ -320,10 +320,31 @@ export const highlights = [
   { label: "Criteria Covered", value: "7", note: "Comprehensive Assessment" },
 ];
 
-export const coordinator = {
-  office: "Internal Quality Assurance Cell (IQAC)",
-  institute: "Madanapalle Institute of Technology & Science",
-  address: "Post Box No. 4, Angallu, Madanapalle – 517325, Andhra Pradesh, India",
-  email: "iqac@mits.ac.in",
-  phone: "+91-7330803555",
+export const naacOfficeOrders: DocLink[] = [
+  {
+    title: "NAAC Coordinator Office Order",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC%20Coordinator%20Order.pdf",
+    type: "pdf",
+  },
+  {
+    title: "University-wise NAAC Criterion Coordinators",
+    url: "https://mits.ac.in/assets/pdf/iqac/Office%20Order-78-NAAC%20Criterion-Coordinator.pdf",
+    type: "pdf",
+  },
+];
+
+export const naacContacts = {
+  institute: NAAC_INSTITUTE,
+  room: "SRB211A",
+  address:
+    "Madanapalle–Kadiri Road, Kurabalakota Mandal, Madanapalle–517325, Andhra Pradesh, India",
+  coordinators: [
+    { name: "Dr. K. Sathesh", role: "IQAC & NAAC Coordinator" },
+    {
+      name: "Mr. T. Manivannan",
+      role: "Accreditation Compliance & Data Validation Associate",
+    },
+  ],
+  phones: ["+91 08571 280255", "9100973388"],
+  emails: ["naaccell@mits.ac.in", "compliance.datavalidation@mits.ac.in"],
 };
