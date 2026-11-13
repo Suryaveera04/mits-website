@@ -14,27 +14,27 @@ const dtbuFinanceMeetings: MeetingItem[] = [
   {
     sno: 1,
     title: "Minutes of 5th Finance Committee meeting",
-    url: "https://mits.ac.in/assets/pdf/admin/5th Finance Comittee Meeting-protected.pdf",
+    url: "https://mits.ac.in/assets/pdf/admin/5th%20Finance%20Comittee%20Meeting-protected.pdf",
   },
   {
     sno: 2,
     title: "Minutes of 4th Finance Committee meeting",
-    url: "https://mits.ac.in/assets/pdf/admin/Minutes of 4th Finance Committee meeting-protected.pdf",
+    url: "https://mits.ac.in/assets/pdf/admin/Minutes%20of%204th%20Finance%20Committee%20meeting-protected.pdf",
   },
   {
     sno: 3,
     title: "Minutes of 3rd Finance Committee meeting",
-    url: "https://mits.ac.in/assets/pdf/admin/Minutes of 3rd Finance Committee meeting-protected.pdf",
+    url: "https://mits.ac.in/assets/pdf/admin/Minutes%20of%203rd%20Finance%20Committee%20meeting-protected.pdf",
   },
   {
     sno: 4,
     title: "Minutes of 2nd Finance Committee Meeting",
-    url: "https://mits.ac.in/assets/pdf/admin/Minutes of 2nd Finance Committee meeting-protected.pdf",
+    url: "https://mits.ac.in/assets/pdf/admin/Minutes%20of%202nd%20Finance%20Committee%20meeting-protected.pdf",
   },
   {
     sno: 5,
     title: "Minutes of 1st Finance Committee Meeting",
-    url: "https://mits.ac.in/assets/pdf/admin/Minutes of 1st Finance Committee Meeting-protected.pdf",
+    url: "https://mits.ac.in/assets/pdf/admin/Minutes%20of%201st%20Finance%20Committee%20Meeting-protected.pdf",
   },
 ];
 
