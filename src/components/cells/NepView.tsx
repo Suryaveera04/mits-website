@@ -364,37 +364,37 @@ export default function NepView() {
                     <h3 className="font-serif text-xl font-bold text-white mb-4">Contact Coordinator</h3>
 
                     <div className="space-y-3.5 text-xs sm:text-sm text-white">
-                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/10">
+                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/15">
                         <Users className="w-4 h-4 text-[#ffd15c] shrink-0 mt-0.5" />
                         <div>
-                          <p className="font-bold text-white text-sm">{nepContactData.coordinator}</p>
-                          <p className="text-white/80 text-xs">{nepContactData.role}</p>
+                          <p className="font-bold !text-white text-white text-sm">{nepContactData.coordinator}</p>
+                          <p className="!text-white/90 text-white text-xs">{nepContactData.role}</p>
                         </div>
                       </div>
 
-                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/10">
+                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/15">
                         <Phone className="w-4 h-4 text-[#ffd15c] shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white/70 text-xs">Phone</p>
-                          <p className="font-semibold text-white">{nepContactData.phone}</p>
+                          <p className="text-[#ffd15c] text-xs font-bold uppercase tracking-wider mb-0.5">Phone</p>
+                          <p className="font-bold !text-white text-white text-sm">{nepContactData.phone}</p>
                         </div>
                       </div>
 
-                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/10">
+                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/15">
                         <Mail className="w-4 h-4 text-[#ffd15c] shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white/70 text-xs">Email</p>
-                          <a href={`mailto:${nepContactData.email}`} className="font-semibold text-white hover:text-[#ffd15c] transition-colors break-all">
+                          <p className="text-[#ffd15c] text-xs font-bold uppercase tracking-wider mb-0.5">Email</p>
+                          <a href={`mailto:${nepContactData.email}`} className="font-bold !text-white text-white hover:text-[#ffd15c] transition-colors break-all">
                             {nepContactData.email}
                           </a>
                         </div>
                       </div>
 
-                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/10">
+                      <div className="flex items-start gap-3 bg-white/10 p-3 rounded-xl border border-white/15">
                         <MapPin className="w-4 h-4 text-[#ffd15c] shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white/70 text-xs">Address</p>
-                          <p className="text-white/90 text-xs leading-relaxed">
+                          <p className="text-[#ffd15c] text-xs font-bold uppercase tracking-wider mb-0.5">Address</p>
+                          <p className="!text-white text-white text-xs leading-relaxed font-medium">
                             {nepContactData.address.join(", ")}
                           </p>
                         </div>
@@ -1008,67 +1008,69 @@ export default function NepView() {
                 </div>
               </div>
 
-              {/* Exact Contact Card */}
-              <div className="bg-[#990000] text-white rounded-2xl p-6 sm:p-8 shadow-lg border border-[#800000] max-w-2xl">
-                <div className="space-y-6">
-                  {/* Coordinator */}
-                  <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/10">
-                    <Users className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
-                    <div>
-                      <h3 className="font-bold text-white text-lg sm:text-xl">
-                        {nepContactData.coordinator}
-                      </h3>
-                      <p className="text-white/80 text-sm font-medium mt-0.5">
-                        {nepContactData.role}
-                      </p>
-                    </div>
-                  </div>
+                  {/* Exact Contact Card */}
+                  <div className="bg-[#990000] text-white rounded-2xl p-6 sm:p-8 shadow-lg border border-[#800000] max-w-2xl">
+                    <div className="space-y-5">
+                      {/* Coordinator */}
+                      <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/15">
+                        <Users className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
+                        <div>
+                          <h3 className="font-bold !text-white text-white text-lg sm:text-xl">
+                            {nepContactData.coordinator}
+                          </h3>
+                          <p className="!text-white/90 text-white text-sm font-semibold mt-0.5">
+                            {nepContactData.role}
+                          </p>
+                        </div>
+                      </div>
 
-                  {/* Address */}
-                  <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/10">
-                    <MapPin className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-white/70 text-xs font-bold uppercase tracking-wider mb-1">
-                        Address
-                      </p>
-                      <div className="text-white/95 text-sm leading-relaxed space-y-0.5">
-                        {nepContactData.address.map((line, idx) => (
-                          <p key={idx}>{line}</p>
-                        ))}
+                      {/* Address */}
+                      <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/15">
+                        <MapPin className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
+                        <div className="w-full">
+                          <p className="text-[#ffd15c] text-xs font-bold uppercase tracking-wider mb-2">
+                            ADDRESS
+                          </p>
+                          <div className="space-y-1">
+                            {nepContactData.address.map((line, idx) => (
+                              <p key={idx} className="!text-white text-white text-sm sm:text-base font-medium leading-relaxed">
+                                {line}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Phone */}
+                      <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/15">
+                        <Phone className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-[#ffd15c] text-xs font-bold uppercase tracking-wider mb-1.5">
+                            PHONE :
+                          </p>
+                          <p className="font-bold !text-white text-white text-base sm:text-lg">
+                            {nepContactData.phone}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Email */}
+                      <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/15">
+                        <Mail className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-[#ffd15c] text-xs font-bold uppercase tracking-wider mb-1.5">
+                            EMAIL :
+                          </p>
+                          <a
+                            href={`mailto:${nepContactData.email}`}
+                            className="font-bold !text-white text-white text-base sm:text-lg hover:text-[#ffd15c] underline transition-colors"
+                          >
+                            {nepContactData.email}
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-
-                  {/* Phone */}
-                  <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/10">
-                    <Phone className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-white/70 text-xs font-bold uppercase tracking-wider mb-1">
-                        Phone :
-                      </p>
-                      <p className="font-bold text-white text-base">
-                        {nepContactData.phone}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex items-start gap-4 bg-white/10 p-5 rounded-xl border border-white/10">
-                    <Mail className="w-6 h-6 text-[#ffd15c] shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-white/70 text-xs font-bold uppercase tracking-wider mb-1">
-                        Email :
-                      </p>
-                      <a
-                        href={`mailto:${nepContactData.email}`}
-                        className="font-bold text-white text-base hover:text-[#ffd15c] underline transition-colors"
-                      >
-                        {nepContactData.email}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </ScrollReveal>
         )}
