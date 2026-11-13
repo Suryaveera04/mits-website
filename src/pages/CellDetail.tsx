@@ -33,6 +33,7 @@ import CsiView from "@/components/cells/CsiView";
 import NccArmyView from "@/components/cells/NccArmyView";
 import NccAirView from "@/components/cells/NccAirView";
 import NepView from "@/components/cells/NepView";
+import IsteView from "@/components/cells/IsteView";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -212,6 +213,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "nep" || targetId === "nep-cell") {
     return <NepView />;
+  }
+
+  if (targetId === "iste") {
+    return <IsteView />;
   }
 
   if (!cell) {
