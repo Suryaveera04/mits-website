@@ -173,7 +173,7 @@ const NAAC = () => {
                 <Award className="w-4 h-4" /> View NAAC Certificate
               </a>
               <a
-                href={accreditationCore[2].url}
+                href={accreditationCore[3].url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-white/30 text-white hover:bg-white/10 transition-colors"
@@ -374,7 +374,7 @@ const NAAC = () => {
                     <SectionHeader
                       eyebrow="NAAC Cycle"
                       title="Cycle Accreditation Records"
-                      description="Core institutional accreditation records including NAAC Certificate, Peer Team Report, Institutional SSR, and Peer Team Visit Video."
+                      description="Core institutional accreditation records including the NAAC Certificate, validity extension public notification, Peer Team Report, Institutional SSR, and Peer Team Visit Video."
                     />
                     <DocGrid docs={filter(accreditationCore)} />
                   </section>

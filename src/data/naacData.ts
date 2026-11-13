@@ -14,6 +14,7 @@ export const NAAC_INSTITUTE = "Madanapalle Institute of Technology & Science";
 
 export const accreditationCore: DocLink[] = [
   { title: "NAAC Certificate", url: BASE + "9b55cb6cdd40bf4ca955cdd3a5383031.pdf", type: "pdf" },
+  { title: "Validity Extension Public Notification - NAAC", url: BASE + "NAAC_notification_public_notice_BAF_MBGL_22nd_April_2026.pdf", type: "pdf" },
   { title: "Peer Team Report", url: BASE + "Peer%20Team%20Report.pdf", type: "pdf" },
   { title: "Self Study Report (SSR)", url: BASE + "MITS-Updated-SSR-16.pdf", type: "pdf" },
   { title: "MITS NAAC Visit Video", url: "https://mits.ac.in/assets/videos/MITS-NAAC.mp4", type: "video" },
