@@ -9,7 +9,7 @@ import {
   type APIFacultyMember,
 } from "@/lib/facultyApi";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
-import { departmentsData, type FacultyMember } from "@/data/departmentData";
+import { departmentsData, getDepartmentByKey, type FacultyMember } from "@/data/departmentData";
 import { departmentHeads } from "@/data/aboutData";
 import officialFacultyList from "@/data/officialFacultyList.json";
 
@@ -53,19 +53,80 @@ export function matchFacultyNameScore(name1: string, name2: string): number {
 }
 
 export const DEPT_KNOWN_HODS: Record<string, string> = {
+  // Civil Engineering
+  ce: "Dr. Vijayakumar Natesan",
+  civil: "Dr. Vijayakumar Natesan",
+  "civil-engineering": "Dr. Vijayakumar Natesan",
+
+  // Mechanical Engineering
+  me: "Dr. S. Baskaran",
+  mech: "Dr. S. Baskaran",
+  mechanical: "Dr. S. Baskaran",
+  "mechanical-engineering": "Dr. S. Baskaran",
+
+  // Electrical and Electronics Engineering
   eee: "Dr. Manavaalan Gunasekaran",
-  ece: "Dr. S. Baskaran",
-  me: "Dr. Sanjay Kumar C. Gowre",
-  ce: "Dr. Brahm Prakash",
+  "electrical-electronics-engineering": "Dr. Manavaalan Gunasekaran",
+  "electrical-and-electronics-engineering": "Dr. Manavaalan Gunasekaran",
+
+  // Electronics & Communication Engineering
+  ece: "Dr. Sanjay Kumar C. Gowre",
+  "electronics-communication-engineering": "Dr. Sanjay Kumar C. Gowre",
+  "electronics-and-communication-engineering": "Dr. Sanjay Kumar C. Gowre",
+
+  // Computer Science & Engineering
   cse: "Dr. M. Sreedevi",
-  cst: "Dr. Vijayakumar Natesan",
-  csit: "Dr. S. Kusuma",
+  "computer-science-and-engineering": "Dr. M. Sreedevi",
+
+  // Computer Science & Technology
+  cst: "Dr. K. Dinesh",
+  "computer-science-technology": "Dr. K. Dinesh",
+  "computer-science-and-technology": "Dr. K. Dinesh",
+
+  // Computer Science & Engineering (Artificial Intelligence and Data Science)
+  cseds: "Dr. S. Kusuma",
+  "cse-ds": "Dr. S. Kusuma",
+  csd: "Dr. S. Kusuma",
+  ds: "Dr. S. Kusuma",
+  aids: "Dr. S. Kusuma",
+  "cse-aids": "Dr. S. Kusuma",
+
+  // Computer Science & Engineering (Cyber Security)
+  csecs: "Dr. Brahm Prakash",
+  "cse-cs": "Dr. Brahm Prakash",
+  csc: "Dr. Brahm Prakash",
+  cs: "Dr. Brahm Prakash",
+  "cyber-security": "Dr. Brahm Prakash",
+  csec: "Dr. Brahm Prakash",
+
+  // Computer Science & Engineering (Artificial Intelligence)
+  ai: "Dr. R. Kalpana",
+  "cse-ai": "Dr. R. Kalpana",
+
+  // Computer Science & Engineering (AI & ML)
   aiml: "Dr. S. Padma",
-  aids: "Dr. R. Kalpana",
-  iot: "Dr. R. Kalpana",
+  "cse-aiml": "Dr. S. Padma",
+  "cse-ai-ml": "Dr. S. Padma",
+  cai: "Dr. S. Padma",
+  "ai-ml": "Dr. S. Padma",
+  "ai&ml": "Dr. S. Padma",
+
+  // Master of Computer Applications
   mca: "Dr. N. Naveen Kumar",
+  "computer-applications": "Dr. N. Naveen Kumar",
+  "master-of-computer-applications": "Dr. N. Naveen Kumar",
+
+  // Management Studies (MBA)
   mba: "Dr. Bhanu Sree Reddy",
+  management: "Dr. Bhanu Sree Reddy",
+  "management-studies": "Dr. Bhanu Sree Reddy",
+  "master-of-business-administration": "Dr. Bhanu Sree Reddy",
+
+  // Basic Sciences & Humanities
   bsh: "Dr. Sudhakar Beedam",
+  "basic-sciences": "Dr. Sudhakar Beedam",
+  "basic-sciences-humanities": "Dr. Sudhakar Beedam",
+  humanities: "Dr. Sudhakar Beedam",
 };
 
 /**
@@ -176,13 +237,9 @@ export function getFacultySeniorityPriority(
   }
 
   // 4. HOD (Head of Department)
-  const normKey = deptKey ? deptKey.toLowerCase().trim() : "";
-  const knownHod = normKey ? DEPT_KNOWN_HODS[normKey] : null;
-  const isNamedHod =
-    knownHod &&
-    cleanName.includes(
-      knownHod.replace(/^dr\.?\s*/i, "").split(" ")[0].toLowerCase()
-    );
+  const canonicalKey = getDepartmentByKey(deptKey || "")?.key || (deptKey ? deptKey.toLowerCase().trim() : "");
+  const knownHod = canonicalKey ? DEPT_KNOWN_HODS[canonicalKey] : null;
+  const isNamedHod = knownHod ? matchFacultyNameScore(knownHod, name) >= 0.4 : false;
 
   if (
     isNamedHod ||
@@ -493,28 +550,26 @@ export function useFacultyData() {
 
   /**
    * Dynamically resolves the HOD for any department from live API data,
-   * checking HOD roles/designations first, matching with known HOD name.
-   * Strictly keeps image blank if not present in the database.
+   * strictly scoped to that department's faculty (never leaking faculty from other departments).
    */
   const getDepartmentHod = useCallback(
     (deptKey: string, targetNameOrSubDept?: string): FacultyMember | undefined => {
-      const normalizedKey = deptKey.toLowerCase().trim();
-      const deptStatic = departmentsData[normalizedKey];
+      const deptStatic = getDepartmentByKey(deptKey);
+      const canonicalKey = deptStatic?.key || (deptKey ? deptKey.toLowerCase().trim() : "");
       const staticHod = deptStatic?.hod;
-      const knownHead = departmentHeads.find((h) => h.deptKey === normalizedKey);
+      const knownHead = departmentHeads.find((h) => h.deptKey === canonicalKey);
 
-      const hodTargetName = targetNameOrSubDept || DEPT_KNOWN_HODS[normalizedKey] || staticHod?.name || knownHead?.name;
-
-      // 1. Get raw faculty for this department
+      // 1. Strictly get raw faculty for THIS department
       const deptRawFaculty = facultyList.filter((f) => {
         const mapped = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
-        return mapped === normalizedKey;
+        return mapped === canonicalKey;
       });
 
-      // 2. Prioritize matching the known HOD by name first!
       let apiHodMatch: APIFacultyMember | undefined;
-      if (hodTargetName) {
-        const cleanTarget = cleanFacultyName(hodTargetName);
+
+      // 2. Target name or sub-discipline specified (e.g. BSH sub-disciplines or specific head)
+      if (targetNameOrSubDept) {
+        const cleanTarget = cleanFacultyName(targetNameOrSubDept);
         let bestScore = 0;
         for (const f of deptRawFaculty) {
           const score = matchFacultyNameScore(cleanTarget, f.fullName);
@@ -527,66 +582,109 @@ export function useFacultyData() {
           apiHodMatch = undefined;
         }
 
-        // Check globally across all departments if needed
-        if (!apiHodMatch) {
-          let globalBestScore = 0;
-          for (const f of facultyList) {
-            const score = matchFacultyNameScore(cleanTarget, f.fullName);
-            if (score > globalBestScore) {
-              globalBestScore = score;
-              apiHodMatch = f;
-            }
-          }
-          if (globalBestScore < 0.4) {
-            apiHodMatch = undefined;
-          }
+        // Sub-discipline check for BSH (English -> EFL, Maths -> M, Physics -> PHY, Chemistry -> CHY)
+        if (!apiHodMatch && canonicalKey === "bsh") {
+          const subTarget = targetNameOrSubDept.toLowerCase();
+          apiHodMatch = deptRawFaculty.find((f) => {
+            const code = (f.department?.code || "").toLowerCase();
+            const name = (f.department?.name || "").toLowerCase();
+            const des = (f.designation || "").toLowerCase().trim();
+            const roles = (f.academicAdministrationRoles || []).map((r) => (r.roleTitle || "").toLowerCase()).join(" ");
+            const isHead = des === "hod" || des.includes("head") || roles.includes("head") || roles.includes("hod");
+            if (!isHead) return false;
+            if (subTarget.includes("english") && (code === "efl" || name.includes("english"))) return true;
+            if (subTarget.includes("math") && (code === "m" || code === "math" || name.includes("math"))) return true;
+            if (subTarget.includes("physic") && (code === "phy" || name.includes("physic"))) return true;
+            if (subTarget.includes("chem") && (code === "chy" || name.includes("chem"))) return true;
+            return false;
+          });
         }
       }
 
-      // 3. If no named match found, find faculty designated explicitly as Head of Department
+      // 3. General department HOD resolution (no specific target name)
       if (!apiHodMatch && !targetNameOrSubDept) {
-        apiHodMatch = deptRawFaculty.find((f) => {
-          const des = (f.designation || "").toLowerCase();
-          const roles = (f.academicAdministrationRoles || [])
-            .map((r) => (r.roleTitle || "").toLowerCase())
-            .join(" ");
-          return (
-            des.includes("head of the department") ||
-            des.includes("head of department") ||
-            des.includes("& head") ||
-            roles.includes("head of department") ||
-            roles.includes("head of the department")
-          );
-        });
+        const hodTargetName = DEPT_KNOWN_HODS[canonicalKey] || staticHod?.name || knownHead?.name;
+
+        // Try matching known official HOD name inside THIS department's faculty
+        if (hodTargetName) {
+          const cleanTarget = cleanFacultyName(hodTargetName);
+          let bestScore = 0;
+          for (const f of deptRawFaculty) {
+            const des = (f.designation || "").toLowerCase().trim();
+            const roles = (f.academicAdministrationRoles || []).map((r) => (r.roleTitle || "").toLowerCase()).join(" ");
+            const isExplicitHod = des === "hod" || des.includes("head of department") || roles.includes("head of department");
+            let score = matchFacultyNameScore(cleanTarget, f.fullName);
+            if (isExplicitHod && score > 0.3) {
+              score += 0.5; // Boost candidate holding HOD role/title
+            }
+            if (score > bestScore) {
+              bestScore = score;
+              apiHodMatch = f;
+            }
+          }
+          if (bestScore < 0.4) {
+            apiHodMatch = undefined;
+          }
+        }
+
+        // If no named match, find the faculty member in this department explicitly designated as HOD
+        if (!apiHodMatch) {
+          apiHodMatch = deptRawFaculty.find((f) => {
+            const des = (f.designation || "").toLowerCase().trim();
+            const roles = (f.academicAdministrationRoles || [])
+              .map((r) => (r.roleTitle || "").toLowerCase())
+              .join(" ");
+            return (
+              des === "hod" ||
+              des.includes("head of the department") ||
+              des.includes("head of department") ||
+              des.includes("& head") ||
+              roles.includes("head of department") ||
+              roles.includes("head of the department") ||
+              roles.includes("hod")
+            );
+          });
+        }
+
+        // For MBA or executive-led departments, check Dean
+        if (!apiHodMatch && (canonicalKey === "mba" || canonicalKey === "ce")) {
+          apiHodMatch = deptRawFaculty.find((f) => {
+            const des = (f.designation || "").toLowerCase();
+            return des.includes("dean");
+          });
+        }
       }
 
-      // 4. If an API match is found, build the enriched FacultyMember
+      // 4. Build enriched FacultyMember if an API match in this department was found
       if (apiHodMatch) {
         const member = apiFacultyToFacultyMember(apiHodMatch);
-        // Only set image if API match has a profile photo in the database; otherwise fallback to static hod image
+        // Photo: API profile photo > static hod image > knownHead image
         member.image = getFacultyPhotoUrl(apiHodMatch.profilePhoto) || staticHod?.image || knownHead?.image;
         member.name = cleanFacultyName(apiHodMatch.fullName);
-        member.profileUrl = `/department/${normalizedKey}/faculty/${slugifyFaculty(member.name)}`;
+        if (staticHod?.qualification && (!member.qualification || member.qualification === "M.Tech / M.Sc")) {
+          member.qualification = staticHod.qualification;
+        }
+        member.profileUrl = `/department/${canonicalKey}/faculty/${slugifyFaculty(member.name)}`;
 
         const desLower = member.designation.toLowerCase();
-        if (!desLower.includes("head") && !desLower.includes("hod")) {
+        if (!desLower.includes("head") && !desLower.includes("hod") && !desLower.includes("dean")) {
           member.designation = `${member.designation.replace(/s$/, "")} & Head`;
         }
         return member;
       }
 
-      // 5. Fallback to matched head from departmentHeads or static department HOD
+      // 5. Fallback strictly to matched head from departmentHeads or static department HOD
       if (targetNameOrSubDept) {
         const matchedHead = departmentHeads.find(
-          (h) => matchFacultyNameScore(targetNameOrSubDept, h.name) >= 0.5
+          (h) => (h.deptKey === canonicalKey || canonicalKey === "bsh") && matchFacultyNameScore(targetNameOrSubDept, h.name) >= 0.5
         );
         if (matchedHead) {
           return {
             name: cleanFacultyName(matchedHead.name),
             designation: "Head of Department",
-            qualification: "",
+            qualification: staticHod?.qualification || "",
             image: matchedHead.image,
-            profileUrl: matchedHead.externalProfile || `/department/${normalizedKey}/faculty/${slugifyFaculty(matchedHead.name)}`,
+            profileUrl: matchedHead.externalProfile || `/department/${canonicalKey}/faculty/${slugifyFaculty(matchedHead.name)}`,
           };
         }
       }
@@ -595,7 +693,18 @@ export function useFacultyData() {
         return {
           ...staticHod,
           name: cleanFacultyName(staticHod.name),
-          image: undefined, // Blank image if not in database
+          image: staticHod.image || knownHead?.image,
+          profileUrl: staticHod.profileUrl || `/department/${canonicalKey}/faculty/${slugifyFaculty(staticHod.name)}`,
+        };
+      }
+
+      if (knownHead) {
+        return {
+          name: cleanFacultyName(knownHead.name),
+          designation: "Head of Department",
+          qualification: "",
+          image: knownHead.image,
+          profileUrl: knownHead.externalProfile || `/department/${canonicalKey}/faculty/${slugifyFaculty(knownHead.name)}`,
         };
       }
 

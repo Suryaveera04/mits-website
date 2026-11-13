@@ -1281,7 +1281,14 @@ const DepartmentPage = () => {
   };
 
   const dynamicHod = getDepartmentHod(deptKey || "");
-  const hod = dynamicHod || dept.hod;
+  const hod = useMemo(() => {
+    if (!dynamicHod) return dept?.hod;
+    return {
+      ...dynamicHod,
+      qualification: dynamicHod.qualification || dept?.hod?.qualification,
+      image: dynamicHod.image || dept?.hod?.image,
+    };
+  }, [dynamicHod, dept]);
 
   const liveFaculty = getFacultyByDept(deptKey || "");
   const effectiveFaculty = useMemo(() => {
@@ -1878,7 +1885,7 @@ const DepartmentPage = () => {
                                   alt={hod.name}
                                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                   onError={(e) => {
-                                    if (dept.hod?.image && (e.currentTarget as HTMLImageElement).src !== dept.hod.image) {
+                                    if (dept?.hod?.image && (e.currentTarget as HTMLImageElement).src !== dept.hod.image) {
                                       (e.currentTarget as HTMLImageElement).src = dept.hod.image;
                                     }
                                   }}
