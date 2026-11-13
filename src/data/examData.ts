@@ -395,8 +395,26 @@ export const ugDownloads: ExamLink[] = [
 
 // ==================== PG PROGRAMMES ====================
 
-// 1. PG Notifications (16 items)
+// 1. PG Notifications (19 items)
 export const pgNotifications: ExamLink[] = [
+  {
+    "no": 19,
+    "title": "Notification for MCA II Year I Semester (R25) Regular End Semester Examinations December 2026",
+    "href": "https://mits.ac.in/public/uploads/files/Notification for MCA II Year I Semester (R25) Regular End Semeste Examinations December 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 18,
+    "title": "Notification for M.Tech II Year I Semester (R25) Regular End Semester Examinations December 2026",
+    "href": "https://mits.ac.in/public/uploads/files/Notification for M.Tech II Year I Semester (R25) Regular End Semester Examinations December 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 17,
+    "title": "Notification for MBA II Year I Semester (R25) Regular End Semester Examinations December 2026",
+    "href": "https://mits.ac.in/public/uploads/files/Notification for MBA II Year I Semester (R25) Regular End Semester Examinations December 2026.pdf",
+    "kind": "pdf"
+  },
   {
     "no": 16,
     "title": "Re-Counting Notification for MBA, MCA I Year I Semester (R25) Supplementary End Semester Examinations July 2026",
