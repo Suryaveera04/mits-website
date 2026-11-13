@@ -83,11 +83,6 @@ const admissionsFaqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Does MITS accept AP EAMCET scores?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. MITS Madanapalle accepts AP EAMCET scores for B.Tech admissions. Candidates who have appeared in AP EAMCET are eligible to apply through the APSCHE counselling process." }
-    },
-    {
-      "@type": "Question",
       "name": "Is MITS a deemed university or affiliated college?",
       "acceptedAnswer": { "@type": "Answer", "text": "MITS is a Deemed-to-be University recognised by UGC under Section 3 of the UGC Act, 1956. It is also NAAC A+ accredited and AICTE approved." }
     },
