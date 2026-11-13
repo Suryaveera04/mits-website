@@ -91,7 +91,7 @@ export const psdSections: PsdSection[] = [
     title: "Admissions & Fee",
     category: "Student",
     rows: [
-      { subject: "Prospectus (with fee structure)", category: "Student", actions: [ext("https://mits.ac.in/assets/pdf/admin/Updated%20Prospectus.pdf")] },
+      { subject: "Prospectus (with fee structure)", category: "Student", actions: [ext("https://mits.ac.in/assets/pdf/admin/Fee%20Details%202026-27.pdf")] },
       { subject: "Admission Process & Guidelines", category: "Student", actions: [int("/admissions")] },
       { subject: "Fee Refund Policy", category: "Student", actions: [int("/refund-policy")] },
     ],
