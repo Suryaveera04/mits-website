@@ -89,7 +89,7 @@ export default function IsteView() {
     <div className="min-h-screen bg-[#fafaf7] text-slate-800">
       <Header />
 
-      {/* HERO BANNER - Project Standard with Rich Contrast */}
+      {/* HERO BANNER - Professional Societies Standard */}
       <section
         className="relative pt-32 md:pt-44 pb-20 overflow-hidden"
         style={{
@@ -98,17 +98,16 @@ export default function IsteView() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/60 bg-gradient-to-b from-black/70 via-black/50 to-black/75" />
+        <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
 
         <div className="relative z-10 container mx-auto px-4 text-center">
-          <p className="text-[#ffd15c] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm inline-flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#ffd15c]" />
-            <span>Professional Societies &amp; Chapters</span>
+          <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm">
+            Professional Societies &amp; Chapters
           </p>
-          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight !text-white text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
+          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
             Indian Society for Technical Education (ISTE) Chapter
           </h1>
-          <p className="!text-white/90 text-white text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-xs">
+          <p className="text-white/90 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed drop-shadow-sm">
             Madanapalle Institute of Technology &amp; Science • Established 2011
           </p>
         </div>
