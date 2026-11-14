@@ -14,18 +14,20 @@ import {
   Mail,
   MapPin,
   CheckCircle2,
-  Sparkles,
+  FileCheck,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import {
-  qsAboutData,
-  qsEnvironmentalImpactData,
-  qsSocialImpactData,
+  qsAboutIntroData,
+  qsEnvironmentalSustainabilityData,
+  qsSocialResponsibilityData,
   qsGovernanceData,
+  qsPoliciesAndDocumentsData,
   qsSdgAnnualReportsData,
   qsAdditionalInfoData,
+  type QsSectionItem,
 } from "./qsSustainabilityData";
 import { sdgContactData } from "./sdgData";
 
@@ -83,6 +85,36 @@ function PdfIcon({ className = "w-7 h-7" }: { className?: string }) {
           PDF
         </text>
       </svg>
+    </div>
+  );
+}
+
+// Reusable Section Renderer for individual criteria
+function SectionListRenderer({ sections }: { sections: QsSectionItem[] }) {
+  return (
+    <div className="space-y-6">
+      {sections.map((sec, idx) => (
+        <div key={idx} className="space-y-2.5">
+          <h3 className="font-display font-bold text-lg sm:text-xl text-[#990000] border-b border-gray-100 pb-1.5">
+            {sec.title}
+          </h3>
+          {sec.paragraphs.map((p, pidx) => (
+            <p key={pidx} className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+              {p}
+            </p>
+          ))}
+          {sec.bullets && sec.bullets.length > 0 && (
+            <ul className="my-2.5 space-y-1.5 pl-2">
+              {sec.bullets.map((b, bidx) => (
+                <li key={bidx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-800">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#990000] shrink-0" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
@@ -252,51 +284,55 @@ export default function QsSustainabilityView({ initialTab = "about" }: QsSustain
 
           {/* RIGHT CONTENT PANEL (8 cols) */}
           <div className="lg:col-span-8 space-y-6">
-            {/* TAB 1: ABOUT SUSTAINABILITY */}
+            {/* TAB 1: ABOUT SUSTAINABILITY (FULL EXACT OFFICIAL CONTENT) */}
             {activeTab === "about" && (
               <ScrollReveal>
-                <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-6">
-                  <div className="pb-4 border-b border-gray-100">
-                    <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] flex items-center gap-3">
-                      <Globe2 className="w-7 h-7 text-[#990000]" />
-                      <span>About Sustainability</span>
+                <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-8">
+                  {/* 1. About Sustainability Header & Intro */}
+                  <div className="space-y-4">
+                    <h2 className="text-2xl md:text-3xl font-bold font-display text-[#990000]">
+                      {qsAboutIntroData.title}
                     </h2>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                      Institutional commitment to environmental stewardship, social responsibility, and transparent governance.
-                    </p>
+                    <div className="space-y-3.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                      {qsAboutIntroData.paragraphs.map((para, idx) => (
+                        <p key={idx}>{para}</p>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
-                    {qsAboutData.paragraphs.map((para, idx) => (
-                      <p key={idx} className="bg-slate-50/70 p-4 rounded-xl border border-gray-100">
-                        {para}
-                      </p>
-                    ))}
+                  {/* 2. Environmental Sustainability */}
+                  <div className="space-y-5 pt-4 border-t border-gray-200">
+                    <h2 className="text-xl md:text-2xl font-bold font-display text-[#990000]">
+                      {qsEnvironmentalSustainabilityData.title}
+                    </h2>
+                    <SectionListRenderer sections={qsEnvironmentalSustainabilityData.sections} />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-gray-100">
-                    <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-2xs text-center space-y-2">
-                      <div className="w-10 h-10 mx-auto rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
-                        <Leaf className="w-5 h-5" />
-                      </div>
-                      <h4 className="font-bold text-sm text-[#0f2a44]">Environmental Impact</h4>
-                      <p className="text-xs text-slate-500">Education, research &amp; sustainable campus operations</p>
-                    </div>
+                  {/* 3. Social Responsibility */}
+                  <div className="space-y-5 pt-4 border-t border-gray-200">
+                    <h2 className="text-xl md:text-2xl font-bold font-display text-[#990000]">
+                      {qsSocialResponsibilityData.title}
+                    </h2>
+                    <SectionListRenderer sections={qsSocialResponsibilityData.sections} />
+                  </div>
 
-                    <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-2xs text-center space-y-2">
-                      <div className="w-10 h-10 mx-auto rounded-full bg-blue-50 text-blue-700 flex items-center justify-center font-bold">
-                        <Users className="w-5 h-5" />
-                      </div>
-                      <h4 className="font-bold text-sm text-[#0f2a44]">Social Impact</h4>
-                      <p className="text-xs text-slate-500">Equality, health, community outreach &amp; disability support</p>
-                    </div>
+                  {/* 4. Governance and Institutional Practices */}
+                  <div className="space-y-5 pt-4 border-t border-gray-200">
+                    <h2 className="text-xl md:text-2xl font-bold font-display text-[#990000]">
+                      {qsGovernanceData.title}
+                    </h2>
+                    <SectionListRenderer sections={qsGovernanceData.sections} />
+                  </div>
 
-                    <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-2xs text-center space-y-2">
-                      <div className="w-10 h-10 mx-auto rounded-full bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
-                        <ShieldCheck className="w-5 h-5" />
-                      </div>
-                      <h4 className="font-bold text-sm text-[#0f2a44]">Governance</h4>
-                      <p className="text-xs text-slate-500">Ethical standards, transparency &amp; student engagement</p>
+                  {/* 5. Policies and Institutional Documents */}
+                  <div className="space-y-3 pt-4 border-t border-gray-200">
+                    <h2 className="text-xl md:text-2xl font-bold font-display text-[#990000]">
+                      {qsPoliciesAndDocumentsData.title}
+                    </h2>
+                    <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                      {qsPoliciesAndDocumentsData.paragraphs.map((p, idx) => (
+                        <p key={idx}>{p}</p>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -307,47 +343,14 @@ export default function QsSustainabilityView({ initialTab = "about" }: QsSustain
             {activeTab === "environmental-impact" && (
               <ScrollReveal>
                 <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-6">
-                  <div className="pb-4 border-b border-gray-100">
-                    <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] flex items-center gap-3">
+                  <div className="pb-3 border-b border-gray-100">
+                    <h2 className="text-2xl md:text-3xl font-bold font-display text-[#990000] flex items-center gap-2.5">
                       <Leaf className="w-7 h-7 text-[#990000]" />
-                      <span>QS: Environmental Impact</span>
+                      <span>Environmental Sustainability</span>
                     </h2>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                      Comprehensive measures advancing ecological stewardship, renewable energy, and environmental research.
-                    </p>
                   </div>
 
-                  <div className="space-y-6">
-                    {qsEnvironmentalImpactData.map((sec, idx) => (
-                      <div
-                        key={idx}
-                        className="p-5 rounded-2xl border border-gray-200 bg-slate-50/70 hover:bg-white hover:border-[#990000]/30 transition-all space-y-3"
-                      >
-                        <h3 className="font-bold text-base sm:text-lg text-[#0f2a44] flex items-center gap-2.5">
-                          <span className="w-2 h-2 rounded-full bg-[#990000]" />
-                          <span>{sec.title}</span>
-                        </h3>
-                        {sec.paragraphs.map((p, pidx) => (
-                          <p key={pidx} className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                            {p}
-                          </p>
-                        ))}
-                        {sec.bullets && sec.bullets.length > 0 && (
-                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
-                            {sec.bullets.map((b, bidx) => (
-                              <li
-                                key={bidx}
-                                className="flex items-center gap-2 text-xs sm:text-sm text-slate-700 bg-white p-2.5 rounded-xl border border-gray-200 shadow-2xs"
-                              >
-                                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                                <span>{b}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+                  <SectionListRenderer sections={qsEnvironmentalSustainabilityData.sections} />
                 </div>
               </ScrollReveal>
             )}
@@ -356,60 +359,25 @@ export default function QsSustainabilityView({ initialTab = "about" }: QsSustain
             {activeTab === "social-impact" && (
               <ScrollReveal>
                 <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-6">
-                  <div className="pb-4 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                      <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] flex items-center gap-3">
-                        <Users className="w-7 h-7 text-[#990000]" />
-                        <span>QS: Social Impact</span>
-                      </h2>
-                      <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                        Advancing societal equity, inclusive higher education, employability, and health &amp; wellbeing.
-                      </p>
-                    </div>
+                  <div className="pb-3 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <h2 className="text-2xl md:text-3xl font-bold font-display text-[#990000] flex items-center gap-2.5">
+                      <Users className="w-7 h-7 text-[#990000]" />
+                      <span>Social Responsibility</span>
+                    </h2>
 
                     <a
-                      href={qsSocialImpactData.doc.url}
+                      href={qsSocialResponsibilityData.doc.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-red-50 text-[#990000] border border-[#990000]/30 hover:bg-[#990000] hover:text-white transition-all shrink-0"
                     >
                       <PdfIcon className="w-5 h-5" />
-                      <span>{qsSocialImpactData.doc.title}</span>
+                      <span>{qsSocialResponsibilityData.doc.title}</span>
                       <ExternalLink className="w-3.5 h-3.5 ml-0.5" />
                     </a>
                   </div>
 
-                  <div className="space-y-6">
-                    {qsSocialImpactData.sections.map((sec, idx) => (
-                      <div
-                        key={idx}
-                        className="p-5 rounded-2xl border border-gray-200 bg-slate-50/70 hover:bg-white hover:border-[#990000]/30 transition-all space-y-3"
-                      >
-                        <h3 className="font-bold text-base sm:text-lg text-[#0f2a44] flex items-center gap-2.5">
-                          <span className="w-2 h-2 rounded-full bg-[#990000]" />
-                          <span>{sec.title}</span>
-                        </h3>
-                        {sec.paragraphs.map((p, pidx) => (
-                          <p key={pidx} className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                            {p}
-                          </p>
-                        ))}
-                        {sec.bullets && sec.bullets.length > 0 && (
-                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
-                            {sec.bullets.map((b, bidx) => (
-                              <li
-                                key={bidx}
-                                className="flex items-center gap-2 text-xs sm:text-sm text-slate-700 bg-white p-2.5 rounded-xl border border-gray-200 shadow-2xs"
-                              >
-                                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                                <span>{b}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+                  <SectionListRenderer sections={qsSocialResponsibilityData.sections} />
                 </div>
               </ScrollReveal>
             )}
@@ -418,34 +386,14 @@ export default function QsSustainabilityView({ initialTab = "about" }: QsSustain
             {activeTab === "governance" && (
               <ScrollReveal>
                 <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-6">
-                  <div className="pb-4 border-b border-gray-100">
-                    <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] flex items-center gap-3">
+                  <div className="pb-3 border-b border-gray-100">
+                    <h2 className="text-2xl md:text-3xl font-bold font-display text-[#990000] flex items-center gap-2.5">
                       <ShieldCheck className="w-7 h-7 text-[#990000]" />
-                      <span>QS: Governance</span>
+                      <span>Governance and Institutional Practices</span>
                     </h2>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                      Statutory governance frameworks, administrative accountability, transparent policies, and student participation.
-                    </p>
                   </div>
 
-                  <div className="space-y-6">
-                    {qsGovernanceData.map((sec, idx) => (
-                      <div
-                        key={idx}
-                        className="p-5 rounded-2xl border border-gray-200 bg-slate-50/70 hover:bg-white hover:border-[#990000]/30 transition-all space-y-3"
-                      >
-                        <h3 className="font-bold text-base sm:text-lg text-[#0f2a44] flex items-center gap-2.5">
-                          <span className="w-2 h-2 rounded-full bg-[#990000]" />
-                          <span>{sec.title}</span>
-                        </h3>
-                        {sec.paragraphs.map((p, pidx) => (
-                          <p key={pidx} className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                            {p}
-                          </p>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
+                  <SectionListRenderer sections={qsGovernanceData.sections} />
                 </div>
               </ScrollReveal>
             )}
@@ -454,16 +402,11 @@ export default function QsSustainabilityView({ initialTab = "about" }: QsSustain
             {activeTab === "sdg-annual-reports" && (
               <ScrollReveal>
                 <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-6">
-                  <div className="pb-4 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                      <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] flex items-center gap-3">
-                        <FileText className="w-7 h-7 text-[#990000]" />
-                        <span>QS: SDG Annual Reports</span>
-                      </h2>
-                      <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                        Systematic review and institutional reports detailing annual progress on the United Nations Sustainable Development Goals.
-                      </p>
-                    </div>
+                  <div className="pb-3 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <h2 className="text-2xl md:text-3xl font-bold font-display text-[#990000] flex items-center gap-2.5">
+                      <FileText className="w-7 h-7 text-[#990000]" />
+                      <span>{qsSdgAnnualReportsData.title}</span>
+                    </h2>
 
                     <a
                       href={qsSdgAnnualReportsData.doc.url}
@@ -477,34 +420,29 @@ export default function QsSustainabilityView({ initialTab = "about" }: QsSustain
                     </a>
                   </div>
 
-                  <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  <div className="space-y-3.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
                     {qsSdgAnnualReportsData.paragraphs.map((p, idx) => (
-                      <p key={idx} className="p-4 rounded-xl border border-gray-200 bg-slate-50/70">
-                        {p}
-                      </p>
+                      <p key={idx}>{p}</p>
                     ))}
                   </div>
 
-                  {/* Direct Document Card */}
+                  {/* Direct Document Link Card */}
                   <a
                     href={qsSdgAnnualReportsData.doc.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-5 rounded-2xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-sm transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 group cursor-pointer block"
+                    className="p-4 rounded-xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-xs transition-all flex items-center justify-between gap-3 group cursor-pointer block"
                   >
-                    <div className="flex items-center gap-4">
-                      <PdfIcon className="w-10 h-10 shrink-0 group-hover:scale-105 transition-transform" />
-                      <div>
-                        <h3 className="font-bold text-base text-[#0f2a44] group-hover:text-[#990000] transition-colors">
-                          {qsSdgAnnualReportsData.doc.title}
-                        </h3>
-                        <p className="text-xs text-slate-500 mt-0.5">
-                          Official institutional publication detailing annual progress and SDG integration at MITS.
-                        </p>
-                      </div>
+                    <div className="flex items-center gap-3 min-w-0 flex-1">
+                      <PdfIcon className="w-8 h-8 shrink-0 group-hover:scale-105 transition-transform" />
+                      <span className="text-xs sm:text-sm font-semibold text-slate-800 group-hover:text-[#990000] transition-colors leading-snug">
+                        {qsSdgAnnualReportsData.doc.title}
+                      </span>
                     </div>
-                    <div className="flex items-center gap-2 shrink-0 text-slate-500 group-hover:text-[#990000]">
-                      <span className="text-xs sm:text-sm font-semibold">Open PDF</span>
+                    <div className="flex items-center gap-1.5 shrink-0 text-slate-400 group-hover:text-[#990000] transition-colors">
+                      <span className="text-[11px] font-semibold text-slate-500 group-hover:text-[#990000] hidden sm:inline">
+                        Open PDF
+                      </span>
                       <ExternalLink className="w-4 h-4" />
                     </div>
                   </a>
@@ -516,16 +454,11 @@ export default function QsSustainabilityView({ initialTab = "about" }: QsSustain
             {activeTab === "additional-info" && (
               <ScrollReveal>
                 <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-6">
-                  <div className="pb-4 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                      <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] flex items-center gap-3">
-                        <Award className="w-7 h-7 text-[#990000]" />
-                        <span>Additional Information</span>
-                      </h2>
-                      <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                        Awareness initiatives, quizzes, and documentation supporting sustainability education.
-                      </p>
-                    </div>
+                  <div className="pb-3 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <h2 className="text-2xl md:text-3xl font-bold font-display text-[#990000] flex items-center gap-2.5">
+                      <Award className="w-7 h-7 text-[#990000]" />
+                      <span>{qsAdditionalInfoData.title}</span>
+                    </h2>
 
                     <a
                       href={qsAdditionalInfoData.doc.url}
@@ -539,26 +472,23 @@ export default function QsSustainabilityView({ initialTab = "about" }: QsSustain
                     </a>
                   </div>
 
-                  {/* Direct Document Card */}
+                  {/* Direct Document Link Card */}
                   <a
                     href={qsAdditionalInfoData.doc.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-5 rounded-2xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-sm transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 group cursor-pointer block"
+                    className="p-4 rounded-xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-xs transition-all flex items-center justify-between gap-3 group cursor-pointer block"
                   >
-                    <div className="flex items-center gap-4">
-                      <PdfIcon className="w-10 h-10 shrink-0 group-hover:scale-105 transition-transform" />
-                      <div>
-                        <h3 className="font-bold text-base text-[#0f2a44] group-hover:text-[#990000] transition-colors">
-                          {qsAdditionalInfoData.doc.title}
-                        </h3>
-                        <p className="text-xs text-slate-500 mt-0.5">
-                          Interactive awareness quiz report on the United Nations Sustainable Development Goals.
-                        </p>
-                      </div>
+                    <div className="flex items-center gap-3 min-w-0 flex-1">
+                      <PdfIcon className="w-8 h-8 shrink-0 group-hover:scale-105 transition-transform" />
+                      <span className="text-xs sm:text-sm font-semibold text-slate-800 group-hover:text-[#990000] transition-colors leading-snug">
+                        {qsAdditionalInfoData.doc.title}
+                      </span>
                     </div>
-                    <div className="flex items-center gap-2 shrink-0 text-slate-500 group-hover:text-[#990000]">
-                      <span className="text-xs sm:text-sm font-semibold">Open PDF</span>
+                    <div className="flex items-center gap-1.5 shrink-0 text-slate-400 group-hover:text-[#990000] transition-colors">
+                      <span className="text-[11px] font-semibold text-slate-500 group-hover:text-[#990000] hidden sm:inline">
+                        Open PDF
+                      </span>
                       <ExternalLink className="w-4 h-4" />
                     </div>
                   </a>
