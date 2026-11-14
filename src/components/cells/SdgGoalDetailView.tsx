@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
   ChevronLeft,
   ChevronRight,
   ExternalLink,
-  Download,
   FileText,
-  X,
   Globe2,
   BookOpen,
   MapPin,
@@ -78,8 +76,6 @@ export default function SdgGoalDetailView({ overrideSlug }: SdgGoalDetailViewPro
   const is2027 = slug.includes("2027");
   const dataMap = is2027 ? sdgGoals2027Data : sdgGoals2025Data;
   const goalData: SdgGoalDetail | undefined = dataMap[slug] || sdgGoals2027Data[slug] || sdgGoals2025Data[slug];
-
-  const [previewPdf, setPreviewPdf] = useState<{ url: string; title: string } | null>(null);
 
   const goalNumber = goalData?.goal || 1;
   const currentGoalMeta = allSdgGoalsList.find((g) => g.goal === goalNumber) || allSdgGoalsList[0];
@@ -358,60 +354,6 @@ export default function SdgGoalDetailView({ overrideSlug }: SdgGoalDetailViewPro
           </div>
         </div>
       </main>
-
-      {/* PDF PREVIEW MODAL */}
-      {previewPdf && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-in fade-in">
-          <div className="bg-white rounded-2xl w-full max-w-4xl h-[85vh] flex flex-col shadow-2xl overflow-hidden border border-slate-300">
-            <div className="flex items-center justify-between p-4 bg-[#990000] text-white">
-              <div className="flex items-center gap-2.5 min-w-0 pr-4">
-                <FileText className="w-5 h-5 text-[#ffd15c] shrink-0" />
-                <h3 className="font-semibold text-sm sm:text-base truncate !text-white text-white">
-                  {previewPdf.title}
-                </h3>
-              </div>
-              <div className="flex items-center gap-2 shrink-0">
-                <a
-                  href={previewPdf.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
-                  title="Open in new window"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-                <button
-                  onClick={() => setPreviewPdf(null)}
-                  className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
-            <div className="flex-1 bg-slate-100 p-2 overflow-hidden flex flex-col">
-              <iframe
-                src={previewPdf.url}
-                title={previewPdf.title}
-                className="w-full h-full rounded-lg border border-slate-300 bg-white"
-              />
-            </div>
-
-            <div className="p-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
-              <span className="truncate max-w-md">Source: {previewPdf.url}</span>
-              <a
-                href={previewPdf.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-bold text-[#990000] hover:underline inline-flex items-center gap-1"
-              >
-                <span>Open / Download</span>
-                <Download className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
 
       <Footer />
     </div>

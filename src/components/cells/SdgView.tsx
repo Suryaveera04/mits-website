@@ -10,7 +10,6 @@ import {
   X,
   FileText,
   ExternalLink,
-  Download,
   Award,
   Globe2,
   Users,
@@ -133,7 +132,6 @@ const navItems: NavItem[] = [
 export default function SdgView() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<TabKey>("about");
-  const [previewPdf, setPreviewPdf] = useState<{ url: string; title: string } | null>(null);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   return (
@@ -490,18 +488,32 @@ export default function SdgView() {
             {activeTab === "impact-rankings-results" && (
               <ScrollReveal>
                 <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-6">
-                  <div className="pb-4 border-b border-gray-100">
+                  <div className="pb-4 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] flex items-center gap-3">
                       <Award className="w-7 h-7 text-[#990000]" />
                       <span>The Impact Rankings Results</span>
                     </h2>
+                    <a
+                      href={sdgImpactRankingsResultsDoc.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#990000] text-white hover:bg-[#800000] transition-colors shrink-0"
+                    >
+                      <span>Open PDF</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
                   </div>
 
-                  <div className="p-5 rounded-2xl border border-gray-200 bg-slate-50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <a
+                    href={sdgImpactRankingsResultsDoc.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-5 rounded-2xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-sm transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 group cursor-pointer"
+                  >
                     <div className="flex items-center gap-4">
-                      <PdfIcon className="w-10 h-10 shrink-0" />
+                      <PdfIcon className="w-10 h-10 shrink-0 group-hover:scale-105 transition-transform" />
                       <div>
-                        <h3 className="font-bold text-base text-[#0f2a44]">
+                        <h3 className="font-bold text-base text-[#0f2a44] group-hover:text-[#990000] transition-colors">
                           {sdgImpactRankingsResultsDoc.title}
                         </h3>
                         <p className="text-xs text-slate-500 mt-0.5">
@@ -509,29 +521,11 @@ export default function SdgView() {
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 shrink-0">
-                      <button
-                        onClick={() =>
-                          setPreviewPdf({
-                            url: sdgImpactRankingsResultsDoc.url,
-                            title: sdgImpactRankingsResultsDoc.title,
-                          })
-                        }
-                        className="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#990000] text-white hover:bg-[#800000] transition-colors"
-                      >
-                        Preview PDF
-                      </button>
-                      <a
-                        href={sdgImpactRankingsResultsDoc.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-xl bg-white border border-gray-200 text-slate-600 hover:text-[#990000] transition-colors"
-                        title="Open in new window"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
+                    <div className="flex items-center gap-2 shrink-0 text-slate-500 group-hover:text-[#990000] transition-colors">
+                      <span className="text-xs sm:text-sm font-semibold">Open PDF</span>
+                      <ExternalLink className="w-4 h-4" />
                     </div>
-                  </div>
+                  </a>
                 </div>
               </ScrollReveal>
             )}
@@ -552,9 +546,12 @@ export default function SdgView() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {sdgNirfData.map((doc, idx) => (
-                      <div
+                      <a
                         key={idx}
-                        className="p-4 rounded-xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/30 hover:shadow-sm transition-all flex items-center justify-between gap-3 group"
+                        href={doc.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-4 rounded-xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-sm transition-all flex items-center justify-between gap-3 group cursor-pointer"
                       >
                         <div className="flex items-center gap-3 min-w-0 flex-1">
                           <PdfIcon className="w-8 h-8 shrink-0 group-hover:scale-105 transition-transform" />
@@ -562,23 +559,13 @@ export default function SdgView() {
                             {doc.title}
                           </span>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0">
-                          <button
-                            onClick={() => setPreviewPdf({ url: doc.url, title: doc.title })}
-                            className="px-2.5 py-1 text-xs font-semibold rounded bg-white text-[#990000] border border-[#990000]/30 hover:bg-[#990000] hover:text-white transition-all shadow-2xs"
-                          >
-                            View
-                          </button>
-                          <a
-                            href={doc.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-1 rounded text-slate-400 hover:text-[#990000] transition-colors"
-                          >
-                            <ExternalLink className="w-3.5 h-3.5" />
-                          </a>
+                        <div className="flex items-center gap-1.5 shrink-0 text-slate-400 group-hover:text-[#990000] transition-colors">
+                          <span className="text-[11px] font-semibold text-slate-500 group-hover:text-[#990000] hidden sm:inline">
+                            Open PDF
+                          </span>
+                          <ExternalLink className="w-4 h-4" />
                         </div>
-                      </div>
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -601,9 +588,12 @@ export default function SdgView() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     {sdgPoliciesData.map((policy, idx) => (
-                      <div
+                      <a
                         key={idx}
-                        className="p-4 rounded-xl border border-gray-200 bg-white hover:border-[#990000]/40 hover:bg-red-50/20 shadow-xs hover:shadow-sm transition-all flex items-center justify-between gap-3 group"
+                        href={policy.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-4 rounded-xl border border-gray-200 bg-white hover:border-[#990000]/40 hover:bg-red-50/20 shadow-xs hover:shadow-sm transition-all flex items-center justify-between gap-3 group cursor-pointer"
                       >
                         <div className="flex items-center gap-3 min-w-0 flex-1">
                           <PdfIcon className="w-8 h-8 shrink-0 group-hover:scale-105 transition-transform" />
@@ -611,23 +601,13 @@ export default function SdgView() {
                             {policy.title}
                           </span>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0">
-                          <button
-                            onClick={() => setPreviewPdf({ url: policy.url, title: policy.title })}
-                            className="px-2.5 py-1 text-xs font-semibold rounded bg-[#990000] text-white hover:bg-[#800000] transition-colors shadow-2xs"
-                          >
-                            Preview
-                          </button>
-                          <a
-                            href={policy.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-1 rounded text-slate-400 hover:text-[#990000] transition-colors"
-                          >
-                            <ExternalLink className="w-3.5 h-3.5" />
-                          </a>
+                        <div className="flex items-center gap-1.5 shrink-0 text-slate-400 group-hover:text-[#990000] transition-colors">
+                          <span className="text-[11px] font-semibold text-slate-500 group-hover:text-[#990000] hidden sm:inline">
+                            Open PDF
+                          </span>
+                          <ExternalLink className="w-4 h-4" />
                         </div>
-                      </div>
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -649,18 +629,16 @@ export default function SdgView() {
                       </p>
                     </div>
 
-                    <button
-                      onClick={() =>
-                        setPreviewPdf({
-                          url: sdgCommitteeOfficeOrder.url,
-                          title: sdgCommitteeOfficeOrder.title,
-                        })
-                      }
+                    <a
+                      href={sdgCommitteeOfficeOrder.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-red-50 text-[#990000] border border-[#990000]/30 hover:bg-[#990000] hover:text-white transition-all shrink-0"
                     >
                       <PdfIcon className="w-5 h-5" />
                       <span>Office Order (09-07-2024)</span>
-                    </button>
+                      <ExternalLink className="w-3.5 h-3.5 ml-0.5" />
+                    </a>
                   </div>
 
                   <div className="border border-gray-200 rounded-xl overflow-hidden shadow-xs">
@@ -853,60 +831,6 @@ export default function SdgView() {
           </div>
         </div>
       </main>
-
-      {/* PDF PREVIEW MODAL */}
-      {previewPdf && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-in fade-in">
-          <div className="bg-white rounded-2xl w-full max-w-4xl h-[85vh] flex flex-col shadow-2xl overflow-hidden border border-slate-300">
-            <div className="flex items-center justify-between p-4 bg-[#990000] text-white">
-              <div className="flex items-center gap-2.5 min-w-0 pr-4">
-                <FileText className="w-5 h-5 text-[#ffd15c] shrink-0" />
-                <h3 className="font-semibold text-sm sm:text-base truncate !text-white text-white">
-                  {previewPdf.title}
-                </h3>
-              </div>
-              <div className="flex items-center gap-2 shrink-0">
-                <a
-                  href={previewPdf.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
-                  title="Open in new window"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-                <button
-                  onClick={() => setPreviewPdf(null)}
-                  className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
-            <div className="flex-1 bg-slate-100 p-2 overflow-hidden flex flex-col">
-              <iframe
-                src={previewPdf.url}
-                title={previewPdf.title}
-                className="w-full h-full rounded-lg border border-slate-300 bg-white"
-              />
-            </div>
-
-            <div className="p-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
-              <span className="truncate max-w-md">Source: {previewPdf.url}</span>
-              <a
-                href={previewPdf.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-bold text-[#990000] hover:underline inline-flex items-center gap-1"
-              >
-                <span>Open / Download</span>
-                <Download className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* FULL-IMAGE LIGHTBOX MODAL */}
       {previewImage && (
