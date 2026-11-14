@@ -38,6 +38,7 @@ import SdgView from "@/components/cells/SdgView";
 import QsSustainabilityView from "@/components/cells/QsSustainabilityView";
 import UiGreenMetricView from "@/components/cells/UiGreenMetricView";
 import RdCellView from "@/components/cells/RdCellView";
+import InnovationCenterView from "@/components/cells/InnovationCenterView";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -253,6 +254,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "rd-cell" || targetId === "r&d-cell" || targetId === "rd") {
     return <RdCellView />;
+  }
+
+  if (targetId === "cii" || targetId === "innovation-center" || targetId === "centre-of-innovation-and-incubation") {
+    return <InnovationCenterView />;
   }
 
   if (!cell) {

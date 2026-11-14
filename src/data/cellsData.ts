@@ -61,7 +61,7 @@ export const cellCategories: CellCategory[] = [
       { name: "Startup Cell", href: "https://mits.ac.in/nisp", detailId: "startup" },
       { name: "Intellectual Property Rights Cell", abbreviation: "IPRC", href: "https://mits.ac.in/ipr", detailId: "ipr" },
       { name: "Design Thinking Studio", abbreviation: "DTS", href: "https://mits.ac.in/dts", detailId: "dts" },
-      { name: "Centre of Innovation & Incubation", abbreviation: "CII", href: "https://mits.ac.in/innovation-center", detailId: "cii" },
+      { name: "Centre of Innovation & Incubation", abbreviation: "CII", href: "/cells/cii", detailId: "cii" },
       { name: "Intellectual Property Facilitation Centre", abbreviation: "IPFC", href: "/cells/ipfc", detailId: "ipfc" },
       { name: "Industry-Institute Interaction Cell", abbreviation: "IIIC", href: "/cells/iiic", detailId: "iiic" },
       { name: "Entrepreneurship Development Cell", abbreviation: "EDC", href: "/cells/edc", detailId: "edc" },
