@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Calendar, ChevronRight, PartyPopper, Building2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -39,6 +40,110 @@ const EventCardSkeleton = ({ index }: { index: number }) => (
     </div>
   </div>
 );
+
+const HomeEventCard = ({ item, index }: { item: any; index: number }) => {
+  const [imageFailed, setImageFailed] = useState(false);
+  const deptLabel = item.departmentBadge || item.department || "MITS";
+  const imageSrc = getNewsEventImageSrc(item.image);
+  const showImage = Boolean(imageSrc && !imageFailed);
+
+  return (
+    <ScrollReveal delay={index * 0.08}>
+      <Link
+        to={`/news-events/${item.slug}`}
+        className="block group relative rounded-2xl overflow-hidden bg-white border border-border/40
+          shadow-md transition-all duration-400 ease-out
+          hover:shadow-2xl hover:-translate-y-2 flex flex-col"
+        style={{ height: "300px" }}
+      >
+        <div className="relative overflow-hidden h-[210px] bg-slate-900">
+          {/* Department Badge */}
+          <div className="absolute top-3 left-3 z-10 inline-flex items-center gap-1 rounded-full bg-secondary/95 px-3 py-1 text-[11px] font-bold text-white shadow-md backdrop-blur">
+            <Building2 className="w-3 h-3" />
+            {deptLabel}
+          </div>
+
+          {item.pinned && (
+            <div className="absolute top-3 right-3 z-10 inline-flex items-center gap-1 rounded-full bg-[#b30000] px-2.5 py-1 text-[11px] font-bold text-white shadow-md backdrop-blur">
+              📌 Pinned
+            </div>
+          )}
+
+          {showImage ? (
+            <img
+              src={imageSrc}
+              alt={item.title}
+              loading="lazy"
+              className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+              onError={() => setImageFailed(true)}
+            />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-300">
+              <Calendar className="w-10 h-10 mb-2 text-secondary opacity-80" />
+              <span className="text-xs uppercase tracking-wider font-semibold text-slate-400">Department of</span>
+              <span className="font-bold text-sm text-white mt-0.5">{item.department || "MITS"}</span>
+            </div>
+          )}
+        </div>
+
+        <div
+          className="px-4 py-3 flex flex-col justify-center flex-1"
+          style={{ background: "rgba(241,245,252,1)" }}
+        >
+          <h4 className="text-gray-800 font-bold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors duration-300">
+            {item.title}
+          </h4>
+          <div className="text-gray-500 text-xs mt-1.5 flex items-center justify-between">
+            <span className="flex items-center gap-1.5 font-medium">
+              <Calendar className="w-3 h-3 flex-shrink-0 text-secondary" />
+              {item.date}
+            </span>
+            {item.location && (
+              <span className="truncate max-w-[130px] text-gray-500 font-medium">
+                {item.location}
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Hover slide-up details overlay */}
+        <div
+          className="absolute inset-0 flex flex-col justify-end
+            opacity-0 translate-y-4
+            group-hover:opacity-100 group-hover:translate-y-0
+            transition-all duration-400 ease-out pointer-events-none group-hover:pointer-events-auto"
+          style={{ background: "rgba(140,50,60,0.75)" }}
+        >
+          <div
+            className="px-5 py-4"
+            style={{ background: "rgba(120,40,52,0.92)" }}
+          >
+            <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider mb-2">
+              {deptLabel}
+            </div>
+            <h4 className="text-white font-bold text-sm leading-snug line-clamp-2 mb-1">
+              {item.title}
+            </h4>
+            <p className="text-gray-300 text-xs flex items-center gap-1.5 mb-2">
+              <Calendar className="w-3 h-3 flex-shrink-0" />
+              {item.date}
+            </p>
+            <p className="text-slate-200 text-xs leading-relaxed line-clamp-2 mb-3">
+              {item.excerpt}
+            </p>
+            <span
+              className="inline-flex items-center gap-1.5 w-fit px-4 py-1.5 rounded-full
+                bg-secondary text-white text-xs font-semibold shadow-md"
+            >
+              View Event
+              <ChevronRight className="w-3.5 h-3.5" />
+            </span>
+          </div>
+        </div>
+      </Link>
+    </ScrollReveal>
+  );
+};
 
 const NewsEventsSection = () => {
   const { latestDeptEvents, events, loading } = useLiveEvents();
@@ -110,113 +215,9 @@ const NewsEventsSection = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {displayEvents.map((item, i) => {
-              const deptLabel = item.departmentBadge || item.department || "MITS";
-              const imageSrc = getNewsEventImageSrc(item.image);
-
-              return (
-                <ScrollReveal key={item.slug} delay={i * 0.08}>
-                  <Link
-                    to={`/news-events/${item.slug}`}
-                    className="block group relative rounded-2xl overflow-hidden bg-white border border-border/40
-                      shadow-md transition-all duration-400 ease-out
-                      hover:shadow-2xl hover:-translate-y-2 flex flex-col"
-                    style={{ height: "300px" }}
-                  >
-                    <div className="relative overflow-hidden h-[210px] bg-slate-900">
-                      {/* Department Badge */}
-                      <div className="absolute top-3 left-3 z-10 inline-flex items-center gap-1 rounded-full bg-secondary/95 px-3 py-1 text-[11px] font-bold text-white shadow-md backdrop-blur">
-                        <Building2 className="w-3 h-3" />
-                        {deptLabel}
-                      </div>
-
-                      {item.pinned && (
-                        <div className="absolute top-3 right-3 z-10 inline-flex items-center gap-1 rounded-full bg-[#b30000] px-2.5 py-1 text-[11px] font-bold text-white shadow-md backdrop-blur">
-                          📌 Pinned
-                        </div>
-                      )}
-
-                      {item.image ? (
-                        <img
-                          src={imageSrc}
-                          alt={item.title}
-                          loading="lazy"
-                          className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
-                          onError={(e) => {
-                            const target = e.currentTarget;
-                            const fallback = `${import.meta.env.BASE_URL}Hero-Section/image-2.jpg`;
-                            if (target.src !== fallback) {
-                              target.src = fallback;
-                            }
-                          }}
-                        />
-                      ) : (
-                        <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-300">
-                          <Calendar className="w-10 h-10 mb-2 text-secondary opacity-80" />
-                          <span className="text-xs uppercase tracking-wider font-semibold text-slate-400">Department of</span>
-                          <span className="font-bold text-sm text-white mt-0.5">{item.department || "MITS"}</span>
-                        </div>
-                      )}
-                    </div>
-
-                    <div
-                      className="px-4 py-3 flex flex-col justify-center flex-1"
-                      style={{ background: "rgba(241,245,252,1)" }}
-                    >
-                      <h4 className="text-gray-800 font-bold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors duration-300">
-                        {item.title}
-                      </h4>
-                      <div className="text-gray-500 text-xs mt-1.5 flex items-center justify-between">
-                        <span className="flex items-center gap-1.5 font-medium">
-                          <Calendar className="w-3 h-3 flex-shrink-0 text-secondary" />
-                          {item.date}
-                        </span>
-                        {item.location && (
-                          <span className="truncate max-w-[130px] text-gray-500 font-medium">
-                            {item.location}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Hover slide-up details overlay */}
-                    <div
-                      className="absolute inset-0 flex flex-col justify-end
-                        opacity-0 translate-y-4
-                        group-hover:opacity-100 group-hover:translate-y-0
-                        transition-all duration-400 ease-out pointer-events-none group-hover:pointer-events-auto"
-                      style={{ background: "rgba(140,50,60,0.75)" }}
-                    >
-                      <div
-                        className="px-5 py-4"
-                        style={{ background: "rgba(120,40,52,0.92)" }}
-                      >
-                        <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider mb-2">
-                          {deptLabel}
-                        </div>
-                        <h4 className="text-white font-bold text-sm leading-snug line-clamp-2 mb-1">
-                          {item.title}
-                        </h4>
-                        <p className="text-gray-300 text-xs flex items-center gap-1.5 mb-2">
-                          <Calendar className="w-3 h-3 flex-shrink-0" />
-                          {item.date}
-                        </p>
-                        <p className="text-slate-200 text-xs leading-relaxed line-clamp-2 mb-3">
-                          {item.excerpt}
-                        </p>
-                        <span
-                          className="inline-flex items-center gap-1.5 w-fit px-4 py-1.5 rounded-full
-                            bg-secondary text-white text-xs font-semibold shadow-md"
-                        >
-                          View Event
-                          <ChevronRight className="w-3.5 h-3.5" />
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                </ScrollReveal>
-              );
-            })}
+            {displayEvents.map((item, i) => (
+              <HomeEventCard key={item.slug} item={item} index={i} />
+            ))}
           </div>
         )}
 

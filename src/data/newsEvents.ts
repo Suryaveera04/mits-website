@@ -25,13 +25,13 @@ export type LatestNewsItem = {
   image: string;
 };
 
-export const getNewsEventImageSrc = (imagePath?: string | null) => {
+export const getNewsEventImageSrc = (imagePath?: string | null): string => {
   if (!imagePath || typeof imagePath !== "string") {
-    return `${import.meta.env.BASE_URL}Hero-Section/image-2.jpg`;
+    return "";
   }
   const trimmed = imagePath.trim();
-  if (!trimmed) {
-    return `${import.meta.env.BASE_URL}Hero-Section/image-2.jpg`;
+  if (!trimmed || trimmed === "null" || trimmed === "undefined") {
+    return "";
   }
 
   const isLocal =

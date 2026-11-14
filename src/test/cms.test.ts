@@ -363,10 +363,11 @@ describe("getNewsEventImageSrc", () => {
     expect(result).toContain("get_content_image.php?table=event_images&id=53");
   });
 
-  it("returns fallback hero image for null, undefined, or empty path", () => {
-    expect(getNewsEventImageSrc(null)).toContain("Hero-Section/image-2.jpg");
-    expect(getNewsEventImageSrc(undefined)).toContain("Hero-Section/image-2.jpg");
-    expect(getNewsEventImageSrc("")).toContain("Hero-Section/image-2.jpg");
+  it("returns empty string (no random fallback image) for null, undefined, or empty path", () => {
+    expect(getNewsEventImageSrc(null)).toBe("");
+    expect(getNewsEventImageSrc(undefined)).toBe("");
+    expect(getNewsEventImageSrc("")).toBe("");
+    expect(getNewsEventImageSrc("   ")).toBe("");
   });
 
   it("correctly prepends BASE_URL to relative paths without duplication", () => {

@@ -17,6 +17,8 @@ const NewsEventDetail = () => {
   const { getEventBySlug, loading: liveLoading } = useLiveEvents();
   const [cmsEvent, setCmsEvent] = useState<CMSEvent | null>(null);
   const [cmsLoading, setCmsLoading] = useState(false);
+  const [liveImageFailed, setLiveImageFailed] = useState(false);
+  const [cmsPosterFailed, setCmsPosterFailed] = useState(false);
 
   // 1. Check live Google Sheet events & static baseline
   const liveItem = slug ? (getEventBySlug(slug) || getNewsEventBySlug(slug)) : undefined;
@@ -70,18 +72,25 @@ const NewsEventDetail = () => {
               </Button>
 
               <article className="bg-card border border-border rounded-2xl overflow-hidden shadow-md">
-                <div className="relative">
-                  {liveItem.pinned && (
-                    <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 rounded-full bg-[#b30000] px-3 py-1 text-xs font-bold text-white shadow-md">
-                      📌 Pinned Event
+                {(() => {
+                  const imgSrc = getNewsEventImageSrc(liveItem.image);
+                  if (!imgSrc || liveImageFailed) return null;
+                  return (
+                    <div className="relative">
+                      {liveItem.pinned && (
+                        <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 rounded-full bg-[#b30000] px-3 py-1 text-xs font-bold text-white shadow-md">
+                          📌 Pinned Event
+                        </div>
+                      )}
+                      <img
+                        src={imgSrc}
+                        alt={liveItem.title}
+                        className="w-full h-64 md:h-96 object-cover"
+                        onError={() => setLiveImageFailed(true)}
+                      />
                     </div>
-                  )}
-                  <img
-                    src={getNewsEventImageSrc(liveItem.image)}
-                    alt={liveItem.title}
-                    className="w-full h-64 md:h-96 object-cover"
-                  />
-                </div>
+                  );
+                })()}
 
                 <div className="p-6 md:p-8">
                   <p className="text-sm font-semibold text-secondary uppercase tracking-wider mb-3">
@@ -176,9 +185,14 @@ const NewsEventDetail = () => {
               </Button>
 
               <article className="bg-card border border-border rounded-2xl overflow-hidden shadow-md">
-                {posterSrc && (
+                {posterSrc && !cmsPosterFailed && (
                   <div className="w-full bg-slate-900 flex justify-center max-h-[460px] overflow-hidden">
-                    <img src={posterSrc} alt={cmsEvent.title} className="w-full h-auto object-contain max-h-[460px]" />
+                    <img
+                      src={posterSrc}
+                      alt={cmsEvent.title}
+                      className="w-full h-auto object-contain max-h-[460px]"
+                      onError={() => setCmsPosterFailed(true)}
+                    />
                   </div>
                 )}
                 <div className="p-6 md:p-8">
