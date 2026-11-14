@@ -214,6 +214,10 @@ const App = () => (
             {/* UI GreenMetric */}
             <Route path="/ui-greenmetric-sustainable-university-ranking" element={<CellDetail overrideId="ui-greenmetric-sustainable-university-ranking" />} />
             <Route path="/ui-greenmetric" element={<CellDetail overrideId="ui-greenmetric" />} />
+
+            {/* R&D Cell */}
+            <Route path="/r&d-cell" element={<CellDetail overrideId="rd-cell" />} />
+            <Route path="/rd-cell" element={<CellDetail overrideId="rd-cell" />} />
             {/* Individual SDG Goals (2027) */}
             <Route path="/sdg1-2027" element={<SdgGoalDetailView overrideSlug="sdg1-2027" />} />
             <Route path="/sdg2-2027" element={<SdgGoalDetailView overrideSlug="sdg2-2027" />} />

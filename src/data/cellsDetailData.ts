@@ -6030,9 +6030,30 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "contacts": [
       {
         "name": "Dr. R. Thulasiram Naidu",
-        "designation": "Advisor - R&D & Consultancy",
-        "email": "",
-        "phone": "Phone :\n+91-8571-280255",
+        "designation": "Advisor - R&D & Consultancy\nDepartment of Humanities",
+        "email": "dean_research@mits.ac.in",
+        "phone": "+91-8571-280255, 280706",
+        "address": "Madanapalle Institute of Technology & Science\nDeemed to be University\nMadanapalle-Kadiri Road\nkurabalakota Mandal, Madanapalle-517325\nAndhra Pradesh, India"
+      },
+      {
+        "name": "Dr. P. Sivaiah",
+        "designation": "Associate Dean - R&D\nDepartment of ME",
+        "email": "dean_research@mits.ac.in",
+        "phone": "+91-8571-280255, 280706",
+        "address": "Madanapalle Institute of Technology & Science"
+      },
+      {
+        "name": "Dr. N. Nanda Kumar Reddy",
+        "designation": "Associate Dean - R&D-Ph.D Programs\nDepartment of Physics",
+        "email": "dean_research@mits.ac.in",
+        "phone": "+91-8571-280255, 280706",
+        "address": "Madanapalle Institute of Technology & Science"
+      },
+      {
+        "name": "Dr. Maneesh Kumar Singh",
+        "designation": "Assistant Dean – R&D - Ph.D. Programs\nDepartment of ECE",
+        "email": "dean_research@mits.ac.in",
+        "phone": "+91-8571-280255, 280706",
         "address": "Madanapalle Institute of Technology & Science"
       }
     ],

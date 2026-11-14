@@ -37,6 +37,7 @@ import IsteView from "@/components/cells/IsteView";
 import SdgView from "@/components/cells/SdgView";
 import QsSustainabilityView from "@/components/cells/QsSustainabilityView";
 import UiGreenMetricView from "@/components/cells/UiGreenMetricView";
+import RdCellView from "@/components/cells/RdCellView";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -248,6 +249,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "ui-greenmetric-sustainable-university-ranking" || targetId === "ui-greenmetric") {
     return <UiGreenMetricView />;
+  }
+
+  if (targetId === "rd-cell" || targetId === "r&d-cell" || targetId === "rd") {
+    return <RdCellView />;
   }
 
   if (!cell) {
