@@ -8,15 +8,17 @@ html, body, #root {
   max-width: 100vw;
 }
 
-/* Hero section: 16:9 on mobile/tablet, full viewport on desktop */
+/* Hero section: matches 1600x605 official banner aspect ratio, responsive across all devices */
 .hero-section {
-  aspect-ratio: 16 / 9;
+  width: 100%;
+  aspect-ratio: 1600 / 605;
   height: auto;
+  max-height: calc(100vh - 80px);
 }
-@media (min-width: 1024px) {
+@media (max-width: 640px) {
   .hero-section {
-    aspect-ratio: unset;
-    height: calc(100vh - 80px);
+    aspect-ratio: 1600 / 605;
+    min-height: 140px;
   }
 }
 
