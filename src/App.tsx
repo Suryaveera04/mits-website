@@ -201,6 +201,19 @@ const App = () => (
             <Route path="/nep-cell" element={<CellDetail overrideId="nep" />} />
             <Route path="/sdg" element={<CellDetail overrideId="sdg" />} />
             <Route path="/sdg-cell" element={<CellDetail overrideId="sdg" />} />
+            {/* QS Sustainability & Sub-Tabs */}
+            <Route path="/qs-sustainability" element={<CellDetail overrideId="qs-sustainability" />} />
+            <Route path="/qs-environmental-impact" element={<CellDetail overrideId="qs-environmental-impact" />} />
+            <Route path="/qs-environmental%20impact" element={<CellDetail overrideId="qs-environmental-impact" />} />
+            <Route path="/qs-social-impact" element={<CellDetail overrideId="qs-social-impact" />} />
+            <Route path="/qs-social%20impact" element={<CellDetail overrideId="qs-social-impact" />} />
+            <Route path="/qs-governance" element={<CellDetail overrideId="qs-governance" />} />
+            <Route path="/qs-sdg-annual-reports" element={<CellDetail overrideId="qs-sdg-annual-reports" />} />
+            <Route path="/qs-sdg%20annual%20reports" element={<CellDetail overrideId="qs-sdg-annual-reports" />} />
+
+            {/* UI GreenMetric */}
+            <Route path="/ui-greenmetric-sustainable-university-ranking" element={<CellDetail overrideId="ui-greenmetric-sustainable-university-ranking" />} />
+            <Route path="/ui-greenmetric" element={<CellDetail overrideId="ui-greenmetric" />} />
             {/* Individual SDG Goals (2027) */}
             <Route path="/sdg1-2027" element={<SdgGoalDetailView overrideSlug="sdg1-2027" />} />
             <Route path="/sdg2-2027" element={<SdgGoalDetailView overrideSlug="sdg2-2027" />} />

@@ -35,6 +35,8 @@ import NccAirView from "@/components/cells/NccAirView";
 import NepView from "@/components/cells/NepView";
 import IsteView from "@/components/cells/IsteView";
 import SdgView from "@/components/cells/SdgView";
+import QsSustainabilityView from "@/components/cells/QsSustainabilityView";
+import UiGreenMetricView from "@/components/cells/UiGreenMetricView";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -222,6 +224,30 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "sdg" || targetId === "sdg-cell") {
     return <SdgView />;
+  }
+
+  if (targetId === "qs-sustainability") {
+    return <QsSustainabilityView initialTab="about" />;
+  }
+
+  if (targetId === "qs-environmental-impact" || targetId === "qs-environmental impact") {
+    return <QsSustainabilityView initialTab="environmental-impact" />;
+  }
+
+  if (targetId === "qs-social-impact" || targetId === "qs-social impact") {
+    return <QsSustainabilityView initialTab="social-impact" />;
+  }
+
+  if (targetId === "qs-governance") {
+    return <QsSustainabilityView initialTab="governance" />;
+  }
+
+  if (targetId === "qs-sdg-annual-reports" || targetId === "qs-sdg annual reports") {
+    return <QsSustainabilityView initialTab="sdg-annual-reports" />;
+  }
+
+  if (targetId === "ui-greenmetric-sustainable-university-ranking" || targetId === "ui-greenmetric") {
+    return <UiGreenMetricView />;
   }
 
   if (!cell) {

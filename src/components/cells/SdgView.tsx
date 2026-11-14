@@ -86,10 +86,11 @@ type TabKey =
   | "contact";
 
 interface NavItem {
-  id: TabKey | "ext";
+  id: TabKey | "ext" | "link";
   label: string;
   isExternal?: boolean;
   href?: string;
+  internalPath?: string;
 }
 
 const navItems: NavItem[] = [
@@ -97,16 +98,14 @@ const navItems: NavItem[] = [
   { id: "rankings-2027", label: "Times Higher Education (THE) Impact Rankings 2027" },
   { id: "rankings-2025", label: "Times Higher Education (THE) Impact Rankings 2025" },
   {
-    id: "ext",
+    id: "link",
     label: "QS World University Rankings: Sustainability",
-    isExternal: true,
-    href: "https://mits.ac.in/qs-sustainability",
+    internalPath: "/qs-sustainability",
   },
   {
-    id: "ext",
+    id: "link",
     label: "UI GreenMetric Sustainable University Ranking",
-    isExternal: true,
-    href: "https://mits.ac.in/ui-greenmetric-sustainable-university-ranking",
+    internalPath: "/ui-greenmetric-sustainable-university-ranking",
   },
   {
     id: "ext",
@@ -211,6 +210,19 @@ export default function SdgView() {
 
               <div className="p-2 space-y-1">
                 {navItems.map((item, idx) => {
+                  if (item.internalPath) {
+                    return (
+                      <Link
+                        key={idx}
+                        to={item.internalPath}
+                        className="w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all flex items-center justify-between text-slate-700 hover:bg-slate-100 hover:text-[#990000] group"
+                      >
+                        <span className="truncate pr-2 leading-snug">{item.label}</span>
+                        <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#990000] group-hover:translate-x-0.5 transition-all shrink-0" />
+                      </Link>
+                    );
+                  }
+
                   if (item.isExternal && item.href) {
                     return (
                       <a
