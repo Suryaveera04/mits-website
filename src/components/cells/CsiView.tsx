@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
@@ -6,10 +6,30 @@ import {
   MapPin,
   Phone,
   Mail,
+  ExternalLink,
+  Download,
+  X,
+  Search,
+  Calendar,
+  BookOpen,
+  Award,
+  Globe,
+  Users,
+  Target,
+  FileText,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import {
+  csiCoordinator,
+  csiCommitteeMembers,
+  csiAbout,
+  csiEventsByYear,
+  allCsiEvents,
+  csiQuickStats,
+  type CsiEventItem,
+} from "./csiData";
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -48,165 +68,36 @@ function PdfIcon({ className = "w-7 h-7" }: { className?: string }) {
   );
 }
 
-// Complete 27 official events retrieved verbatim from https://mits.ac.in/csi-content
-const events2025_26 = [
-  {
-    title:
-      "A One Day Workshop on “Human Centered Applied AI Research” was organized by Department of Computer Science & Engineering in Association with Computer Society of India & Bellu AI on 22nd December 2025.",
-    url: "https://mits.ac.in/assets/pdf/cse/Human Centered Applied AI Research.pdf",
-  },
-  {
-    title:
-      "A Guest Lecture on “Generative AI & Reimagining Retail Supply Chains: Transformative Power of Agentic AI” was organized by Department of Computer Science & Engineering in Association with Computer Society of India (CSI) on 19th August 2025.",
-    url: "https://mits.ac.in/assets/pdf/cse/Generative AI & Reimagining Retail Supply Chains Transformative Power of Agentic AI.pdf",
-  },
-];
-
-const events2024_25 = [
-  {
-    title:
-      "A Guest Lecture on “Edge AI 2.0: Towards Establishing & Sustaining Real-Time Enterprises” was organized by Department of Computer Science & Engineering in Association with Computer Society of India (CSI) on 20th March 2025.",
-    url: "https://mits.ac.in/assets/pdf/cse/Edge AI 2.0 Towards Establishing & Sustaining Real-Time Enterprises.pdf",
-  },
-  {
-    title:
-      "A National Level Hackathon \"InnoSpark 1.0\" was organized by Department of Computer Science & Engineering in association with CSI on 25th November 2024.",
-    url: "https://mits.ac.in/assets/pdf/cse/INNOSPARK 1.0.pdf",
-  },
-  {
-    title:
-      "A Short Term Training Programme on “Gen AI Tools and Techniques” was organized by Department of Computer Science & Engineering in Association with Computer Society of India (CSI) from 11th to 16th November 2024.",
-    url: "https://mits.ac.in/assets/pdf/cse/Gen AI Tools and Techniques.pdf",
-  },
-];
-
-const events2023_24 = [
-  {
-    title:
-      "A Guest Lecture on \"Introduction and Real-World Applications of Machine Learning\" was organized by Department of Computer Science & Engineering in association with Computer Society of India (CSI) on 06th May 2024.",
-    url: "https://mits.ac.in/assets/pdf/cse/Introduction and Real-World Applications of Machine Learning.pdf",
-  },
-  {
-    title:
-      "A Webinar on \"Smart Surveillance: Advancements in Video Analytics with Machine Learning\" was organized by Department of Computer Science & Engineering on 4th May 2024.",
-    url: "https://mits.ac.in/assets/pdf/cse/Smart Surveillance Advancements in Video Analytics with Machine Learning.pdf",
-  },
-  {
-    title:
-      "An Online Guest Lecture on “Machine Learning Techniques\" was organized by Department of Computer Science & Engineering on 01st May 2024.",
-    url: "https://mits.ac.in/assets/pdf/cse/Machine Learning Techniques.pdf",
-  },
-  {
-    title:
-      "An Online Guest Lecture on “Basic Concepts of cryptography & Block chain Technologies” was organized by Department of Computer Science & Engineering on 1st May 2024.",
-    url: "https://mits.ac.in/assets/pdf/cse/Basic Concepts of cryptography & Block chain Technologies.pdf",
-  },
-  {
-    title:
-      "A One Week Online National Level Faculty Development Programme on “Impact of Emerging Technologies in AI/ML and Data Science” was organized by Department of Computer Science & Engineering In Association with Computer Society of India (CSI) from 26-02-2024 to 02-03-2024.",
-    url: "https://mits.ac.in/assets/pdf/cse/Impact of Emerging Technologies in AI-ML and Data Science.pdf",
-  },
-  {
-    title:
-      "One Week Online International Faculty Development Programme on “Emerging Tools & Techniques in Machine Learning and Data Science“ was organized by Department of CSE in association with Computer Society of India (CSI) from 5th to 10th February 2024.",
-    url: "https://mits.ac.in/assets/pdf/cse/Emerging Tools & Techniques in Machine Learning and Data Science.pdf",
-  },
-  {
-    title:
-      "A Guest Lecture on “Data Science for Engineers\" was organized by Department of Computer Science & Engineering in association with Computer Society of India (CSI) on 2nd December 2023.",
-    url: "https://mits.ac.in/assets/pdf/cse/Data Science for Engineers.pdf",
-  },
-  {
-    title:
-      "A Webinar “Research Opportunities in Integration of IoT and Blockchain for Smart Applications” was organized by Department of Computer Science & Engineering in association with Computer Society of India (CSI) on 22nd November 2023.",
-    url: "https://mits.ac.in/assets/pdf/cse/Research%20Opportunities%20in%20Integration%20of%20IoT%20and%20Blockchain%20for%20Smart%20Applications.pdf",
-  },
-  {
-    title:
-      "A Guest Lecture on “Post Quantum Cryptography “ was organized by Department of Computer Science & Engineering in association with Computer Society of India (CSI) on 20th November 2023.",
-    url: "https://mits.ac.in/assets/pdf/cse/Post Quantum Cryptography.pdf",
-  },
-];
-
-const events2022_23 = [
-  {
-    title:
-      "A 5 Days Online Workshop on Recent Trends in Machine Learning and BigData in association with Computer Society of India from 24th to 31st May 2023.",
-    url: "https://mits.ac.in/assets/pdf/cse/Recent Trends in Machine Learning and BigData.pdf",
-  },
-  {
-    title:
-      "A Two Days National Conference NASA'23, was organized by Department of Computer Science and Engineering on 19th & 20th April 2023.",
-    url: "https://mits.ac.in/assets/pdf/cse/NASA-23.pdf",
-  },
-  {
-    title:
-      "A National Level Technical Symposium GMOCS-2023 was organized by Department of Computer Science & Engineering on 29th March 2023.",
-    url: "https://mits.ac.in/assets/pdf/cse/GMOCS-2K23.pdf",
-  },
-  {
-    title:
-      "An Quiz Contest on “Web Development V1.0” was organized by Department of Computer Science & Engineering in Association with Computer Society of India (CSI) on 19th November 2022.",
-    url: "https://mits.ac.in/assets/pdf/cse/Web Development V1.0-min.pdf",
-  },
-  {
-    title:
-      "One Week Online International Faculty Development Programme on \"Emerging Trends and Research Opportunities in Computer Science\" was organized by Department of Computer Science & Engineering from 31st October to 5th November 2022.",
-    url: "https://mits.ac.in/assets/pdf/cse/Emerging Trends & Research Opportunities in Computer Science.pdf",
-  },
-  {
-    title:
-      "A \"One Week Online Faculty Induction Workshop on Thrust Areas\" in association with IEEE & CSI was organized by Department of Computer Science & Engineering on 10th to 15th October 2022.",
-    url: "https://mits.ac.in/assets/pdf/cse/One Week Online Faculty Induction Workshop on Thrust Areas.pdf",
-  },
-];
-
-const events2021_22 = [
-  {
-    title:
-      "A National Level Technical Symposium GMOCS-2K22 was organized by Department of Computer Science and Engineering on 25th May 2022.",
-    url: "https://mits.ac.in/assets/pdf/cse/GMOCS-2022.pdf",
-  },
-  {
-    title:
-      "Report on Webinar on Cloud Technologies opportunities learnings, and growth. In association with the Computer Society of India (CSI) 21st May 2022.",
-    url: "https://mits.ac.in/assets/pdf/cse/Webinar_on_cloud_Computing_21_05_22.pdf",
-  },
-  {
-    title:
-      "Report on Guest Lecture Organized by Department of Computer Science & Engineering on “Role of IoT in Smart Spaces” in Association with Computer Society of India (CSI) 04th May 2022.",
-    url: "https://mits.ac.in/assets/pdf/cse/Report on IOT.pdf",
-  },
-  {
-    title:
-      "\"Opportunities and challenges of Entrepreneur\" in association with Computer Science of India, was organized by Department of Computer Science & Engineering on 27th April 2022.",
-    url: "https://mits.ac.in/assets/pdf/cse/Report On Guest Lecture.pdf",
-  },
-  {
-    title:
-      "Five Day Workshop Report on \"Applications Of Blockchain And Artificial Intelligence In Diverse Domain” was organized by Department of Computer Science & Engineering on 21st to 26th October 2021.",
-    url: "https://mits.ac.in/assets/pdf/cse/Applications of Blockchain and Artificial Intelligence in Diverse Domain.pdf",
-  },
-  {
-    title:
-      "One day National webinar report on \"Research Perspectives in Cloud Security” was Organized by Department of Computer Science & Engineering in Association with Computer Society of India [CSI], 12 October 2021.",
-    url: "https://mits.ac.in/assets/pdf/cse/Webinar RPCC  REPORT 12.10.21.pdf",
-  },
-  {
-    title:
-      "One day National webinar report on \"DEEP LEARNING AND ITS APPLICATIONS” was organized by Department of Computer Science & Engineering in Association with Institute of Electrical and Electronics Engineers [IEEE] and Computer Society of India [CSI], on 09 October 2021.",
-    url: "https://mits.ac.in/assets/pdf/cse/Webinar-Deep-Learning  REPORT 09.10.21.pdf",
-  },
-];
-
 export default function CsiView() {
   const navigate = useNavigate();
+  const [selectedYear, setSelectedYear] = useState<string>("All");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [previewPdf, setPreviewPdf] = useState<{ url: string; title: string } | null>(null);
+
+  const yearKeys = useMemo(() => Object.keys(csiEventsByYear), []);
+
+  // Filter events based on selected year and search query
+  const filteredEvents: CsiEventItem[] = useMemo(() => {
+    let list: CsiEventItem[] =
+      selectedYear === "All" ? allCsiEvents : csiEventsByYear[selectedYear] || [];
+
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      list = list.filter(
+        (evt) =>
+          evt.title.toLowerCase().includes(q) ||
+          (evt.category && evt.category.toLowerCase().includes(q)) ||
+          evt.year.toLowerCase().includes(q)
+      );
+    }
+    return list;
+  }, [selectedYear, searchQuery]);
 
   return (
     <div className="min-h-screen bg-[#fafaf7] text-slate-800">
       <Header />
 
-      {/* HERO BANNER - Matching other cell pages */}
+      {/* HERO BANNER - Professional Societies Standard */}
       <section
         className="relative pt-32 md:pt-44 pb-20 overflow-hidden"
         style={{
@@ -218,14 +109,14 @@ export default function CsiView() {
         <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
 
         <div className="relative z-10 container mx-auto px-4 text-center">
-          <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-sm sm:text-sm mb-4 drop-shadow-sm">
+          <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm">
             Professional Societies &amp; Chapters
           </p>
-          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight text-white leading-tight max-w-4xl mx-auto drop-shadow-md">
+          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
             Computer Society of India (CSI) Student Branch
           </h1>
-          <p className="text-white/90 text-sm sm:text-base font-medium max-w-2xl mx-auto">
-            MITS CSI Student Branch [M10660]
+          <p className="text-white/90 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed drop-shadow-sm">
+            MITS CSI Student Branch [M10660] • Department of Computer Science &amp; Engineering
           </p>
         </div>
 
@@ -251,203 +142,279 @@ export default function CsiView() {
         </nav>
       </section>
 
-      {/* MAIN CONTENT CONTAINER - Balanced full width eliminating empty margins */}
+      {/* MAIN CONTENT CONTAINER - Balanced Full-Width Layout */}
       <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        {/* Back Button */}
-        <div className="mb-6">
+        {/* Back Button & Top Action */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <button
             onClick={() => navigate("/cells")}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#b31317] transition-colors bg-white px-4 py-2 rounded-xl border border-gray-200 shadow-sm"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#990000] transition-colors bg-white px-4 py-2 rounded-xl border border-gray-200 shadow-xs hover:shadow-sm cursor-pointer"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 text-[#990000]" />
             <span>Back to Cells &amp; Committees</span>
           </button>
+
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#990000]/10 text-[#990000] border border-[#990000]/20">
+              <Award className="w-3.5 h-3.5" />
+              Branch Code: M10660
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <Globe className="w-3.5 h-3.5" />
+              Active Chapter
+            </span>
+          </div>
+        </div>
+
+        {/* STATS OVERVIEW CARDS */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+          {csiQuickStats.map((st, i) => (
+            <div
+              key={i}
+              className="bg-white p-4 sm:p-5 rounded-2xl border border-gray-200/80 shadow-xs flex flex-col justify-between"
+            >
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                {st.label}
+              </span>
+              <span className="text-xl sm:text-2xl font-bold font-display text-[#0f2a44] mt-1">
+                {st.value}
+              </span>
+            </div>
+          ))}
         </div>
 
         {/* 2-COLUMN BALANCED WIDE GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* PRIMARY CONTENT AREA (8 cols) */}
           <div className="lg:col-span-8 space-y-8">
+            {/* CHAPTER BANNER & OVERVIEW */}
             <ScrollReveal>
-              <section className="bg-white rounded-2xl border border-gray-200/80 shadow-sm p-6 md:p-8">
-                {/* BRANCH SUBTITLE */}
-                <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] mb-6">
-                  MITS CSI Student Branch [M10660]
-                </h2>
-
-                {/* ABOUT CSI */}
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold font-display text-[#0f2a44] mb-3">
-                    About CSI
-                  </h3>
-                  <p className="text-slate-700 leading-relaxed text-justify text-sm sm:text-base">
-                    Formed in 1965, the CSI has been instrumental in guiding the Indian IT industry down the right path since its formative years. Today, the CSI has 70 chapters all over India, 418 student branches, and more than 90000 members including India&apos;s most famous IT industry leaders, brilliant scientists and dedicated academicians.
-                  </p>
-                </div>
-
-                {/* MISSION */}
-                <div className="pt-6 border-t border-gray-100 mb-8">
-                  <h3 className="text-xl font-bold font-display text-[#0f2a44] mb-3">
-                    Mission
-                  </h3>
-                  <div className="space-y-4 text-slate-700 leading-relaxed text-justify text-sm sm:text-base">
-                    <p>
-                      The mission of the CSI is to facilitate research, knowledge sharing, learning and career enhancement for all categories of IT professionals, while simultaneously inspiring and nurturing new entrants into the industry and helping them to integrate into the IT community. The CSI is also working closely with other industry associations, government bodies and academia to ensure that the benefits of IT advancement ultimately percolate down to every single citizen of India.
-                    </p>
-                    <p>
-                      Eminent personnel from industry (entrepreneurs), financial institutions (Banks), and academics will be invited to interact and to empower the knowledge in the concern fields that enrich the students how to start an entrepreneur at their own cost and procedures to be followed further. They also share their experiences about their success and failures of growth as an entrepreneur and motivate students at the plethora of opportunities they have in the World of industrial sector and encourage the students to launch new ventures.
-                    </p>
+              <section className="bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden">
+                {/* CSI Banner Image */}
+                <div className="relative w-full h-48 sm:h-64 bg-slate-100 overflow-hidden border-b border-gray-100">
+                  <img
+                    src={`${BASE}images/csi/csi-banner.jpg`}
+                    alt="Computer Society of India MITS Banner"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = `${BASE}images/csi-banner.jpg`;
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
+                    <div>
+                      <span className="px-2.5 py-1 rounded bg-[#ffb300] text-[#0f2a44] text-xs font-bold uppercase tracking-wider inline-block mb-1">
+                        Professional Student Branch
+                      </span>
+                      <h2 className="text-xl sm:text-2xl font-bold font-display !text-white text-white drop-shadow">
+                        {csiAbout.branchTitle}
+                      </h2>
+                    </div>
                   </div>
                 </div>
 
-                {/* EVENTS ORGANIZED */}
-                <div className="pt-8 border-t border-gray-200">
-                  <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] mb-6">
-                    Events Organized
-                  </h2>
-
-                  {/* 2025-26 */}
-                  <div className="mb-8">
-                    <h3 className="text-lg md:text-xl font-bold font-display text-[#0f2a44] mb-3">
-                      2025-26
-                    </h3>
-                    <div className="border border-gray-200 rounded-xl overflow-hidden divide-y divide-gray-200 bg-white shadow-sm">
-                      {events2025_26.map((evt, idx) => (
-                        <a
-                          key={idx}
-                          href={evt.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between p-4 sm:px-6 hover:bg-slate-50 transition-colors group"
-                        >
-                          <span className="text-sm sm:text-[15px] font-medium text-slate-800 group-hover:text-[#b31317] transition-colors leading-relaxed pr-4">
-                            {evt.title}
-                          </span>
-                          <PdfIcon className="w-7 h-7 sm:w-8 sm:h-8 group-hover:scale-105 transition-transform shrink-0" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* 2024-25 */}
-                  <div className="mb-8">
-                    <h3 className="text-lg md:text-xl font-bold font-display text-[#0f2a44] mb-3">
-                      2024-25
-                    </h3>
-                    <div className="border border-gray-200 rounded-xl overflow-hidden divide-y divide-gray-200 bg-white shadow-sm">
-                      {events2024_25.map((evt, idx) => (
-                        <a
-                          key={idx}
-                          href={evt.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between p-4 sm:px-6 hover:bg-slate-50 transition-colors group"
-                        >
-                          <span className="text-sm sm:text-[15px] font-medium text-slate-800 group-hover:text-[#b31317] transition-colors leading-relaxed pr-4">
-                            {evt.title}
-                          </span>
-                          <PdfIcon className="w-7 h-7 sm:w-8 sm:h-8 group-hover:scale-105 transition-transform shrink-0" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* 2023-24 */}
-                  <div className="mb-8">
-                    <h3 className="text-lg md:text-xl font-bold font-display text-[#0f2a44] mb-3">
-                      2023-24
-                    </h3>
-                    <div className="border border-gray-200 rounded-xl overflow-hidden divide-y divide-gray-200 bg-white shadow-sm">
-                      {events2023_24.map((evt, idx) => (
-                        <a
-                          key={idx}
-                          href={evt.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between p-4 sm:px-6 hover:bg-slate-50 transition-colors group"
-                        >
-                          <span className="text-sm sm:text-[15px] font-medium text-slate-800 group-hover:text-[#b31317] transition-colors leading-relaxed pr-4">
-                            {evt.title}
-                          </span>
-                          <PdfIcon className="w-7 h-7 sm:w-8 sm:h-8 group-hover:scale-105 transition-transform shrink-0" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* 2022-23 */}
-                  <div className="mb-8">
-                    <h3 className="text-lg md:text-xl font-bold font-display text-[#0f2a44] mb-3">
-                      2022-23
-                    </h3>
-                    <div className="border border-gray-200 rounded-xl overflow-hidden divide-y divide-gray-200 bg-white shadow-sm">
-                      {events2022_23.map((evt, idx) => (
-                        <a
-                          key={idx}
-                          href={evt.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between p-4 sm:px-6 hover:bg-slate-50 transition-colors group"
-                        >
-                          <span className="text-sm sm:text-[15px] font-medium text-slate-800 group-hover:text-[#b31317] transition-colors leading-relaxed pr-4">
-                            {evt.title}
-                          </span>
-                          <PdfIcon className="w-7 h-7 sm:w-8 sm:h-8 group-hover:scale-105 transition-transform shrink-0" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* 2021-22 */}
+                <div className="p-6 md:p-8 space-y-8">
+                  {/* ABOUT CSI */}
                   <div>
-                    <h3 className="text-lg md:text-xl font-bold font-display text-[#0f2a44] mb-3">
-                      2021-22
-                    </h3>
-                    <div className="border border-gray-200 rounded-xl overflow-hidden divide-y divide-gray-200 bg-white shadow-sm">
-                      {events2021_22.map((evt, idx) => (
-                        <a
-                          key={idx}
-                          href={evt.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between p-4 sm:px-6 hover:bg-slate-50 transition-colors group"
-                        >
-                          <span className="text-sm sm:text-[15px] font-medium text-slate-800 group-hover:text-[#b31317] transition-colors leading-relaxed pr-4">
-                            {evt.title}
-                          </span>
-                          <PdfIcon className="w-7 h-7 sm:w-8 sm:h-8 group-hover:scale-105 transition-transform shrink-0" />
-                        </a>
-                      ))}
+                    <div className="flex items-center gap-2 mb-3">
+                      <BookOpen className="w-5 h-5 text-[#990000]" />
+                      <h3 className="text-xl font-bold font-display text-[#0f2a44]">
+                        {csiAbout.nationalTitle}
+                      </h3>
+                    </div>
+                    <p className="text-slate-700 leading-relaxed text-justify text-sm sm:text-base">
+                      {csiAbout.nationalDescription}
+                    </p>
+                  </div>
+
+                  {/* MISSION */}
+                  <div className="pt-6 border-t border-gray-100">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Target className="w-5 h-5 text-[#990000]" />
+                      <h3 className="text-xl font-bold font-display text-[#0f2a44]">
+                        Mission
+                      </h3>
+                    </div>
+                    <div className="space-y-4 text-slate-700 leading-relaxed text-justify text-sm sm:text-base">
+                      <p>{csiAbout.missionParagraph1}</p>
+                      <p>{csiAbout.missionParagraph2}</p>
                     </div>
                   </div>
                 </div>
               </section>
             </ScrollReveal>
+
+            {/* EVENTS ORGANIZED ARCHIVE SECTION */}
+            <ScrollReveal>
+              <section className="bg-white rounded-2xl border border-gray-200/80 shadow-sm p-6 md:p-8">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-5 h-5 text-[#990000]" />
+                      <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44]">
+                        Events Organized
+                      </h2>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-1 font-medium">
+                      Archive of official technical workshops, guest lectures, hackathons, and FDPs
+                    </p>
+                  </div>
+
+                  <span className="self-start sm:self-auto px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-gray-200">
+                    {filteredEvents.length} {filteredEvents.length === 1 ? "Event" : "Events"}
+                  </span>
+                </div>
+
+                {/* SEARCH BAR & YEAR FILTER */}
+                <div className="space-y-4 mb-6">
+                  {/* Search Input */}
+                  <div className="relative">
+                    <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="text"
+                      placeholder="Search events by title, keyword, or category (e.g. AI, Machine Learning, Hackathon)..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full pl-10 pr-10 py-2.5 text-sm bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000] transition-all"
+                    />
+                    {searchQuery && (
+                      <button
+                        onClick={() => setSearchQuery("")}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
+                        title="Clear search"
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Year Tabs */}
+                  <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
+                    <button
+                      onClick={() => setSelectedYear("All")}
+                      className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                        selectedYear === "All"
+                          ? "bg-[#990000] text-white shadow-xs"
+                          : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                      }`}
+                    >
+                      All Years ({allCsiEvents.length})
+                    </button>
+                    {yearKeys.map((yr) => (
+                      <button
+                        key={yr}
+                        onClick={() => setSelectedYear(yr)}
+                        className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                          selectedYear === yr
+                            ? "bg-[#990000] text-white shadow-xs"
+                            : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                        }`}
+                      >
+                        {yr} ({csiEventsByYear[yr]?.length || 0})
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* EVENTS LIST */}
+                {filteredEvents.length === 0 ? (
+                  <div className="text-center py-12 px-4 bg-slate-50 rounded-xl border border-dashed border-gray-300">
+                    <FileText className="w-10 h-10 text-slate-300 mx-auto mb-2" />
+                    <p className="text-slate-600 font-medium text-sm">
+                      No events found matching your search.
+                    </p>
+                    <button
+                      onClick={() => {
+                        setSearchQuery("");
+                        setSelectedYear("All");
+                      }}
+                      className="mt-3 text-xs font-semibold text-[#990000] hover:underline cursor-pointer"
+                    >
+                      Reset filters
+                    </button>
+                  </div>
+                ) : (
+                  <div className="border border-gray-200 rounded-xl overflow-hidden divide-y divide-gray-200 bg-white shadow-xs">
+                    {filteredEvents.map((evt, idx) => (
+                      <div
+                        key={idx}
+                        className="flex flex-col sm:flex-row sm:items-center justify-between p-4 sm:p-5 hover:bg-slate-50 transition-colors gap-3 group"
+                      >
+                        <div className="min-w-0 pr-2">
+                          <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                            <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-[#990000]/10 text-[#990000]">
+                              {evt.year}
+                            </span>
+                            {evt.category && (
+                              <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-100 text-slate-600 border border-gray-200">
+                                {evt.category}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-sm sm:text-[15px] font-medium text-slate-800 group-hover:text-[#990000] transition-colors leading-relaxed">
+                            {evt.title}
+                          </p>
+                        </div>
+
+                        {/* Action Buttons: Preview Modal & Direct Open */}
+                        <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
+                          <button
+                            onClick={() =>
+                              setPreviewPdf({
+                                url: evt.pdfUrl,
+                                title: evt.title,
+                              })
+                            }
+                            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#990000]/10 hover:bg-[#990000] text-[#990000] hover:text-white transition-all shadow-2xs cursor-pointer"
+                            title="Preview PDF Report"
+                          >
+                            <PdfIcon className="w-5 h-5" />
+                            <span>View Report</span>
+                          </button>
+
+                          <a
+                            href={evt.pdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-1.5 text-slate-400 hover:text-[#990000] hover:bg-slate-100 rounded-lg transition-colors cursor-pointer"
+                            title="Open in new window"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </section>
+            </ScrollReveal>
           </div>
 
-          {/* SIDEBAR AREA (4 cols) */}
-          <div className="lg:col-span-4 space-y-6">
-            {/* CONTACT CARD */}
+          {/* SIDEBAR AREA (4 cols - Sticky) */}
+          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
+            {/* COORDINATOR CONTACT CARD */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden">
                 <div className="bg-[#990000] px-6 py-4 flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-white !text-white" />
-                  <h3 className="font-display text-lg font-bold text-white !text-white">
-                    Contact
+                  <Phone className="w-4 h-4 !text-white text-white" />
+                  <h3 className="font-display text-lg font-bold !text-white text-white">
+                    Coordinator Contact
                   </h3>
                 </div>
 
                 <div className="p-6 space-y-6">
                   {/* Coordinator Details */}
                   <div className="border-b border-gray-100 pb-5">
-                    <h4 className="font-display text-xl font-bold text-[#990000]">
-                      Dr. R. Nidhya
+                    <span className="text-xs font-bold text-[#990000] uppercase tracking-wider block mb-1">
+                      Faculty Coordinator
+                    </span>
+                    <h4 className="font-display text-xl font-bold text-[#0f2a44]">
+                      {csiCoordinator.name}
                     </h4>
                     <p className="text-sm font-semibold text-[#0f2a44] mt-1">
-                      Professor
+                      {csiCoordinator.designation}
                     </p>
-                    <p className="text-sm text-slate-600 font-medium">
-                      Department of Computer Science &amp; Engineering
+                    <p className="text-xs text-slate-600 font-medium">
+                      {csiCoordinator.department}
                     </p>
                   </div>
 
@@ -455,18 +422,19 @@ export default function CsiView() {
                   <div className="space-y-4 text-sm text-slate-700">
                     <div className="flex items-start gap-3">
                       <div className="p-2 rounded-lg bg-slate-100 text-[#0f2a44] shrink-0 mt-0.5">
-                        <MapPin className="w-4 h-4" />
+                        <MapPin className="w-4 h-4 text-[#990000]" />
                       </div>
                       <div>
                         <span className="font-bold text-[#0f2a44] block text-xs uppercase tracking-wide mb-1">
                           Address :
                         </span>
-                        <p className="leading-snug text-slate-600">
-                          Madanapalle Institute of Technology &amp; Science<br />
-                          Deemed to be University<br />
-                          Madanapalle-Kadiri Road<br />
-                          Kurabalakota Mandal, Madanapalle-517325<br />
-                          Andhra Pradesh, India
+                        <p className="leading-snug text-slate-600 text-xs sm:text-sm">
+                          {csiCoordinator.address.map((line, idx) => (
+                            <React.Fragment key={idx}>
+                              {line}
+                              {idx < csiCoordinator.address.length - 1 && <br />}
+                            </React.Fragment>
+                          ))}
                         </p>
                       </div>
                     </div>
@@ -474,47 +442,124 @@ export default function CsiView() {
                     {/* Phone */}
                     <div className="flex items-start gap-3 border-t border-gray-100 pt-4">
                       <div className="p-2 rounded-lg bg-slate-100 text-[#0f2a44] shrink-0 mt-0.5">
-                        <Phone className="w-4 h-4" />
+                        <Phone className="w-4 h-4 text-[#990000]" />
                       </div>
                       <div>
                         <span className="font-bold text-[#0f2a44] block text-xs uppercase tracking-wide mb-1">
                           Phone :
                         </span>
-                        <a
-                          href="tel:+918571280255"
-                          className="text-slate-700 hover:text-[#990000] transition-colors block"
-                        >
-                          +91-8571-280255
-                        </a>
-                        <a
-                          href="tel:+918571280706"
-                          className="text-slate-700 hover:text-[#990000] transition-colors block"
-                        >
-                          +91-8571-280706
-                        </a>
+                        {csiCoordinator.phone.map((ph, idx) => (
+                          <a
+                            key={idx}
+                            href={`tel:${ph.replace(/[^0-9+]/g, "")}`}
+                            className="text-slate-700 hover:text-[#990000] transition-colors block text-xs sm:text-sm font-medium"
+                          >
+                            {ph}
+                          </a>
+                        ))}
                       </div>
                     </div>
 
                     {/* Email */}
                     <div className="flex items-start gap-3 border-t border-gray-100 pt-4">
                       <div className="p-2 rounded-lg bg-slate-100 text-[#0f2a44] shrink-0 mt-0.5">
-                        <Mail className="w-4 h-4" />
+                        <Mail className="w-4 h-4 text-[#990000]" />
                       </div>
                       <div>
                         <span className="font-bold text-[#0f2a44] block text-xs uppercase tracking-wide mb-1">
                           E Mail :
                         </span>
                         <a
-                          href="mailto:drnidhyar@mits.ac.in"
-                          className="text-[#990000] hover:underline font-semibold block break-all"
+                          href={`mailto:${csiCoordinator.email}`}
+                          className="text-[#990000] hover:underline font-semibold block text-xs sm:text-sm break-all"
                         >
-                          drnidhyar@mits.ac.in
+                          {csiCoordinator.email}
                         </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </section>
+            </ScrollReveal>
+
+            {/* COMMITTEE MEMBERS CARD */}
+            <ScrollReveal>
+              <section className="bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden">
+                <div className="bg-[#800000] px-6 py-4 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Users className="w-4 h-4 !text-white text-white" />
+                    <h3 className="font-display text-lg font-bold !text-white text-white">
+                      Committee Members
+                    </h3>
+                  </div>
+                  <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-white/20 !text-white text-white">
+                    {csiCommitteeMembers.length} Members
+                  </span>
+                </div>
+
+                <div className="p-6 divide-y divide-gray-100">
+                  {csiCommitteeMembers.map((member, idx) => (
+                    <div key={idx} className={idx > 0 ? "pt-4 mt-4" : ""}>
+                      <h4 className="font-display text-base font-bold text-[#0f2a44]">
+                        {member.name}
+                      </h4>
+                      <p className="text-xs font-semibold text-[#990000] mt-0.5">
+                        {member.designation}
+                      </p>
+                      <p className="text-xs text-slate-600 font-medium mt-0.5">
+                        {member.department}
+                      </p>
+
+                      <div className="mt-2.5 flex flex-wrap gap-y-1.5 gap-x-4 text-xs text-slate-600">
+                        {member.phone && (
+                          <div className="flex items-center gap-1.5">
+                            <Phone className="w-3 h-3 text-slate-400" />
+                            <a
+                              href={`tel:${member.phone.replace(/[^0-9+]/g, "")}`}
+                              className="hover:text-[#990000]"
+                            >
+                              {member.phone}
+                            </a>
+                          </div>
+                        )}
+                        <div className="flex items-center gap-1.5">
+                          <Mail className="w-3 h-3 text-slate-400" />
+                          <a
+                            href={`mailto:${member.email}`}
+                            className="text-[#990000] hover:underline break-all"
+                          >
+                            {member.email}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </ScrollReveal>
+
+            {/* NATIONAL CSI SUMMARY */}
+            <ScrollReveal>
+              <div className="bg-[#0f2a44] text-white p-6 rounded-2xl shadow-sm">
+                <div className="flex items-center gap-2 mb-2">
+                  <Globe className="w-4 h-4 text-[#ffd15c]" />
+                  <h4 className="font-display font-bold text-base text-[#ffd15c]">
+                    About National CSI
+                  </h4>
+                </div>
+                <p className="text-xs text-white/80 leading-relaxed mb-4">
+                  Computer Society of India (CSI), formed in 1965, has 70 chapters across India, 418 student branches, and over 90,000 members dedicated to IT advancement and research.
+                </p>
+                <a
+                  href="https://www.csi-india.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#ffd15c] hover:underline font-semibold"
+                >
+                  <span>Visit CSI National Portal</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </ScrollReveal>
 
             {/* RELATED CHAPTERS & PORTALS LINKS */}
@@ -525,51 +570,91 @@ export default function CsiView() {
                 </h4>
                 <div className="divide-y divide-gray-100 text-sm">
                   {[
+                    { label: "Indian Society for Technical Education (ISTE)", to: "/iste" },
+                    { label: "Institution of Electronics & Telecommunication Engineers (IETE)", to: "/iete" },
                     { label: "The Institution of Engineers (India) [IEI]", to: "/cells/iei" },
-                    { label: "Institution of Electronics & Telecommunication Engineers (IETE)", to: "/cells/iete" },
                     { label: "Student Activity Center (SAC)", to: "/cells/sac" },
                     { label: "Internal Quality Assurance Cell (IQAC)", to: "/iqac" },
                     { label: "Entrepreneurship Development Cell (EDC)", to: "/cells/edc" },
-                    { label: "Industry Institute Interaction Cell (IIIC)", to: "/cells/iiic" },
                   ].map((p, idx) => (
                     <Link
                       key={idx}
                       to={p.to}
-                      className="flex items-center justify-between py-3 text-slate-700 hover:text-[#b31317] transition-all group"
+                      className="flex items-center justify-between py-3 text-slate-700 hover:text-[#990000] transition-all group"
                     >
-                      <span className="font-medium group-hover:translate-x-0.5 transition-transform">
+                      <span className="font-medium group-hover:translate-x-0.5 transition-transform text-xs sm:text-sm">
                         {p.label}
                       </span>
-                      <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#b31317] group-hover:translate-x-1 transition-all shrink-0" />
+                      <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#990000] group-hover:translate-x-1 transition-all shrink-0" />
                     </Link>
                   ))}
                 </div>
               </section>
             </ScrollReveal>
-
-            {/* NATIONAL CSI SUMMARY */}
-            <ScrollReveal>
-              <div className="bg-[#0f2a44] text-white p-6 rounded-2xl shadow-sm">
-                <h4 className="font-display font-bold text-base text-[#ffd15c] mb-2">
-                  About National CSI
-                </h4>
-                <p className="text-xs text-white/80 leading-relaxed mb-4">
-                  Computer Society of India (CSI), formed in 1965, has 70 chapters across India, 418 student branches, and over 90,000 members dedicated to IT advancement.
-                </p>
-                <a
-                  href="https://www.csi-india.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-[#ffd15c] hover:underline font-semibold"
-                >
-                  <span>Visit CSI National Portal</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </ScrollReveal>
           </div>
         </div>
       </main>
+
+      {/* PDF PREVIEW MODAL */}
+      {previewPdf && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-200"
+          onClick={() => setPreviewPdf(null)}
+        >
+          <div
+            className="relative w-full max-w-5xl h-[88vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-4 bg-[#0f2a44] text-white">
+              <div className="flex items-center gap-3 min-w-0 pr-4">
+                <PdfIcon className="w-6 h-6 shrink-0" />
+                <div className="min-w-0">
+                  <h3 className="font-display font-bold text-sm sm:text-base truncate !text-white text-white">
+                    {previewPdf.title}
+                  </h3>
+                  <p className="text-xs text-white/70">Official CSI Event Report Preview</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <a
+                  href={previewPdf.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
+                  title="Open in new window"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+                <a
+                  href={previewPdf.url}
+                  download
+                  className="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
+                  title="Download PDF"
+                >
+                  <Download className="w-4 h-4" />
+                </a>
+                <button
+                  onClick={() => setPreviewPdf(null)}
+                  className="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors ml-1 cursor-pointer"
+                  title="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body / Iframe */}
+            <div className="flex-1 bg-slate-100 relative">
+              <iframe
+                src={previewPdf.url}
+                title={previewPdf.title}
+                className="w-full h-full border-0"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>

@@ -199,7 +199,7 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
     return <IeteView />;
   }
 
-  if (targetId === "csi") {
+  if (targetId === "csi" || targetId === "csi-content") {
     return <CsiView />;
   }
 
