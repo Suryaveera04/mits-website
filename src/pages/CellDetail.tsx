@@ -34,6 +34,7 @@ import NccArmyView from "@/components/cells/NccArmyView";
 import NccAirView from "@/components/cells/NccAirView";
 import NepView from "@/components/cells/NepView";
 import IsteView from "@/components/cells/IsteView";
+import SdgView from "@/components/cells/SdgView";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -217,6 +218,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "iste") {
     return <IsteView />;
+  }
+
+  if (targetId === "sdg" || targetId === "sdg-cell") {
+    return <SdgView />;
   }
 
   if (!cell) {
