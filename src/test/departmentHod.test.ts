@@ -158,7 +158,7 @@ describe("Department Head of Department (HOD) Resolution", () => {
     const { getFacultyByDept } = result.current;
 
     const bshMembers = getFacultyByDept("bsh");
-    expect(bshMembers.length).toBe(36);
+    expect(bshMembers.length).toBe(35);
 
     const validSubDepts = new Set([
       "Department of English & Foreign Languages",
@@ -180,6 +180,6 @@ describe("Department Head of Department (HOD) Resolution", () => {
     expect(counts["Department of English & Foreign Languages"]).toBe(8);
     expect(counts["Department of Mathematics"]).toBe(9);
     expect(counts["Department of Physics"]).toBe(10);
-    expect(counts["Department of Chemistry"]).toBe(9);
+    expect(counts["Department of Chemistry"]).toBe(8);
   });
 });

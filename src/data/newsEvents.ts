@@ -13,6 +13,7 @@ export type NewsEventItem = {
   deptKey?: string;
   departmentBadge?: string;
   id?: number;
+  conductedTimestamp?: number;
 };
 
 export type LatestNewsItem = {

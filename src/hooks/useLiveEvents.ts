@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { SHEETS_CONFIG } from "@/config/sheetsConfig";
 import { fetchSheetTab, parseEventItems, type LiveEventItem } from "@/services/googleSheetsService";
-import { fetchAllCMSEvents, type CMSEvent } from "@/hooks/useDeptCMSData";
+import { fetchAllCMSEvents, type CMSEvent, parseEventConductedTime, getEventConductedTimestamp } from "@/hooks/useDeptCMSData";
 import { newsEvents, type NewsEventItem } from "@/data/newsEvents";
 
 export interface CanonicalDeptInfo {
@@ -112,9 +112,10 @@ export function useLiveEvents() {
 
   // Convert live CMS events into standard NewsEventItem format with canonical dept info
   const convertedCMS: NewsEventItem[] = useMemo(() => {
-    return cmsEvents.map((ev) => {
+    const list = cmsEvents.map((ev) => {
       const cleanSlug = `cms-${ev.id}-${ev.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 50)}`;
       const deptInfo = getCanonicalDept(ev.department);
+      const conductedTimestamp = getEventConductedTimestamp(ev);
       return {
         slug: cleanSlug,
         date: ev.from_date || ev.date || "Upcoming",
@@ -130,7 +131,16 @@ export function useLiveEvents() {
         departmentBadge: deptInfo.badge,
         deptKey: deptInfo.key,
         id: ev.id,
+        conductedTimestamp,
       };
+    });
+
+    // Sort convertedCMS strictly by conducted date descending (most recently conducted first, then highest ID)
+    return list.sort((a, b) => {
+      const timeA = a.conductedTimestamp ?? parseEventConductedTime(a.date);
+      const timeB = b.conductedTimestamp ?? parseEventConductedTime(b.date);
+      if (timeA !== timeB) return timeB - timeA;
+      return (b.id || 0) - (a.id || 0);
     });
   }, [cmsEvents]);
 
@@ -190,27 +200,18 @@ export function useLiveEvents() {
   /**
    * Strictly ONE event per department:
    * 1. Groups events by canonical department.
-   * 2. Within each department, prioritizes the latest event that has an image/poster.
-   *    If no event in that department has a poster, picks the most recent event.
-   * 3. Sorts across departments so departments with events having posters come first (ordered by recency),
-   *    then any remaining departments.
+   * 2. Within each department, selects the single most recently CONDUCTED event
+   *    (sorted by conductedTimestamp descending; if identical date, prefers an event with image,
+   *    then highest ID).
+   * 3. Sorts across departments by conductedTimestamp descending, so the home page
+   *    presents the 6 most recently conducted events across all departments.
    */
   const latestDeptEvents = useMemo(() => {
     if (convertedCMS.length === 0) return [];
 
     const deptGroups = new Map<string, NewsEventItem[]>();
 
-    // Sort convertedCMS by entry recency: highest id first (order of entry in database)
-    const sortedCMS = [...convertedCMS].sort((a, b) => {
-      const idA = a.id || 0;
-      const idB = b.id || 0;
-      if (idA !== idB) return idB - idA;
-      const da = a.date || "";
-      const db = b.date || "";
-      return db.localeCompare(da);
-    });
-
-    for (const ev of sortedCMS) {
+    for (const ev of convertedCMS) {
       const k = ev.deptKey || "other";
       if (!deptGroups.has(k)) {
         deptGroups.set(k, []);
@@ -218,27 +219,35 @@ export function useLiveEvents() {
       deptGroups.get(k)!.push(ev);
     }
 
-    // For each department: pick the latest event with a poster image, or fallback to newest event
-    const deptRepresentatives: { item: NewsEventItem; hasImage: boolean }[] = [];
+    // For each department: pick strictly the most recently conducted event
+    const deptRepresentatives: NewsEventItem[] = [];
     for (const [, list] of deptGroups) {
-      const withPoster = list.find((e) => e.image && e.image.trim().length > 0);
-      if (withPoster) {
-        deptRepresentatives.push({ item: withPoster, hasImage: true });
-      } else {
-        deptRepresentatives.push({ item: list[0], hasImage: false });
+      const sortedInDept = [...list].sort((a, b) => {
+        const timeA = a.conductedTimestamp ?? parseEventConductedTime(a.date);
+        const timeB = b.conductedTimestamp ?? parseEventConductedTime(b.date);
+        if (timeA !== timeB) return timeB - timeA;
+        // Same conducted date: prefer event with image/poster if available
+        const hasImgA = Boolean(a.image && a.image.trim().length > 0);
+        const hasImgB = Boolean(b.image && b.image.trim().length > 0);
+        if (hasImgA !== hasImgB) return hasImgA ? -1 : 1;
+        // Tie-breaker: latest entered (highest ID)
+        return (b.id || 0) - (a.id || 0);
+      });
+
+      if (sortedInDept.length > 0) {
+        deptRepresentatives.push(sortedInDept[0]);
       }
     }
 
-    // Sort across departments: departments with poster images first (sorted by id desc), then others
+    // Sort across departments strictly by conducted date descending
     deptRepresentatives.sort((a, b) => {
-      if (a.hasImage !== b.hasImage) return a.hasImage ? -1 : 1;
-      const idA = a.item.id || 0;
-      const idB = b.item.id || 0;
-      if (idA !== idB) return idB - idA;
-      return (b.item.date || "").localeCompare(a.item.date || "");
+      const timeA = a.conductedTimestamp ?? parseEventConductedTime(a.date);
+      const timeB = b.conductedTimestamp ?? parseEventConductedTime(b.date);
+      if (timeA !== timeB) return timeB - timeA;
+      return (b.id || 0) - (a.id || 0);
     });
 
-    return deptRepresentatives.map((d) => d.item);
+    return deptRepresentatives;
   }, [convertedCMS]);
 
   const getEventBySlug = useCallback(

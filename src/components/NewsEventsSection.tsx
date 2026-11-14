@@ -42,7 +42,7 @@ const EventCardSkeleton = ({ index }: { index: number }) => (
 
 const NewsEventsSection = () => {
   const { latestDeptEvents, events, loading } = useLiveEvents();
-  // Strictly one most recently entered event per department, top 6 departments
+  // Strictly one most recently conducted event per department, top 6 departments by conducted date
   const displayEvents = latestDeptEvents.slice(0, 6);
   const isFetching = loading && displayEvents.length === 0;
 
