@@ -227,9 +227,12 @@ export default function SdgGoalDetailView({ overrideSlug }: SdgGoalDetailViewPro
                   ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       {goalData.publications.map((pub, idx) => (
-                        <div
+                        <a
                           key={idx}
-                          className="p-4 rounded-xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-xs transition-all flex items-center justify-between gap-3 group"
+                          href={pub.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-4 rounded-xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-xs transition-all flex items-center justify-between gap-3 group cursor-pointer"
                         >
                           <div className="flex items-center gap-3 min-w-0 flex-1">
                             <PdfIcon className="w-8 h-8 shrink-0 group-hover:scale-105 transition-transform" />
@@ -237,24 +240,13 @@ export default function SdgGoalDetailView({ overrideSlug }: SdgGoalDetailViewPro
                               {pub.title}
                             </span>
                           </div>
-                          <div className="flex items-center gap-1.5 shrink-0">
-                            <button
-                              onClick={() => setPreviewPdf({ url: pub.url, title: pub.title })}
-                              className="px-2.5 py-1 text-xs font-semibold rounded bg-white text-[#990000] border border-[#990000]/30 hover:bg-[#990000] hover:text-white transition-all shadow-2xs"
-                            >
-                              Preview
-                            </button>
-                            <a
-                              href={pub.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="p-1 rounded text-slate-400 hover:text-[#990000] transition-colors"
-                              title="Open in new window"
-                            >
-                              <ExternalLink className="w-3.5 h-3.5" />
-                            </a>
+                          <div className="flex items-center gap-1.5 shrink-0 text-slate-400 group-hover:text-[#990000] transition-colors">
+                            <span className="text-[11px] font-semibold text-slate-500 group-hover:text-[#990000] hidden sm:inline">
+                              Open PDF
+                            </span>
+                            <ExternalLink className="w-4 h-4" />
                           </div>
-                        </div>
+                        </a>
                       ))}
                     </div>
                   )}
