@@ -62,6 +62,7 @@ const EContentPage = lazy(() => import("./pages/EContentPage"));
 const NewsletterPage = lazy(() => import("./pages/NewsletterPage"));
 const Cells = lazy(() => import("./pages/Cells"));
 const CellDetail = lazy(() => import("./pages/CellDetail"));
+const SdgGoalDetailView = lazy(() => import("./components/cells/SdgGoalDetailView"));
 const Careers = lazy(() => import("./pages/Careers"));
 const CiscoNetworkingAcademy = lazy(() => import("./pages/CiscoNetworkingAcademy"));
 const CiscoSelfPacedCourses = lazy(() => import("./pages/CiscoSelfPacedCourses"));
@@ -200,6 +201,43 @@ const App = () => (
             <Route path="/nep-cell" element={<CellDetail overrideId="nep" />} />
             <Route path="/sdg" element={<CellDetail overrideId="sdg" />} />
             <Route path="/sdg-cell" element={<CellDetail overrideId="sdg" />} />
+            {/* Individual SDG Goals (2027) */}
+            <Route path="/sdg1-2027" element={<SdgGoalDetailView overrideSlug="sdg1-2027" />} />
+            <Route path="/sdg2-2027" element={<SdgGoalDetailView overrideSlug="sdg2-2027" />} />
+            <Route path="/sdg3-2027" element={<SdgGoalDetailView overrideSlug="sdg3-2027" />} />
+            <Route path="/sdg4-2027" element={<SdgGoalDetailView overrideSlug="sdg4-2027" />} />
+            <Route path="/sdg5-2027" element={<SdgGoalDetailView overrideSlug="sdg5-2027" />} />
+            <Route path="/sdg6-2027" element={<SdgGoalDetailView overrideSlug="sdg6-2027" />} />
+            <Route path="/sdg7-2027" element={<SdgGoalDetailView overrideSlug="sdg7-2027" />} />
+            <Route path="/sdg8-2027" element={<SdgGoalDetailView overrideSlug="sdg8-2027" />} />
+            <Route path="/sdg9-2027" element={<SdgGoalDetailView overrideSlug="sdg9-2027" />} />
+            <Route path="/sdg10-2027" element={<SdgGoalDetailView overrideSlug="sdg10-2027" />} />
+            <Route path="/sdg11-2027" element={<SdgGoalDetailView overrideSlug="sdg11-2027" />} />
+            <Route path="/sdg12-2027" element={<SdgGoalDetailView overrideSlug="sdg12-2027" />} />
+            <Route path="/sdg13-2027" element={<SdgGoalDetailView overrideSlug="sdg13-2027" />} />
+            <Route path="/sdg14-2027" element={<SdgGoalDetailView overrideSlug="sdg14-2027" />} />
+            <Route path="/sdg15-2027" element={<SdgGoalDetailView overrideSlug="sdg15-2027" />} />
+            <Route path="/sdg16-2027" element={<SdgGoalDetailView overrideSlug="sdg16-2027" />} />
+            <Route path="/sdg17-2027" element={<SdgGoalDetailView overrideSlug="sdg17-2027" />} />
+            {/* Individual SDG Goals (2025) */}
+            <Route path="/sdg1" element={<SdgGoalDetailView overrideSlug="sdg1" />} />
+            <Route path="/sdg2" element={<SdgGoalDetailView overrideSlug="sdg2" />} />
+            <Route path="/sdg3" element={<SdgGoalDetailView overrideSlug="sdg3" />} />
+            <Route path="/sdg4" element={<SdgGoalDetailView overrideSlug="sdg4" />} />
+            <Route path="/sdg5" element={<SdgGoalDetailView overrideSlug="sdg5" />} />
+            <Route path="/sdg6" element={<SdgGoalDetailView overrideSlug="sdg6" />} />
+            <Route path="/sdg7" element={<SdgGoalDetailView overrideSlug="sdg7" />} />
+            <Route path="/sdg8" element={<SdgGoalDetailView overrideSlug="sdg8" />} />
+            <Route path="/sdg9" element={<SdgGoalDetailView overrideSlug="sdg9" />} />
+            <Route path="/sdg10" element={<SdgGoalDetailView overrideSlug="sdg10" />} />
+            <Route path="/sdg11" element={<SdgGoalDetailView overrideSlug="sdg11" />} />
+            <Route path="/sdg12" element={<SdgGoalDetailView overrideSlug="sdg12" />} />
+            <Route path="/sdg13" element={<SdgGoalDetailView overrideSlug="sdg13" />} />
+            <Route path="/sdg14" element={<SdgGoalDetailView overrideSlug="sdg14" />} />
+            <Route path="/sdg15" element={<SdgGoalDetailView overrideSlug="sdg15" />} />
+            <Route path="/sdg16" element={<SdgGoalDetailView overrideSlug="sdg16" />} />
+            <Route path="/sdg17" element={<SdgGoalDetailView overrideSlug="sdg17" />} />
+            <Route path="/sdg-goal/:slug" element={<SdgGoalDetailView />} />
             <Route path="/student-clubs-sac" element={<StudentClubs />} />
             <Route path="/faculty-information" element={<FacultyInformation />} />
             <Route path="/university/faculty-information" element={<FacultyInformation />} />

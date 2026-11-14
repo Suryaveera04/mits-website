@@ -398,12 +398,10 @@ export default function SdgView() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {sdgRankings2027.map((item) => (
-                      <a
+                      <Link
                         key={item.goal}
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex flex-col p-4 rounded-xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-md transition-all"
+                        to={`/sdg${item.goal}-2027`}
+                        className="group flex flex-col p-4 rounded-xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-md transition-all cursor-pointer"
                       >
                         <div className="w-16 h-16 rounded-xl overflow-hidden mb-3 bg-white shadow-xs shrink-0 mx-auto">
                           <img
@@ -425,11 +423,11 @@ export default function SdgView() {
                             </h3>
                           </div>
                           <span className="mt-3 inline-flex items-center justify-center gap-1 text-[11px] font-semibold text-slate-500 group-hover:text-[#990000] transition-colors">
-                            <span>View Goal Report</span>
-                            <ExternalLink className="w-3 h-3" />
+                            <span>View Goal Details</span>
+                            <ChevronRight className="w-3.5 h-3.5" />
                           </span>
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -452,12 +450,10 @@ export default function SdgView() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {sdgRankings2025.map((item) => (
-                      <a
+                      <Link
                         key={item.goal}
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex flex-col p-4 rounded-xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-md transition-all"
+                        to={`/sdg${item.goal}`}
+                        className="group flex flex-col p-4 rounded-xl border border-gray-200 bg-slate-50 hover:bg-white hover:border-[#990000]/40 hover:shadow-md transition-all cursor-pointer"
                       >
                         <div className="w-16 h-16 rounded-xl overflow-hidden mb-3 bg-white shadow-xs shrink-0 mx-auto">
                           <img
@@ -479,11 +475,11 @@ export default function SdgView() {
                             </h3>
                           </div>
                           <span className="mt-3 inline-flex items-center justify-center gap-1 text-[11px] font-semibold text-slate-500 group-hover:text-[#990000] transition-colors">
-                            <span>View Goal Report</span>
-                            <ExternalLink className="w-3 h-3" />
+                            <span>View Goal Details</span>
+                            <ChevronRight className="w-3.5 h-3.5" />
                           </span>
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
