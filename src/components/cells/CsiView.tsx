@@ -12,7 +12,6 @@ import {
   Search,
   Calendar,
   BookOpen,
-  Award,
   Globe,
   Users,
   Target,
@@ -27,7 +26,6 @@ import {
   csiAbout,
   csiEventsByYear,
   allCsiEvents,
-  csiQuickStats,
   type CsiEventItem,
 } from "./csiData";
 
@@ -144,8 +142,8 @@ export default function CsiView() {
 
       {/* MAIN CONTENT CONTAINER - Balanced Full-Width Layout */}
       <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        {/* Back Button & Top Action */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+        {/* Back Button */}
+        <div className="mb-6">
           <button
             onClick={() => navigate("/cells")}
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#990000] transition-colors bg-white px-4 py-2 rounded-xl border border-gray-200 shadow-xs hover:shadow-sm cursor-pointer"
@@ -153,91 +151,44 @@ export default function CsiView() {
             <ArrowLeft className="w-4 h-4 text-[#990000]" />
             <span>Back to Cells &amp; Committees</span>
           </button>
-
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#990000]/10 text-[#990000] border border-[#990000]/20">
-              <Award className="w-3.5 h-3.5" />
-              Branch Code: M10660
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-              <Globe className="w-3.5 h-3.5" />
-              Active Chapter
-            </span>
-          </div>
-        </div>
-
-        {/* STATS OVERVIEW CARDS */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-          {csiQuickStats.map((st, i) => (
-            <div
-              key={i}
-              className="bg-white p-4 sm:p-5 rounded-2xl border border-gray-200/80 shadow-xs flex flex-col justify-between"
-            >
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                {st.label}
-              </span>
-              <span className="text-xl sm:text-2xl font-bold font-display text-[#0f2a44] mt-1">
-                {st.value}
-              </span>
-            </div>
-          ))}
         </div>
 
         {/* 2-COLUMN BALANCED WIDE GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* PRIMARY CONTENT AREA (8 cols) */}
           <div className="lg:col-span-8 space-y-8">
-            {/* CHAPTER BANNER & OVERVIEW */}
+            {/* CHAPTER OVERVIEW */}
             <ScrollReveal>
-              <section className="bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden">
-                {/* CSI Banner Image */}
-                <div className="relative w-full h-48 sm:h-64 bg-slate-100 overflow-hidden border-b border-gray-100">
-                  <img
-                    src={`${BASE}images/csi/csi-banner.jpg`}
-                    alt="Computer Society of India MITS Banner"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = `${BASE}images/csi-banner.jpg`;
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
-                    <div>
-                      <span className="px-2.5 py-1 rounded bg-[#ffb300] text-[#0f2a44] text-xs font-bold uppercase tracking-wider inline-block mb-1">
-                        Professional Student Branch
-                      </span>
-                      <h2 className="text-xl sm:text-2xl font-bold font-display !text-white text-white drop-shadow">
-                        {csiAbout.branchTitle}
-                      </h2>
-                    </div>
+              <section className="bg-white rounded-2xl border border-gray-200/80 shadow-sm p-6 md:p-8 space-y-8">
+                {/* BRANCH TITLE */}
+                <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] border-b border-gray-100 pb-4">
+                  {csiAbout.branchTitle}
+                </h2>
+
+                {/* ABOUT CSI */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <BookOpen className="w-5 h-5 text-[#990000]" />
+                    <h3 className="text-xl font-bold font-display text-[#0f2a44]">
+                      {csiAbout.nationalTitle}
+                    </h3>
                   </div>
+                  <p className="text-slate-700 leading-relaxed text-justify text-sm sm:text-base">
+                    {csiAbout.nationalDescription}
+                  </p>
                 </div>
 
-                <div className="p-6 md:p-8 space-y-8">
-                  {/* ABOUT CSI */}
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <BookOpen className="w-5 h-5 text-[#990000]" />
-                      <h3 className="text-xl font-bold font-display text-[#0f2a44]">
-                        {csiAbout.nationalTitle}
-                      </h3>
-                    </div>
-                    <p className="text-slate-700 leading-relaxed text-justify text-sm sm:text-base">
-                      {csiAbout.nationalDescription}
-                    </p>
+                {/* MISSION */}
+                <div className="pt-6 border-t border-gray-100">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Target className="w-5 h-5 text-[#990000]" />
+                    <h3 className="text-xl font-bold font-display text-[#0f2a44]">
+                      Mission
+                    </h3>
                   </div>
-
-                  {/* MISSION */}
-                  <div className="pt-6 border-t border-gray-100">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Target className="w-5 h-5 text-[#990000]" />
-                      <h3 className="text-xl font-bold font-display text-[#0f2a44]">
-                        Mission
-                      </h3>
-                    </div>
-                    <div className="space-y-4 text-slate-700 leading-relaxed text-justify text-sm sm:text-base">
-                      <p>{csiAbout.missionParagraph1}</p>
-                      <p>{csiAbout.missionParagraph2}</p>
-                    </div>
+                  <div className="space-y-4 text-slate-700 leading-relaxed text-justify text-sm sm:text-base">
+                    <p>{csiAbout.missionParagraph1}</p>
+                    <p>{csiAbout.missionParagraph2}</p>
                   </div>
                 </div>
               </section>
