@@ -66,12 +66,37 @@ const Header = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const headerRef = useRef<HTMLElement | null>(null);
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      if (window.scrollY > 50) {
+        setOpenDropdown(null);
+      }
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   useEffect(() => {
@@ -88,10 +113,15 @@ const Header = () => {
     dropdownTimeout.current = setTimeout(() => setOpenDropdown(null), 150);
   };
 
+  const handleCloseImmediate = () => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setOpenDropdown(null);
+  };
+
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled ? "shadow-xl" : ""}`}>
+    <header ref={headerRef} className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled ? "shadow-xl" : ""}`}>
       {/* Top ticker bar */}
       <div className="bg-primary text-primary-foreground hidden md:block overflow-hidden">
         <div className="h-9 flex items-center justify-between">
@@ -148,7 +178,12 @@ const Header = () => {
       <div className="bg-white border-b border-border shadow-sm">
         <div className="w-full flex items-center justify-between min-h-16 lg:min-h-20 px-2 sm:px-4 md:px-6 py-2 gap-2 sm:gap-3">
           {/* Logo */}
-          <Link to="/" className="flex items-center min-w-0 shrink" onClick={() => setMobileOpen(false)}>
+          <Link
+            to="/"
+            className="flex items-center min-w-0 shrink"
+            onClick={() => setMobileOpen(false)}
+            onMouseEnter={handleCloseImmediate}
+          >
             <img
               src={`${import.meta.env.BASE_URL}mits-official-logo.png`}
               onError={(e) => {
@@ -161,12 +196,12 @@ const Header = () => {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden xl:flex items-center gap-0.5 flex-1 justify-end">
+          <nav className="hidden xl:flex items-center gap-0.5 flex-1 justify-end h-full">
             {navItems.map((item) =>
               item.children ? (
                 <div
                   key={item.label}
-                  className={item.mega ? "" : "relative"}
+                  className={`h-full flex items-center ${item.mega ? "" : "relative"}`}
                   onMouseEnter={() => handleMouseEnter(item.label)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -181,7 +216,12 @@ const Header = () => {
                     <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`} />
                   </Link>
                   {item.mega === "about" ? (
-                    <AboutMegaMenu open={openDropdown === item.label} onClose={() => setOpenDropdown(null)} />
+                    <AboutMegaMenu
+                      open={openDropdown === item.label}
+                      onClose={() => setOpenDropdown(null)}
+                      onMouseEnter={() => handleMouseEnter(item.label)}
+                      onMouseLeave={handleMouseLeave}
+                    />
                   ) : (
                     <div
                       className={`absolute top-full left-0 mt-0 pt-1 w-max z-50 transition-all duration-200 ${
@@ -221,6 +261,7 @@ const Header = () => {
                 <Link
                   key={item.label}
                   to={item.href}
+                  onMouseEnter={handleCloseImmediate}
                   className={`px-2 py-2 text-sm font-semibold transition-colors duration-200 rounded-md
                     ${isActive(item.href) ? "text-primary bg-primary/5" : "text-secondary hover:text-primary hover:bg-primary/5"}
                   `}
@@ -233,7 +274,10 @@ const Header = () => {
           </nav>
 
           {/* Right: Search + Apply + Mobile toggle */}
-          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0 ml-auto lg:ml-0">
+          <div
+            className="flex items-center gap-1.5 sm:gap-3 shrink-0 ml-auto lg:ml-0"
+            onMouseEnter={handleCloseImmediate}
+          >
             <HeaderSearchBar variant="navbar" className="hidden lg:flex" />
             <Link to="/admissions" className="shrink-0">
               <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-xs sm:text-sm px-2.5 sm:px-5 h-8 sm:h-9 rounded-full transition-all duration-200 shadow-md hover:shadow-lg shrink-0">

@@ -9,6 +9,8 @@ const BASE = import.meta.env.BASE_URL;
 interface Props {
   open: boolean;
   onClose: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 const previewMap: Record<string, { title: string; body: string; image: string }> = {
@@ -59,7 +61,7 @@ const previewMap: Record<string, { title: string; body: string; image: string }>
   },
 };
 
-const AboutMegaMenu = ({ open, onClose }: Props) => {
+const AboutMegaMenu = ({ open, onClose, onMouseEnter, onMouseLeave }: Props) => {
   const [hovered, setHovered] = useState<string>("leadership");
   const preview = previewMap[hovered] ?? previewMap.leadership;
   const institutionalLeaders = ["chancellor", "pro-chancellor"].map((s) => leadershipProfiles[s]);
@@ -212,10 +214,14 @@ const AboutMegaMenu = ({ open, onClose }: Props) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="absolute top-full left-0 right-0 z-50 mt-0 pt-1"
+          className="absolute top-full left-0 right-0 z-50 mt-0 pointer-events-none"
         >
-          <div className="mx-auto max-w-7xl px-4">
-            <div className="bg-white rounded-b-2xl border border-border shadow-2xl overflow-hidden">
+          <div className="mx-auto max-w-7xl px-4 pointer-events-none">
+            <div
+              className="bg-white rounded-b-2xl border border-border shadow-2xl overflow-hidden pointer-events-auto"
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
               <div className="grid grid-cols-12">
                 {/* LEFT: section nav */}
                 <div className="col-span-4 bg-gradient-to-b from-primary/[0.04] to-transparent border-r border-border p-6">

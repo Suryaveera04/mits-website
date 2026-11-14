@@ -5,7 +5,14 @@
  * Network calls are mocked so tests run offline / in CI.
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { CMS_CODE, CMS_ALT_CODES, isEventForDepartment, KNOWN_STANDALONE_EVENT_IDS } from "@/hooks/useDeptCMSData";
+import {
+  CMS_CODE,
+  CMS_ALT_CODES,
+  isEventForDepartment,
+  KNOWN_STANDALONE_EVENT_IDS,
+  parseEventConductedTime,
+  getEventConductedTimestamp,
+} from "@/hooks/useDeptCMSData";
 import { getCanonicalDept } from "@/hooks/useLiveEvents";
 import { getNewsEventImageSrc } from "@/data/newsEvents";
 
@@ -356,10 +363,11 @@ describe("getNewsEventImageSrc", () => {
     expect(result).toContain("get_content_image.php?table=event_images&id=53");
   });
 
-  it("returns fallback hero image for null, undefined, or empty path", () => {
-    expect(getNewsEventImageSrc(null)).toContain("Hero-Section/image-2.jpg");
-    expect(getNewsEventImageSrc(undefined)).toContain("Hero-Section/image-2.jpg");
-    expect(getNewsEventImageSrc("")).toContain("Hero-Section/image-2.jpg");
+  it("returns empty string (no random fallback image) for null, undefined, or empty path", () => {
+    expect(getNewsEventImageSrc(null)).toBe("");
+    expect(getNewsEventImageSrc(undefined)).toBe("");
+    expect(getNewsEventImageSrc("")).toBe("");
+    expect(getNewsEventImageSrc("   ")).toBe("");
   });
 
   it("correctly prepends BASE_URL to relative paths without duplication", () => {
@@ -370,21 +378,69 @@ describe("getNewsEventImageSrc", () => {
   });
 });
 
-// ── 13. Strictly 1 Event Per Department (Home Page Logic) ────────────────────
-describe("1-Event-Per-Department Home Page Selection", () => {
-  it("picks strictly one event per department prioritizing events with posters", () => {
-    // Simulated raw CMS events across departments with multiple events per dept
+// ── 13. Event Date Parsing and Chronological Comparison ─────────────────────
+describe("parseEventConductedTime & getEventConductedTimestamp", () => {
+  it("parses ISO / YYYY-MM-DD dates accurately", () => {
+    const t = parseEventConductedTime("2026-11-02");
+    expect(t).toBe(new Date(2026, 10, 2).getTime());
+  });
+
+  it("parses DD-MM-YYYY and DD/MM/YYYY dates accurately", () => {
+    const t1 = parseEventConductedTime("02-11-2026");
+    expect(t1).toBe(new Date(2026, 10, 2).getTime());
+
+    const t2 = parseEventConductedTime("23/10/2026");
+    expect(t2).toBe(new Date(2026, 9, 23).getTime());
+  });
+
+  it("returns 0 for zero dates, empty strings, or invalid placeholders", () => {
+    expect(parseEventConductedTime("0000-00-00")).toBe(0);
+    expect(parseEventConductedTime("")).toBe(0);
+    expect(parseEventConductedTime(null)).toBe(0);
+    expect(parseEventConductedTime(undefined)).toBe(0);
+    expect(parseEventConductedTime("Upcoming")).toBe(0);
+    expect(parseEventConductedTime("N/A")).toBe(0);
+  });
+
+  it("prioritizes from_date over date and to_date", () => {
+    const ev = { from_date: "2026-10-14", to_date: "2026-10-14", date: "2026-03-04" };
+    const t = getEventConductedTimestamp(ev);
+    expect(t).toBe(new Date(2026, 9, 14).getTime());
+  });
+});
+
+// ── 14. Strictly 1 Event Per Department (Conducted Date Home Page Selection) ─
+describe("1-Event-Per-Department Home Page Selection by Conducted Date", () => {
+  it("picks strictly the most recently conducted event per department and sorts by conducted date descending", () => {
+    // Simulated raw CMS events across departments with varying conducted dates and poster flags
     const mockEvents = [
+      // CS: recent event (2026-08-13, no poster) vs older event (2026-06-09, with poster)
       { id: 91, department: "CS", from_date: "2026-08-13", title: "Cloud Computing", image: "" },
       { id: 24, department: "CS", from_date: "2026-06-09", title: "Placement Training", image: "https://aicampus.mits.ac.in/...id=12" },
-      { id: 90, department: "MECH", from_date: "2026-09-28", title: "Surface Texturing", image: "" },
+
+      // MECH: recent event (2026-10-30, no poster) vs older event (2026-10-03, with poster)
+      { id: 83, department: "MECH", from_date: "2026-10-30", title: "Energy Conservation", image: "" },
       { id: 49, department: "MECH", from_date: "2026-10-03", title: "Innovation Startup", image: "https://aicampus.mits.ac.in/...id=52" },
+
+      // MCA: recent event (2026-10-23, no poster) vs older event (2026-08-01, with poster)
+      { id: 61, department: "MCA", from_date: "2026-10-23", title: "STPI Visit", image: "" },
       { id: 89, department: "MCA", from_date: "2026-08-01", title: "WWW Day", image: "https://aicampus.mits.ac.in/...id=112" },
-      { id: 88, department: "MCA", from_date: "2026-05-15", title: "Quanta Wave", image: "" },
+
+      // Management Studies: recent event (2026-07-13) vs older event (2026-04-04)
+      { id: 84, department: "Management Studies", from_date: "2026-07-13", title: "Collaborations", image: "" },
       { id: 87, department: "Management Studies", from_date: "2026-04-04", title: "Beyond Limits", image: "" },
+
+      // AI: recent event (2026-10-14, with poster) vs older event (2026-03-04, with poster)
+      { id: 50, department: "AI", from_date: "2026-10-14", title: "AURA 2K26 2.O", image: "https://aicampus.mits.ac.in/...id=53" },
       { id: 79, department: "AI", from_date: "2026-03-04", title: "AWS Training", image: "https://aicampus.mits.ac.in/...id=105" },
+
+      // BSH: recent event (2026-11-02, no poster)
       { id: 46, department: "Basic Sciences & Humanities", from_date: "2026-11-02", title: "Cambridge Event", image: "" },
+
+      // CSE: recent event (2026-08-29, with poster)
       { id: 45, department: "CSE", from_date: "2026-08-29", title: "Computer Networks", image: "https://aicampus.mits.ac.in/...id=50" },
+
+      // CIVIL: recent event (2026-05-07, with poster)
       { id: 31, department: "CIVIL", from_date: "2026-05-07", title: "Earth Day", image: "https://aicampus.mits.ac.in/...id=35" },
     ];
 
@@ -396,23 +452,30 @@ describe("1-Event-Per-Department Home Page Selection", () => {
       deptGroups.get(k)!.push(ev);
     }
 
-    const deptRepresentatives: { item: typeof mockEvents[0]; hasImage: boolean }[] = [];
+    // Within each department, pick strictly the most recently conducted event
+    const deptRepresentatives: typeof mockEvents[0][] = [];
     for (const [, list] of deptGroups) {
-      list.sort((a, b) => b.id - a.id);
-      const withPoster = list.find((e) => e.image && e.image.trim().length > 0);
-      if (withPoster) {
-        deptRepresentatives.push({ item: withPoster, hasImage: true });
-      } else {
-        deptRepresentatives.push({ item: list[0], hasImage: false });
-      }
+      const sortedInDept = [...list].sort((a, b) => {
+        const timeA = parseEventConductedTime(a.from_date);
+        const timeB = parseEventConductedTime(b.from_date);
+        if (timeA !== timeB) return timeB - timeA;
+        const hasImgA = Boolean(a.image && a.image.trim().length > 0);
+        const hasImgB = Boolean(b.image && b.image.trim().length > 0);
+        if (hasImgA !== hasImgB) return hasImgA ? -1 : 1;
+        return (b.id || 0) - (a.id || 0);
+      });
+      deptRepresentatives.push(sortedInDept[0]);
     }
 
+    // Sort across departments strictly by conducted date descending
     deptRepresentatives.sort((a, b) => {
-      if (a.hasImage !== b.hasImage) return a.hasImage ? -1 : 1;
-      return b.item.id - a.item.id;
+      const timeA = parseEventConductedTime(a.from_date);
+      const timeB = parseEventConductedTime(b.from_date);
+      if (timeA !== timeB) return timeB - timeA;
+      return (b.id || 0) - (a.id || 0);
     });
 
-    const top6 = deptRepresentatives.slice(0, 6).map((d) => d.item);
+    const top6 = deptRepresentatives.slice(0, 6);
     expect(top6).toHaveLength(6);
 
     // Verify all 6 are from unique canonical departments (no duplicates!)
@@ -420,17 +483,18 @@ describe("1-Event-Per-Department Home Page Selection", () => {
     const uniqueKeys = new Set(deptKeys);
     expect(uniqueKeys.size).toBe(6);
 
-    // Verify all top 6 have poster images
-    top6.forEach((e) => {
-      expect(e.image).toBeTruthy();
-    });
-
-    // Verify specific chosen events with images
-    expect(top6.some((e) => e.id === 89 && getCanonicalDept(e.department).key === "mca")).toBe(true);
-    expect(top6.some((e) => e.id === 79 && getCanonicalDept(e.department).key === "ai")).toBe(true);
-    expect(top6.some((e) => e.id === 49 && getCanonicalDept(e.department).key === "me")).toBe(true);
-    expect(top6.some((e) => e.id === 45 && getCanonicalDept(e.department).key === "cse")).toBe(true);
-    expect(top6.some((e) => e.id === 31 && getCanonicalDept(e.department).key === "ce")).toBe(true);
-    expect(top6.some((e) => e.id === 24 && getCanonicalDept(e.department).key === "csecs")).toBe(true);
+    // Verify strictly chronological order of conducted dates:
+    // 1. BSH (2026-11-02)
+    // 2. MECH (2026-10-30)
+    // 3. MCA (2026-10-23)
+    // 4. AI (2026-10-14)
+    // 5. CSE (2026-08-29)
+    // 6. CS / Cyber Security (2026-08-13)
+    expect(top6[0].id).toBe(46); // BSH (2026-11-02)
+    expect(top6[1].id).toBe(83); // MECH (2026-10-30) - NOT 49 (2026-10-03)
+    expect(top6[2].id).toBe(61); // MCA (2026-10-23) - NOT 89 (2026-08-01)
+    expect(top6[3].id).toBe(50); // AI (2026-10-14) - NOT 79 (2026-03-04)
+    expect(top6[4].id).toBe(45); // CSE (2026-08-29)
+    expect(top6[5].id).toBe(91); // Cyber Security (2026-08-13) - NOT 24 (2026-06-09)
   });
 });

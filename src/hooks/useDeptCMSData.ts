@@ -371,6 +371,55 @@ export async function fetchEventDetail(id: number): Promise<CMSEvent | null> {
   }
 }
 
+// ── Event Date Helpers for Chronological Sorting ───────────────────────────
+/**
+ * Parses any date string (YYYY-MM-DD, DD-MM-YYYY, DD/MM/YYYY, ISO, etc.)
+ * into a unix timestamp in milliseconds for accurate chronological comparison.
+ * Returns 0 for invalid, empty, or zero-dates ('0000-00-00').
+ */
+export function parseEventConductedTime(dateStr?: string | null): number {
+  if (!dateStr) return 0;
+  const s = dateStr.trim();
+  if (!s || s.startsWith("0000") || s.toLowerCase() === "upcoming" || s.toLowerCase() === "n/a") {
+    return 0;
+  }
+
+  // Format: YYYY-MM-DD or YYYY/MM/DD
+  const ymdMatch = s.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})/);
+  if (ymdMatch) {
+    const year = parseInt(ymdMatch[1], 10);
+    const month = parseInt(ymdMatch[2], 10) - 1;
+    const day = parseInt(ymdMatch[3], 10);
+    const d = new Date(year, month, day);
+    if (!isNaN(d.getTime())) return d.getTime();
+  }
+
+  // Format: DD-MM-YYYY or DD/MM/YYYY
+  const dmyMatch = s.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})/);
+  if (dmyMatch) {
+    const day = parseInt(dmyMatch[1], 10);
+    const month = parseInt(dmyMatch[2], 10) - 1;
+    const year = parseInt(dmyMatch[3], 10);
+    const d = new Date(year, month, day);
+    if (!isNaN(d.getTime())) return d.getTime();
+  }
+
+  // Native parse fallback
+  const parsed = Date.parse(s);
+  return isNaN(parsed) ? 0 : parsed;
+}
+
+export function getEventConductedTimestamp(event: {
+  from_date?: string | null;
+  to_date?: string | null;
+  date?: string | null;
+}): number {
+  const tFrom = parseEventConductedTime(event.from_date);
+  const tDate = parseEventConductedTime(event.date);
+  const tTo = parseEventConductedTime(event.to_date);
+  return tFrom || tDate || tTo || 0;
+}
+
 // ── Shared Cache for All CMS Events ──────────────────────────────────────────
 let cachedAllEvents: CMSEvent[] = [];
 let allEventsCacheExpiry = 0;
@@ -493,14 +542,13 @@ export async function fetchAllCMSEvents(forceRefresh = false): Promise<CMSEvent[
       }
     }
 
-    // 3. Normalize and sort descending by date (or ID if date missing)
+    // 3. Normalize and sort descending by conducted date (most recently conducted first, then highest ID)
     const normalized = normalizeEvents(Array.from(eventMap.values())).sort((a, b) => {
-      const da = a.from_date || a.date || "";
-      const db = b.from_date || b.date || "";
-      if (da && db && da !== db) return db.localeCompare(da);
+      const timeA = getEventConductedTimestamp(a);
+      const timeB = getEventConductedTimestamp(b);
+      if (timeA !== timeB) return timeB - timeA;
       return b.id - a.id;
     });
-
     cachedAllEvents = normalized;
     allEventsCacheExpiry = Date.now() + 2 * 60 * 1000; // 2 minutes
     return normalized;
