@@ -147,50 +147,53 @@ const coordinators: CoordinatorMember[] = [
   },
 ];
 
-const documents = [
+interface DocumentItem {
+  title: string;
+  href: string;
+  subItems?: { title: string; href: string }[];
+}
+
+const documents: DocumentItem[] = [
   {
     title: "NASSCOM Committee Order 2025-26",
-    category: "Office Order",
     href: "https://mits.ac.in/assets/pdf/assoc/Office%20Order-NASSCOM.pdf",
   },
   {
     title: "NASSCOM Committee Order 2024-25",
-    category: "Office Order",
     href: "https://mits.ac.in/assets/pdf/assoc/NASSCOM-Committee-order-2024.pdf",
   },
   {
     title: "NASSCOMM Office Order",
-    category: "Institutional Order",
     href: "https://mits.ac.in/assets/pdf/assoc/NASSCOMM OFFICE ORDER.pdf",
   },
   {
     title: "Memorandum of Understanding (MoU)",
-    category: "Legal & Partnership MoU",
     href: "https://mits.ac.in/assets/pdf/assoc/NASSCOMM MoU 09.07.2024.pdf",
   },
   {
-    title: "2024-25 I Semester - Certification Details",
-    category: "Semester Document",
-    href: "https://mits.ac.in/assets/pdf/assoc/Certification Details.pdf",
-  },
-  {
-    title: "2024-25 I Semester - List of Courses",
-    category: "Curriculum & Courses",
-    href: "https://mits.ac.in/assets/pdf/assoc/ListofCourses.pdf",
-  },
-  {
-    title: "2024-25 I Semester - Registration Details",
-    category: "Student Registration",
-    href: "https://mits.ac.in/assets/pdf/assoc/RegistrationDetails.pdf",
+    title: "2024-25 I Semester",
+    href: "https://mits.ac.in/nasscom",
+    subItems: [
+      {
+        title: "Certification Details",
+        href: "https://mits.ac.in/assets/pdf/assoc/Certification Details.pdf",
+      },
+      {
+        title: "List of Courses",
+        href: "https://mits.ac.in/assets/pdf/assoc/ListofCourses.pdf",
+      },
+      {
+        title: "Registration Details",
+        href: "https://mits.ac.in/assets/pdf/assoc/RegistrationDetails.pdf",
+      },
+    ],
   },
   {
     title: "Certificate Summary 2024-25 Sem I",
-    category: "Summary Report",
     href: "https://mits.ac.in/assets/pdf/assoc/certificatesummary_2024-25_Sem1.pdf",
   },
   {
     title: "Certificate Summary 2024-25 Sem II",
-    category: "Summary Report",
     href: "https://mits.ac.in/assets/pdf/assoc/certificatesummary_2024-25_Sem2.pdf",
   },
 ];
@@ -327,52 +330,63 @@ export default function NasscomView() {
               </div>
             </ScrollReveal>
 
-            {/* OFFICIAL DOCUMENTS & ORDERS */}
+            {/* OFFICIAL ORDERS & DOCUMENTS - Clean Row List matching official site */}
             <ScrollReveal>
-              <div className="bg-white rounded-xl shadow-sm border border-slate-200/80 p-6 sm:p-8">
-                <div className="flex items-center justify-between mb-6 flex-wrap gap-2">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-red-50 text-[#8B1D1D] flex items-center justify-center font-bold">
-                      <FileText className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
-                        Official Orders &amp; Documents
-                      </h2>
-                      <p className="text-xs text-slate-500">
-                        Direct downloads &amp; regulatory documentation
-                      </p>
-                    </div>
+              <div className="bg-white rounded-xl shadow-sm border border-slate-200/80 overflow-hidden">
+                <div className="px-6 py-5 border-b border-slate-100 flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-red-50 text-[#8B1D1D] flex items-center justify-center font-bold shrink-0">
+                    <FileText className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-slate-900 tracking-tight">
+                      Official Orders &amp; Documents
+                    </h2>
+                    <p className="text-xs text-slate-500">
+                      NASSCOM orders, agreements &amp; semester certifications
+                    </p>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+                <div className="divide-y divide-slate-100">
                   {documents.map((doc, idx) => (
-                    <a
-                      key={idx}
-                      href={doc.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex flex-col justify-between p-4 rounded-xl border border-slate-200 hover:border-[#8B1D1D]/50 hover:shadow-md transition-all duration-200 bg-white"
-                    >
-                      <div className="flex items-start gap-3 mb-3">
-                        <div className="w-9 h-9 rounded-lg bg-red-50 text-[#8B1D1D] flex items-center justify-center shrink-0 group-hover:bg-[#8B1D1D] group-hover:text-white transition-colors">
-                          <FileText className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <span className="text-[11px] font-semibold text-[#8B1D1D] uppercase tracking-wider block">
-                            {doc.category}
+                    <div key={idx} className="group">
+                      <a
+                        href={doc.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between px-6 py-4 hover:bg-red-50/20 transition-colors"
+                      >
+                        <span className="font-semibold text-slate-800 text-sm sm:text-base group-hover:text-[#8B1D1D] transition-colors">
+                          {doc.title}
+                        </span>
+                        <div className="flex items-center gap-2.5 shrink-0">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-red-700 bg-red-50 px-2.5 py-0.5 rounded border border-red-200/80">
+                            PDF
                           </span>
-                          <h4 className="font-semibold text-slate-900 group-hover:text-[#8B1D1D] transition-colors text-sm line-clamp-2 leading-snug">
-                            {doc.title}
-                          </h4>
+                          <FileText className="w-5 h-5 text-red-600 group-hover:scale-110 transition-transform" />
                         </div>
-                      </div>
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-xs text-slate-500 font-medium">
-                        <span>View Document (PDF)</span>
-                        <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#8B1D1D] transition-colors" />
-                      </div>
-                    </a>
+                      </a>
+
+                      {doc.subItems && doc.subItems.length > 0 && (
+                        <div className="bg-slate-50/70 px-6 py-3 border-t border-slate-100 flex flex-wrap gap-2.5 items-center text-xs">
+                          <span className="text-slate-500 font-semibold uppercase tracking-wider text-[11px]">
+                            Semester Documents:
+                          </span>
+                          {doc.subItems.map((sub, sIdx) => (
+                            <a
+                              key={sIdx}
+                              href={sub.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white border border-slate-200 hover:border-[#8B1D1D] hover:text-[#8B1D1D] font-medium text-slate-700 shadow-2xs transition-colors"
+                            >
+                              <FileText className="w-3.5 h-3.5 text-red-600" />
+                              <span>{sub.title}</span>
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   ))}
                 </div>
               </div>
@@ -395,23 +409,23 @@ export default function NasscomView() {
                   </div>
                 </div>
 
-                <div className="overflow-x-auto rounded-lg border border-slate-200">
-                  <table className="w-full text-left text-sm border-collapse">
+                <div className="overflow-x-auto rounded-lg border border-slate-200 shadow-2xs">
+                  <table className="w-full min-w-full text-left text-sm border-collapse table-auto">
                     <thead>
                       <tr className="bg-[#8B1D1D] text-white">
-                        <th className="py-3 px-3 sm:px-4 font-semibold text-xs tracking-wider uppercase text-center w-14">
+                        <th className="py-3 px-4 font-semibold text-xs tracking-wider uppercase text-center w-14 whitespace-nowrap">
                           S.No
                         </th>
-                        <th className="py-3 px-3 sm:px-4 font-semibold text-xs tracking-wider uppercase">
-                          Name
+                        <th className="py-3 px-4 font-semibold text-xs tracking-wider uppercase whitespace-nowrap">
+                          Department Name
                         </th>
-                        <th className="py-3 px-3 sm:px-4 font-semibold text-xs tracking-wider uppercase">
+                        <th className="py-3 px-4 font-semibold text-xs tracking-wider uppercase whitespace-nowrap">
                           Designation
                         </th>
-                        <th className="py-3 px-3 sm:px-4 font-semibold text-xs tracking-wider uppercase text-center">
+                        <th className="py-3 px-4 font-semibold text-xs tracking-wider uppercase text-center whitespace-nowrap">
                           Position
                         </th>
-                        <th className="py-3 px-3 sm:px-4 font-semibold text-xs tracking-wider uppercase">
+                        <th className="py-3 px-4 font-semibold text-xs tracking-wider uppercase whitespace-nowrap">
                           E-Mail ID
                         </th>
                       </tr>
@@ -422,18 +436,18 @@ export default function NasscomView() {
                           key={member.sno}
                           className="hover:bg-slate-50/80 transition-colors"
                         >
-                          <td className="py-3 px-3 sm:px-4 font-medium text-slate-500 text-center">
+                          <td className="py-3.5 px-4 font-medium text-slate-500 text-center whitespace-nowrap">
                             {member.sno}
                           </td>
-                          <td className="py-3 px-3 sm:px-4 font-bold text-slate-900">
+                          <td className="py-3.5 px-4 font-bold text-slate-900 whitespace-nowrap">
                             {member.name}
                           </td>
-                          <td className="py-3 px-3 sm:px-4 text-slate-700">
+                          <td className="py-3.5 px-4 text-slate-700 whitespace-nowrap">
                             {member.designation}
                           </td>
-                          <td className="py-3 px-3 sm:px-4 text-center">
+                          <td className="py-3.5 px-4 text-center whitespace-nowrap">
                             <span
-                              className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold ${
+                              className={`inline-block px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
                                 member.position === "Chairperson"
                                   ? "bg-amber-100 text-amber-900 border border-amber-300"
                                   : member.position === "Coordinator"
@@ -446,13 +460,13 @@ export default function NasscomView() {
                               {member.position}
                             </span>
                           </td>
-                          <td className="py-3 px-3 sm:px-4">
+                          <td className="py-3.5 px-4 whitespace-nowrap">
                             <a
                               href={`mailto:${member.email}`}
-                              className="inline-flex items-center gap-1.5 text-xs text-[#8B1D1D] hover:underline font-medium"
+                              className="inline-flex items-center gap-1.5 text-xs text-[#8B1D1D] hover:underline font-semibold whitespace-nowrap"
                             >
                               <Mail className="w-3.5 h-3.5 shrink-0" />
-                              <span className="break-all">{member.email}</span>
+                              <span className="whitespace-nowrap">{member.email}</span>
                             </a>
                           </td>
                         </tr>
