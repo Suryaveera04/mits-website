@@ -118,61 +118,56 @@ export default function InnovationCenterView({
     <div className="min-h-screen bg-[#fafaf7] flex flex-col font-sans">
       <Header />
 
-      {/* Hero Banner matching official MITS Innovation Center screenshot */}
+      {/* HERO BANNER - Standard MITS Cell Hero matching RdCell, SdgView, SacView */}
       <section
-        className="relative pt-36 md:pt-48 pb-20 overflow-hidden text-white"
+        className="relative pt-32 md:pt-44 pb-20 overflow-hidden"
         style={{
           backgroundImage: `url("${BASE}Hero-Section/image-5.jpg")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-slate-950/80 bg-gradient-to-b from-black/85 via-slate-950/75 to-slate-900/90 backdrop-blur-[0.5px]" />
+        <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-amber-400 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm inline-flex items-center justify-center gap-2">
-            <Sparkles className="w-4 h-4 text-amber-300" />
-            <span>MITS Innovation &amp; Incubation Ecosystem</span>
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm inline-flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-[#ffd15c]" />
+            <span>Cells &amp; Committees • Innovation, Research &amp; Entrepreneurship</span>
           </p>
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-3 drop-shadow-md leading-tight">
+          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
             Centre of Innovation &amp; Incubation
           </h1>
-          <p className="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed drop-shadow-sm">
+          <p className="text-white/90 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed drop-shadow-sm">
             Madanapalle Institute of Technology &amp; Science • Deemed to be University
           </p>
         </div>
 
-        {/* BOTTOM CORNER BREADCRUMB */}
-        <div className="absolute bottom-4 left-4 sm:left-8 z-10 hidden sm:flex items-center gap-2 text-xs text-white/80">
-          <Link to="/" className="text-white/70 hover:text-white transition-colors">
-            Home
-          </Link>
-          <span className="text-white/40">›</span>
-          <Link to="/cells" className="text-white/70 hover:text-white transition-colors">
-            Cells &amp; Committees
-          </Link>
-          <span className="text-white/40">›</span>
-          <span className="text-amber-300 font-semibold">
-            Centre of Innovation &amp; Incubation
-          </span>
-        </div>
-
-        {/* Top-Right All Cells Button */}
-        <div className="absolute top-28 sm:top-36 right-4 sm:right-8 z-10">
-          <Link
-            to="/cells"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold backdrop-blur-md transition-all border border-white/20 shadow-sm"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            All Cells
-          </Link>
-        </div>
+        {/* BOTTOM-LEFT CORNER BREADCRUMB */}
+        <nav className="absolute bottom-4 left-6 z-10">
+          <ol className="flex items-center gap-1.5 text-xs sm:text-sm text-white/80">
+            <li>
+              <Link to="/" className="text-white/70 hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
+            <li className="text-white/50">›</li>
+            <li>
+              <Link to="/cells" className="text-white/70 hover:text-white transition-colors">
+                Cells &amp; Committees
+              </Link>
+            </li>
+            <li className="text-white/50">›</li>
+            <li className="text-[#ffd15c] font-semibold truncate max-w-[280px] sm:max-w-md">
+              Centre of Innovation &amp; Incubation
+            </li>
+          </ol>
+        </nav>
       </section>
 
-      {/* Horizontal Tab Navigation Bar matching Screenshot 1 */}
-      <div className="bg-white border-b border-gray-200 shadow-xs">
+      {/* Horizontal Tab Navigation Bar matching Screenshot 1 directly under hero banner */}
+      <div className="bg-white border-b border-gray-200 shadow-xs sticky top-16 md:top-20 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-start lg:justify-center overflow-x-auto no-scrollbar py-3 gap-1 sm:gap-2 text-xs sm:text-sm font-semibold">
+          <div className="flex items-center justify-start lg:justify-center overflow-x-auto no-scrollbar py-3.5 gap-1 sm:gap-2 text-xs sm:text-sm font-semibold">
             {TABS.map((tab, idx) => {
               const isActive = activeTab === tab.id;
               return (
@@ -187,7 +182,7 @@ export default function InnovationCenterView({
                     }}
                     className={`whitespace-nowrap px-2.5 py-1.5 transition-all relative cursor-pointer ${
                       isActive
-                        ? "text-[#800000] font-bold after:absolute after:bottom-[-12px] after:left-0 after:right-0 after:h-[2.5px] after:bg-[#800000]"
+                        ? "text-[#800000] font-bold after:absolute after:bottom-[-14px] after:left-0 after:right-0 after:h-[2.5px] after:bg-[#800000]"
                         : "text-gray-700 hover:text-[#800000]"
                     }`}
                   >
@@ -201,7 +196,17 @@ export default function InnovationCenterView({
       </div>
 
       {/* Main Container: 2-Column layout with sticky contact sidebar */}
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
+        {/* Back to Cells & Committees Button */}
+        <div className="mb-6">
+          <Link
+            to="/cells"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#990000] transition-colors bg-white px-4 py-2 rounded-xl border border-gray-200 shadow-xs hover:shadow-sm"
+          >
+            <ArrowLeft className="w-4 h-4 text-[#990000]" />
+            <span>Back to Cells &amp; Committees</span>
+          </Link>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main Left Content Column */}
           <div className="lg:col-span-8 bg-white rounded-xl shadow-xs border border-gray-200 p-6 sm:p-8">
