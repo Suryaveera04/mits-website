@@ -236,6 +236,11 @@ const App = () => (
             <Route path="/paarc-cell" element={<CellDetail overrideId="paarcc" />} />
             <Route path="/paarc" element={<CellDetail overrideId="paarcc" />} />
             <Route path="/paarcc" element={<CellDetail overrideId="paarcc" />} />
+
+            {/* Student Activity Center (SAC) */}
+            <Route path="/student-activity-center-sac" element={<CellDetail overrideId="sac" />} />
+            <Route path="/student-activity-center" element={<CellDetail overrideId="sac" />} />
+            <Route path="/sac" element={<CellDetail overrideId="sac" />} />
             {/* Individual SDG Goals (2027) */}
             <Route path="/sdg1-2027" element={<SdgGoalDetailView overrideSlug="sdg1-2027" />} />
             <Route path="/sdg2-2027" element={<SdgGoalDetailView overrideSlug="sdg2-2027" />} />

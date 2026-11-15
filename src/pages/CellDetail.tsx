@@ -130,7 +130,7 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
     return <IeiView />;
   }
 
-  if (targetId === "sac") {
+  if (targetId === "sac" || targetId === "student-activity-center" || targetId === "student-activity-center-sac") {
     return <SacView />;
   }
 

@@ -23,7 +23,7 @@ export const cellCategories: CellCategory[] = [
       { name: "Internal Complaints Cell", abbreviation: "ICC", href: "https://mits.ac.in/icc", detailId: "icc" },
       { name: "Psychological Counselling Cell", abbreviation: "PCC", href: "https://mits.ac.in/pcc", detailId: "pcc" },
       { name: "Student Welfare Cell", abbreviation: "SWC", href: "https://mits.ac.in/swc", detailId: "swc" },
-      { name: "Student Activity Centre", abbreviation: "SAC", href: "https://mits.ac.in/student-activity-center-sac", detailId: "sac" },
+      { name: "Student Activity Centre", abbreviation: "SAC", href: "/cells/sac", detailId: "sac" },
       { name: "Mentor - Mentee Cell", abbreviation: "MMC", href: "https://mits.ac.in/mentor-menteecell", detailId: "mmc" },
       { name: "Alumni Cell", href: "https://alumni.mits.ac.in/" },
     ],
