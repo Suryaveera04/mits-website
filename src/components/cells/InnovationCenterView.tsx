@@ -119,70 +119,81 @@ export default function InnovationCenterView({
       <Header />
 
       {/* Hero Banner matching official MITS Innovation Center screenshot */}
-      <section className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-14 overflow-hidden border-b-4 border-[#800000]">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-overlay"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80')",
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center gap-2 text-xs text-slate-300 mb-3">
-            <Link to="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="w-3 h-3 text-slate-400" />
-            <Link to="/cells" className="hover:text-white transition-colors">
-              Cells & Committees
-            </Link>
-            <ChevronRight className="w-3 h-3 text-slate-400" />
-            <span className="text-white font-medium">
-              Centre of Innovation & Incubation
-            </span>
-          </nav>
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight drop-shadow-sm">
-                Centre of Innovation & Incubation
-              </h1>
-              <p className="text-slate-300 text-sm mt-1 max-w-2xl">
-                Catalyzing student innovation, technological entrepreneurship,
-                and impactful real-world problem solving at MITS.
-              </p>
-            </div>
-            <Link
-              to="/cells"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold backdrop-blur-sm transition-all border border-white/20 w-fit self-start md:self-auto"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              All Cells & Committees
-            </Link>
-          </div>
+      <section
+        className="relative pt-36 md:pt-48 pb-20 overflow-hidden text-white"
+        style={{
+          backgroundImage: `url("${BASE}Hero-Section/image-5.jpg")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-slate-950/80 bg-gradient-to-b from-black/85 via-slate-950/75 to-slate-900/90 backdrop-blur-[0.5px]" />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-amber-400 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm inline-flex items-center justify-center gap-2">
+            <Sparkles className="w-4 h-4 text-amber-300" />
+            <span>MITS Innovation &amp; Incubation Ecosystem</span>
+          </p>
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-3 drop-shadow-md leading-tight">
+            Centre of Innovation &amp; Incubation
+          </h1>
+          <p className="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed drop-shadow-sm">
+            Madanapalle Institute of Technology &amp; Science • Deemed to be University
+          </p>
+        </div>
+
+        {/* BOTTOM CORNER BREADCRUMB */}
+        <div className="absolute bottom-4 left-4 sm:left-8 z-10 hidden sm:flex items-center gap-2 text-xs text-white/80">
+          <Link to="/" className="text-white/70 hover:text-white transition-colors">
+            Home
+          </Link>
+          <span className="text-white/40">›</span>
+          <Link to="/cells" className="text-white/70 hover:text-white transition-colors">
+            Cells &amp; Committees
+          </Link>
+          <span className="text-white/40">›</span>
+          <span className="text-amber-300 font-semibold">
+            Centre of Innovation &amp; Incubation
+          </span>
+        </div>
+
+        {/* Top-Right All Cells Button */}
+        <div className="absolute top-28 sm:top-36 right-4 sm:right-8 z-10">
+          <Link
+            to="/cells"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold backdrop-blur-md transition-all border border-white/20 shadow-sm"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            All Cells
+          </Link>
         </div>
       </section>
 
       {/* Horizontal Tab Navigation Bar matching Screenshot 1 */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-30 shadow-sm">
+      <div className="bg-white border-b border-gray-200 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center overflow-x-auto no-scrollbar py-2 gap-1 sm:gap-2">
-            {TABS.map((tab) => {
+          <div className="flex items-center justify-start lg:justify-center overflow-x-auto no-scrollbar py-3 gap-1 sm:gap-2 text-xs sm:text-sm font-semibold">
+            {TABS.map((tab, idx) => {
               const isActive = activeTab === tab.id;
               return (
-                <button
-                  key={tab.id}
-                  onClick={() => {
-                    setActiveTab(tab.id);
-                    setEventsPage(1);
-                  }}
-                  className={`whitespace-nowrap px-3.5 py-2 text-sm font-semibold rounded-md transition-all relative ${
-                    isActive
-                      ? "text-[#800000] bg-red-50/80 shadow-xs after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:bg-[#800000]"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                  }`}
-                >
-                  {tab.label}
-                </button>
+                <React.Fragment key={tab.id}>
+                  {idx > 0 && (
+                    <span className="text-gray-300 select-none px-1">|</span>
+                  )}
+                  <button
+                    onClick={() => {
+                      setActiveTab(tab.id);
+                      setEventsPage(1);
+                    }}
+                    className={`whitespace-nowrap px-2.5 py-1.5 transition-all relative cursor-pointer ${
+                      isActive
+                        ? "text-[#800000] font-bold after:absolute after:bottom-[-12px] after:left-0 after:right-0 after:h-[2.5px] after:bg-[#800000]"
+                        : "text-gray-700 hover:text-[#800000]"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                </React.Fragment>
               );
             })}
           </div>
@@ -842,7 +853,7 @@ export default function InnovationCenterView({
           </div>
 
           {/* Right Sticky Sidebar Contact Card (exact match of official screenshots) */}
-          <aside className="lg:col-span-4 sticky top-20">
+          <aside className="lg:col-span-4 sticky top-28">
             <div className="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
               <div className="bg-[#800000] px-5 py-3.5 text-white font-bold text-lg tracking-wide flex items-center gap-2">
                 <span>Contact</span>
