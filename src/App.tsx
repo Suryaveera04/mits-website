@@ -273,6 +273,7 @@ const App = () => (
             <Route path="/psychological-counselling-cell" element={<CellDetail overrideId="pcc" />} />
             <Route path="/career" element={<Careers />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/leadership-positions" element={<Careers initialTab="leadership" />} />
             <Route path="/Venture-Studio" element={<VentureStudio />} />
             <Route path="/venture-studio" element={<VentureStudio />} />
             <Route path="*" element={<NotFound />} />

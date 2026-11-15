@@ -34,6 +34,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const BASE = import.meta.env.BASE_URL;
+
 const SectionHeading = ({ title, subtitle }: { title: string; subtitle?: string }) => (
   <div className="mb-6">
     <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground tracking-tight">{title}</h3>
@@ -41,8 +43,8 @@ const SectionHeading = ({ title, subtitle }: { title: string; subtitle?: string 
   </div>
 );
 
-const Careers = () => {
-  const [activeTab, setActiveTab] = useState<string>("overview");
+const Careers = ({ initialTab = "overview" }: { initialTab?: string }) => {
+  const [activeTab, setActiveTab] = useState<string>(initialTab);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const careerTabs = [
@@ -393,40 +395,44 @@ const Careers = () => {
       />
       <Header />
 
-      {/* Hero Banner */}
-      <section className="relative pt-28 md:pt-40 pb-16 md:pb-24 bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-sm font-bold uppercase tracking-wider mb-4">
-                <Briefcase className="w-4 h-4 text-blue-400" />
-                Join Our Academic Leadership & Team
-              </span>
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
-                Build Your Future at MITS
-              </h1>
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-6">
-                Madanapalle Institute of Technology &amp; Science (MITS), Deemed to be University, invites passionate educators, researchers, and administrators to shape the next generation of global leaders.
-              </p>
-            </div>
-          </ScrollReveal>
+      {/* HERO BANNER - Standard MITS Page Hero */}
+      <section
+        className="relative pt-32 md:pt-44 pb-20 overflow-hidden"
+        style={{
+          backgroundImage: `url("${BASE}Hero-Section/image-5.jpg")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
+
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm inline-flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-[#ffd15c]" />
+            <span>Join Our Academic Community • Shape Global Futures</span>
+          </p>
+          <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
+            Careers at MITS
+          </h1>
+          <p className="text-white/90 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed drop-shadow-sm">
+            Madanapalle Institute of Technology &amp; Science • Deemed to be University
+          </p>
         </div>
 
-        {/* Bottom Left Breadcrumb Navigation */}
-        <div className="absolute bottom-4 left-4 sm:left-6 md:left-8 z-10">
-          <nav aria-label="Breadcrumb">
-            <ol className="flex items-center gap-1.5 text-xs sm:text-sm text-white/80">
-              <li>
-                <Link to="/" className="hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li className="text-white/50">›</li>
-              <li className="text-amber-300 font-semibold">Careers</li>
-            </ol>
-          </nav>
-        </div>
+        {/* BOTTOM-LEFT CORNER BREADCRUMB */}
+        <nav className="absolute bottom-4 left-6 z-10">
+          <ol className="flex items-center gap-1.5 text-xs sm:text-sm text-white/80">
+            <li>
+              <Link to="/" className="text-white/70 hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
+            <li className="text-white/50">›</li>
+            <li className="text-[#ffd15c] font-semibold">
+              Careers
+            </li>
+          </ol>
+        </nav>
       </section>
 
       {/* Navigation Sub-Menu Bar */}
@@ -646,7 +652,7 @@ const Careers = () => {
                   <strong>Important Notice:</strong> Applications received for the mentioned positions till{" "}
                   <strong>20.11.2026</strong> will be scrutinized and interviews shall be conducted in{" "}
                   <strong>December 1st Week of 2026</strong>. Selected applicants shall be sent offer letters and can
-                  join on or before <strong>09-01-2027</strong>.
+                  join on or before <strong>09-01-2026</strong>.
                 </div>
               </div>
 
@@ -701,12 +707,15 @@ const Careers = () => {
                                 </ul>
                               </div>
 
-                              <div className="pt-3 border-t">
+                              <div className="pt-3 border-t space-y-1.5">
                                 <p className="text-[15px] md:text-base font-bold text-[#990000] dark:text-red-400">
                                   Salary:{" "}
                                   <span className="font-semibold text-foreground/90">
                                     {pos.salary.replace(/^Salary:\s*/i, "")}
                                   </span>
+                                </p>
+                                <p className="text-xs md:text-sm text-muted-foreground font-medium italic">
+                                  Note: Applicants for the positions must also meet the eligibility criteria as specified in the UGC guidelines.
                                 </p>
                               </div>
                             </td>
