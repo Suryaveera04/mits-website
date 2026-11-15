@@ -1,22 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
-  BookOpen,
-  FileText,
-  ExternalLink,
-  MapPin,
-  Mail,
-  ChevronRight,
   Users,
   Sparkles,
-  Bell,
   Award,
   Globe,
-  Calendar,
-  CheckCircle2,
-  TrendingUp,
   Maximize2,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -48,56 +40,71 @@ const documents = [
   { label: "AISHE", href: "https://mits.ac.in/public/uploads/paars/AISHE-esign.pdf" },
 ];
 
-const noticeItems = [
+const officialNotices = [
   {
-    title: "UI GreenMetric World University Rankings 2026",
-    subtitle: "Madanapalle Institute of Technology and Science (MITS) Deemed to be University",
-    icon: "🌿",
-    badge: "World Rank #704",
-    badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
-    details: [
-      { label: "World Rank", value: "#704" },
-      { label: "Total Score", value: "6,425" },
-    ],
+    id: 1,
+    title: "Integrated Management System",
+    text: "Integrated Management System (IMS) – ISO 14001:2015 & ISO 50001:2018 Stage – 01 Audit Dates: 15th and 16th June 2026.",
   },
   {
-    title: "Times Higher Education World University Rankings 2027",
-    subtitle: "Madanapalle Institute of Technology and Science (MITS) Deemed to be University",
-    icon: "🌍",
-    badge: "Rank 1401–1600",
-    badgeColor: "bg-blue-100 text-blue-800 border-blue-300",
-    details: [
-      { label: "World Rank", value: "1401–1600" },
-      { label: "Overall Score", value: "27.3–30.4" },
-    ],
+    id: 2,
+    title: "Orientation Programme",
+    text: 'An Orientation Programme on "Outcome-Based Curriculum – Criterion 1 of the New NBA SAR" is scheduled as per the following details:\nDate: 16th October 2026\nTime: 4:30 PM\nVenue: Scale-Up Classroom, LB 102',
   },
   {
-    title: "Orientation Programme on Outcome-Based Curriculum",
-    subtitle: "Criterion 1 of the New NBA SAR",
-    icon: "📋",
-    badge: "NBA SAR",
-    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
-    details: [
-      { label: "Date", value: "16th October 2026" },
-      { label: "Time", value: "4:30 PM" },
-      { label: "Venue", value: "Scale-Up Classroom, LB 102" },
-    ],
+    id: 3,
+    title: "🌍 Times Higher Education World University Rankings 2027",
+    text: "Madanapalle Institute of Technology and Science (MITS) Deemed to be University\n🏆 World Rank: 1401–1600\n📊 Overall Score: 27.3–30.4",
   },
   {
-    title: "Integrated Management System (IMS)",
-    subtitle: "ISO 14001:2015 & ISO 50001:2018 Certification",
-    icon: "🏛️",
-    badge: "ISO Stage-01 Audit",
-    badgeColor: "bg-purple-100 text-purple-900 border-purple-300",
-    details: [
-      { label: "Audit Dates", value: "15th and 16th June 2026" },
-      { label: "Standards", value: "ISO 14001:2015 & ISO 50001:2018" },
-    ],
+    id: 4,
+    title: "🌿 UI GreenMetric World University Rankings 2026",
+    text: "Madanapalle Institute of Technology and Science (MITS) Deemed to be University\n🏆 World Rank: #704\n📊 Total Score: 6,425",
   },
 ];
 
 export default function PaarcView() {
-  const [activeNoticeTab, setActiveNoticeTab] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftState, setScrollLeftState] = useState(0);
+  const [activeTab, setActiveTab] = useState<number>(3); // "AISHE" active as in screenshot 3
+
+  // Mouse Drag Handlers for Hand Cursor Scrolling
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!sliderRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - sliderRef.current.offsetLeft);
+    setScrollLeftState(sliderRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !sliderRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    sliderRef.current.scrollLeft = scrollLeftState - walk;
+  };
+
+  const handleScrollPrev = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -320, behavior: "smooth" });
+    }
+  };
+
+  const handleScrollNext = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 320, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#fafaf7] text-slate-800">
@@ -147,7 +154,7 @@ export default function PaarcView() {
         </nav>
       </section>
 
-      {/* MAIN CONTAINER - Full Space Wise Utilization */}
+      {/* MAIN CONTAINER - Full Width Space Utilization */}
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 space-y-10">
         {/* BACK BUTTON */}
         <div>
@@ -160,91 +167,111 @@ export default function PaarcView() {
           </Link>
         </div>
 
-        {/* TOP DOCUMENT TABS (Exact match to Screenshot 1) */}
-        <div className="flex flex-wrap items-center gap-2.5">
-          {documents.map((doc, idx) => (
-            <a
-              key={idx}
-              href={doc.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold transition-all shadow-2xs rounded-xs group ${
-                idx === 0
-                  ? "bg-[#0b3b60] text-white border border-[#0b3b60] hover:bg-[#07263e]"
-                  : "bg-white text-[#0b3b60] border border-[#0b3b60] hover:bg-[#0b3b60] hover:text-white"
-              }`}
-            >
-              <span>{doc.label}</span>
-              <ExternalLink className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100" />
-            </a>
-          ))}
+        {/* TOP DOCUMENT TABS (Exact match to Screenshot 3 - Clean rectangular tabs, no arrow icon) */}
+        <div className="flex flex-wrap items-center gap-2 pt-1 pb-1 border-b border-slate-200">
+          {documents.map((doc, idx) => {
+            const isAishe = idx === 3;
+            return (
+              <a
+                key={idx}
+                href={doc.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setActiveTab(idx)}
+                className={`px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold transition-colors border border-[#003366] ${
+                  activeTab === idx
+                    ? "bg-[#003366] text-white"
+                    : "bg-white text-[#003366] hover:bg-[#003366] hover:text-white"
+                }`}
+              >
+                {doc.label}
+              </a>
+            );
+          })}
         </div>
 
         {/* TOP SECTION: E-NOTICE BOARD + CONTACT CARD (FULL-SPACE 12-COL GRID) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* E-NOTICE BOARD (8 COLS) */}
-          <div className="lg:col-span-8 bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-            <div className="bg-[#8B1D1D] px-6 py-3.5 flex items-center justify-between">
-              <div className="flex items-center gap-2.5 text-white">
-                <Bell className="w-5 h-5 text-amber-300 animate-pulse" />
-                <h3 className="text-lg font-bold tracking-tight">E-Notice Board</h3>
+          {/* E-NOTICE BOARD (8 COLS) - Horizontal Scroll / Drag with Hand Cursor */}
+          <div className="lg:col-span-8 bg-white border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+            {/* RED HEADER BAR: Exact match to Screenshot 3 (white bold text, no bell, no official updates label) */}
+            <div className="bg-[#8B1D1D] px-6 py-3 flex items-center justify-between">
+              <h2 className="text-white !text-white text-base sm:text-lg font-bold tracking-normal m-0">
+                E-Notice Board
+              </h2>
+              {/* Subtle navigation arrows */}
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={handleScrollPrev}
+                  className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  title="Previous notice"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleScrollNext}
+                  className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  title="Next notice"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
-              <span className="text-[11px] font-semibold text-white/80 uppercase tracking-widest">
-                Official Updates
-              </span>
             </div>
 
-            <div className="p-6">
-              {/* Notice Carousel / Tabs */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {noticeItems.map((notice, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-white hover:border-[#8B1D1D]/30 transition-all shadow-2xs flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between gap-2 mb-2">
-                        <span className="text-xl">{notice.icon}</span>
-                        <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded border ${notice.badgeColor}`}>
-                          {notice.badge}
-                        </span>
-                      </div>
-                      <h4 className="font-bold text-slate-900 text-sm sm:text-base leading-snug mb-1">
-                        {notice.title}
-                      </h4>
-                      <p className="text-xs text-slate-600 mb-3 leading-relaxed">
-                        {notice.subtitle}
-                      </p>
-                    </div>
+            {/* DRAGGABLE / SWIPEABLE NOTICE CAROUSEL (Hand Cursor) */}
+            <div
+              ref={sliderRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              className={`overflow-x-auto flex gap-6 sm:gap-8 p-6 sm:p-7 select-none transition-all ${
+                isDragging ? "cursor-grabbing" : "cursor-grab"
+              }`}
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+              }}
+            >
+              {officialNotices.map((notice) => (
+                <div
+                  key={notice.id}
+                  className="shrink-0 w-[82%] sm:w-[76%] md:w-[72%] border-r border-slate-200/80 pr-6 last:border-r-0"
+                >
+                  <h3 className="font-bold text-slate-900 text-base sm:text-lg mb-2.5 leading-snug">
+                    {notice.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed whitespace-pre-line text-justify">
+                    {notice.text}
+                  </p>
+                </div>
+              ))}
+            </div>
 
-                    <div className="border-t border-slate-200/60 pt-2.5 space-y-1">
-                      {notice.details.map((detail, dIdx) => (
-                        <div key={dIdx} className="flex justify-between items-center text-xs">
-                          <span className="text-slate-500 font-medium">{detail.label}:</span>
-                          <span className="text-slate-900 font-bold">{detail.value}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
+            {/* DRAG INSTRUCTION HINT */}
+            <div className="px-6 py-2 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+              <span>Drag horizontally with hand cursor to view more notices</span>
+              <span className="font-medium text-slate-500">1 of 4 notices</span>
             </div>
           </div>
 
           {/* RIGHT SIDEBAR: CONTACT CARD (4 COLS) */}
-          <div className="lg:col-span-4 bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
-            <div className="bg-[#8B1D1D] px-6 py-3.5">
-              <h3 className="text-lg font-bold tracking-tight text-white !text-white leading-tight">
+          <div className="lg:col-span-4 bg-white border border-slate-200 shadow-sm overflow-hidden">
+            {/* RED HEADER BAR: Crisp white text */}
+            <div className="bg-[#8B1D1D] px-6 py-3">
+              <h2 className="text-white !text-white text-base sm:text-lg font-bold tracking-normal m-0">
                 Contact
-              </h3>
+              </h2>
             </div>
 
             <div className="p-6 space-y-4">
               <div>
-                <h4 className="text-lg font-bold text-slate-900 !text-slate-900">
+                <h4 className="text-lg font-bold text-slate-900 !text-slate-900 leading-snug">
                   Dr. A V Pavan Kumar
                 </h4>
-                <div className="text-xs font-bold text-[#8B1D1D] mt-0.5">
+                <div className="text-xs font-semibold text-[#8B1D1D] mt-1">
                   Asst. Dean Accreditations &amp; Chief Coordinator - PAARC Cell
                 </div>
               </div>
@@ -268,7 +295,10 @@ export default function PaarcView() {
                     E Mail :
                   </strong>
                   <p className="text-xs text-slate-700">
-                    <a href="mailto:paarc@mits.ac.in" className="hover:underline font-semibold text-[#8B1D1D]">
+                    <a
+                      href="mailto:paarc@mits.ac.in"
+                      className="hover:underline font-semibold text-[#8B1D1D]"
+                    >
                       paarc@mits.ac.in
                     </a>
                   </p>
@@ -278,13 +308,13 @@ export default function PaarcView() {
           </div>
         </div>
 
-        {/* PAARC CELL OVERVIEW & SCOPE (FULL WIDTH) */}
+        {/* PAARC CELL OVERVIEW & SCOPE */}
         <ScrollReveal>
-          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 sm:p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+          <div className="space-y-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               PAARC Cell
             </h2>
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify">
               This cell plans, organizes, gathers, records and disseminates the day-to-day information on activities pertaining to all the Departments / Committees / Cells of the entire Institute.
             </p>
           </div>
@@ -317,7 +347,8 @@ export default function PaarcView() {
                 <img
                   src={`${BASE}images/MITS-NBA-Accreditation-Journey.jpg`}
                   onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = "https://mits.ac.in/assets/images/MITS-NBA Accreditation-Journey1.jpg";
+                    (e.currentTarget as HTMLImageElement).src =
+                      "https://mits.ac.in/assets/images/MITS-NBA Accreditation-Journey1.jpg";
                   }}
                   alt="MITS Programme Wise NBA Accreditation Journey"
                   className="w-full h-auto object-contain rounded-lg shadow-xs hover:scale-[1.01] transition-transform duration-300"
@@ -353,7 +384,8 @@ export default function PaarcView() {
                 <img
                   src={`${BASE}images/MITS-at-a-Glance-Rankings.png`}
                   onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = "https://mits.ac.in/assets/images/MITS at a Glance Rankings-Ratings-Global Recognition.png";
+                    (e.currentTarget as HTMLImageElement).src =
+                      "https://mits.ac.in/assets/images/MITS at a Glance Rankings-Ratings-Global Recognition.png";
                   }}
                   alt="MITS at a Glance: Rankings, Ratings & Global Recognition"
                   className="w-full h-auto object-contain rounded-lg shadow-xs hover:scale-[1.01] transition-transform duration-300"
@@ -367,7 +399,7 @@ export default function PaarcView() {
           </div>
         </ScrollReveal>
 
-        {/* FULL-WIDTH SECTION: PAARC MEMBERS TABLE (NON-SCROLLABLE & HIGH RESOLUTION) */}
+        {/* FULL-WIDTH SECTION: PAARC MEMBERS TABLE (NON-SCROLLABLE) */}
         <ScrollReveal>
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 sm:p-8">
             <div className="flex items-center gap-3 mb-6">
