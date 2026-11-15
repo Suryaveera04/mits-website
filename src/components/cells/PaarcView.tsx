@@ -43,67 +43,99 @@ const documents = [
 const officialNotices = [
   {
     id: 1,
-    title: "Integrated Management System",
-    text: "Integrated Management System (IMS) – ISO 14001:2015 & ISO 50001:2018 Stage – 01 Audit Dates: 15th and 16th June 2026.",
+    title: "Orientation Programme",
+    text: `An Orientation Programme on "Outcome-Based Curriculum – Criterion 1 of the New NBA SAR" is scheduled as per the following details:\nDate: 16th October 2026\nTime: 4:30 PM\nVenue: Scale-Up Classroom, LB 102`,
   },
   {
     id: 2,
-    title: "Orientation Programme",
-    text: 'An Orientation Programme on "Outcome-Based Curriculum – Criterion 1 of the New NBA SAR" is scheduled as per the following details:\nDate: 16th October 2026\nTime: 4:30 PM\nVenue: Scale-Up Classroom, LB 102',
+    title: "🌍 Times Higher Education World University Rankings 2027",
+    text: `Madanapalle Institute of Technology and Science (MITS) Deemed to be University\n🏆 World Rank: 1401–1600\n📊 Overall Score: 27.3–30.4`,
   },
   {
     id: 3,
-    title: "🌍 Times Higher Education World University Rankings 2027",
-    text: "Madanapalle Institute of Technology and Science (MITS) Deemed to be University\n🏆 World Rank: 1401–1600\n📊 Overall Score: 27.3–30.4",
+    title: "🌿 UI GreenMetric World University Rankings 2026",
+    text: `Madanapalle Institute of Technology and Science (MITS) Deemed to be University\n🏆 World Rank: #704\n📊 Total Score: 6,425`,
   },
   {
     id: 4,
-    title: "🌿 UI GreenMetric World University Rankings 2026",
-    text: "Madanapalle Institute of Technology and Science (MITS) Deemed to be University\n🏆 World Rank: #704\n📊 Total Score: 6,425",
+    title: "Integrated Management System",
+    text: `Integrated Management System (IMS) – ISO 14001:2015 & ISO 50001:2018 Stage – 01 Audit Dates: 15th and 16th June 2026.`,
   },
 ];
 
 export default function PaarcView() {
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const [currentNoticeIndex, setCurrentNoticeIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeftState, setScrollLeftState] = useState(0);
-  const [activeTab, setActiveTab] = useState<number>(3); // "AISHE" active as in screenshot 3
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [activeTab, setActiveTab] = useState<number>(3); // AISHE active by default as shown in screenshot
 
-  // Mouse Drag Handlers for Hand Cursor Scrolling
+  const prevNotice = () => {
+    setCurrentNoticeIndex((prev) => (prev === 0 ? officialNotices.length - 1 : prev - 1));
+  };
+
+  const nextNotice = () => {
+    setCurrentNoticeIndex((prev) => (prev === officialNotices.length - 1 ? 0 : prev + 1));
+  };
+
+  // Mouse drag handlers
   const handleMouseDown = (e: React.MouseEvent) => {
-    if (!sliderRef.current) return;
     setIsDragging(true);
-    setStartX(e.pageX - sliderRef.current.offsetLeft);
-    setScrollLeftState(sliderRef.current.scrollLeft);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
+    setDragStartX(e.clientX);
+    setDragOffset(0);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !sliderRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    sliderRef.current.scrollLeft = scrollLeftState - walk;
+    if (!isDragging) return;
+    const diff = e.clientX - dragStartX;
+    setDragOffset(diff);
   };
 
-  const handleScrollPrev = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: -320, behavior: "smooth" });
+  const handleMouseUp = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    if (dragOffset > 50) {
+      prevNotice();
+    } else if (dragOffset < -50) {
+      nextNotice();
+    }
+    setDragOffset(0);
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      setIsDragging(false);
+      if (dragOffset > 50) {
+        prevNotice();
+      } else if (dragOffset < -50) {
+        nextNotice();
+      }
+      setDragOffset(0);
     }
   };
 
-  const handleScrollNext = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: 320, behavior: "smooth" });
+  // Touch swipe handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setDragStartX(e.touches[0].clientX);
+    setDragOffset(0);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const diff = e.touches[0].clientX - dragStartX;
+    setDragOffset(diff);
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    if (dragOffset > 50) {
+      prevNotice();
+    } else if (dragOffset < -50) {
+      nextNotice();
     }
+    setDragOffset(0);
   };
 
   return (
@@ -154,7 +186,7 @@ export default function PaarcView() {
         </nav>
       </section>
 
-      {/* MAIN CONTAINER - Full Width Space Utilization */}
+      {/* MAIN CONTAINER - Full Space Wise Utilization */}
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 space-y-10">
         {/* BACK BUTTON */}
         <div>
@@ -167,52 +199,49 @@ export default function PaarcView() {
           </Link>
         </div>
 
-        {/* TOP DOCUMENT TABS (Exact match to Screenshot 3 - Clean rectangular tabs, no arrow icon) */}
+        {/* TOP DOCUMENT TABS (Clean rectangular tabs without arrow icons) */}
         <div className="flex flex-wrap items-center gap-2 pt-1 pb-1 border-b border-slate-200">
-          {documents.map((doc, idx) => {
-            const isAishe = idx === 3;
-            return (
-              <a
-                key={idx}
-                href={doc.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setActiveTab(idx)}
-                className={`px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold transition-colors border border-[#003366] ${
-                  activeTab === idx
-                    ? "bg-[#003366] text-white"
-                    : "bg-white text-[#003366] hover:bg-[#003366] hover:text-white"
-                }`}
-              >
-                {doc.label}
-              </a>
-            );
-          })}
+          {documents.map((doc, idx) => (
+            <a
+              key={idx}
+              href={doc.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setActiveTab(idx)}
+              className={`px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold transition-colors border border-[#003366] ${
+                activeTab === idx
+                  ? "bg-[#003366] text-white"
+                  : "bg-white text-[#003366] hover:bg-[#003366] hover:text-white"
+              }`}
+            >
+              {doc.label}
+            </a>
+          ))}
         </div>
 
-        {/* TOP SECTION: E-NOTICE BOARD + CONTACT CARD (FULL-SPACE 12-COL GRID) */}
+        {/* TOP SECTION: E-NOTICE BOARD + CONTACT CARD */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* E-NOTICE BOARD (8 COLS) - Horizontal Scroll / Drag with Hand Cursor */}
-          <div className="lg:col-span-8 bg-white border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-            {/* RED HEADER BAR: Exact match to Screenshot 3 (white bold text, no bell, no official updates label) */}
+          {/* E-NOTICE BOARD (8 COLS) - Shows exactly 100% of ONE notice at a time */}
+          <div className="lg:col-span-8 bg-white border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between">
+            {/* RED HEADER BAR */}
             <div className="bg-[#8B1D1D] px-6 py-3 flex items-center justify-between">
               <h2 className="text-white !text-white text-base sm:text-lg font-bold tracking-normal m-0">
                 E-Notice Board
               </h2>
-              {/* Subtle navigation arrows */}
-              <div className="flex items-center gap-1.5">
+              {/* Previous / Next Arrow Controls */}
+              <div className="flex items-center gap-2">
                 <button
                   type="button"
-                  onClick={handleScrollPrev}
-                  className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  onClick={prevNotice}
+                  className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center transition-colors cursor-pointer"
                   title="Previous notice"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   type="button"
-                  onClick={handleScrollNext}
-                  className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  onClick={nextNotice}
+                  className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center transition-colors cursor-pointer"
                   title="Next notice"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -220,46 +249,62 @@ export default function PaarcView() {
               </div>
             </div>
 
-            {/* DRAGGABLE / SWIPEABLE NOTICE CAROUSEL (Hand Cursor) */}
+            {/* FULL 100% WIDTH NOTICE CAROUSEL (Hand Cursor) */}
             <div
-              ref={sliderRef}
-              onMouseDown={handleMouseDown}
-              onMouseLeave={handleMouseLeave}
-              onMouseUp={handleMouseUp}
-              onMouseMove={handleMouseMove}
-              className={`overflow-x-auto flex gap-6 sm:gap-8 p-6 sm:p-7 select-none transition-all ${
+              className={`relative overflow-hidden ${
                 isDragging ? "cursor-grabbing" : "cursor-grab"
-              }`}
-              style={{
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-              }}
+              } select-none`}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
-              {officialNotices.map((notice) => (
-                <div
-                  key={notice.id}
-                  className="shrink-0 w-[82%] sm:w-[76%] md:w-[72%] border-r border-slate-200/80 pr-6 last:border-r-0"
-                >
-                  <h3 className="font-bold text-slate-900 text-base sm:text-lg mb-2.5 leading-snug">
-                    {notice.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed whitespace-pre-line text-justify">
-                    {notice.text}
-                  </p>
-                </div>
-              ))}
+              <div
+                className={`flex ${isDragging ? "" : "transition-transform duration-300 ease-out"}`}
+                style={{
+                  transform: `translateX(calc(-${currentNoticeIndex * 100}% + ${dragOffset}px))`,
+                }}
+              >
+                {officialNotices.map((notice) => (
+                  <div
+                    key={notice.id}
+                    className="w-full min-w-full flex-none p-6 sm:p-8"
+                  >
+                    <h3 className="font-bold text-slate-900 text-base sm:text-lg mb-3 leading-snug">
+                      {notice.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-700 leading-relaxed whitespace-pre-line text-justify">
+                      {notice.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* DRAG INSTRUCTION HINT */}
-            <div className="px-6 py-2 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
-              <span>Drag horizontally with hand cursor to view more notices</span>
-              <span className="font-medium text-slate-500">1 of 4 notices</span>
+            {/* DOT INDICATORS */}
+            <div className="flex items-center justify-center gap-2 pb-4 pt-1">
+              {officialNotices.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setCurrentNoticeIndex(idx)}
+                  className={`h-2 rounded-full transition-all cursor-pointer ${
+                    currentNoticeIndex === idx
+                      ? "w-6 bg-[#8B1D1D]"
+                      : "w-2 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                  title={`Notice ${idx + 1}`}
+                />
+              ))}
             </div>
           </div>
 
           {/* RIGHT SIDEBAR: CONTACT CARD (4 COLS) */}
           <div className="lg:col-span-4 bg-white border border-slate-200 shadow-sm overflow-hidden">
-            {/* RED HEADER BAR: Crisp white text */}
+            {/* RED HEADER BAR */}
             <div className="bg-[#8B1D1D] px-6 py-3">
               <h2 className="text-white !text-white text-base sm:text-lg font-bold tracking-normal m-0">
                 Contact
