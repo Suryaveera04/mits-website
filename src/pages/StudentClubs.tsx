@@ -612,11 +612,11 @@ export default function StudentClubs() {
                         return (
                           <ol
                             key={bIdx}
-                            className="space-y-2.5 my-3 list-decimal list-inside text-slate-700 text-sm sm:text-base leading-relaxed pl-1"
+                            className="space-y-2.5 my-3 list-decimal pl-6 text-slate-700 text-sm sm:text-base leading-relaxed"
                           >
                             {block.items.map((item, iIdx) => (
-                              <li key={iIdx} className="text-slate-800 font-normal">
-                                <span className="text-slate-700">{item}</span>
+                              <li key={iIdx} className="pl-1 text-slate-700">
+                                {item}
                               </li>
                             ))}
                           </ol>

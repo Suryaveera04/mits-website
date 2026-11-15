@@ -303,11 +303,22 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "text": "Sports club encourages students to develop their sports skills in various outdoor and indoor games like Football, Handball, Tennis, Cricket, Ball Badminton, Kabaddi, Volleyball, Athletics, Chess, Carom Board, Table Tennis, Shuttle Badminton, Physical Fitness Program (will be conducted in Gym), Weight Lifting. Our college has grounds and equipment for each of these sports. The club also encourages the students to participate in Inter College and Intramural College sports competitions."
       },
       {
+        "type": "heading",
+        "text": "Outdoor Activities"
+      },
+      {
         "type": "bullet_list",
         "items": [
-          "Outdoor Activities",
-          "Football, Tennis, Cricket, Handball, Kabaddi, Volleyball, Shuttle Badminton, Ball Badminton, Throw Ball, Tennikoit and Athletics.",
-          "Indoor Activities",
+          "Football, Tennis, Cricket, Handball, Kabaddi, Volleyball, Shuttle Badminton, Ball Badminton, Throw Ball, Tennikoit and Athletics."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Indoor Activities"
+      },
+      {
+        "type": "bullet_list",
+        "items": [
           "Chess, Carom Board and Table Tennis"
         ]
       }
@@ -574,15 +585,21 @@ export const officialClubsTabs: OfficialClubTab[] = [
       },
       {
         "type": "paragraph",
-        "text": "To cultivate a community of skilled and industry-ready programmers by fostering innovation, problem-solving, and collaboration, ensuring engineering students excel in placements and technical careers."
+        "text": "To cultivate a community of skilled and industry-ready programmers by fostering innovation, problem-solving, and collaboration, ensuring engineering students excel in technical and career pursuits."
       },
       {
         "type": "heading",
         "text": "Mission:"
       },
       {
-        "type": "paragraph",
-        "text": "1) Empower students with coding skills through workshops, hackathons, and mentorship programs. 2) Encourage innovation and creativity by working on projects, competitive coding, and AI/ML applications. 3) Engage with industry experts and tech leaders to provide real-world exposure and career guidance. 4) Enhance problem-solving and logical thinking abilities by participating in coding challenges and technical discussions. 5) Expand our reach by building an inclusive and collaborative environment for all skill levels, from beginners to experts."
+        "type": "ordered_list",
+        "items": [
+          "Empower students with coding skills through workshops, hackathons, and mentorship programs.",
+          "Encourage innovation and creativity by working on projects, competitive coding, and AI/ML applications.",
+          "Engage with industry experts and tech leaders to provide real-world exposure and career guidance.",
+          "Enhance problem-solving and logical thinking abilities by participating in coding challenges and technical discussions.",
+          "Expand our reach by building an inclusive and collaborative environment for all skill levels, from beginners to experts."
+        ]
       }
     ],
     "reports": [
@@ -603,15 +620,20 @@ export const officialClubsTabs: OfficialClubTab[] = [
       },
       {
         "type": "paragraph",
-        "text": "To bring in astonishing innovation for the benefit of the society through the Civil Engineering domain, including innovative buildings, innovative building materials, innovative bridges, green buildings, green pavement etc., which will serve the community and develop the nation."
+        "text": "To bring in astonishing innovation for the benefit of the society through Civil Engineering ideas."
       },
       {
         "type": "heading",
         "text": "Mission:"
       },
       {
-        "type": "paragraph",
-        "text": "1) Explore the unknown and unlock new possibilities in the field of Civil Engineering. 2) Design innovative Civil Engineering structures which are sustainable, economical and beneficial to the society. 3) Conduct various competitive events to promote innovation. 4) Periodic interaction with field experts to share their ideas with the students."
+        "type": "ordered_list",
+        "items": [
+          "Explore the unknown and unlock new possibilities in the field of Civil Engineering.",
+          "Design innovative Civil Engineering structures and systems that push the boundaries of conventional design.",
+          "Enhance technical skills, practical knowledge, and critical thinking of students through hands-on activities, workshops, and competitions.",
+          "Inspire sustainable development and eco-friendly solutions in Civil Engineering."
+        ]
       }
     ],
     "reports": [
@@ -914,7 +936,7 @@ export const officialClubsTabs: OfficialClubTab[] = [
     "blocks": [
       {
         "type": "paragraph",
-        "text": "Drone Technology Club is a dedicated club for students to engage in cutting-edge research, development, and application of drone technologies. It provides an opportunity for students to explore areas like drone hardware design, sensor integration, battery technologies, and communication systems. The club encourages hands-on learning and innovation, allowing students to work on real-world drone applications in sectors such as agriculture, logistics, defense, and disaster management. It also offers specialized training and workshops to help students develop expertise in drone technology, preparing them for careers in this rapidly growing field. The club facilitates collaboration between students of various departments fostering a vibrant ecosystem of knowledge exchange. By integrating academic learning with industry needs, the Drone technology club enhances students' skills and opens up opportunities for entrepreneurship and research in drone technology."
+        "text": "Drone Technology Club is a dedicated club for students to engage in cutting-edge research, development, and application of drone technologies. It provides an opportunity for students to explore areas like drone hardware design, sensor integration, battery technologies, and communication systems. The club encourages hands-on learning and innovation, helping members gain practical skills through building, flying, and testing various types of drones."
       },
       {
         "type": "heading",
@@ -922,15 +944,20 @@ export const officialClubsTabs: OfficialClubTab[] = [
       },
       {
         "type": "paragraph",
-        "text": "To be a leading hub of innovation and excellence in drone technology, fostering creativity, research, and practical applications while empowering students to explore the future of aerial systems and contribute to transformative advancements in industries such as robotics, automation, and communication. Mission : 1. To provide students with hands-on experience in drone design, development, and operation.. 2. To encourage collaborative learning and problem-solving through drone technology projects and challenges.. 3. To promote research and development in UAV (Unmanned Aerial Vehicle) systems for real-world applications across various domains.. 4. To foster innovation, critical thinking, and technical expertise among members while aligning with the goals of Indian drone ecosystem and ethical technology development.. 5. To establish strong partnerships with industry professionals and organizations for knowledge sharing, skill enhancement, and career growth opportunities.. Plan of action for Drone Technology Club: Club Formation and Initial Setup • Define Roles and Responsibilities: Establish the core team (President, Vice-President, Secretary, Treasurer, Event Coordinators, etc.) and assign responsibilities. • Club Registration: Register the club with the college administration, ensuring that all necessary paperwork and formalities are completed. • Set Up Online Presence: Create social media profiles, a website, or a forum for the club to share updates, events, and resources. Organize Introductory Workshops • Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+        "text": "To be a leading hub of innovation and excellence in drone technology, fostering creativity, research, and practical application among students."
       },
       {
         "type": "heading",
         "text": "Mission :"
       },
       {
-        "type": "paragraph",
-        "text": "1. To provide students with hands-on experience in drone design, development, and operation.. 2. To encourage collaborative learning and problem-solving through drone technology projects and challenges.. 3. To promote research and development in UAV (Unmanned Aerial Vehicle) systems for real-world applications across various domains.. 4. To foster innovation, critical thinking, and technical expertise among members while aligning with the goals of Indian drone ecosystem and ethical technology development.. 5. To establish strong partnerships with industry professionals and organizations for knowledge sharing, skill enhancement, and career growth opportunities.."
+        "type": "ordered_list",
+        "items": [
+          "To provide students with hands-on experience in drone design, development, and operation.",
+          "To encourage collaboration and innovation through team projects, competitions, and research.",
+          "To organize workshops, guest lectures, and industry visits to bridge the gap between academia and industry.",
+          "To connect with industry leaders and research centers for internships and career opportunities."
+        ]
       },
       {
         "type": "heading",
@@ -938,59 +965,56 @@ export const officialClubsTabs: OfficialClubTab[] = [
       },
       {
         "type": "heading",
-        "text": "Club Formation and Initial Setup • Define Roles and Responsibilities: Establish the core team (President, Vice-President, Secretary, Treasurer, Event Coordinators, etc.) and assign responsibilities. • Club Registration: Register the club with the college administration, ensuring that all necessary paperwork and formalities are completed. • Set Up Online Presence: Create social media profiles, a website, or a forum for the club to share updates, events, and resources. Organize Introductory Workshops • Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+        "text": "Club Formation and Initial Setup"
+      },
+      {
+        "type": "bullet_list",
+        "items": [
+          "Define Roles and Responsibilities: Establish the core team (President, Vice-President, Secretary, Treasurer, Event Coordinator, Technical Leads)."
+        ]
       },
       {
         "type": "heading",
-        "text": "• Define Roles and Responsibilities: Establish the core team (President, Vice-President, Secretary, Treasurer, Event Coordinators, etc.) and assign responsibilities. • Club Registration: Register the club with the college administration, ensuring that all necessary paperwork and formalities are completed. • Set Up Online Presence: Create social media profiles, a website, or a forum for the club to share updates, events, and resources. Organize Introductory Workshops • Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+        "text": "Organize Introductory Workshops"
       },
       {
-        "type": "paragraph",
-        "text": "• Define Roles and Responsibilities: Establish the core team (President, Vice-President, Secretary, Treasurer, Event Coordinators, etc.) and assign responsibilities. • Club Registration: Register the club with the college administration, ensuring that all necessary paperwork and formalities are completed. • Set Up Online Presence: Create social media profiles, a website, or a forum for the club to share updates, events, and resources."
-      },
-      {
-        "type": "heading",
-        "text": "Organize Introductory Workshops • Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
-      },
-      {
-        "type": "heading",
-        "text": "• Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
-      },
-      {
-        "type": "paragraph",
-        "text": "• Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones."
+        "type": "bullet_list",
+        "items": [
+          "Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone on the same page."
+        ]
       },
       {
         "type": "heading",
-        "text": "Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+        "text": "Skill Development and Hands-On Learning"
       },
       {
-        "type": "paragraph",
-        "text": "• Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments."
-      },
-      {
-        "type": "heading",
-        "text": "Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
-      },
-      {
-        "type": "heading",
-        "text": "• Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
-      },
-      {
-        "type": "paragraph",
-        "text": "• Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones."
+        "type": "bullet_list",
+        "items": [
+          "Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch."
+        ]
       },
       {
         "type": "heading",
-        "text": "Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+        "text": "Collaborative Projects"
+      },
+      {
+        "type": "bullet_list",
+        "items": [
+          "Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement.",
+          "Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations).",
+          "Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones."
+        ]
       },
       {
         "type": "heading",
-        "text": "• Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+        "text": "Industry and Expert Engagement"
       },
       {
-        "type": "paragraph",
-        "text": "• Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+        "type": "bullet_list",
+        "items": [
+          "Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field.",
+          "Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+        ]
       }
     ],
     "reports": [
@@ -1015,15 +1039,25 @@ export const officialClubsTabs: OfficialClubTab[] = [
       },
       {
         "type": "paragraph",
-        "text": "To empower aspiring entrepreneurs by transforming ideas into impactful products, fostering innovation, and building a thriving community where entrepreneurs at different stages can collaborate and grow together Mission : 1. To educate and inspire students on entrepreneurship, helping them develop essential skills. 2. To nurture creativity and innovation by guiding students in turning their ideas into viable products. 3. To foster a collaborative environment that encourages networking, learning, and shared growth. 4. To create opportunities for students to connect with funding sources to support their entrepreneurial ventures. 5. To build a strong entrepreneurial community that connects individuals at different stages of their journey, enabling continuous learning and support. The Entrepreneurs Club of Madanapalle Institute of Technology & Science aims at nurturing the spirit of entrepreneurship amongst students by providing a platform for challenging minds to think differently and experience entrepreneurship through hands-on learning. Together we share knowledge and skills to help out our members to expand their horizons and get more familiar with the “Entrepreneur Style of thinking and working”."
+        "text": "To empower aspiring entrepreneurs by transforming ideas into impactful products, fostering innovation, and building a thriving community where entrepreneurs at different stages can collaborate and grow together."
       },
       {
         "type": "heading",
         "text": "Mission :"
       },
       {
+        "type": "ordered_list",
+        "items": [
+          "To educate and inspire students on entrepreneurship, helping them develop essential skills.",
+          "To nurture creativity and innovation by guiding students in turning their ideas into viable products.",
+          "To foster a collaborative environment that encourages networking, learning, and shared growth.",
+          "To create opportunities for students to connect with funding sources to support their entrepreneurial ventures.",
+          "To build a strong entrepreneurial community that connects individuals at different stages of their journey, enabling continuous learning and support."
+        ]
+      },
+      {
         "type": "paragraph",
-        "text": "1. To educate and inspire students on entrepreneurship, helping them develop essential skills. 2. To nurture creativity and innovation by guiding students in turning their ideas into viable products. 3. To foster a collaborative environment that encourages networking, learning, and shared growth. 4. To create opportunities for students to connect with funding sources to support their entrepreneurial ventures. 5. To build a strong entrepreneurial community that connects individuals at different stages of their journey, enabling continuous learning and support. The Entrepreneurs Club of Madanapalle Institute of Technology & Science aims at nurturing the spirit of entrepreneurship amongst students by providing a platform for challenging minds to think differently and experience entrepreneurship through hands-on learning. Together we share knowledge and skills to help out our members to expand their horizons and get more familiar with the “Entrepreneur Style of thinking and working”."
+        "text": "The Entrepreneurs Club of Madanapalle Institute of Technology & Science aims at nurturing the spirit of entrepreneurship amongst students by providing a platform for challenging minds to think differently and experience entrepreneurship through hands-on learning. Together we share knowledge and skills to help out our members to expand their horizons and get more familiar with the “Entrepreneur Style of thinking and working”."
       }
     ],
     "reports": [
