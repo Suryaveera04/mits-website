@@ -158,7 +158,7 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
     return <EofcView />;
   }
 
-  if (targetId === "paarcc") {
+  if (targetId === "paarcc" || targetId === "paarc" || targetId === "paarc-cell") {
     return <PaarcView />;
   }
 

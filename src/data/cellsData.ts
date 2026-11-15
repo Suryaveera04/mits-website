@@ -45,7 +45,7 @@ export const cellCategories: CellCategory[] = [
     title: "Academic & Quality Governance",
     description: "Governance cells driving institutional quality, policy implementation, and strategic planning.",
     cells: [
-      { name: "Planning, Approvals, Accreditations, Rankings & Certifications Cell", abbreviation: "PAARCC", href: "https://mits.ac.in/paarc-cell", detailId: "paarcc" },
+      { name: "Planning, Approvals, Accreditations, Rankings & Certifications Cell", abbreviation: "PAARCC", href: "/cells/paarcc", detailId: "paarcc" },
       { name: "Internal Quality Assurance Cell", abbreviation: "IQAC", href: "https://mits.ac.in/newiqac1", detailId: "iqac" },
       { name: "Universal Human Values Cell", abbreviation: "UHVC", href: "https://mits.ac.in/uhv-cell", detailId: "uhvc" },
       { name: "AICTE PARAKH Cell", href: "https://mits.ac.in/parakh", detailId: "parakh" },
