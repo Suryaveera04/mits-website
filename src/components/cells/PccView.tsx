@@ -487,7 +487,7 @@ export default function PccView() {
                 <Heart className="w-4 h-4 fill-amber-300" />
                 <span>Student Support</span>
               </div>
-              <h3 className="font-serif text-xl font-bold leading-snug">
+              <h3 className="font-serif text-xl font-bold text-white leading-snug drop-shadow-xs">
                 Need Confidential Assistance?
               </h3>
               <p className="text-white/80 text-xs sm:text-sm leading-relaxed">
