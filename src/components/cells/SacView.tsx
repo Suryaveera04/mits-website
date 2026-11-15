@@ -220,7 +220,7 @@ export default function SacView() {
             type="button"
             onClick={() => {
               setActiveTab(1);
-              navigate("/student-clubs-sac");
+              navigate("/studentclubs");
             }}
             className={`px-5 py-2 text-xs sm:text-sm font-semibold transition-colors border border-[#003366] cursor-pointer ${
               activeTab === 1

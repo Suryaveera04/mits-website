@@ -279,6 +279,8 @@ const App = () => (
             <Route path="/sdg17" element={<SdgGoalDetailView overrideSlug="sdg17" />} />
             <Route path="/sdg-goal/:slug" element={<SdgGoalDetailView />} />
             <Route path="/student-clubs-sac" element={<StudentClubs />} />
+            <Route path="/studentclubs" element={<StudentClubs />} />
+            <Route path="/student-clubs" element={<StudentClubs />} />
             <Route path="/faculty-information" element={<FacultyInformation />} />
             <Route path="/university/faculty-information" element={<FacultyInformation />} />
             <Route path="/faculty" element={<FacultyInformation />} />

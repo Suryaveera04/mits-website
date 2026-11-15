@@ -20,824 +20,1005 @@ export interface StudentClubItem {
   events: ClubReport[];
 }
 
-export interface NoticeBoardItem {
-  title: string;
-  description: string;
-  date: string;
-  reportUrl: string;
+export interface OfficialClubTab {
+  id: string;
+  name: string;
+  logo: string;
+  intro: string;
+  sections: { heading: string; text: string }[];
+  reports: ClubReport[];
+  tab1Docs?: ClubReport[];
 }
 
-export const noticeBoardData: NoticeBoardItem = {
-  title: "Inauguration of AI Learning Hub",
-  description: 'Student Activity Center [SAC] organized "Inauguration of AI Learning Hub" on 26th May 2027.',
-  date: "26th May 2027",
-  reportUrl: "https://mits.ac.in/public/uploads/sac/Inauguration%20of%20AI%20Learning%20Hub.pdf"
+export const officialClubsTabs: OfficialClubTab[] = [
+  {
+    "id": "ug-tab1",
+    "name": "About Student Clubs",
+    "logo": "",
+    "intro": "",
+    "sections": [
+      {
+        "heading": "Inauguration of AI Learning Hub",
+        "text": ""
+      },
+      {
+        "heading": "Workshop",
+        "text": ""
+      },
+      {
+        "heading": "Workshop",
+        "text": ""
+      },
+      {
+        "heading": "Anti-Ragging Logo League",
+        "text": "Anti-Ragging Logo League under Skill Bee Club was organized by Student Activity Center & Anti-Ragging Cell at MITS in association with Department of CSE - Data Science. Date: 14th August 2025"
+      },
+      {
+        "heading": "Anti-Ragging Art Competition",
+        "text": "Anti-Ragging Art Competition was organized at MITS in association Arts and Clutural Club. Date: 14th August 2025"
+      },
+      {
+        "heading": "Zero Tolerance Ralley",
+        "text": "Zero Tolerance Ralley was organized at MITS in association MSR Club Date: 12th August 2025"
+      },
+      {
+        "heading": "Anti-Ragging Week",
+        "text": "Anti-Ragging Week was organized at MITS in association with Film Makers Club, SAC and Anti-Ragging Cell. Date: 12th August 2025"
+      },
+      {
+        "heading": "Importance of Student Clubs :",
+        "text": "Students\u2019 Clubs are the main hub of student activity. They provide an outlet and a stage for the creative juices of young minds and hearts. The clubs give you the chance to apply classroom learning in the outside world. This helps you to gain invaluable leadership as well as life skills. In addition to connecting other students who have similar interests, students\u2019 clubs make students to interact with alumni and professionals in their fields of interest."
+      },
+      {
+        "heading": "Benefits of Students Clubs:",
+        "text": "Students\u2019 clubs enrich your experience, create a diverse community, encourage involvement, and provide opportunities for students to build valuable skills This helps you to build formal and informal networks while exploring career opportunities. Open to all students, these clubs organize programs, events, and meetings throughout the academic year. Clubs listed here are officially recognized.\n\nClubs\n\nName of the Club Faculty Advisor Student Coordinator Contact Number Arts and Cultural Club Mr. Y. Pradeep Kumar B. Amrutha 6281360083 R. Nikhil 9666685646 Film Makers Club Mr. K. Md.Riyaz Ali M.K. Sudheer 7013242253 G. Ramanjeneyulu Reddy 8555946223 Web Club Dr. P. Kavitha R. Baba Fakhruddin 9704290783 Syed Mansoor 8096126294 MSR Club Mr. B.S.H. Shayeez Ahamed V. Venkata Tarun 6303544711 Sports Club Dr. C. Damodharan M.G. Lokesh 9515771641 P. Vyshnavi 9154790706 Yoga & Meditation Club Mr. K. Manju Vikram Muppireddy Keerthi 7569116140 Sai Phani Charan S.M 6361772686 ARC Club Mr. Rajkumar. G C. Usman Gani 9441578782 T. Yugesh 6281185755 Tech Club Mr. D. Abdul Jaleel Y. Charan Teja Reddy 8341484199 K. Ayesha 8978703213 Anchors Club Mr. Narasimha Charlu Gavvala Narendra Kumar 9010735719 Literary club Mr. T. Rama Mohan Yangala Likitha 9391504875 J. Naveen Kumar 7013255586 Builders Club Dr. K. Imran Kopparthi Nandini Reddy 7793933029 Sabir Shaik 7815970442 Drone Technology Club Mr. P. Mohammed Rizwan Ali B.Sathvik 9030304850 AI Learning Hub Club Mr. Shaik Tipu Rahaman N. Ashraf Vali 6281025228 Palagiri Mahammad Aman 9989706451 Enterprenuers Club Dr. Kosaraju Sireesha Yasheen Khan Nyazi 7993657748 Thoppireddy Sai Poojitha - Skill Bee club Mr. K. Durga Charan K. Nikhil 9390125801 G. Gangaiah Coding Club Mrs. Komala Anamalamudi Mogili Kushal vardhan 7382545438 S C Sujan 6309959667 Cisco Networking Club Dr. V. Jayaprakasan K. Lokeswar Reddy 7989239624"
+      }
+    ],
+    "reports": [
+      {
+        "title": "Click here for Report on Event",
+        "url": "https://mits.ac.in/public/uploads/sac/Inauguration of AI Learning Hub.pdf"
+      },
+      {
+        "title": "Click here for Report on Event",
+        "url": "https://mits.ac.in/public/uploads/sac/28th Annual Day Celebrations 2026.pdf"
+      },
+      {
+        "title": "Click here for Event Details",
+        "url": "https://mits.ac.in/public/uploads/sac/Introduction to Development Environment.pdf"
+      },
+      {
+        "title": "Student Club Constitution",
+        "url": "https://mits.ac.in/public/uploads/sac/SOP of SAC 2025-26.pdf"
+      },
+      {
+        "title": "Consolidate Student Club Activities 2024-2025",
+        "url": "https://mits.ac.in/public/uploads/sac/STUDENT CLUB ACTIVITIES -ACADEMIC YEAR 2024-25.pdf"
+      }
+    ],
+    "tab1Docs": [
+      {
+        "title": "Student Club Constitution",
+        "url": "https://mits.ac.in/public/uploads/sac/SOP of SAC 2025-26.pdf"
+      },
+      {
+        "title": "Event Calender",
+        "url": "https://calendar.google.com/calendar/u/0/embed?src=69849e23341ca5a7ae2952df17e3fb78318e6d704f514726f577a8391f650481@group.calendar.google.com&ctz=Asia/Kolkata"
+      },
+      {
+        "title": "Consolidate Student Club Activities 2025-2026",
+        "url": "https://mits.ac.in/public/uploads/sac/AY 2025-26 Odd Semester_ Consolidated Activities List 2025-26.pdf"
+      },
+      {
+        "title": "Consolidate Student Club Activities 2024-2025",
+        "url": "https://mits.ac.in/public/uploads/sac/STUDENT CLUB ACTIVITIES -ACADEMIC YEAR 2024-25.pdf"
+      },
+      {
+        "title": "Consolidate Student Club Activities 2023-2024",
+        "url": "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2023-2024.pdf"
+      },
+      {
+        "title": "Consolidate Student Club Activities 2022-2023",
+        "url": "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2022-2023.pdf"
+      },
+      {
+        "title": "Consolidate Student Club Activities 2021-2022",
+        "url": "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2021-2022.pdf"
+      }
+    ]
+  },
+  {
+    "id": "ug-tab2",
+    "name": "Arts & Cultural Club",
+    "logo": "images/club/ac.jpg",
+    "intro": "\u201cArt is not what you see but what you make others see\u201d. With this belief in mind, MITS endeavors to showcase life as they see it through the eyes of art. Arts and Cultural Club is an ambitious, all-inclusive one. It is a tempting, artistic, beautiful meeting-place for anybody with passion. The clubs\u2019 mission is to bring out the hidden talents among students and also provide them a stage where they can showcase their arts and cultural talent and interest. The club provides lot of opportunities in the form of competitions and workshops for igniting the spark of interest present in the budding technocrats and honing their skills towards showcasing their talents.",
+    "sections": [],
+    "reports": [
+      {
+        "title": "Arts & Cultural Club Activities 2025-26",
+        "url": "https://mits.ac.in/public/uploads/sac/Arts & cultural Club 2025-26.pdf"
+      },
+      {
+        "title": "Arts & Cultural Club Activities 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/Arts & Cultural Club Activities 2024-25.pdf"
+      },
+      {
+        "title": "Arts & Cultural Club Activities 2023-24",
+        "url": "https://mits.ac.in/public/uploads/sac/Apna time Aayega2.pdf"
+      },
+      {
+        "title": "Arts & Cultural Club Activities 2022-23",
+        "url": "https://mits.ac.in/public/uploads/sac/2022-23 Cultural.pdf"
+      },
+      {
+        "title": "Arts & Cultural Club Activities 2021-22",
+        "url": "https://mits.ac.in/public/uploads/sac/2021-22 Cultural.pdf"
+      },
+      {
+        "title": "Arts & Cultural Club Activities 2020-21",
+        "url": "https://mits.ac.in/public/uploads/sac/5228488c7cd6f098759641f231a79fb6.pdf"
+      },
+      {
+        "title": "Arts & Cultural Club Activities 2019-20",
+        "url": "https://mits.ac.in/public/uploads/sac/2a15bdb77e5d651b9cb33bb342847ddf.pdf"
+      },
+      {
+        "title": "Arts & Cultural Club Activities 2018-19",
+        "url": "https://mits.ac.in/public/uploads/sac/3aa02e9480f257016a30ebcd8acf3d92.pdf"
+      },
+      {
+        "title": "Arts & Cultural Club Activities 2017-18",
+        "url": "https://mits.ac.in/public/uploads/sac/fc58b77d7e0dacd27d5b213c6e5c2f29.pdf"
+      },
+      {
+        "title": "Arts & Cultural Club Activities 2016-17",
+        "url": "https://mits.ac.in/public/uploads/sac/7a1a1c93daeba450e9c171cdf571be24.pdf"
+      },
+      {
+        "title": "Arts & Cultural Club Activities 2015-16",
+        "url": "https://mits.ac.in/public/uploads/sac/a792504508eecaea36157decc9c0dd0a.pdf"
+      },
+      {
+        "title": "Arts & Cultural Club Activities 2014-15",
+        "url": "https://mits.ac.in/public/uploads/sac/b5f08d81b6f6fd813e9a45562bb5e09c.pdf"
+      },
+      {
+        "title": "Awards - Medals for Sport Cultural",
+        "url": "https://mits.ac.in/public/uploads/sac/c788fe0d2acb77c96f6642c2bdeb70fb.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tab3",
+    "name": "Film Makers Club",
+    "logo": "images/club/fm.jpg",
+    "intro": "",
+    "sections": [
+      {
+        "heading": "About Us:",
+        "text": "This Film Makers Club is open to all students interested in making, directing, filming, acting in, or editing student films and photography in our campus. Our goal is to bring together students who are interested in film and film making in order to encourage and provide support and guidance for student filmmaking, photography interests and activities."
+      },
+      {
+        "heading": "Objectives:",
+        "text": "To encourage and motivate the creating aspirants in MITS. To bring together students from all backgrounds, with all kinds of interests and areas of expertise, and allow them to work in the field of their interest and hone their skills in video production. Our club intends to encourage students in the field of dramatics by enacting plays, making short films and thereby enabling students to develop their interpersonal skills."
+      },
+      {
+        "heading": "Activities Planned:",
+        "text": "Coming up with different stage shows and short films at a constant basis. Organizing various short film competitions as well as stage shows showcasing acting talent. Preparing a firm editing team and a good team. Making short films on society and environmental issues. Learning both about film and film-making. To engage the students in a common interest of photography. To spot the shots that shows the defects in nature and in students. To get promote the college in films by conducting contests on short film. The camera for short film has to be brought by student. Our College Short films will be promoted in Social Media.\n\nJoining in our club might expose you to new genres, directors and pictures you\u2019ve never heard of before. You may also get to work on your own feature that will be screened to the rest of the student body.\n\nAll stages of film making are completely student-run, from writing screenplays to final editing.\n\nNO EXPERIENCE IS REQUIRED!\n\nTo anyone who is interested in film making: come join the best film making club on campus! See you on the big screen!"
+      }
+    ],
+    "reports": [
+      {
+        "title": "Film Maker Club Events 2025-26",
+        "url": "https://mits.ac.in/public/uploads/sac/Film Making Club 2025-26.pdf"
+      },
+      {
+        "title": "Film Maker Club Events 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/Film Maker Club Activities 2024-25.pdf"
+      },
+      {
+        "title": "Cine Craft 2023-24",
+        "url": "https://mits.ac.in/public/uploads/sac/cd1c86e1d87c4ffe88c11c56af593731.pdf"
+      },
+      {
+        "title": "Short Film Contest 2022-23",
+        "url": "https://mits.ac.in/public/uploads/sac/Short Film Contest Report-17-12-2022.pdf"
+      },
+      {
+        "title": "Film Makers Club Events 2022-2023",
+        "url": "https://mits.ac.in/public/uploads/sac/Film Makers Club Events 2022-2023.pdf"
+      },
+      {
+        "title": "Film Makers Club Events",
+        "url": "https://mits.ac.in/public/uploads/sac/Film Makers Club Events Summary.pdf"
+      },
+      {
+        "title": "Film Makers Club Events 2021-2022",
+        "url": "https://mits.ac.in/public/uploads/sac/a83d18f2a6f05ff36a11346fd9a45526.pdf"
+      },
+      {
+        "title": "Film Makers Club Events 2018-19",
+        "url": "https://mits.ac.in/public/uploads/sac/f150a65ebc83259882969dd54da1c762.pdf"
+      },
+      {
+        "title": "Film Makers Club Events 2017-18",
+        "url": "https://mits.ac.in/public/uploads/sac/7f1e2a5f5f7902c674ebbbf90e910c15.pdf"
+      },
+      {
+        "title": "Film Makers Club Events 2016-17",
+        "url": "https://mits.ac.in/public/uploads/sac/b248f532e51f89c1c5b71ec25acbf35f.pdf"
+      },
+      {
+        "title": "Film Makers Club Events 2015-16",
+        "url": "https://mits.ac.in/public/uploads/sac/530f7804fe9e7c8ad3b3615e6f6cd8a1.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tab4",
+    "name": "Sports Club",
+    "logo": "images/club/sp.jpg",
+    "intro": "Sports club encourages students to develop their sports skills in various outdoor and indoor games like Football, Handball, Tennis, Cricket, Ball Badminton, Kabaddi, Volleyball, Athletics, Chess, Carom Board, Table Tennis, Shuttle Badminton, Physical Fitness Program (will be conducted in Gym), Weight Lifting. Our college has grounds and equipment for each of these sports. The club also encourages the students to participate in Inter College and Intramural College sports competitions.",
+    "sections": [],
+    "reports": [
+      {
+        "title": "Sports Club Activities 2025-26",
+        "url": "https://mits.ac.in/public/uploads/sac/Sports  2025-26.pdf"
+      },
+      {
+        "title": "Sports Club Activities 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/Sports Club Activities 2024-25.pdf"
+      },
+      {
+        "title": "Sports Club Activities 2023-24",
+        "url": "https://mits.ac.in/public/uploads/sac/Sports Club Activities 2023-2024.pdf"
+      },
+      {
+        "title": "Sports Club Activities 2022-23",
+        "url": "https://mits.ac.in/public/uploads/sac/Sports Club Activities 2022-2023.pdf"
+      },
+      {
+        "title": "Sports Club Activities 2021-22",
+        "url": "https://mits.ac.in/public/uploads/sac/Sports Club-2021-2022.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tab5",
+    "name": "MSR Club",
+    "logo": "images/club/msr.jpg",
+    "intro": "MITS Social Responsibility Club",
+    "sections": [
+      {
+        "heading": "Vision:",
+        "text": "To awakening the inner person with spirit of service for the betterment of society and to inculcate mutual helpingness among the people."
+      },
+      {
+        "heading": "Mission:",
+        "text": "Social service oriented activities that makes people understand the society."
+      },
+      {
+        "heading": "Activities:",
+        "text": ""
+      }
+    ],
+    "reports": [
+      {
+        "title": "MITS Social Responsibility Club Events 2025-26",
+        "url": "https://mits.ac.in/public/uploads/sac/MSR 2025 - 2026.pdf"
+      },
+      {
+        "title": "MITS Social Responsibility Club Events 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/MSR Club Activities 2024-25.pdf"
+      },
+      {
+        "title": "MITS Social Responsibility Club Events 2023-24",
+        "url": "https://mits.ac.in/public/uploads/sac/MITS Social Responsibility Club Events 2023-24.pdf"
+      },
+      {
+        "title": "MITS Social Responsibility Club Events 2022-23",
+        "url": "https://mits.ac.in/public/uploads/sac/MITS Social Responsibility Club Events 2022-23.pdf"
+      },
+      {
+        "title": "MITS Social Responsibility Club Events 2021-22",
+        "url": "https://mits.ac.in/public/uploads/sac/MSR Club-2021-22.pdf"
+      },
+      {
+        "title": "MITS Social Responsibility Club Events 2020-21",
+        "url": "https://mits.ac.in/public/uploads/sac/ac82cb1aba576a01d2e642de5f8b78ff.pdf"
+      },
+      {
+        "title": "MITS Social Responsibility Club Events 2019-20",
+        "url": "https://mits.ac.in/public/uploads/sac/6c49871302600c41c03bddfa0c049c67.pdf"
+      },
+      {
+        "title": "MITS Social Responsibility Club Events 2018-19",
+        "url": "https://mits.ac.in/public/uploads/sac/77b7d7159df6492ac35fd6dcbea95b29.pdf"
+      },
+      {
+        "title": "MITS Social Responsibility Club Events 2017-18",
+        "url": "https://mits.ac.in/public/uploads/sac/7b59bd2c14705390ace0321218dab3ab.pdf"
+      },
+      {
+        "title": "MITS Social Responsibility Club Events 2016-17",
+        "url": "https://mits.ac.in/public/uploads/sac/9aacf5fad9c5f294765475370d7c8305.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tab6",
+    "name": "Web Club",
+    "logo": "images/club/webclub.jpg",
+    "intro": "",
+    "sections": [
+      {
+        "heading": "About MITS Web Club",
+        "text": "\"Empowering Innovation, Connecting Creators\u201d. Our MITS Web Club envisions a dynamic and inclusive community where students passionate about web development and technology come together to foster innovation, share knowledge, and create meaningful connections. Our web club provides a vibrant platform for students to explore, learn, and excel in web development. Through collaborative initiatives, skill-building activities, and a supportive community, we aim to empower our members to become proficient, innovative, and socially conscious web developers."
+      },
+      {
+        "heading": "Activities:",
+        "text": "Conducting workshops regularly. Organize the guest lectures on web development. Organizing the competitions to encourage the student\u2019s participation in web related activities. We also assign tasks to and providing them with practical challenges to reinforce and apply the concepts learned during the sessions. We further enhance participants' skills by offering small projects that provide hands-on experience and allow for the application of workshop concepts."
+      },
+      {
+        "heading": "Achivements:",
+        "text": "NASA Conference Web site:\n\nhttps://mits-cse-nasa23.netlify.app\n\nICOTL 2K23 Conference Web site:\n\nhttp://www.icotl.in"
+      }
+    ],
+    "reports": [
+      {
+        "title": "https://mits-cse-nasa23.netlify.app",
+        "url": "https://mits-cse-nasa23.netlify.app"
+      },
+      {
+        "title": "http://www.icotl.in",
+        "url": "http://www.icotl.in"
+      },
+      {
+        "title": "Web Club Activities Report 2025-26",
+        "url": "https://mits.ac.in/public/uploads/sac/MITS WEB CLUB 2025 - 2026.pdf"
+      },
+      {
+        "title": "Web Club Activities Report 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/Web Club Activities 2024-25.pdf"
+      },
+      {
+        "title": "Full Stack Development - Backend",
+        "url": "https://mits.ac.in/public/uploads/sac/Full Stack Development -Backend.pdf"
+      },
+      {
+        "title": "Web Club Activities Report 2023-24",
+        "url": "https://mits.ac.in/public/uploads/sac/db61017e8a6ecb104cd37c5d9f9283eb.pdf"
+      },
+      {
+        "title": "Web Club Activities Report 2022-23",
+        "url": "https://mits.ac.in/public/uploads/sac/WebClub Report 2022-23.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tab7",
+    "name": "Tech Club",
+    "logo": "images/club/tech.jpg",
+    "intro": "For the all-round development of the students and to enrich their technical knowledge the institute provides a platform for various students\u2019 activities. This club envisages conducive platform to explore student\u2019s latent talents and also to enable them to come out with their innovative ideas.\n\nThe students are encouraged to become the member of Tech Club to help broaden their skills and horizons. The Tech Club not only help the students explore their hidden talent but also help in areas such as personality development and inculcating in the students the spirit of organization by providing them with a platform for hosting their technical talents.\n\nThe focus of the Tech club primarily is to help the students gain practical as well as theoretical technical knowledge. Students are provided with an opportunity to implement what they learn in their respective class rooms.",
+    "sections": [
+      {
+        "heading": "Activities under Tech Club:",
+        "text": ""
+      }
+    ],
+    "reports": [
+      {
+        "title": "Tech Club Events 2025-26",
+        "url": "https://mits.ac.in/public/uploads/sac/Tech Club Events for the AY - 2025-2026.pdf"
+      },
+      {
+        "title": "Tech Club Events 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/Tech Club Activities 2024-25.pdf"
+      },
+      {
+        "title": "Tech Club Events 2023-24",
+        "url": "https://mits.ac.in/public/uploads/sac/Tech Kriti.pdf"
+      },
+      {
+        "title": "Tech Club Events 2022-23",
+        "url": "https://mits.ac.in/public/uploads/sac/FUN WITH TECH-min.pdf"
+      },
+      {
+        "title": "Tech Club Events 2021-22",
+        "url": "https://mits.ac.in/public/uploads/sac/2021-2022-tech club.pdf"
+      },
+      {
+        "title": "Tech Club Events 2018-19",
+        "url": "https://mits.ac.in/public/uploads/sac/5ecda49684050ddc72199329a11932d3.pdf"
+      },
+      {
+        "title": "Tech Club Events 2017-18",
+        "url": "https://mits.ac.in/public/uploads/sac/8d221fe2707781154273feb3349bd178.pdf"
+      },
+      {
+        "title": "Tech Club Events 2016-17",
+        "url": "https://mits.ac.in/public/uploads/sac/903e4e374851f00967b595d40ee19e0d.pdf"
+      },
+      {
+        "title": "Tech Club Events 2016",
+        "url": "https://mits.ac.in/public/uploads/sac/7cf2448d688108d390eaa4f19ad127a2.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tab15",
+    "name": "Coding Club",
+    "logo": "",
+    "intro": "",
+    "sections": [
+      {
+        "heading": "Vision:",
+        "text": "To cultivate a community of skilled and industry-ready programmers by fostering innovation, problem-solving, and collaboration, ensuring engineering students excel in placements and technical careers."
+      },
+      {
+        "heading": "Mission:",
+        "text": "1) Empower students with coding skills through workshops, hackathons, and mentorship programs. 2) Encourage innovation and creativity by working on projects, competitive coding, and AI/ML applications. 3) Engage with industry experts and tech leaders to provide real-world exposure and career guidance. 4) Enhance problem-solving and logical thinking abilities by participating in coding challenges and technical discussions. 5) Expand our reach by building an inclusive and collaborative environment for all skill levels, from beginners to experts."
+      }
+    ],
+    "reports": [
+      {
+        "title": "Coding Club Activities 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/Coding Club Activities 2024-25.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tab8",
+    "name": "Builders Club",
+    "logo": "images/club/buildersclub.png",
+    "intro": "",
+    "sections": [
+      {
+        "heading": "Vision:",
+        "text": "To bring in astonishing innovation for the benefit of the society through the Civil Engineering domain, including innovative buildings, innovative building materials, innovative bridges, green buildings, green pavement etc., which will serve the community and develop the nation."
+      },
+      {
+        "heading": "Mission:",
+        "text": "1) Explore the unknown and unlock new possibilities in the field of Civil Engineering. 2) Design innovative Civil Engineering structures which are sustainable, economical and beneficial to the society. 3) Conduct various competitive events to promote innovation. 4) Periodic interaction with field experts to share their ideas with the students."
+      }
+    ],
+    "reports": [
+      {
+        "title": "Builder's Club Activities 2025-26",
+        "url": "https://mits.ac.in/public/uploads/sac/Builders Club Events 2025-26.pdf"
+      },
+      {
+        "title": "Builder's Club Activities 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/Builders Club Activities 2024-25.pdf"
+      },
+      {
+        "title": "Builder's Club Activities 2023-24",
+        "url": "https://mits.ac.in/public/uploads/sac/7d8a9b93ec0e765a3e787d15b7054b6a.pdf"
+      },
+      {
+        "title": "Builder's Club Activities 2022-23",
+        "url": "https://mits.ac.in/public/uploads/sac/Report of Guest Lecture on Low-Cost Housing-1-min.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tab9",
+    "name": "Literary Club",
+    "logo": "images/club/lc.jpg",
+    "intro": "The English Literary Club of MITS was inaugurated by the Department of English and Foreign Languages in 2022. The club aims at nurturing the zeal for English literature among the students, thereby augmenting their creativity and language acquisition. It provides a platform to exhibit their innate literary potential.",
+    "sections": [
+      {
+        "heading": "Vision:",
+        "text": "The club envisions kindling the literary interests and providing an exemplary platform for the students to immerse themselves in the ocean of English literature and art, thereby fostering their creative potential to enhance their personality, thoughts, ideas, and expression."
+      },
+      {
+        "heading": "Mission:",
+        "text": "The club\u2019s mission is to organize literary activities and events, with an unflinching determination to help students build their personality holistically.\n\nActivities:\n\nThe club conducts literary activities such as debates, dramas, group discussions, interactive sessions, skits, poetry and short story writing, storytelling, and quiz contests."
+      }
+    ],
+    "reports": [
+      {
+        "title": "\"The Critical Pen\u201d on 9th September 2026",
+        "url": "https://mits.ac.in/public/uploads/sac/The Critical Pen.pdf"
+      },
+      {
+        "title": "Literary Club Activities 2025-26",
+        "url": "https://mits.ac.in/public/uploads/sac/Literary Club 2025-26.pdf"
+      },
+      {
+        "title": "Literary Club Activities 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/Literary Club Activities 2024-25.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (24th October 2024)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Oct 24 2024.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (17th October 2024)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Oct 17 2024.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (3rd October 2024)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Oct 3 2024.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (5th September 2024)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Sep 5 2024.pdf"
+      },
+      {
+        "title": "Ink and Imagination September 2024",
+        "url": "https://mits.ac.in/public/uploads/sac/Ink and Imagination September 2024.pdf"
+      },
+      {
+        "title": "Toonverse Adventure September 2024",
+        "url": "https://mits.ac.in/public/uploads/sac/Toonverse Adventure - September 2024.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (29th August 2024)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Aug 29 2024.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (22nd August 2024)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report August 22nd 2024.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (7th August 2024)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report August 7th 2024.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (16th February 2024)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC%20Report%20feb%2016th%202024.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (18th January 2024)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC%20Report%20Jan%2018%202024.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (16th November 2023)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Nov 16 2023.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (2nd November 2023)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Nov 2 2023.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (14th September 2023)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report September 14 2023.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (7th September 2023)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report September 7 2023.pdf"
+      },
+      {
+        "title": "The International Day of Peace - 2023",
+        "url": "https://mits.ac.in/public/uploads/sac/Peace Day 2024.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (22 June 2023)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report June 22.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (15 June 2023)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report June 15.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (08 June 2023)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report June 08.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (Week 3)",
+        "url": "https://mits.ac.in/public/uploads/sac/3.Kaizen - The Thoughts Caf\u00e9 (Week 3).pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (Week 2)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen - The Thoughts Caf\u00e9 (Week 2).pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 (Week 1)",
+        "url": "https://mits.ac.in/public/uploads/sac/cde32369320cbd5d65cb3ee34e44ee33.pdf"
+      },
+      {
+        "title": "Kaizen - The Thoughts Caf\u00e9 Manifesto",
+        "url": "https://mits.ac.in/public/uploads/sac/1.Kaizen-TTC Manifesto.pdf"
+      },
+      {
+        "title": "Literary Club - Express your Extremes",
+        "url": "https://mits.ac.in/public/uploads/sac/Literary Club-Express your Extremes.pdf"
+      },
+      {
+        "title": "Literary Club - Talent Hunt",
+        "url": "https://mits.ac.in/public/uploads/sac/Literary Club-Talent Hunt.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tab10",
+    "name": "Yoga & Meditation Club",
+    "logo": "images/club/yg.jpg",
+    "intro": "Yoga & Meditation Club\n\nYoga and meditation club helps in understanding the physical and psychical controls whose aim is to make practitioner aware of the identity of Atma (soul) and Brahman (supreme soul). Yoga and meditation club not only provides health, vigour, brightness and alertness to the body and mind, it also fills the life with satisfaction, happiness and pleasure. The Main objective of the club is to reduces tension, stress, anxiety, weakness, helplessness, fear, negative thoughts etc. which are increased day by day in this mechanical human life",
+    "sections": [
+      {
+        "heading": "Activities",
+        "text": "Conducts yoga and meditation training classes Organizes guest lectures on spiritual education and ethical values Conducts competitions related yoga and meditation Renders services such as yoga classes, donations and awareness programs to needy people"
+      }
+    ],
+    "reports": [
+      {
+        "title": "Yoga and Meditation Club 2025-26",
+        "url": "https://mits.ac.in/public/uploads/sac/YOGA 2025-2026 Reports.pdf"
+      },
+      {
+        "title": "Yoga and Meditation Club 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/Yoga and Meditation Club Activities 2024-25.pdf"
+      },
+      {
+        "title": "Yoga and Meditation Club 2021-22",
+        "url": "https://mits.ac.in/public/uploads/sac/Yoga and Meditation Club-21.pdf"
+      },
+      {
+        "title": "Yoga and Meditation Club 2019-20",
+        "url": "https://mits.ac.in/public/uploads/sac/Yoga and Meditation Club-20.pdf"
+      },
+      {
+        "title": "Yoga and Meditation Club 2018-19",
+        "url": "https://mits.ac.in/public/uploads/sac/e084990353163f3739e54e4415b2c856.pdf"
+      },
+      {
+        "title": "Yoga and Meditation Club 2017-18",
+        "url": "https://mits.ac.in/public/uploads/sac/79a2a8b77410d06107edd7053524b5f9.pdf"
+      },
+      {
+        "title": "Yoga and Meditation Club 2016-17",
+        "url": "https://mits.ac.in/public/uploads/sac/3179ccaf093f0f8bd8f777ccb45935d0.pdf"
+      },
+      {
+        "title": "Yoga and Meditation Club 2015-16",
+        "url": "https://mits.ac.in/public/uploads/sac/432b42454df5005a70dfa94b42c20cb1.pdf"
+      },
+      {
+        "title": "Yoga and Meditation Club 2014-15",
+        "url": "https://mits.ac.in/public/uploads/sac/6db0029ac41c2fb2d69d5ed5d6eaa76c.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tab11",
+    "name": "SKILL BEE Club",
+    "logo": "images/club/skillbee.png",
+    "intro": "",
+    "sections": [
+      {
+        "heading": "Vision :",
+        "text": ""
+      },
+      {
+        "heading": "Mission :",
+        "text": "To ensure the improvement of the capability of students in learning, understanding, teaching and also expressing their skills confidently. About Skill Bee Club :\n\nIn Skill bee club, students will be functioning as mentors for other students, which means that if one student is knowledgeable about a particular skill or certain talent, He or she will be sharing that skill with other students."
+      },
+      {
+        "heading": "About Skill Bee Club :",
+        "text": ""
+      }
+    ],
+    "reports": [
+      {
+        "title": "Skill Bee Club Activities 2025-2026",
+        "url": "https://mits.ac.in/public/uploads/sac/Skill Bee Club Activities 2025-26.pdf"
+      },
+      {
+        "title": "Skill Bee Club Activities 2024-2025",
+        "url": "https://mits.ac.in/public/uploads/sac/Skill Bee Activities 2024-25.pdf"
+      },
+      {
+        "title": "Skill Bee Club Activities 2023-2024",
+        "url": "https://mits.ac.in/public/uploads/sac/Open Mic Mastering the arts of Public Speaking.pdf"
+      },
+      {
+        "title": "Skill Bee Club Activities 2022-2023",
+        "url": "https://mits.ac.in/public/uploads/sac/Skill Bee Build Your First Mobile App event.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tabarc",
+    "name": "ARC Club",
+    "logo": "",
+    "intro": "",
+    "sections": [],
+    "reports": [
+      {
+        "title": "ARC Club Activities 2025 - 26",
+        "url": "https://mits.ac.in/public/uploads/sac/ARC Club - 2025-2026.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tabdtc",
+    "name": "Drone Technology Club",
+    "logo": "images/club/drone.JPG",
+    "intro": "Drone Technology Club is a dedicated club for students to engage in cutting-edge research, development, and application of drone technologies. It provides an opportunity for students to explore areas like drone hardware design, sensor integration, battery technologies, and communication systems. The club encourages hands-on learning and innovation, allowing students to work on real-world drone applications in sectors such as agriculture, logistics, defense, and disaster management. It also offers specialized training and workshops to help students develop expertise in drone technology, preparing them for careers in this rapidly growing field. The club facilitates collaboration between students of various departments fostering a vibrant ecosystem of knowledge exchange. By integrating academic learning with industry needs, the Drone technology club enhances students' skills and opens up opportunities for entrepreneurship and research in drone technology.",
+    "sections": [
+      {
+        "heading": "Vision :",
+        "text": "To be a leading hub of innovation and excellence in drone technology, fostering creativity, research, and practical applications while empowering students to explore the future of aerial systems and contribute to transformative advancements in industries such as robotics, automation, and communication. Mission : 1. To provide students with hands-on experience in drone design, development, and operation.. 2. To encourage collaborative learning and problem-solving through drone technology projects and challenges.. 3. To promote research and development in UAV (Unmanned Aerial Vehicle) systems for real-world applications across various domains.. 4. To foster innovation, critical thinking, and technical expertise among members while aligning with the goals of Indian drone ecosystem and ethical technology development.. 5. To establish strong partnerships with industry professionals and organizations for knowledge sharing, skill enhancement, and career growth opportunities.. Plan of action for Drone Technology Club: Club Formation and Initial Setup \u2022 Define Roles and Responsibilities: Establish the core team (President, Vice-President, Secretary, Treasurer, Event Coordinators, etc.) and assign responsibilities. \u2022 Club Registration: Register the club with the college administration, ensuring that all necessary paperwork and formalities are completed. \u2022 Set Up Online Presence: Create social media profiles, a website, or a forum for the club to share updates, events, and resources. Organize Introductory Workshops \u2022 Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. \u2022 Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning \u2022 Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. \u2022 Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects \u2022 Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. \u2022 Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). \u2022 Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement \u2022 Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. \u2022 Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+      },
+      {
+        "heading": "Mission :",
+        "text": "1. To provide students with hands-on experience in drone design, development, and operation.. 2. To encourage collaborative learning and problem-solving through drone technology projects and challenges.. 3. To promote research and development in UAV (Unmanned Aerial Vehicle) systems for real-world applications across various domains.. 4. To foster innovation, critical thinking, and technical expertise among members while aligning with the goals of Indian drone ecosystem and ethical technology development.. 5. To establish strong partnerships with industry professionals and organizations for knowledge sharing, skill enhancement, and career growth opportunities.."
+      },
+      {
+        "heading": "Plan of action for Drone Technology Club:",
+        "text": ""
+      }
+    ],
+    "reports": [
+      {
+        "title": "Drone Technology Club Activities 2025-26",
+        "url": "https://mits.ac.in/public/uploads/sac/Drone technology Club 2025-26.pdf"
+      },
+      {
+        "title": "Drone Technology Club Activities 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/Drone Technology Club Activities 2024-25.pdf"
+      }
+    ],
+    "tab1Docs": []
+  },
+  {
+    "id": "ug-tabed",
+    "name": "Entrepreneur\u2019s Club",
+    "logo": "images/club/edcell.jpg",
+    "intro": "",
+    "sections": [
+      {
+        "heading": "Vision :",
+        "text": "To empower aspiring entrepreneurs by transforming ideas into impactful products, fostering innovation, and building a thriving community where entrepreneurs at different stages can collaborate and grow together Mission : 1. To educate and inspire students on entrepreneurship, helping them develop essential skills. 2. To nurture creativity and innovation by guiding students in turning their ideas into viable products. 3. To foster a collaborative environment that encourages networking, learning, and shared growth. 4. To create opportunities for students to connect with funding sources to support their entrepreneurial ventures. 5. To build a strong entrepreneurial community that connects individuals at different stages of their journey, enabling continuous learning and support. The Entrepreneurs Club of Madanapalle Institute of Technology & Science aims at nurturing the spirit of entrepreneurship amongst students by providing a platform for challenging minds to think differently and experience entrepreneurship through hands-on learning. Together we share knowledge and skills to help out our members to expand their horizons and get more familiar with the \u201cEntrepreneur Style of thinking and working\u201d."
+      },
+      {
+        "heading": "Mission :",
+        "text": "1. To educate and inspire students on entrepreneurship, helping them develop essential skills. 2. To nurture creativity and innovation by guiding students in turning their ideas into viable products. 3. To foster a collaborative environment that encourages networking, learning, and shared growth. 4. To create opportunities for students to connect with funding sources to support their entrepreneurial ventures. 5. To build a strong entrepreneurial community that connects individuals at different stages of their journey, enabling continuous learning and support. The Entrepreneurs Club of Madanapalle Institute of Technology & Science aims at nurturing the spirit of entrepreneurship amongst students by providing a platform for challenging minds to think differently and experience entrepreneurship through hands-on learning. Together we share knowledge and skills to help out our members to expand their horizons and get more familiar with the \u201cEntrepreneur Style of thinking and working\u201d."
+      }
+    ],
+    "reports": [
+      {
+        "title": "Entrepreneurs Club Activities 2025-26",
+        "url": "https://mits.ac.in/public/uploads/sac/Entrepreneurs Club 2025-26.pdf"
+      },
+      {
+        "title": "Entrepreneurs Club Activities 2024-25",
+        "url": "https://mits.ac.in/public/uploads/sac/Entrepreneurs Club Activities 2024-25.pdf"
+      }
+    ],
+    "tab1Docs": []
+  }
+];
+
+export const clubsDirectoryTable: string[][] = [
+  [
+    "Name of the Club",
+    "Faculty Advisor",
+    "Student Coordinator",
+    "Contact Number"
+  ],
+  [
+    "Arts and Cultural Club",
+    "Mr. Y. Pradeep Kumar",
+    "B. Amrutha",
+    "6281360083"
+  ],
+  [
+    "R. Nikhil",
+    "9666685646"
+  ],
+  [
+    "Film Makers Club",
+    "Mr. K. Md.Riyaz Ali",
+    "M.K. Sudheer",
+    "7013242253"
+  ],
+  [
+    "G. Ramanjeneyulu Reddy",
+    "8555946223"
+  ],
+  [
+    "Web Club",
+    "Dr. P. Kavitha",
+    "R. Baba Fakhruddin",
+    "9704290783"
+  ],
+  [
+    "Syed Mansoor",
+    "8096126294"
+  ],
+  [
+    "MSR Club",
+    "Mr. B.S.H. Shayeez Ahamed",
+    "V. Venkata Tarun",
+    "6303544711"
+  ],
+  [
+    "Sports Club",
+    "Dr. C. Damodharan",
+    "M.G. Lokesh",
+    "9515771641"
+  ],
+  [
+    "P. Vyshnavi",
+    "9154790706"
+  ],
+  [
+    "Yoga & Meditation Club",
+    "Mr. K. Manju Vikram",
+    "Muppireddy Keerthi",
+    "7569116140"
+  ],
+  [
+    "Sai Phani Charan S.M",
+    "6361772686"
+  ],
+  [
+    "ARC Club",
+    "Mr. Rajkumar. G",
+    "C. Usman Gani",
+    "9441578782"
+  ],
+  [
+    "T. Yugesh",
+    "6281185755"
+  ],
+  [
+    "Tech Club",
+    "Mr. D. Abdul Jaleel",
+    "Y. Charan Teja Reddy",
+    "8341484199"
+  ],
+  [
+    "K. Ayesha",
+    "8978703213"
+  ],
+  [
+    "Anchors Club",
+    "Mr. Narasimha Charlu",
+    "Gavvala Narendra Kumar",
+    "9010735719"
+  ],
+  [
+    "Literary club",
+    "Mr. T. Rama Mohan",
+    "Yangala Likitha",
+    "9391504875"
+  ],
+  [
+    "J. Naveen Kumar",
+    "7013255586"
+  ],
+  [
+    "Builders Club",
+    "Dr. K. Imran",
+    "Kopparthi Nandini Reddy",
+    "7793933029"
+  ],
+  [
+    "Sabir Shaik",
+    "7815970442"
+  ],
+  [
+    "Drone Technology Club",
+    "Mr. P. Mohammed Rizwan Ali",
+    "B.Sathvik",
+    "9030304850"
+  ],
+  [
+    "AI Learning Hub Club",
+    "Mr. Shaik Tipu Rahaman",
+    "N. Ashraf Vali",
+    "6281025228"
+  ],
+  [
+    "Palagiri Mahammad Aman",
+    "9989706451"
+  ],
+  [
+    "Enterprenuers Club",
+    "Dr. Kosaraju Sireesha",
+    "Yasheen Khan Nyazi",
+    "7993657748"
+  ],
+  [
+    "Thoppireddy Sai Poojitha",
+    "-"
+  ],
+  [
+    "Skill Bee club",
+    "Mr. K. Durga Charan",
+    "K. Nikhil",
+    "9390125801"
+  ],
+  [
+    "G. Gangaiah"
+  ],
+  [
+    "Coding Club",
+    "Mrs. Komala Anamalamudi",
+    "Mogili Kushal vardhan",
+    "7382545438"
+  ],
+  [
+    "S C Sujan",
+    "6309959667"
+  ],
+  [
+    "Cisco Networking Club",
+    "Dr. V. Jayaprakasan",
+    "K. Lokeswar Reddy",
+    "7989239624"
+  ]
+];
+
+export const noticeBoardData = {
+  title: "Workshop on Development Environment",
+  description: 'The MITS Web Club under Student Activity Center (SAC), organized a workshop on "Introduction to Development Environment".',
+  date: "12th September 2025",
+  reportUrl: "https://mits.ac.in/public/uploads/sac/Introduction to Development Environment.pdf"
 };
 
 export const aboutClubsContent = {
-  intro:
-    "The dynamism of academic life spills out of the classrooms. It is a credit to the mental and intellectual focus of the students that many of the clubs are extensions of their academic and career aspirations. There are several annual 'fests' and entertainment events organized by the institution every year. Students' clubs provide a forum for interaction among themselves and the outside world events, however varied, it may be formal or informal, but brings out the passion in youngsters and develop their organizational skills. The clubs bring about a good balance of work, fun and leisure activities and ensure the all round development of students.",
-  importance:
-    "Students' Clubs are the main hub of student activity. They provide an outlet and a stage for the creative juices of young minds and hearts. The clubs give you the chance to apply classroom learning in the outside world. This helps you to gain invaluable leadership as well as life skills. In addition to connecting other students who have similar interests, students' clubs make students to interact with alumni and professionals in their fields of interest.",
+  intro: "The dynamism of academic life spills out of the classrooms. It is a credit to the mental and intellectual focus of the students that many of the clubs are extensions of their academic and career aspirations. There are several annual 'fests' and entertainment events organized by the institution every year. Students' clubs provide a forum for interaction among themselves and the outside world events, however varied, it may be formal or informal, but brings out the passion in youngsters and develop their organizational skills. The clubs bring about a good balance of work, fun and leisure activities and ensure the all round development of students.",
+  importance: "Students' Clubs are the main hub of student activity. They provide an outlet and a stage for the creative juices of young minds and hearts. The clubs give you the chance to apply classroom learning in the outside world. This helps you to gain invaluable leadership as well as life skills. In addition to connecting other students who have similar interests, students' clubs make students to interact with alumni and professionals in their fields of interest.",
   benefits: [
     "Students' clubs enrich your experience, create a diverse community, encourage involvement, and provide opportunities for students to build valuable skills",
     "This helps you to build formal and informal networks while exploring career opportunities.",
     "Open to all students, these clubs organize programs, events, and meetings throughout the academic year. Clubs listed here are officially recognized."
   ],
   quickLinks: [
-    {
-      title: "Student Club Constitution",
-      url: "https://mits.ac.in/public/uploads/sac/Students%20club%20Constitution.pdf"
-    },
-    {
-      title: "Event Calendar",
-      url: "https://mits.ac.in/public/uploads/sac/calender1.pdf"
-    },
-    {
-      title: "Consolidate Student Club Activities-2021-2022",
-      url: "https://mits.ac.in/public/uploads/sac/Consolidate%20Student%20Club%20Activities-2021-2022.pdf"
-    }
+    { title: "Student Club Constitution", url: "https://mits.ac.in/public/uploads/sac/SOP of SAC 2025-26.pdf" },
+    { title: "Event Calender", url: "https://calendar.google.com/calendar/u/0/embed?src=69849e23341ca5a7ae2952df17e3fb78318e6d704f514726f577a8391f650481@group.calendar.google.com&ctz=Asia/Kolkata" },
+    { title: "Consolidate Student Club Activities 2025-2026", url: "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2025-2026.pdf" },
+    { title: "Consolidate Student Club Activities 2024-2025", url: "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2024-2025.pdf" },
+    { title: "Consolidate Student Club Activities 2023-2024", url: "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2023-2024.pdf" },
+    { title: "Consolidate Student Club Activities 2022-2023", url: "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2022-2023.pdf" },
+    { title: "Consolidate Student Club Activities 2021-2022", url: "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2021-2022.pdf" }
   ]
 };
 
 export const studentClubsDirectory = [
-  {
-    sno: 1,
-    name: "Arts & Cultural Club",
-    tabId: "arts-cultural",
-    facultyAdvisor: "Dr. P. Athahar Samina Khan",
-    studentCoordinator: "Y. Chakradhar Reddy",
-    contactNumber: "9347293212"
-  },
-  {
-    sno: 2,
-    name: "Film Makers Club",
-    tabId: "film-makers",
-    facultyAdvisor: "Mr. K. Md.Riyaz Ali",
-    studentCoordinator: "K. Basha",
-    contactNumber: "8247428668"
-  },
-  {
-    sno: 3,
-    name: "Sports Club",
-    tabId: "sports",
-    facultyAdvisor: "Dr. C. Damodharan",
-    studentCoordinator: "V. Nikitha",
-    contactNumber: "6302403221"
-  },
-  {
-    sno: 4,
-    name: "MSR Club",
-    tabId: "msr",
-    facultyAdvisor: "Mr. B.S.H. Shayeez Ahamed",
-    studentCoordinator: "G. Sriram",
-    contactNumber: "9182659483"
-  },
-  {
-    sno: 5,
-    name: "Web Club",
-    tabId: "web",
-    facultyAdvisor: "Dr. R. Nidhya",
-    studentCoordinator: "V. Saran",
-    contactNumber: "8886200010"
-  },
-  {
-    sno: 6,
-    name: "Tech Club",
-    tabId: "tech",
-    facultyAdvisor: "Dr. K. Dinesh",
-    studentCoordinator: "P. Kiranmaie",
-    contactNumber: "6303226294"
-  },
-  {
-    sno: 7,
-    name: "Coding Club",
-    tabId: "coding",
-    facultyAdvisor: "Dr. Velumani M",
-    studentCoordinator: "P. Harsha Vardhan",
-    contactNumber: "9490123845"
-  },
-  {
-    sno: 8,
-    name: "Builders Club",
-    tabId: "builders",
-    facultyAdvisor: "Dr. Priyam Nath B",
-    studentCoordinator: "A. Vyshnavi",
-    contactNumber: "9010764482"
-  },
-  {
-    sno: 9,
-    name: "Literary Club",
-    tabId: "literary",
-    facultyAdvisor: "Dr. M. Parvathi, Dr. Sriganesh Radhakrishnan",
-    studentCoordinator: "P. Uday kumar",
-    contactNumber: "7815880507"
-  },
-  {
-    sno: 10,
-    name: "Yoga & Meditation Club",
-    tabId: "yoga-meditation",
-    facultyAdvisor: "Mr. K. Manju Vikram",
-    studentCoordinator: "D. Aravind",
-    contactNumber: "7330843432"
-  },
-  {
-    sno: 11,
-    name: "SKILL BEE Club",
-    tabId: "skill-bee",
-    facultyAdvisor: "Mr. K. Durga Charan",
-    studentCoordinator: "M Rasheed Ahamed",
-    contactNumber: "8332040887"
-  },
-  {
-    sno: 12,
-    name: "ARC Club",
-    tabId: "arc",
-    facultyAdvisor: "Mr. P. Firoze khan",
-    studentCoordinator: "S. Mohammed Mateen Hussain",
-    contactNumber: "8297472017"
-  },
-  {
-    sno: 13,
-    name: "Drone Technology Club",
-    tabId: "drone-technology",
-    facultyAdvisor: "Dr. K. Arul kumar",
-    studentCoordinator: "K. Sai Teja",
-    contactNumber: "9182345671"
-  },
-  {
-    sno: 14,
-    name: "Entrepreneur's Club",
-    tabId: "entrepreneurs",
-    facultyAdvisor: "Dr. P. Sivaiah",
-    studentCoordinator: "T. Naveen Kumar",
-    contactNumber: "9848123456"
-  },
-  {
-    sno: 15,
-    name: "Anchors Club",
-    tabId: "arts-cultural",
-    facultyAdvisor: "Mrs. U. Vijaya Lakshmi",
-    studentCoordinator: "K. Ameya Sree",
-    contactNumber: "8247897374"
-  }
+  { sno: 1, name: "Arts & Cultural Club", tabId: "ug-tab2", facultyAdvisor: "Mr. Y. Pradeep Kumar", studentCoordinator: "B. Amrutha, R. Nikhil", contactNumber: "6281360083, 9666685646" },
+  { sno: 2, name: "Film Makers Club", tabId: "ug-tab3", facultyAdvisor: "Mr. K. Md.Riyaz Ali", studentCoordinator: "M.K. Sudheer, G. Ramanjeneyulu Reddy", contactNumber: "7013242253, 8555946223" },
+  { sno: 3, name: "Web Club", tabId: "ug-tab6", facultyAdvisor: "Dr. P. Kavitha", studentCoordinator: "R. Baba Fakhruddin, Syed Mansoor", contactNumber: "9704290783, 8096126294" },
+  { sno: 4, name: "MSR Club", tabId: "ug-tab5", facultyAdvisor: "Mr. B.S.H. Shayeez Ahamed", studentCoordinator: "V. Venkata Tarun", contactNumber: "6303544711" },
+  { sno: 5, name: "Sports Club", tabId: "ug-tab4", facultyAdvisor: "Dr. C. Damodharan", studentCoordinator: "M.G. Lokesh, P. Vyshnavi", contactNumber: "9515771641, 9154790706" },
+  { sno: 6, name: "Yoga & Meditation Club", tabId: "ug-tab10", facultyAdvisor: "Mr. K. Manju Vikram", studentCoordinator: "Muppireddy Keerthi, Sai Phani Charan S.M", contactNumber: "7569116140, 6361772686" },
+  { sno: 7, name: "ARC Club", tabId: "ug-tabarc", facultyAdvisor: "Mr. Rajkumar. G", studentCoordinator: "C. Usman Gani, T. Yugesh", contactNumber: "9441578782, 6281185755" },
+  { sno: 8, name: "Tech Club", tabId: "ug-tab7", facultyAdvisor: "Mr. D. Abdul Jaleel", studentCoordinator: "Y. Charan Teja Reddy, K. Ayesha", contactNumber: "8341484199, 8978703213" },
+  { sno: 9, name: "Anchors Club", tabId: "anchors", facultyAdvisor: "Mr. Narasimha Charlu", studentCoordinator: "Gavvala Narendra Kumar", contactNumber: "9010735719" },
+  { sno: 10, name: "Literary club", tabId: "ug-tab9", facultyAdvisor: "Mr. T. Rama Mohan", studentCoordinator: "Yangala Likitha, J. Naveen Kumar", contactNumber: "9391504875, 7013255586" },
+  { sno: 11, name: "Builders Club", tabId: "ug-tab8", facultyAdvisor: "Dr. K. Imran", studentCoordinator: "Kopparthi Nandini Reddy, Sabir Shaik", contactNumber: "7793933029, 7815970442" },
+  { sno: 12, name: "Drone Technology Club", tabId: "ug-tabdtc", facultyAdvisor: "Mr. P. Mohammed Rizwan Ali", studentCoordinator: "B.Sathvik", contactNumber: "9030304850" },
+  { sno: 13, name: "AI Learning Hub Club", tabId: "ai-learning-hub", facultyAdvisor: "Mr. Shaik Tipu Rahaman", studentCoordinator: "N. Ashraf Vali, Palagiri Mahammad Aman", contactNumber: "6281025228, 9989706451" },
+  { sno: 14, name: "Enterprenuers Club", tabId: "ug-tabed", facultyAdvisor: "Dr. Kosaraju Sireesha", studentCoordinator: "Yasheen Khan Nyazi, Thoppireddy Sai Poojitha", contactNumber: "7993657748" },
+  { sno: 15, name: "Skill Bee club", tabId: "ug-tab11", facultyAdvisor: "Mr. K. Durga Charan", studentCoordinator: "K. Nikhil, G. Gangaiah", contactNumber: "9390125801" },
+  { sno: 16, name: "Coding Club", tabId: "ug-tab15", facultyAdvisor: "Mrs. Komala Anamalamudi", studentCoordinator: "Mogili Kushal vardhan, S C Sujan", contactNumber: "7382545438, 6309959667" },
+  { sno: 17, name: "Cisco Networking Club", tabId: "cisco", facultyAdvisor: "Dr. V. Jayaprakasan", studentCoordinator: "K. Lokeswar Reddy", contactNumber: "7989239624" }
 ];
 
-export const studentClubsList: StudentClubItem[] = [
-  {
-    id: "arts-cultural",
-    name: "Arts & Cultural Club",
-    sno: 1,
-    category: "Fine & Performing Arts",
-    facultyAdvisor: "Dr. P. Athahar Samina Khan",
-    studentCoordinator: "Y. Chakradhar Reddy",
-    contactNumber: "9347293212",
-    image: "https://mits.ac.in/assets/images/club/arts.jpg",
-    about:
-      "The Arts & Cultural Club provides a vibrant platform for students to express their creative energies through dance, music, theater, classical arts, and fine arts. The club organizes flagship cultural events, inter-collegiate festivals, and talent showcases that celebrate artistic diversity and campus unity.",
-    vision:
-      "To foster artistic creativity, cultural appreciation, and expressive performing talents among students, enriching campus vitality.",
-    mission:
-      "To provide stage opportunities, workshops, and inter-collegiate avenues for music, dance, visual arts, and drama.",
-    activities: [
-      "Annual Inter-Departmental Cultural Fest & Talent Hunt",
-      "Traditional & Classical Dance and Musical Performances",
-      "Street Plays, Theatrical Skits, and Social Awareness Drama",
-      "Art & Painting Exhibitions, Rangoli, and Photography Displays"
-    ],
-    events: [
-      {
-        title: "Arts & Cultural Club Activities (2022-23)",
-        url: "https://mits.ac.in/public/uploads/sac/22904fc4e7a83d4c38d82d49ecaa418b.pdf",
-        year: "2022-23"
-      },
-      {
-        title: "Arts & Cultural Club Activities (2021-22)",
-        url: "https://mits.ac.in/public/uploads/sac/Arts and Cultural Club Activities - 2021 - 2022.pdf",
-        year: "2021-22"
-      },
-      {
-        title: "Arts & Cultural Club Activities (2018-19)",
-        url: "https://mits.ac.in/public/uploads/sac/0b979ec7fcf499709a3411b6ff490799.pdf",
-        year: "2018-19"
-      },
-      {
-        title: "Arts & Cultural Club Activities (2017-18)",
-        url: "https://mits.ac.in/public/uploads/sac/0064d1421f1530e7bf099d08e5beabf3.pdf",
-        year: "2017-18"
-      },
-      {
-        title: "Arts & Cultural Club Activities (2016-17)",
-        url: "https://mits.ac.in/public/uploads/sac/97ecf383e58b1f5bbab928d1192e2702.pdf",
-        year: "2016-17"
-      },
-      {
-        title: "Arts & Cultural Club Activities (2015-16)",
-        url: "https://mits.ac.in/public/uploads/sac/4ec09fa71337422f87ee26131b79fdd2.pdf",
-        year: "2015-16"
-      },
-      {
-        title: "Apna Time Aayega Season 2 - Campus Talent Showcase",
-        url: "https://mits.ac.in/public/uploads/sac/Apna%20time%20Aayega2.pdf",
-        year: "2022-23"
-      },
-      {
-        title: "Freshers' Day Cultural Celebrations",
-        url: "https://mits.ac.in/assets/pdf/assoc/Freshers%E2%80%99%20Day%20Celebrations%202025.pdf",
-        year: "2024-25"
-      }
-    ]
-  },
-  {
-    id: "film-makers",
-    name: "Film Makers Club",
-    sno: 2,
-    category: "Cinema & Photography",
-    facultyAdvisor: "Mr. K. Md.Riyaz Ali",
-    studentCoordinator: "K. Basha",
-    contactNumber: "8247428668",
-    image: "https://mits.ac.in/assets/images/club/fm.jpg",
-    about:
-      "This Film Makers Club is open to all students interested in making, directing, filming, acting in, or editing student films and photography in our campus. Our goal is to bring together students who are interested in film and film making in order to encourage and provide support and guidance for student filmmaking projects. The club serves as a platform for sharing work, ideas, and knowledge, and as a network for finding individuals to help in all aspects of production.",
-    vision:
-      "To nurture cinematic storytelling, visual direction, and digital media production among enthusiastic student filmmakers.",
-    mission:
-      "To empower young creators with technical workshops in cinematography, screenwriting, editing, and sound design while producing short films and documentaries.",
-    activities: [
-      "Short Film Productions & Scriptwriting Competitions",
-      "Cinematography, Lighting & Camera Handling Masterclasses",
-      "Video Editing Workshops (Premiere Pro, DaVinci Resolve)",
-      "Annual Campus Film Festival and Screenings"
-    ],
-    events: [
-      {
-        title: "Film Makers Club Events 2022-2023",
-        url: "https://mits.ac.in/public/uploads/sac/Film Makers Club Events 2022-2023.pdf",
-        year: "2022-23"
-      },
-      {
-        title: "Film Makers Club Events Summary",
-        url: "https://mits.ac.in/public/uploads/sac/Film Makers Club Events Summary.pdf",
-        year: "Summary"
-      },
-      {
-        title: "Film Makers Club Events 2021-2022",
-        url: "https://mits.ac.in/public/uploads/sac/a83d18f2a6f05ff36a11346fd9a45526.pdf",
-        year: "2021-22"
-      },
-      {
-        title: "Film Makers Club Events 2018-19",
-        url: "https://mits.ac.in/public/uploads/sac/f150a65ebc83259882969dd54da1c762.pdf",
-        year: "2018-19"
-      },
-      {
-        title: "Film Makers Club Events 2017-18",
-        url: "https://mits.ac.in/public/uploads/sac/7f1e2a5f5f7902c674ebbbf90e910c15.pdf",
-        year: "2017-18"
-      },
-      {
-        title: "Film Makers Club Events 2016-17",
-        url: "https://mits.ac.in/public/uploads/sac/b248f532e51f89c1c5b71ec25acbf35f.pdf",
-        year: "2016-17"
-      },
-      {
-        title: "Film Makers Club Events 2015-16",
-        url: "https://mits.ac.in/public/uploads/sac/530f7804fe9e7c8ad3b3615e6f6cd8a1.pdf",
-        year: "2015-16"
-      }
-    ]
-  },
-  {
-    id: "sports",
-    name: "Sports Club",
-    sno: 3,
-    category: "Athletics & Games",
-    facultyAdvisor: "Dr. C. Damodharan",
-    studentCoordinator: "V. Nikitha",
-    contactNumber: "6302403221",
-    image: "https://mits.ac.in/assets/images/club/sports.jpg",
-    about:
-      "The Sports Club at MITS promotes physical endurance, fitness, and team camaraderie. Through state-of-the-art outdoor grounds and indoor sports arenas, students train and compete in cricket, football, basketball, volleyball, athletics, table tennis, badminton, and chess, representing MITS at university and national levels.",
-    vision:
-      "To build a vibrant culture of physical fitness, competitive sportsmanship, and mental resilience among the student fraternity.",
-    mission:
-      "To organize structured leagues, collegiate tournaments, and professional coaching sessions across individual and team sports.",
-    activities: [
-      "Annual Inter-Branch Sports Tournament",
-      "Participation in JNTUA & All India Inter-University Tournaments",
-      "Intramural Leagues in Cricket, Volleyball, Basketball & Kabaddi",
-      "Indoor Sports Championships (Chess, Table Tennis, Badminton)"
-    ],
-    events: [
-      {
-        title: "Sports Club Events 2022-23",
-        url: "https://mits.ac.in/public/uploads/sac/Sports Club Events 2022-23.pdf",
-        year: "2022-23"
-      },
-      {
-        title: "Sports Club Events 2021-22",
-        url: "https://mits.ac.in/public/uploads/sac/da75522eec89e9f6ceae5a2a2ba7768e.pdf",
-        year: "2021-22"
-      },
-      {
-        title: "Sports Club Events 2018-19",
-        url: "https://mits.ac.in/public/uploads/sac/2c0f6daec9a25b331043743431eb040c.pdf",
-        year: "2018-19"
-      },
-      {
-        title: "Sports Club Events 2017-18",
-        url: "https://mits.ac.in/public/uploads/sac/db90264101e1dcad59d009fe16f6b553.pdf",
-        year: "2017-18"
-      },
-      {
-        title: "Sports Club Events 2016-17",
-        url: "https://mits.ac.in/public/uploads/sac/d72e7be5903932e65d21ba99d2568f9b.pdf",
-        year: "2016-17"
-      },
-      {
-        title: "Sports Club Events 2015-16",
-        url: "https://mits.ac.in/public/uploads/sac/7b183dd2cf1675231c62f256086f68c7.pdf",
-        year: "2015-16"
-      }
-    ]
-  },
-  {
-    id: "msr",
-    name: "MSR Club",
-    sno: 4,
-    category: "Social Responsibility & Outreach",
-    facultyAdvisor: "Mr. B.S.H. Shayeez Ahamed",
-    studentCoordinator: "G. Sriram",
-    contactNumber: "9182659483",
-    image: "https://mits.ac.in/assets/images/club/msr.jpg",
-    about:
-      "The MITS Social Responsibility (MSR) Club is dedicated to instilling social awareness, moral empathy, and proactive community service among students. Under SAC guidance, the club conducts blood donation camps, rural school literacy drives, environmental sustainability programs, and community relief initiatives.",
-    vision:
-      "To nurture empathetic and socially conscientious engineers dedicated to uplifting society and resolving real-world community challenges.",
-    mission:
-      "To spearhead meaningful student-driven social outreach, rural development, environmental preservation, and disaster assistance programs.",
-    activities: [
-      "Mega Blood Donation Camps in coordination with Red Cross",
-      "Rural School Mentoring & Educational Aid Distributions",
-      "Eco-friendly Cleanliness & Tree Plantation Drives",
-      "Health & Hygiene Awareness Camps in Surrounding Villages"
-    ],
-    events: [
-      {
-        title: "MSR Club Activities 2022-2023",
-        url: "https://mits.ac.in/public/uploads/sac/MSR Club Activities 2022-2023.pdf",
-        year: "2022-23"
-      },
-      {
-        title: "MSR Club Activities 2021-2022",
-        url: "https://mits.ac.in/public/uploads/sac/90f84578964e528f14798e2bb75aeb93.pdf",
-        year: "2021-22"
-      },
-      {
-        title: "MSR Club Activities 2018-19",
-        url: "https://mits.ac.in/public/uploads/sac/229a8f4cff2556dcfa28b6d36e2f1837.pdf",
-        year: "2018-19"
-      },
-      {
-        title: "MSR Club Activities 2017-18",
-        url: "https://mits.ac.in/public/uploads/sac/e43960fe2efd29df89da0e53a35cf9c9.pdf",
-        year: "2017-18"
-      },
-      {
-        title: "MSR Club Activities 2016-17",
-        url: "https://mits.ac.in/public/uploads/sac/66d713c7c25c16e7dd782bc4e5bbf6c9.pdf",
-        year: "2016-17"
-      },
-      {
-        title: "MSR Club Activities 2015-16",
-        url: "https://mits.ac.in/public/uploads/sac/c774f76239ec672722650f9689ca5828.pdf",
-        year: "2015-16"
-      }
-    ]
-  },
-  {
-    id: "web",
-    name: "Web Club",
-    sno: 5,
-    category: "Full-Stack & Cloud Computing",
-    facultyAdvisor: "Dr. R. Nidhya",
-    studentCoordinator: "V. Saran",
-    contactNumber: "8886200010",
-    image: "https://mits.ac.in/assets/images/club/web.jpg",
-    about:
-      "Web Club at MITS cultivates modern web design, full-stack application development, API integration, and cloud deployment skills. The club organizes hands-on workshops on modern frameworks like React, Next.js, Node.js, and Tailwind CSS, preparing students for real-world software engineering careers.",
-    vision:
-      "To build proficient full-stack developers and UI/UX designers capable of crafting scalable, secure web solutions.",
-    mission:
-      "To host interactive bootcamps, web hackathons, open-source sprints, and peer-to-peer coding sessions.",
-    activities: [
-      "Web Development Hackathons & Code Sprints",
-      "UI/UX Prototyping Masterclasses in Figma",
-      "Full-Stack Workshops (Frontend, Backend, Databases, REST APIs)",
-      "Hands-on Deployment Sessions on Cloud Platforms"
-    ],
-    events: [
-      {
-        title: "Web Club Events 2022-2023",
-        url: "https://mits.ac.in/public/uploads/sac/Web Club Events 2022-2023.pdf",
-        year: "2022-23"
-      },
-      {
-        title: "Web Club Events 2021-22",
-        url: "https://mits.ac.in/public/uploads/sac/3c0598687a17bc137976e5e8e81561f0.pdf",
-        year: "2021-22"
-      },
-      {
-        title: "Web Club Events 2018-19",
-        url: "https://mits.ac.in/public/uploads/sac/a44410052ae30c904e9eb8e860fcb3b0.pdf",
-        year: "2018-19"
-      },
-      {
-        title: "Web Club Events 2017-18",
-        url: "https://mits.ac.in/public/uploads/sac/96cb1006e9324e93fb22c92fe38d9987.pdf",
-        year: "2017-18"
-      },
-      {
-        title: "Web Club Events 2016-17",
-        url: "https://mits.ac.in/public/uploads/sac/fa60bbfd5326ea081b2aa2622956f4d3.pdf",
-        year: "2016-17"
-      }
-    ]
-  },
-  {
-    id: "tech",
-    name: "Tech Club",
-    sno: 6,
-    category: "Technical Innovation & IoT",
-    facultyAdvisor: "Dr. K. Dinesh",
-    studentCoordinator: "P. Kiranmaie",
-    contactNumber: "6303226294",
-    image: "https://mits.ac.in/assets/images/club/tech.jpg",
-    about:
-      "Tech Club is an incubator for cutting-edge engineering projects, IoT systems, artificial intelligence experiments, and embedded computing. It inspires multidisciplinary collaboration to solve complex problems through technology symposiums, quizzes, and project expos.",
-    vision:
-      "To foster an inquisitive culture of technical exploration, emerging tech experimentation, and applied innovation.",
-    mission:
-      "To organize symposiums, technical paper presentations, hackathons, and hardware-software integration workshops.",
-    activities: [
-      "Annual Inter-College Technical Symposium",
-      "IoT Prototyping & Sensor Telemetry Workshops",
-      "Tech Quizzes, Debugging Competitions, and Project Expos",
-      "Guest Lectures from Senior Technology Leaders"
-    ],
-    events: [
-      {
-        title: "Tech Club Activities 2022-2023",
-        url: "https://mits.ac.in/public/uploads/sac/Tech Club Activities 2022-2023.pdf",
-        year: "2022-23"
-      },
-      {
-        title: "Tech Club Activities 2021-2022",
-        url: "https://mits.ac.in/public/uploads/sac/b703ea339178bfd8b87eeafbc0ca22d9.pdf",
-        year: "2021-22"
-      },
-      {
-        title: "Tech Club Activities 2018-19",
-        url: "https://mits.ac.in/public/uploads/sac/efc4bbcfc86236b28ebc91e0a2965451.pdf",
-        year: "2018-19"
-      },
-      {
-        title: "Tech Club Activities 2017-18",
-        url: "https://mits.ac.in/public/uploads/sac/4f179c3dbe7264875704a2fe7e7ec9e3.pdf",
-        year: "2017-18"
-      },
-      {
-        title: "Tech Club Activities 2016-17",
-        url: "https://mits.ac.in/public/uploads/sac/4e78b77aa1a97d7c67c51d6c8b051df1.pdf",
-        year: "2016-17"
-      },
-      {
-        title: "Tech Club Activities 2015-16",
-        url: "https://mits.ac.in/public/uploads/sac/b72d1373ea89cefd0799757f495ca988.pdf",
-        year: "2015-16"
-      }
-    ]
-  },
-  {
-    id: "coding",
-    name: "Coding Club",
-    sno: 7,
-    category: "Competitive Programming & DSA",
-    facultyAdvisor: "Dr. Velumani M",
-    studentCoordinator: "P. Harsha Vardhan",
-    contactNumber: "9490123845",
-    image: "https://mits.ac.in/assets/images/club/tech.jpg",
-    about:
-      "The Coding Club is dedicated to training students in advanced data structures, algorithmic thinking, and competitive programming. Conducting weekly contests, code debugging challenges, and interview problem breakdowns, the club powers students to succeed in top product-based company assessments.",
-    vision:
-      "To produce world-class algorithmic problem solvers who excel in competitive programming arenas and global software engineering careers.",
-    mission:
-      "To conduct structured DSA bootcamps, weekly algorithmic sprints, mock coding assessments, and national coding marathons.",
-    activities: [
-      "Weekly DSA Problem Solving Sessions on LeetCode & Codeforces",
-      "Competitive Coding Marathons & Speed Programming Contests",
-      "Mock Technical Coding Interviews & Resume Reviews",
-      "Open Source Contribution Drives & Git Masterclasses"
-    ],
-    events: [
-      {
-        title: "Annual Coding Marathon & DSA Hackathon Report",
-        url: "https://mits.ac.in/public/uploads/sac/calender1.pdf",
-        year: "2023-24"
-      },
-      {
-        title: "Algorithmic Contest Series & CodeBlitz",
-        url: "https://mits.ac.in/public/uploads/sac/Consolidate%20Student%20Club%20Activities-2021-2022.pdf",
-        year: "2022-23"
-      },
-      {
-        title: "Inauguration of AI Learning Hub & Coding Sprints",
-        url: "https://mits.ac.in/public/uploads/sac/Inauguration%20of%20AI%20Learning%20Hub.pdf",
-        year: "2023-24"
-      }
-    ]
-  },
-  {
-    id: "builders",
-    name: "Builders Club",
-    sno: 8,
-    category: "Infrastructure & Sustainable Engineering",
-    facultyAdvisor: "Dr. Priyam Nath B",
-    studentCoordinator: "A. Vyshnavi",
-    contactNumber: "9010764482",
-    image: "https://mits.ac.in/assets/images/club/builders.jpg",
-    about:
-      "Vision: To bring in astonishing innovation for the benefit of the society through the Civil Engineering domain, including innovative buildings, innovative building materials, innovative bridges, green buildings, green pavement etc., which will serve the community and develop the nation.\n\nMission: To build student interest in sustainable construction, structural design software, green architecture, smart cities modeling, and disaster-resilient building technologies.",
-    vision:
-      "To bring in astonishing innovation for the benefit of society through the Civil Engineering domain, creating sustainable buildings, green pavements, and innovative infrastructure.",
-    mission:
-      "To provide hands-on experience in CAD/BIM tools, structural testing, surveying technologies, and low-cost housing models.",
-    activities: [
-      "Guest Lectures on Low-Cost Housing and Sustainable Infrastructure",
-      "Bridge Building Competitions & Structural Load Testing Expos",
-      "Smart City Architectural Modeling & Green Building Designs",
-      "Site Visits to Major Construction and Surveying Projects"
-    ],
-    events: [
-      {
-        title: "Builder's Club Activities 2023-24",
-        url: "https://mits.ac.in/public/uploads/sac/7d8a9b93ec0e765a3e787d15b7054b6a.pdf",
-        year: "2023-24"
-      },
-      {
-        title: "Builder's Club Activities 2022-23 (Guest Lecture on Low-Cost Housing)",
-        url: "https://mits.ac.in/public/uploads/sac/Report of Guest Lecture on Low-Cost Housing-1-min.pdf",
-        year: "2022-23"
-      }
-    ]
-  },
-  {
-    id: "literary",
-    name: "Literary Club",
-    sno: 9,
-    category: "Oratory, Debating & Writing",
-    facultyAdvisor: "Dr. M. Parvathi, Dr. Sriganesh Radhakrishnan",
-    studentCoordinator: "P. Uday kumar",
-    contactNumber: "7815880507",
-    image: "https://mits.ac.in/assets/images/club/literary.jpg",
-    about:
-      "The Literary Club at MITS is a vibrant community of writers, debaters, poets, and avid readers. Through parliamentary debates, Model United Nations (MUN), creative writing, elocution, and book clubs, members develop eloquence, intellectual depth, and persuasive communication.",
-    vision:
-      "To cultivate articulate, thoughtful, and expressive communicators capable of constructive debate and literary excellence.",
-    mission:
-      "To organize debating leagues, creative writing contests, poetry slams, and literary publications across the campus.",
-    activities: [
-      "Parliamentary Debates & Youth Parliament Assemblies",
-      "Model United Nations (MUN) Training and Conferences",
-      "Creative Writing, Essay, and Poetry Competitions",
-      "Elocution, Extempore, and Book Review Sessions"
-    ],
-    events: [
-      {
-        title: "Literary Club Events 2022-2023",
-        url: "https://mits.ac.in/public/uploads/sac/Literary Club Events 2022-2023.pdf",
-        year: "2022-23"
-      },
-      {
-        title: "Literary Club Events Summary",
-        url: "https://mits.ac.in/public/uploads/sac/Literary Club Events Summary.pdf",
-        year: "Summary"
-      },
-      {
-        title: "Literary Club Events 2021-2022",
-        url: "https://mits.ac.in/public/uploads/sac/a444a4ebda293dfdf98a96d1ebdfae12.pdf",
-        year: "2021-22"
-      },
-      {
-        title: "Literary Club Events 2018-19",
-        url: "https://mits.ac.in/public/uploads/sac/3c419c80d46d0e806c9a3bf3eb4a5b67.pdf",
-        year: "2018-19"
-      },
-      {
-        title: "Literary Club Events 2017-18",
-        url: "https://mits.ac.in/public/uploads/sac/2569766bb73dd383ebbaea5c23e80f48.pdf",
-        year: "2017-18"
-      },
-      {
-        title: "Literary Club Events 2016-17",
-        url: "https://mits.ac.in/public/uploads/sac/da7595568f9435b6dfaa7e7c9bf13a30.pdf",
-        year: "2016-17"
-      },
-      {
-        title: "Literary Club Events 2015-16",
-        url: "https://mits.ac.in/public/uploads/sac/d72da20da5dc364f84c8be19f128e4e7.pdf",
-        year: "2015-16"
-      }
-    ]
-  },
-  {
-    id: "yoga-meditation",
-    name: "Yoga & Meditation Club",
-    sno: 10,
-    category: "Holistic Wellness & Mindfulness",
-    facultyAdvisor: "Mr. K. Manju Vikram",
-    studentCoordinator: "D. Aravind",
-    contactNumber: "7330843432",
-    image: "https://mits.ac.in/assets/images/club/yoga.jpg",
-    about:
-      "Yoga & Meditation Club fosters mental equanimity, physical vitality, and inner balance. In today's fast-paced academic journey, the club provides students with structured mindfulness training, asana practice, pranayama techniques, and stress reduction workshops.",
-    vision:
-      "To nurture balanced, healthy, and stress-free individuals through time-tested yogic science and meditation.",
-    mission:
-      "To conduct daily and weekly yoga sessions, mental wellness workshops, and celebratory events on International Day of Yoga.",
-    activities: [
-      "International Yoga Day Celebrations and Demonstrations",
-      "Pranayama & Guided Meditation for Academic Focus",
-      "Stress Management and Mental Resilience Workshops",
-      "Asana Practice Clinics for Posture and Spinal Health"
-    ],
-    events: [
-      {
-        title: "Yoga & Meditation Club Events 2022-23",
-        url: "https://mits.ac.in/public/uploads/sac/Yoga & Meditation Club Events 2022-23.pdf",
-        year: "2022-23"
-      },
-      {
-        title: "Yoga & Meditation Club Events 2021-22",
-        url: "https://mits.ac.in/public/uploads/sac/5e53e77f0a8f79f2203ebbeeb1c1106e.pdf",
-        year: "2021-22"
-      },
-      {
-        title: "Yoga & Meditation Club Events 2018-19",
-        url: "https://mits.ac.in/public/uploads/sac/96c78aee371239c8ebdd94132808064b.pdf",
-        year: "2018-19"
-      },
-      {
-        title: "Yoga & Meditation Club Events 2017-18",
-        url: "https://mits.ac.in/public/uploads/sac/23977c07e868a2bf6feec69f6e6d1cbf.pdf",
-        year: "2017-18"
-      },
-      {
-        title: "Yoga & Meditation Club Events 2016-17",
-        url: "https://mits.ac.in/public/uploads/sac/0b912c96c4291f0eb987505342a7fa95.pdf",
-        year: "2016-17"
-      },
-      {
-        title: "Yoga & Meditation Club Events 2015-16",
-        url: "https://mits.ac.in/public/uploads/sac/7b5fbe8db85a067d5ceca0495f504ca0.pdf",
-        year: "2015-16"
-      }
-    ]
-  },
-  {
-    id: "skill-bee",
-    name: "SKILL BEE Club",
-    sno: 11,
-    category: "Professional & Soft Skills",
-    facultyAdvisor: "Mr. K. Durga Charan",
-    studentCoordinator: "M Rasheed Ahamed",
-    contactNumber: "8332040887",
-    image: "https://mits.ac.in/assets/images/club/arts.jpg",
-    about:
-      "Skill Bee Club equips students with essential industry-ready soft skills, corporate etiquette, logical reasoning, and career aptitude. Through interactive group discussions, mock interviews, and presentation clinics, the club bridges the transition from campus to corporate.",
-    vision:
-      "To produce self-confident, articulate, and professionally polished graduates equipped for modern workplace leadership.",
-    mission:
-      "To provide continuous skill enrichment modules in communication, critical thinking, teamwork, and placement readiness.",
-    activities: [
-      "Group Discussion & Personal Interview (GD/PI) Simulation Clinics",
-      "Aptitude, Quantitative Reasoning & Logic Problem Sprints",
-      "Professional Resume Writing & LinkedIn Branding Workshops",
-      "Corporate Etiquette, Email Writing, and Business Communication"
-    ],
-    events: [
-      {
-        title: "Skill Bee Club Events & Workshop Report",
-        url: "https://mits.ac.in/public/uploads/sac/7b183dd2cf1675231c62f256086f68c7.pdf",
-        year: "2022-23"
-      },
-      {
-        title: "Soft Skills and Placement Aptitude Masterclass Series",
-        url: "https://mits.ac.in/public/uploads/sac/Consolidate%20Student%20Club%20Activities-2021-2022.pdf",
-        year: "2021-22"
-      }
-    ]
-  },
-  {
-    id: "arc",
-    name: "ARC Club",
-    sno: 12,
-    category: "Automation & Robotics",
-    facultyAdvisor: "Mr. P. Firoze khan",
-    studentCoordinator: "S. Mohammed Mateen Hussain",
-    contactNumber: "8297472017",
-    image: "https://mits.ac.in/assets/images/club/tech.jpg",
-    about:
-      "ARC Club (Automation & Robotics Club / UIRPA) empowers students to dive into robotic process automation, autonomous machines, micro-controllers, and intelligent automated systems. Irrespective of branch, members build automated bots, drone payloads, and industrial automation prototypes.",
-    vision:
-      "Enhancing all students to participate actively in their passionate stream (Robotic Process Automation) and creating the finest platform to share and present their skills irrespective of departments under the Student Activity Centre.",
-    mission:
-      "To build software and hardware technology concepts as a group, driving new efficiencies and creating innovative automation solutions to solve complex everyday tasks.",
-    activities: [
-      "Conducting Robotics events such as symposiums, Quizzes, Model exhibitions",
-      "Organizing Guest Lectures from Robotics & Automation Specialists",
-      "Hands-on Workshops on Robotic Process Automation (RPA) Tools",
-      "Robo-War, Line Follower, and Autonomous Bot Competitions"
-    ],
-    events: [
-      {
-        title: "Robotic Process Automation Workshop & Model Exhibition",
-        url: "https://mits.ac.in/public/uploads/sac/Inauguration%20of%20AI%20Learning%20Hub.pdf",
-        year: "2023-24"
-      },
-      {
-        title: "UIRPA Club Technical Activities & Competitions",
-        url: "https://mits.ac.in/public/uploads/sac/Consolidate%20Student%20Club%20Activities-2021-2022.pdf",
-        year: "2021-22"
-      }
-    ]
-  },
-  {
-    id: "drone-technology",
-    name: "Drone Technology Club",
-    sno: 13,
-    category: "Aerospace & Autonomous UAVs",
-    facultyAdvisor: "Dr. K. Arul kumar",
-    studentCoordinator: "K. Sai Teja",
-    contactNumber: "9182345671",
-    image: "https://mits.ac.in/assets/images/club/tech.jpg",
-    about:
-      "Drone Technology Club is the aerial innovation arm of MITS SAC. The club focuses on Unmanned Aerial Vehicle (UAV) design, flight telemetry, drone piloting, autonomous mission programming, 3D aerial mapping, and aerial photography applications.",
-    vision:
-      "To spearhead research, design, and piloting capabilities in autonomous aerial systems and next-generation drone technologies.",
-    mission:
-      "To guide students through flight dynamics, drone fabrication, FAA/DGCA regulatory protocols, and AI-enabled aerial computer vision.",
-    activities: [
-      "Quadcopter Assembly & Flight Calibration Workshops",
-      "Drone Piloting Simulator Training & Obstacle Course Flying",
-      "Aerial Surveillance & Agricultural Thermal Mapping Demos",
-      "Guest Lectures on Drone Regulations and Aerospace Careers"
-    ],
-    events: [
-      {
-        title: "Drone Flight Mechanics & Autonomous Navigation Workshop",
-        url: "https://mits.ac.in/public/uploads/sac/calender1.pdf",
-        year: "2023-24"
-      },
-      {
-        title: "Aerial Robotics & Telemetry Symposium",
-        url: "https://mits.ac.in/public/uploads/sac/Students%20club%20Constitution.pdf",
-        year: "2022-23"
-      }
-    ]
-  },
-  {
-    id: "entrepreneurs",
-    name: "Entrepreneur's Club",
-    sno: 14,
-    category: "Startups & Venture Incubation",
-    facultyAdvisor: "Dr. P. Sivaiah",
-    studentCoordinator: "T. Naveen Kumar",
-    contactNumber: "9848123456",
-    image: "https://mits.ac.in/assets/images/club/builders.jpg",
-    about:
-      "Operating in close tandem with the MITS Venture Studio and EDC, the Entrepreneur's Club fosters visionary startup ideation, venture prototyping, business model pitching, and angel investment readiness among ambitious student founders.",
-    vision:
-      "To transform innovative student engineers into job-creating founders, tech entrepreneurs, and sustainable venture builders.",
-    mission:
-      "To provide incubation support, founder bootcamps, intellectual property guidance, and investor networking for student startups.",
-    activities: [
-      "Campus Venture Pitch Competitions & Shark-Tank Simulations",
-      "Founder Talks with Successful Alumni Entrepreneurs",
-      "Startup Business Model Canvas & Pitch Deck Workshops",
-      "IPR & Patent Filing Guidance Clinics for Student Inventions"
-    ],
-    events: [
-      {
-        title: "Venture Ideation Bootcamp & Pitch Fest",
-        url: "https://mits.ac.in/public/uploads/sac/Inauguration%20of%20AI%20Learning%20Hub.pdf",
-        year: "2023-24"
-      },
-      {
-        title: "Entrepreneurship Awareness Drive & Founder Stories",
-        url: "https://mits.ac.in/public/uploads/sac/Consolidate%20Student%20Club%20Activities-2021-2022.pdf",
-        year: "2022-23"
-      }
-    ]
-  }
-];
+export const studentClubsList: StudentClubItem[] = studentClubsDirectory.map(d => ({
+  id: d.tabId,
+  name: d.name,
+  sno: d.sno,
+  facultyAdvisor: d.facultyAdvisor,
+  studentCoordinator: d.studentCoordinator,
+  contactNumber: d.contactNumber,
+  about: '',
+  events: []
+}));
