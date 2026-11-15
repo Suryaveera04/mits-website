@@ -391,91 +391,6 @@ export default function NasscomView() {
                 </div>
               </div>
             </ScrollReveal>
-
-            {/* LIST OF DEPARTMENT COORDINATORS */}
-            <ScrollReveal>
-              <div className="bg-white rounded-xl shadow-sm border border-slate-200/80 p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-lg bg-red-50 text-[#8B1D1D] flex items-center justify-center font-bold">
-                    <Users className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
-                      List of Department Coordinators
-                    </h2>
-                    <p className="text-xs text-slate-500">
-                      NASSCOM Cell Committee &amp; Institutional Representatives
-                    </p>
-                  </div>
-                </div>
-
-                <div className="overflow-x-auto rounded-lg border border-slate-200 shadow-2xs">
-                  <table className="w-full min-w-full text-left text-sm border-collapse table-auto">
-                    <thead>
-                      <tr className="bg-[#8B1D1D] text-white">
-                        <th className="py-3 px-4 font-semibold text-xs tracking-wider uppercase text-center w-14 whitespace-nowrap">
-                          S.No
-                        </th>
-                        <th className="py-3 px-4 font-semibold text-xs tracking-wider uppercase whitespace-nowrap">
-                          Department Name
-                        </th>
-                        <th className="py-3 px-4 font-semibold text-xs tracking-wider uppercase whitespace-nowrap">
-                          Designation
-                        </th>
-                        <th className="py-3 px-4 font-semibold text-xs tracking-wider uppercase text-center whitespace-nowrap">
-                          Position
-                        </th>
-                        <th className="py-3 px-4 font-semibold text-xs tracking-wider uppercase whitespace-nowrap">
-                          E-Mail ID
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100">
-                      {coordinators.map((member) => (
-                        <tr
-                          key={member.sno}
-                          className="hover:bg-slate-50/80 transition-colors"
-                        >
-                          <td className="py-3.5 px-4 font-medium text-slate-500 text-center whitespace-nowrap">
-                            {member.sno}
-                          </td>
-                          <td className="py-3.5 px-4 font-bold text-slate-900 whitespace-nowrap">
-                            {member.name}
-                          </td>
-                          <td className="py-3.5 px-4 text-slate-700 whitespace-nowrap">
-                            {member.designation}
-                          </td>
-                          <td className="py-3.5 px-4 text-center whitespace-nowrap">
-                            <span
-                              className={`inline-block px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
-                                member.position === "Chairperson"
-                                  ? "bg-amber-100 text-amber-900 border border-amber-300"
-                                  : member.position === "Coordinator"
-                                  ? "bg-red-100 text-red-900 border border-red-300"
-                                  : member.position === "External Member"
-                                  ? "bg-blue-50 text-blue-800 border border-blue-200"
-                                  : "bg-slate-100 text-slate-800"
-                              }`}
-                            >
-                              {member.position}
-                            </span>
-                          </td>
-                          <td className="py-3.5 px-4 whitespace-nowrap">
-                            <a
-                              href={`mailto:${member.email}`}
-                              className="inline-flex items-center gap-1.5 text-xs text-[#8B1D1D] hover:underline font-semibold whitespace-nowrap"
-                            >
-                              <Mail className="w-3.5 h-3.5 shrink-0" />
-                              <span className="whitespace-nowrap">{member.email}</span>
-                            </a>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
 
           {/* RIGHT SIDEBAR (3-4 COLS) */}
@@ -607,6 +522,91 @@ export default function NasscomView() {
             </div>
           </div>
         </div>
+
+        {/* FULL-WIDTH SECTION: LIST OF DEPARTMENT COORDINATORS (Completely visible without scroll) */}
+        <ScrollReveal>
+          <div className="bg-white rounded-xl shadow-sm border border-slate-200/80 p-6 sm:p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-lg bg-red-50 text-[#8B1D1D] flex items-center justify-center font-bold">
+                <Users className="w-5 h-5" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+                  List of Department Coordinators
+                </h2>
+                <p className="text-xs text-slate-500">
+                  NASSCOM Cell Committee &amp; Institutional Representatives
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-lg border border-slate-200 shadow-2xs overflow-hidden">
+              <table className="w-full text-left text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#8B1D1D] text-white">
+                    <th className="py-3.5 px-4 font-semibold text-xs tracking-wider uppercase text-center w-14 whitespace-nowrap">
+                      S.No
+                    </th>
+                    <th className="py-3.5 px-4 font-semibold text-xs tracking-wider uppercase whitespace-nowrap">
+                      Department Name
+                    </th>
+                    <th className="py-3.5 px-4 font-semibold text-xs tracking-wider uppercase">
+                      Designation
+                    </th>
+                    <th className="py-3.5 px-4 font-semibold text-xs tracking-wider uppercase text-center whitespace-nowrap">
+                      Position
+                    </th>
+                    <th className="py-3.5 px-4 font-semibold text-xs tracking-wider uppercase whitespace-nowrap">
+                      E-Mail ID
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {coordinators.map((member) => (
+                    <tr
+                      key={member.sno}
+                      className="hover:bg-slate-50/80 transition-colors"
+                    >
+                      <td className="py-3.5 px-4 font-medium text-slate-500 text-center whitespace-nowrap">
+                        {member.sno}
+                      </td>
+                      <td className="py-3.5 px-4 font-bold text-slate-900 whitespace-nowrap">
+                        {member.name}
+                      </td>
+                      <td className="py-3.5 px-4 text-slate-700">
+                        {member.designation}
+                      </td>
+                      <td className="py-3.5 px-4 text-center whitespace-nowrap">
+                        <span
+                          className={`inline-block px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
+                            member.position === "Chairperson"
+                              ? "bg-amber-100 text-amber-900 border border-amber-300"
+                              : member.position === "Coordinator"
+                              ? "bg-red-100 text-red-900 border border-red-300"
+                              : member.position === "External Member"
+                              ? "bg-blue-50 text-blue-800 border border-blue-200"
+                              : "bg-slate-100 text-slate-800"
+                          }`}
+                        >
+                          {member.position}
+                        </span>
+                      </td>
+                      <td className="py-3.5 px-4 whitespace-nowrap">
+                        <a
+                          href={`mailto:${member.email}`}
+                          className="inline-flex items-center gap-1.5 text-xs text-[#8B1D1D] hover:underline font-semibold whitespace-nowrap"
+                        >
+                          <Mail className="w-3.5 h-3.5 shrink-0" />
+                          <span className="whitespace-nowrap">{member.email}</span>
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       <Footer />
