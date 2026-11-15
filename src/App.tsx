@@ -222,6 +222,10 @@ const App = () => (
             {/* Centre of Innovation & Incubation */}
             <Route path="/innovation-center" element={<CellDetail overrideId="cii" />} />
             <Route path="/centre-of-innovation-and-incubation" element={<CellDetail overrideId="cii" />} />
+
+            {/* NASSCOM Cell */}
+            <Route path="/nasscom-cell" element={<CellDetail overrideId="nasscom" />} />
+            <Route path="/nasscom" element={<CellDetail overrideId="nasscom" />} />
             {/* Individual SDG Goals (2027) */}
             <Route path="/sdg1-2027" element={<SdgGoalDetailView overrideSlug="sdg1-2027" />} />
             <Route path="/sdg2-2027" element={<SdgGoalDetailView overrideSlug="sdg2-2027" />} />

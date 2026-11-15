@@ -9113,30 +9113,120 @@ export const cellsDetailData: Record<string, CellDetail> = {
   "nasscom": {
     "name": "National Association of Software and Services Companies (NASSCOM) Cell",
     "aboutText": [
-      "The NASSCOM FutureSkills Prime Cell at Madanapalle Institute of Technology & Science is established under the national skilling initiative in partnership with Ministry of Electronics and IT (MeitY) and NASSCOM.",
-      "The Cell delivers industry-validated digital certifications in Artificial Intelligence, Big Data, Cloud Computing, Cybersecurity, and IoT, aligning students with high-growth IT and ITeS employment opportunities."
+      "Madanapalle Institute of Technology & Science - Deemed to be University, India, has signed a Memorandum of Understanding (MoU) with the National Association of Software and Service Companies (Nasscom). Represented by Vice Chancellor (I/c) & Professor Dr. C. Yuvaraj, this collaboration aims to enhance the skill sets of MITS students, faculty, and staff through specialized training programs in emerging technologies."
     ],
     "members": [
       {
         "sno": "1",
         "name": "Dr. C. Yuvaraj",
-        "designation": "Vice Chancellor (I/c)",
+        "designation": "Vice Chancellor I/C",
         "position": "Chairperson",
-        "email": ""
+        "email": "vicechancellor@mits.ac.in"
       },
       {
         "sno": "2",
         "name": "Dr. P. Ramanathan",
-        "designation": "Vice-Principal (Administration)",
-        "position": "Coordinator",
-        "email": ""
+        "designation": "Professor, Dept. of ECE",
+        "position": "Member",
+        "email": "drramanathanp@mits.ac.in"
       },
       {
         "sno": "3",
-        "name": "Dr. C. Kamal Basha",
-        "designation": "Dean Quality Assurance",
+        "name": "Mr. Imran Kuttagola",
+        "designation": "Assistant Professor, Dept. of CE",
         "position": "Member",
-        "email": ""
+        "email": "imrankuttagola@mits.ac.in"
+      },
+      {
+        "sno": "4",
+        "name": "Mr. G. Kumar",
+        "designation": "Assistant Professor, Dept. of ME",
+        "position": "Member",
+        "email": "kumarg@mits.ac.in"
+      },
+      {
+        "sno": "5",
+        "name": "Mr. Asif Moiz",
+        "designation": "Assistant Professor, Dept. of ECE",
+        "position": "Member",
+        "email": "asifmoiz@mits.ac.in"
+      },
+      {
+        "sno": "6",
+        "name": "Dr. Vineet Kumar",
+        "designation": "Assistant Professor, Dept. of EEE",
+        "position": "Member",
+        "email": "drvineetkumar@mits.ac.in"
+      },
+      {
+        "sno": "7",
+        "name": "Dr. Senthil Kumar.K",
+        "designation": "Assistant Professor, Dept. of CSE",
+        "position": "Member",
+        "email": "drsenthilkumark@mits.ac.in"
+      },
+      {
+        "sno": "8",
+        "name": "Mr. L. Arul Jaya Prakash",
+        "designation": "Assistant Professor, Dept. of CST",
+        "position": "Member",
+        "email": "aruljayaprakashl@mits.ac.in"
+      },
+      {
+        "sno": "9",
+        "name": "Dr. Vamsi Bandi",
+        "designation": "Assistant Professor, Dept. of CSE (AI)",
+        "position": "Member",
+        "email": "drvamsib@mits.ac.in"
+      },
+      {
+        "sno": "10",
+        "name": "Ms. K. Mamatha",
+        "designation": "Lab Assistant, Dept. of CSE (CS)",
+        "position": "Member",
+        "email": "mamathak@mits.ac.in"
+      },
+      {
+        "sno": "11",
+        "name": "Dr. K. Nirmaladevi",
+        "designation": "Assistant Professor, Dept. of MCA",
+        "position": "Member",
+        "email": "drnirmaladevik@mits.ac.in"
+      },
+      {
+        "sno": "12",
+        "name": "Mr. Bojjam Praveen Kumar",
+        "designation": "Regional Lead, AP Academic and Government Relations NASSCOM Representative",
+        "position": "External Member",
+        "email": "t-Bojjam@mail.nasscom.in"
+      },
+      {
+        "sno": "13",
+        "name": "Dr. K. Sathesh",
+        "designation": "IQAC Coordinator",
+        "position": "Member",
+        "email": "iqac-coordinator@mits.ac.in"
+      },
+      {
+        "sno": "14",
+        "name": "Ms. S. Madhu Priya",
+        "designation": "Student Representative, II Year ECE",
+        "position": "External Member",
+        "email": "24691A04D3@mits.ac.in"
+      },
+      {
+        "sno": "15",
+        "name": "Mr. Nagesh Sreesanth",
+        "designation": "Student Representative, II Year CSE (AI and ML)",
+        "position": "External Member",
+        "email": "2469lA33B3@mits.ac.in"
+      },
+      {
+        "sno": "16",
+        "name": "Dr. E. Sandhya",
+        "designation": "NASSCOM SPOC, Assistant Professor, Dept. of CSE (AI&ML)",
+        "position": "Coordinator",
+        "email": "drsandhyae@mits.ac.in"
       }
     ],
     "documents": [
@@ -9157,46 +9247,45 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "href": "https://mits.ac.in/assets/pdf/assoc/NASSCOMM MoU 09.07.2024.pdf"
       },
       {
+        "title": "2024-25 I Semester - Certification Details",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Certification Details.pdf"
+      },
+      {
+        "title": "2024-25 I Semester - List of Courses",
+        "href": "https://mits.ac.in/assets/pdf/assoc/ListofCourses.pdf"
+      },
+      {
+        "title": "2024-25 I Semester - Registration Details",
+        "href": "https://mits.ac.in/assets/pdf/assoc/RegistrationDetails.pdf"
+      },
+      {
         "title": "Certificate Summary 2024-25 Sem I",
         "href": "https://mits.ac.in/assets/pdf/assoc/certificatesummary_2024-25_Sem1.pdf"
+      },
+      {
+        "title": "Certificate Summary 2024-25 Sem II",
+        "href": "https://mits.ac.in/assets/pdf/assoc/certificatesummary_2024-25_Sem2.pdf"
       }
     ],
     "contacts": [
       {
         "name": "Dr. E. Sandhya",
-        "designation": "Chief Coordinator & SPOC - NASSCOM Cell, Assoc. Professor - Dept. of CSE (AI&ML)",
-        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
-        "phone": "+91-8571-280255",
-        "email": "drsandhyae@mits.ac.in"
+        "designation": "Nasscom SPOC, Assistant Professor, Dept. of CSE (AI&ML)",
+        "address": "Madanapalle Institute of Technology & Science, Deemed to be University, Madanapalle-Kadiri Road, kurabalakota Mandal, Madanapalle-517325, Andhra Pradesh, India",
+        "phone": "+91-8571-280255, 280706",
+        "email": "nasscomcell@mits.ac.in"
       }
     ],
     "id": "nasscom",
-    "url": "https://mits.ac.in/nasscom",
+    "url": "https://mits.ac.in/nasscom-cell",
     "sections": [
       {
-        "title": "Programs & Certification Tracks",
+        "title": "Objectives of The MoU",
         "paragraphs": [
-          "NASSCOM FutureSkills Prime Foundation & Deep-Skilling courses.",
-          "Direct assessment and proctored certification recognized by leading IT employers across India.",
-          "Faculty training programs in emerging tech pedagogy led by NASSCOM certified industry mentors."
+          "To encourage continuous, self-paced learning, enabling participants to acquire new, industry-relevant skills.",
+          "To implement short-term awareness and skill competency development programs including Foundation and Deep Skilling courses (both free and paid) in the emerging technologies area.",
+          "To equip the students & faculty/staff members with specific skills that are important in today’s context. The learning intervention will keep them updated with the key trends / challenges faced in today’s digital ecosystem."
         ]
-      }
-    ],
-    "events": [
-      {
-        "title": "NASSCOM FutureSkills Prime Emerging Technologies Certification Drive",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Office%20Order-NASSCOM.pdf",
-        "date": "10-09-2025"
-      },
-      {
-        "title": "AI & Cloud Foundations Masterclass in Partnership with NASSCOM",
-        "href": "https://mits.ac.in/assets/pdf/assoc/NASSCOMM MoU 09.07.2024.pdf",
-        "date": "14-04-2025"
-      },
-      {
-        "title": "Cybersecurity Fundamentals and Threat Intelligence Boot Camp",
-        "href": "https://mits.ac.in/assets/pdf/assoc/certificatesummary_2024-25_Sem1.pdf",
-        "date": "20-01-2025"
       }
     ]
   },
