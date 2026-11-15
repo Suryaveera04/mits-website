@@ -8708,46 +8708,116 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "url": "https://mits.ac.in/ncc-airwing"
   },
   "ieee": {
-    "name": "IEEE Student Branch (STB17051)",
+    "name": "IEEE Student Branch (STB64791)",
     "aboutText": [
-      "The IEEE Student Branch at Madanapalle Institute of Technology & Science is one of the most vibrant professional technical student communities in the region, affiliated with the IEEE Hyderabad Section.",
-      "The Student Branch encompasses multiple active technical chapters and affinity groups, including IEEE Computer Society, IEEE Power & Energy Society (PES), IEEE Communications Society (ComSoc), and IEEE Women in Engineering (WIE).",
-      "Through expert lecture series, international technical symposiums, coding hackathons, and global humanitarian technology challenges, MITS IEEE inspires young engineers to innovate for the benefit of humanity."
+      "IEEE is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity. IEEE and its members inspire a global community through highly-cited publications, conferences, technology standards, and professional and educational activities.",
+      "The MITS IEEE Student Branch (STB64791) was initiated in 2005 and inaugurated on 2nd February 2006 under the IEEE Hyderabad Section and IEEE Ananthapuramu Subsection.",
+      "The Student Branch encompasses 17 specialized technical societies and councils, providing students with world-class technical exposure, international conferences, seasonal schools, and humanitarian technology leadership."
     ],
     "members": [
       {
         "sno": "1",
         "name": "Dr. C. Yuvaraj",
         "designation": "Vice Chancellor (I/c)",
-        "position": "Patron",
-        "email": ""
+        "position": "Chairperson",
+        "email": "vicechancellor@mits.ac.in"
       },
       {
         "sno": "2",
-        "name": "Dr. Velumani M",
-        "designation": "Assistant Professor, Dept. of ECE",
-        "position": "Coordinator",
+        "name": "Dr. Pavan Kumar A V",
+        "designation": "Professor & Asst. Dean Accreditations",
+        "position": "Advisor",
         "email": ""
       },
       {
         "sno": "3",
-        "name": "Dr. K. Arul kumar",
-        "designation": "Associate Professor, Dept. of EEE",
-        "position": "Branch Counselor / Advisor",
+        "name": "Dr. Arun I",
+        "designation": "Professor - ME",
+        "position": "Advisor",
         "email": ""
       },
       {
         "sno": "4",
-        "name": "Dr. C. Kamal Basha",
-        "designation": "Professor, Dept. of EEE",
-        "position": "Senior Advisor",
+        "name": "Dr. Nehru Kandasamy",
+        "designation": "Professor - ECE",
+        "position": "Advisor",
         "email": ""
       },
       {
         "sno": "5",
-        "name": "Student Chair",
-        "designation": "Undergraduate Student, ECE",
-        "position": "Student Chair",
+        "name": "Dr. E. Aravind Raj",
+        "designation": "Assistant Professor - ECE",
+        "position": "Advisor",
+        "email": ""
+      },
+      {
+        "sno": "6",
+        "name": "Dr. Gutti Nagaswetha",
+        "designation": "Assistant Professor - ECE",
+        "position": "Advisor",
+        "email": ""
+      },
+      {
+        "sno": "7",
+        "name": "Dr. G. Reddy Hemantha",
+        "designation": "Assistant Professor - ECE",
+        "position": "Advisor",
+        "email": ""
+      },
+      {
+        "sno": "8",
+        "name": "Dr. E. Gayatri",
+        "designation": "Assistant Professor - CSE",
+        "position": "Advisor",
+        "email": ""
+      },
+      {
+        "sno": "9",
+        "name": "Dr. K. Dinesh",
+        "designation": "Associate Professor & Head - CST",
+        "position": "Advisor",
+        "email": ""
+      },
+      {
+        "sno": "10",
+        "name": "Mr. K. Mahammad",
+        "designation": "Assistant Professor - CSE (AI)",
+        "position": "Advisor",
+        "email": ""
+      },
+      {
+        "sno": "11",
+        "name": "Dr. S. Kusuma",
+        "designation": "Assistant Professor & Head - CSE (DS)",
+        "position": "Advisor",
+        "email": ""
+      },
+      {
+        "sno": "12",
+        "name": "Mr. T. Niranjan Babu",
+        "designation": "Assistant Professor - CSE (CS)",
+        "position": "Advisor",
+        "email": ""
+      },
+      {
+        "sno": "13",
+        "name": "Dr. S. Padma",
+        "designation": "Associate Professor & Head - CSE (AI & ML)",
+        "position": "Advisor",
+        "email": ""
+      },
+      {
+        "sno": "14",
+        "name": "Dr. R. Marathamuthu",
+        "designation": "Assistant Professor - MCA",
+        "position": "Advisor",
+        "email": ""
+      },
+      {
+        "sno": "15",
+        "name": "Dr. C. Kumar",
+        "designation": "Assistant Professor - ECE",
+        "position": "Counsellor",
         "email": ""
       }
     ],
@@ -8771,15 +8841,39 @@ export const cellsDetailData: Record<string, CellDetail> = {
       {
         "title": "MITS IEEE Hierarchy",
         "href": "https://mits.ac.in/assets/pdf/assoc/MITS IEEE Hierarchy.pdf"
+      },
+      {
+        "title": "Student Head Committee",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Student Head Committee.pdf"
+      },
+      {
+        "title": "MITS IEEE Society Approval Letters",
+        "href": "https://mits.ac.in/assets/pdf/assoc/MITS IEEE Society Approval Letters.pdf"
+      },
+      {
+        "title": "Student Excom",
+        "href": "https://mits.ac.in/assets/pdf/assoc/Student Excom.pdf"
+      },
+      {
+        "title": "2025 Student Membership List",
+        "href": "https://mits.ac.in/assets/pdf/assoc/2025 Student Membership List.pdf"
+      },
+      {
+        "title": "2024 Student Membership List",
+        "href": "https://mits.ac.in/assets/pdf/assoc/2024 Student Membership List.pdf"
+      },
+      {
+        "title": "2023 Student Membership List",
+        "href": "https://mits.ac.in/assets/pdf/assoc/2023 Student Membership List.pdf"
       }
     ],
     "contacts": [
       {
-        "name": "Dr. Velumani M",
-        "designation": "Assistant Professor (ECE) & IEEE Coordinator",
-        "address": "Madanapalle Institute of Technology & Science, Madanapalle - 517325",
-        "phone": "+91-8571-280255",
-        "email": "ieee@mits.ac.in"
+        "name": "Dr. Somu Vijaya Bhaskar",
+        "designation": "IEEE Coordinator & Associate Professor (Dept. of EEE)",
+        "address": "Madanapalle Institute of Technology & Science, Kurabalakota Mandal, Madanapalle - 517325, Andhra Pradesh, India",
+        "phone": "+91-8571-280255, 280706",
+        "email": "ieeechapter@mits.ac.in"
       }
     ],
     "id": "ieee",

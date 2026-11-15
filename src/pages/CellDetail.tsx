@@ -40,6 +40,7 @@ import UiGreenMetricView from "@/components/cells/UiGreenMetricView";
 import RdCellView from "@/components/cells/RdCellView";
 import InnovationCenterView from "@/components/cells/InnovationCenterView";
 import NasscomView from "@/components/cells/NasscomView";
+import IeeeView from "@/components/cells/IeeeView";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -263,6 +264,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "nasscom" || targetId === "nasscom-cell") {
     return <NasscomView />;
+  }
+
+  if (targetId === "ieee" || targetId === "ieee-student-branch") {
+    return <IeeeView />;
   }
 
   if (!cell) {

@@ -83,7 +83,7 @@ export const cellCategories: CellCategory[] = [
     title: "Professional Societies & Chapters",
     description: "Student and faculty chapters of national and international professional bodies.",
     cells: [
-      { name: "Institute of Electrical and Electronics Engineers - IEEE Student Branch", href: "https://mits.ac.in/ieee", detailId: "ieee" },
+      { name: "Institute of Electrical and Electronics Engineers - IEEE Student Branch", href: "/cells/ieee", detailId: "ieee" },
       { name: "Indian Society for Technical Education - ISTE Chapter", href: "https://mits.ac.in/iste", detailId: "iste" },
       { name: "Computer Society of India - CSI Student Branch", href: "https://mits.ac.in/csi-content", detailId: "csi" },
       { name: "Institution of Electronics and Telecommunication Engineers", abbreviation: "IETE", href: "https://mits.ac.in/iete", detailId: "iete" },

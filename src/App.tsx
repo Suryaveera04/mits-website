@@ -227,6 +227,10 @@ const App = () => (
             {/* NASSCOM Cell */}
             <Route path="/nasscom-cell" element={<CellDetail overrideId="nasscom" />} />
             <Route path="/nasscom" element={<CellDetail overrideId="nasscom" />} />
+
+            {/* IEEE Student Branch */}
+            <Route path="/ieee" element={<CellDetail overrideId="ieee" />} />
+            <Route path="/ieee-student-branch" element={<CellDetail overrideId="ieee" />} />
             {/* Individual SDG Goals (2027) */}
             <Route path="/sdg1-2027" element={<SdgGoalDetailView overrideSlug="sdg1-2027" />} />
             <Route path="/sdg2-2027" element={<SdgGoalDetailView overrideSlug="sdg2-2027" />} />
