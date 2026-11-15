@@ -794,53 +794,72 @@ const Careers = ({ initialTab = "overview" }: { initialTab?: string }) => {
                   </a>
                 </div>
 
-                <div className="border rounded-xl overflow-hidden bg-card shadow-sm">
+                <div className="border border-[#990000]/40 rounded-xl overflow-hidden bg-card shadow-sm">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-left border-collapse text-base">
+                    <table className="w-full text-left border-collapse text-base border-spacing-0">
                       <thead>
-                        <tr className="bg-[#990000] text-white border-b text-sm md:text-base uppercase tracking-wider font-bold">
+                        <tr className="bg-[#990000] text-white border-b border-[#990000] text-sm md:text-base uppercase tracking-wider font-bold">
                           <th className="p-4 md:p-5 w-1/4 border-r border-white/20">Department</th>
-                          <th className="p-4 md:p-5 w-1/4 border-r border-white/20">Positions</th>
+                          <th className="p-4 md:p-5 w-1/4 border-r border-white/20 text-center">Positions</th>
                           <th className="p-4 md:p-5 w-1/2">Qualification, Experience &amp; Pay</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y">
+                      <tbody className="divide-y divide-[#990000]/20">
                         {facultyGroups.map((group, gIdx) =>
-                          group.roles.map((role, rIdx) => (
-                            <tr key={`${gIdx}-${rIdx}`} className="hover:bg-muted/20 transition">
-                              {rIdx === 0 ? (
-                                <td
-                                  rowSpan={group.roles.length}
-                                  className="p-5 align-top font-bold text-foreground border-r bg-muted/10 text-base md:text-lg"
-                                >
-                                  {group.department}
+                          group.roles.map((role, rIdx) => {
+                            const cleanSalary = role.salary
+                              .replace(/\.?\s*Higher pay for deserving applicants\.?/i, "")
+                              .trim();
+                            return (
+                              <tr
+                                key={`${gIdx}-${rIdx}`}
+                                className="hover:bg-muted/10 transition"
+                              >
+                                {rIdx === 0 ? (
+                                  <td
+                                    rowSpan={group.roles.length}
+                                    className="p-5 align-middle font-bold text-foreground border-r border-[#990000]/20 bg-muted/5 text-base md:text-lg text-center sm:text-left"
+                                  >
+                                    {group.department}
+                                  </td>
+                                ) : null}
+                                <td className="p-5 align-middle font-bold text-foreground text-base border-r border-[#990000]/20 text-center">
+                                  <span className="font-bold text-base md:text-lg text-[#0f2a44] dark:text-white">
+                                    {role.position}
+                                  </span>
                                 </td>
-                              ) : null}
-                              <td className="p-5 align-top font-bold text-foreground text-base border-r">
-                                {role.position}
-                              </td>
-                              <td className="p-5 align-top space-y-3 text-[15px] md:text-base leading-relaxed">
-                                <div>
-                                  <span className="font-bold text-foreground">Qualification: </span>
-                                  <span className="text-foreground/90">{role.qualification}</span>
-                                </div>
-                                {role.specialization && (
+                                <td className="p-5 align-top space-y-2.5 text-[15px] md:text-base leading-relaxed">
                                   <div>
-                                    <span className="font-bold text-foreground">Specialization: </span>
-                                    <span className="text-foreground/90">{role.specialization}</span>
+                                    <span className="font-bold text-[#990000]">Qualification: </span>
+                                    <span className="text-foreground/90 font-medium">{role.qualification}</span>
                                   </div>
-                                )}
-                                <div>
-                                  <span className="font-bold text-foreground">Experience: </span>
-                                  <span className="text-foreground/90">{role.experience}</span>
-                                </div>
-                                <div className="pt-2 border-t">
-                                  <span className="font-bold text-[#990000] dark:text-red-400">Salary: </span>
-                                  <span className="font-semibold text-foreground/90">{role.salary}</span>
-                                </div>
-                              </td>
-                            </tr>
-                          ))
+                                  {role.specialization && (
+                                    <div>
+                                      <span className="font-bold text-[#990000]">Specialization : </span>
+                                      <span className="text-foreground/90 font-medium">{role.specialization}</span>
+                                    </div>
+                                  )}
+                                  <div>
+                                    <span className="font-bold text-[#990000]">Experience: </span>
+                                    <span className="text-foreground/90 font-medium">{role.experience}</span>
+                                  </div>
+                                  <div className="pt-1">
+                                    <span className="font-bold text-[#990000]">Salary: </span>
+                                    <span className="text-foreground/90 font-medium">
+                                      {cleanSalary}
+                                    </span>
+                                  </div>
+                                  {/* Higher pay for deserving applicants on new line with bold red callout */}
+                                  <div className="pt-1">
+                                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-50 border border-red-200 text-[#990000] font-bold text-xs sm:text-sm tracking-wide shadow-2xs">
+                                      <Sparkles className="w-3.5 h-3.5 text-[#990000]" />
+                                      Higher pay for deserving applicants.
+                                    </span>
+                                  </div>
+                                </td>
+                              </tr>
+                            );
+                          })
                         )}
                       </tbody>
                     </table>
