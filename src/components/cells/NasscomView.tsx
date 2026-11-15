@@ -250,8 +250,8 @@ export default function NasscomView() {
         </nav>
       </section>
 
-      {/* MAIN CONTAINER */}
-      <div className="container mx-auto px-4 py-10 max-w-7xl">
+      {/* MAIN CONTAINER - Full Page Coverage */}
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8">
         {/* BACK BUTTON */}
         <div className="mb-6">
           <Link
@@ -263,10 +263,10 @@ export default function NasscomView() {
           </Link>
         </div>
 
-        {/* 2-COLUMN LAYOUT */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* LEFT CONTENT (8 COLS) */}
-          <div className="lg:col-span-8 space-y-8">
+        {/* 2-COLUMN EXPANSIVE LAYOUT */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-10 items-start">
+          {/* LEFT CONTENT (8-9 COLS) */}
+          <div className="lg:col-span-8 xl:col-span-9 space-y-8">
             {/* ABOUT NASSCOM CELL */}
             <ScrollReveal>
               <div className="bg-white rounded-xl shadow-sm border border-slate-200/80 p-6 sm:p-8">
@@ -346,7 +346,7 @@ export default function NasscomView() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                   {documents.map((doc, idx) => (
                     <a
                       key={idx}
@@ -464,33 +464,44 @@ export default function NasscomView() {
             </ScrollReveal>
           </div>
 
-          {/* RIGHT SIDEBAR (4 COLS) */}
-          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
-            {/* CONTACT CARD */}
+          {/* RIGHT SIDEBAR (3-4 COLS) */}
+          <div className="lg:col-span-4 xl:col-span-3 space-y-6 lg:sticky lg:top-28">
+            {/* CONTACT CARD - Crisp High-Contrast Colors */}
             <div className="bg-white rounded-xl shadow-md border border-slate-200/80 overflow-hidden">
-              <div className="bg-[#8B1D1D] text-white px-6 py-4">
-                <h3 className="text-xl font-bold tracking-tight">Contact</h3>
-                <p className="text-xs text-white/80">NASSCOM SPOC &amp; Directorate</p>
+              <div className="bg-[#8B1D1D] px-6 py-4 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5 text-amber-300" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold tracking-tight text-white !text-white leading-tight">
+                    Contact
+                  </h3>
+                  <p className="text-xs text-amber-100/90 !text-amber-100 font-medium">
+                    NASSCOM SPOC &amp; Directorate
+                  </p>
+                </div>
               </div>
 
               <div className="p-6 space-y-5">
                 <div>
-                  <h4 className="text-lg font-bold text-slate-900">
+                  <h4 className="text-lg font-bold text-slate-900 !text-slate-900">
                     Dr. E. Sandhya
                   </h4>
-                  <p className="text-xs font-semibold text-[#8B1D1D] uppercase tracking-wide mt-0.5">
+                  <div className="inline-block mt-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-100 text-[#8B1D1D] border border-red-200">
                     Nasscom SPOC
-                  </p>
-                  <p className="text-xs text-slate-600">
+                  </div>
+                  <p className="text-xs text-slate-700 font-medium mt-1.5 leading-relaxed">
                     Assistant Professor, Dept. of CSE (AI&amp;ML)
                   </p>
                 </div>
 
-                <div className="border-t border-slate-100 pt-4 space-y-3.5 text-sm">
+                <div className="border-t border-slate-100 pt-4 space-y-4 text-sm">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-[#8B1D1D] shrink-0 mt-0.5" />
-                    <div className="text-xs text-slate-700 leading-relaxed">
-                      <strong className="block text-slate-900 font-semibold mb-0.5">
+                    <div className="w-7 h-7 rounded-md bg-red-50 text-[#8B1D1D] flex items-center justify-center shrink-0 mt-0.5">
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                    <div className="text-xs text-slate-800 leading-relaxed">
+                      <strong className="block text-slate-900 font-bold mb-0.5 uppercase tracking-wider text-[11px]">
                         Address:
                       </strong>
                       Madanapalle Institute of Technology &amp; Science<br />
@@ -502,21 +513,23 @@ export default function NasscomView() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Phone className="w-4 h-4 text-[#8B1D1D] shrink-0 mt-0.5" />
-                    <div className="text-xs text-slate-700 leading-relaxed">
-                      <strong className="block text-slate-900 font-semibold mb-0.5">
+                    <div className="w-7 h-7 rounded-md bg-red-50 text-[#8B1D1D] flex items-center justify-center shrink-0 mt-0.5">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <div className="text-xs text-slate-800 leading-relaxed">
+                      <strong className="block text-slate-900 font-bold mb-0.5 uppercase tracking-wider text-[11px]">
                         Phone:
                       </strong>
                       <a
                         href="tel:+918571280255"
-                        className="hover:text-[#8B1D1D] transition-colors"
+                        className="text-[#8B1D1D] font-bold hover:underline"
                       >
                         +91-8571-280255
                       </a>
                       ,{" "}
                       <a
                         href="tel:+918571280706"
-                        className="hover:text-[#8B1D1D] transition-colors"
+                        className="text-[#8B1D1D] font-bold hover:underline"
                       >
                         280706
                       </a>
@@ -524,20 +537,22 @@ export default function NasscomView() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Mail className="w-4 h-4 text-[#8B1D1D] shrink-0 mt-0.5" />
-                    <div className="text-xs text-slate-700 leading-relaxed">
-                      <strong className="block text-slate-900 font-semibold mb-0.5">
+                    <div className="w-7 h-7 rounded-md bg-red-50 text-[#8B1D1D] flex items-center justify-center shrink-0 mt-0.5">
+                      <Mail className="w-4 h-4" />
+                    </div>
+                    <div className="text-xs text-slate-800 leading-relaxed">
+                      <strong className="block text-slate-900 font-bold mb-0.5 uppercase tracking-wider text-[11px]">
                         E-Mail:
                       </strong>
                       <a
                         href="mailto:nasscomcell@mits.ac.in"
-                        className="text-[#8B1D1D] hover:underline font-semibold block"
+                        className="text-[#8B1D1D] hover:underline font-bold block break-all text-sm"
                       >
                         nasscomcell@mits.ac.in
                       </a>
                       <a
                         href="mailto:drsandhyae@mits.ac.in"
-                        className="text-slate-600 hover:underline block text-[11px] mt-0.5"
+                        className="text-slate-600 hover:text-[#8B1D1D] hover:underline block text-xs mt-1 break-all font-medium"
                       >
                         drsandhyae@mits.ac.in
                       </a>
