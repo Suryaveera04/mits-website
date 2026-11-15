@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ExternalLink, FileText } from "lucide-react";
+import { ExternalLink, FileText, Sparkles } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -237,86 +237,52 @@ export default function StudentClubs() {
   const handleSelectTab = (tabId: string) => {
     setActiveTabId(tabId);
     window.history.replaceState(null, "", `#${tabId}`);
-    window.scrollTo({ top: 280, behavior: "smooth" });
+    window.scrollTo({ top: 320, behavior: "smooth" });
   };
 
   const currentTab: OfficialClubTab =
     officialClubsTabs.find((tab) => tab.id === activeTabId) || officialClubsTabs[0];
 
-  // Helper to format section content (list items vs narrative paragraphs)
-  const renderSectionContent = (heading: string, text: string) => {
-    const isListSection =
-      heading.toLowerCase().includes("objective") ||
-      heading.toLowerCase().includes("activities planned") ||
-      heading.toLowerCase().includes("vision") ||
-      heading.toLowerCase().includes("mission");
-
-    if (isListSection) {
-      // Split by newlines or sentence boundaries with dots
-      const rawLines = text
-        .split(/\n+/)
-        .flatMap((line) => line.split(/(?<=[.!?])\s+(?=[A-Z0-9])/))
-        .map((s) => s.trim())
-        .filter((s) => s.length > 3);
-
-      return (
-        <ul className="space-y-2.5 mt-3">
-          {rawLines.map((line, idx) => (
-            <li key={idx} className="flex items-start gap-2.5 text-slate-700 text-sm md:text-base leading-relaxed">
-              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[#8B1D1D] text-white text-[9px] font-bold shrink-0 mt-1 select-none">
-                ›
-              </span>
-              <span>{line}</span>
-            </li>
-          ))}
-        </ul>
-      );
-    }
-
-    // Default narrative text (paragraphs)
-    return (
-      <div className="space-y-3 mt-2 text-slate-700 text-sm md:text-base leading-relaxed">
-        {text.split(/\n+/).map((para, idx) => (
-          <p key={idx}>{para.trim()}</p>
-        ))}
-      </div>
-    );
-  };
-
   return (
-    <div className="min-h-screen bg-[#fcfcfc] text-slate-800">
+    <div className="min-h-screen bg-[#fafaf7] text-slate-800">
       <Header />
 
-      {/* HERO SECTION - Student Clubs (Independent Breadcrumb: Home > Student Clubs) */}
+      {/* HERO SECTION - Exact match to other MITS pages (SacView, Cells, etc.) */}
       <section
-        className="relative pt-32 md:pt-40 pb-16 overflow-hidden"
+        className="relative pt-32 md:pt-44 pb-20 overflow-hidden"
         style={{
           backgroundImage: `url("${BASE}Hero-Section/image-5.jpg")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/45 bg-gradient-to-b from-black/40 via-black/25 to-black/60" />
-        <div className="relative z-10 w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
-          <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-3 drop-shadow-md">
+        <div className="absolute inset-0 bg-black/25 bg-gradient-to-b from-black/20 via-black/10 to-black/30" />
+
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm inline-flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-[#ffd15c]" />
+            <span>Campus Life &amp; Student Welfare</span>
+          </p>
+          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
             Student Clubs
           </h1>
-          <p className="text-white/90 text-sm md:text-base max-w-3xl mx-auto font-medium drop-shadow-xs">
+          <p className="text-white/90 text-sm sm:text-base max-w-3xl mx-auto font-light leading-relaxed drop-shadow-sm">
             Student-driven technical societies, cultural associations, and social initiative clubs fostering innovation, leadership, and holistic development.
           </p>
-
-          <nav className="mt-4 flex items-center justify-center">
-            <ol className="flex items-center gap-2 text-xs sm:text-sm text-white/80 bg-black/30 backdrop-blur-xs px-4 py-1.5 rounded-full">
-              <li>
-                <Link to="/" className="text-white/80 hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li className="text-white/50">›</li>
-              <li className="text-[#ffd15c] font-semibold">Student Clubs</li>
-            </ol>
-          </nav>
         </div>
+
+        {/* BOTTOM-LEFT CORNER BREADCRUMB (Standard across all MITS pages) */}
+        <nav className="absolute bottom-4 left-6 md:left-12 z-10">
+          <ol className="flex items-center gap-1.5 text-xs sm:text-sm text-white/80">
+            <li>
+              <Link to="/" className="text-white/70 hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
+            <li className="text-white/50">›</li>
+            <li className="text-[#ffd15c] font-medium">Student Clubs</li>
+          </ol>
+        </nav>
       </section>
 
       {/* MAIN CONTAINER - Using Space Wisely */}
@@ -599,7 +565,7 @@ export default function StudentClubs() {
               </div>
             ) : (
               /* INDIVIDUAL CLUBS: ug-tab2 through ug-tabed */
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {/* Heading */}
                 <div>
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
@@ -628,30 +594,67 @@ export default function StudentClubs() {
                   </div>
                 )}
 
-                {/* Intro / Quote */}
-                {currentTab.intro && (
-                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed italic border-l-2 border-[#8B1D1D] pl-4">
-                    {currentTab.intro}
-                  </p>
-                )}
-
-                {/* Sections: About Us, Objectives, Activities Planned, Vision, Mission */}
-                {currentTab.sections && currentTab.sections.length > 0 && (
-                  <div className="space-y-6">
-                    {currentTab.sections.map((sec, idx) => (
-                      <div key={idx} className="space-y-2">
-                        <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-900">
-                          {sec.heading}
-                        </h3>
-                        {renderSectionContent(sec.heading, sec.text)}
-                      </div>
-                    ))}
+                {/* Content Blocks: Headings, Paragraphs, Ordered Lists, Bullet Lists */}
+                {currentTab.blocks && currentTab.blocks.length > 0 && (
+                  <div className="space-y-4">
+                    {currentTab.blocks.map((block, bIdx) => {
+                      if (block.type === "heading") {
+                        return (
+                          <h3
+                            key={bIdx}
+                            className="font-serif text-lg sm:text-xl font-bold text-slate-900 pt-3"
+                          >
+                            {block.text}
+                          </h3>
+                        );
+                      }
+                      if (block.type === "ordered_list") {
+                        return (
+                          <ol
+                            key={bIdx}
+                            className="space-y-2.5 my-3 list-decimal list-inside text-slate-700 text-sm sm:text-base leading-relaxed pl-1"
+                          >
+                            {block.items.map((item, iIdx) => (
+                              <li key={iIdx} className="text-slate-800 font-normal">
+                                <span className="text-slate-700">{item}</span>
+                              </li>
+                            ))}
+                          </ol>
+                        );
+                      }
+                      if (block.type === "bullet_list") {
+                        return (
+                          <ul key={bIdx} className="space-y-2.5 my-3">
+                            {block.items.map((item, iIdx) => (
+                              <li
+                                key={iIdx}
+                                className="flex items-start gap-2.5 text-slate-700 text-sm sm:text-base leading-relaxed"
+                              >
+                                <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[#8B1D1D] text-white text-[9px] font-bold shrink-0 mt-1 select-none">
+                                  ›
+                                </span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        );
+                      }
+                      // Paragraph
+                      return (
+                        <p
+                          key={bIdx}
+                          className="text-slate-700 text-sm sm:text-base leading-relaxed my-2"
+                        >
+                          {block.text}
+                        </p>
+                      );
+                    })}
                   </div>
                 )}
 
                 {/* List of Activities (PDF Reports list with document icons on right) */}
                 {currentTab.reports && currentTab.reports.length > 0 && (
-                  <div className="pt-4 space-y-4">
+                  <div className="pt-6 space-y-4">
                     <h3 className="font-serif text-xl font-bold text-slate-900">
                       List of Activities:
                     </h3>

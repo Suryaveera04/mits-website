@@ -4,6 +4,12 @@ export interface ClubReport {
   year?: string;
 }
 
+export type ClubBlock =
+  | { type: 'heading'; text: string }
+  | { type: 'paragraph'; text: string }
+  | { type: 'ordered_list'; items: string[] }
+  | { type: 'bullet_list'; items: string[] };
+
 export interface StudentClubItem {
   id: string;
   name: string;
@@ -24,10 +30,8 @@ export interface OfficialClubTab {
   id: string;
   name: string;
   logo: string;
-  intro: string;
-  sections: { heading: string; text: string }[];
+  blocks: ClubBlock[];
   reports: ClubReport[];
-  tab1Docs?: ClubReport[];
 }
 
 export const officialClubsTabs: OfficialClubTab[] = [
@@ -35,75 +39,64 @@ export const officialClubsTabs: OfficialClubTab[] = [
     "id": "ug-tab1",
     "name": "About Student Clubs",
     "logo": "",
-    "intro": "",
-    "sections": [
+    "blocks": [
       {
-        "heading": "Inauguration of AI Learning Hub",
-        "text": ""
+        "type": "paragraph",
+        "text": "The dynamism of academic life spills out of the classrooms. It is a credit to the mental and intellectual focus of the students that many of the clubs are extensions of their academic and career aspirations. There are several annual ‘fests’ and entertainment events organized by the institution every year. Students’ clubs provide a forum for interaction among themselves and the outside world events, however varied, it may be formal or informal, but brings out the passion in youngsters and develop their organizational skills. The clubs bring about a good balance of work, fun and leisure activities and ensure the all round development of students."
       },
       {
-        "heading": "Workshop",
-        "text": ""
+        "type": "heading",
+        "text": "Importance of Student Clubs :"
       },
       {
-        "heading": "Workshop",
-        "text": ""
+        "type": "paragraph",
+        "text": "Students’ Clubs are the main hub of student activity. They provide an outlet and a stage for the creative juices of young minds and hearts. The clubs give you the chance to apply classroom learning in the outside world. This helps you to gain invaluable leadership as well as life skills. In addition to connecting other students who have similar interests, students’ clubs make students to interact with alumni and professionals in their fields of interest."
       },
       {
-        "heading": "Anti-Ragging Logo League",
-        "text": "Anti-Ragging Logo League under Skill Bee Club was organized by Student Activity Center & Anti-Ragging Cell at MITS in association with Department of CSE - Data Science. Date: 14th August 2025"
+        "type": "heading",
+        "text": "Benefits of Students Clubs:"
       },
       {
-        "heading": "Anti-Ragging Art Competition",
-        "text": "Anti-Ragging Art Competition was organized at MITS in association Arts and Clutural Club. Date: 14th August 2025"
+        "type": "bullet_list",
+        "items": [
+          "Students’ clubs enrich your experience, create a diverse community, encourage involvement, and provide opportunities for students to build valuable skills",
+          "This helps you to build formal and informal networks while exploring career opportunities.",
+          "Open to all students, these clubs organize programs, events, and meetings throughout the academic year. Clubs listed here are officially recognized."
+        ]
       },
       {
-        "heading": "Zero Tolerance Ralley",
-        "text": "Zero Tolerance Ralley was organized at MITS in association MSR Club Date: 12th August 2025"
+        "type": "bullet_list",
+        "items": [
+          "Student Club Constitution",
+          "Event Calender",
+          "Consolidate Student Club Activities 2025-2026",
+          "Consolidate Student Club Activities 2024-2025",
+          "Consolidate Student Club Activities 2023-2024",
+          "Consolidate Student Club Activities 2022-2023",
+          "Consolidate Student Club Activities 2021-2022"
+        ]
       },
       {
-        "heading": "Anti-Ragging Week",
-        "text": "Anti-Ragging Week was organized at MITS in association with Film Makers Club, SAC and Anti-Ragging Cell. Date: 12th August 2025"
+        "type": "paragraph",
+        "text": "Name of the Club"
       },
       {
-        "heading": "Importance of Student Clubs :",
-        "text": "Students\u2019 Clubs are the main hub of student activity. They provide an outlet and a stage for the creative juices of young minds and hearts. The clubs give you the chance to apply classroom learning in the outside world. This helps you to gain invaluable leadership as well as life skills. In addition to connecting other students who have similar interests, students\u2019 clubs make students to interact with alumni and professionals in their fields of interest."
+        "type": "paragraph",
+        "text": "Faculty Advisor"
       },
       {
-        "heading": "Benefits of Students Clubs:",
-        "text": "Students\u2019 clubs enrich your experience, create a diverse community, encourage involvement, and provide opportunities for students to build valuable skills This helps you to build formal and informal networks while exploring career opportunities. Open to all students, these clubs organize programs, events, and meetings throughout the academic year. Clubs listed here are officially recognized.\n\nClubs\n\nName of the Club Faculty Advisor Student Coordinator Contact Number Arts and Cultural Club Mr. Y. Pradeep Kumar B. Amrutha 6281360083 R. Nikhil 9666685646 Film Makers Club Mr. K. Md.Riyaz Ali M.K. Sudheer 7013242253 G. Ramanjeneyulu Reddy 8555946223 Web Club Dr. P. Kavitha R. Baba Fakhruddin 9704290783 Syed Mansoor 8096126294 MSR Club Mr. B.S.H. Shayeez Ahamed V. Venkata Tarun 6303544711 Sports Club Dr. C. Damodharan M.G. Lokesh 9515771641 P. Vyshnavi 9154790706 Yoga & Meditation Club Mr. K. Manju Vikram Muppireddy Keerthi 7569116140 Sai Phani Charan S.M 6361772686 ARC Club Mr. Rajkumar. G C. Usman Gani 9441578782 T. Yugesh 6281185755 Tech Club Mr. D. Abdul Jaleel Y. Charan Teja Reddy 8341484199 K. Ayesha 8978703213 Anchors Club Mr. Narasimha Charlu Gavvala Narendra Kumar 9010735719 Literary club Mr. T. Rama Mohan Yangala Likitha 9391504875 J. Naveen Kumar 7013255586 Builders Club Dr. K. Imran Kopparthi Nandini Reddy 7793933029 Sabir Shaik 7815970442 Drone Technology Club Mr. P. Mohammed Rizwan Ali B.Sathvik 9030304850 AI Learning Hub Club Mr. Shaik Tipu Rahaman N. Ashraf Vali 6281025228 Palagiri Mahammad Aman 9989706451 Enterprenuers Club Dr. Kosaraju Sireesha Yasheen Khan Nyazi 7993657748 Thoppireddy Sai Poojitha - Skill Bee club Mr. K. Durga Charan K. Nikhil 9390125801 G. Gangaiah Coding Club Mrs. Komala Anamalamudi Mogili Kushal vardhan 7382545438 S C Sujan 6309959667 Cisco Networking Club Dr. V. Jayaprakasan K. Lokeswar Reddy 7989239624"
+        "type": "paragraph",
+        "text": "Student Coordinator"
+      },
+      {
+        "type": "paragraph",
+        "text": "Contact Number"
       }
     ],
     "reports": [
       {
-        "title": "Click here for Report on Event",
-        "url": "https://mits.ac.in/public/uploads/sac/Inauguration of AI Learning Hub.pdf"
-      },
-      {
-        "title": "Click here for Report on Event",
-        "url": "https://mits.ac.in/public/uploads/sac/28th Annual Day Celebrations 2026.pdf"
-      },
-      {
-        "title": "Click here for Event Details",
-        "url": "https://mits.ac.in/public/uploads/sac/Introduction to Development Environment.pdf"
-      },
-      {
         "title": "Student Club Constitution",
         "url": "https://mits.ac.in/public/uploads/sac/SOP of SAC 2025-26.pdf"
-      },
-      {
-        "title": "Consolidate Student Club Activities 2024-2025",
-        "url": "https://mits.ac.in/public/uploads/sac/STUDENT CLUB ACTIVITIES -ACADEMIC YEAR 2024-25.pdf"
-      }
-    ],
-    "tab1Docs": [
-      {
-        "title": "Student Club Constitution",
-        "url": "https://mits.ac.in/public/uploads/sac/SOP of SAC 2025-26.pdf"
-      },
-      {
-        "title": "Event Calender",
-        "url": "https://calendar.google.com/calendar/u/0/embed?src=69849e23341ca5a7ae2952df17e3fb78318e6d704f514726f577a8391f650481@group.calendar.google.com&ctz=Asia/Kolkata"
       },
       {
         "title": "Consolidate Student Club Activities 2025-2026",
@@ -131,8 +124,12 @@ export const officialClubsTabs: OfficialClubTab[] = [
     "id": "ug-tab2",
     "name": "Arts & Cultural Club",
     "logo": "images/club/ac.jpg",
-    "intro": "\u201cArt is not what you see but what you make others see\u201d. With this belief in mind, MITS endeavors to showcase life as they see it through the eyes of art. Arts and Cultural Club is an ambitious, all-inclusive one. It is a tempting, artistic, beautiful meeting-place for anybody with passion. The clubs\u2019 mission is to bring out the hidden talents among students and also provide them a stage where they can showcase their arts and cultural talent and interest. The club provides lot of opportunities in the form of competitions and workshops for igniting the spark of interest present in the budding technocrats and honing their skills towards showcasing their talents.",
-    "sections": [],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "“Art is not what you see but what you make others see”. With this belief in mind, MITS endeavors to showcase life as they see it through the eyes of art. Arts and Cultural Club is an ambitious, all-inclusive one. It is a tempting, artistic, beautiful meeting-place for anybody with passion. The clubs’ mission is to bring out the hidden talents among students and also provide them a stage where they can showcase their arts and cultural talent and interest. The club provides lot of opportunities in the form of competitions and workshops for igniting the spark of interest present in the budding technocrats and honing their skills towards showcasing their talents."
+      }
+    ],
     "reports": [
       {
         "title": "Arts & Cultural Club Activities 2025-26",
@@ -186,26 +183,67 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Awards - Medals for Sport Cultural",
         "url": "https://mits.ac.in/public/uploads/sac/c788fe0d2acb77c96f6642c2bdeb70fb.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tab3",
     "name": "Film Makers Club",
     "logo": "images/club/fm.jpg",
-    "intro": "",
-    "sections": [
+    "blocks": [
       {
-        "heading": "About Us:",
+        "type": "heading",
+        "text": "About Us:"
+      },
+      {
+        "type": "paragraph",
         "text": "This Film Makers Club is open to all students interested in making, directing, filming, acting in, or editing student films and photography in our campus. Our goal is to bring together students who are interested in film and film making in order to encourage and provide support and guidance for student filmmaking, photography interests and activities."
       },
       {
-        "heading": "Objectives:",
-        "text": "To encourage and motivate the creating aspirants in MITS. To bring together students from all backgrounds, with all kinds of interests and areas of expertise, and allow them to work in the field of their interest and hone their skills in video production. Our club intends to encourage students in the field of dramatics by enacting plays, making short films and thereby enabling students to develop their interpersonal skills."
+        "type": "heading",
+        "text": "Objectives:"
       },
       {
-        "heading": "Activities Planned:",
-        "text": "Coming up with different stage shows and short films at a constant basis. Organizing various short film competitions as well as stage shows showcasing acting talent. Preparing a firm editing team and a good team. Making short films on society and environmental issues. Learning both about film and film-making. To engage the students in a common interest of photography. To spot the shots that shows the defects in nature and in students. To get promote the college in films by conducting contests on short film. The camera for short film has to be brought by student. Our College Short films will be promoted in Social Media.\n\nJoining in our club might expose you to new genres, directors and pictures you\u2019ve never heard of before. You may also get to work on your own feature that will be screened to the rest of the student body.\n\nAll stages of film making are completely student-run, from writing screenplays to final editing.\n\nNO EXPERIENCE IS REQUIRED!\n\nTo anyone who is interested in film making: come join the best film making club on campus! See you on the big screen!"
+        "type": "bullet_list",
+        "items": [
+          "To encourage and motivate the creating aspirants in MITS.",
+          "To bring together students from all backgrounds, with all kinds of interests and areas of expertise, and allow them to work in the field of their interest and hone their skills in video production.",
+          "Our club intends to encourage students in the field of dramatics by enacting plays, making short films and thereby enabling students to develop their interpersonal skills."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Activities Planned:"
+      },
+      {
+        "type": "bullet_list",
+        "items": [
+          "Coming up with different stage shows and short films at a constant basis.",
+          "Organizing various short film competitions as well as stage shows showcasing acting talent.",
+          "Preparing a firm editing team and a good team.",
+          "Making short films on society and environmental issues.",
+          "Learning both about film and film-making.",
+          "To engage the students in a common interest of photography.",
+          "To spot the shots that shows the defects in nature and in students.",
+          "To get promote the college in films by conducting contests on short film.",
+          "The camera for short film has to be brought by student.",
+          "Our College Short films will be promoted in Social Media."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Joining in our club might expose you to new genres, directors and pictures you’ve never heard of before. You may also get to work on your own feature that will be screened to the rest of the student body."
+      },
+      {
+        "type": "paragraph",
+        "text": "All stages of film making are completely student-run, from writing screenplays to final editing."
+      },
+      {
+        "type": "paragraph",
+        "text": "NO EXPERIENCE IS REQUIRED!"
+      },
+      {
+        "type": "paragraph",
+        "text": "To anyone who is interested in film making: come join the best film making club on campus! See you on the big screen!"
       }
     ],
     "reports": [
@@ -253,15 +291,27 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Film Makers Club Events 2015-16",
         "url": "https://mits.ac.in/public/uploads/sac/530f7804fe9e7c8ad3b3615e6f6cd8a1.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tab4",
     "name": "Sports Club",
     "logo": "images/club/sp.jpg",
-    "intro": "Sports club encourages students to develop their sports skills in various outdoor and indoor games like Football, Handball, Tennis, Cricket, Ball Badminton, Kabaddi, Volleyball, Athletics, Chess, Carom Board, Table Tennis, Shuttle Badminton, Physical Fitness Program (will be conducted in Gym), Weight Lifting. Our college has grounds and equipment for each of these sports. The club also encourages the students to participate in Inter College and Intramural College sports competitions.",
-    "sections": [],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Sports club encourages students to develop their sports skills in various outdoor and indoor games like Football, Handball, Tennis, Cricket, Ball Badminton, Kabaddi, Volleyball, Athletics, Chess, Carom Board, Table Tennis, Shuttle Badminton, Physical Fitness Program (will be conducted in Gym), Weight Lifting. Our college has grounds and equipment for each of these sports. The club also encourages the students to participate in Inter College and Intramural College sports competitions."
+      },
+      {
+        "type": "bullet_list",
+        "items": [
+          "Outdoor Activities",
+          "Football, Tennis, Cricket, Handball, Kabaddi, Volleyball, Shuttle Badminton, Ball Badminton, Throw Ball, Tennikoit and Athletics.",
+          "Indoor Activities",
+          "Chess, Carom Board and Table Tennis"
+        ]
+      }
+    ],
     "reports": [
       {
         "title": "Sports Club Activities 2025-26",
@@ -283,26 +333,47 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Sports Club Activities 2021-22",
         "url": "https://mits.ac.in/public/uploads/sac/Sports Club-2021-2022.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tab5",
     "name": "MSR Club",
     "logo": "images/club/msr.jpg",
-    "intro": "MITS Social Responsibility Club",
-    "sections": [
+    "blocks": [
       {
-        "heading": "Vision:",
+        "type": "heading",
+        "text": "Vision:"
+      },
+      {
+        "type": "paragraph",
         "text": "To awakening the inner person with spirit of service for the betterment of society and to inculcate mutual helpingness among the people."
       },
       {
-        "heading": "Mission:",
+        "type": "heading",
+        "text": "Mission:"
+      },
+      {
+        "type": "paragraph",
         "text": "Social service oriented activities that makes people understand the society."
       },
       {
-        "heading": "Activities:",
-        "text": ""
+        "type": "heading",
+        "text": "Activities:"
+      },
+      {
+        "type": "ordered_list",
+        "items": [
+          "Green campus",
+          "Clean campus",
+          "Water & electricity save",
+          "Support orphans",
+          "Support schools",
+          "Awareness on social issues",
+          "Visiting villages",
+          "Support during medical emergency",
+          "Health awareness programs",
+          "Blood information"
+        ]
       }
     ],
     "reports": [
@@ -346,37 +417,61 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "MITS Social Responsibility Club Events 2016-17",
         "url": "https://mits.ac.in/public/uploads/sac/9aacf5fad9c5f294765475370d7c8305.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tab6",
     "name": "Web Club",
     "logo": "images/club/webclub.jpg",
-    "intro": "",
-    "sections": [
+    "blocks": [
       {
-        "heading": "About MITS Web Club",
-        "text": "\"Empowering Innovation, Connecting Creators\u201d. Our MITS Web Club envisions a dynamic and inclusive community where students passionate about web development and technology come together to foster innovation, share knowledge, and create meaningful connections. Our web club provides a vibrant platform for students to explore, learn, and excel in web development. Through collaborative initiatives, skill-building activities, and a supportive community, we aim to empower our members to become proficient, innovative, and socially conscious web developers."
+        "type": "heading",
+        "text": "About MITS Web Club"
       },
       {
-        "heading": "Activities:",
-        "text": "Conducting workshops regularly. Organize the guest lectures on web development. Organizing the competitions to encourage the student\u2019s participation in web related activities. We also assign tasks to and providing them with practical challenges to reinforce and apply the concepts learned during the sessions. We further enhance participants' skills by offering small projects that provide hands-on experience and allow for the application of workshop concepts."
+        "type": "paragraph",
+        "text": "\"Empowering Innovation, Connecting Creators”. Our MITS Web Club envisions a dynamic and inclusive community where students passionate about web development and technology come together to foster innovation, share knowledge, and create meaningful connections. Our web club provides a vibrant platform for students to explore, learn, and excel in web development. Through collaborative initiatives, skill-building activities, and a supportive community, we aim to empower our members to become proficient, innovative, and socially conscious web developers."
       },
       {
-        "heading": "Achivements:",
-        "text": "NASA Conference Web site:\n\nhttps://mits-cse-nasa23.netlify.app\n\nICOTL 2K23 Conference Web site:\n\nhttp://www.icotl.in"
+        "type": "heading",
+        "text": "Activities:"
+      },
+      {
+        "type": "bullet_list",
+        "items": [
+          "Conducting workshops regularly.",
+          "Organize the guest lectures on web development.",
+          "Organizing the competitions to encourage the student’s participation in web related activities.",
+          "We also assign tasks to and providing them with practical challenges to reinforce and apply the concepts learned during the sessions.",
+          "We further enhance participants' skills by offering small projects that provide hands-on experience and allow for the application of workshop concepts."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Achivements:"
+      },
+      {
+        "type": "bullet_list",
+        "items": [
+          "NASA Conference Web site:"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "https://mits-cse-nasa23.netlify.app"
+      },
+      {
+        "type": "bullet_list",
+        "items": [
+          "ICOTL 2K23 Conference Web site:"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "http://www.icotl.in"
       }
     ],
     "reports": [
-      {
-        "title": "https://mits-cse-nasa23.netlify.app",
-        "url": "https://mits-cse-nasa23.netlify.app"
-      },
-      {
-        "title": "http://www.icotl.in",
-        "url": "http://www.icotl.in"
-      },
       {
         "title": "Web Club Activities Report 2025-26",
         "url": "https://mits.ac.in/public/uploads/sac/MITS WEB CLUB 2025 - 2026.pdf"
@@ -397,18 +492,36 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Web Club Activities Report 2022-23",
         "url": "https://mits.ac.in/public/uploads/sac/WebClub Report 2022-23.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tab7",
     "name": "Tech Club",
     "logo": "images/club/tech.jpg",
-    "intro": "For the all-round development of the students and to enrich their technical knowledge the institute provides a platform for various students\u2019 activities. This club envisages conducive platform to explore student\u2019s latent talents and also to enable them to come out with their innovative ideas.\n\nThe students are encouraged to become the member of Tech Club to help broaden their skills and horizons. The Tech Club not only help the students explore their hidden talent but also help in areas such as personality development and inculcating in the students the spirit of organization by providing them with a platform for hosting their technical talents.\n\nThe focus of the Tech club primarily is to help the students gain practical as well as theoretical technical knowledge. Students are provided with an opportunity to implement what they learn in their respective class rooms.",
-    "sections": [
+    "blocks": [
       {
-        "heading": "Activities under Tech Club:",
-        "text": ""
+        "type": "paragraph",
+        "text": "For the all-round development of the students and to enrich their technical knowledge the institute provides a platform for various students’ activities. This club envisages conducive platform to explore student’s latent talents and also to enable them to come out with their innovative ideas."
+      },
+      {
+        "type": "paragraph",
+        "text": "The students are encouraged to become the member of Tech Club to help broaden their skills and horizons. The Tech Club not only help the students explore their hidden talent but also help in areas such as personality development and inculcating in the students the spirit of organization by providing them with a platform for hosting their technical talents."
+      },
+      {
+        "type": "paragraph",
+        "text": "The focus of the Tech club primarily is to help the students gain practical as well as theoretical technical knowledge. Students are provided with an opportunity to implement what they learn in their respective class rooms."
+      },
+      {
+        "type": "heading",
+        "text": "Activities under Tech Club:"
+      },
+      {
+        "type": "ordered_list",
+        "items": [
+          "Awareness Program – This is to give a complete overview of AMCC acknowledged by the students, through the coordinators of the club.",
+          "Workshops – As the name says, AMCC provides knowledge to its members by conducting workshops. They can experience a hands on in their passionate stream (Aero, Mechatronics) and are prepared to actively participate in events in and out of the college.",
+          "Competitions – A various types of events such as idea competitions, hackathons, project expos etc., are conducted for the members such that they can completely utilize their knowledge and skills on a product i.e., Aircraft, Robot to win."
+        ]
       }
     ],
     "reports": [
@@ -448,21 +561,27 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Tech Club Events 2016",
         "url": "https://mits.ac.in/public/uploads/sac/7cf2448d688108d390eaa4f19ad127a2.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tab15",
     "name": "Coding Club",
     "logo": "",
-    "intro": "",
-    "sections": [
+    "blocks": [
       {
-        "heading": "Vision:",
+        "type": "heading",
+        "text": "Vision:"
+      },
+      {
+        "type": "paragraph",
         "text": "To cultivate a community of skilled and industry-ready programmers by fostering innovation, problem-solving, and collaboration, ensuring engineering students excel in placements and technical careers."
       },
       {
-        "heading": "Mission:",
+        "type": "heading",
+        "text": "Mission:"
+      },
+      {
+        "type": "paragraph",
         "text": "1) Empower students with coding skills through workshops, hackathons, and mentorship programs. 2) Encourage innovation and creativity by working on projects, competitive coding, and AI/ML applications. 3) Engage with industry experts and tech leaders to provide real-world exposure and career guidance. 4) Enhance problem-solving and logical thinking abilities by participating in coding challenges and technical discussions. 5) Expand our reach by building an inclusive and collaborative environment for all skill levels, from beginners to experts."
       }
     ],
@@ -471,21 +590,27 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Coding Club Activities 2024-25",
         "url": "https://mits.ac.in/public/uploads/sac/Coding Club Activities 2024-25.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tab8",
     "name": "Builders Club",
     "logo": "images/club/buildersclub.png",
-    "intro": "",
-    "sections": [
+    "blocks": [
       {
-        "heading": "Vision:",
+        "type": "heading",
+        "text": "Vision:"
+      },
+      {
+        "type": "paragraph",
         "text": "To bring in astonishing innovation for the benefit of the society through the Civil Engineering domain, including innovative buildings, innovative building materials, innovative bridges, green buildings, green pavement etc., which will serve the community and develop the nation."
       },
       {
-        "heading": "Mission:",
+        "type": "heading",
+        "text": "Mission:"
+      },
+      {
+        "type": "paragraph",
         "text": "1) Explore the unknown and unlock new possibilities in the field of Civil Engineering. 2) Design innovative Civil Engineering structures which are sustainable, economical and beneficial to the society. 3) Conduct various competitive events to promote innovation. 4) Periodic interaction with field experts to share their ideas with the students."
       }
     ],
@@ -506,27 +631,45 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Builder's Club Activities 2022-23",
         "url": "https://mits.ac.in/public/uploads/sac/Report of Guest Lecture on Low-Cost Housing-1-min.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tab9",
     "name": "Literary Club",
     "logo": "images/club/lc.jpg",
-    "intro": "The English Literary Club of MITS was inaugurated by the Department of English and Foreign Languages in 2022. The club aims at nurturing the zeal for English literature among the students, thereby augmenting their creativity and language acquisition. It provides a platform to exhibit their innate literary potential.",
-    "sections": [
+    "blocks": [
       {
-        "heading": "Vision:",
+        "type": "paragraph",
+        "text": "The English Literary Club of MITS was inaugurated by the Department of English and Foreign Languages in 2022. The club aims at nurturing the zeal for English literature among the students, thereby augmenting their creativity and language acquisition. It provides a platform to exhibit their innate literary potential."
+      },
+      {
+        "type": "heading",
+        "text": "Vision:"
+      },
+      {
+        "type": "paragraph",
         "text": "The club envisions kindling the literary interests and providing an exemplary platform for the students to immerse themselves in the ocean of English literature and art, thereby fostering their creative potential to enhance their personality, thoughts, ideas, and expression."
       },
       {
-        "heading": "Mission:",
-        "text": "The club\u2019s mission is to organize literary activities and events, with an unflinching determination to help students build their personality holistically.\n\nActivities:\n\nThe club conducts literary activities such as debates, dramas, group discussions, interactive sessions, skits, poetry and short story writing, storytelling, and quiz contests."
+        "type": "heading",
+        "text": "Mission:"
+      },
+      {
+        "type": "paragraph",
+        "text": "The club’s mission is to organize literary activities and events, with an unflinching determination to help students build their personality holistically."
+      },
+      {
+        "type": "paragraph",
+        "text": "Activities:"
+      },
+      {
+        "type": "paragraph",
+        "text": "The club conducts literary activities such as debates, dramas, group discussions, interactive sessions, skits, poetry and short story writing, storytelling, and quiz contests."
       }
     ],
     "reports": [
       {
-        "title": "\"The Critical Pen\u201d on 9th September 2026",
+        "title": "\"The Critical Pen” on 9th September 2026",
         "url": "https://mits.ac.in/public/uploads/sac/The Critical Pen.pdf"
       },
       {
@@ -538,19 +681,19 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "url": "https://mits.ac.in/public/uploads/sac/Literary Club Activities 2024-25.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (24th October 2024)",
+        "title": "Kaizen - The Thoughts Café (24th October 2024)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Oct 24 2024.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (17th October 2024)",
+        "title": "Kaizen - The Thoughts Café (17th October 2024)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Oct 17 2024.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (3rd October 2024)",
+        "title": "Kaizen - The Thoughts Café (3rd October 2024)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Oct 3 2024.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (5th September 2024)",
+        "title": "Kaizen - The Thoughts Café (5th September 2024)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Sep 5 2024.pdf"
       },
       {
@@ -562,39 +705,39 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "url": "https://mits.ac.in/public/uploads/sac/Toonverse Adventure - September 2024.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (29th August 2024)",
+        "title": "Kaizen - The Thoughts Café (29th August 2024)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Aug 29 2024.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (22nd August 2024)",
+        "title": "Kaizen - The Thoughts Café (22nd August 2024)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report August 22nd 2024.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (7th August 2024)",
+        "title": "Kaizen - The Thoughts Café (7th August 2024)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report August 7th 2024.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (16th February 2024)",
+        "title": "Kaizen - The Thoughts Café (16th February 2024)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC%20Report%20feb%2016th%202024.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (18th January 2024)",
+        "title": "Kaizen - The Thoughts Café (18th January 2024)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC%20Report%20Jan%2018%202024.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (16th November 2023)",
+        "title": "Kaizen - The Thoughts Café (16th November 2023)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Nov 16 2023.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (2nd November 2023)",
+        "title": "Kaizen - The Thoughts Café (2nd November 2023)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report Nov 2 2023.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (14th September 2023)",
+        "title": "Kaizen - The Thoughts Café (14th September 2023)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report September 14 2023.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (7th September 2023)",
+        "title": "Kaizen - The Thoughts Café (7th September 2023)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report September 7 2023.pdf"
       },
       {
@@ -602,31 +745,31 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "url": "https://mits.ac.in/public/uploads/sac/Peace Day 2024.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (22 June 2023)",
+        "title": "Kaizen - The Thoughts Café (22 June 2023)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report June 22.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (15 June 2023)",
+        "title": "Kaizen - The Thoughts Café (15 June 2023)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report June 15.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (08 June 2023)",
+        "title": "Kaizen - The Thoughts Café (08 June 2023)",
         "url": "https://mits.ac.in/public/uploads/sac/Kaizen-TTC Report June 08.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (Week 3)",
-        "url": "https://mits.ac.in/public/uploads/sac/3.Kaizen - The Thoughts Caf\u00e9 (Week 3).pdf"
+        "title": "Kaizen - The Thoughts Café (Week 3)",
+        "url": "https://mits.ac.in/public/uploads/sac/3.Kaizen - The Thoughts Café (Week 3).pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (Week 2)",
-        "url": "https://mits.ac.in/public/uploads/sac/Kaizen - The Thoughts Caf\u00e9 (Week 2).pdf"
+        "title": "Kaizen - The Thoughts Café (Week 2)",
+        "url": "https://mits.ac.in/public/uploads/sac/Kaizen - The Thoughts Café (Week 2).pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 (Week 1)",
+        "title": "Kaizen - The Thoughts Café (Week 1)",
         "url": "https://mits.ac.in/public/uploads/sac/cde32369320cbd5d65cb3ee34e44ee33.pdf"
       },
       {
-        "title": "Kaizen - The Thoughts Caf\u00e9 Manifesto",
+        "title": "Kaizen - The Thoughts Café Manifesto",
         "url": "https://mits.ac.in/public/uploads/sac/1.Kaizen-TTC Manifesto.pdf"
       },
       {
@@ -637,18 +780,29 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Literary Club - Talent Hunt",
         "url": "https://mits.ac.in/public/uploads/sac/Literary Club-Talent Hunt.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tab10",
     "name": "Yoga & Meditation Club",
     "logo": "images/club/yg.jpg",
-    "intro": "Yoga & Meditation Club\n\nYoga and meditation club helps in understanding the physical and psychical controls whose aim is to make practitioner aware of the identity of Atma (soul) and Brahman (supreme soul). Yoga and meditation club not only provides health, vigour, brightness and alertness to the body and mind, it also fills the life with satisfaction, happiness and pleasure. The Main objective of the club is to reduces tension, stress, anxiety, weakness, helplessness, fear, negative thoughts etc. which are increased day by day in this mechanical human life",
-    "sections": [
+    "blocks": [
       {
-        "heading": "Activities",
-        "text": "Conducts yoga and meditation training classes Organizes guest lectures on spiritual education and ethical values Conducts competitions related yoga and meditation Renders services such as yoga classes, donations and awareness programs to needy people"
+        "type": "paragraph",
+        "text": "Yoga and meditation club helps in understanding the physical and psychical controls whose aim is to make practitioner aware of the identity of Atma (soul) and Brahman (supreme soul). Yoga and meditation club not only provides health, vigour, brightness and alertness to the body and mind, it also fills the life with satisfaction, happiness and pleasure. The Main objective of the club is to reduces tension, stress, anxiety, weakness, helplessness, fear, negative thoughts etc. which are increased day by day in this mechanical human life"
+      },
+      {
+        "type": "heading",
+        "text": "Activities"
+      },
+      {
+        "type": "bullet_list",
+        "items": [
+          "Conducts yoga and meditation training classes",
+          "Organizes guest lectures on spiritual education and ethical values",
+          "Conducts competitions related yoga and meditation",
+          "Renders services such as yoga classes, donations and awareness programs to needy people"
+        ]
       }
     ],
     "reports": [
@@ -688,26 +842,38 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Yoga and Meditation Club 2014-15",
         "url": "https://mits.ac.in/public/uploads/sac/6db0029ac41c2fb2d69d5ed5d6eaa76c.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tab11",
     "name": "SKILL BEE Club",
     "logo": "images/club/skillbee.png",
-    "intro": "",
-    "sections": [
+    "blocks": [
       {
-        "heading": "Vision :",
-        "text": ""
+        "type": "heading",
+        "text": "Vision :"
       },
       {
-        "heading": "Mission :",
-        "text": "To ensure the improvement of the capability of students in learning, understanding, teaching and also expressing their skills confidently. About Skill Bee Club :\n\nIn Skill bee club, students will be functioning as mentors for other students, which means that if one student is knowledgeable about a particular skill or certain talent, He or she will be sharing that skill with other students."
+        "type": "paragraph",
+        "text": "We want to see at least one skill in every student's resume which they learnt through our Skill Bee club. Mission : To ensure the improvement of the capability of students in learning, understanding, teaching and also expressing their skills confidently. About Skill Bee Club : In Skill bee club, students will be functioning as mentors for other students, which means that if one student is knowledgeable about a particular skill or certain talent, He or she will be sharing that skill with other students."
       },
       {
-        "heading": "About Skill Bee Club :",
-        "text": ""
+        "type": "heading",
+        "text": "Mission :"
+      },
+      {
+        "type": "paragraph",
+        "text": "To ensure the improvement of the capability of students in learning, understanding, teaching and also expressing their skills confidently. About Skill Bee Club :"
+      },
+      {
+        "type": "heading",
+        "text": "About Skill Bee Club :"
+      },
+      {
+        "type": "bullet_list",
+        "items": [
+          "In Skill bee club, students will be functioning as mentors for other students, which means that if one student is knowledgeable about a particular skill or certain talent, He or she will be sharing that skill with other students."
+        ]
       }
     ],
     "reports": [
@@ -727,40 +893,104 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Skill Bee Club Activities 2022-2023",
         "url": "https://mits.ac.in/public/uploads/sac/Skill Bee Build Your First Mobile App event.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tabarc",
     "name": "ARC Club",
     "logo": "",
-    "intro": "",
-    "sections": [],
+    "blocks": [],
     "reports": [
       {
         "title": "ARC Club Activities 2025 - 26",
         "url": "https://mits.ac.in/public/uploads/sac/ARC Club - 2025-2026.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tabdtc",
     "name": "Drone Technology Club",
     "logo": "images/club/drone.JPG",
-    "intro": "Drone Technology Club is a dedicated club for students to engage in cutting-edge research, development, and application of drone technologies. It provides an opportunity for students to explore areas like drone hardware design, sensor integration, battery technologies, and communication systems. The club encourages hands-on learning and innovation, allowing students to work on real-world drone applications in sectors such as agriculture, logistics, defense, and disaster management. It also offers specialized training and workshops to help students develop expertise in drone technology, preparing them for careers in this rapidly growing field. The club facilitates collaboration between students of various departments fostering a vibrant ecosystem of knowledge exchange. By integrating academic learning with industry needs, the Drone technology club enhances students' skills and opens up opportunities for entrepreneurship and research in drone technology.",
-    "sections": [
+    "blocks": [
       {
-        "heading": "Vision :",
-        "text": "To be a leading hub of innovation and excellence in drone technology, fostering creativity, research, and practical applications while empowering students to explore the future of aerial systems and contribute to transformative advancements in industries such as robotics, automation, and communication. Mission : 1. To provide students with hands-on experience in drone design, development, and operation.. 2. To encourage collaborative learning and problem-solving through drone technology projects and challenges.. 3. To promote research and development in UAV (Unmanned Aerial Vehicle) systems for real-world applications across various domains.. 4. To foster innovation, critical thinking, and technical expertise among members while aligning with the goals of Indian drone ecosystem and ethical technology development.. 5. To establish strong partnerships with industry professionals and organizations for knowledge sharing, skill enhancement, and career growth opportunities.. Plan of action for Drone Technology Club: Club Formation and Initial Setup \u2022 Define Roles and Responsibilities: Establish the core team (President, Vice-President, Secretary, Treasurer, Event Coordinators, etc.) and assign responsibilities. \u2022 Club Registration: Register the club with the college administration, ensuring that all necessary paperwork and formalities are completed. \u2022 Set Up Online Presence: Create social media profiles, a website, or a forum for the club to share updates, events, and resources. Organize Introductory Workshops \u2022 Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. \u2022 Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning \u2022 Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. \u2022 Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects \u2022 Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. \u2022 Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). \u2022 Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement \u2022 Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. \u2022 Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+        "type": "paragraph",
+        "text": "Drone Technology Club is a dedicated club for students to engage in cutting-edge research, development, and application of drone technologies. It provides an opportunity for students to explore areas like drone hardware design, sensor integration, battery technologies, and communication systems. The club encourages hands-on learning and innovation, allowing students to work on real-world drone applications in sectors such as agriculture, logistics, defense, and disaster management. It also offers specialized training and workshops to help students develop expertise in drone technology, preparing them for careers in this rapidly growing field. The club facilitates collaboration between students of various departments fostering a vibrant ecosystem of knowledge exchange. By integrating academic learning with industry needs, the Drone technology club enhances students' skills and opens up opportunities for entrepreneurship and research in drone technology."
       },
       {
-        "heading": "Mission :",
+        "type": "heading",
+        "text": "Vision :"
+      },
+      {
+        "type": "paragraph",
+        "text": "To be a leading hub of innovation and excellence in drone technology, fostering creativity, research, and practical applications while empowering students to explore the future of aerial systems and contribute to transformative advancements in industries such as robotics, automation, and communication. Mission : 1. To provide students with hands-on experience in drone design, development, and operation.. 2. To encourage collaborative learning and problem-solving through drone technology projects and challenges.. 3. To promote research and development in UAV (Unmanned Aerial Vehicle) systems for real-world applications across various domains.. 4. To foster innovation, critical thinking, and technical expertise among members while aligning with the goals of Indian drone ecosystem and ethical technology development.. 5. To establish strong partnerships with industry professionals and organizations for knowledge sharing, skill enhancement, and career growth opportunities.. Plan of action for Drone Technology Club: Club Formation and Initial Setup • Define Roles and Responsibilities: Establish the core team (President, Vice-President, Secretary, Treasurer, Event Coordinators, etc.) and assign responsibilities. • Club Registration: Register the club with the college administration, ensuring that all necessary paperwork and formalities are completed. • Set Up Online Presence: Create social media profiles, a website, or a forum for the club to share updates, events, and resources. Organize Introductory Workshops • Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+      },
+      {
+        "type": "heading",
+        "text": "Mission :"
+      },
+      {
+        "type": "paragraph",
         "text": "1. To provide students with hands-on experience in drone design, development, and operation.. 2. To encourage collaborative learning and problem-solving through drone technology projects and challenges.. 3. To promote research and development in UAV (Unmanned Aerial Vehicle) systems for real-world applications across various domains.. 4. To foster innovation, critical thinking, and technical expertise among members while aligning with the goals of Indian drone ecosystem and ethical technology development.. 5. To establish strong partnerships with industry professionals and organizations for knowledge sharing, skill enhancement, and career growth opportunities.."
       },
       {
-        "heading": "Plan of action for Drone Technology Club:",
-        "text": ""
+        "type": "heading",
+        "text": "Plan of action for Drone Technology Club:"
+      },
+      {
+        "type": "heading",
+        "text": "Club Formation and Initial Setup • Define Roles and Responsibilities: Establish the core team (President, Vice-President, Secretary, Treasurer, Event Coordinators, etc.) and assign responsibilities. • Club Registration: Register the club with the college administration, ensuring that all necessary paperwork and formalities are completed. • Set Up Online Presence: Create social media profiles, a website, or a forum for the club to share updates, events, and resources. Organize Introductory Workshops • Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+      },
+      {
+        "type": "heading",
+        "text": "• Define Roles and Responsibilities: Establish the core team (President, Vice-President, Secretary, Treasurer, Event Coordinators, etc.) and assign responsibilities. • Club Registration: Register the club with the college administration, ensuring that all necessary paperwork and formalities are completed. • Set Up Online Presence: Create social media profiles, a website, or a forum for the club to share updates, events, and resources. Organize Introductory Workshops • Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+      },
+      {
+        "type": "paragraph",
+        "text": "• Define Roles and Responsibilities: Establish the core team (President, Vice-President, Secretary, Treasurer, Event Coordinators, etc.) and assign responsibilities. • Club Registration: Register the club with the college administration, ensuring that all necessary paperwork and formalities are completed. • Set Up Online Presence: Create social media profiles, a website, or a forum for the club to share updates, events, and resources."
+      },
+      {
+        "type": "heading",
+        "text": "Organize Introductory Workshops • Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+      },
+      {
+        "type": "heading",
+        "text": "• Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones. Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+      },
+      {
+        "type": "paragraph",
+        "text": "• Drone Basics Workshop: Conduct an introductory session on drone technology, components, and applications to get everyone started. • Safety and Regulations Workshop: Host workshops on drone flying safety, rules, and regulations to ensure responsible operation of drones."
+      },
+      {
+        "type": "heading",
+        "text": "Skill Development and Hands-On Learning • Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments. Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+      },
+      {
+        "type": "paragraph",
+        "text": "• Drone Building and Assembly Sessions: Organize hands-on workshops where members can learn how to assemble drones from scratch, covering key components like motors, controllers, sensors, and batteries. • Flight Training: Provide practical flight training to members, either through simulator software or real-life flying sessions on campus or in controlled environments."
+      },
+      {
+        "type": "heading",
+        "text": "Collaborative Projects • Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+      },
+      {
+        "type": "heading",
+        "text": "• Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones. Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+      },
+      {
+        "type": "paragraph",
+        "text": "• Themed Drone Challenges: Host regular internal challenges, such as obstacle courses, aerial photography, or delivery simulations, to promote team-building and skill enhancement. • Industry Collaboration: Partner with industries or local businesses to identify real-world problems that drones can solve, and work together on relevant projects (e.g., agricultural monitoring, search and rescue simulations). • Research and Development Projects: Initiate research-based projects on improving drone technologies, such as better battery life, improved stability, or new applications for drones."
+      },
+      {
+        "type": "heading",
+        "text": "Industry and Expert Engagement • Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+      },
+      {
+        "type": "heading",
+        "text": "• Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
+      },
+      {
+        "type": "paragraph",
+        "text": "• Invite Guest Speakers: Organize talks, seminars, or webinars by experts in drone technology to expose members to the latest trends, challenges, and breakthroughs in the field. • Industry Visits: Plan field trips to companies or research centers working on cutting-edge drone technologies for hands-on learning and career insights."
       }
     ],
     "reports": [
@@ -772,22 +1002,28 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Drone Technology Club Activities 2024-25",
         "url": "https://mits.ac.in/public/uploads/sac/Drone Technology Club Activities 2024-25.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   },
   {
     "id": "ug-tabed",
-    "name": "Entrepreneur\u2019s Club",
-    "logo": "images/club/edcell.jpg",
-    "intro": "",
-    "sections": [
+    "name": "Entrepreneur’s Club",
+    "logo": "https://mits.ac.in/assets/images/edcell.jpg",
+    "blocks": [
       {
-        "heading": "Vision :",
-        "text": "To empower aspiring entrepreneurs by transforming ideas into impactful products, fostering innovation, and building a thriving community where entrepreneurs at different stages can collaborate and grow together Mission : 1. To educate and inspire students on entrepreneurship, helping them develop essential skills. 2. To nurture creativity and innovation by guiding students in turning their ideas into viable products. 3. To foster a collaborative environment that encourages networking, learning, and shared growth. 4. To create opportunities for students to connect with funding sources to support their entrepreneurial ventures. 5. To build a strong entrepreneurial community that connects individuals at different stages of their journey, enabling continuous learning and support. The Entrepreneurs Club of Madanapalle Institute of Technology & Science aims at nurturing the spirit of entrepreneurship amongst students by providing a platform for challenging minds to think differently and experience entrepreneurship through hands-on learning. Together we share knowledge and skills to help out our members to expand their horizons and get more familiar with the \u201cEntrepreneur Style of thinking and working\u201d."
+        "type": "heading",
+        "text": "Vision :"
       },
       {
-        "heading": "Mission :",
-        "text": "1. To educate and inspire students on entrepreneurship, helping them develop essential skills. 2. To nurture creativity and innovation by guiding students in turning their ideas into viable products. 3. To foster a collaborative environment that encourages networking, learning, and shared growth. 4. To create opportunities for students to connect with funding sources to support their entrepreneurial ventures. 5. To build a strong entrepreneurial community that connects individuals at different stages of their journey, enabling continuous learning and support. The Entrepreneurs Club of Madanapalle Institute of Technology & Science aims at nurturing the spirit of entrepreneurship amongst students by providing a platform for challenging minds to think differently and experience entrepreneurship through hands-on learning. Together we share knowledge and skills to help out our members to expand their horizons and get more familiar with the \u201cEntrepreneur Style of thinking and working\u201d."
+        "type": "paragraph",
+        "text": "To empower aspiring entrepreneurs by transforming ideas into impactful products, fostering innovation, and building a thriving community where entrepreneurs at different stages can collaborate and grow together Mission : 1. To educate and inspire students on entrepreneurship, helping them develop essential skills. 2. To nurture creativity and innovation by guiding students in turning their ideas into viable products. 3. To foster a collaborative environment that encourages networking, learning, and shared growth. 4. To create opportunities for students to connect with funding sources to support their entrepreneurial ventures. 5. To build a strong entrepreneurial community that connects individuals at different stages of their journey, enabling continuous learning and support. The Entrepreneurs Club of Madanapalle Institute of Technology & Science aims at nurturing the spirit of entrepreneurship amongst students by providing a platform for challenging minds to think differently and experience entrepreneurship through hands-on learning. Together we share knowledge and skills to help out our members to expand their horizons and get more familiar with the “Entrepreneur Style of thinking and working”."
+      },
+      {
+        "type": "heading",
+        "text": "Mission :"
+      },
+      {
+        "type": "paragraph",
+        "text": "1. To educate and inspire students on entrepreneurship, helping them develop essential skills. 2. To nurture creativity and innovation by guiding students in turning their ideas into viable products. 3. To foster a collaborative environment that encourages networking, learning, and shared growth. 4. To create opportunities for students to connect with funding sources to support their entrepreneurial ventures. 5. To build a strong entrepreneurial community that connects individuals at different stages of their journey, enabling continuous learning and support. The Entrepreneurs Club of Madanapalle Institute of Technology & Science aims at nurturing the spirit of entrepreneurship amongst students by providing a platform for challenging minds to think differently and experience entrepreneurship through hands-on learning. Together we share knowledge and skills to help out our members to expand their horizons and get more familiar with the “Entrepreneur Style of thinking and working”."
       }
     ],
     "reports": [
@@ -799,182 +1035,22 @@ export const officialClubsTabs: OfficialClubTab[] = [
         "title": "Entrepreneurs Club Activities 2024-25",
         "url": "https://mits.ac.in/public/uploads/sac/Entrepreneurs Club Activities 2024-25.pdf"
       }
-    ],
-    "tab1Docs": []
+    ]
   }
 ];
 
-export const clubsDirectoryTable: string[][] = [
-  [
-    "Name of the Club",
-    "Faculty Advisor",
-    "Student Coordinator",
-    "Contact Number"
-  ],
-  [
-    "Arts and Cultural Club",
-    "Mr. Y. Pradeep Kumar",
-    "B. Amrutha",
-    "6281360083"
-  ],
-  [
-    "R. Nikhil",
-    "9666685646"
-  ],
-  [
-    "Film Makers Club",
-    "Mr. K. Md.Riyaz Ali",
-    "M.K. Sudheer",
-    "7013242253"
-  ],
-  [
-    "G. Ramanjeneyulu Reddy",
-    "8555946223"
-  ],
-  [
-    "Web Club",
-    "Dr. P. Kavitha",
-    "R. Baba Fakhruddin",
-    "9704290783"
-  ],
-  [
-    "Syed Mansoor",
-    "8096126294"
-  ],
-  [
-    "MSR Club",
-    "Mr. B.S.H. Shayeez Ahamed",
-    "V. Venkata Tarun",
-    "6303544711"
-  ],
-  [
-    "Sports Club",
-    "Dr. C. Damodharan",
-    "M.G. Lokesh",
-    "9515771641"
-  ],
-  [
-    "P. Vyshnavi",
-    "9154790706"
-  ],
-  [
-    "Yoga & Meditation Club",
-    "Mr. K. Manju Vikram",
-    "Muppireddy Keerthi",
-    "7569116140"
-  ],
-  [
-    "Sai Phani Charan S.M",
-    "6361772686"
-  ],
-  [
-    "ARC Club",
-    "Mr. Rajkumar. G",
-    "C. Usman Gani",
-    "9441578782"
-  ],
-  [
-    "T. Yugesh",
-    "6281185755"
-  ],
-  [
-    "Tech Club",
-    "Mr. D. Abdul Jaleel",
-    "Y. Charan Teja Reddy",
-    "8341484199"
-  ],
-  [
-    "K. Ayesha",
-    "8978703213"
-  ],
-  [
-    "Anchors Club",
-    "Mr. Narasimha Charlu",
-    "Gavvala Narendra Kumar",
-    "9010735719"
-  ],
-  [
-    "Literary club",
-    "Mr. T. Rama Mohan",
-    "Yangala Likitha",
-    "9391504875"
-  ],
-  [
-    "J. Naveen Kumar",
-    "7013255586"
-  ],
-  [
-    "Builders Club",
-    "Dr. K. Imran",
-    "Kopparthi Nandini Reddy",
-    "7793933029"
-  ],
-  [
-    "Sabir Shaik",
-    "7815970442"
-  ],
-  [
-    "Drone Technology Club",
-    "Mr. P. Mohammed Rizwan Ali",
-    "B.Sathvik",
-    "9030304850"
-  ],
-  [
-    "AI Learning Hub Club",
-    "Mr. Shaik Tipu Rahaman",
-    "N. Ashraf Vali",
-    "6281025228"
-  ],
-  [
-    "Palagiri Mahammad Aman",
-    "9989706451"
-  ],
-  [
-    "Enterprenuers Club",
-    "Dr. Kosaraju Sireesha",
-    "Yasheen Khan Nyazi",
-    "7993657748"
-  ],
-  [
-    "Thoppireddy Sai Poojitha",
-    "-"
-  ],
-  [
-    "Skill Bee club",
-    "Mr. K. Durga Charan",
-    "K. Nikhil",
-    "9390125801"
-  ],
-  [
-    "G. Gangaiah"
-  ],
-  [
-    "Coding Club",
-    "Mrs. Komala Anamalamudi",
-    "Mogili Kushal vardhan",
-    "7382545438"
-  ],
-  [
-    "S C Sujan",
-    "6309959667"
-  ],
-  [
-    "Cisco Networking Club",
-    "Dr. V. Jayaprakasan",
-    "K. Lokeswar Reddy",
-    "7989239624"
-  ]
+export const noticeBoardData = [
+  {
+    title: "Workshop",
+    desc: 'The MITS Web Club under Student Activity Center (SAC), organized a workshop on "Introduction to Development Environment".',
+    date: "12th September 2025",
+    link: "https://mits.ac.in/public/uploads/sac/Introduction to Development Environment.pdf",
+    linkText: "Click here for Event Details"
+  }
 ];
 
-export const noticeBoardData = {
-  title: "Workshop on Development Environment",
-  description: 'The MITS Web Club under Student Activity Center (SAC), organized a workshop on "Introduction to Development Environment".',
-  date: "12th September 2025",
-  reportUrl: "https://mits.ac.in/public/uploads/sac/Introduction to Development Environment.pdf"
-};
-
 export const aboutClubsContent = {
-  intro: "The dynamism of academic life spills out of the classrooms. It is a credit to the mental and intellectual focus of the students that many of the clubs are extensions of their academic and career aspirations. There are several annual 'fests' and entertainment events organized by the institution every year. Students' clubs provide a forum for interaction among themselves and the outside world events, however varied, it may be formal or informal, but brings out the passion in youngsters and develop their organizational skills. The clubs bring about a good balance of work, fun and leisure activities and ensure the all round development of students.",
+  about: "The dynamism of academic life spills out of the classrooms. It is a credit to the mental and intellectual focus of the students that many of the clubs are extensions of their academic and career aspirations. There are several annual 'fests' and entertainment events organized by the institution every year. Students' clubs provide a forum for interaction among themselves and the outside world events, however varied, it may be formal or informal, but brings out the passion in youngsters and develop their organizational skills. The clubs bring about a good balance of work, fun and leisure activities and ensure the all round development of students.",
   importance: "Students' Clubs are the main hub of student activity. They provide an outlet and a stage for the creative juices of young minds and hearts. The clubs give you the chance to apply classroom learning in the outside world. This helps you to gain invaluable leadership as well as life skills. In addition to connecting other students who have similar interests, students' clubs make students to interact with alumni and professionals in their fields of interest.",
   benefits: [
     "Students' clubs enrich your experience, create a diverse community, encourage involvement, and provide opportunities for students to build valuable skills",
@@ -984,8 +1060,8 @@ export const aboutClubsContent = {
   quickLinks: [
     { title: "Student Club Constitution", url: "https://mits.ac.in/public/uploads/sac/SOP of SAC 2025-26.pdf" },
     { title: "Event Calender", url: "https://calendar.google.com/calendar/u/0/embed?src=69849e23341ca5a7ae2952df17e3fb78318e6d704f514726f577a8391f650481@group.calendar.google.com&ctz=Asia/Kolkata" },
-    { title: "Consolidate Student Club Activities 2025-2026", url: "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2025-2026.pdf" },
-    { title: "Consolidate Student Club Activities 2024-2025", url: "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2024-2025.pdf" },
+    { title: "Consolidate Student Club Activities 2025-2026", url: "https://mits.ac.in/public/uploads/sac/AY 2025-26 Odd Semester_ Consolidated Activities List 2025-26.pdf" },
+    { title: "Consolidate Student Club Activities 2024-2025", url: "https://mits.ac.in/public/uploads/sac/STUDENT CLUB ACTIVITIES -ACADEMIC YEAR 2024-25.pdf" },
     { title: "Consolidate Student Club Activities 2023-2024", url: "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2023-2024.pdf" },
     { title: "Consolidate Student Club Activities 2022-2023", url: "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2022-2023.pdf" },
     { title: "Consolidate Student Club Activities 2021-2022", url: "https://mits.ac.in/public/uploads/sac/Consolidate Student Club Activities-2021-2022.pdf" }
