@@ -782,18 +782,26 @@ const Careers = ({ initialTab = "overview" }: { initialTab?: string }) => {
 
               {/* Faculty Positions by Department */}
               <div className="space-y-6">
-                <h3 className="text-xl md:text-2xl font-bold font-display text-foreground">
-                  Positions Offered by Department
-                </h3>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <h3 className="text-xl md:text-2xl font-bold font-display text-foreground">
+                    Faculty Positions
+                  </h3>
+                  <a
+                    href="mailto:jobs@mits.ac.in"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#990000] text-white text-xs sm:text-sm font-bold hover:bg-[#800000] transition shadow-xs w-fit"
+                  >
+                    <Mail className="w-4 h-4" /> Apply via Email
+                  </a>
+                </div>
 
                 <div className="border rounded-xl overflow-hidden bg-card shadow-sm">
                   <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse text-base">
                       <thead>
-                        <tr className="bg-muted text-foreground border-b text-sm md:text-base uppercase tracking-wider font-bold">
-                          <th className="p-4 md:p-5 w-1/4 border-r">Department</th>
-                          <th className="p-4 md:p-5 w-1/4 border-r">Positions</th>
-                          <th className="p-4 md:p-5 w-1/2">Qualification, Experience & Pay</th>
+                        <tr className="bg-[#990000] text-white border-b text-sm md:text-base uppercase tracking-wider font-bold">
+                          <th className="p-4 md:p-5 w-1/4 border-r border-white/20">Department</th>
+                          <th className="p-4 md:p-5 w-1/4 border-r border-white/20">Positions</th>
+                          <th className="p-4 md:p-5 w-1/2">Qualification, Experience &amp; Pay</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y">
