@@ -303,14 +303,6 @@ const departmentEventLists = [
     title: "List of IEEE Events - Department of CSE",
     href: "https://mits.ac.in/assets/pdf/assoc/List%20of%20IEEE%20Events%20-%20Department%20of%20CSE.pdf",
   },
-  {
-    title: "Activities Allotted to the Faculty",
-    href: "https://mits.ac.in/public/uploads/ieee/Activities%20alloted%20to%20the%20Faculty.pdf",
-  },
-  {
-    title: "Activities Organized Report",
-    href: "https://mits.ac.in/public/uploads/ieee/Activities%20Organized.pdf",
-  },
 ];
 
 const archiveEvents: ArchiveEvent[] = [
@@ -1596,6 +1588,9 @@ export default function IeeeView() {
                   className="group flex items-center justify-between px-6 py-3.5 hover:bg-red-50/20 transition-colors"
                 >
                   <div className="flex items-center gap-3">
+                    <span className="w-5 h-5 rounded-full bg-[#8B1D1D] text-white flex items-center justify-center shrink-0">
+                      <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
+                    </span>
                     <span className="font-semibold text-slate-800 text-sm sm:text-base group-hover:text-[#8B1D1D] transition-colors">
                       {item.title}
                     </span>
@@ -1623,6 +1618,27 @@ export default function IeeeView() {
                   </div>
                 </a>
               ))}
+            </div>
+
+            {/* TWO OFFICIAL ACTION BUTTONS (Exact match to screenshot & live site) */}
+            <div className="flex flex-wrap items-center gap-3.5 px-6 py-5 bg-white border-t border-slate-100">
+              <a
+                href="https://mits.ac.in/public/uploads/ieee/Activities%20alloted%20to%20the%20Faculty.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 bg-[#990000] hover:bg-[#7a0000] text-white text-sm sm:text-base font-bold transition-colors cursor-pointer"
+              >
+                Activities alloted to the Faculty
+              </a>
+
+              <a
+                href="https://mits.ac.in/public/uploads/ieee/Activities%20Organized.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 bg-[#003366] hover:bg-[#002244] text-white text-sm sm:text-base font-bold transition-colors cursor-pointer"
+              >
+                Activities Organized
+              </a>
             </div>
           </div>
         </ScrollReveal>
