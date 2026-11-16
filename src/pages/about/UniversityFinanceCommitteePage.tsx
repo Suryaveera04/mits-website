@@ -14,7 +14,7 @@ const dtbuFinanceMeetings: MeetingItem[] = [
   {
     sno: 1,
     title: "Minutes of 5th Finance Committee meeting",
-    url: "https://mits.ac.in/assets/pdf/admin/5th%20Finance%20Comittee%20Meeting-protected.pdf",
+    url: "https://mits.ac.in/assets/pdf/admin/5th%20Finance%20Comittee%20Meeting-2026-protected.pdf",
   },
   {
     sno: 2,
