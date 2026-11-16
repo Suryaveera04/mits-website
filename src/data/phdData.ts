@@ -242,8 +242,8 @@ export const JULY_SUB_TABS: PhdSubTab[] = [
     isExternal: true,
   },
   {
-    title: "Ph.D Academic Calendar - 2026-27 July Session",
-    href: "https://mits.ac.in/assets/pdf/syllabus/MITS%20DTBU_Ph.D_July%202026%20Session_I%20&%20II%20Semester_Academic%20Calender.pdf",
+    title: "Ph.D Academic Calendar - 2026-27",
+    href: "https://mits.ac.in/assets/pdf/syllabus/Ph.D Academic Calendar-2026-27.pdf",
     badge: false,
     isExternal: true,
   },
