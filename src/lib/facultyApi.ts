@@ -215,11 +215,11 @@ export function getBshSubDepartment(code?: string, name?: string): string {
   const c = (code || "").toUpperCase().trim();
   const n = (name || "").toUpperCase().trim();
 
-  if (c === "CHY" || n.includes("CHEMISTRY")) return "Department of Chemistry";
-  if (c === "PHY" || n.includes("PHYSICS")) return "Department of Physics";
+  if (c === "CHY" || n.includes("CHEMIS")) return "Department of Chemistry";
+  if (c === "PHY" || n.includes("PHYSIC")) return "Department of Physics";
   if (c === "EFL" || n.includes("ENGLISH")) return "Department of English & Foreign Languages";
-  if (c === "MATH" || n.includes("MATH")) return "Department of Mathematics";
-  if (c === "HUM" || n.includes("HUMANITIES")) return "Department of Humanities";
+  if (c === "MATH" || c === "M" || n.includes("MATH")) return "Department of Mathematics";
+  if (c === "HUM" || c === "HU" || n.includes("HUMANIT")) return "Department of Humanities";
   return "Department of Basic Sciences";
 }
 

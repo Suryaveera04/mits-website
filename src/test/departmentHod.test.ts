@@ -158,13 +158,14 @@ describe("Department Head of Department (HOD) Resolution", () => {
     const { getFacultyByDept } = result.current;
 
     const bshMembers = getFacultyByDept("bsh");
-    expect(bshMembers.length).toBe(35);
+    expect(bshMembers.length).toBe(45);
 
     const validSubDepts = new Set([
       "Department of English & Foreign Languages",
       "Department of Mathematics",
       "Department of Physics",
       "Department of Chemistry",
+      "Department of Humanities",
     ]);
 
     bshMembers.forEach((m) => {
@@ -177,9 +178,31 @@ describe("Department Head of Department (HOD) Resolution", () => {
       counts[m.subDepartment!] = (counts[m.subDepartment!] || 0) + 1;
     });
 
-    expect(counts["Department of English & Foreign Languages"]).toBe(8);
-    expect(counts["Department of Mathematics"]).toBe(9);
-    expect(counts["Department of Physics"]).toBe(10);
-    expect(counts["Department of Chemistry"]).toBe(8);
+    expect(counts["Department of English & Foreign Languages"]).toBe(9);
+    expect(counts["Department of Mathematics"]).toBe(10);
+    expect(counts["Department of Physics"]).toBe(11);
+    expect(counts["Department of Chemistry"]).toBe(9);
+    expect(counts["Department of Humanities"]).toBe(6);
+  });
+
+  it("getFacultyByDept must return all database faculty belonging to that department", () => {
+    const { result } = renderHook(() => useFacultyData());
+    const { getFacultyByDept } = result.current;
+
+    // CSE: 43 members in database
+    const cseMembers = getFacultyByDept("cse");
+    expect(cseMembers.length).toBe(43);
+
+    // ECE: 31 members in database
+    const eceMembers = getFacultyByDept("ece");
+    expect(eceMembers.length).toBe(31);
+
+    // CE: 9 members in database
+    const ceMembers = getFacultyByDept("ce");
+    expect(ceMembers.length).toBe(9);
+
+    // AI: 25 members in database
+    const aiMembers = getFacultyByDept("ai");
+    expect(aiMembers.length).toBe(25);
   });
 });

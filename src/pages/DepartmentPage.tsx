@@ -3392,7 +3392,7 @@ const DepartmentPage = () => {
                                 {members.map((f, i) => (
                                   <Link
                                     key={`${groupTitle}-${i}`}
-                                    to={`/department/${deptKey}/faculty/${slugifyFaculty(f.name)}`}
+                                    to={f.profileUrl || `/department/${deptKey}/faculty/${slugifyFaculty(f.name)}`}
                                     className="group relative bg-white border border-slate-200 rounded-2xl p-5 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 flex flex-col items-center text-center cursor-pointer no-underline"
                                   >
                                     <div className="w-36 h-36 sm:w-40 sm:h-40 mx-auto rounded-2xl bg-slate-100 flex items-center justify-center mb-4 overflow-hidden border-2 border-transparent group-hover:border-primary/20 transition-colors shadow-sm relative">
@@ -3432,7 +3432,7 @@ const DepartmentPage = () => {
                         {filteredFaculty.map((f, i) => (
                           <Link
                             key={i}
-                            to={`/department/${deptKey}/faculty/${slugifyFaculty(f.name)}`}
+                            to={f.profileUrl || `/department/${deptKey}/faculty/${slugifyFaculty(f.name)}`}
                             className="group relative bg-white border border-slate-200 rounded-2xl p-5 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 flex flex-col items-center text-center cursor-pointer no-underline"
                           >
                             <div className="w-36 h-36 sm:w-40 sm:h-40 mx-auto rounded-2xl bg-slate-100 flex items-center justify-center mb-4 overflow-hidden border-2 border-transparent group-hover:border-primary/20 transition-colors shadow-sm relative">

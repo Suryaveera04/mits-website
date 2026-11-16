@@ -4,6 +4,7 @@ import {
   apiFacultyToFacultyMember,
   apiFacultyToFacultyProfile,
   mapApiDeptToDeptKey,
+  getBshSubDepartment,
   getInitialFacultyData,
   getFacultyPhotoUrl,
   type APIFacultyMember,
@@ -340,7 +341,9 @@ export function useFacultyData() {
   }, [loadData]);
 
   /**
-   * Returns list of FacultyMember objects formatted for department grids
+   * Returns list of FacultyMember objects formatted for department grids.
+   * Shows ALL faculty belonging to the respective department from the institutional database,
+   * enriched with verified official profile metadata (slugs, photos) where available.
    */
   const getFacultyByDept = useCallback(
     (deptKey: string): FacultyMember[] => {
@@ -351,99 +354,86 @@ export function useFacultyData() {
         rawKey === "mna" || rawKey === "management" || rawKey === "management-studies" ? "mba" :
         rawKey === "computer-applications" ? "mca" :
         rawKey === "basic-sciences" || rawKey === "basic-sciences-humanities" || rawKey === "humanities" ? "bsh" :
+        rawKey === "cse-aiml" || rawKey === "ai-ml" || rawKey === "ai&ml" ? "aiml" :
+        rawKey === "cse-ai" || rawKey === "cai" ? "ai" :
+        rawKey === "cse-ds" || rawKey === "aids" ? "cseds" :
+        rawKey === "cse-cs" || rawKey === "cyber-security" ? "csecs" :
         rawKey;
 
-      // Filter strictly from officialFacultyList for this department to avoid extraneous non-roster entries
-      const officialDeptMembers = (officialFacultyList as any[]).filter(
-        (o) => o.deptKey === normalizedKey
-      );
-
-      if (officialDeptMembers.length > 0) {
-        return [...officialDeptMembers]
-          .sort((a, b) => {
-            const dbA = a.dbId ? facultyList.find((f) => f._id === a.dbId) : undefined;
-            const dbB = b.dbId ? facultyList.find((f) => f._id === b.dbId) : undefined;
-            const pA = getFacultySeniorityPriority(
-              {
-                fullName: a.name,
-                designation: a.designation,
-                qualification: a.qualification,
-                academicAdministrationRoles: dbA?.academicAdministrationRoles,
-                phd: dbA?.phd,
-              },
-              normalizedKey
-            );
-            const pB = getFacultySeniorityPriority(
-              {
-                fullName: b.name,
-                designation: b.designation,
-                qualification: b.qualification,
-                academicAdministrationRoles: dbB?.academicAdministrationRoles,
-                phd: dbB?.phd,
-              },
-              normalizedKey
-            );
-            if (pA !== pB) return pA - pB;
-            return cleanFacultyName(a.name).localeCompare(cleanFacultyName(b.name));
-          })
-          .map((o) => {
-            const db = o.dbId ? facultyList.find((f) => f._id === o.dbId) : undefined;
-            const photoUrl =
-              getFacultyPhotoUrl(db?.profilePhoto || o.profilePhoto) ||
-              (o.profilePhoto?.startsWith("http") ? o.profilePhoto : undefined);
-            const subDept =
-              o.deptKey === "bsh"
-                ? (o.department === "English & FL" || o.department === "English" || (o.department || "").toLowerCase().includes("english"))
-                  ? "Department of English & Foreign Languages"
-                  : (o.department || "").toLowerCase().includes("math")
-                  ? "Department of Mathematics"
-                  : (o.department || "").toLowerCase().includes("physic")
-                  ? "Department of Physics"
-                  : (o.department || "").toLowerCase().includes("chemis")
-                  ? "Department of Chemistry"
-                  : (o.department || "").toLowerCase().includes("humanit")
-                  ? "Department of Humanities"
-                  : `Department of ${o.department}`
-                : undefined;
-            return {
-              name: o.name,
-              designation: o.designation,
-              qualification: o.qualification,
-              email: db?.email || o.email || undefined,
-              image: photoUrl,
-              subDepartment: subDept,
-              profileUrl: `/department/${o.deptKey}/faculty/${o.slug}`,
-              profile: db ? apiFacultyToFacultyMember(db).profile : undefined,
-            };
-          });
-      }
-
+      // Filter all faculty belonging to this department from the institutional database
       const filtered = facultyList.filter((f) => {
         const mapped = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
         return mapped === normalizedKey;
       });
 
-      return [...filtered]
-        .sort((a, b) => {
-          const pA = getFacultySeniorityPriority(a, normalizedKey);
-          const pB = getFacultySeniorityPriority(b, normalizedKey);
-          if (pA !== pB) return pA - pB;
-          return cleanFacultyName(a.fullName).localeCompare(cleanFacultyName(b.fullName));
-        })
-        .map((f) => {
-          // Strictly only database images; no old static image fallback
-          const member = apiFacultyToFacultyMember(f);
-          if (normalizedKey === "bsh" && !member.subDepartment) {
-            const code = (f.department?.code || "").toUpperCase();
-            const name = (f.department?.name || "").toUpperCase();
-            if (code === "EFL" || name.includes("ENGLISH")) member.subDepartment = "Department of English & Foreign Languages";
-            else if (code === "M" || code === "MATH" || name.includes("MATH")) member.subDepartment = "Department of Mathematics";
-            else if (code === "PHY" || name.includes("PHYSIC")) member.subDepartment = "Department of Physics";
-            else if (code === "CHY" || name.includes("CHEMIS")) member.subDepartment = "Department of Chemistry";
-            else if (code === "HUM" || code === "HU" || name.includes("HUMANIT")) member.subDepartment = "Department of Humanities";
+      // Map official faculty records for this department by dbId, clean name, and slug for metadata enrichment
+      const officialByDbId = new Map<string, any>();
+      const officialByName = new Map<string, any>();
+      for (const o of (officialFacultyList as any[])) {
+        if (o.deptKey === normalizedKey) {
+          if (o.dbId) officialByDbId.set(o.dbId, o);
+          const clean = cleanFacultyName(o.name).toLowerCase();
+          if (!officialByName.has(clean)) officialByName.set(clean, o);
+        }
+      }
+
+      // Sort database faculty by institutional seniority priority, then clean name
+      const sortedDbFaculty = [...filtered].sort((a, b) => {
+        const pA = getFacultySeniorityPriority(a, normalizedKey);
+        const pB = getFacultySeniorityPriority(b, normalizedKey);
+        if (pA !== pB) return pA - pB;
+        return cleanFacultyName(a.fullName).localeCompare(cleanFacultyName(b.fullName));
+      });
+
+      const result: FacultyMember[] = sortedDbFaculty.map((f) => {
+        const member = apiFacultyToFacultyMember(f);
+        const official =
+          (f._id ? officialByDbId.get(f._id) : null) ||
+          officialByName.get(cleanFacultyName(f.fullName).toLowerCase());
+
+        if (official) {
+          if (official.slug) {
+            member.profileUrl = `/department/${normalizedKey}/faculty/${official.slug}`;
           }
-          return member;
-        });
+          if (official.profilePhoto && !member.image) {
+            member.image =
+              getFacultyPhotoUrl(official.profilePhoto) ||
+              (official.profilePhoto.startsWith("http") ? official.profilePhoto : undefined);
+          }
+        }
+
+        if (normalizedKey === "bsh") {
+          member.subDepartment = getBshSubDepartment(f.department?.code, f.department?.name);
+        }
+
+        return member;
+      });
+
+      // Ensure any member in officialFacultyList for this department who might be missing from database is included
+      const includedDbIds = new Set(filtered.map((f) => f._id).filter(Boolean));
+      for (const o of (officialFacultyList as any[])) {
+        if (o.deptKey === normalizedKey && (!o.dbId || !includedDbIds.has(o.dbId))) {
+          const photoUrl =
+            getFacultyPhotoUrl(o.profilePhoto) ||
+            (o.profilePhoto?.startsWith("http") ? o.profilePhoto : undefined);
+          const subDept =
+            normalizedKey === "bsh"
+              ? getBshSubDepartment(o.department, o.department)
+              : undefined;
+          result.push({
+            name: o.name,
+            designation: o.designation,
+            qualification: o.qualification,
+            email: o.email || undefined,
+            image: photoUrl,
+            subDepartment: subDept,
+            profileUrl: `/department/${normalizedKey}/faculty/${o.slug || slugifyFaculty(o.name)}`,
+          });
+          if (o.dbId) includedDbIds.add(o.dbId);
+        }
+      }
+
+      return result;
     },
     [facultyList]
   );
