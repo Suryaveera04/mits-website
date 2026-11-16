@@ -292,8 +292,14 @@ export const ugMidTermTimetables: ExamLink[] = [
   }
 ];
 
-// 4. UG End Semester Exams (9 items)
+// 4. UG End Semester Exams (10 items)
 export const ugEndSemTimetables: ExamLink[] = [
+  {
+    "no": 10,
+    "title": "B.Tech II Year I Semester (R25) Regular End Semester Examinations December 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/Time Table - B.Tech. II Year I Semester - (R25) - Regular End Semester Examinations - December 2026.pdf",
+    "kind": "pdf"
+  },
   {
     "no": 9,
     "title": "B.Tech I Year I Semester (R25) Supplementary End Practical Exams June 2026",
