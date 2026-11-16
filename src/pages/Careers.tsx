@@ -43,18 +43,21 @@ const SectionHeading = ({ title, subtitle }: { title: string; subtitle?: string 
   </div>
 );
 
-const Careers = ({ initialTab = "overview" }: { initialTab?: string }) => {
-  const [activeTab, setActiveTab] = useState<string>(initialTab);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+type CareerTabId = "overview" | "leadership" | "faculty" | "benefits" | "press" | "contact";
 
-  const careerTabs = [
-    { id: "overview", label: "Careers" },
-    { id: "leadership", label: "Leadership Positions" },
-    { id: "faculty", label: "Faculty Positions" },
-    { id: "benefits", label: "Benefits" },
-    { id: "press", label: "Press Release" },
-    { id: "contact", label: "Contact" },
-  ];
+const careerTabs: { id: CareerTabId; label: string; path: string }[] = [
+  { id: "overview", label: "Careers", path: "/career" },
+  { id: "leadership", label: "Leadership Positions", path: "/career/leadership-positions" },
+  { id: "faculty", label: "Faculty Positions", path: "/career/faculty-positions" },
+  { id: "benefits", label: "Benefits", path: "/career/benefits" },
+  { id: "press", label: "Press Release", path: "/career/press-release" },
+  { id: "contact", label: "Contact", path: "/career/contact" },
+];
+
+const Careers = ({ initialTab = "overview" }: { initialTab?: CareerTabId }) => {
+  const activeTab = initialTab;
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const activeTabDetails = careerTabs.find((tab) => tab.id === activeTab) ?? careerTabs[0];
 
   // Administrative / Featured roles on Careers Tab
   const adminRoles = [
@@ -389,9 +392,14 @@ const Careers = ({ initialTab = "overview" }: { initialTab?: string }) => {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
-        title="Careers at MITS | Deemed to be University Faculty & Leadership Recruitment"
+        title={
+          activeTab === "overview"
+            ? "Careers at MITS | Deemed to be University Faculty & Leadership Recruitment"
+            : `${activeTabDetails.label} | Careers at MITS`
+        }
         description="Explore leadership and faculty recruitment opportunities at Madanapalle Institute of Technology & Science (MITS - Deemed to be University). Apply for academic and leadership positions."
         keywords="MITS careers, faculty recruitment, leadership positions, Madanapalle Institute of Technology and Science jobs, university recruitment"
+        canonical={activeTabDetails.path}
       />
       <Header />
 
@@ -442,9 +450,10 @@ const Careers = ({ initialTab = "overview" }: { initialTab?: string }) => {
             {careerTabs.map((tab) => {
               const isActive = activeTab === tab.id;
               return (
-                <button
+                <Link
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  to={tab.path}
+                  aria-current={isActive ? "page" : undefined}
                   className={`px-4 py-2 text-sm font-medium whitespace-nowrap rounded-md transition-all duration-200 border-b-2 ${
                     isActive
                       ? "text-primary border-primary bg-primary/5 font-semibold"
@@ -452,7 +461,7 @@ const Careers = ({ initialTab = "overview" }: { initialTab?: string }) => {
                   }`}
                 >
                   {tab.label}
-                </button>
+                </Link>
               );
             })}
           </div>
@@ -571,22 +580,26 @@ const Careers = ({ initialTab = "overview" }: { initialTab?: string }) => {
               </div>
 
               {/* Invitation for Faculty Positions Callout */}
-              <div className="bg-primary text-primary-foreground p-7 rounded-xl flex flex-col md:flex-row items-center justify-between gap-5 shadow">
+              <div className="bg-[#8b0000] text-white p-7 rounded-xl flex flex-col md:flex-row items-center justify-between gap-5 shadow">
                 <div className="space-y-1.5 text-center md:text-left">
-                  <h4 className="text-xl md:text-2xl font-bold">Applications Invited for Various Faculty Positions</h4>
-                  <p className="text-primary-foreground/90 text-base md:text-[17px]">
+                  <h4 className="text-xl md:text-2xl font-bold text-white">
+                    Applications Invited for Various Faculty Positions
+                  </h4>
+                  <p className="text-white/90 text-base md:text-[17px]">
                     Interested candidates can send resumes to{" "}
-                    <a href="mailto:jobs@mits.ac.in" className="underline font-bold hover:text-white">
+                    <a href="mailto:jobs@mits.ac.in" className="underline font-bold hover:text-amber-200">
                       jobs@mits.ac.in
                     </a>
                   </p>
                 </div>
                 <Button
+                  asChild
                   variant="secondary"
                   className="font-bold text-base px-6 py-6 whitespace-nowrap bg-white text-slate-900 hover:bg-slate-100"
-                  onClick={() => setActiveTab("faculty")}
                 >
-                  View Faculty Openings <ArrowRight className="w-5 h-5 ml-2" />
+                  <Link to="/career/faculty-positions">
+                    View Faculty Openings <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
                 </Button>
               </div>
 

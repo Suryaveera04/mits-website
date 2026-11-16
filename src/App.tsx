@@ -296,6 +296,11 @@ const App = () => (
             <Route path="/psychological-counselling-cell" element={<CellDetail overrideId="pcc" />} />
             <Route path="/career" element={<Careers />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/career/leadership-positions" element={<Careers initialTab="leadership" />} />
+            <Route path="/career/faculty-positions" element={<Careers initialTab="faculty" />} />
+            <Route path="/career/benefits" element={<Careers initialTab="benefits" />} />
+            <Route path="/career/press-release" element={<Careers initialTab="press" />} />
+            <Route path="/career/contact" element={<Careers initialTab="contact" />} />
             <Route path="/leadership-positions" element={<Careers initialTab="leadership" />} />
             <Route path="/positionsoffered" element={<Careers initialTab="faculty" />} />
             <Route path="/positions-offered" element={<Careers initialTab="faculty" />} />
