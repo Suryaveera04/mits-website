@@ -3703,7 +3703,18 @@ const DepartmentPage = () => {
 
             {activeSection === "events" && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-                <h2 className="text-2xl font-bold text-secondary mb-6" style={{ fontFamily: "var(--font-display)" }}>Events</h2>
+                <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+                  <h2 className="text-2xl font-bold text-secondary" style={{ fontFamily: "var(--font-display)" }}>Events</h2>
+                  {deptKey === "cse" && (
+                    <a
+                      href={`${import.meta.env.BASE_URL}cse-events`}
+                      className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                    >
+                      View All CSE Events
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  )}
+                </div>
                 {(() => {
                   const allEvents = (!cmsLoading && cms.events.length > 0) ? cms.events : dept.events;
                   if (allEvents.length === 0) {

@@ -1,0 +1,1602 @@
+export interface CSEEventArchiveItem {
+  academicYear: string;
+  description: string;
+  href?: string;
+}
+
+export const cseEventArchive: CSEEventArchiveItem[] = [
+  {
+    "academicYear": "2026-27",
+    "description": "A Cyber Security Awareness Session on “Cyber Sentinels” Theme: Cyber Security Awareness for a Safer Digital Future was organized by Department of Computer Science & Engineering 03rd November 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Cyber%20Sentinels.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "A One Day National Level Technical Symposium GMOCS-2K26 (2.0) was organized by Department of Computer Science & Engineering on 31st October 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS'26_2.0_Report.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industrial Visit to \"Tamil Nadu Smart and Advanced Manufacturing Centre (TANSAM), Chennai\" was organized by Department of Computer Science & Engineering on 28th October 2026",
+    "href": "https://mits.ac.in/assets/pdf/cse/Tamil%20Nadu%20Smart%20and%20Advanced%20Manufacturing%20Centre%20(TANSAM),%20Chennai.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industrial Visit to \"RETECH Solutions Private Limited, Chennai, Tamil Nadu\" was organized by Department of Computer Science & Engineering on 27th October 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/RETECH%20Solutions%20Private%20Limited,%20Chennai,%20Tamil%20Nadu.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industrial Visit to “Indian Institute of Information Technology, Design and Manufacturing, Chennai” was organized by Department of Computer Science & Engineering on 22nd October 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Indian%20Institute%20of%20Information%20Technology,%20Design%20and%20Manufacturing,%20Chennai.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "A “Parent – Teacher Meeting” was organized by Department of Computer Science & Engineering on 09th October 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Parent%20%E2%80%93%20Teacher%20Meeting%209-10-2026.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industrial Visit to \"Approtech R & D Solutions Private Limited, West Tambaram, Chennai\" was organized by Department of Computer Science & Engineering on 01st October 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Approtech%20R%20D%20Solutions%20Private%20Limited,%20West%20Tambaram,%20Chennai.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industrial Visit to \"Rajiv Gandhi Memorial Telecom Training Centre (RGMTTC), BSNL Meenambakkam, Chennai\" was organized by Department of Computer Science and Engineering on 09th September 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Rajiv%20Gandhi%20Memorial%20Telecom%20Training%20Centre%20(RGMTTC),%20BSNL%20Meenambakkam,%20Chennai.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industrial Visit to “ZOHO Corporation Private Ltd & Approtech R & D Solutions Private Ltd” was organized by Department of Computer Science & Engineering on 08th September 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/ZOHO%20Corporation%20Private%20Ltd%20&%20Approtech%20R%20&%20D%20Solutions%20Private%20Ltd.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industrial Visit to “E-Box Recyclers, Bengaluru” was organized by Department of Computer Science and Engineering on 03rd September 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/E-Box%20Recyclers,%20Bengaluru.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industrial Visit to “Rajiv Gandhi Memorial Telecom Training Centre (RGMTTC), BSNL, Meenambakkam, Chennai” was organized by Department of Computer Science and Engineering on 31st August 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Rajiv%20Gandhi%20Memorial%20Telecom%20Training%20Centre%20(RGMTTC),%20BSNL,%20Meenambakkam,%20Chennai.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industrial Visit to “Rajiv Gandhi Memorial Telecom Training Centre (RGMTTC), BSNL, Meenambakkam, Chennai” was organized by Department of Computer Science and Engineering on 29th August 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Rajiv%20Gandhi%20Memorial%20Telecom%20Training%20Centre%20(RGMTTC),%20BSNL,%20Meenambakkam%20Chennai.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industry Guest Lecture on “Computer Networks: Classroom to the Connected World” was organized by Department of Computer Science & Engineering 29th August 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Computer%20Networks%20Classroom%20to%20the%20Connected%20World.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industrial Visit To “Centre for Development of Advanced Computing (C-DAC)” Electronics City, Bengaluru was organized by Department of Computer Science & Engineering 20th August 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Centre%20for%20Development%20of%20Advanced%20Computing%20(C-DAC).pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "An Industrial Visit to “Blue Yonder Pvt Ltd & E Box Recycler Inc” was organized by Department of Computer Science & Engineering on 18th August 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Blue%20Yonder%20Pvt%20Ltd%20%20E%20Box%20Recycler%20Inc.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "The Memorandum of Understanding (MoU) between Madanapalle Institute of Technology & Science (MITS) Deemed to be University and Approtech R & D Solutions Private Limited, Chennai was organized by Department of Computer Science & Engineering on 14th August 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Approtech%20R%20D%20Solutions%20Private%20Limited.pdf"
+  },
+  {
+    "academicYear": "2026-27",
+    "description": "The Memorandum of Understanding (MoU) between Madanapalle Institute of Technology & Science (MITS) Deemed to be University and Daniel Academy of Science and Technology, Republic of Congo was organized by Department of Computer Science & Engineering on 01st August 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Daniel%20Academy%20of%20Science%20and%20Technology%20Republic%20of%20Congo.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Industrial Visit to \"Centum Electronic Limited, Bengaluru\" was organized by Department of Computer Science & Engineering on 22nd May 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Centum%20Electronic%20Limited,%20Bengaluru.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Industrial Visit to \"Cimtrix Systems Pvt. Ltd\" was organized by Department of Computer Science & Engineering on 21st May 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Cimtrix%20Systems%20Pvt.%20Ltd.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Industrial Visit to \"Centre for Development of Advanced Computing(C-DAC), Bengaluru\" was organized by Department of Computer Science & Engineering on 19th May 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Centre%20for%20Development%20of%20Advanced%20Computing(C-DAC),%20Bengaluru.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Industrial Visit to \"Samvardhana Motherson Reydel Companies (SMRC), Tamil Nadu, India\" was organized by Department of Computer Science & Engineering on 15th May 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Samvardhana%20Motherson%20Reydel%20Companies.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Day National Level Technical Symposium GMOCS-2K26 was organized by Department of Computer Science & Engineering 2nd April 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS%E2%80%992k26-compressed.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Day Seminar on “Engineering the Human–Machine Future: Converging CPS, AI, and Human Intelligence for Industry 5.0” was organized by Department of Computer Science & Engineering under AICTE - Distinguished Professional Scheme (DPS) 16th March 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Engineering%20the%20Human%E2%80%93Machine%20Future%20Converging%20CPS,%20AI,%20and%20Human.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Industrial Visit to \"National Atmospheric Research Laboratory (NARL), Gadanki, Pakala, Andhra Pradesh\" was organized by Department of Computer Science & Engineering on 13th March 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/National%20Atmospheric%20Research%20Laboratory.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Alumni Seminar on “A Study on Cloud Computing Technologies” was organized by Department of Computer Science & Engineering on 09th March 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/A%20Study%20on%20Cloud%20Computing%20Technologies-09th%20March%202026.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "The AICTE sponsored 2nd International Conference on Optimization Techniques for Learning (ICOTL 2026), was organized by the Department of Computer Science & Engineering on 6th & 7th March 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/ICOTL%E2%80%9926.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A 15 days Skill Development Program on \"AWS – Amazon Web Services – Global Certificate Training Programme\" was organized by Department of Computer Science & Engineering from 04th to 18th March 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/AWS%20Amazon%20Web%20Services-Global%20Certificate%20Training%20Programme.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "The Department of Computer Science & Engineering in association with the Computer Society of India (CSI), organized a One Week Online International FDP on “Research Trends in AI for Sustainable Development\" from 23rd – 28th February 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Research%20Trends%20in%20AI%20for%20Sustainable%20Developmen.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A Five Day Professional Development Programme on “Behavioural Competencies and Professional Skills for Career Success” was organized by Department of Computer Science & Engineering In Association with ISTE, MITS from 23rd to 27th February 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Behavioural%20Competencies%20and%20Professional%20Skills%20for%20Career%20Success.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Day Professional Development Programme on “Series-I: Transforming Students into Industry Professionals” was organized by Department of Computer Science & Engineering In Association with ISTE, MITS on 20th February 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Series-I%20Transforming%20Students%20into%20Industry%20Professionals.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Day Professional Development Programme on “Series-I: Behavioural Competencies and Professional Skills for career Success” was organized by Department of Computer Science & Engineering In Association with ISTE, MITS on 13th February 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Series-I%20Behavioural%20Competencies%20and%20Professional%20Skills%20for%20career%20Success.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Day Professional Development Programme on “Series-I: Early Preparation Strategies for Placement Excellence” was organized by Department of Computer Science & Engineering In Association with ISTE, MITS on 12th February 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Series-I%20Early%20Preparation%20Strategies%20for%20Placement%20Excellence.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Two Days Professional Development Programme Hands on Training on \"Series-I: Advanced Java for Industry-Ready Application Development\" was organized by Department of Computer Science & Engineering from 05th to 06th February 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Series%20I%20Advanced%20Java%20for%20Industry-Ready%20Application%20Development.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A Seminar on \"Robotics 5.0- From Automation to Autonomous Intelligence\" was organized by Department of Computer Science & Engineering in Association with IEEE Student Chapter (ITSS) on 05th February 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Robotics%205.0%20From%20Automation%20to%20Autonomous%20Intelligence-compressed.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A Workshop on \"Understanding Core AWS Service: EC2, S3, VPC\" was organized by Department of Computer Science & Engineering from 03rd to 07th February 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Understanding%20Core%20AWS%20Service%20EC2,%20S3,%20VPC.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A Five-Day Hands-On Skill Development Program on \"MERN Stack from Fundamentals to Industry-Ready Full-Stack Application Development\" was organized by Department of Computer Science & Engineering In Association with IIC from 03rd to 07th February 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/MERN%20Stack%20from%20Fundamentals%20to%20Industry-Ready%20Full-Stack%20Application%20Development.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Alumni Seminar on “Career Guidance” was organized by Department of Computer Science & Engineering on 3rd February 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Career%20Guidance-3rd%20February%202026.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Week Domain-Specific Hands-On Workshop on “Quantum Computing and Its Open Source Frameworks” was organized by Department of Computer Science & Engineering In Association with MITS IEI Student Chapter from 02nd to 07th February 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Quantum%20Computing%20and%20Its%20Open%20Source%20Frameworks-compressed.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An \"Alumni Meet\" was organized by Department of Computer Science & Engineering on 31st January 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Alumni%20Meet%2031-1-2026.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Day Workshop on \"CSI AI 100K- AI Readiness Session\" was organized by Department of Computer Science & Engineering In Association with Computer Society of India (CSI) Hyderabad Chapter 30th January 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/CSI%20AI%20100K-%20AI%20Readiness%20Session.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A “Two Days hands-on IoT and AI Training on AI & IoT Powered Intelligent System for Real-Time Robot Movement Detection” was organized by Department of Computer Science & Engineering In Association with IIC on 28th to 29th January 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/IoT%20and%20AI%20Training%20on%20AI%20IoT%20Powered%20Intelligent%20System%20for%20Real-Time%20Robot%20Movement%20Detection.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Online Expert Talk on “Effective sales And Marketing Strategies For Start-ups” was organized By Department of Computer Science & Engineering In Association with Entrepreneurship Development Cell on 28th January 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Effective%20sales%20And%20Marketing%20Strategies%20For%20Start-ups.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Day Seminar on “Range Systems for Launch Base Station” was organized by Department of Computer Science & Engineering Sponsored by AICTE – Distinguished Professional Scheme (DPS) 22nd January 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Range%20Systems%20for%20Launch%20Base%20Station.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Alumni Webinar on “The Role of Generative AI in Sustainable Engineering” was organized by Department of Computer Science & Engineering on 20th January 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/The%20Role%20of%20Generative%20AI%20in%20Sustainable%20Engineering-20th%20January%202026.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Week Domain-Specific Hands-On Workshop on “Building Intelligent Systems Using Machine Learning Techniques” was organized by Department of Computer Science & Engineering In Association with IEEE on 5th to 10th January 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Building%20Intelligent%20Systems%20Using%20Machine%20Learning%20Techniques.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Week Domain-Specific Hands-On Workshop on Full Stack Web Development using Modern Frameworks was organized by Department of Computer Science & Engineering In Association with ISTE Student Chapter 29th December 2025 to 03rd January 2026.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Full%20Stack%20Web%20Development%20using%20Modern%20Frameworks.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Day Webinar “NeoPAT Online Orientation: Skill Assessment and Career Readiness” was organized by Department of Computer Science & Engineering on 30th December 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/NeoPAT%20Online%20Orientation%20Skill%20Assessment%20and%20Career%20Readiness.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A One Day Workshop on “Human Centered Applied AI Research” was organized by Department of Computer Science & Engineering in Association with Computer Society of India & Bellu AI on 22nd December 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Human%20Centered%20Applied%20AI%20Research.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Alumni Seminar on “Building a Career with Salesforce CRM” was Organized by the Department of Computer Science & Engineering 20th December 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Building%20a%20Career%20with%20Salesforce%20CRM-20th%20December%202025.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Industrial Visit to “National Atmospheric Research Laboratory (NARL)” Gadanki, Pakala, Andhra Pradesh was organized by Department of Computer Science & Engineering on 28th November 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/National%20Atmospheric%20Research%20Laboratory%20(NARL)-28.11.2025.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A “Parent - Teacher Meeting” was organized by Department of Computer Science & Engineering on 15th November 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Parent-Teacher%20Meeting%2015.11.2025.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A Two-days Hands on Workshop on \"The DevOps Vanguard: Tools, Tactics & Transformation\" was organized by Department of Computer Science & Engineering in association with ISTE Student Chapter on 19th & 20th September 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/The%20DevOps%20Vanguard%20Tools%20Tactics%20Transformation.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A Department Level Hackathon \"Smart India Hackathon - 2K25\" was organized by Department of Computer Science & Engineering in Association with Institution’s Innovation Council 12th September 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/A%20Department%20Level%20Hackathon%20SMART%20INDIA%20HACKATHON%202K25.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A National Level Article Presentation Contest on “Pen to Podium” was organized by Department of Computer Science & Engineering in Association with Academic Decipher Mumbai on 12th September 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/PEN%20TO%20PODIUM.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A National Level Article Presentation Contest on “Pen to Podium” was organized by Department of Computer Science & Engineering in Association with Academic Decipher Mumbai on 12th September 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/PEN%20TO%20PODIUM.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Alumni Guest Lecture on “Building a Successful Engineering Career: Tips from the Field” was organized by Department of Computer Science & Engineering on 3rd September 2025",
+    "href": "https://mits.ac.in/assets/pdf/cse/Building%20a%20Successful%20Engineering%20Career%20Tips%20from%20the%20Field-3rd%20September%202025.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A Guest Lecture on “Next-Gen Tech Mastery: Cloud, DevOps & AI Prompting” was organized by Department of Computer Science & Engineering in association with Institution's Innovation Council 26th August 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Next-Gen%20Tech%20Mastery%20Cloud,%20DevOps%20&%20AI%20Prompting.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "An Alumni Guest Lecture on “Engineering Career in Pursuit of Growing Industry Opportunities” was organized by Department of Computer Science & Engineering on 22nd August 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Engineering%20Career%20in%20Pursuit%20of%20Growing%20Industry%20Opportunities-22nd%20August%202025.pdf"
+  },
+  {
+    "academicYear": "2025-26",
+    "description": "A Guest Lecture on “Generative AI & Reimagining Retail Supply Chains: Transformative Power of Agentic AI” was organized by Department of Computer Science & Engineering in Association with Computer Society of India (CSI) on 19th August 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Generative%20AI%20&%20Reimagining%20Retail%20Supply%20Chains%20Transformative%20Power%20of%20Agentic%20AI.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Five Day Faculty Development Programme on “Quantum Neuromorphic Computing For Sustainable Generative AI” was organized by Department of Computer Science & Engineering In association with Faculty Development Center, Jawaharlal Nehru Technological University, Anantapur from 23rd to 27th June 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Quantum%20Neuromorphic%20Computing%20for%20Sustainable%20Generative%20AI.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A One day Workshop on \"Smart Problem Solving: Tackling Real-World Challenges with Code\" was organized by Department of Computer Science & Engineering in association with IEI Student Chapter on 16th May 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Smart%20Problem%20Solving%20Tackling%20Real-World%20Challenges%20with%20Code.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A One Day National Level Technical Symposium on \"GMOCS’2K25\" was organized by Department of Computer Science & Engineering In Association with Computer Society of India on 30th April 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS%E2%80%992K25.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Guest Lecture on “Role of Java Programming in Industry Perspective” was organized by Department of Computer Science & Engineering on 10th April 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Role%20of%20Java%20Programming%20in%20Industry%20Perspective.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Guest Lecture on “Edge AI 2.0: Towards Establishing & Sustaining Real-Time Enterprises” was organized by Department of Computer Science & Engineering in Association with Computer Society of India (CSI) on 20th March 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Edge%20AI%202.0%20Towards%20Establishing%20&%20Sustaining%20Real-Time%20Enterprises.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Three-day Hands-on Workshop on \"Building Future-Ready Applications with Salesforce\" was organised by Department of Computer Science & Engineering from 27th February to 01st March 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Building%20Future-Ready%20Applications%20with%20Salesforce.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Two-days Hands on Workshop on \"Code Craft: A Deep Dive into Java Development\" was organized by Department of Computer Science & Engineering in association with ISTE Student Chapter from 31st January to 01st February 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Code%20Craft%20A%20Deep%20Dive%20into%20Java%20Development.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "An Industrial Visit to “National Atmospheric Research Laboratory (NARL)” was organized by Department of Computer Science & Engineering on 17th January 2025.",
+    "href": "https://mits.ac.in/assets/pdf/cse/National%20Atmospheric%20Research%20Laboratory%20-%2017-1-2025.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "An Online Seminar on “Startup Success: Turning Ambition into Achievement” was organized by Department of Computer Science & Engineering In Association with Entrepreneurship Development Cell on 05th December 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Startup%20Success%20Turning%20Ambition%20into%20Achievement.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A National Level Hackathon \"InnoSpark 1.0\" was organized by Department of Computer Science & Engineering in association with CSI on 25th November 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/INNOSPARK%201.0.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A “Parent – Teacher Meeting” was organized by Department of Computer Science & Engineering on 23rd November 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Parent-Teacher%20Meeting-23-11-2024.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "An Alumni Guest Lecture on \"Database Scalability: Handling Growing Data in Real-Time Systems\" was organized by Department of Computer Science & Engineering on 21st November 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Database%20Scalability%20Handling%20Growing%20Data%20in%20Real-Time%20Systems.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A One Day Hands-on Training on \"Virtual Reality and Its Applications\" was organized by Department of Computer Science & Engineering In Association with IEEE on 20th November 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Virtual%20Reality%20and%20Its%20Applications.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Two-Days Workshop on \"Empowering Real-time Solutions through IOT, AI, and Cloud Computing\" was organized by Department of Computer Science & Engineering in association with ISTE Student Chapter from 15th to 18th November 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Empowering%20Real-time%20Solutions%20through%20IOT%20AI%20and%20Cloud%20Computing.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Short Term Training Programme on “Gen AI Tools and Techniques” was organized by Department of Computer Science & Engineering in Association with Computer Society of India (CSI) from 11th to 16th November 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Gen%20AI%20Tools%20and%20Techniques.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Webinar on “Recent Data and Visualization tools for IT Industry” was organized by Department of Computer Science & Engineering in association with ISTE-MITS on 29th October 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Recent%20Data%20and%20Visualization%20tools%20for%20IT%20Industry.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Workshop on \"Introduction to Development Environment\" was organized by MITS WEB CLUB on 28th October 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Introduction%20to%20Development%20Environment.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Hands on Workshop “Full Stack Development” was organized by Department of Computer Science & Engineering in association with IEEE on 25th October 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Full%20Stack%20Development%2025-10-2024.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Seminar on “A DevOps Journey for Beginners” was organised by Department of Computer Science & Engineering in association with ISTE Student Chapter on 25th October 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/A%20DevOps%20Journey%20for%20Beginners.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Workshop on \"Full Stack Web Development Bootcamp\" was organised by Department of Computer Science & Engineering in association with Alumni Welfare and IEEE on 19th October 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Full%20Stack%20Web%20Development%20Bootcamp-19-10-2024.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Workshop on \"From Logic to Code: Building Effective Programs\" was organized by Department of Computer Science & Engineering in association with Alumni Welfare and IEEE on 19th October 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/From%20Logic%20to%20Code%20Building%20Effective%20Programs.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Guest Lecture on “Mastering Microsoft Certifications and Applied Skills” was organized by Department of Computer Science & Engineering In Association with IEEE, MITS on 03rd October 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Mastering%20Microsoft%20Certifications%20and%20Applied%20Skills.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "An Alumni Guest Lecture on \"Sustainable Engineering: Challenges and Opportunities\" was Organized by the Department of Computer Science & Engineering on 20th September 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Sustainable%20Engineering%20Challenges%20and%20Opportunities.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Guest Lecture on ‘Harnessing Deep Learning Technique for Enhanced Microvasculature segmentation’ was organized by Department of Computer Science & Engineering on 19th Sepetmber 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Harnessing%20Deep%20Learning%20Technique%20for%20Enhanced%20Microvasculature%20segmentation.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "An Alumni Guest Lecture on \"Top Tips for Excelling in Campus Placements\" was organized by Department of Computer Science & Engineering in association with MITS Alumni Welfare Association and IEEE on 17th September 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Top%20Tips%20for%20Excelling%20in%20Campus%20Placements.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "An “Inauguration of IEEE Student Chapter” was organized by Department of Computer Science & Engineering In Association with IEEE on 12th Sepemtember 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Inauguration%20of%20IEEE%20Student%20Chapter.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A Seminar on \"Real Time Exposure on Analysis of Biological Data Using Machine Learning Techniques\" was organized by Department of Computer Science & Engineering on 04th September 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Real%20Time%20Exposure%20on%20Analysis%20of%20Biological%20Data%20Using%20Machine%20Learning%20Techniques.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "An Alumni Guest lecture on “Building Your Professional Career: Strategic for Successful Placement” was organized by Department of Computer Science & Engineering in association with IEEE on 04th September 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Building%20Your%20Professional%20Career%20Strategic%20for%20Successful%20Placement.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "An Alumni Guest Lecture “Mastering Technical Interviews: Tips and Tricks” was organised by Department of Computer Science & Engineering on 03rd September 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Mastering%20Technical%20Interviews%20Tips%20and%20Tricks.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "A \"Departmental Level Hackathon\" was organized by Department of Computer Science & Engineering in association with Institution’s Innovation Council, IEEE Intelligent Transportation Systems Society Student Branch Chapter on 28th August 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Departmental%20Level%20Hackathon.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "An Online Expert Talk on \"VC Funding Opportunity for Early - Stage Entrepreneurs\" was organized by Department of Computer Science & Engineering In Association with Institute Innovation Council, MITS on 21st August 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/VC%20Funding%20Opportunity%20for%20Early-Stage%20Entrepreneurs.pdf"
+  },
+  {
+    "academicYear": "2024-25",
+    "description": "An Alumni Guest Lecture on “Seeking career transition from Data Analyst to Junior Data Scientist” was organized by Department of Computer Science & Engineering on 14th August 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Seeking%20career%20transition%20from%20Data%20Analyst%20to%20Junior%20Data%20Scientist-min.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Guest Lecture on \"Introduction and Real-World Applications of Machine Learning\" was organized by Department of Computer Science & Engineering in association with Computer Society of India (CSI) on 06th May 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Introduction%20and%20Real-World%20Applications%20of%20Machine%20Learning.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Webinar on \"Smart Surveillance: Advancements in Video Analytics with Machine Learning\" was organized by Department of Computer Science & Engineering on 4th May 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Smart%20Surveillance%20Advancements%20in%20Video%20Analytics%20with%20Machine%20Learning.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "An Online Guest Lecture on “Machine Learning Techniques\" was organized by Department of Computer Science & Engineering on 01st May 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Machine%20Learning%20Techniques.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "An Online Guest Lecture on “Basic Concepts of cryptography & Block chain Technologies” was organized by Department of Computer Science & Engineering on 1st May 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Basic%20Concepts%20of%20cryptography%20&%20Block%20chain%20Technologies.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "An Alumni Guest Lecture on \"Cybersecurity Trends and Career Paths - A Journey into Digital Defense\" was organized by Department of Computer Science & Engineering on 20th April 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Cybersecurity%20Trends%20and%20Career%20Paths-A%20Journey%20into%20Digital%20Defense.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A One Day National Level Technical Symposium GMOCS 2K24 was organized by Department of Computer Science & Engineering on 3rd April 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS-2K24.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "An Internal Project Expo-2024 was organized by Department of Computer Science & Engineering In Association with Institute Innovation Council (IIC) on 18th March 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Internal%20Project%20Expo-2024.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A One Week Online National Level Faculty Development Programme on “Impact of Emerging Technologies in AI/ML and Data Science” was organized by Department of Computer Science & Engineering In Association with Computer Society of India (CSI) from 26-02-2024 to 02-03-2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Impact%20of%20Emerging%20Technologies%20in%20AI-ML%20and%20Data%20Science.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Three Days Hand’s on Training Program on “Cloud Computing with Amazon Web Services” was organised by Department of Computer Science & Engineering In Association with ISTE Chapter from 19th to 21st February 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Cloud%20Computing%20with%20Amazon%20Web%20Services.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "An Industrial Visit to Sathish Dhawan Space Center (SDSC) SHAR, Sriharikota, Andhra Pradesh was organized by Department of Computer Science and Engineering on 17th February 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Industrial%20Visit%20Sathish%20Dhawan%20Space%20Center.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "One Week Online International Faculty Development Programme on “Emerging Tools & Techniques in Machine Learning and Data Science“ was organized by Department of CSE in association with Computer Society of India (CSI) from 5th to 10th February 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Emerging%20Tools%20&%20Techniques%20in%20Machine%20Learning%20and%20Data%20Science.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Webinar on \"Exploring the Landscape of Machine Learning Algorithms : A Comprehensive Overview\" was organized by Department of Computer Science & Engineering on 31st January 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Exploring%20the%20Landscape%20of%20Machine%20Learning%20Algorithms%20A%20Comprehensive%20Overview.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Workshop on \"Social Information Network - Data Analysis and Visualization\" was organized by Department of Computer Science & Engineering in association with Institute of Electrical and Electronics Engineers (IEEE) on 06th January 2024.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Social%20Information%20Network%20-%20Data%20Analysis%20and%20Visualization.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "1st International Conference on Optimization Techniques for Learning (ICOTL 2023) held on 7th & 8th December 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/International%20Conference%20on%20Optimization%20Techniques%20for%20Learning%20-%20ICOTL23.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "An Alumni Guest Lecture on “Career Progression Journey towards Successful Employment” was organized by Department of Computer Science & Engineering and association with MITS Alumni Welfare Association on 02nd December 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Career%20Progression%20Journey%20towards%20Successful%20Employment.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Guest Lecture on “Data Science for Engineers\" was organized by Department of Computer Science & Engineering in association with Computer Society of India (CSI) on 2nd December 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Data%20Science%20for%20Engineers.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Guest Lecture on “Machine Learning with Kaggle” was organized by Department of Computer Science & Engineering in Association with Google Developers Educator Program India 29th November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Machine%20Learning%20with%20Kaggle.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Guest Lecture on “Employability Initiative for Next Generation Using Business Intelligence” was organized by Department of Computer Science & Engineering on 29th November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Employability%20Initiative%20for%20Next%20Generation%20Using%20Business%20Intelligence.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "An Industrial Visit to “National Atmospheric Research Laboratory (NARL)” Gadanki, Pakala, Andhra Pradesh was organized by Department of Computer Science & Engineering on 24th November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/National%20Atmospheric%20Research%20Laboratory.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Guest Lecture on \"Challenges in Developing Mobile Apps\" was organised by Department of Computer Science & Engineering on Challenges in Developing Mobile Apps on 22nd November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Report%20on%20Guest%20Lecture%20Organised%20by%20Dept%20of%20CSE%20on%20Challenges%20in%20Developing%20Mobile%20Apps.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Webinar “Research Opportunities in Integration of IoT and Blockchain for Smart Applications” was organized by Department of Computer Science & Engineering in association with Computer Society of India (CSI) on 22nd November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Research%20Opportunities%20in%20Integration%20of%20IoT%20and%20Blockchain%20for%20Smart%20Applications.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Guest Lecture on “Software Product Management” was organized by Department of Computer Science & Engineering in association with Indian Society for Technical Education (ISTE) on 22nd November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Software%20Product%20Management.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Guest Lecture on “Post Quantum Cryptography “ was organized by Department of Computer Science & Engineering in association with Computer Society of India (CSI) on 20th November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Post%20Quantum%20Cryptography.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Parents' Meeting was organized by Department of Computer Science & Engineering on 18th November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Parents%20Meeting%2018%20Nov%202024.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Work Shop on “Full Stack Development” was organized by MITS WEB CLUB in Association with Computer Society of India (CSI) on 18th November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Full%20Stack%20Development-18-11-2023.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Guest Lecture “Neural Network and Deep Learning“ was organized by Department of Computer Science & Engineering in Association with ISTE Student Chapter on 16th November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Neural%20Network%20and%20Deep%20Learning.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Guest Lecture on “Crafting Embedded Systems with C/C++: Getting into Open BMC Project” was organized by Department of Computer Science & Engineering in association with Institution Innovation Cell (IIC) on 16th November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Crafting%20Embedded%20Systems%20with%20C%20C++Getting%20into%20Open%20BMC%20Project.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Work Shop on “Web Development – Front End” was organized by MITS WEB CLUB in Association with Computer Society of India (CSI) on 4th November 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Web%20Development-Front%20End.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "A Guest Lecture on \"Emerging Trends in Data Science\" by was organized by Department of Computer Science & Engineering in 29th September 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Emerging%20Trends%20in%20Data%20Science.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "An Internal Hackathon (SMART INDIA HACKATHON-2023) was organized by Department of CSE, Data Science & Institute Innovation Cell on 26th Sepetember 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/SIH%20Report%202023.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "An Industrial Visit Indira Gandhi Centre for Atomic Research (IGCAR), Kalpakkam - Tamil Nadu was organized by Department of Computer Science and Engineering on 01 September 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Indira%20Gandhi%20Centre%20for%20Atomic%20Research.pdf"
+  },
+  {
+    "academicYear": "2023-24",
+    "description": "An Alumni Guest Lecture on Web Development was organized by Department of Computer Science & Engineeringon 31st August 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Web%20Development%20on%2031st%20August%202023.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A \"Parents Meeting\" was organized by Department of Computer Science and Engineering on 30th June 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Parents%20Meeting-3-06-2023.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Guest Lecture on “Career Guidance on Recent Trends in Computer Science\" was organized by Department of Computer Science & Engineering on 23rd June 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Recent%20Trends%20in%20Computer%20Science-min.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Guest Lecture on “Career Guidance” was organized by Department of Computer Science & Engineering on 17th June 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Guest%20Lecture%20on%20career%20guidance-min.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Guest Lecture on “Ethical Hacking” (Security Threats) was organized by Department of Computer Science & Engineering on 17th June 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Ethical%20Hacking%20security%20threats.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Guest Lecture on “Ethical Hacking” was organized by Department of Computer Science & Engineering on 15th June 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/ethical%20Hacking%2015-06-2023.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Guest Lecture on \"Machine Learning and its Applications\" was organized by Department of Computer Science & Engineering on 5th June 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Machine%20Learning%20and%20its%20Applications.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Guest Lecture on \"Data Science Applications and Industrial Insights\" was organized by Department of Computer Science & Engineering on 31st May 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Data%20Science%20Applications%20and%20Industrial%20Insights.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A 5 Days Online Workshop on Recent Trends in Machine Learning and BigData in association with Computer Society of India from 24th to 31st May 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Recent%20Trends%20in%20Machine%20Learning%20and%20BigData.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Guest Lecture on \"Introduction to NLP\" was organized by Department of Computer Science & Engineering on 29th May 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Introduction%20to%20NLP.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An Alumni Guest Lecture on \"Career in Abroad Education & Job\" was organized by Department of Computer Science and Engineering on 25th May 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/CAREER%20IN%20ABROAD%20EDUCATION%20&%20JOB-25-5-2023.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Webinar on \"IoT Wearable Computing\" was organized by Department of Computer Science and Engineering on 23rd May 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/IoT%20Wearable%20Computing-23-5-2023.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Guest Lecture on \"Bigdata Technologies\" was organized by Department of Computer Science & Engineering on 20th May, 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Bigdata%20Technologies-2023.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An Industrial Visit to National Atmospheric Research Laboratory (NARL), Tirupati, was organized by Department of Computer Science and Engineering on 21st April 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/NARL-2023.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An online Guest Lecture on “Cloud Computing and AWS DevOps” was organized by Department of Computer Science & Engineering on 19th April 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Cloud%20Computing%20and%20AWS%20DevOps.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Two Days National Conference NASA'23, was organized by Department of Computer Science and Engineering on 19th & 20th April 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/NASA-23.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Seminar on “Exciting Project Ideas in IoT for Beginners” was organized by Department of Computer Science & Engineering on 15th April 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Exciting%20Project%20Ideas%20in%20IoT%20for%20Beginners.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Guest Lecture on “Satellite Image Processing Research Aspects” was organized by Department of Computer Science & Engineering in association with IEEE MITS Student Branch on 4th April 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Satellite%20Image%20Processing%20Research%20Aspects.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An Online Guest Lecture on \"Applications of Artificial Intelligence\" was organized by Department of Computer Science and Engineering on 31st March 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/APPLICATIONS%20OF%20ARTIFICIAL%20INTELLIGENCE-31-3-2023.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A National Level Technical Symposium GMOCS-2023 was organized by Department of Computer Science & Engineering on 29th March 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS-2K23.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An online Guest Lecture on “Cutting Edge Technology on Cloud Computing” was organized by Department of Computer Science & Engineering on 18th March 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Cutting%20Edge%20Technology%20on%20Cloud%20Computing.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An Online Guest Lecture on \"Intelligent Question Answering System with NLP\" was organized by Department of Computer Science and Engineering on 24th February 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/INTELLIGENT%20QUESTION%20ANSWERING%20SYSTEM%20WITH%20NLP-24-2-2023.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An Online Guest Lecture on \"Artificial Intelligence in Health Care\" was organized by Department of Computer Science and Engineering on 8th February 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/ARTIFICIAL%20INTELLIGENCE%20IN%20HEALTH%20CARE-8-2-2023.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An Awareness programme on “How to Groom Entrepreneurs” was organized by the Department of Computer Science & Engineering & Entrepreneurship Development Cell on 24th January 2023.",
+    "href": "https://mits.ac.in/assets/pdf/cse/How%20to%20Groom%20Entrepreneurs.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Guest Lecture on “Artificial Intelligence & Machine Learning” was organized by the Department of Computer Science & Engineering through Virtual mode (Online) for II & III B. Tech students on 30th December 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Artificial%20Intelligence%20&%20Machine%20Learning-min.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Webinar on “Thrive Knowledge in Agile Methodology & Deep Dive into DevOps” was organized by Department of Computer Science & Engineering on 17th December 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Thrive%20Knowledge%20in%20Agile%20Methodology%20&%20Deep%20Dive%20into%20DevOps-min.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An Online Guest Lecture on “Career Opportunities in Software Testing“ was organized by Department of Computer Science & Engineering on 03rd December 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Report%20on%20Guest%20Lecture-Career%20Opportunities%20in%20Software%20Testing.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An Awareness programmes on “APSCHE Start-Up Programmes & MSME Schemes” was organized by Entrepreneurship Development Cell & Department of Computer Science & Engineering on 22nd November 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/APSCHE%20Start-Up%20Programmes%20MSME%20Schemes.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An Quiz Contest on “Web Development V1.0” was organized by Department of Computer Science & Engineering in Association with Computer Society of India (CSI) on 19th November 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Web%20Development%20V1.0-min.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "One Week Online International Faculty Development Programme on \"Emerging Trends and Research Opportunities in Computer Science\" was organized by Department of Computer Science & Engineering from 31st October to 5th November 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Emerging%20Trends%20&%20Research%20Opportunities%20in%20Computer%20Science.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A \"One Week Online Faculty Induction Workshop on Thrust Areas\" in association with IEEE was organized by Department of Computer Science & Engineering on 10th to 15th October 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/One%20Week%20Online%20Faculty%20Induction%20Workshop%20on%20Thrust%20Areas.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "An International Webinar on \"Cyber Security Applications using Python\" was organized by Department of Computer Science & Engineering in association with ISTE Student Chapter MITS on 26th October 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Cyber%20Security%20Applications%20Using%20Python.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "One Day Awareness & Professional Development Programme on Cyber Security was organized by Department of Computer Science and Technology & Department Of Computer Science and Engineering (Cyber Security) on 20th October 2022.",
+    "href": "https://mits.ac.in/assets/event/Awareness%20&%20Professional%20Development%20Programme.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Workshop on Design Thinking & Innovation was organized by MITS - Institution’s Innovation Centre on 15th October 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Workshop%20on%20Design%20Thinking%20&%20Innovation.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A One Week Online Faculty Induction Workshop on Thrust Areas Programme was conducted from 10-10-2022 to 15-10-2022 in virtual mode was organized by Department of Computer Science and Computer Science and Engineering in association with IEEE.",
+    "href": "https://mits.ac.in/assets/pdf/cse/One%20Week%20Online%20Faculty%20Induction%20Workshop%20on%20Thrust%20Areas.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "A Guest Lecture Report on \"Modular CNN’S for Weak Environment's\" was organized by School of Computers on the occasion of IEEE Day Celebrations on 14th October 2022.",
+    "href": "https://mits.ac.in//assets/pdf/cse/Modular%20CNNS%20for%20Weak%20Environments.pdf"
+  },
+  {
+    "academicYear": "2022-23",
+    "description": "One Week Online Faculty Development Programme on \"Recent Tools & Techniques for Data Science and Artificial Intelligence\" was organized by Department of Computer Science & Engineering from 19th to 25th September 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Recent%20Tools%20&%20Techniques%20for%20Data%20Science%20and%20Artificial%20Intelligence.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "Expert talk on Outcome Based Education (OBE) was organized by Dept of CSE was held on 23 July 2022 by Professor K.Lakshmi.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Report%20-%20Expert%20Talk%20on%20Outcome%20Based%20Education.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "Participation of MITS Faculty in Microsoft upskilling FDP on Microsoft Certification Organized by Andhra Pradesh State Council of Higher Education held at Jawaharlal Nehru Technological University, Anantapur. 20.06.22 - 22.06.22.",
+    "href": "https://mits.ac.in/assets/pdf/cse/FDP%20on%20MC%2022%2006%2022.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "Expert Talk on CO-PO-PSO Mapping & CO's Assessment Process was held on 25th May 2022 by Dr.A.V.Pawan",
+    "href": "https://mits.ac.in/assets/pdf/cse/Report-CO-PO-%20PSO%20Mapping%20&%20CO's%20Assessment%20Process.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "A National Level Technical Symposium GMOCS-2K22 was organized by Department of Computer Science and Engineering on 25th May 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS-2022.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "Report on Webinar on Cloud Technologies opportunities learnings, and growth. In association with the Computer Society of India (CSI) 21st May 2022",
+    "href": "https://mits.ac.in/assets/pdf/cse/Webinar_on_cloud_Computing_21_05_22.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "“Report on Guest Lecture Organized by Department of Computer Science & Engineering on “Role of IoT in Smart Spaces” in Association with Computer Society of India (CSI) 04th May 2022 .",
+    "href": "https://mits.ac.in/assets/pdf/cse/Report%20on%20IOT.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "“An insight of recent Machine Learning Applications” in Association with Computer Society of India (CSI) was organized by department of Computer Science & Engineering on 05th May 2022",
+    "href": "https://mits.ac.in/assets/pdf/cse/machinelearningapplications.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "Report on Guest Lecture Organised by Dept of CSE on Career Development in IT Sector on 30.04.22",
+    "href": "https://mits.ac.in/assets/pdf/cse/Report%20on%20Guest%20Lecture%20Organised%20by%20Dept%20of%20CSE%20on%20Career%20Development%20in%20IT%20Sector.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "\"Opportunities and challenges of Entrepreneur\" in association with Computer Science of India, was organized by Department of Computer Science & Engineering on 27th April 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Report%20On%20Guest%20Lecture.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "One Day Webinar on \"Applications of AR/VR : An Industry Perspective” was organized by Department of Computer Science & Engineering on 11th February 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Applications%20of%20AR-VR%20An%20Industry%20Perspective-Report.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "One Day Webinar Report on \"Edge Computing the Future of IOT” was organized by Department of Computer Science & Engineering on 09th February 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Edge%20Computing-Webinar%20Report-min.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "One Day Webinar Report on \"Machine Learning” was organized by Department of Computer Science & Engineering on 28th January 2022.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Machine%20Learning-Webinar%20Report-min.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "A Two Days Technical Talk on “Python Programming Paradigms” was organized by Department of Computer Science & Engineering on 30th and 31st December 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Python%20Programming%20Paradigms.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "Alumni Guest Lecture on \"Mobile Application Development\" was organized by Department of Computer Science & Engineering on 23rd December 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Mobile%20Application%20Development-min.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "One Day Webinar Report on \"Machine Learning Techniques using Python” was organized by Department of Computer Science & Engineering on 02 November 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Machine%20Learning%20Techniques%20using%20Python.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "A Webinar Report on \"Emerging Trends & Research Opportunities in Blockchain” was organized by Department of Computer Science & Engineering on 1st November 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Emerging%20Trends%20&%20Research%20Opportunities%20in%20Blockchain-min.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "Five Day Workshop Report on \"Applications Of Blockchain And Artificial Intelligence In Diverse Domain”was organized by Department of Computer Science & Engineering on 21st to 26th October 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Applications%20of%20Blockchain%20and%20Artificial%20Intelligence%20in%20Diverse%20Domain.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "One day National webinar report on \"Research Perspectives in Cloud Security” was Organized by Department of Computer Science & Engineering in Association with Computer Society of India [CSI], 12 October 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Webinar%20RPCC%20%20REPORT%2012.10.21.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "One day On line Seminar In “JavaScript” Organized by Department of Computer Science & Engineering at MITS on 11th Oct 2021",
+    "href": "https://mits.ac.in/assets/pdf/cse/Seminar%20In%20JavaScript%20on%2011th%20Oct%202021.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "One day National webinar report on \"DEEP LEARNING AND ITS APPLICATIONS” was organized by Department of Computer Science & Engineering in Association with Institute of Electrical and Electronics Engineers [IEEE] and Computer Society of India [CSI], on 09 October 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Webinar-Deep-Learning%20%20REPORT%2009.10.21.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "One day National webinar report on \"Distributed Denial-of-Service [DDoS]” was Organized by Department of Computer Science & Engineering in Association with Institute of Electrical and Electronics Engineers [IEEE] and Computer Society of India [CSI], on 08 October 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Webinar%20-DDoS-%20REPORT%2008.10.21%5B1%5D.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "One Day Webinar Report on \"Artificial Intelligence” was organized by Department of Computer Science & Engineering on 07 October 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Artificial%20Intelligence-Webinar%20Report.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "IEEE MITS Student Branch Congress and Celebration of IEEE Day, was organized by Department of Computer Science & Engineering on 05th October 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Linux%20for%20Future.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "One Day Training Programme on Operating systems Organized by the Dept. of CSE - MITS 20 Sept 2021",
+    "href": "https://mits.ac.in/assets/pdf/cse/Programme%20on%20Operating%20systems%20CSE%20on%2020%20Sept%202021.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "A Guest Lecture on “Quantum computing” Organized by MITS -Dept. of CSE on 9th September 2021",
+    "href": "https://mits.ac.in/assets/pdf/cse/Quantum%20computing%20of%20CSE%209th%20September%202021.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "A Lecture on Block chain Technology Organized by MITS -Dept. of CSE 12 August 2021",
+    "href": "https://mits.ac.in/assets/pdf/cse/Block%20chain%20Technology%20on%2012%20August%202021.pdf"
+  },
+  {
+    "academicYear": "2021-22",
+    "description": "Guest Lecture on Neuromorphic Computing Organized by MITS -Dept. of CSE 5th August 2021",
+    "href": "https://mits.ac.in/assets/pdf/cse/Neuromorphic%20Computing%20on%205th%20August%202021.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "One Day International Webinar report on \"Blockchain technology and its applications” was organized by Department of CSE in Association with IEEE MITS Student Chapter on 02nd July 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Blockchain%20technology%20and%20its%20applications.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Webinar on \"Cloud Computing - An Emerging Technology\" held on 29th June 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Cloud%20Computing%20an%20Emerging%20Technology.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Webinar on \"Machine Learning for Health Care with hands\" held on 18th June 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Machine%20Learning%20for%20Health%20Care%20with%20hands.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Webinar on \"Trends of AI\" held on 09th June 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Trends%20of%20AI.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Webinar on \"Career guidance and Competence building for young aspirants\" held on 05th June 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Career%20guidance%20and%20Competence%20building%20for%20young%20aspirants.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "Two day’s workshop on \"CYBER SECURITY” Organized by Department of Computer Science & Engineering 12-03-2021 & 13-03-2021, 10.15AM to 12.15PM",
+    "href": "https://mits.ac.in/assets/pdf/cse/Two%20days%20workshop%20on%20CYBER%20SECURITY%2012_13_2021.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A One-Day Seminar on “Cyber Technology” on 12-02-2021",
+    "href": "https://mits.ac.in/assets/pdf/cse/A%20One-Day%20Seminar%20on%20Cyber%20Technology%20on%2012-2-21.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "One Day Webinar Report on \"IT Industry Booming Technologies” Organized by Department of Computer Science & Engineering on 18-01-2021(Monday), 11.00 AM to 12.00 PM",
+    "href": "https://mits.ac.in/assets/pdf/cse/IT%20Industry%20Booming%20Technologies%20on%2018-01-2021.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "One day Workshop Report on “ETHICAL HACKING” Organized by Department of Computer Science & Engineering, 21-01-2021(Tuesday), 10:15AM to 4:15PM",
+    "href": "https://mits.ac.in/assets/pdf/cse/ETHICAL%20HACKING%20on%2021-01-2021.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "An E-Workshop on \"IoT with Cooja Simulator\" held on 01st January 2021.",
+    "href": "https://mits.ac.in/assets/pdf/cse/IoT%20with%20Cooja%20Simulator.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Webinar on \"5G Networks and its real time application in India\" held on 19th December 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/5G%20Networks%20and%20its%20real%20time%20application%20in%20India.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Guest Lecture on \"Higher Studies\" held on 30th November 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Higher%20Studies.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Guest Lecture on \"Security on IoT\" held on 29th September 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Security%20in%20IoT.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Guest Lecture on \"Career Guidance\" held on 26th September 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Career%20Guidance.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A One-Day Workshop on “Wave Maker Platform” 23 September 20",
+    "href": "https://mits.ac.in/assets/pdf/cse/Wave%20Maker%20Platform%2015%20September%2020.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Report on One-Day Workshop on “Big Data Management” Organized by Computer Science and Engineering Department",
+    "href": "https://mits.ac.in/assets/pdf/cse/One-Day%20Workshop%20on%20Big%20Data%20Management.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Lecture on Recent Knowledge in Computational Technologies Organized by MITS -Dept. of CSE 12 August 2020",
+    "href": "https://mits.ac.in/assets/pdf/cse/Recent%20Knowledge%20in%20Computational%20Technologies%2012%20August%202020.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "One day Workshop Report on “PLACEMENTS, EMPLOYABILITY SITUATION AND TEACHING LEARNING METHODOLOGIES” Organized by Department of Computer Science & Engineering, (Monday), 10.15AM to 4.15PM",
+    "href": "https://mits.ac.in/assets/pdf/cse/PLACEMENTS,%20EMPLOYABILITY%20SITUATION%20AND%20TEACHING%20LEARNING%20METHODOLOGIES%2003-08-2020.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A FDP on \"Machine Learning and its Application using Python\" held during 17-21st July 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Machine%20Learning%20and%20its%20Application%20using%20Python.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A One-Day Workshop on “DATA SCIENCE APPROACH FOR ENGINEERING APPLICATIONS” 15th June20",
+    "href": "https://mits.ac.in/assets/pdf/cse/DATA%20SCIENCE%20APPROACH%20FOR%20ENGINEERING%20APPLICATIONS%20on%2015th%20June20.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A FDP on \"Refresher Course on Problem Solving Using C\" held during 1-06th June 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Refresher%20Course%20on%20Problem%20Solving%20Using%20C.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Workshop on \"Problem Solving using C Programming\" held during 4-09th June 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Problem%20Solving%20using%20C%20Programming.pdf"
+  },
+  {
+    "academicYear": "2020-21",
+    "description": "A Seminar on \"Tools for Research and Research Paper Writing\" held on 03rd June 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Tools%20for%20Research%20and%20Research%20Paper%20Writing.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A Online Workshop on \"Python Programming Introduction and Beyond : Jupyter Notebook\" on 15-17th May 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Python%20Programming%20Introduction%20and%20Beyond.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A FDP on \"Python Programming\" held on 04-08th May 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Python%20Programming.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A Workshop on \"Advance Python Programming\" held on 28-29th Feb 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Advance%20Python%20Programming2020.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A 3 Days National Level Workshop on \"Python Programming For InfyTQ Certification\" organized by Dept.of CSE from 13th - 15th February 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Python%20&%20Infytq.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "Five day workshop on \"Ethical Hacking and Cyber Security\" was organized by Department Of CSE on 27th January 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/EH%20&%20CS.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A Guest Lecture Report on \"Entrepreneurship\" Organized by Department of CSE on 18th January 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/ENTREPRENEURSHIP-2020.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A Workshop on \"Data Science uisng Python\" on 07th - 08th Jan 2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/DATA%20SCIENCE%20USING%20PYTHON-min.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "One Day Guest Lecture of \"Cloud Visualization\" organised by Department of CSE, on 04-1-2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/CLOUD%20VIRTULIZATION.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "Two Days Workshop on \"Full Stack Development\" was Organized by Department of CSE on 2-1-2020 & 3-1-2020.",
+    "href": "https://mits.ac.in/assets/pdf/cse/FULL%20STACK%20DEVELOPMENT-2020.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A Report on 2 Day Workshop on “Advance Java Programming, An Industry Perspective” was Organised by Department of CSE, on 23th & 24th December 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Advance%20Java%20Programming%20An%20Industry%20Perspective.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "An awareness programme on “Placement Opportunities for IT freshers’ in Japan” was organized by Department of CSE on 5th November 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Awareness%20on%20Placement%20Oppurtunities%20for%20IT%20Freshers%20in%20Japan-05.11.2019.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "One Day Seminar on \"Data Science and Big Data Analytics\"was organised by Department of CSE on 02-11-2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/DATA%20SCIENCE%20&%20BIG%20DATA%20ANALYTICS.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A One Day seminar on “Artificial intelligence” for B.Tech III Year CSE and CST students was organized by CSE on 30th October 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Artifical%20Intelligence-30th%20October%202019.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A Guest Lecture report on \"Opportunities For The Fresher In The Data Analytics” Organized by Department of CSE on 1st October 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Opportunities%20For%20The%20Fresher%20In%20The%20Data%20Analytics.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "The Department of Computer Science & Engineering organized a seminar on \"Software Engineering Risk Management\" on 16th September 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Software%20Engineering%20Risk%20Management.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A One day Workshop Programme on “IoT Data Collection and Provide Input Streaming to Cloud Environment” organized by Department of CSE on 23rd September 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/IoT%20Data%20Collection%20and%20Provide%20Input%20Streaming%20to%20Cloud%20Environment-13th%20Sep%20-%202019.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A Oneday Workshop on “Introduction to Scientific Computing using Python” organized by Department of CSE on 05 September 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Introduction%20to%20scientific%20computing-min.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A Two Day Workshop on \"IoT Research Challenges-Best Practices\" was organized by Department of CSE on 4th & 5th September 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/IoT%20Research%20Challenges%20-%20Best%20Practices.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A Guest Lecture on \"Mobile Application Development\" was organized by Dept.of CSE on 31st August 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Mobile%20Application%20Development2019-20.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "A Report on One-Day Guest Lecture on “Employability Skills for the future” Organized by Department of CSE on 9th August 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Employability%20Skills%20for%20the%20future.pdf"
+  },
+  {
+    "academicYear": "2019-20",
+    "description": "One-Day Awareness Programme on “Students Placement Readiness, Higher Studies” organized by Department of CSE on 12th July 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Students%20Placement%20Readiness%20Higher.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "One Day Guest Lecture on “Hadoop and Big Data Analytics” held on 14th June 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Hadoop%20and%20Big%20Data%20Analytics.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Guest Lecture on \"Embedded Systems Programming & IoT\" was organised by Dept.of CSE on 29th May 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Embedded%20System%20Programming%20_%20IoT2019.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "An Interactive session on “Mulsemedia – Opportunities for AI” was organized by Dept.of CSE on 14th May 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Mulsemedia-14th%20May%202019.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Two Day Workshop on \"IoT and Drones\" organized by Dept.of CSE on 20-21 April 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/IoT%20and%20Drones-min.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A One Day National Level Technical Symposium \"GMOCS - 2K19\" was organized by Department of CSE on 02nd April 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS-2019-min.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Guest Lecture on \"Higher Studies\" was organised by Dept.of CSE on 16th March 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Higher%20Studies2019.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Guest Lecture on \"Current & Future Trends\" was organised by Department of CSE on 23rd February 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Current%20&%20Future%20Trends.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A One Day Workshop on \"Introduction to Scientific Computing using Python\" organized by Dept.of CSE on 12th Feb 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Introduction%20to%20Scientific%20Computing%20using%20Python2019.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "An Awareness Programme on “Succeeding at Coding Interviews” was organized by Departments of CSE on 11th February 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Coding%20Interviews-min.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "One Day Guest Lecture on \"Machine Learning and Deep Learning\" was organized by Dept of CSE on 25th January 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Machine%20Learning%20and%20Deep%20Learning.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Guest Lecture on \"IT Trends\" to B.Tech - CSE III Year Students was organized by Department of CSE on 19th January 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/A%20Guest%20Lecture%20IT%20Trends-min.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Two Day Workshop on \"Analytical and Quantitative Aptitude\" was organized by Department of CSE on 4th & 5th January 2019.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Analytical%20and%20Quantitative%20Aptitude-min.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "One Day Guest Lecture on \"Hadoop Framework\" was organized by Dept of CSE on 10th Nov 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Hadoop%20Framework2018.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A 3 Day Training Programme on \"Cyber Security\" was organized by Department of CSE on 25th - 27th October 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Workshop%20on%20Cyber%20Security%202018.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Two Day Workshop on \"JDBC & Advanced Java Programming\" was organized by Department of CSE on 5th-6th October 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/JDBC%20&%20ADVANCED%20JAVA%20PROGRAMMING-min.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Guest Lecture on \"Recent Trends in Cyber Forensics-A Social Media Perspective\" by Department of CSE on 18th Sep 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Recent%20Trends%20in%20Cyber%20Forensics-A%20Social%20Media%20Perspective2018.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Seminar on \"Open Source Technologies\" for B.Tech CSE students was organized by Dept of CSE on 31st August 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Seminar%20on%20Open%20Source%20Technologies-min.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Guest Lecture on \"The Art of Co-relating Technologies\" was organized by Department of CSE on 30th July 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/The%20Art%20of%20Co-relating%20Technologies2018.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Guest Lecture on \"Artificial Intelligence\" organized by Department of CSE on 21st July 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Artificial%20Intelligence2018.pdf"
+  },
+  {
+    "academicYear": "2018-19",
+    "description": "A Seminar on “Linux and Open Source Web Technologies” was organized by Department of CSE on 11th July 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Linux%20and%20Open%20Source%20Web%20Technologies2018.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A Guest Lecture on \"Entrepreneurship\" was organized by the Department of CSE held on 08th July 2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Entrepreneurship2017.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A Seven Day Training Programme on \"Programming & Problem Solving and Data Structure with E-Box Portal\" was organized by the Department of CSE from 20th to 27th July 2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Programming%20-%20Problem%20Solving%20and%20Data%20Structure%20with%20E-Box%20Portal.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A Seminar on \"Cloud Computing in Azure and ERP Products\" was organized by Department of CSE on 27th July 2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Report%20on%20Cloud%20Computing%20in%20Azure%20and%20ERP%20products-min.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A Guest Lecture on\"Recent Trends & Current needs in Industry\" - Engineering Exploration benefits using multidisciplinary student project. Organized by Department of CSE- MITS 30 August 2017",
+    "href": "https://mits.ac.in/assets/pdf/cse/Recent%20Trends-Current%20needs%20in%20industry.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A Guest Lecture on \"Soft Computing Applications\" was organized by the Department of CSE held on 07th October 2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Soft%20Computing%20Applications2017.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "AICTE Sponsored A Two Day National Level Seminar on “Emerging Trends in Cognitive Technology and its Applications\" was organized by Department of CSE on 12th & 13th October 2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Emerging%20Trends%20in%20Cognitive%20Technology%20and%20its%20Applications.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A Guest Lecture on \"Network Layering Protocols\" sponsored by ISTE and was organized by Dept of CSE on 04-11-2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Network%20Layering%20Protocols.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "\"Amazon Web Services (AWS)\" Technical Workshop was organised by Technical Training Team from APSSDC on 18 & 19 December 2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Amazon%20Web%20Services.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A Training Program on \"Google Android Developer Fundamentals\" was organized by Dept of CSE on 28th-30th December 2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Google%20Android%20Developer%20Fundamentals.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A Guest Lecture on \"Inspiring Technical Talent at MITS\" by Director Mr. Rajendran Dhandaphani, ZOHO Technologies, Chennai organized by Dept. of CSE on 17-01-2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Inspiring%20Technical%20Talent%20at%20MITS-17th%20Jan%202018.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A One Day Guest Lecture on “Recent Trends in Big Data Analytics & Block Chaining” was organized by Department of CSE on 2nd February 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Recent%20Trends%20in%20Big%20Data%20Analytics%20&%20Block%20Chaining-min.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "An Awareness Programme on \"IoT, Android development, Bigdata, Windows-10/8.1, Web Development, Gaming (2D,3D) and Cloud Computing\" organized by Department of CSE on 07-02-2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/IoT2018.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A One Day Guest Lecture on “Machine Learning and its Applications” was organized by Department of CSE on 23rd February 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Machine%20Learning%20and%20its%20Applications2018.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A One Day National Level Technical Symposium \"GMOCS - 2018\" was organized by Department of CSE on 9th April 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS-2018-min.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A One Day Guest Lecture \"Blockchain Technologies\" for 3rd year CSE students was organized by Department of CSE on 9th April 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Blackchain%20Technologies-min.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A Seminar on “Linux and Open Source Web Technologies” was organized by Department of CSE on 11th April 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Report%20on%20Linux%20and%20Open%20source%20Web%20technologies-min.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A One Day Guest Lecture on \"Cloud Computing and Modern Application Development using Java 9\" was organized by Department of CSE on 12th April 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Cloud%20Computing%20and%20Modern%20Application%20Development%20using%20Java92018.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A One Day Awareness Programme on ‘Machine Learning for Data Science and Analytics’ was organized by Dept of CSE on 4th May 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Machine%20Learning%20for%20Data%20Science%20and%20Analytics-4th%20May%202018-min.pdf"
+  },
+  {
+    "academicYear": "2017-18",
+    "description": "A workshop on “AI and Deep Learning” was organized in association with Bennett University and APSSDC on 21 – 23 June, 2018.",
+    "href": "https://mits.ac.in/assets/pdf/cse/AI%20and%20Deep%20Learning-min.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Guest Lecture on \"Career Opportunities in Information & Communication Technologies\" was organized by the department of CSE on 18-20th July 2016 by Dr.Gowdara Pandu.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Career%20Opportunities%20in%20Information%20&%20Communication%20Technologies.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Guest Lecture on \"Fundamentals of Fuzzy Logic\" by Dr. Siddhartha Bhattacharyya, Professor and Head of Information Technology of RCC Institute of Information Technology, Kolkata was organized by department of Computer Science & Engineering & IIIC Cell on 23 July 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Fundamentals%20of%20Fuzzy%20Logic.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Guest Lecture on \"Adding Value to Engineering Career\" by resource person Mr. Abdul Aziz Seid, New Delhi Chapter President - International Institute of Business Analysis (IIBA) for 3rd year CSE students on 06-08-2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Adding%20Value%20to%20Engineering%20Career.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Guest Lecture Report on \"IBM-WebSphere\" was organized by Department of CSE on 11th August 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/IBM-WebSphere-11th%20August%202016-min.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Guest Lecture on \"Embedded Systems Programming & IoT\" was organised by Dept.of CSE Under TEQIP - II on 23rd AUG 2016 by Chetan R. P.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Embedded%20Systems%20programming%20&%20IoT.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "One week Training Programme on \"IoT Application Development in Cloud Platform (IoTADC)\" under TEQIP - II during 19th - 24th Sep 2016 was organized by Dept. of CSE.",
+    "href": "https://mits.ac.in/assets/pdf/cse/IoTADC.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Guest Lecture on \"Skills for Information and Communication Technologies\" was conducted by department of CSE, 20-21 September 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Information%20and%20Communication%20Technologies.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Guest Lecture on \"Internet of Things\" was organised by Dept.of CSE on 23-24th September 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Internet%20of%20Things2016.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "An Awareness Program titled “Free Open Source Software (FOSS)\" was Organized by Department of CSE on 7th October 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Free%20Open%20Source%20Software%20(FOSS)-7th%20October%202016-min.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Guest Lecture on \"Career Development\" was organised by Dept.of CSE on 08th October 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Career%20Development2016.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Seminar & Interaction Session on \"Cyber Technology\" by Dr. K. R. Murali Mohan was organized by Dept. of CSE under TEQIP-II on 24th Oct 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Cyber%20Technology.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Guest Lecture on \"Career Growth Program\" was organised by Dept.of CSE on 29th October 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Career%20Growth%20Program2016.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Guest Lecture on \"Designing Software for Scale\" by Mr. R. Sudheer Babu, Amazon Company, USA was organized by CSE on 4th Jan 2017 under TEQIP-II.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Designing%20Software%20for%20Scale.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "Awareness Program on \"Hackerearth Online Programming Challenge\" Organized by Dept of CSE - MITS 21 January 2017",
+    "href": "https://mits.ac.in/assets/pdf/cse/Hackerearth%20Online%20Programming%20Challenge.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Three Day guest lecture on “Computer Networks” by Mr. G. Tirumala Rao, the Former Scientist of ISRO, Vishakapatnam, for the III B.Tech CSE students from 23 - 25th January 2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Guest%20Lecture%20on%20Computer%20Networks.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Guest Lecture on \"Big Data Technologies\" was organised by Dept.of CSE on 11th February 2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Big%20Data%20Technologies2017.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "Guest Lecture on \"IT Industry Exposure and Preparations\" Organized by Dept. of CSE - MITS Under TEQIP II 31 March 2017",
+    "href": "https://mits.ac.in/assets/pdf/cse/Guest%20Lecture%20on%20IT%20Industry%20Exposure%20and%20Preparations.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A National Level Technical Symposium (GMOCS-2K17) on \"Emerging Trends in Computer Science & Information Technology\" was organized by Department of CSE on 19th April 2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS%202K17.pdf"
+  },
+  {
+    "academicYear": "2016-17",
+    "description": "A Seminar on “Malware Analysis” was organized by Department of CSE on 20th April 2017.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Malware%20Analysis-20th%20April%202017-min.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "A Ten Day Training Programme on \"Big Data Analytics\" from 1st - 10th June 2016, Sponsored by DST - under Big Data Initiatives programme, New Delhi, organised by Department of CSE.",
+    "href": "https://mits.ac.in/assets/pdf/cse/BIG%20DATA%20ANALYTICS%202016.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "A Seminar on “Malware Analysis” was organized by Department of Computer Science & Engineering at MITS on 22nd April 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Malware%20Analysis-min.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "A One Day National Level Technical Symposium GMOCS 2K16 on \"Emerging Trends in Computer Science\" was organized by Department of CSE on 13th of April 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS-2K16.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "A One-Day Guest Lecture on “Big Data Analytics\" was organized by the Department of CSE on 19th March 2016 in coordination with the Industry Institute Interactive Cell (IIIC) and sponsored under TEQIP-II.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Big%20Data%20Analytics.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "MITS Alumni Association organized an Alumni Meet on the 19th of March 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/MITS%20Alumni%202016.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "The CSE Department organized a Guest Lecture on “Effective Functional Testing”, delivered by Mr. L. Chandrahas, Test Engineer, Aricent company on 20-02-2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Effective%20Functional%20Testing.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "A Lecture on Career Essence Program was organized by MITS Alumni Association-Department of CSE on 22nd January, 2016.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Career%20Essence%20Program.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "\"IBM TGMC\" Workshop was Organized by Department of Computer Science & Engg on 20 January 2016.",
+    "href": "https://mits.ac.in/assets/pdf/ibm/IBM%20TGMC%20Workshop%20Jan%202016.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "The CSE Department organized a Guest Lecture on “Data Base Management in Real Time Environment” by Mr.D.Madhusudhan, 2007-2011 batch, IT student of MITS on 7th November 2015.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Data%20Base%20Management%20in%20Real%20Time%20Environment-07.11.2015.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "The Department of CSE organized a Two-Day Workshop on \"Wave Maker Platform\" for the Faculty of MITS and Students on 20th and 21st November 2015.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Two-Day%20Workshop%20on%20WaveMaker%20Platform.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "The Department of CSE with the support of Dean-IIIC, organized an Expert lecture on “The Art of Co-relating Technologies” for Pre final & final year B.Tech (CSE) & MCA students on July 22, 2015.",
+    "href": "https://mits.ac.in/assets/pdf/cse/The%20Art%20of%20Co-relating%20Technologies.pdf"
+  },
+  {
+    "academicYear": "2015-16",
+    "description": "The Department of CSE organized Alumni Reunion Meet for the B.Tech - CSE -2008-12 Batch students in the college during 19th and 20th September 2015.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Alumni%20Reunion%20Meet.pdf"
+  },
+  {
+    "academicYear": "2014-15",
+    "description": "One Week Hands-On Workshop on \"Web Apps in Zorin Environment\" organized by the Department of CSE held on 16th to 21st June 2014.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Zorin%20Workshop.pdf"
+  },
+  {
+    "academicYear": "2014-15",
+    "description": "A Guest Lecture on \"Career Planning\" was conducted on 24/07/2014 to the pre final Year students of CSE & IT by Alumni of MITS 2007 passed out student Mr. Kareemulla Nasyam.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Career%20Planning-2014.pdf"
+  },
+  {
+    "academicYear": "2014-15",
+    "description": "The CSE Department organized a Guest Lecture on “Career Guidance on How to Prepare for Placements” by Ms.Divya Jyothi, on 2nd August 2014.",
+    "href": "https://mits.ac.in/assets/pdf/cse/2nd%20August%202014%20Report.pdf"
+  },
+  {
+    "academicYear": "2014-15",
+    "description": "A Two Day National Workshop on “Cloud Computing\" organized by the Department of CSE held on 17th & 18th October 2014.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Report%20on%20a%20Two%20Day%20National%20Workshop%20on%20CLOUD%20COMPUTING.pdf"
+  },
+  {
+    "academicYear": "2014-15",
+    "description": "One Day Guest Lecture was conducted on \"Dot Net Technologies\" by Mr. A. Mahesh, Satya Technologies, Hyderabad on 12-02-2015.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Dot%20Net%20Technologies-2015.pdf"
+  },
+  {
+    "academicYear": "2014-15",
+    "description": "A Two Day National Workshop on “IBM Bluemix Day\" organized by the Department of CSE held on 30-31st March 2014.",
+    "href": "https://mits.ac.in/assets/pdf/cse/IBM%20Bluemix%20Day2015.pdf"
+  },
+  {
+    "academicYear": "2014-15",
+    "description": "A National Level Technical Symposium, \"GMOCS-2K15\" on 8th April, 2015 organized by Department of CSE.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS%202k15.pdf"
+  },
+  {
+    "academicYear": "2014-15",
+    "description": "A One Week Faculty Development Programme on \"Cloud Infrastructure Services\" Under TEQIP-II from 11th – 16th May 2015 in MITS.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Cloud%20Infrastructure%20Services.pdf"
+  },
+  {
+    "academicYear": "2013-14",
+    "description": "IBM awards Madanapalle Institute of Technology & Science as one of the top 50 colleges of the country.",
+    "href": "https://mits.ac.in/assets/pdf/cse/IBM%20awards%20MITS.pdf"
+  },
+  {
+    "academicYear": "2013-14",
+    "description": "One Day Workshop on “Soft Computing Applications in Engineering” organized by the Department of Computer Science & IT by Prof. V S S Kumar,Principal, University College of Engineering & Professor of Civil Engg., Osmania University Hyderabad and Engineering held on 17th May 2014.",
+    "href": "https://mits.ac.in/assets/pdf/cse/SOFT%20COMPUTING%20APPLICATIONS%20IN%20ENGINEERING.pdf"
+  },
+  {
+    "academicYear": "2013-14",
+    "description": "One Day Workshop on “Teaching Practices For Engineering Education” organized by the Department of Computer Science & IT by Prof. V S S Kumar,Principal, University College of Engineering & Professor of Civil Engg., Osmania University Hyderabad and Engineering held on 16th May 2014.",
+    "href": "https://mits.ac.in/assets/pdf/cse/TEACHING%20PRACTICES%20FOR%20ENGINEERING%20EDUCATION.pdf"
+  },
+  {
+    "academicYear": "2013-14",
+    "description": "A Two day workshop on \"Placements, Employability Situation and Teaching Learning Methodologies\" organized by Departments of CSE, IT & MCA on 19th & 20th March 2014.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Placements,Employability%20Situation%20and%20Teaching%20Learning%20methodologies.pdf"
+  },
+  {
+    "academicYear": "2013-14",
+    "description": "A National Level Technical Symposium GMOCS’14 on Emerging Trends in Computer Science held on 15th March 2014.",
+    "href": "https://mits.ac.in/assets/pdf/cse/GMOCS'14.pdf"
+  },
+  {
+    "academicYear": "2013-14",
+    "description": "One Day Guest Lecture was conducted on \"Computational modelling and Knowledge technologies” by Prof. Ambuja Salgaonker, Professor & Chairperson, Board of Studies, Department of Computer Science, University of Mumbai on 12-11-2013.",
+    "href": "https://mits.ac.in/assets/pdf/cse/CMKT.pdf"
+  },
+  {
+    "academicYear": "2013-14",
+    "description": "A Three Day International Workshop on “Big Data Management” held on 2nd to 4th July 2013.",
+    "href": "https://mits.ac.in/assets/pdf/cse/BDM2013.pdf"
+  },
+  {
+    "academicYear": "2013-14",
+    "description": "A National Conference on Advanced Technologies in Computer Science \"NCAT - 2K13\", held on 30th & 31st May 2013.",
+    "href": "https://mits.ac.in/assets/pdf/cse/NCAT2K13.pdf"
+  },
+  {
+    "academicYear": "2013-14",
+    "description": "Computer Science Engineering & Information Technology Departments of Madanapalle Institute of Technology & Science organized one day National Level Technical Symposium, GMOCS'13 on 23 Feb, 2013, Saturday.",
+    "href": "https://mits.ac.in/assets/pdf/cse/Gmocs2013.pdf"
+  },
+  {
+    "academicYear": "2013-14",
+    "description": "A National Level Workshop on NPTEL Awareness in association with CLASSLE on 4th January 2013 . Dignitaries invited are Resource Person Vinoth G - Lead - Campus Relations, Classle Knowledge Pvt. Ltd, Chennai and the Chief Guest Dr. S. Varadarajan, Dept. of ECE, S V University College of Engg.",
+    "href": "https://mits.ac.in/assets/pdf/cse/report%20on%20nptel.pdf"
+  },
+  {
+    "academicYear": "2013-14",
+    "description": "The CSE Department library was inaugurated on 31st January 2013 at 4:00 pm in the gracious presence of principal, vice- principal, HOD's of the various departments and CSE faculty. This auspicious event was started by Mr.N.Gangadhar Reddy, Librarian, central library, MITS. The activities of the library commenced with the lightening of the lamp by Dr.G.Hampamma."
+  }
+];
