@@ -200,6 +200,25 @@ export const publicationsData = {
   subtitle: "Top Rated Journals — MITS Affiliated Publications",
   topRated: [
     {
+      year: "2025-26",
+      entries: [
+        { name: "Nakkeeran G. et al.", dept: "CE", details: "\"Sustainable material transitions in board and panel engineering through agricultural waste utilization a bibliometric review.\" Discover Sustainability 7.1 (2026): 351.", ifPublisher: "5.2 (Springer)" },
+        { name: "B. Karthick. et al.", dept: "EEE", details: "\"Hybrid Starfish Optimization and Graph Attention Fusion Network for efficient energy management in photovoltaic-integrated smart grids.\" Journal of Energy Storage 141 (2026): 119277.", ifPublisher: "10.7 (Elsevier)" },
+        { name: "Arunkumar, D. et al.", dept: "MECH", details: "\"Energy, economic and mathematical modelling of a solar drying system with Lauric acid based latent heat storage unit: an experimental study.\" Applied Thermal Engineering 278 (2025): 127501.", ifPublisher: "7.5 (Elsevier)" },
+        { name: "Rama Komaragiri. et al.", dept: "ECE", details: "\"Cuffless monitoring of blood pressure using photoplethysmography signal: A comprehensive review of artificial intelligence and edge computing solutions.\" Archives of Computational Methods in Engineering 33.3 (2026): 3837-3866.", ifPublisher: "12.9 (Springer)" },
+        { name: "ArunKumar G. et al.", dept: "CSE", details: "\"Optimized temporal inductive path neural network based early-stage detection of autism spectrum disorders.\" Pattern Recognition 172 (2026): 112689.", ifPublisher: "9.1 (Elsevier)" },
+        { name: "Bandi Vamsi. et al.", dept: "CSE-AI", details: "\"A Hybrid Machine Learning Framework for Water Quality Index Prediction Using Feature-Based Neural Network Initialization.\" IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (2026).", ifPublisher: "6.3 (IEEE)" },
+        { name: "Sachikanta Dash et al.", dept: "CSE-CS", details: "\"Medisecure: a hybrid approach for enhancing multimedia data protection in healthcare.\" Cluster Computing 29.1 (2026): 75.", ifPublisher: "5.5 (Springer)" },
+        { name: "S Gopalakrishnan et al.", dept: "CSE-DS", details: "\"An adaptive cryptographic fusion framework for secure and efficient medical image encryption.\" Scientific Reports (2026).", ifPublisher: "4.9 (Springer Nature)" },
+        { name: "Nandhini Mahadevan, Dinesh Karunanidy. et al.", dept: "CST", details: "\"A multi-objective grey wolf optimizer for grid-based mobile robot path planning with turn-aware optimization.\" AIMS Mathematics 11.4 (2026): 11882-11923.", ifPublisher: "1.8 (Tsinghua University Press Ltd)" },
+        { name: "Rama Moorthy Pullasetty. et al.", dept: "Humanities", details: "\"High efficient employment of hybrid space division multiplexing/time division multiplexing techniques in active/passive optical transparent networks.\" Journal of Optics 54.3 (2025): 1269-1278.", ifPublisher: "2.2 (Springer)" },
+        { name: "Saini, Kezia, and Priyam Nath Bhowmik. et al.", dept: "Mathematics and CE", details: "\"AI-driven Poverty Risk Mapping and Causal Assessment of Piped Water Supply in Rural Region: A Policy Simulation Framework Aligned with SDG 1.\" Water Resources Management 40.5 (2026): 206.", ifPublisher: "5.7 (Springer)" },
+        { name: "D. Rajesh. et al.", dept: "Physics", details: "\"Optimization of Eu-doped lanthanum tungstate nanophosphors via surface modification for superior red luminescence and photonic applications.\" International Journal of Minerals, Metallurgy and Materials 32.10 (2025): 2579-2591.", ifPublisher: "8.8 (Springer)" },
+        { name: "Ugrabadi Sahoo. et al.", dept: "Chemistry", details: "\"MOF-derived S-scheme g-C₃N₄/Fe₂O₃ heterojunction with intercalated carbon for enhanced multifunctional photocatalysis.\" Separation and Purification Technology (2025): 136390.", ifPublisher: "9.1 (Elsevier)" },
+        { name: "J. Jude Moses Anto Devakanth. et al.", dept: "MCA", details: "\"SCSN-Net: Siamese convolutional spiking neural network for childhood medulloblastoma detection using microscopic images.\" Knowledge-Based Systems (2026): 115357.", ifPublisher: "8 (Elsevier)" },
+      ],
+    },
+    {
       year: "2024-25",
       entries: [
         { name: "Sonu Kumar Gupta, et al.", dept: "CE", details: "An overview of recent trends and future prospects of sustainable natural fiber-reinforced polymeric composites for tribological applications. Industrial Crops and Products 222 (2024): 119501.", ifPublisher: "6.2 (Elsevier)" },
