@@ -1,21 +1,28 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import ScrollReveal from "@/components/ScrollReveal";
+import { Link } from "react-router-dom";
+import { Card } from "@/components/ui/card";
+import {
+  Landmark,
+  ShieldCheck,
+  GraduationCap,
+  Scale,
+  Award,
+  Info,
+  Layers,
+  ArrowRight,
+  CheckCircle2,
+  GitMerge,
+  BookOpen,
+} from "lucide-react";
 
-const sectionHeadingClass =
-  "flex items-center rounded-r-md border-l-[5px] border-[#B20710] bg-[#fdf1f1] px-5 py-3.5 mt-10 mb-6";
-const subsectionHeadingClass =
-  "mb-2 mt-7 border-b border-[#E4E7EF] pb-1.5 text-base font-semibold text-[#1E1E2C]";
-const tableClass =
-  "my-4 w-full min-w-[700px] border-separate border-spacing-0 overflow-hidden rounded-md text-left text-sm shadow-sm";
-const tableHeaderClass =
-  "bg-[#B20710] px-4 py-3 text-left text-[13px] font-semibold tracking-wide text-white";
-const tableCellClass =
-  "border-b border-[#E4E7EF] px-4 py-3 align-top text-[#4A4A5A]";
+const BASE = import.meta.env.BASE_URL;
 
 const NationalAdmissionsProcedure = () => {
   return (
-    <div className="min-h-screen bg-[#F6F7FB] font-sans text-[#1E1E2C]">
+    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
       <SEO
         title="National Admission Procedure – MITS Deemed to be University"
         description="Official national admission policies, quotas, seat matrix, tie-breaker rules, and lateral entry guidelines at MITS."
@@ -23,50 +30,86 @@ const NationalAdmissionsProcedure = () => {
       />
       <Header />
 
-      <main className="flex-grow px-0 pt-20 md:px-4 md:pt-32">
-        <article className="mx-auto my-0 max-w-[980px] overflow-hidden bg-white shadow-md md:my-9 md:rounded-xl">
-          <header className="relative overflow-hidden bg-gradient-to-br from-[#8C0509] to-[#B20710] px-6 py-8 md:px-12 md:pb-9 md:pt-12">
-            <p className="relative mb-2.5 text-[11px] font-semibold uppercase tracking-[2px] text-white/70">
-              MITS Deemed to be University · Madanapalle
-            </p>
-            <h1 className="relative mb-2.5 font-display text-3xl font-bold leading-tight text-white md:text-4xl">
-              National Admission Policy
-            </h1>
-            <p className="relative mb-4 text-sm text-white/80">
-              For Academic Programs: B.Tech, BBA, BCA, M.Tech, MBA, MCA
-            </p>
-            <div className="relative">
-              <span className="inline-flex rounded-full bg-[#EEB311] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#1E1E2C]">
-                AY 2026-27
-              </span>
-            </div>
-          </header>
+      {/* Hero Section */}
+      <section
+        className="relative pt-32 md:pt-44 pb-24 overflow-hidden"
+        style={{
+          backgroundImage: `url("${BASE}Hero-Section/image-5.jpg")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
+        <div className="relative z-10 container mx-auto px-4 md:px-8 text-center space-y-4">
+          <p className="text-[#ffb300] font-bold tracking-[0.2em] uppercase text-sm sm:text-sm">
+            AY 2026-27
+          </p>
+          <h1
+            className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            National <span className="text-[#ffd15c]">Admission Policy</span>
+          </h1>
+          <p className="text-white/80 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+            For Academic Programs: B.Tech, BBA, BCA, M.Tech, MBA, MCA · MITS Deemed to be University · Madanapalle
+          </p>
+        </div>
 
-          <div className="px-4 pb-8 pt-6 sm:px-6 md:px-12 md:pb-12 md:pt-10">
-            <p className="mb-9 border-l-[3px] border-[#EEB311] pl-4 text-[15px] leading-7 text-[#4A4A5A]">
-              This Admission Policy of Madanapalle Institute of Technology &amp;
-              Science (MITS) Deemed to be University, Madanapalle covers admissions
-              into the regular programs offered by the University within the Country
-              and for International Students, and also the Lateral Entry Admissions
-              into the 2nd year of the B.Tech Program.
+        <div className="absolute bottom-4 left-6 z-10">
+          <nav aria-label="Breadcrumb">
+            <ol className="flex items-center gap-1.5 text-sm text-white/90">
+              <li>
+                <Link to="/" className="text-white/70 hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li className="text-white/50">›</li>
+              <li>
+                <Link to="/admissions" className="text-white/70 hover:text-white transition-colors">
+                  Admissions
+                </Link>
+              </li>
+              <li className="text-white/50">›</li>
+              <li className="text-[#ffd15c] font-semibold">National Admission Policy</li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <main className="flex-grow container mx-auto px-4 md:px-8 py-12 space-y-12">
+        {/* Preamble Card */}
+        <ScrollReveal>
+          <Card className="p-6 md:p-8 border-slate-200 shadow-md bg-white relative overflow-hidden rounded-2xl hover:shadow-lg transition-shadow duration-300">
+            <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-[#caa74d]" />
+            <h2 className="text-[#0f2a44] font-bold text-base md:text-lg mb-2 flex items-center gap-2">
+              <Landmark className="w-5 h-5 text-[#caa74d]" /> Preamble
+            </h2>
+            <p className="text-slate-700 leading-relaxed text-sm md:text-base font-sans">
+              This Admission Policy of Madanapalle Institute of Technology &amp; Science (MITS) Deemed to be
+              University, Madanapalle covers admissions into the regular programs offered by the University within
+              the Country and for International Students, and also the Lateral Entry Admissions into the 2nd year of
+              the B.Tech Program.
             </p>
+          </Card>
+        </ScrollReveal>
 
-            <section aria-labelledby="general-policy">
-              <div className={sectionHeadingClass}>
-                <h2
-                  id="general-policy"
-                  className="font-display text-xl font-bold text-[#B20710]"
-                >
-                  A. General Policy
-                </h2>
-              </div>
+        {/* Section A: General Policy */}
+        <ScrollReveal>
+          <div className="space-y-6" id="general-policy">
+            <h2 className="text-xl md:text-2xl font-extrabold text-[#0f2a44] font-sans border-b border-slate-200 pb-3 flex items-center gap-2">
+              <ShieldCheck className="w-6 h-6 text-[#caa74d]" /> A. General Policy
+            </h2>
 
-              <h3 className={subsectionHeadingClass}>A.1. Admission Procedure</h3>
-              <p className="mb-3 leading-7 text-[#4A4A5A]">
-                The admission process is merit-based and follows these sequential
-                steps:
+            {/* A.1. Admission Procedure */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-md p-6 md:p-8 space-y-4 hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-base md:text-lg font-bold text-[#0f2a44] flex items-center gap-2 border-b border-slate-100 pb-2">
+                <Layers className="w-5 h-5 text-[#caa74d]" /> A.1. Admission Procedure
+              </h3>
+              <p className="text-slate-700 text-sm md:text-base leading-relaxed font-sans">
+                The admission process is merit-based and follows these sequential steps:
               </p>
-              <ol className="mb-5 space-y-1.5">
+              <div className="grid gap-3 pt-2">
                 {[
                   {
                     title: "Notification",
@@ -93,126 +136,130 @@ const NationalAdmissionsProcedure = () => {
                     text: "Upon seat allotment, candidates must secure their admission by paying the stipulated tuition and admission fees within the given timeframe. Failure to do so will result in the forfeiture of the seat.",
                   },
                 ].map((step, index) => (
-                  <li
+                  <div
                     key={step.title}
-                    className="relative flex items-start gap-3 rounded-md bg-[#F6F7FB] px-3 py-2.5 pl-11 text-sm leading-6 text-[#4A4A5A]"
+                    className="flex items-start gap-3.5 bg-slate-50/70 p-3.5 rounded-xl border border-slate-200 hover:border-[#caa74d] transition-all duration-200"
                   >
-                    <span className="absolute left-2.5 top-2.5 flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-[#B20710] text-[11px] font-bold text-white">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#0f2a44] text-[#caa74d] text-xs font-bold shadow-sm">
                       {index + 1}
                     </span>
-                    <span>
-                      <strong className="text-[#1E1E2C]">{step.title}:</strong>{" "}
-                      {step.text}
-                    </span>
-                  </li>
+                    <div className="text-sm md:text-sm leading-relaxed text-slate-700">
+                      <strong className="text-[#0f2a44] font-bold">{step.title}:</strong> {step.text}
+                    </div>
+                  </div>
                 ))}
-              </ol>
+              </div>
+            </div>
 
-              <h3 className={subsectionHeadingClass}>
-                A.2. Branch Allocation and Change Policy
-              </h3>
-              <p className="leading-7 text-[#4A4A5A]">
-                Once a branch is allotted during admission, no branch change will
-                be permitted under any circumstances.
-              </p>
-
-              <h3 className={subsectionHeadingClass}>A.3. Reservation Policy</h3>
-              <p className="leading-7 text-[#4A4A5A]">
-                Reservations for SC, ST, OBC, EWS, and Persons with Disabilities
-                (PwD) categories will be strictly implemented as per the norms
-                defined by the Central Government.
-              </p>
-            </section>
-
-            <section aria-labelledby="national-policy">
-              <div className={sectionHeadingClass}>
-                <h2
-                  id="national-policy"
-                  className="font-display text-xl font-bold text-[#B20710]"
-                >
-                  B. National Admission Policy
-                </h2>
+            {/* A.2 and A.3 Grid Cards */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-md p-6 md:p-8 space-y-3 hover:shadow-lg transition-shadow duration-300">
+                <h3 className="text-base md:text-lg font-bold text-[#0f2a44] flex items-center gap-2 border-b border-slate-100 pb-2">
+                  <GitMerge className="w-5 h-5 text-[#caa74d]" /> A.2. Branch Allocation and Change Policy
+                </h3>
+                <p className="text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                  Once a branch is allotted during admission, no branch change will be permitted under any circumstances.
+                </p>
               </div>
 
-              <h3 className={subsectionHeadingClass}>
-                B.I. Admissions into the Regular Programmes
-              </h3>
-              <h4 className="mb-2 mt-6 text-sm font-semibold uppercase tracking-wide text-[#4A4A5A]">
-                B.I.1. Program Eligibility &amp; Approved Admission Channels
-              </h4>
-              <p className="leading-7 text-[#4A4A5A]">
-                Admissions are granted strictly on merit through recognized
-                entrance examinations and qualifying degree performance.
-              </p>
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-md p-6 md:p-8 space-y-3 hover:shadow-lg transition-shadow duration-300">
+                <h3 className="text-base md:text-lg font-bold text-[#0f2a44] flex items-center gap-2 border-b border-slate-100 pb-2">
+                  <Scale className="w-5 h-5 text-[#caa74d]" /> A.3. Reservation Policy
+                </h3>
+                <p className="text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                  Reservations for SC, ST, OBC, EWS, and Persons with Disabilities (PwD) categories will be strictly
+                  implemented as per the norms defined by the Central Government.
+                </p>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
 
-              <div className="my-4 overflow-x-auto rounded-md border border-[#E4E7EF]">
-                <table className={tableClass}>
+        {/* Section B: National Admission Policy */}
+        <ScrollReveal>
+          <div className="space-y-6" id="national-policy">
+            <h2 className="text-xl md:text-2xl font-extrabold text-[#0f2a44] font-sans border-b border-slate-200 pb-3 flex items-center gap-2">
+              <GraduationCap className="w-7 h-7 text-[#caa74d]" /> B. National Admission Policy
+            </h2>
+
+            {/* B.I. Admissions into the Regular Programmes */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-md p-6 md:p-8 space-y-6 hover:shadow-lg transition-shadow duration-300">
+              <div className="border-b border-slate-100 pb-3">
+                <h3 className="text-lg md:text-xl font-bold text-[#0f2a44]">
+                  B.I. Admissions into the Regular Programmes
+                </h3>
+                <h4 className="mt-2 text-sm md:text-base font-semibold text-[#8C0509]">
+                  B.I.1. Program Eligibility &amp; Approved Admission Channels
+                </h4>
+                <p className="mt-1 text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                  Admissions are granted strictly on merit through recognized entrance examinations and qualifying
+                  degree performance.
+                </p>
+              </div>
+
+              {/* Table 1: Program Eligibility */}
+              <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                <table className="w-full text-left text-sm border-collapse">
                   <thead>
-                    <tr>
-                      <th className={tableHeaderClass}>Program</th>
-                      <th className={tableHeaderClass}>
+                    <tr className="bg-[#0f2a44] text-white">
+                      <th className="px-4 py-3.5 font-bold text-xs md:text-sm tracking-wide">Program</th>
+                      <th className="px-4 py-3.5 font-bold text-xs md:text-sm tracking-wide">
                         Minimum Eligibility (Qualifying Exam)
                       </th>
-                      <th className={tableHeaderClass}>Admission Channels</th>
+                      <th className="px-4 py-3.5 font-bold text-xs md:text-sm tracking-wide">
+                        Admission Channels
+                      </th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr className="bg-white hover:bg-[#fdf1f1]">
-                      <td className={`${tableCellClass} font-semibold`}>B.Tech</td>
-                      <td className={tableCellClass}>
-                        10+2 with Physics, Mathematics, Chemistry (Min. 45%
-                        aggregate).
+                  <tbody className="divide-y divide-slate-200 text-slate-700 font-sans">
+                    <tr className="bg-white hover:bg-[#fffdf8] transition-colors">
+                      <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top whitespace-nowrap">B.Tech</td>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                        10+2 with Physics, Mathematics, Chemistry (Min. 45% aggregate).
                         <br />
-                        10+2 with Physics, Chemistry, Biology (PCB) for B.Tech in
-                        Bioinformatics (Min. 45% aggregate).
+                        10+2 with Physics, Chemistry, Biology (PCB) for B.Tech in Bioinformatics (Min. 45% aggregate).
                       </td>
-                      <td className={tableCellClass}>
-                        MITSUCET, JEE, National Level Entrance tests, State level
-                        Entrance tests, 10+2 Merit
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                        MITSUCET, JEE, National Level Entrance tests, State level Entrance tests, 10+2 Merit
                       </td>
                     </tr>
-                    <tr className="bg-[#fafbfd] hover:bg-[#fdf1f1]">
-                      <td className={`${tableCellClass} font-semibold`}>
-                        BBA &amp; BCA
-                      </td>
-                      <td className={tableCellClass}>
+                    <tr className="bg-slate-50/60 hover:bg-[#fffdf8] transition-colors">
+                      <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top whitespace-nowrap">BBA &amp; BCA</td>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
                         10+2 in any stream (Min. 45% aggregate).
                       </td>
-                      <td className={tableCellClass}>MITSUCET, 10+2 Merit</td>
-                    </tr>
-                    <tr className="bg-white hover:bg-[#fdf1f1]">
-                      <td className={`${tableCellClass} font-semibold`}>MBA</td>
-                      <td className={tableCellClass}>
-                        Bachelor's Degree of minimum 3 years duration (Min. 50%
-                        aggregate).
-                      </td>
-                      <td className={tableCellClass}>
-                        National Level Entrance tests, CAT, MAT, State level
-                        Entrance tests, MITSUCET, UG Merit
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                        MITSUCET, 10+2 Merit
                       </td>
                     </tr>
-                    <tr className="bg-[#fafbfd] hover:bg-[#fdf1f1]">
-                      <td className={`${tableCellClass} font-semibold`}>MCA</td>
-                      <td className={tableCellClass}>
-                        BCA/Bachelor Degree in Comp. Sci. OR B.Sc/B.A./B.Com with
-                        Math at 10+2 or Undergraduate level (Min. 50%).
+                    <tr className="bg-white hover:bg-[#fffdf8] transition-colors">
+                      <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top whitespace-nowrap">MBA</td>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                        Bachelor's Degree of minimum 3 years duration (Min. 50% aggregate).
                       </td>
-                      <td className={tableCellClass}>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                        National Level Entrance tests, CAT, MAT, State level Entrance tests, MITSUCET, UG Merit
+                      </td>
+                    </tr>
+                    <tr className="bg-slate-50/60 hover:bg-[#fffdf8] transition-colors">
+                      <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top whitespace-nowrap">MCA</td>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                        BCA/Bachelor Degree in Comp. Sci. OR B.Sc/B.A./B.Com with Math at 10+2 or Undergraduate level (Min. 50%).
+                      </td>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
                         NIMCET, State level Entrance tests, MITSUCET, UG Merit
                       </td>
                     </tr>
-                    <tr className="bg-white hover:bg-[#fdf1f1]">
-                      <td className={`${tableCellClass} font-semibold`}>M.Tech</td>
-                      <td className={tableCellClass}>
+                    <tr className="bg-white hover:bg-[#fffdf8] transition-colors">
+                      <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top whitespace-nowrap">M.Tech</td>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
                         B.E./B.Tech in relevant discipline (Min. 50% aggregate).
                         <br />
-                        M.Tech CSE and M.Tech CSE-AI&amp;ML: Candidates who have
-                        completed B.E./B.Tech in Computer Science &amp; Engineering
-                        and allied branches, ECE, EEE, MCA (Master of Computer
-                        Applications), M.Sc. Computer Science / IT / Software
-                        Engineering / Data Science or related branches are eligible.
+                        M.Tech CSE and M.Tech CSE-AI&amp;ML: Candidates who have completed B.E./B.Tech in Computer Science &amp;
+                        Engineering and allied branches, ECE, EEE, MCA (Master of Computer Applications), M.Sc. Computer
+                        Science / IT / Software Engineering / Data Science or related branches are eligible.
                       </td>
-                      <td className={tableCellClass}>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
                         GATE, State level Entrance tests, UG Merit
                       </td>
                     </tr>
@@ -220,293 +267,319 @@ const NationalAdmissionsProcedure = () => {
                 </table>
               </div>
 
-              <aside className="my-4 rounded-r-md border-l-4 border-[#EEB311] bg-[#FFF8E1] px-4 py-3.5 text-sm leading-6 text-[#5a4800]">
-                <strong>Note:</strong> A statutory relaxation of 5% in the
-                qualifying examination marks is applicable for reserved categories
-                (SC, ST, OBC) as per Government of India norms.
-              </aside>
+              {/* Note */}
+              <div className="bg-[#fffcf3] border border-amber-200 rounded-xl p-4 text-sm md:text-sm text-[#785310] leading-relaxed shadow-sm font-sans">
+                <strong>Note:</strong> A statutory relaxation of 5% in the qualifying examination marks is applicable for
+                reserved categories (SC, ST, OBC) as per Government of India norms.
+              </div>
+            </div>
 
-              <h4 className="mb-2 mt-7 border-b border-[#E4E7EF] pb-1.5 text-base font-semibold text-[#1E1E2C]">
-                B.I.2. Admission Quota &amp; Seat Matrix
-              </h4>
-              <p className="leading-7 text-[#4A4A5A]">
-                The approved intake for all academic programs is divided into
-                delineated quotas.
-              </p>
-              <div className="my-4 overflow-x-auto rounded-md border border-[#E4E7EF]">
-                <table className={tableClass}>
+            {/* B.I.2. Admission Quota & Seat Matrix */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-md p-6 md:p-8 space-y-6 hover:shadow-lg transition-shadow duration-300">
+              <div className="border-b border-slate-100 pb-3">
+                <h3 className="text-base md:text-lg font-bold text-[#0f2a44]">
+                  B.I.2. Admission Quota &amp; Seat Matrix
+                </h3>
+                <p className="mt-1 text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                  The approved intake for all academic programs is divided into delineated quotas.
+                </p>
+              </div>
+
+              {/* Table 2: Quota & Seat Matrix */}
+              <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                <table className="w-full text-left text-sm border-collapse">
                   <thead>
-                    <tr>
-                      <th className={tableHeaderClass}>Quota Category</th>
-                      <th className={tableHeaderClass}>Sub-Quota Allocation</th>
-                      <th className={tableHeaderClass}>
+                    <tr className="bg-[#0f2a44] text-white">
+                      <th className="px-4 py-3.5 font-bold text-xs md:text-sm tracking-wide">Quota Category</th>
+                      <th className="px-4 py-3.5 font-bold text-xs md:text-sm tracking-wide">Sub-Quota Allocation</th>
+                      <th className="px-4 py-3.5 font-bold text-xs md:text-sm tracking-wide">
                         Admission Channel / Applicable Exams
                       </th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr className="bg-white hover:bg-[#fdf1f1]">
-                      <td className={`${tableCellClass} font-semibold`}>
-                        Category B
+                  <tbody className="divide-y divide-slate-200 text-slate-700 font-sans">
+                    <tr className="bg-white hover:bg-[#fffdf8] transition-colors">
+                      <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top">Category B</td>
+                      <td className="px-4 py-3.5 align-top whitespace-nowrap font-semibold text-[#8C0509]">
+                        10% of Total Intake
                       </td>
-                      <td className={tableCellClass}>10% of Total Intake</td>
-                      <td className={tableCellClass}>
-                        Management: Exempt from entrance exam mandate; satisfying
-                        qualifying criteria.
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                        Management: Exempt from entrance exam mandate; satisfying qualifying criteria.
                       </td>
                     </tr>
-                    <tr className="bg-[#fafbfd] hover:bg-[#fdf1f1]">
-                      <td className={`${tableCellClass} font-semibold`}>
+                    <tr className="bg-slate-50/60 hover:bg-[#fffdf8] transition-colors">
+                      <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top">
                         Category A (General Merit Quota)
                       </td>
-                      <td className={tableCellClass}>90% of Total Intake</td>
-                      <td className={tableCellClass}>
+                      <td className="px-4 py-3.5 align-top whitespace-nowrap font-semibold text-[#0f2a44]">
+                        90% of Total Intake
+                      </td>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
                         Divided strictly into sub-quotas as detailed below.
                       </td>
                     </tr>
-                    <tr className="bg-white hover:bg-[#fdf1f1]">
-                      <td className={`${tableCellClass} pl-8`}>Sub-Quota A1</td>
-                      <td className={tableCellClass}>25% of Total Intake</td>
-                      <td className={tableCellClass}>
-                        National Level Exams: JEE Main (B.Tech), CAT/MAT (MBA),
-                        NIMCET (MCA), GATE (M.Tech).
+                    <tr className="bg-white hover:bg-[#fffdf8] transition-colors">
+                      <td className="px-4 py-3.5 pl-8 text-slate-700 align-top">Sub-Quota A1</td>
+                      <td className="px-4 py-3.5 align-top whitespace-nowrap">25% of Total Intake</td>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                        National Level Exams: JEE Main (B.Tech), CAT/MAT (MBA), NIMCET (MCA), GATE (M.Tech).
                       </td>
                     </tr>
-                    <tr className="bg-[#fafbfd] hover:bg-[#fdf1f1]">
-                      <td className={`${tableCellClass} pl-8`}>Sub-Quota A2</td>
-                      <td className={tableCellClass}>45% of Total Intake</td>
-                      <td className={tableCellClass}>
+                    <tr className="bg-slate-50/60 hover:bg-[#fffdf8] transition-colors">
+                      <td className="px-4 py-3.5 pl-8 text-slate-700 align-top">Sub-Quota A2</td>
+                      <td className="px-4 py-3.5 align-top whitespace-nowrap">45% of Total Intake</td>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
                         University Exam: MITSUCET (Proctored CBT or PBT).
                       </td>
                     </tr>
-                    <tr className="bg-white hover:bg-[#fdf1f1]">
-                      <td className={`${tableCellClass} pl-8`}>Sub-Quota A3</td>
-                      <td className={tableCellClass}>10% of Total Intake</td>
-                      <td className={tableCellClass}>
-                        State Level Exams: State CET (B.Tech), State ICET
-                        (MBA/MCA).
+                    <tr className="bg-white hover:bg-[#fffdf8] transition-colors">
+                      <td className="px-4 py-3.5 pl-8 text-slate-700 align-top">Sub-Quota A3</td>
+                      <td className="px-4 py-3.5 align-top whitespace-nowrap">10% of Total Intake</td>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                        State Level Exams: State CET (B.Tech), State ICET (MBA/MCA).
                       </td>
                     </tr>
-                    <tr className="bg-[#fafbfd] hover:bg-[#fdf1f1]">
-                      <td className={`${tableCellClass} pl-8`}>Sub-Quota A4</td>
-                      <td className={tableCellClass}>10% of Total Intake</td>
-                      <td className={tableCellClass}>
-                        Merit/Qualifying Exam: 10+2 equivalent (UG) or Bachelor's
-                        Degree (PG).
+                    <tr className="bg-slate-50/60 hover:bg-[#fffdf8] transition-colors">
+                      <td className="px-4 py-3.5 pl-8 text-slate-700 align-top">Sub-Quota A4</td>
+                      <td className="px-4 py-3.5 align-top whitespace-nowrap">10% of Total Intake</td>
+                      <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                        Merit/Qualifying Exam: 10+2 equivalent (UG) or Bachelor's Degree (PG).
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <aside className="my-5 rounded-md border border-[#B20710]/15 bg-[#fdf1f1] px-4 py-4 text-sm leading-6 text-[#8C0509]">
-                <h4 className="mb-1 font-semibold">
-                  The Cascade Rule (Sliding Mechanism)
+              {/* The Cascade Rule */}
+              <div className="bg-red-50/70 border border-red-200/80 rounded-2xl p-5 md:p-6 space-y-3 shadow-sm">
+                <h4 className="font-bold text-[#8C0509] text-base flex items-center gap-2">
+                  <GitMerge className="w-5 h-5 text-[#8C0509]" /> The Cascade Rule (Sliding Mechanism)
                 </h4>
-                <p>
-                  To ensure maximum seat occupancy, vacant seats in any sub-quota
-                  automatically cascade to the next in the sequence:
+                <p className="text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                  To ensure maximum seat occupancy, vacant seats in any sub-quota automatically cascade to the next in the sequence:
                 </p>
-                <p className="mt-2 inline-flex items-center gap-2 rounded bg-[#8C0509] px-3.5 py-1.5 font-semibold text-white">
-                  A1 <span aria-hidden="true">→</span> A2{" "}
-                  <span aria-hidden="true">→</span> A3{" "}
-                  <span aria-hidden="true">→</span> A4
+                <div className="pt-1 flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg bg-[#8C0509] text-white font-bold text-xs sm:text-sm shadow-sm">
+                    A1 <ArrowRight className="w-3.5 h-3.5" /> A2 <ArrowRight className="w-3.5 h-3.5" /> A3{" "}
+                    <ArrowRight className="w-3.5 h-3.5" /> A4
+                  </span>
+                </div>
+              </div>
+
+              {/* B.I.4. Tie-Breaker Rules */}
+              <div className="pt-4 border-t border-slate-200 space-y-4">
+                <h4 className="text-base md:text-lg font-bold text-[#0f2a44] flex items-center gap-2">
+                  <Award className="w-5 h-5 text-[#caa74d]" /> B.I.4. Tie-Breaker Rules (Applicable to All Streams)
+                </h4>
+                <p className="text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                  In the event of identical normalized scores or ranks within any sub-quota, the following tie-breaking
+                  rules are applied strictly in descending order:
                 </p>
-              </aside>
+                <div className="grid gap-3 pt-1">
+                  {[
+                    {
+                      title: "Subject-Specific Performance:",
+                      text: "Priority is given to candidates with higher normalized scores or percentages in core subjects relevant to their chosen field. For B.Tech admission: higher 10+2 scores in Physics, Chemistry, and Mathematics/Biology.",
+                    },
+                    {
+                      title: "Candidate Age:",
+                      text: "If a tie persists after reviewing core subject performance, the older candidate by date of birth is given preference.",
+                    },
+                    {
+                      title: "Application Chronology:",
+                      text: "As a final measure, the candidate with the lower registration number (i.e. chronologically earlier application registration number) will be ranked higher.",
+                    },
+                  ].map((rule, idx) => (
+                    <div
+                      key={rule.title}
+                      className="border border-slate-200 p-4 bg-slate-50/60 rounded-xl flex items-start gap-3.5 hover:border-[#caa74d] transition-colors duration-200"
+                    >
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#caa74d] text-[#0f2a44] text-xs font-bold mt-0.5">
+                        {idx + 1}
+                      </span>
+                      <div className="text-sm md:text-sm leading-relaxed text-slate-700 font-sans">
+                        <strong className="text-[#8C0509] font-bold">{rule.title}</strong> {rule.text}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-              <h4 className="mb-2 mt-7 border-b border-[#E4E7EF] pb-1.5 text-base font-semibold text-[#1E1E2C]">
-                B.I.4. Tie-Breaker Rules (Applicable to All Streams)
-              </h4>
-              <p className="leading-7 text-[#4A4A5A]">
-                In the event of identical normalized scores or ranks within any
-                sub-quota, the following tie-breaking rules are applied strictly
-                in descending order:
-              </p>
-              <ol className="my-4 space-y-1.5">
-                <li className="rounded-md bg-[#F6F7FB] px-4 py-3 text-sm leading-6 text-[#4A4A5A]">
-                  <strong className="text-[#8C0509]">
-                    Subject-Specific Performance:
-                  </strong>{" "}
-                  Priority is given to candidates with higher normalized scores or
-                  percentages in core subjects relevant to their chosen field. For
-                  B.Tech admission: higher 10+2 scores in Physics, Chemistry, and
-                  Mathematics/Biology.
-                </li>
-                <li className="rounded-md bg-[#F6F7FB] px-4 py-3 text-sm leading-6 text-[#4A4A5A]">
-                  <strong className="text-[#8C0509]">Candidate Age:</strong> If a
-                  tie persists after reviewing core subject performance, the older
-                  candidate by date of birth is given preference.
-                </li>
-                <li className="rounded-md bg-[#F6F7FB] px-4 py-3 text-sm leading-6 text-[#4A4A5A]">
-                  <strong className="text-[#8C0509]">
-                    Application Chronology:
-                  </strong>{" "}
-                  As a final measure, the candidate with the lower registration
-                  number (i.e. chronologically earlier application registration
-                  number) will be ranked higher.
-                </li>
-              </ol>
-              <div className={sectionHeadingClass}>
-                <h2
-                  id="lateral-entry"
-                  className="font-display text-xl font-bold text-[#B20710]"
-                >
-                  B.II. B.Tech Lateral Entry (Direct Second Year)
-                </h2>
+            {/* B.II. B.Tech Lateral Entry (Direct Second Year) */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-md p-6 md:p-8 space-y-6 hover:shadow-lg transition-shadow duration-300">
+              <div className="border-b border-slate-100 pb-3">
+                <h3 className="text-lg md:text-xl font-bold text-[#0f2a44] flex items-center gap-2">
+                  <BookOpen className="w-5 h-5 text-[#caa74d]" /> B.II. B.Tech Lateral Entry (Direct Second Year)
+                </h3>
+                <p className="mt-1 text-xs md:text-sm font-semibold text-[#8C0509]">
+                  Applicable Programs: B.Tech (All Branches) · Entry Level: Second Year (3rd Semester)
+                </p>
               </div>
 
-              <p className="mb-4 text-sm font-semibold leading-6 text-[#4A4A5A]">
-                Applicable Programs: B.Tech (All Branches) · Entry Level: Second
-                Year (3rd Semester)
-              </p>
-              <h3 className={subsectionHeadingClass}>B.II.1. Intake Capacity</h3>
-              <p className="leading-7 text-[#4A4A5A]">
-                Lateral entry admissions are subject to seat availability and
-                statutory body guidelines:
-              </p>
-              <ul className="my-3 space-y-1.5">
-                <li className="rounded-md bg-[#F6F7FB] px-4 py-2.5 text-sm leading-6 text-[#4A4A5A]">
-                  <strong className="text-[#1E1E2C]">Supernumerary Seats:</strong>{" "}
-                  Up to 10% of the approved intake capacity of the previous
-                  academic year for each branch.
-                </li>
-                <li className="rounded-md bg-[#F6F7FB] px-4 py-2.5 text-sm leading-6 text-[#4A4A5A]">
-                  <strong className="text-[#1E1E2C]">Vacant Seats:</strong> Any
-                  unfilled or vacant seats carried forward from the first year of
-                  the respective B.Tech program.
-                </li>
-              </ul>
-
-              <h3 className={subsectionHeadingClass}>
-                B.II.2. Minimum Eligibility (Qualifying Exam)
-              </h3>
-              <h4 className="mb-1 mt-5 text-sm font-semibold uppercase tracking-wide text-[#4A4A5A]">
-                Diploma Holders
-              </h4>
-              <p className="leading-7 text-[#4A4A5A]">
-                Passed a minimum 3-year / 2-year (Lateral Entry) Diploma
-                examination with at least 50% marks in any branch of Engineering
-                and Technology.
-              </p>
-              <h4 className="mb-1 mt-5 text-sm font-semibold uppercase tracking-wide text-[#4A4A5A]">
-                B.Sc. Graduates
-              </h4>
-              <p className="leading-7 text-[#4A4A5A]">
-                Passed B.Sc. Degree from a recognized University (as defined by
-                UGC) with at least 50% marks and passed 10+2 examination with
-                Mathematics as a subject.
-              </p>
-              <aside className="my-4 rounded-r-md border-l-4 border-[#B20710] bg-[#fdf1f1] px-4 py-3.5 text-sm leading-6 text-[#4A4A5A]">
-                <strong className="text-[#8C0509]">Note:</strong> B.Sc. stream
-                students shall clear Engineering Graphics/Engineering Drawing and
-                Engineering Mechanics of the First-Year Engineering Programme
-                along with Second-Year subjects.
-              </aside>
-              <aside className="my-4 rounded-r-md border-l-4 border-[#EEB311] bg-[#FFF8E1] px-4 py-3.5 text-sm leading-6 text-[#5a4800]">
-                <strong>Statutory Relaxation:</strong> A statutory relaxation of
-                5% in the qualifying examination marks is applicable for reserved
-                categories as per Government of India norms.
-              </aside>
-
-              <h3 className={subsectionHeadingClass}>B.II.3. Quota Allocation</h3>
-              <p className="leading-7 text-[#4A4A5A]">
-                The approved intake for lateral entry is divided into three legally
-                delineated quotas:
-              </p>
-              <div className="my-4 overflow-x-auto rounded-md border border-[#E4E7EF]">
-                <table className={tableClass}>
-                  <thead>
-                    <tr>
-                      <th className={tableHeaderClass}>Sl. No.</th>
-                      <th className={tableHeaderClass}>Quota Category</th>
-                      <th className={tableHeaderClass}>Sub-Quota Allocation</th>
-                      <th className={tableHeaderClass}>
-                        Admission Channel / Criteria
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="bg-white hover:bg-[#fdf1f1]">
-                      <td className={tableCellClass}>1.</td>
-                      <td className={`${tableCellClass} font-semibold`}>
-                        Management Quota
-                      </td>
-                      <td className={tableCellClass}>20% of Total LE Intake</td>
-                      <td className={tableCellClass}>
-                        Exempt from entrance exam mandate; satisfying basic diploma
-                        qualifying criteria.
-                      </td>
-                    </tr>
-                    <tr className="bg-[#fafbfd] hover:bg-[#fdf1f1]">
-                      <td className={tableCellClass}>2.</td>
-                      <td className={`${tableCellClass} font-semibold`}>
-                        Entrance Exam Merit Quota
-                      </td>
-                      <td className={tableCellClass}>40% of Total LE Intake</td>
-                      <td className={tableCellClass}>
-                        Ranked strictly based on performance in recognized State
-                        Level Lateral Entry Exams (e.g., AP ECET) or the University
-                        Entrance Exam.
-                      </td>
-                    </tr>
-                    <tr className="bg-white hover:bg-[#fdf1f1]">
-                      <td className={tableCellClass}>3.</td>
-                      <td className={`${tableCellClass} font-semibold`}>
-                        Diploma Merit Quota
-                      </td>
-                      <td className={tableCellClass}>40% of Total LE Intake</td>
-                      <td className={tableCellClass}>
-                        Ranked strictly based on the academic merit (aggregate
-                        percentage) achieved in the qualifying Engineering Diploma.
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              {/* B.II.1. Intake Capacity */}
+              <div className="space-y-3">
+                <h4 className="text-base font-bold text-[#0f2a44]">B.II.1. Intake Capacity</h4>
+                <p className="text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                  Lateral entry admissions are subject to seat availability and statutory body guidelines:
+                </p>
+                <div className="grid md:grid-cols-2 gap-4 pt-1">
+                  <div className="border border-slate-200 p-4 bg-slate-50/60 rounded-xl flex items-start gap-3 hover:border-[#caa74d] transition-colors duration-200">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
+                    <div className="text-sm md:text-sm leading-relaxed text-slate-700 font-sans">
+                      <strong className="text-[#0f2a44] font-bold">Supernumerary Seats:</strong> Up to 10% of the
+                      approved intake capacity of the previous academic year for each branch.
+                    </div>
+                  </div>
+                  <div className="border border-slate-200 p-4 bg-slate-50/60 rounded-xl flex items-start gap-3 hover:border-[#caa74d] transition-colors duration-200">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
+                    <div className="text-sm md:text-sm leading-relaxed text-slate-700 font-sans">
+                      <strong className="text-[#0f2a44] font-bold">Vacant Seats:</strong> Any unfilled or vacant seats
+                      carried forward from the first year of the respective B.Tech program.
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <h3 className={subsectionHeadingClass}>
-                B.II.4. The Cascade Rule (Sliding Mechanism)
-              </h3>
-              <p className="leading-7 text-[#4A4A5A]">
-                To ensure maximum seat occupancy, if seats remain vacant in the
-                Entrance Exam Merit Quota after the final round of counselling,
-                those vacant seats will automatically cascade to the Diploma Merit
-                Quota.
-              </p>
+              {/* B.II.2. Minimum Eligibility (Qualifying Exam) */}
+              <div className="space-y-3 pt-3 border-t border-slate-200">
+                <h4 className="text-base font-bold text-[#0f2a44]">
+                  B.II.2. Minimum Eligibility (Qualifying Exam)
+                </h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="border border-slate-200 p-4 bg-slate-50/60 rounded-xl space-y-1.5 hover:border-[#caa74d] transition-colors duration-200">
+                    <h5 className="font-bold text-[#0f2a44] text-sm md:text-base">Diploma Holders</h5>
+                    <p className="text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                      Passed a minimum 3-year / 2-year (Lateral Entry) Diploma examination with at least 50% marks in any
+                      branch of Engineering and Technology.
+                    </p>
+                  </div>
+                  <div className="border border-slate-200 p-4 bg-slate-50/60 rounded-xl space-y-1.5 hover:border-[#caa74d] transition-colors duration-200">
+                    <h5 className="font-bold text-[#0f2a44] text-sm md:text-base">B.Sc. Graduates</h5>
+                    <p className="text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                      Passed B.Sc. Degree from a recognized University (as defined by UGC) with at least 50% marks and
+                      passed 10+2 examination with Mathematics as a subject.
+                    </p>
+                  </div>
+                </div>
 
-              <h3 className={subsectionHeadingClass}>
-                B.II.5. Tie-Breaker Rule (Applicable to All Lateral Entry Streams)
-              </h3>
-              <p className="leading-7 text-[#4A4A5A]">
-                In the event of identical normalized scores or ranks within any
-                sub-quota, the following tie-breaking rule is applied: the
-                candidate with the lower, chronologically earlier application
-                registration number will be ranked higher.
-              </p>
-            </section>
+                <div className="bg-red-50/70 border border-red-200/80 rounded-xl p-4 text-sm md:text-sm text-red-800 leading-relaxed shadow-sm font-sans">
+                  <strong className="text-[#8C0509]">Note:</strong> B.Sc. stream students shall clear Engineering
+                  Graphics/Engineering Drawing and Engineering Mechanics of the First-Year Engineering Programme along
+                  with Second-Year subjects.
+                </div>
 
-            <section aria-labelledby="refund-policy">
-              <div className={sectionHeadingClass}>
-                <h2
-                  id="refund-policy"
-                  className="font-display text-xl font-bold text-[#B20710]"
-                >
-                  Fee Refund Policy
-                </h2>
+                <div className="bg-[#fffcf3] border border-amber-200 rounded-xl p-4 text-sm md:text-sm text-[#785310] leading-relaxed shadow-sm font-sans">
+                  <strong>Statutory Relaxation:</strong> A statutory relaxation of 5% in the qualifying examination
+                  marks is applicable for reserved categories as per Government of India norms.
+                </div>
               </div>
-              <div className="flex flex-wrap items-start gap-3 rounded-md border-l-[3px] border-[#B20710] bg-[#F6F7FB] px-4 py-3.5 text-sm leading-6 text-[#4A4A5A]">
-                <strong className="text-[#8C0509]">Fee Refund Policy:</strong>
-                <span>
-                  Cancellations and refunds are processed strictly aligned with
-                  the prevailing UGC Notification/Circular (D.O.No.F.2-71/2022
-                  (CPP-II) (c-114546) Dated 12.06.2024) on the Refund of Fees and
-                  Non-Retention of Original Certificates. Standard percentages of
-                  fee refunds shall be applicable as per the mandate.
-                </span>
+
+              {/* B.II.3. Quota Allocation */}
+              <div className="space-y-3 pt-3 border-t border-slate-200">
+                <h4 className="text-base font-bold text-[#0f2a44]">B.II.3. Quota Allocation</h4>
+                <p className="text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                  The approved intake for lateral entry is divided into three legally delineated quotas:
+                </p>
+                <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                  <table className="w-full text-left text-sm border-collapse">
+                    <thead>
+                      <tr className="bg-[#0f2a44] text-white">
+                        <th className="px-4 py-3.5 font-bold text-xs md:text-sm tracking-wide">Sl. No.</th>
+                        <th className="px-4 py-3.5 font-bold text-xs md:text-sm tracking-wide">Quota Category</th>
+                        <th className="px-4 py-3.5 font-bold text-xs md:text-sm tracking-wide">Sub-Quota Allocation</th>
+                        <th className="px-4 py-3.5 font-bold text-xs md:text-sm tracking-wide">
+                          Admission Channel / Criteria
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-200 text-slate-700 font-sans">
+                      <tr className="bg-white hover:bg-[#fffdf8] transition-colors">
+                        <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top">1.</td>
+                        <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top whitespace-nowrap">
+                          Management Quota
+                        </td>
+                        <td className="px-4 py-3.5 align-top whitespace-nowrap font-semibold text-[#8C0509]">
+                          20% of Total LE Intake
+                        </td>
+                        <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                          Exempt from entrance exam mandate; satisfying basic diploma qualifying criteria.
+                        </td>
+                      </tr>
+                      <tr className="bg-slate-50/60 hover:bg-[#fffdf8] transition-colors">
+                        <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top">2.</td>
+                        <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top whitespace-nowrap">
+                          Entrance Exam Merit Quota
+                        </td>
+                        <td className="px-4 py-3.5 align-top whitespace-nowrap font-semibold text-[#0f2a44]">
+                          40% of Total LE Intake
+                        </td>
+                        <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                          Ranked strictly based on performance in recognized State Level Lateral Entry Exams (e.g., AP
+                          ECET) or the University Entrance Exam.
+                        </td>
+                      </tr>
+                      <tr className="bg-white hover:bg-[#fffdf8] transition-colors">
+                        <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top">3.</td>
+                        <td className="px-4 py-3.5 font-bold text-[#0f2a44] align-top whitespace-nowrap">
+                          Diploma Merit Quota
+                        </td>
+                        <td className="px-4 py-3.5 align-top whitespace-nowrap font-semibold text-[#0f2a44]">
+                          40% of Total LE Intake
+                        </td>
+                        <td className="px-4 py-3.5 align-top leading-relaxed text-xs md:text-sm">
+                          Ranked strictly based on the academic merit (aggregate percentage) achieved in the qualifying
+                          Engineering Diploma.
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </section>
+
+              {/* B.II.4. The Cascade Rule */}
+              <div className="space-y-2 pt-3 border-t border-slate-200">
+                <h4 className="text-base font-bold text-[#0f2a44] flex items-center gap-2">
+                  <GitMerge className="w-5 h-5 text-[#caa74d]" /> B.II.4. The Cascade Rule (Sliding Mechanism)
+                </h4>
+                <p className="text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                  To ensure maximum seat occupancy, if seats remain vacant in the Entrance Exam Merit Quota after the
+                  final round of counselling, those vacant seats will automatically cascade to the Diploma Merit Quota.
+                </p>
+              </div>
+
+              {/* B.II.5. Tie-Breaker Rule */}
+              <div className="space-y-2 pt-3 border-t border-slate-200">
+                <h4 className="text-base font-bold text-[#0f2a44] flex items-center gap-2">
+                  <Award className="w-5 h-5 text-[#caa74d]" /> B.II.5. Tie-Breaker Rule (Applicable to All Lateral Entry Streams)
+                </h4>
+                <p className="text-slate-700 text-sm md:text-sm leading-relaxed font-sans">
+                  In the event of identical normalized scores or ranks within any sub-quota, the following tie-breaking
+                  rule is applied: the candidate with the lower, chronologically earlier application registration number
+                  will be ranked higher.
+                </p>
+              </div>
+            </div>
           </div>
-        </article>
+        </ScrollReveal>
+
+        {/* Fee Refund Policy Section */}
+        <ScrollReveal>
+          <div className="space-y-6" id="refund-policy">
+            <h2 className="text-xl md:text-2xl font-extrabold text-[#0f2a44] font-sans border-b border-slate-200 pb-3 flex items-center gap-2">
+              <Scale className="w-6 h-6 text-[#caa74d]" /> Fee Refund Policy
+            </h2>
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-md p-6 md:p-8 space-y-4 hover:shadow-lg transition-shadow duration-300 relative overflow-hidden">
+              <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-[#8C0509]" />
+              <div className="space-y-2 text-slate-700 text-sm md:text-base leading-relaxed font-sans">
+                <strong className="text-[#8C0509] font-bold">Fee Refund Policy:</strong>{" "}
+                Cancellations and refunds are processed strictly aligned with the prevailing UGC Notification/Circular
+                (D.O.No.F.2-71/2022 (CPP-II) (c-114546) Dated 12.06.2024) on the Refund of Fees and Non-Retention of
+                Original Certificates. Standard percentages of fee refunds shall be applicable as per the mandate.
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
       </main>
 
       <Footer />
