@@ -1,5 +1,7 @@
 /* This file contains detailed information for Cells and Committees */
 
+import { nssEvents } from "./nssEvents";
+
 export interface Member {
   sno?: string;
   name: string;
@@ -23,7 +25,8 @@ export interface ContactInfo {
 
 export interface CellEvent {
   title: string;
-  href: string;
+  href?: string;
+  linkText?: string;
   date?: string;
 }
 
@@ -7088,108 +7091,7 @@ export const cellsDetailData: Record<string, CellDetail> = {
     ],
     "id": "nss",
     "url": "https://mits.ac.in/nss",
-    "events": [
-      {
-        "title": "GANDHI JAYANTHI CELEBRATIONS  OCT 2020 min",
-        "href": "https://mits.ac.in/assets/pdf/assoc/GANDHI JAYANTHI CELEBRATIONS  OCT 2020-min.pdf"
-      },
-      {
-        "title": "Report on NSS Day 25 9 2020 min",
-        "href": "https://mits.ac.in/assets/pdf/assoc//Report on NSS Day 25-9-2020-min.pdf"
-      },
-      {
-        "title": "No smoking day 2020 min",
-        "href": "https://mits.ac.in/assets/pdf/assoc/No_smoking_day_2020-min.pdf"
-      },
-      {
-        "title": "Report on COVID 19 min",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report on COVID-19-min.pdf"
-      },
-      {
-        "title": "Report on World Cancer Day and rally organized by NSS CELL MITS on 4th February 2020 min",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report on World Cancer Day and rally organized by NSS CELL MITS on 4th February 2020-min.pdf"
-      },
-      {
-        "title": "Report of National Voters Day 2020 min",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report of National Voters Day 2020-min.pdf"
-      },
-      {
-        "title": "NATIONAL YOURTH DAY CELEBRATED ON JAN 12 TH 2020 min",
-        "href": "https://mits.ac.in/assets/pdf/assoc/NATIONAL YOURTH DAY CELEBRATED ON JAN 12 TH 2020-min.pdf"
-      },
-      {
-        "title": "Report on International Human Rights Day 10 12 19",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report on International Human Rights Day 10-12-19.pdf"
-      },
-      {
-        "title": "Report on International Anti Corruption day 9 12 2019",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report on International Anti Corruption day 9-12-2019.pdf"
-      },
-      {
-        "title": "63rd Death Anniversary of Bharath Ratna Dr.B.R.Ambedkar on 06.12.2019",
-        "href": "https://mits.ac.in/assets/pdf/assoc/63rd Death Anniversary of Bharath Ratna Dr.B.R.Ambedkar on 06.12.2019.pdf"
-      },
-      {
-        "title": "Report of 70th Constitution Day on 26th November 2019",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report of 70th Constitution Day on 26th November 2019.pdf"
-      },
-      {
-        "title": "Report on National Cancer Awareness Day conference and rally organized by NSS CELL MITS on 7th November 2019",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report on National Cancer Awareness Day conference and rally organized by NSS CELL MITS on 7th November 2019.pdf"
-      },
-      {
-        "title": "Report on Sardar vallabhbhai patel Birth day 31 10 2019 National Unity Day",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report on Sardar vallabhbhai patel Birth day 31-10-2019 National Unity Day.pdf"
-      },
-      {
-        "title": "Report on Report on Poshan Abhiyaan on 18 10 2019",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report on Report on Poshan Abhiyaan on 18-10-2019.pdf"
-      },
-      {
-        "title": "Report on Global Hand Washing day on 15th October 2019 by MITS NSS CELL",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report on Global Hand Washing day on 15th October 2019 by MITS-NSS CELL.pdf"
-      },
-      {
-        "title": "Report on Rally against Plastic Use on 04 10 2019",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report on Rally against Plastic Use on 04-10-2019.pdf"
-      },
-      {
-        "title": "Report on Gandhi jayanthi 02 10 2019",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Report on Gandhi jayanthi 02-10-2019.pdf"
-      },
-      {
-        "title": "report Blood Donation 26 9 2019",
-        "href": "https://mits.ac.in/assets/pdf/assoc/report Blood Donation 26-9-2019.pdf"
-      },
-      {
-        "title": "report NSS Day  23 & 24th sep 2019",
-        "href": "https://mits.ac.in/assets/pdf/assoc/report_NSS Day- 23 & 24th sep 2019.pdf"
-      },
-      {
-        "title": "report swachhata Pakhwada 13 9 2019",
-        "href": "https://mits.ac.in/assets/pdf/assoc/report_swachhata Pakhwada 13-9-2019.pdf"
-      },
-      {
-        "title": "report International Literacy Day 8 9 2019(7th)",
-        "href": "https://mits.ac.in/assets/pdf/assoc/report_International Literacy Day 8-9-2019(7th).pdf"
-      },
-      {
-        "title": "Teacher's Day Celebrations min",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Teacher's Day Celebrations-min.pdf"
-      },
-      {
-        "title": "Swami Vivekananda Jayanti",
-        "href": "https://mits.ac.in/assets/pdf/assoc/Swami Vivekananda Jayanti.pdf"
-      },
-      {
-        "title": "APJ Abdul Kalam Jayanti 15 10 18",
-        "href": "https://mits.ac.in/assets/pdf/assoc/APJ Abdul Kalam Jayanti 15-10-18.pdf"
-      },
-      {
-        "title": "NSSMPL (1)",
-        "href": "https://mits.ac.in/assets/pdf/assoc/NSSMPL (1).pdf"
-      }
-    ]
+    "events": nssEvents
   },
   "ncc-army": {
     "name": "National Cadet Corps (Army) - NCC Unit",

@@ -559,20 +559,39 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
                     <ul className="space-y-3">
                       {cell.events.map((ev, i) => (
                         <li key={i}>
-                          <a
-                            href={ev.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-start justify-between gap-3 p-3.5 rounded-xl border border-[#0f2a44]/10 hover:border-[#caa74d] hover:bg-[#fff8e6]/30 transition-all group"
-                          >
-                            <div className="flex items-start gap-3 min-w-0">
-                              <span className="w-2.5 h-2.5 rounded-full bg-[#b31317] shrink-0 mt-2 shadow-sm group-hover:scale-125 transition-transform" />
-                              <span className="text-sm font-medium text-[#0f2a44] group-hover:text-[#b31317] transition-colors leading-relaxed">
+                          {cell.id === "nss" ? (
+                            <div className="flex flex-col gap-2 rounded-xl border border-[#0f2a44]/10 p-3.5 hover:border-[#caa74d] hover:bg-[#fff8e6]/30">
+                              <span className="text-sm font-medium leading-relaxed text-[#0f2a44]">
                                 {ev.title}
                               </span>
+                              {ev.href && (
+                                <a
+                                  href={ev.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-1 text-sm font-medium text-[#b31317] hover:text-[#8b0000]"
+                                >
+                                  {ev.linkText ?? "View report"}
+                                  <ExternalLink className="w-4 h-4 shrink-0" />
+                                </a>
+                              )}
                             </div>
-                            <ExternalLink className="w-4 h-4 shrink-0 text-slate-400 group-hover:text-[#b31317] transition-colors mt-0.5" />
-                          </a>
+                          ) : (
+                            <a
+                              href={ev.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-start justify-between gap-3 rounded-xl border border-[#0f2a44]/10 p-3.5 transition-all hover:border-[#caa74d] hover:bg-[#fff8e6]/30 group"
+                            >
+                              <div className="flex min-w-0 items-start gap-3">
+                                <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#b31317] shadow-sm transition-transform group-hover:scale-125" />
+                                <span className="text-sm font-medium leading-relaxed text-[#0f2a44] transition-colors group-hover:text-[#b31317]">
+                                  {ev.title}
+                                </span>
+                              </div>
+                              <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-slate-400 transition-colors group-hover:text-[#b31317]" />
+                            </a>
+                          )}
                         </li>
                       ))}
                     </ul>
