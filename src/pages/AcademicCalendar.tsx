@@ -93,12 +93,23 @@ const pgCalendars: CalendarItem[] = [
   },
 ];
 
+const phdCalendars: CalendarItem[] = [
+  {
+    sno: 1,
+    title: "Ph.D Academic Calendar July Session - 2026-27",
+    pdfUrl:
+      "https://mits.ac.in/assets/pdf/syllabus/MITS%20DTBU_Ph.D_July%202026%20Session_I%20&%20II%20Semester_Academic%20Calender.pdf",
+  },
+];
+
 const AcademicCalendar = () => {
-  const [activeTab, setActiveTab] = useState<"UG" | "PG">("UG");
+  const [activeTab, setActiveTab] = useState<"UG" | "PG" | "PHD">("UG");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedPdf, setSelectedPdf] = useState<{ title: string; pdfUrl: string } | null>(null);
 
-  const currentList = activeTab === "UG" ? ugCalendars : pgCalendars;
+  const currentList =
+    activeTab === "UG" ? ugCalendars : activeTab === "PG" ? pgCalendars : phdCalendars;
+  const activeTabLabel = activeTab === "PHD" ? "Ph.D." : activeTab;
   const filteredList = currentList.filter((item) =>
     item.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -108,7 +119,7 @@ const AcademicCalendar = () => {
       <Header />
       <SEO
         title="Academic Calendars – MITS Madanapalle"
-        description="Official UG & PG Academic Calendars for B.Tech, M.Tech, MCA, MBA, BCA, and BBA programs at Madanapalle Institute of Technology & Science."
+        description="Official UG, PG, and Ph.D. Academic Calendars for programs at Madanapalle Institute of Technology & Science."
         canonical="/academic-calendar"
       />
 
@@ -134,7 +145,7 @@ const AcademicCalendar = () => {
               Academic <span className="text-[#ffd15c]">Calendars</span>
             </h1>
             <p className="text-white/90 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-normal">
-              Semester schedules, examination dates, instruction periods, and academic timelines for UG &amp; PG programs.
+              Semester schedules, examination dates, instruction periods, and academic timelines for UG, PG, and Ph.D. programs.
             </p>
           </div>
 
@@ -194,6 +205,16 @@ const AcademicCalendar = () => {
               >
                 PG Academic Calendars
               </button>
+              <button
+                onClick={() => setActiveTab("PHD")}
+                className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm cursor-pointer ${
+                  activeTab === "PHD"
+                    ? "bg-[#8b0000] text-white shadow-md scale-105"
+                    : "bg-[#f5e6e6] text-[#8b0000] hover:bg-[#ebd0d0]"
+                }`}
+              >
+                Ph.D. Academic Calendar
+              </button>
             </div>
 
             {/* Filter / Search Bar */}
@@ -201,7 +222,7 @@ const AcademicCalendar = () => {
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
                 type="text"
-                placeholder={`Search ${activeTab} academic calendars...`}
+                placeholder={`Search ${activeTabLabel} academic calendars...`}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#8b0000]/20 focus:border-[#8b0000] transition-all shadow-xs"
