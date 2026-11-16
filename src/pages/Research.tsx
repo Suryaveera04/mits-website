@@ -722,8 +722,8 @@ const EventsSection = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h4 className="text-sm font-semibold text-card-foreground group-hover:text-primary transition-colors leading-snug">{e.title}</h4>
-                  <p className="text-sm text-muted-foreground mt-1">{e.dept}</p>
-                  <p className="text-sm text-primary/80 font-medium mt-1">{e.date}</p>
+                  {e.dept && <p className="text-sm text-muted-foreground mt-1">{e.dept}</p>}
+                  {e.date && <p className="text-sm text-primary/80 font-medium mt-1">{e.date}</p>}
                 </div>
                 <ExternalLink className="w-4 h-4 text-muted-foreground shrink-0 mt-1 group-hover:text-primary" />
               </div>

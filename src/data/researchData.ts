@@ -274,27 +274,146 @@ export const policiesData = [
 // ];
 
 
-export const eventsData = [
-  { title: "One-Day National Level Workshop on \"Fundamentals and Disputes in IPR, WIPO Distance Learning Courses, and Pitching for Angel Investors\"", dept: "Dept. of Computer Applications in association with R&D Cell", date: "20th December 2025", link: "https://mits.ac.in/assets/pdf/ca/Fundamentals%20and%20Disputes%20in%20IPR,%20WIPO%20Distance%20Learning%20Courses,%20and%20Pitching%20for%20Angel%20Investors-min.pdf" },
-  { title: "IRP Basics for Innovators and Entrepreneurs", dept: "Dept. of CSE - AI in collaboration with R&D Cell", date: "27th November 2025", link: "https://mits.ac.in/assets/pdf/aids/IRP%20Basics%20for%20Innovators%20and%20Entrepreneurs.pdf" },
-  { title: "Publication Incentive Award Function for A.Y. 2024-25", dept: "R&D Cell", date: "07th November 2025", link: "https://mits.ac.in/assets/pdf/research/Publication%20Incentive%20Award%20function%20for%20AY%202024-25.pdf" },
-  { title: "National Level IP-Yatra 2025 - Improving the lives of everyone, everywhere", dept: "R&D Cell", date: "21st & 22nd March 2025", link: "https://mits.ac.in/assets/pdf/research/National%20Level%20IP-Yatra%202025.pdf" },
-  { title: "Publication Incentive Award Function for A.Y. 2023-24", dept: "R&D Cell", date: "14th March 2025", link: "https://mits.ac.in/assets/pdf/research/Publication%20Incentive%20Award%20function%20for%20the%202023-24.pdf" },
-  { title: "Webinar on \"Effective Project Proposal Writing\"", dept: "R&D Cell", date: "23rd January 2025", link: "https://mits.ac.in/assets/pdf/research/15.%20Report%20on%20Online%20Webinar%2023-01-2025.pdf" },
-  { title: "One Day Workshop on \"IPR: Patentability, Patent Drafting & Patent Filing Procedure\"", dept: "R&D Cell under IPFC-MITS & IPR Cell", date: "04th January 2025", link: "https://mits.ac.in/assets/pdf/research/14.Report%20IPR%20IPFC%20Jan%202025.pdf" },
-  { title: "Three Days International Workshop on \"Fundamentals and Recent Trends in IPR, Startup Development, and Research Publication\"", dept: "Dept. of ECE in collaboration with MITS IPFC & MITS IEEE Student Branch", date: "27th–29th November 2024", link: "https://mits.ac.in/assets/pdf/research/13.%20Report%20_%20Fundamentals%20and%20Recent%20Trends%20in%20Intellectual%20Property%20Rights.pdf" },
-  { title: "One Day Awareness Workshop on \"Intellectual Property Rights\"", dept: "Dept. of CSE (Data Science) in association with IIC, IPR Cell & IPFC", date: "13th November 2024", link: "https://mits.ac.in/assets/pdf/research/12.%20DS%20Dept%20IIC-1.pdf" },
-  { title: "Seminar on \"Research and IPR Awareness Program\"", dept: "Dept. of Computer Applications in association with IPR Cell & IPFC", date: "06th November 2024", link: "https://mits.ac.in/assets/pdf/research/11.%20Report%20-%20Seminar%20-%20IPR%20By%20Dr.%20Sivaiah.pdf" },
-  { title: "One Day Awareness Workshop on \"Intellectual Property Rights\"", dept: "Dept. of English & Foreign Languages in association with IIC, IPR Cell & IPFC", date: "21st October 2024", link: "https://mits.ac.in/assets/pdf/research/10.%20English%20Department.pdf" },
-  { title: "Publication Incentive Award Function for A.Y. 2022-23", dept: "R&D Cell", date: "05th September 2024", link: "https://mits.ac.in/assets/pdf/research/9.%20report%20on%20incentive%20function%20AY_2023-24%20_%2005-09-2024.pdf" },
-  { title: "Startup Mentoring Activity and Awareness Session on \"Trademark Registration\"", dept: "Dept. of ME, Startup & Innovation Cell in association with IPR Cell & IPFC", date: "23rd August 2024", link: "https://mits.ac.in/assets/pdf/research/8.%20Event%20Report.pdf" },
-  { title: "One Day Awareness Program on \"Intellectual Property Rights\"", dept: "R&D Cell and IPR Cell under IPFC-MITS", date: "23rd August 2024", link: "https://mits.ac.in/assets/pdf/research/7.%20%20Report%20IPR%20IPFC%20Aug%202024.pdf" },
-  { title: "Publication Incentive Award Function for A.Y. 2022-23", dept: "R&D Cell", date: "13th April 2024", link: "https://mits.ac.in/assets/pdf/research/6.%20report%20on%20incentive%20function%20AY_2022-23%20_%2013-04-2024.pdf" },
-  { title: "Interaction Session with Dr KLS Reddy on \"About MSME Schemes\"", dept: "R&D Cell", date: "13th December 2023", link: "https://mits.ac.in/assets/pdf/research/5.%20Report%20on%2013-12-2023_Dr.KLS%20Reddy.pdf" },
-  { title: "Interaction Session with P R Hariharan on \"Research Funding Opportunities\"", dept: "R&D Cell", date: "24th November 2023", link: "https://mits.ac.in/assets/pdf/research/4.%20Report%20on%2024-11-2023_Dr.Hariharan.pdf" },
-  { title: "Online Training on \"Overview of Space Science and Technology\" (ISRO START Programme)", dept: "Dept. of ECE under ISRO START & R&D Cell", date: "20th July – 07th August 2023", link: "https://mits.ac.in/assets/pdf/research/3.%20ISRO%20START%20PROGRAM%20EVENT%20REPORT.pdf" },
-  { title: "World MSME Day 2023", dept: "R&D Cell, IIC Cell & ED Cell", date: "27th June 2023", link: "https://mits.ac.in/assets/pdf/research/2.%20Report_World%20MSME%20day%202023.pdf" },
-  { title: "Faculty Appreciation through Incentives for Research Publications & SWAYAM-NPTEL Toppers for A.Y. 2021-22", dept: "R&D Cell", date: "14th September 2022", link: "https://mits.ac.in/assets/pdf/research/1.%20Incentives%2014th%20Nov%202022%20_2021-22.pdf" },
+type ResearchEvent = {
+  title: string;
+  dept?: string;
+  date?: string;
+  link: string;
+};
+
+export const eventsData: ResearchEvent[] = [
+  {
+    title: "A Seminar on “Introduction to Innovation, Start-up, IPR and Government of India Initiatives for Entrepreneurship Development in Academic Institutions” was organized by Research and Development Cell on 12th October 2026.",
+    link: "https://mits.ac.in/assets/pdf/research/Entrepreneurship Development in Academic Institutions.pdf",
+  },
+  {
+    title: "An Interaction Session on “IEEE Publishing and Subscription Opportunities: Institutional Research Strategy with Open Access” was organized by Research and Development Cell on 06th October 2026.",
+    link: "https://mits.ac.in/assets/pdf/research/IEEE Publishing and Subscription Opportunities Institutional Research Strategy with Open Access.pdf",
+  },
+  {
+    title: "A Seminar on “Research Ethics in the AI Era: Prevention of Article Retractions” was organized by Research and Development Cell on 23rd September 2026.",
+    link: "https://mits.ac.in/assets/pdf/research/Research Ethics in the AI Era Prevention of Article Retractions.pdf",
+  },
+  {
+    title: "A Seminar on “Research Integrity and Research Article Retractions” was organized by Research and Development Cell on 08th September 2026.",
+    link: "https://mits.ac.in/assets/pdf/research/Research Integrity and Research Article Retractions.pdf",
+  },
+  {
+    title: "MITS, Deemed to be University, hosted an Faculty Interaction meeting with Dr P. Swetha on 07 September 2026.",
+    link: "https://mits.ac.in/assets/pdf/research/Faculty Interaction with Dr P. Swetha.pdf",
+  },
+  {
+    title: "A Seminar on “Strategic Research Focus” was organized by Research and Development Cell on 12th August 2026.",
+    link: "https://mits.ac.in/assets/pdf/research/Strategic Research Focus 12-8-2026.pdf",
+  },
+  {
+    title: "A Seminar on “AI Use in Research: Understanding the Risks of Article Retractions” was organized by Research and Development Cell on 11th August 2026.",
+    link: "https://mits.ac.in/assets/pdf/research/AI Use in Research Understanding the Risks of Article Retractions.pdf",
+  },
+  {
+    title: "A World Intellectual Property Day-2026 (IP and Sports: Ready, Set, Innovate) was organised under MITS-IPFC and R&D Cell in association with IIC, on 5th May 2026.",
+    link: "https://mits.ac.in/assets/pdf/research/World Intellectual Property Day-2026.pdf",
+  },
+  {
+    title: "IP Awareness Program under IPR Component of MSME Innovative Scheme, Sri Potti Sriramulu Nellore District was organized by MITS-IPFC, Madanapalle in Collaboration with NARAYANA Engineering College, Sri Potti Sriramulu Nellore on 13-03-2026.",
+    link: "https://mits.ac.in/assets/pdf/research/4. Nellore District-compressed.pdf",
+  },
+  {
+    title: "IP Awareness Program under IPR Component of MSME Innovative Scheme, Chittoor District was organized by MITS-IPFC, Madanapalle in Collaboration with VEMU Institute of Technology, Chittoor on 10-03-2026.",
+    link: "https://mits.ac.in/assets/pdf/research/3. Chittoor District-compressed.pdf",
+  },
+  {
+    title: "IP Awareness Program under IPR Component of MSME Innovative Scheme, Tirupati District was organized by MITS-IPFC, Madanapalle in Collaboration with TOCIC-SPMVV, WIFI-SPMVV and DIO, Tirupati on 17-02-2026.",
+    link: "https://mits.ac.in/assets/pdf/research/1. Annamayya District-compressed.pdf",
+  },
+  {
+    title: "One Day Intellectual Property (IP) Awareness Program under IPR Component of MSME Innovative Scheme, Annamayya District was organized by MITS-IPFC, Madanapalle on 07-02-2026.",
+    link: "https://mits.ac.in/assets/pdf/research/2. Tirupati District-compressed.pdf",
+  },
+  {
+    title: "A One-Day National level Workshop on “Fundamentals and Disputes in IPR, WIPO Distance Learning Courses, and Pitching for Angel Investors” was organized by Department of Computer Applications in association with Research & Development Cell on 20th December 2025.",
+    link: "https://mits.ac.in/assets/pdf/ca/Fundamentals%20and%20Disputes%20in%20IPR,%20WIPO%20Distance%20Learning%20Courses,%20and%20Pitching%20for%20Angel%20Investors-min.pdf",
+  },
+  {
+    title: "An “IRP Basics for Innovators and Entrepreneurs” was organized by Department of Computer Science & Engineering - Artificial Intelligence in collaboration with Research & Development Cell on 27th November 2025.",
+    link: "https://mits.ac.in/assets/pdf/aids/IRP Basics for Innovators and Entrepreneurs.pdf",
+  },
+  {
+    title: "A Publication Incentive Award function for Academic Year 2024-25 was organized by The Research & Development (R&D) Cell on 07th November 2025.",
+    link: "https://mits.ac.in/assets/pdf/research/Publication Incentive Award function for AY 2024-25.pdf",
+  },
+  {
+    title: "A \"National Level IP-Yatra 2025 - Improving the lives of everyone, everywhere\" was organized by Research & Development Cell from 21st & 22nd March 2025.",
+    link: "https://mits.ac.in/assets/pdf/research/National Level IP-Yatra 2025.pdf",
+  },
+  {
+    title: "A Publication Incentive Award function for the Academic Year 2023-24 was organized by Research and Development Cell on 14th March 2025.",
+    link: "https://mits.ac.in/assets/pdf/research/Publication Incentive Award function for the 2023-24.pdf",
+  },
+  {
+    title: "A Webinar on \"Effective Project Proposal Writing\" was organized by Research & Development Cell on 23rd January 2025.",
+    link: "https://mits.ac.in/assets/pdf/research/15. Report on Online Webinar 23-01-2025.pdf",
+  },
+  {
+    title: "One Day Workshop on “IPR: Patentability, Patent Drafting & Patent Filing Procedure” was organized by Research & Development Cell under IPFC-MITS & IPR Cell, Madanapalle on 04th January 2025.",
+    link: "https://mits.ac.in/assets/pdf/research/14.Report IPR IPFC Jan 2025.pdf",
+  },
+  {
+    title: "Three Days International Workshop on \"Fundamentals and Recent Trends in Intellectual Property Rights, Startup Development, and Research Publication\" was organised by Department of Electronics and Communication Engineering in collaboration with MITS IPFC & MITS IEEE Student Branch Chapter (ComSoc) on 27th to 29th November 2024.",
+    link: "https://mits.ac.in/assets/pdf/research/13. Report _ Fundamentals and Recent Trends in Intellectual Property Rights.pdf",
+  },
+  {
+    title: "One Day Awareness Workshop on “Intellectual Property Rights” was organized by Department of Computer Science & Engineering (Data Science) in Association with Institution’s Innovation Council, IPR Cell & IPFC on 13th November 2024.",
+    link: "https://mits.ac.in/assets/pdf/research/12. DS Dept IIC-1.pdf",
+  },
+  {
+    title: "A Seminar on “Research and IPR Awareness Program” was Organised by Department of Computer Applications in Association with IPR Cell & IPFC on 06th November 2024.",
+    link: "https://mits.ac.in/assets/pdf/research/11. Report - Seminar - IPR By Dr. Sivaiah.pdf",
+  },
+  {
+    title: "One Day Awareness Workshop on “Intellectual Property Rights” was organized by Department of English & Foreign Languages in Association with Institution’s Innovation Council, IPR Cell & IPFC on 21st October 2024.",
+    link: "https://mits.ac.in/assets/pdf/research/10. English Department.pdf",
+  },
+  {
+    title: "A Publication Incentive Award function for A.Y:2022-23 was organized by Research and Development Cell on 05th September 2024.",
+    link: "https://mits.ac.in/assets/pdf/research/9. report on incentive function AY_2023-24 _ 05-09-2024.pdf",
+  },
+  {
+    title: "Startup Mentoring Activity and Awareness Session on “Trademark Registration” was organized by Department of Mechanical Engineering, Startup and Innovation Cell in Association with IPR Cell & IPFC on 23rd August 2024.",
+    link: "https://mits.ac.in/assets/pdf/research/8. Event Report.pdf",
+  },
+  {
+    title: "One Day Awareness Program on “Intellectual Property Rights” was organized by Research & Development Cell and IPR Cell under IPFC-MITS, Madanapalle on 23rd August 2024.",
+    link: "https://mits.ac.in/assets/pdf/research/7.  Report IPR IPFC Aug 2024.pdf",
+  },
+  {
+    title: "A Publication Incentive Award function for A.Y:2022-23 was organized by Research and Development Cell on 13th April 2024.",
+    link: "https://mits.ac.in/assets/pdf/research/6. report on incentive function AY_2022-23 _ 13-04-2024.pdf",
+  },
+  {
+    title: "The interaction session with Dr KLS Reddy, Assistant Director, MSME-Vizak on “About MSME schemes” on 13Th Dec 2023.",
+    link: "https://mits.ac.in/assets/pdf/research/5. Report on 13-12-2023_Dr.KLS Reddy.pdf",
+  },
+  {
+    title: "The interaction session with P R Hariharan, Technical Analyst at DSIR, Ministry of Science & Technology on “Research Funding Opportunities” on 24th November 2023.",
+    link: "https://mits.ac.in/assets/pdf/research/4. Report on 24-11-2023_Dr.Hariharan.pdf",
+  },
+  {
+    title: "The online training course on “Overview of Space Science and Technology” organized by Department of ECE under ISRO START programme and MITS R&D Cell on 20th July to 07th August 2023.",
+    link: "https://mits.ac.in/assets/pdf/research/3. ISRO START PROGRAM EVENT REPORT.pdf",
+  },
+  {
+    title: "“World MSME Day 2023” organized by Research and Development Cell, IIC Cell and ED Cell on 27th June 2023.",
+    link: "https://mits.ac.in/assets/pdf/research/2. Report_World MSME day 2023.pdf",
+  },
+  {
+    title: "A Faculty Appreciation through Incentives for Research Publications & SWAYAM - NPTEL Toppers for the Academic Year 2021-22 was organized by Research and Development Cell on 14th September 2022.",
+    link: "https://mits.ac.in/assets/pdf/research/1. Incentives 14th Nov 2022 _2021-22.pdf",
+  },
+  {
+    title: "An IPR Awareness Programme Under the National Intellectual Property Awareness Mission 2.0 was organized by Research & Development Cell on 12th October 2022.",
+    link: "https://mits.ac.in/assets/pdf/research/IPR Report 12-10-2022.pdf",
+  },
 ];
 
 // export const documentsData = [
