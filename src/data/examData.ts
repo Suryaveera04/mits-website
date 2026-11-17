@@ -553,8 +553,14 @@ export const pgCirculars: ExamLink[] = [
   }
 ];
 
-// 3. PG Mid Term Tests (34 items)
+// 3. PG Mid Term Tests (35 items)
 export const pgMidTermTimetables: ExamLink[] = [
+  {
+    "no": 32,
+    "title": "M.Tech I Year I Semester (R25) I Mid Term Test Schedule November 2026",
+    "href": "https://mits.ac.in/public/uploads/files/M.Tech I Year I Semester (R25) I Mid Term Test Schedule November 2026.pdf",
+    "kind": "pdf"
+  },
   {
     "no": 31,
     "title": "MBA I Year I Semester (R25) I Mid Term Test Schedule November 2026 (For 2026 Admitted batch)",
