@@ -1,6 +1,16 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Search, Users, ExternalLink, GraduationCap, ArrowRight } from "lucide-react";
+import {
+  Search,
+  Users,
+  ExternalLink,
+  GraduationCap,
+  ArrowRight,
+  BookOpen,
+  Calculator,
+  Atom,
+  FlaskConical,
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -26,6 +36,15 @@ interface OfficialFacultyItem {
   oldProfileUrl: string | null;
 }
 
+interface EnrichedFacultyItem extends OfficialFacultyItem {
+  fullName: string;
+  cleanName: string;
+  slug: string;
+  email: string | undefined;
+  photoUrl: string | undefined;
+  dbMatch: any;
+}
+
 const DEPT_ORDER = ["ce", "me", "eee", "ece", "cse", "ai", "cseds", "csecs", "aiml", "mba", "mca", "bsh"];
 
 const DEPT_FILTERS = [
@@ -44,14 +63,155 @@ const DEPT_FILTERS = [
   { key: "bsh", label: "Basic Sciences & Humanities" },
 ];
 
+/**
+ * Constituent academic departments that form Basic Sciences & Humanities (BSH)
+ */
+interface BshConstituentDept {
+  key: string;
+  name: string;
+  shortName: string;
+  icon: typeof BookOpen;
+  description: string;
+  matcher: (f: EnrichedFacultyItem) => boolean;
+}
+
+const BSH_CONSTITUENT_DEPTS: BshConstituentDept[] = [
+  {
+    key: "english",
+    name: "Department of English & Foreign Languages",
+    shortName: "English & Foreign Languages",
+    icon: BookOpen,
+    description: "Faculty specializing in communicative English, linguistics, literature, and foreign languages.",
+    matcher: (f) => {
+      const d = (f.department || "").toLowerCase();
+      return d.includes("english") || d.includes("fl") || d.includes("efl") || d.includes("humanit");
+    },
+  },
+  {
+    key: "math",
+    name: "Department of Mathematics",
+    shortName: "Mathematics",
+    icon: Calculator,
+    description: "Faculty specializing in pure & applied mathematics, numerical analysis, and statistics.",
+    matcher: (f) => {
+      const d = (f.department || "").toLowerCase();
+      return d.includes("math");
+    },
+  },
+  {
+    key: "physics",
+    name: "Department of Physics",
+    shortName: "Physics",
+    icon: Atom,
+    description: "Faculty specializing in materials science, crystallography, optics, and applied physics.",
+    matcher: (f) => {
+      const d = (f.department || "").toLowerCase();
+      return d.includes("physic");
+    },
+  },
+  {
+    key: "chemistry",
+    name: "Department of Chemistry",
+    shortName: "Chemistry",
+    icon: FlaskConical,
+    description: "Faculty specializing in organic, inorganic, analytical, and applied chemistry.",
+    matcher: (f) => {
+      const d = (f.department || "").toLowerCase();
+      return d.includes("chemis");
+    },
+  },
+];
+
+/**
+ * Standard reusable faculty card component
+ */
+const FacultyCard = ({
+  faculty,
+  index,
+}: {
+  faculty: EnrichedFacultyItem;
+  index: number;
+}) => {
+  const profileLink = `/department/${faculty.deptKey}/faculty/${faculty.slug}`;
+
+  return (
+    <ScrollReveal delay={Math.min(0.2, (index % 8) * 0.03)}>
+      <Link
+        to={profileLink}
+        className="group bg-white rounded-2xl border border-slate-200 p-5 shadow-xs hover:shadow-xl hover:border-[#caa74d]/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full no-underline"
+      >
+        <div>
+          {/* Photo */}
+          <div className="w-32 h-32 mx-auto rounded-2xl bg-slate-100 overflow-hidden mb-4 border-2 border-slate-100 group-hover:border-[#caa74d]/40 transition-colors shadow-xs relative">
+            {faculty.photoUrl ? (
+              <img
+                src={faculty.photoUrl}
+                alt={faculty.name}
+                loading="lazy"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onError={(e) => {
+                  const fallbackPhoto = getFacultyPhotoUrl(faculty.profilePhoto || undefined);
+                  if (
+                    fallbackPhoto &&
+                    e.currentTarget.dataset.fallbackAttempted !== "true"
+                  ) {
+                    e.currentTarget.dataset.fallbackAttempted = "true";
+                    e.currentTarget.src = fallbackPhoto;
+                    return;
+                  }
+                  (e.currentTarget as HTMLElement).style.display = "none";
+                  const fallback = e.currentTarget.parentElement?.querySelector(".avatar-fallback") as HTMLElement;
+                  if (fallback) fallback.style.display = "flex";
+                }}
+              />
+            ) : null}
+            <div
+              className={`avatar-fallback w-full h-full ${
+                faculty.photoUrl ? "hidden" : "flex"
+              } items-center justify-center bg-gradient-to-br from-[#0f2a44]/10 to-slate-200 text-[#0f2a44] font-bold text-2xl`}
+            >
+              {faculty.cleanName.split(" ").filter(Boolean).slice(0, 2).map((n) => n[0].toUpperCase()).join("")}
+            </div>
+          </div>
+
+          {/* Name & Designation & Department */}
+          <div className="text-center space-y-1">
+            <h3 className="font-display font-bold text-base text-[#0f2a44] group-hover:text-[#b31317] transition-colors line-clamp-1">
+              {faculty.name}
+            </h3>
+            {faculty.qualification && (
+              <p className="text-[11px] font-medium text-slate-500 line-clamp-1">
+                {faculty.qualification}
+              </p>
+            )}
+            <p className="text-xs font-semibold text-[#b31317] line-clamp-1">
+              {faculty.designation}
+            </p>
+            <p className="text-[11px] text-slate-400 font-medium line-clamp-1">
+              {faculty.department}
+            </p>
+          </div>
+        </div>
+
+        {/* Footer View Profile */}
+        <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0f2a44] group-hover:text-[#caa74d] transition-colors">
+          <span>View Profile</span>
+          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+        </div>
+      </Link>
+    </ScrollReveal>
+  );
+};
+
 const FacultyInformation = () => {
-  const { facultyList, loading } = useFacultyData();
+  const { facultyList } = useFacultyData();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDept, setSelectedDept] = useState("all");
+  const [selectedBshSubDept, setSelectedBshSubDept] = useState("all");
   const [selectedDesignation, setSelectedDesignation] = useState("all");
 
-  // Enrich the strict official roster of 189 faculties with database profiles
-  const enrichedFacultyList = useMemo(() => {
+  // Enrich the strict official roster of faculties with database profiles
+  const enrichedFacultyList: EnrichedFacultyItem[] = useMemo(() => {
     const dbMapById = new Map<string, (typeof facultyList)[0]>();
     const dbMapByDeptAndSlug = new Map<string, (typeof facultyList)[0]>();
     const dbMapByGlobalSlug = new Map<string, (typeof facultyList)[0]>();
@@ -185,6 +345,16 @@ const FacultyInformation = () => {
     });
   }, [enrichedFacultyList, searchTerm, selectedDept, selectedDesignation]);
 
+  // Dynamic counts for BSH constituent departments based on currently applied search & rank filters
+  const bshConstituentCounts = useMemo(() => {
+    const bshMembers = filteredFaculty.filter((f) => f.deptKey === "bsh");
+    const counts: Record<string, number> = { total: bshMembers.length };
+    for (const sub of BSH_CONSTITUENT_DEPTS) {
+      counts[sub.key] = bshMembers.filter(sub.matcher).length;
+    }
+    return counts;
+  }, [filteredFaculty]);
+
   const deptSections = useMemo(() => {
     if (selectedDept !== "all") {
       const deptFilter = DEPT_FILTERS.find((d) => d.key === selectedDept);
@@ -296,7 +466,12 @@ const FacultyInformation = () => {
             {DEPT_FILTERS.map((d) => (
               <button
                 key={d.key}
-                onClick={() => setSelectedDept(d.key)}
+                onClick={() => {
+                  setSelectedDept(d.key);
+                  if (d.key !== "bsh") {
+                    setSelectedBshSubDept("all");
+                  }
+                }}
                 className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
                   selectedDept === d.key
                     ? "bg-[#0f2a44] text-white shadow-xs"
@@ -307,6 +482,41 @@ const FacultyInformation = () => {
               </button>
             ))}
           </div>
+
+          {/* BSH Constituent Sub-Department Tabs (Visible when BSH is selected) */}
+          {selectedDept === "bsh" && (
+            <div className="flex items-center gap-1.5 overflow-x-auto pt-2.5 pb-1 border-t border-slate-100 no-scrollbar">
+              <span className="text-xs font-semibold text-slate-400 whitespace-nowrap mr-1">
+                Discipline:
+              </span>
+              <button
+                onClick={() => setSelectedBshSubDept("all")}
+                className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
+                  selectedBshSubDept === "all"
+                    ? "bg-[#caa74d] text-[#0f2a44] shadow-xs"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
+                }`}
+              >
+                All 4 Departments ({bshConstituentCounts.total})
+              </button>
+              {BSH_CONSTITUENT_DEPTS.map((sub) => {
+                const count = bshConstituentCounts[sub.key] || 0;
+                return (
+                  <button
+                    key={sub.key}
+                    onClick={() => setSelectedBshSubDept(sub.key)}
+                    className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
+                      selectedBshSubDept === sub.key
+                        ? "bg-[#caa74d] text-[#0f2a44] shadow-xs"
+                        : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
+                    }`}
+                  >
+                    {sub.shortName} ({count})
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
@@ -316,12 +526,13 @@ const FacultyInformation = () => {
           <p className="text-sm font-medium text-slate-500">
             Showing <span className="font-bold text-[#0f2a44]">{filteredFaculty.length}</span> faculty members
           </p>
-          {(searchTerm || selectedDept !== "all" || selectedDesignation !== "all") && (
+          {(searchTerm || selectedDept !== "all" || selectedDesignation !== "all" || selectedBshSubDept !== "all") && (
             <button
               onClick={() => {
                 setSearchTerm("");
                 setSelectedDept("all");
                 setSelectedDesignation("all");
+                setSelectedBshSubDept("all");
               }}
               className="text-xs text-[#b31317] font-semibold hover:underline"
             >
@@ -341,6 +552,7 @@ const FacultyInformation = () => {
                 setSearchTerm("");
                 setSelectedDept("all");
                 setSelectedDesignation("all");
+                setSelectedBshSubDept("all");
               }}
             >
               Clear All Filters
@@ -348,110 +560,158 @@ const FacultyInformation = () => {
           </div>
         ) : (
           <div
-            key={`${selectedDept}-${selectedDesignation}-${searchTerm ? "search" : "all"}`}
-            className="space-y-12"
+            key={`${selectedDept}-${selectedBshSubDept}-${selectedDesignation}-${searchTerm ? "search" : "all"}`}
+            className="space-y-14"
           >
-            {deptSections.map((section) => (
-              <section key={section.key} className="space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b-2 border-slate-200">
-                  <div className="flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#b31317] shrink-0" />
-                    <h2 className="text-xl md:text-2xl font-bold text-[#0f2a44] font-display">
-                      {section.name.startsWith("Department") || section.name.startsWith("Basic") ? section.name : `Department of ${section.name}`}
-                    </h2>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold text-[#b31317] bg-[#b31317]/10 px-3 py-1 rounded-full">
-                      {section.members.length} {section.members.length === 1 ? "Member" : "Members"}
-                    </span>
-                    <Link
-                      to={`/department/${section.key}`}
-                      className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1"
-                    >
-                      <span>Explore Department</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </div>
+            {deptSections.map((section) => {
+              // Specialized rendering for BSH: Segregated into the 4 constituent academic departments
+              if (section.key === "bsh") {
+                const visibleConstituents = BSH_CONSTITUENT_DEPTS.map((c) => {
+                  const members = section.members.filter(c.matcher);
+                  return { ...c, members };
+                }).filter((c) => {
+                  if (c.members.length === 0) return false;
+                  if (selectedDept === "bsh" && selectedBshSubDept !== "all") {
+                    return c.key === selectedBshSubDept;
+                  }
+                  return true;
+                });
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                  {section.members.map((f, i) => {
-                    const profileLink = `/department/${f.deptKey}/faculty/${f.slug}`;
+                const otherMembers = section.members.filter(
+                  (f) => !BSH_CONSTITUENT_DEPTS.some((c) => c.matcher(f))
+                );
 
-                    return (
-                      <ScrollReveal
-                        key={`${section.key}-${f.sno}-${f.slug || f.name}`}
-                        delay={Math.min(0.2, (i % 8) * 0.03)}
-                      >
+                if (visibleConstituents.length === 0 && otherMembers.length === 0) {
+                  return null;
+                }
+
+                return (
+                  <section key={section.key} className="space-y-8">
+                    {/* BSH Overall Department Header */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b-2 border-slate-200">
+                      <div>
+                        <div className="flex items-center gap-3">
+                          <span className="w-3.5 h-3.5 rounded-full bg-[#b31317] shrink-0" />
+                          <h2 className="text-xl md:text-2xl font-bold text-[#0f2a44] font-display">
+                            Department of Basic Sciences &amp; Humanities
+                          </h2>
+                        </div>
+                        <p className="text-xs md:text-sm text-slate-500 mt-1 pl-6">
+                          Faculty organized into 4 constituent academic disciplines: English &amp; Foreign Languages, Mathematics, Physics, and Chemistry.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-3 shrink-0">
+                        <span className="text-xs font-bold text-[#b31317] bg-[#b31317]/10 px-3 py-1 rounded-full">
+                          {section.members.length} {section.members.length === 1 ? "Member" : "Members"} Total
+                        </span>
                         <Link
-                          to={profileLink}
-                          className="group bg-white rounded-2xl border border-slate-200 p-5 shadow-xs hover:shadow-xl hover:border-[#caa74d]/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full no-underline"
+                          to="/department/bsh"
+                          className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1"
                         >
-                          <div>
-                            {/* Photo */}
-                            <div className="w-32 h-32 mx-auto rounded-2xl bg-slate-100 overflow-hidden mb-4 border-2 border-slate-100 group-hover:border-[#caa74d]/40 transition-colors shadow-xs relative">
-                              {f.photoUrl ? (
-                                <img
-                                  src={f.photoUrl}
-                                  alt={f.name}
-                                  loading="lazy"
-                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                  onError={(e) => {
-                                    const fallbackPhoto = getFacultyPhotoUrl(f.profilePhoto || undefined);
-                                    if (
-                                      fallbackPhoto &&
-                                      e.currentTarget.dataset.fallbackAttempted !== "true"
-                                    ) {
-                                      e.currentTarget.dataset.fallbackAttempted = "true";
-                                      e.currentTarget.src = fallbackPhoto;
-                                      return;
-                                    }
-                                    (e.currentTarget as HTMLElement).style.display = "none";
-                                    const fallback = e.currentTarget.parentElement?.querySelector(".avatar-fallback") as HTMLElement;
-                                    if (fallback) fallback.style.display = "flex";
-                                  }}
-                                />
-                              ) : null}
-                              <div
-                                className={`avatar-fallback w-full h-full ${
-                                  f.photoUrl ? "hidden" : "flex"
-                                } items-center justify-center bg-gradient-to-br from-[#0f2a44]/10 to-slate-200 text-[#0f2a44] font-bold text-2xl`}
-                              >
-                                {f.cleanName.split(" ").filter(Boolean).slice(0, 2).map((n) => n[0].toUpperCase()).join("")}
-                              </div>
-                            </div>
-
-                            {/* Name & Designation & Department */}
-                            <div className="text-center space-y-1">
-                              <h3 className="font-display font-bold text-base text-[#0f2a44] group-hover:text-[#b31317] transition-colors line-clamp-1">
-                                {f.name}
-                              </h3>
-                              {f.qualification && (
-                                <p className="text-[11px] font-medium text-slate-500 line-clamp-1">
-                                  {f.qualification}
-                                </p>
-                              )}
-                              <p className="text-xs font-semibold text-[#b31317] line-clamp-1">
-                                {f.designation}
-                              </p>
-                              <p className="text-[11px] text-slate-400 font-medium line-clamp-1">
-                                {f.department}
-                              </p>
-                            </div>
-                          </div>
-
-                          {/* Footer View Profile */}
-                          <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0f2a44] group-hover:text-[#caa74d] transition-colors">
-                            <span>View Profile</span>
-                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                          </div>
+                          <span>Explore Department</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
-                      </ScrollReveal>
-                    );
-                  })}
-                </div>
-              </section>
-            ))}
+                      </div>
+                    </div>
+
+                    {/* Constituent Sub-Departments */}
+                    <div className="space-y-10">
+                      {visibleConstituents.map((constituent) => {
+                        const IconComponent = constituent.icon;
+                        return (
+                          <div
+                            key={constituent.key}
+                            className="bg-white rounded-2xl p-5 md:p-6 border border-slate-200 shadow-xs space-y-6"
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+                              <div className="flex items-center gap-3">
+                                <div className="w-9 h-9 rounded-xl bg-[#0f2a44]/5 border border-[#0f2a44]/10 flex items-center justify-center text-[#0f2a44] shrink-0">
+                                  <IconComponent className="w-5 h-5 text-[#0f2a44]" />
+                                </div>
+                                <div>
+                                  <h3 className="text-lg md:text-xl font-bold text-[#0f2a44] font-display">
+                                    {constituent.name}
+                                  </h3>
+                                  <p className="text-xs text-slate-500 hidden sm:block">
+                                    {constituent.description}
+                                  </p>
+                                </div>
+                              </div>
+                              <span className="text-xs font-bold text-[#0f2a44] bg-slate-100 border border-slate-200 px-3 py-1 rounded-full shrink-0 self-start sm:self-auto">
+                                {constituent.members.length} {constituent.members.length === 1 ? "Faculty" : "Faculties"}
+                              </span>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                              {constituent.members.map((f, i) => (
+                                <FacultyCard
+                                  key={`bsh-${constituent.key}-${f.sno}-${f.slug || f.name}`}
+                                  faculty={f}
+                                  index={i}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })}
+
+                      {otherMembers.length > 0 && (
+                        <div className="bg-white rounded-2xl p-5 md:p-6 border border-slate-200 shadow-xs space-y-6">
+                          <h3 className="text-lg font-bold text-[#0f2a44]">
+                            Other Basic Sciences &amp; Humanities Faculty
+                          </h3>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            {otherMembers.map((f, i) => (
+                              <FacultyCard
+                                key={`bsh-other-${f.sno}-${f.slug || f.name}`}
+                                faculty={f}
+                                index={i}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </section>
+                );
+              }
+
+              // Standard department rendering for non-BSH departments
+              return (
+                <section key={section.key} className="space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b-2 border-slate-200">
+                    <div className="flex items-center gap-3">
+                      <span className="w-3.5 h-3.5 rounded-full bg-[#b31317] shrink-0" />
+                      <h2 className="text-xl md:text-2xl font-bold text-[#0f2a44] font-display">
+                        {section.name.startsWith("Department") || section.name.startsWith("Basic") ? section.name : `Department of ${section.name}`}
+                      </h2>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-bold text-[#b31317] bg-[#b31317]/10 px-3 py-1 rounded-full">
+                        {section.members.length} {section.members.length === 1 ? "Member" : "Members"}
+                      </span>
+                      <Link
+                        to={`/department/${section.key}`}
+                        className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1"
+                      >
+                        <span>Explore Department</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {section.members.map((f, i) => (
+                      <FacultyCard
+                        key={`${section.key}-${f.sno}-${f.slug || f.name}`}
+                        faculty={f}
+                        index={i}
+                      />
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
           </div>
         )}
       </main>
