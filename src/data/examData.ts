@@ -96,8 +96,14 @@ export const ugCirculars: ExamLink[] = [
   }
 ];
 
-// 3. UG Mid Term Tests (32 items)
+// 3. UG Mid Term Tests (33 items)
 export const ugMidTermTimetables: ExamLink[] = [
+  {
+    "no": 34,
+    "title": "B.Tech II Year I Semester (R25) II Mid Term Test November 2026",
+    "href": "https://mits.ac.in/public/uploads/exam/Time Table - B.Tech. II Year I Semester - (R25) - II Mid Term Test - November 2026.pdf",
+    "kind": "pdf"
+  },
   {
     "no": 33,
     "title": "B.Tech II Year I Semester (R25) SEC I Mid Term Test II November 2026",
