@@ -178,10 +178,10 @@ const DepartmentPage = () => {
       } else if (item.id === "more") {
         items.push({
           ...item,
-          subItems: moreData.subTabs || [
+          subItems: (moreData.subTabs || [
             { id: "mentor-mentee", label: "Mentor & Mentee" },
             { id: "minor", label: "Minor" },
-          ]
+          ]).filter(tab => tab.id !== "doctoral" && tab.id !== "phd")
         });
       } else {
         items.push(item);
@@ -323,7 +323,7 @@ const DepartmentPage = () => {
       if (hash === "tab41" || hash === "phd" || hash === "doctoral") {
         setActiveSection("more");
         setActiveMoreTab("phd");
-        setMoreDropdownOpen(true);
+        setMoreDropdownOpen(false);
         return;
       }
       if (hash === "tab47" || hash === "newsletters") {
@@ -638,7 +638,7 @@ const DepartmentPage = () => {
       if (hash === "doctoral") {
         setActiveSection("more");
         setActiveMoreTab("doctoral");
-        setMoreDropdownOpen(true);
+        setMoreDropdownOpen(false);
         return;
       }
       if (hash === "feedback") {
@@ -888,9 +888,11 @@ const DepartmentPage = () => {
       setMoreDropdownOpen(true);
       if (lastPart === "more") {
         if (isMech) {
-          setActiveMoreTab("phd");
+          setActiveMoreTab("newsletters");
         } else if (deptKey === "cse") {
-          setActiveMoreTab("doctoral");
+          setActiveMoreTab("stock-register");
+        } else if (deptKey === "ece") {
+          setActiveMoreTab("lab");
         } else if (deptKey === "cseds" || deptKey === "cse-ds" || deptKey === "csd" || deptKey === "ds") {
           setActiveMoreTab("lab");
         } else if (deptKey === "csecs" || deptKey === "cse-cs" || deptKey === "csc" || deptKey === "cs" || deptKey === "cyber-security" || deptKey === "csec") {
@@ -1004,7 +1006,7 @@ const DepartmentPage = () => {
     } else if (lastPart === "phd") {
       setActiveSection("more");
       setActiveMoreTab("phd");
-      setMoreDropdownOpen(true);
+      setMoreDropdownOpen(false);
     } else if (lastPart === "newsletters" || lastPart === "newsletter" || lastPart === "tab59") {
       setActiveSection("more");
       setActiveMoreTab("newsletters");
@@ -1065,7 +1067,7 @@ const DepartmentPage = () => {
     } else if (lastPart === "doctoral") {
       setActiveSection("more");
       setActiveMoreTab(isMech ? "phd" : "doctoral");
-      setMoreDropdownOpen(true);
+      setMoreDropdownOpen(false);
     } else if (lastPart === "feedback") {
       setActiveSection("more");
       setActiveMoreTab("feedback");
@@ -1418,7 +1420,9 @@ const DepartmentPage = () => {
           <div className="bg-card border-t border-border max-h-[60vh] overflow-y-auto">
             {currentSidebarItems.map(item => {
               if (item.subItems) {
-                const isParentActive = activeSection === item.id;
+                const isParentActive = item.id === "more"
+                  ? (activeSection === "more" && activeMoreTab !== "phd" && activeMoreTab !== "doctoral")
+                  : (item.id === "phd" ? (activeSection === "phd" || activeMoreTab === "phd" || activeMoreTab === "doctoral") : activeSection === item.id);
                 const isUg = item.id === "under-graduate";
                 const isPg = item.id === "post-graduate";
                 const isDropdownOpen = isUg ? ugDropdownOpen : isPg ? pgDropdownOpen : moreDropdownOpen;
@@ -1512,12 +1516,14 @@ const DepartmentPage = () => {
                   </div>
                 );
               }
+              const isItemActive = (item.id === "phd" && (activeSection === "phd" || activeMoreTab === "phd" || activeMoreTab === "doctoral")) ||
+                (item.id === "more" ? (activeSection === "more" && activeMoreTab !== "phd" && activeMoreTab !== "doctoral") : activeSection === item.id);
               return (
                 <button
                   key={item.id}
                   onClick={() => handleSectionChange(item.id)}
                   className={`w-full flex items-center gap-2 px-4 py-2.5 text-sm transition-colors ${
-                    activeSection === item.id ? "text-primary bg-primary/5 font-semibold" : "text-muted-foreground hover:text-primary"
+                    isItemActive ? "text-primary bg-primary/5 font-semibold" : "text-muted-foreground hover:text-primary"
                   }`}
                 >
                   <item.icon className="w-4 h-4" />
@@ -1540,7 +1546,9 @@ const DepartmentPage = () => {
                 </div>
                 {currentSidebarItems.map(item => {
                   if (item.subItems) {
-                    const isParentActive = activeSection === item.id;
+                    const isParentActive = item.id === "more"
+                      ? (activeSection === "more" && activeMoreTab !== "phd" && activeMoreTab !== "doctoral")
+                      : (item.id === "phd" ? (activeSection === "phd" || activeMoreTab === "phd" || activeMoreTab === "doctoral") : activeSection === item.id);
                     const isUg = item.id === "under-graduate";
                     const isPg = item.id === "post-graduate";
                     const isDropdownOpen = isUg ? ugDropdownOpen : isPg ? pgDropdownOpen : moreDropdownOpen;
@@ -1802,12 +1810,14 @@ const DepartmentPage = () => {
                     );
                   }
 
+                  const isItemActive = (item.id === "phd" && (activeSection === "phd" || activeMoreTab === "phd" || activeMoreTab === "doctoral")) ||
+                    (item.id === "more" ? (activeSection === "more" && activeMoreTab !== "phd" && activeMoreTab !== "doctoral") : activeSection === item.id);
                   return (
                     <button
                       key={item.id}
                       onClick={() => handleSectionChange(item.id)}
                       className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-sm transition-all duration-200 border-l-3 ${
-                        activeSection === item.id
+                        isItemActive
                           ? "text-primary bg-primary/5 font-semibold border-l-primary border-l-[3px]"
                           : "text-muted-foreground hover:text-primary hover:bg-primary/5 border-l-transparent border-l-[3px]"
                       }`}
@@ -4269,10 +4279,15 @@ const DepartmentPage = () => {
                   </h2>
                 </div>
 
-                {/* Modern Tab Switcher for More subtabs */}
-                {moreData.subTabs && moreData.subTabs.length > 1 && (
+                {/* Modern Tab Switcher for More subtabs - Hidden on Ph.D./Doctoral tab to prevent duplicate buttons */}
+                {moreData.subTabs &&
+                  moreData.subTabs.filter(tab => tab.id !== "doctoral" && tab.id !== "phd").length > 1 &&
+                  activeMoreTab !== "doctoral" &&
+                  activeMoreTab !== "phd" && (
                   <div className="flex flex-wrap items-center gap-2 mb-6">
-                    {moreData.subTabs.map((tab) => {
+                    {moreData.subTabs
+                      .filter(tab => tab.id !== "doctoral" && tab.id !== "phd")
+                      .map((tab) => {
                       const isActive = activeMoreTab === tab.id;
                       return (
                         <button

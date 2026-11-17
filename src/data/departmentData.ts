@@ -6335,7 +6335,6 @@ export const aiMoreData: DepartmentMoreData = {
 
 export const cseMoreData: DepartmentMoreData = {
   subTabs: [
-    { id: "doctoral", label: "Doctoral" },
     {
       id: "stock-register",
       label: "Stock Register",
@@ -7287,10 +7286,6 @@ export const eeeMoreData: DepartmentMoreData = {
 export const meMoreData: DepartmentMoreData = {
   "subTabs": [
     {
-      "id": "phd",
-      "label": "PhD"
-    },
-    {
       "id": "newsletters",
       "label": "Newsletters"
     },
@@ -8061,7 +8056,6 @@ export const mcaMoreData: DepartmentMoreData = {
 
 export const eceMoreData: DepartmentMoreData = {
   subTabs: [
-    { id: "doctoral", label: "Doctoral" },
     { id: "lab", label: "Lab" },
     { id: "course-attainment", label: "Course Attainment Matrix ECE" },
     { id: "mentor-mentee", label: "Mentor & Mentee" },
