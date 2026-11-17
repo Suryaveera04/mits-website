@@ -19,8 +19,8 @@ const Footer = () => {
   return (
     <footer id="footer" className="bg-[#0f2a44] text-white">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
+          <div className="lg:col-span-3">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-14 rounded-md bg-white p-1.5 flex items-center justify-center shadow-md">
                 <img src={`${import.meta.env.BASE_URL}mits-official-logo.png`} alt="MITS Official Logo" className="h-full w-auto object-contain" />
@@ -68,7 +68,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div>
+          <div className="lg:col-span-2">
             <h3 className="font-display font-bold text-[#caa74d] text-base mb-4">Quick &amp; Admissions</h3>
             <ul className="space-y-2 text-sm">
               {[
@@ -93,9 +93,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-display font-bold text-[#caa74d] text-base mb-4">Academics &amp; Compliance</h3>
-            <ul className="space-y-2 text-sm">
+          <div className="lg:col-span-4">
+            <h3 className="font-display font-bold text-[#caa74d] text-base mb-4 text-center">Academics &amp; Compliance</h3>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
               {[
                 { label: "Departments", href: "/departments" },
                 { label: "Library", href: "/library" },
@@ -110,6 +110,8 @@ const Footer = () => {
                 { label: "Circulars", href: "/examinations" },
                 { label: "Cells & Committees", href: "/cells" },
                 { label: "MITS Radio", href: "/mits-radio" },
+                { label: "Venture Studio", href: "/Venture-Studio" },
+                { label: "Skill Development Centre", href: "/skill-development-centre" },
                 { label: "Moodle Login", href: "https://moodle.mits.ac.in/" },
               ].map((link) => (
                 <li key={link.label}>
@@ -123,7 +125,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="lg:col-span-3">
             <h3 className="font-display font-bold text-[#caa74d] text-base mb-4">Connect</h3>
             <div className="flex flex-wrap gap-2">
               {socialLinks.map((item) => {

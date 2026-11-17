@@ -71,6 +71,7 @@ const CiscoSelfPacedCourses = lazy(() => import("./pages/CiscoSelfPacedCourses")
 const CurriculumSyllabus = lazy(() => import("./pages/CurriculumSyllabus"));
 const SportsAthletics = lazy(() => import("./pages/SportsAthletics"));
 const VentureStudio = lazy(() => import("./pages/VentureStudio"));
+const SkillDevelopmentCentre = lazy(() => import("./pages/SkillDevelopmentCentre"));
 const StudentClubs = lazy(() => import("./pages/StudentClubs"));
 const FacultyInformation = lazy(() => import("./pages/FacultyInformation"));
 const PhdAdmissions = lazy(() => import("./pages/PhdAdmissions"));
@@ -308,6 +309,8 @@ const App = () => (
             <Route path="/positions-offered" element={<Careers initialTab="faculty" />} />
             <Route path="/Venture-Studio" element={<VentureStudio />} />
             <Route path="/venture-studio" element={<VentureStudio />} />
+            <Route path="/skill-development-centre" element={<SkillDevelopmentCentre />} />
+            <Route path="/skill-development-center" element={<SkillDevelopmentCentre />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

@@ -187,6 +187,24 @@ const coreWebsiteItems: SearchItem[] = [
     tags: ["radio", "mits radio", "90.8 fm", "crs", "community radio", "broadcast", "rj", "shows"],
     metaBadge: "Radio CRS",
   },
+  {
+    id: "page-venture-studio",
+    title: "Venture Studio",
+    category: "Innovation & Entrepreneurship",
+    description: "Where Innovation Leads, the Future Follows. Venture Studio setup, Exponential Thinking, Idea-to-Startup Labs, and Faculty Ambassador Program.",
+    href: "/Venture-Studio",
+    tags: ["venture studio", "next new venture", "startup", "entrepreneurship", "faculty ambassador", "innovation", "incubator"],
+    metaBadge: "Venture Studio",
+  },
+  {
+    id: "page-skill-development-centre",
+    title: "Skill Development Centre (MITS-APSSDC)",
+    category: "Academics & Training",
+    description: "MITS-APSSDC Skill Development Centre: Siemens t-SDI laboratories, CM Centre of Excellence, Dassault Systemes 3D Experience Centre, and skill workshops.",
+    href: "/skill-development-centre",
+    tags: ["skill development centre", "sdc", "apssdc", "siemens", "dassault", "technical skills", "workshops", "training"],
+    metaBadge: "APSSDC",
+  },
 
   // Admissions & Fees
   {
