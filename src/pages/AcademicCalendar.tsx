@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { GraduationCap, FileText, Download, Eye, X, Search, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -44,7 +44,7 @@ const ugCalendars: CalendarItem[] = [
   },
 ];
 
-// PG Academic Calendars - Exact order and S.No matching official mits.ac.in screenshot
+// PG Academic Calendars - Exact order and S.No matching official mits.ac.in list
 const pgCalendars: CalendarItem[] = [
   {
     sno: 9,
@@ -93,12 +93,35 @@ const pgCalendars: CalendarItem[] = [
   },
 ];
 
+// Ph.D. Academic Calendars - Exact data matching official mits.ac.in/academic-calenders list
+const phdCalendars: CalendarItem[] = [
+  {
+    sno: 1,
+    title: "Ph.D Academic Calendar July Session - 2026-27",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/MITS%20DTBU_Ph.D_July%202026%20Session_I%20&%20II%20Semester_Academic%20Calender.pdf",
+  },
+];
+
 const AcademicCalendar = () => {
-  const [activeTab, setActiveTab] = useState<"UG" | "PG">("UG");
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+
+  const getInitialTab = (): "UG" | "PG" | "PHD" => {
+    const tabParam = (searchParams.get("tab") || "").toUpperCase();
+    if (tabParam === "PHD" || tabParam === "DOCTORAL" || tabParam === "ATTEMPT") return "PHD";
+    if (tabParam === "PG" || tabParam === "GUIDELINES") return "PG";
+    const hash = location.hash.replace("#", "").toLowerCase();
+    if (hash === "phd" || hash === "doctoral" || hash === "attempt") return "PHD";
+    if (hash === "pg" || hash === "guidelines") return "PG";
+    return "UG";
+  };
+
+  const [activeTab, setActiveTab] = useState<"UG" | "PG" | "PHD">(getInitialTab);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedPdf, setSelectedPdf] = useState<{ title: string; pdfUrl: string } | null>(null);
 
-  const currentList = activeTab === "UG" ? ugCalendars : pgCalendars;
+  const currentList =
+    activeTab === "UG" ? ugCalendars : activeTab === "PG" ? pgCalendars : phdCalendars;
   const filteredList = currentList.filter((item) =>
     item.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -108,8 +131,8 @@ const AcademicCalendar = () => {
       <Header />
       <SEO
         title="Academic Calendars – MITS Madanapalle"
-        description="Official UG & PG Academic Calendars for B.Tech, M.Tech, MCA, MBA, BCA, and BBA programs at Madanapalle Institute of Technology & Science."
-        canonical="/academic-calendar"
+        description="Official UG, PG & Ph.D. Academic Calendars for B.Tech, M.Tech, MCA, MBA, BCA, BBA, and Doctoral programs at Madanapalle Institute of Technology & Science."
+        canonical="/university/academic-calendar"
       />
 
       <main className="pt-0">
@@ -134,11 +157,11 @@ const AcademicCalendar = () => {
               Academic <span className="text-[#ffd15c]">Calendars</span>
             </h1>
             <p className="text-white/90 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-normal">
-              Semester schedules, examination dates, instruction periods, and academic timelines for UG &amp; PG programs.
+              Semester schedules, examination dates, instruction periods, and academic timelines for UG, PG, &amp; Ph.D. programs.
             </p>
           </div>
 
-          {/* Bottom Left Breadcrumb Navigation (Exact match to Library screenshot) */}
+          {/* Bottom Left Breadcrumb Navigation */}
           <div className="absolute bottom-4 left-6 sm:left-8 z-10">
             <nav aria-label="Breadcrumb">
               <ol className="flex items-center gap-1.5 text-xs sm:text-sm text-white/80">
@@ -163,17 +186,19 @@ const AcademicCalendar = () => {
         {/* CONTENT SECTION */}
         <section className="py-12 md:py-16 px-4">
           <div className="container mx-auto max-w-4xl">
-            {/* Title Header with Graduation Icon matching reference design */}
+            {/* Title Header with Graduation Icon */}
             <div className="text-center mb-8">
               <div className="inline-flex items-center justify-center gap-3 text-2xl sm:text-3xl font-display font-bold text-[#8b0000]">
                 <GraduationCap className="w-8 h-8 text-[#8b0000]" />
                 <h2>Academic Calendars</h2>
               </div>
-              <p className="text-slate-500 text-sm mt-1">Select degree level to view official academic calendars</p>
+              <p className="text-slate-500 text-sm mt-1">
+                Select degree level (UG, PG, or Ph.D.) to view official academic schedules
+              </p>
             </div>
 
-            {/* UG / PG Sub-Tabs Switcher */}
-            <div className="flex justify-center items-center gap-3 mb-8">
+            {/* UG / PG / Ph.D. Sub-Tabs Switcher */}
+            <div className="flex flex-wrap justify-center items-center gap-3 mb-8">
               <button
                 onClick={() => setActiveTab("UG")}
                 className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm cursor-pointer ${
@@ -194,6 +219,16 @@ const AcademicCalendar = () => {
               >
                 PG Academic Calendars
               </button>
+              <button
+                onClick={() => setActiveTab("PHD")}
+                className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm cursor-pointer ${
+                  activeTab === "PHD"
+                    ? "bg-[#8b0000] text-white shadow-md scale-105"
+                    : "bg-[#f5e6e6] text-[#8b0000] hover:bg-[#ebd0d0]"
+                }`}
+              >
+                Ph.D. Academic Calendar
+              </button>
             </div>
 
             {/* Filter / Search Bar */}
@@ -201,7 +236,7 @@ const AcademicCalendar = () => {
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
                 type="text"
-                placeholder={`Search ${activeTab} academic calendars...`}
+                placeholder={`Search ${activeTab === "PHD" ? "Ph.D." : activeTab} academic calendars...`}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#8b0000]/20 focus:border-[#8b0000] transition-all shadow-xs"
@@ -222,7 +257,7 @@ const AcademicCalendar = () => {
                 {filteredList.length > 0 ? (
                   filteredList.map((item) => (
                     <div
-                      key={item.sno}
+                      key={`${activeTab}-${item.sno}-${item.title}`}
                       className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-slate-50/80 transition-colors group"
                     >
                       <div className="flex items-start gap-3 sm:gap-4">
@@ -233,7 +268,9 @@ const AcademicCalendar = () => {
                           <h3 className="font-medium text-sm sm:text-base text-slate-800 group-hover:text-[#8b0000] transition-colors leading-snug">
                             {item.title}
                           </h3>
-                          <p className="text-xs text-slate-400 mt-0.5">Official Academic Schedule • Approved</p>
+                          <p className="text-xs text-slate-400 mt-0.5">
+                            Official Academic Schedule • Approved
+                          </p>
                         </div>
                       </div>
 

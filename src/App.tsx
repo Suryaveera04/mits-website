@@ -168,6 +168,8 @@ const App = () => (
             <Route path="/international-relations/mou/:slug" element={<InternationalRelationsPartner />} />
             <Route path="/international-relations/stanford-initiative" element={<StanfordInitiative />} />
             <Route path="/academic-calendar" element={<AcademicCalendar />} />
+            <Route path="/university/academic-calendar" element={<AcademicCalendar />} />
+            <Route path="/academic-calenders" element={<AcademicCalendar />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/news-events" element={<NewsEvents />} />
             <Route path="/news-events/:slug" element={<NewsEventDetail />} />
