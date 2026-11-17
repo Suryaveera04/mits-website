@@ -408,7 +408,7 @@ const FacultyInformation = () => {
               <GraduationCap className="w-3.5 h-3.5" />
               <span>Academic Directory</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4" style={{ fontFamily: "var(--font-display)" }}>
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-white" style={{ fontFamily: "var(--font-display)" }}>
               University Faculty Information
             </h1>
             <p className="text-slate-200 text-base md:text-lg leading-relaxed max-w-2xl">
