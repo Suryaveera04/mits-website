@@ -3,7 +3,7 @@ import { Calendar, ChevronRight, PartyPopper, Building2, Loader2 } from "lucide-
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
-import { getNewsEventImageSrc } from "@/data/newsEvents";
+import { getNewsEventImageSrc, hasValidEventImage } from "@/data/newsEvents";
 import InstagramFeed from "@/components/InstagramFeed";
 import { useLiveEvents } from "@/hooks/useLiveEvents";
 
@@ -47,6 +47,10 @@ const HomeEventCard = ({ item, index }: { item: any; index: number }) => {
   const imageSrc = getNewsEventImageSrc(item.image);
   const showImage = Boolean(imageSrc && !imageFailed);
 
+  if (!showImage) {
+    return null;
+  }
+
   return (
     <ScrollReveal delay={index * 0.08}>
       <Link
@@ -69,21 +73,13 @@ const HomeEventCard = ({ item, index }: { item: any; index: number }) => {
             </div>
           )}
 
-          {showImage ? (
-            <img
-              src={imageSrc}
-              alt={item.title}
-              loading="lazy"
-              className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
-              onError={() => setImageFailed(true)}
-            />
-          ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-300">
-              <Calendar className="w-10 h-10 mb-2 text-secondary opacity-80" />
-              <span className="text-xs uppercase tracking-wider font-semibold text-slate-400">Department of</span>
-              <span className="font-bold text-sm text-white mt-0.5">{item.department || "MITS"}</span>
-            </div>
-          )}
+          <img
+            src={imageSrc}
+            alt={item.title}
+            loading="lazy"
+            className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+            onError={() => setImageFailed(true)}
+          />
         </div>
 
         <div
@@ -147,8 +143,10 @@ const HomeEventCard = ({ item, index }: { item: any; index: number }) => {
 
 const NewsEventsSection = () => {
   const { latestDeptEvents, events, loading } = useLiveEvents();
-  // Strictly one most recently conducted event per department, top 6 departments by conducted date
-  const displayEvents = latestDeptEvents.slice(0, 6);
+  // Strictly one most recently conducted event per department with valid CMS image, top 6
+  const displayEvents = latestDeptEvents
+    .filter((ev) => hasValidEventImage(ev.image))
+    .slice(0, 6);
   const isFetching = loading && displayEvents.length === 0;
 
   return (

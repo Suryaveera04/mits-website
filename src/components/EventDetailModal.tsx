@@ -5,6 +5,7 @@ import {
   X, Calendar, MapPin, Clock, Link2, Mail, Phone,
   Users, BookOpen, Building2, Star, ExternalLink,
   ChevronLeft, ChevronRight, ImageOff, Loader2, AlertCircle,
+  FileText, Download,
 } from "lucide-react";
 import { fetchEventDetail, type CMSEvent } from "@/hooks/useDeptCMSData";
 
@@ -499,7 +500,7 @@ function ModalContent({
               ) : null}
 
               {/* CTAs */}
-              {(event.registrationLink || event.feedbackLink) ? (
+              {(event.registrationLink || event.feedbackLink || (event as any).file) ? (
                 <div className="flex flex-wrap gap-3 pb-2">
                   {event.registrationLink ? (
                     <a
@@ -512,12 +513,24 @@ function ModalContent({
                       Register Now
                     </a>
                   ) : null}
+                  {(event as any).file ? (
+                    <a
+                      href={(event as any).file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-4 py-3 bg-[#b30000] text-white font-semibold text-sm rounded-xl hover:bg-[#8f0000] active:scale-95 transition-all shadow-sm"
+                    >
+                      <Download className="w-4 h-4" />
+                      View Event Report
+                      <ExternalLink className="w-3.5 h-3.5 ml-0.5 opacity-80" />
+                    </a>
+                  ) : null}
                   {event.feedbackLink ? (
                     <a
                       href={event.feedbackLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-primary/30 text-primary font-semibold text-sm rounded-xl hover:bg-primary/5 active:scale-95 transition-all"
+                      className="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-4 py-3 border-2 border-primary/30 text-primary font-semibold text-sm rounded-xl hover:bg-primary/5 active:scale-95 transition-all"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Feedback Form

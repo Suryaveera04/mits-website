@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { SHEETS_CONFIG } from "@/config/sheetsConfig";
 import { fetchSheetTab, parseEventItems, type LiveEventItem } from "@/services/googleSheetsService";
 import { fetchAllCMSEvents, type CMSEvent, parseEventConductedTime, getEventConductedTimestamp } from "@/hooks/useDeptCMSData";
-import { newsEvents, type NewsEventItem } from "@/data/newsEvents";
+import { newsEvents, type NewsEventItem, hasValidEventImage } from "@/data/newsEvents";
 
 export interface CanonicalDeptInfo {
   key: string;
@@ -116,16 +116,20 @@ export function useLiveEvents() {
       const cleanSlug = `cms-${ev.id}-${ev.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 50)}`;
       const deptInfo = getCanonicalDept(ev.department);
       const conductedTimestamp = getEventConductedTimestamp(ev);
+      const rawPoster = ev.poster && typeof ev.poster === "string" ? ev.poster.trim() : "";
+      const validImage = hasValidEventImage(rawPoster) ? rawPoster : "";
+      const isPdfPoster = rawPoster.toLowerCase().endsWith(".pdf") || rawPoster.toLowerCase().includes(".pdf?");
+      const eventPdf = ev.file || (isPdfPoster ? rawPoster : undefined);
       return {
         slug: cleanSlug,
         date: ev.from_date || ev.date || "Upcoming",
         title: ev.title,
         category: "Event" as const,
-        image: ev.poster || ev.file || "",
+        image: validImage,
         location: ev.venue || (deptInfo.name ? `Dept. of ${deptInfo.name}` : "MITS Campus"),
         excerpt: (ev.description || ev.title).replace(/<[^>]+>/g, "").slice(0, 160) + "...",
         details: ev.description || ev.title,
-        pdfUrl: ev.file,
+        pdfUrl: eventPdf,
         pinned: false,
         department: deptInfo.name,
         departmentBadge: deptInfo.badge,
@@ -212,6 +216,9 @@ export function useLiveEvents() {
     const deptGroups = new Map<string, NewsEventItem[]>();
 
     for (const ev of convertedCMS) {
+      // User requirement: ONLY include events which contain an image in CMS!
+      if (!hasValidEventImage(ev.image)) continue;
+
       const k = ev.deptKey || "other";
       if (!deptGroups.has(k)) {
         deptGroups.set(k, []);

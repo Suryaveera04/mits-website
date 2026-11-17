@@ -25,14 +25,29 @@ export type LatestNewsItem = {
   image: string;
 };
 
-export const getNewsEventImageSrc = (imagePath?: string | null): string => {
-  if (!imagePath || typeof imagePath !== "string") {
-    return "";
-  }
+export const hasValidEventImage = (imagePath?: string | null): boolean => {
+  if (!imagePath || typeof imagePath !== "string") return false;
   const trimmed = imagePath.trim();
-  if (!trimmed || trimmed === "null" || trimmed === "undefined") {
+  if (
+    !trimmed ||
+    trimmed === "null" ||
+    trimmed === "undefined" ||
+    trimmed === "0" ||
+    trimmed === "false" ||
+    trimmed === "#"
+  ) {
+    return false;
+  }
+  const lower = trimmed.toLowerCase();
+  if (lower.endsWith(".pdf") || lower.includes(".pdf?")) return false;
+  return true;
+};
+
+export const getNewsEventImageSrc = (imagePath?: string | null): string => {
+  if (!hasValidEventImage(imagePath)) {
     return "";
   }
+  const trimmed = (imagePath || "").trim();
 
   const isLocal =
     typeof window !== "undefined" &&
