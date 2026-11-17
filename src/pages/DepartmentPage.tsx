@@ -327,9 +327,15 @@ const DepartmentPage = () => {
         return;
       }
       if (hash === "tab47" || hash === "newsletters") {
-        setActiveSection("more");
-        setActiveMoreTab("newsletters");
-        setMoreDropdownOpen(true);
+        const hasTopTab = topTabs && topTabs.some(t => t.id === "newsletter" || t.id === "newsletters");
+        if (hasTopTab) {
+          setActiveSection("about");
+          setActiveTopTab(topTabs.find(t => t.id === "newsletter" || t.id === "newsletters")!.id);
+        } else {
+          setActiveSection("more");
+          setActiveMoreTab("newsletters");
+          setMoreDropdownOpen(true);
+        }
         return;
       }
       const isMechDept = deptKey === "me" || deptKey === "mech" || deptKey === "mechanical" || deptKey === "mechanical-engineering" || deptKey === "8";
@@ -606,9 +612,15 @@ const DepartmentPage = () => {
         return;
       }
       if (hash === "newsletters" || hash === "tab59") {
-        setActiveSection("more");
-        setActiveMoreTab("newsletters");
-        setMoreDropdownOpen(true);
+        const hasTopTab = topTabs && topTabs.some(t => t.id === "newsletter" || t.id === "newsletters");
+        if (hasTopTab) {
+          setActiveSection("about");
+          setActiveTopTab(topTabs.find(t => t.id === "newsletter" || t.id === "newsletters")!.id);
+        } else {
+          setActiveSection("more");
+          setActiveMoreTab("newsletters");
+          setMoreDropdownOpen(true);
+        }
         return;
       }
       if (hash === "mentor-mentee" || hash === "mentors" || hash === "tab73") {
@@ -1008,9 +1020,15 @@ const DepartmentPage = () => {
       setActiveMoreTab("phd");
       setMoreDropdownOpen(false);
     } else if (lastPart === "newsletters" || lastPart === "newsletter" || lastPart === "tab59") {
-      setActiveSection("more");
-      setActiveMoreTab("newsletters");
-      setMoreDropdownOpen(true);
+      const hasTopTab = topTabs && topTabs.some(t => t.id === "newsletter" || t.id === "newsletters");
+      if (hasTopTab) {
+        setActiveSection("about");
+        setActiveTopTab(topTabs.find(t => t.id === "newsletter" || t.id === "newsletters")!.id);
+      } else {
+        setActiveSection("more");
+        setActiveMoreTab("newsletters");
+        setMoreDropdownOpen(true);
+      }
     } else if (lastPart === "under-graduate") {
       setActiveSection("under-graduate");
       setUgDropdownOpen(true);
@@ -4279,14 +4297,16 @@ const DepartmentPage = () => {
                   </h2>
                 </div>
 
-                {/* Modern Tab Switcher for More subtabs - Hidden on Ph.D./Doctoral tab to prevent duplicate buttons */}
+                {/* Modern Tab Switcher for More subtabs - Hidden on Ph.D./Doctoral and Newsletter tabs to prevent duplicate buttons */}
                 {moreData.subTabs &&
-                  moreData.subTabs.filter(tab => tab.id !== "doctoral" && tab.id !== "phd").length > 1 &&
+                  moreData.subTabs.filter(tab => tab.id !== "doctoral" && tab.id !== "phd" && tab.id !== "newsletters" && tab.id !== "newsletter").length > 1 &&
                   activeMoreTab !== "doctoral" &&
-                  activeMoreTab !== "phd" && (
+                  activeMoreTab !== "phd" &&
+                  activeMoreTab !== "newsletters" &&
+                  activeMoreTab !== "newsletter" && (
                   <div className="flex flex-wrap items-center gap-2 mb-6">
                     {moreData.subTabs
-                      .filter(tab => tab.id !== "doctoral" && tab.id !== "phd")
+                      .filter(tab => tab.id !== "doctoral" && tab.id !== "phd" && tab.id !== "newsletters" && tab.id !== "newsletter")
                       .map((tab) => {
                       const isActive = activeMoreTab === tab.id;
                       return (
@@ -4968,38 +4988,52 @@ const DepartmentPage = () => {
                   </div>
                 ) : activeMoreTab === "newsletters" || activeMoreTab === "newsletter" ? (
                   <div className="space-y-6">
-                    {(moreData.newsletterGroup || moreData.studentProjects || moreData.feedback) ? (
-                      <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
-                        <div className="space-y-6">
-                          <h3 className="text-xl font-bold text-secondary tracking-tight">
-                            Department Newsletters
-                          </h3>
-                          <div className="space-y-3 pl-1">
-                            {((moreData.newsletterGroup?.documents) || (moreData.studentProjects?.documents) || (moreData.feedback?.documents) || []).map((doc, dIdx) => (
-                              <a
-                                key={dIdx}
-                                href={doc.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
-                              >
-                                <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
-                                  <ChevronRight className="w-3 h-3 stroke-[3]" />
-                                </div>
-                                <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
-                                  {doc.title}
-                                </span>
-                              </a>
-                            ))}
+                    {(() => {
+                      const topTabNewsletter = topTabs?.find(t => t.id === "newsletter" || t.id === "newsletters");
+                      const docs =
+                        (moreData.newsletterGroup?.documents) ||
+                        (topTabNewsletter?.documents) ||
+                        (moreData.studentProjects?.documents) ||
+                        (moreData.feedback?.documents) ||
+                        [];
+                      const title =
+                        moreData.newsletterGroup?.groupTitle ||
+                        topTabNewsletter?.title ||
+                        "Department Newsletters";
+
+                      return docs.length > 0 ? (
+                        <Card className="border border-border/80 shadow-xs bg-card p-6 sm:p-8">
+                          <div className="space-y-6">
+                            <h3 className="text-xl font-bold text-secondary tracking-tight">
+                              {title}
+                            </h3>
+                            <div className="space-y-3 pl-1">
+                              {docs.map((doc, dIdx) => (
+                                <a
+                                  key={dIdx}
+                                  href={doc.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="group flex items-center gap-3 py-1 text-secondary hover:text-primary transition-colors text-sm sm:text-base"
+                                >
+                                  <div className="w-4.5 h-4.5 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+                                    <ChevronRight className="w-3 h-3 stroke-[3]" />
+                                  </div>
+                                  <span className="font-medium text-muted-foreground group-hover:text-primary group-hover:underline transition-colors">
+                                    {doc.title}
+                                  </span>
+                                </a>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      </Card>
-                    ) : (
-                      <Card className="p-10 text-center text-muted-foreground bg-card">
-                        <FileText className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
-                        <p className="font-semibold text-base text-secondary">Department Newsletters will be uploaded soon.</p>
-                      </Card>
-                    )}
+                        </Card>
+                      ) : (
+                        <Card className="p-10 text-center text-muted-foreground bg-card">
+                          <FileText className="w-12 h-12 mx-auto mb-3 text-muted-foreground/40" />
+                          <p className="font-semibold text-base text-secondary">Department Newsletters will be uploaded soon.</p>
+                        </Card>
+                      );
+                    })()}
                   </div>
                 ) : activeMoreTab === "feedback" ? (
                   <div className="space-y-6">
