@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Instagram, Play, ExternalLink, ArrowLeft, ArrowRight, Pause, PlayCircle, Pin } from "lucide-react";
 import { useTrendingFeed } from "@/hooks/useTrendingFeed";
 import { SHEETS_CONFIG } from "@/config/sheetsConfig";
@@ -11,35 +11,136 @@ const InstagramFeed = () => {
   const [isPaused, setIsPaused] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scrollByCardRow = (direction: -1 | 1) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const amount = Math.max(240, Math.floor(el.clientWidth * 0.8));
-    el.scrollBy({ left: amount * direction, behavior: "smooth" });
-  };
+  // Drag-to-scroll refs
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+  const dragDistanceRef = useRef(0);
+  const pauseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
 
-  const resetScrollIfNeeded = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 8) {
-      el.scrollTo({ left: 0, behavior: "smooth" });
+  // Helper to pause auto-scroll temporarily (e.g. after manual interaction)
+  const pauseTemporarily = useCallback((durationMs = 4000) => {
+    setIsUserInteracting(true);
+    if (pauseTimerRef.current) {
+      clearTimeout(pauseTimerRef.current);
     }
-  };
+    pauseTimerRef.current = setTimeout(() => {
+      setIsUserInteracting(false);
+    }, durationMs);
+  }, []);
 
+  // Compute card width + gap dynamically from DOM
+  const getStepWidth = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return 284;
+    const firstCard = el.querySelector<HTMLElement>(".instagram-card");
+    if (firstCard) {
+      return firstCard.offsetWidth + 16; // card width + gap-4 (16px)
+    }
+    return el.clientWidth < 640 ? 266 : 284;
+  }, []);
+
+  // Side arrow buttons click handler with wrap-around support
+  const scrollByCard = useCallback((direction: -1 | 1) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    pauseTemporarily(4500);
+
+    const step = getStepWidth();
+    const maxScroll = el.scrollWidth - el.clientWidth;
+
+    if (direction === 1) {
+      // If at or near the end, loop smoothly back to beginning
+      if (el.scrollLeft >= maxScroll - 20) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: step, behavior: "smooth" });
+      }
+    } else {
+      // If at or near the beginning, loop smoothly to end
+      if (el.scrollLeft <= 20) {
+        el.scrollTo({ left: maxScroll, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: -step, behavior: "smooth" });
+      }
+    }
+  }, [getStepWidth, pauseTemporarily]);
+
+  // Robust step-based auto-scroll
   useEffect(() => {
     const el = scrollRef.current;
     if (!el || visibleItems.length === 0) return;
-    if (window.matchMedia("(pointer: coarse)").matches) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (isPaused || isUserInteracting) return;
 
-    const autoScrollHandle = window.setInterval(() => {
-      if (isPaused || document.visibilityState !== "visible") return;
-      el.scrollLeft += 1;
-      resetScrollIfNeeded();
-    }, 24);
+    const interval = setInterval(() => {
+      if (document.visibilityState !== "visible") return;
+      const step = getStepWidth();
+      const maxScroll = el.scrollWidth - el.clientWidth;
 
-    return () => window.clearInterval(autoScrollHandle);
-  }, [isPaused, visibleItems.length]);
+      if (el.scrollLeft >= maxScroll - 20) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: step, behavior: "smooth" });
+      }
+    }, 3600);
+
+    return () => clearInterval(interval);
+  }, [isPaused, isUserInteracting, visibleItems.length, getStepWidth]);
+
+  // Cleanup pause timer on unmount
+  useEffect(() => {
+    return () => {
+      if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+    };
+  }, []);
+
+  // Mouse Drag to Scroll handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.pageX - el.offsetLeft;
+    scrollLeftRef.current = el.scrollLeft;
+    dragDistanceRef.current = 0;
+    setIsUserInteracting(true);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingRef.current) return;
+    const el = scrollRef.current;
+    if (!el) return;
+    e.preventDefault();
+    const x = e.pageX - el.offsetLeft;
+    const walk = (x - startXRef.current) * 1.4;
+    dragDistanceRef.current = Math.abs(walk);
+    el.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleMouseUpOrLeave = () => {
+    if (isDraggingRef.current) {
+      isDraggingRef.current = false;
+      pauseTemporarily(3500);
+    }
+  };
+
+  const handleCardClick = (e: React.MouseEvent) => {
+    // If user dragged more than 6px, prevent opening the link
+    if (dragDistanceRef.current > 6) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
+  // Horizontal mousewheel scrolling
+  const handleWheel = (e: React.WheelEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX) && Math.abs(e.deltaY) > 4) {
+      pauseTemporarily(2500);
+      el.scrollLeft += e.deltaY * 0.9;
+    }
+  };
 
   return (
     <div className="flex flex-col h-full min-h-0">
@@ -67,44 +168,52 @@ const InstagramFeed = () => {
             <button
               type="button"
               onClick={() => setIsPaused((value) => !value)}
-              className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1 border border-border text-[#0f172a] transition-colors hover:border-[#b30000] hover:text-[#b30000]"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1 border border-border text-[#0f172a] transition-colors hover:border-[#b30000] hover:text-[#b30000] cursor-pointer"
             >
-              {isPaused ? <Pause className="w-3.5 h-3.5" /> : <PlayCircle className="w-3.5 h-3.5" />}
+              {isPaused ? <PlayCircle className="w-3.5 h-3.5" /> : <Pause className="w-3.5 h-3.5" />}
               {isPaused ? "Resume auto-scroll" : "Pause auto-scroll"}
             </button>
           )}
         </div>
       </div>
 
-      <div className="hidden sm:flex items-center justify-between mb-3">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#b30000]">Latest campus highlights</p>
+      <div className="flex items-center justify-between mb-3">
+        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#b30000]">
+          Latest campus highlights
+        </p>
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={() => scrollByCardRow(-1)}
-            className="w-9 h-9 rounded-full border border-border bg-white text-[#0f172a] shadow-sm hover:bg-[#b30000] hover:text-white hover:border-[#b30000] transition-all"
+            onClick={() => scrollByCard(-1)}
+            className="w-9 h-9 rounded-full border border-border bg-white text-[#0f172a] shadow-sm hover:bg-[#b30000] hover:text-white hover:border-[#b30000] active:scale-95 transition-all flex items-center justify-center cursor-pointer"
             aria-label="Scroll campus highlights left"
           >
             <ArrowLeft className="w-4 h-4 mx-auto" />
           </button>
           <button
             type="button"
-            onClick={() => scrollByCardRow(1)}
-            className="w-9 h-9 rounded-full border border-border bg-white text-[#0f172a] shadow-sm hover:bg-[#b30000] hover:text-white hover:border-[#b30000] transition-all"
+            onClick={() => scrollByCard(1)}
+            className="w-9 h-9 rounded-full border border-border bg-white text-[#0f172a] shadow-sm hover:bg-[#b30000] hover:text-white hover:border-[#b30000] active:scale-95 transition-all flex items-center justify-center cursor-pointer"
             aria-label="Scroll campus highlights right"
           >
             <ArrowRight className="w-4 h-4 mx-auto" />
           </button>
         </div>
       </div>
+
       <div
         ref={scrollRef}
-        className="flex-1 overflow-x-auto overflow-y-hidden pb-3 snap-x snap-mandatory scroll-smooth touch-pan-x rounded-[1.35rem] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex-1 overflow-x-auto overflow-y-hidden pb-3 snap-x snap-mandatory scroll-smooth touch-pan-x rounded-[1.35rem] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing select-none"
         style={{ WebkitOverflowScrolling: "touch", overscrollBehaviorX: "contain" }}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onFocusCapture={() => setIsPaused(true)}
-        onBlurCapture={() => setIsPaused(false)}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUpOrLeave}
+        onMouseLeave={handleMouseUpOrLeave}
+        onWheel={handleWheel}
+        onMouseEnter={() => setIsUserInteracting(true)}
+        onTouchStart={() => pauseTemporarily(5000)}
+        onTouchMove={() => pauseTemporarily(5000)}
+        onTouchEnd={() => pauseTemporarily(3000)}
       >
         <div className="flex gap-4 min-w-max pr-2 h-full">
           {visibleItems.map((p) => (
@@ -113,7 +222,9 @@ const InstagramFeed = () => {
               href={p.url}
               target="_blank"
               rel="noreferrer"
-              className={`group snap-start w-[250px] sm:w-[268px] flex-shrink-0 rounded-[1.35rem] border ${
+              onClick={handleCardClick}
+              draggable={false}
+              className={`instagram-card group snap-start w-[250px] sm:w-[268px] flex-shrink-0 rounded-[1.35rem] border ${
                 p.pinned ? "border-[#b30000]/60 ring-2 ring-[#b30000]/20" : "border-border"
               } bg-white overflow-hidden shadow-[0_10px_30px_rgba(15,23,42,0.08)] hover:shadow-[0_18px_40px_rgba(15,23,42,0.16)] hover:-translate-y-1 transition-all duration-300 flex flex-col`}
             >
@@ -138,7 +249,8 @@ const InstagramFeed = () => {
                   src={p.image}
                   alt={p.caption || "Campus highlight"}
                   loading="lazy"
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  draggable={false}
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105 select-none pointer-events-none"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-transparent pointer-events-none" />
                 
