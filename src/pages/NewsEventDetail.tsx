@@ -300,7 +300,7 @@ const NewsEventDetail = () => {
                       />
                     ) : (
                       <div className="text-muted-foreground text-sm sm:text-base leading-relaxed text-left">
-                        {fullDescription.replace(/&amp;/gi, "&")}
+                        {fullDescription.replace(/&amp;/gi, "&").replace(/&nbsp;/gi, " ")}
                       </div>
                     )}
                   </div>
