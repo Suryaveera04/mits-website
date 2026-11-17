@@ -295,12 +295,12 @@ const NewsEventDetail = () => {
                     </h3>
                     {/<[a-z][\s\S]*>/i.test(fullDescription) ? (
                       <div
-                        className="text-muted-foreground text-sm sm:text-base leading-relaxed prose prose-slate max-w-none space-y-4"
+                        className="text-muted-foreground text-sm sm:text-base leading-relaxed text-left prose prose-slate max-w-none space-y-4"
                         dangerouslySetInnerHTML={{ __html: fullDescription }}
                       />
                     ) : (
-                      <div className="text-muted-foreground text-sm sm:text-base leading-relaxed whitespace-pre-line space-y-4">
-                        {fullDescription}
+                      <div className="text-muted-foreground text-sm sm:text-base leading-relaxed text-left">
+                        {fullDescription.replace(/&amp;/gi, "&")}
                       </div>
                     )}
                   </div>
