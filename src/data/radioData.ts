@@ -220,7 +220,7 @@ export const radioEvents: RadioEvent[] = [
   {
     title: "2026 - 27-09-2026 - MITS RADIO 90.8 CR - Celebrating World Tourism Day: Exploring Horsley Hills Documentary Report (SDG 8, SDG 11 & SDG 12)",
     date: "27-09-2026",
-    url: "https://mits.ac.in/assets/pdf/radio/2026%20-%2027-09-2026%20-%20MITS%20RADIO%2090.8%20CR%20-%20Celebrating%20World%20Tourism%20Day:%20Exploring%20Horsley%20Hills%20Documentary%20Report.pdf",
+    url: "https://mits.ac.in/assets/pdf/radio/2026%20-%2027-09-2026%20-%20MITS%20RADIO%2090.8%20CR%20-%20Celebrating%20World%20Tourism%20Day_Horsely%20Hills%20Documentary%20Report.pdf",
   },
   {
     title: "2026 - 24-09-2026 - MITS RADIO 90.8 CR - Celebrating NSS Foundation Day: Youth Leadership, Community Service and Sustainable Nation Building (SDG 3; SDG 4; SDG 10; SDG 11)",
