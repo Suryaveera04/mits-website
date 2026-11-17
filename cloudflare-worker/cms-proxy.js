@@ -24,8 +24,14 @@ function isDeptMatch(itemDept, targetDept) {
   const a = itemDept.toLowerCase().trim();
   const b = targetDept.toLowerCase().trim();
   if (a === b) return true;
-  if (b === "cse" && (a === "cse" || a.includes("computer science & eng") || a.includes("computer science and eng"))) return true;
-  if (b === "cst" && (a === "cst" || a.includes("computer science and tech") || a.includes("computer science & tech"))) return true;
+  if (b === "cse") {
+    if (a === "cst" || a.includes("technology") || a.includes("tech")) return false;
+    if (a === "cse" || a.includes("computer science & eng") || a.includes("computer science and eng")) return true;
+  }
+  if (b === "cst") {
+    if (a === "cse" || a.includes("engineering") || a.includes("eng")) return false;
+    if (a === "cst" || a.includes("computer science and tech") || a.includes("computer science & tech")) return true;
+  }
   if ((b === "ce" || b === "civil") && (a === "ce" || a === "civil" || a.includes("civil"))) return true;
   if ((b === "me" || b === "mech" || b === "mechanical") && (a === "me" || a === "mech" || a.includes("mech") || a.includes("mechanical"))) return true;
   if (b === "eee" && (a === "eee" || a.includes("electrical"))) return true;

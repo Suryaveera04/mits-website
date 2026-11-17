@@ -109,11 +109,13 @@ describe("CMS_CODE mapping", () => {
     expect(CMS_CODE["mna"]).toBe("MBA");
   });
 
-  it("CMS_ALT_CODES includes secondary aliases", () => {
+  it("CMS_ALT_CODES includes secondary aliases and does NOT connect CST to CSE", () => {
     expect(CMS_ALT_CODES["me"]).toContain("MECH");
     expect(CMS_ALT_CODES["ce"]).toContain("CIVIL");
     expect(CMS_ALT_CODES["bsh"]).toContain("Basic Sciences & Humanities");
     expect(CMS_ALT_CODES["mca"]).toContain("Computer Applications");
+    expect(CMS_ALT_CODES["cst"]).not.toContain("CSE");
+    expect(CMS_ALT_CODES["cst"]).toContain("CST");
   });
 });
 
@@ -145,6 +147,22 @@ describe("isEventForDepartment", () => {
 
   it("correctly identifies BSH event with 'Basic Sciences & Humanities'", () => {
     expect(isEventForDepartment({ id: 46, title: "Cambridge Event", department: "Basic Sciences & Humanities" }, "bsh")).toBe(true);
+  });
+
+  it("strictly separates CST and CSE events and never cross-contaminates", () => {
+    // CSE events must NOT match CST
+    expect(isEventForDepartment({ id: 101, title: "Hackathon", department: "CSE" }, "cst")).toBe(false);
+    expect(isEventForDepartment({ id: 102, title: "Coding Contest", department: "Computer Science & Engineering" }, "cst")).toBe(false);
+    expect(isEventForDepartment({ id: 103, title: "Coding Contest", department: "Computer Science and Engineering" }, "cst")).toBe(false);
+
+    // CST events must match CST
+    expect(isEventForDepartment({ id: 201, title: "Tech Expo", department: "CST" }, "cst")).toBe(true);
+    expect(isEventForDepartment({ id: 202, title: "Tech Expo", department: "Computer Science & Technology" }, "cst")).toBe(true);
+    expect(isEventForDepartment({ id: 203, title: "Tech Expo", department: "Computer Science and Technology" }, "cst")).toBe(true);
+
+    // CST events must NOT match CSE
+    expect(isEventForDepartment({ id: 201, title: "Tech Expo", department: "CST" }, "cse")).toBe(false);
+    expect(isEventForDepartment({ id: 202, title: "Tech Expo", department: "Computer Science & Technology" }, "cse")).toBe(false);
   });
 });
 

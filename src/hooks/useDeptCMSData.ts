@@ -56,7 +56,7 @@ export const CMS_ALT_CODES: Record<string, string[]> = {
   "management-studies": ["MBA", "MNA", "Management", "Management Studies"],
   cseds: ["CSEDS", "DS", "AIDS"],
   csecs: ["CSECS", "CS"],
-  cst:   ["CST", "CSE"],
+  cst:   ["CST", "Computer Science & Technology", "Computer Science and Technology"],
 };
 
 export interface CMSEvent {
@@ -598,8 +598,14 @@ export function isDepartmentMatch(itemDept: string | undefined | null, deptKey: 
   const d = itemDept.toLowerCase().trim();
 
   if (k === d) return true;
-  if (k === "cse") return d === "cse" || d.includes("computer science & eng") || d.includes("computer science and eng");
-  if (k === "cst") return d === "cst" || d.includes("computer science and tech") || d.includes("computer science & tech");
+  if (k === "cse") {
+    if (d === "cst" || d.includes("technology") || d.includes("tech")) return false;
+    return d === "cse" || d.includes("computer science & eng") || d.includes("computer science and eng");
+  }
+  if (k === "cst") {
+    if (d === "cse" || d.includes("engineering") || d.includes("eng")) return false;
+    return d === "cst" || d.includes("computer science and tech") || d.includes("computer science & tech");
+  }
   if (k === "ce" || k === "civil" || k === "civil-engineering") return d === "ce" || d === "civil" || d.includes("civil");
   if (k === "me" || k === "mech" || k === "mechanical" || k === "mechanical-engineering") return d === "me" || d === "mech" || d.includes("mech") || d.includes("mechanical");
   if (k === "eee" || k === "electrical-electronics-engineering" || k === "electrical-and-electronics-engineering") return d === "eee" || d.includes("electrical");
