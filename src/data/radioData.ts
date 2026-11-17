@@ -218,6 +218,36 @@ export const radioDownloads: RadioDoc[] = [
 
 export const radioEvents: RadioEvent[] = [
   {
+    title: "2026 - 27-09-2026 - MITS RADIO 90.8 CR - Celebrating World Tourism Day: Exploring Horsley Hills Documentary Report (SDG 8, SDG 11 & SDG 12)",
+    date: "27-09-2026",
+    url: "https://mits.ac.in/assets/pdf/radio/2026%20-%2027-09-2026%20-%20MITS%20RADIO%2090.8%20CR%20-%20Celebrating%20World%20Tourism%20Day:%20Exploring%20Horsley%20Hills%20Documentary%20Report.pdf",
+  },
+  {
+    title: "2026 - 24-09-2026 - MITS RADIO 90.8 CR - Celebrating NSS Foundation Day: Youth Leadership, Community Service and Sustainable Nation Building (SDG 3; SDG 4; SDG 10; SDG 11)",
+    date: "24-09-2026",
+    url: "https://mits.ac.in/assets/pdf/radio/Celebrating%20NSS%20Foundation%20Day%20Youth%20Leadership,%20Community%20Service.pdf",
+  },
+  {
+    title: "2026 - 21-09-2026 - MITS RADIO 90.8 CR - Global Entrepreneurship, Innovation and Sustainable Solutions: Inspiring Students through Japanese–Indian Business Experiences (SDG 4; SDG 8)",
+    date: "21-09-2026",
+    url: "https://mits.ac.in/assets/pdf/radio/Global%20Entrepreneurship,%20Innovation%20and%20Sustainable%20Solutions.pdf",
+  },
+  {
+    title: "2026 - 16-09-2026 - MITS RADIO 90.8 CR - Empowering Students through Advanced AI Training, Industry-Oriented Learning and Career Readiness (SDG 4; SDG 8)",
+    date: "16-09-2026",
+    url: "https://mits.ac.in/assets/pdf/radio/Empowering%20Students%20through%20Advanced%20AI%20Training.pdf",
+  },
+  {
+    title: "2026 - 10-09-2026 - MITS RADIO 90.8 CRS - Poshan Abhiyaan 2026: Promoting Nutrition, Maternal Care and Healthy Child Development through Anganwadi Services (SDG 2; SDG 3; SDG 4)",
+    date: "10-09-2026",
+    url: "https://mits.ac.in/assets/pdf/radio/Promoting%20Nutrition,%20Maternal%20Care%20and%20Healthy%20Child%20Development%20through%2010-9-2026.pdf",
+  },
+  {
+    title: "2026 - 09-09-2026 – MITS RADIO 90.8 CR – Poshan Abhiyan 2026 Promoting Nutrition, Maternal Care and Child Well-being through Anganwadi Services (SDG 2; SDG 3; SDG 4; SDG 5)",
+    date: "09-09-2026",
+    url: "https://mits.ac.in/assets/pdf/radio/09-09-2026%20%E2%80%93%20MITS%20RADIO%2090.pdf",
+  },
+  {
     title: "MITS RADIO 90.8 CR Teachers Day celebrations",
     date: "05-09-2026",
     url: "https://mits.ac.in/assets/pdf/radio/2026%20-%2005-09-2026%20-%20MITS%20RADIO%2090.8%20CR%20Teachers%20Day%20celebrations.pdf",

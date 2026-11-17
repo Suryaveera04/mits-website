@@ -160,6 +160,8 @@ const MitsRadio = () => {
   }, [filteredEvents, eventPage]);
 
   const totalEventPages = Math.ceil(filteredEvents.length / eventsPerPage);
+  const displayEventTitle = (title: string) =>
+    title.replace(/^\d{4}\s*-\s*\d{2}[-/.]\d{2}[-/.]\d{4}\s*-\s*/i, "").trim();
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f7f5f0]">
@@ -900,7 +902,7 @@ const MitsRadio = () => {
                             >
                               <div className="min-w-0 pr-4">
                                 <h4 className="font-semibold text-secondary group-hover:text-[#0f2a44] text-sm md:text-sm leading-snug line-clamp-2">
-                                  {evt.title}
+                                  {displayEventTitle(evt.title)}
                                 </h4>
                                 <span className="text-[10px] md:text-sm text-secondary/50 flex items-center gap-1.5 mt-1.5">
                                   <Calendar className="w-3.5 h-3.5 shrink-0" />
