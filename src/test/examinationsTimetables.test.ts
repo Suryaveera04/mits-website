@@ -8,6 +8,7 @@ import {
   pgModelLabTimetables,
   pgPracticalSecTimetables,
   pgTheoryEndTimetables,
+  pgNotifications,
 } from "@/data/examData";
 
 describe("Examinations Portal - Time Tables Segregation", () => {
@@ -15,7 +16,7 @@ describe("Examinations Portal - Time Tables Segregation", () => {
     expect(ugMidTermTimetables.length).toBe(21);
     expect(ugModelLabTimetables.length).toBe(13);
     expect(ugPracticalSecTimetables.length).toBe(4);
-    expect(ugTheoryEndTimetables.length).toBe(7);
+    expect(ugTheoryEndTimetables.length).toBe(6);
 
     // UG Model Lab items must all be model lab exams
     for (const item of ugModelLabTimetables) {
@@ -89,5 +90,35 @@ describe("Examinations Portal - Time Tables Segregation", () => {
       expect(item.kind).toBe("pdf");
       expect(item.title.trim().length).toBeGreaterThan(0);
     }
+  });
+
+  it("Time Table tabs and notifications are numbered sequentially from 1 at the bottom to N at the top", () => {
+    const listGroup = [
+      ugMidTermTimetables,
+      ugModelLabTimetables,
+      ugPracticalSecTimetables,
+      ugTheoryEndTimetables,
+      pgNotifications,
+      pgMidTermTimetables,
+      pgPracticalSecTimetables,
+      pgTheoryEndTimetables,
+    ];
+
+    for (const list of listGroup) {
+      const len = list.length;
+      for (let i = 0; i < len; i++) {
+        expect(list[i].no).toBe(len - i);
+      }
+    }
+
+    // Verify 1098 is removed from ugTheoryEndTimetables
+    expect(ugTheoryEndTimetables.some((x) => x.no === 1098 || x.title.includes("Last Chance"))).toBe(false);
+
+    // Verify PG Notification 14 is removed
+    expect(
+      pgNotifications.some((x) =>
+        x.title.includes("MBA I-I,I-II,II-I (R22), MBA I-I, I-II, II-I (R24), MCA II-I (R22)")
+      )
+    ).toBe(false);
   });
 });
