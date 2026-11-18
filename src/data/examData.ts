@@ -1135,6 +1135,16 @@ export const apaarAbc: ExamLink[] = [
   { title: "APAAR ID — Official Portal", href: "https://apaar.education.gov.in/", kind: "link" },
 ];
 
+// -------------------- EXAMINATION COMMITTEE --------------------
+export const examinationCommittee: ExamLink[] = [
+  {
+    no: 1,
+    title: "Office Order - Constitution of Examination Committee",
+    href: "https://mits.ac.in/public/uploads/ugc/Office Order No - 60 - Constitution of Examination Committee.pdf",
+    kind: "pdf",
+  },
+];
+
 // -------------------- CoE OFFICE --------------------
 export const coeOffice = {
   name: "Dr. Sai Kumar.V",

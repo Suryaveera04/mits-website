@@ -4,7 +4,7 @@ import {
   FileText, Download, Calendar, ClipboardList, BookOpen, FolderDown,
   Megaphone, GraduationCap, IdCard, Phone, Mail, MapPin,
   ChevronRight, Building2, ShieldCheck, ExternalLink, FileSpreadsheet,
-  FileArchive, Sparkles, Clock,
+  FileArchive, Sparkles, Clock, Users,
   type LucideIcon,
 } from "lucide-react";
 import Header from "@/components/Header";
@@ -20,7 +20,7 @@ import {
   ugFacultyFormats, ugStudentFormats, ugDownloads, ugCirculars,
   pgNotifications, pgCirculars, pgMidTermTimetables, pgModelLabTimetables, pgPracticalSecTimetables, pgTheoryEndTimetables, pgEndSemTimetables,
   pgFacultyFormats, pgStudentFormats, pgDownloads,
-  ugResults, pgResults, apaarAbc,
+  ugResults, pgResults, apaarAbc, examinationCommittee,
   coeOffice, coeResponsibilities, type ExamLink,
 } from "@/data/examData";
 
@@ -28,7 +28,7 @@ type SectionKey =
   | "overview" | "ug-notif" | "ug-circulars" | "ug-timetables" | "ug-mid" | "ug-end"
   | "ug-fac" | "ug-stu" | "ug-down"
   | "pg-notif" | "pg-circulars" | "pg-timetables" | "pg-mid" | "pg-end" | "pg-fac" | "pg-stu" | "pg-down"
-  | "results" | "apaar" | "contact";
+  | "results" | "apaar" | "committee" | "contact";
 
 type TimetableCategory = "mid-term" | "model-lab" | "practical-sec-end" | "theory-end";
 
@@ -55,6 +55,7 @@ const NAV: { id: SectionKey; label: string; icon: LucideIcon; group: string }[] 
   { id: "pg-down",       label: "Downloads",                icon: FolderDown,    group: "Office of CoE" },
   { id: "results",       label: "Results",                  icon: GraduationCap, group: "Results & Records" },
   { id: "apaar",         label: "APAAR / ABC",              icon: IdCard,        group: "Results & Records" },
+  { id: "committee",     label: "Committee",                icon: Users,         group: "Results & Records" },
   { id: "contact",       label: "Contact Us",               icon: Phone,         group: "Office of CoE" },
 ];
 
@@ -171,6 +172,8 @@ const Examinations = () => {
         else if (k === "pg-practical-sec") setPgTimetableTab("practical-sec-end");
         else if (k === "pg-theory-end" || k === "pg-end") setPgTimetableTab("theory-end");
         else setPgTimetableTab("mid-term");
+      } else if (k === "committee" || k === "tab-9") {
+        setActive("committee");
       } else if (NAV.some((n) => n.id === (k as SectionKey))) {
         setActive(k as SectionKey);
         if (k.startsWith("ug-")) setUgOpen(true);
@@ -789,6 +792,21 @@ const Examinations = () => {
                   </>)}
                   {active === "results" && (<>
                     <SectionHead icon={GraduationCap} title="Results" subtitle="Official examination results and student portal for UG and PG programs." />
+                    <div className="flex items-center gap-2 mb-6 p-1.5 bg-muted/60 rounded-xl border border-border/50 max-w-md">
+                      <button
+                        onClick={() => setActive("results")}
+                        className="flex-1 py-2 px-3 text-xs sm:text-sm font-semibold rounded-lg bg-primary text-primary-foreground shadow-sm transition-all text-center"
+                      >
+                        Results Portal
+                      </button>
+                      <button
+                        onClick={() => { setActive("committee"); window.scrollTo({ top: 200, behavior: "smooth" }); }}
+                        className="flex-1 py-2 px-3 text-xs sm:text-sm font-medium rounded-lg text-muted-foreground hover:text-foreground hover:bg-background transition-all text-center flex items-center justify-center gap-1.5"
+                      >
+                        <Users className="w-4 h-4" />
+                        <span>Committee</span>
+                      </button>
+                    </div>
                     <div className="space-y-8">
                       <div>
                         <h3 className="font-display text-xl font-semibold mb-3 text-foreground">UG Results</h3>
@@ -809,6 +827,46 @@ const Examinations = () => {
                       </p>
                     </div>
                     <NotificationList items={apaarAbc} query={query} />
+                  </>)}
+
+                  {active === "committee" && (<>
+                    <SectionHead
+                      icon={Users}
+                      title="Examination Committee"
+                      subtitle="Official orders, constitution, and governance of the University Examination Committee."
+                    />
+                    <div className="flex items-center gap-2 mb-6 p-1.5 bg-muted/60 rounded-xl border border-border/50 max-w-md">
+                      <button
+                        onClick={() => { setActive("results"); window.scrollTo({ top: 200, behavior: "smooth" }); }}
+                        className="flex-1 py-2 px-3 text-xs sm:text-sm font-medium rounded-lg text-muted-foreground hover:text-foreground hover:bg-background transition-all text-center flex items-center justify-center gap-1.5"
+                      >
+                        <GraduationCap className="w-4 h-4" />
+                        <span>Results Portal</span>
+                      </button>
+                      <button
+                        onClick={() => setActive("committee")}
+                        className="flex-1 py-2 px-3 text-xs sm:text-sm font-semibold rounded-lg bg-primary text-primary-foreground shadow-sm transition-all text-center"
+                      >
+                        Committee
+                      </button>
+                    </div>
+
+                    <div className="rounded-xl border border-border bg-gradient-to-br from-primary/5 to-accent/5 p-6 mb-6">
+                      <div className="flex items-start gap-4">
+                        <span className="shrink-0 w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                          <Users className="w-5 h-5" />
+                        </span>
+                        <div>
+                          <h3 className="font-display font-semibold text-foreground text-base md:text-lg mb-1">
+                            Constitution of Examination Committee
+                          </h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            The Examination Committee oversees all academic evaluation policies, statutory compliance, examination conduct, and institutional integrity for undergraduate and postgraduate programs at MITS Deemed to be University.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <NotificationList items={examinationCommittee} query={query} />
                   </>)}
                   {active === "contact" && <Contact />}
                 </motion.div>
