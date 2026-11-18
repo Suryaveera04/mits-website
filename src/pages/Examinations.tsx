@@ -28,6 +28,7 @@ type SectionKey =
   | "overview" | "ug-notif" | "ug-circulars" | "ug-timetables" | "ug-mid" | "ug-end"
   | "ug-fac" | "ug-stu" | "ug-down"
   | "pg-notif" | "pg-circulars" | "pg-timetables" | "pg-mid" | "pg-end" | "pg-fac" | "pg-stu" | "pg-down"
+  | "phd-notif" | "phd-circulars" | "phd-timetables" | "phd-fac" | "phd-stu" | "phd-down"
   | "results" | "apaar" | "committee" | "contact";
 
 type TimetableCategory = "mid-term" | "model-lab" | "practical-sec-end" | "theory-end";
@@ -53,6 +54,12 @@ const NAV: { id: SectionKey; label: string; icon: LucideIcon; group: string }[] 
   { id: "pg-fac",        label: "Formats — Faculty",        icon: FileSpreadsheet, group: "Office of CoE" },
   { id: "pg-stu",        label: "Formats — Students",       icon: FileSpreadsheet, group: "Office of CoE" },
   { id: "pg-down",       label: "Downloads",                icon: FolderDown,    group: "Office of CoE" },
+  { id: "phd-notif",      label: "Notifications",            icon: Megaphone,     group: "Office of CoE" },
+  { id: "phd-circulars",  label: "Circulars",                icon: FileText,      group: "Office of CoE" },
+  { id: "phd-timetables", label: "Time Tables",              icon: Calendar,      group: "Office of CoE" },
+  { id: "phd-fac",        label: "Formats — Faculty",        icon: FileSpreadsheet, group: "Office of CoE" },
+  { id: "phd-stu",        label: "Formats — Students",       icon: FileSpreadsheet, group: "Office of CoE" },
+  { id: "phd-down",       label: "Downloads",                icon: FolderDown,    group: "Office of CoE" },
   { id: "results",       label: "Results",                  icon: GraduationCap, group: "Results & Records" },
   { id: "apaar",         label: "APAAR / ABC",              icon: IdCard,        group: "Results & Records" },
   { id: "committee",     label: "Committee",                icon: Users,         group: "Results & Records" },
@@ -147,6 +154,9 @@ const Examinations = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [ugOpen, setUgOpen] = useState(false);
   const [pgOpen, setPgOpen] = useState(false);
+  const [phdOpen, setPhdOpen] = useState(false);
+  const [phdTimetableTab, setPhdTimetableTab] = useState<TimetableCategory>("mid-term");
+  const [phdTimetableMenuOpen, setPhdTimetableMenuOpen] = useState(false);
   const [ugTimetableTab, setUgTimetableTab] = useState<TimetableCategory>("mid-term");
   const [pgTimetableTab, setPgTimetableTab] = useState<TimetableCategory>("mid-term");
   const [ugTimetableMenuOpen, setUgTimetableMenuOpen] = useState(false);
@@ -172,6 +182,17 @@ const Examinations = () => {
         else if (k === "pg-practical-sec") setPgTimetableTab("practical-sec-end");
         else if (k === "pg-theory-end" || k === "pg-end") setPgTimetableTab("theory-end");
         else setPgTimetableTab("mid-term");
+      } else if (k === "phd-timetables" || k === "phd-mid" || k === "phd-end" || k === "phd-model-lab" || k === "phd-practical-sec" || k === "phd-theory-end") {
+        setActive("phd-timetables");
+        setPhdOpen(true);
+        setPhdTimetableMenuOpen(true);
+        if (k === "phd-model-lab") setPhdTimetableTab("model-lab");
+        else if (k === "phd-practical-sec") setPhdTimetableTab("practical-sec-end");
+        else if (k === "phd-theory-end" || k === "phd-end") setPhdTimetableTab("theory-end");
+        else setPhdTimetableTab("mid-term");
+      } else if (k.startsWith("phd-")) {
+        setActive(k as SectionKey);
+        setPhdOpen(true);
       } else if (k === "committee" || k === "tab-9") {
         setActive("committee");
       } else if (NAV.some((n) => n.id === (k as SectionKey))) {
@@ -208,6 +229,7 @@ const Examinations = () => {
   const contactItem = officeItems.find((item) => item.id === "contact");
   const ugItems = officeItems.filter((item) => item.id.startsWith("ug-"));
   const pgItems = officeItems.filter((item) => item.id.startsWith("pg-"));
+  const phdItems = officeItems.filter((item) => item.id.startsWith("phd-"));
 
   const pgDownloadsGroups = useMemo(() => {
     const mba = pgDownloads.filter((item) => {
@@ -463,6 +485,95 @@ const Examinations = () => {
                                                 onClick={() => {
                                                   setActive("pg-timetables");
                                                   setPgTimetableTab(sub.id);
+                                                  setMobileNavOpen(false);
+                                                  window.scrollTo({ top: 200, behavior: "smooth" });
+                                                }}
+                                                className={cn(
+                                                  "w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all text-left",
+                                                  isSubActive
+                                                    ? "bg-primary/10 text-primary font-semibold"
+                                                    : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                                                )}
+                                              >
+                                                <span className={cn("w-1.5 h-1.5 rounded-full shrink-0", isSubActive ? "bg-primary" : "bg-muted-foreground/40")} />
+                                                <span className="truncate">{sub.label}</span>
+                                              </button>
+                                            </li>
+                                          );
+                                        })}
+                                      </ul>
+                                    )}
+                                  </li>
+                                );
+                              }
+
+                              return (
+                                <li key={n.id}>
+                                  <button
+                                    onClick={() => { setActive(n.id); setMobileNavOpen(false); window.scrollTo({ top: 200, behavior: "smooth" }); }}
+                                    className={cn(
+                                      "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all group",
+                                      active === n.id
+                                        ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md"
+                                        : "text-foreground hover:bg-muted",
+                                    )}
+                                  >
+                                    <n.icon className={cn("w-4 h-4 shrink-0", active === n.id ? "" : "text-muted-foreground group-hover:text-primary")} />
+                                    <span className="flex-1 text-left truncate">{n.label}</span>
+                                    {active === n.id && <ChevronRight className="w-4 h-4" />}
+                                  </button>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </CollapsibleContent>
+                      </Collapsible>
+                    </li>
+                    <li>
+                      <Collapsible open={phdOpen} onOpenChange={setPhdOpen}>
+                        <CollapsibleTrigger className="w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm transition-all text-foreground hover:bg-muted">
+                          <span className="font-medium text-left">Ph.D Programmes</span>
+                          <ChevronRight className={cn("w-4 h-4 transition-transform text-muted-foreground", phdOpen && "rotate-90")} />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="pt-1">
+                          <ul className="space-y-1 pl-2">
+                            {phdItems.map((n) => {
+                              if (n.id === "phd-timetables") {
+                                const isTtActive = active === "phd-timetables";
+                                const isExpanded = phdTimetableMenuOpen || isTtActive;
+                                return (
+                                  <li key={n.id} className="space-y-1">
+                                    <button
+                                      onClick={() => {
+                                        setActive("phd-timetables");
+                                        setPhdTimetableMenuOpen((prev) => (isTtActive ? !prev : true));
+                                        setMobileNavOpen(false);
+                                        window.scrollTo({ top: 200, behavior: "smooth" });
+                                      }}
+                                      className={cn(
+                                        "w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm transition-all group",
+                                        isTtActive
+                                          ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md"
+                                          : "text-foreground hover:bg-muted"
+                                      )}
+                                    >
+                                      <div className="flex items-center gap-3 truncate">
+                                        <n.icon className={cn("w-4 h-4 shrink-0", isTtActive ? "" : "text-muted-foreground group-hover:text-primary")} />
+                                        <span className="flex-1 text-left truncate">{n.label}</span>
+                                      </div>
+                                      <ChevronRight className={cn("w-4 h-4 transition-transform text-muted-foreground shrink-0", isExpanded && "rotate-90", isTtActive && "text-primary-foreground")} />
+                                    </button>
+
+                                    {isExpanded && (
+                                      <ul className="pl-3.5 space-y-1 border-l-2 border-primary/25 ml-3 pt-1 pb-0.5">
+                                        {TIMETABLE_OPTIONS.map((sub) => {
+                                          const isSubActive = isTtActive && phdTimetableTab === sub.id;
+                                          return (
+                                            <li key={sub.id}>
+                                              <button
+                                                onClick={() => {
+                                                  setActive("phd-timetables");
+                                                  setPhdTimetableTab(sub.id);
                                                   setMobileNavOpen(false);
                                                   window.scrollTo({ top: 200, behavior: "smooth" });
                                                 }}
@@ -790,6 +901,102 @@ const Examinations = () => {
                       </Collapsible>
                     </div>
                   </>)}
+                                    {active === "phd-notif" && (<>
+                    <SectionHead icon={Megaphone} title="Notifications" subtitle="Official examination notices and updates for Ph.D. research scholars." />
+                    <ComingSoonCard
+                      title="Notifications — Coming Soon"
+                      subtitle="Official Ph.D. examination notifications and announcements will be available here soon."
+                    />
+                  </>)}
+                  {active === "phd-circulars" && (<>
+                    <SectionHead icon={FileText} title="Circulars" subtitle="Latest examination circulars and notices for doctoral programs." />
+                    <ComingSoonCard
+                      title="Circulars — Coming Soon"
+                      subtitle="Ph.D. examination circulars and guidelines are currently being prepared."
+                    />
+                  </>)}
+                  {active === "phd-timetables" && (<>
+                    <SectionHead
+                      icon={Calendar}
+                      title="Time Tables"
+                      subtitle="Ph.D. examination time tables for Coursework, Comprehensive Viva, and Research evaluations."
+                    />
+
+                    <div className="mb-6 p-4 rounded-xl border border-border bg-card shadow-sm space-y-3">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <label htmlFor="phd-tt-select" className="text-sm font-semibold text-foreground flex items-center gap-2">
+                          <Calendar className="w-4 h-4 text-primary" />
+                          <span>Select Time Table Category:</span>
+                        </label>
+                        <div className="relative w-full sm:w-80">
+                          <select
+                            id="phd-tt-select"
+                            value={phdTimetableTab}
+                            onChange={(e) => setPhdTimetableTab(e.target.value as TimetableCategory)}
+                            aria-label="Select Ph.D. Time Table Category"
+                            className="w-full bg-background border border-input rounded-lg px-3.5 py-2 text-sm font-medium text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary appearance-none cursor-pointer pr-10"
+                          >
+                            {TIMETABLE_OPTIONS.map((opt) => (
+                              <option key={opt.id} value={opt.id}>
+                                {opt.label}
+                              </option>
+                            ))}
+                          </select>
+                          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-muted-foreground">
+                            <ChevronRight className="w-4 h-4 rotate-90" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-border/60">
+                        {TIMETABLE_OPTIONS.map((opt) => {
+                          const isSelected = phdTimetableTab === opt.id;
+                          const Icon = opt.icon;
+                          return (
+                            <button
+                              key={opt.id}
+                              onClick={() => setPhdTimetableTab(opt.id)}
+                              className={cn(
+                                "inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all",
+                                isSelected
+                                  ? "bg-primary text-primary-foreground shadow-sm"
+                                  : "bg-muted/70 text-foreground hover:bg-muted hover:text-primary"
+                              )}
+                            >
+                              <Icon className="w-3.5 h-3.5" />
+                              <span>{opt.label}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <ComingSoonCard
+                      title={`${TIMETABLE_OPTIONS.find((o) => o.id === phdTimetableTab)?.label} — Coming Soon`}
+                      subtitle={`Schedules for Ph.D. ${TIMETABLE_OPTIONS.find((o) => o.id === phdTimetableTab)?.label} will be published here soon.`}
+                    />
+                  </>)}
+                  {active === "phd-fac" && (<>
+                    <SectionHead icon={FileSpreadsheet} title="Formats — Faculty" subtitle="Evaluation sheets, defense templates, and supervisor formats for doctoral research." />
+                    <ComingSoonCard
+                      title="Faculty Formats — Coming Soon"
+                      subtitle="Official evaluation and defense formats for doctoral supervisors and faculty will be uploaded soon."
+                    />
+                  </>)}
+                  {active === "phd-stu" && (<>
+                    <SectionHead icon={FileSpreadsheet} title="Formats — Students" subtitle="Coursework registration and thesis submission formats for Ph.D. research scholars." />
+                    <ComingSoonCard
+                      title="Student Formats — Coming Soon"
+                      subtitle="Doctoral student formats and submission templates will be available here soon."
+                    />
+                  </>)}
+                  {active === "phd-down" && (<>
+                    <SectionHead icon={FolderDown} title="Downloads" subtitle="Doctoral guidelines, academic regulations, syllabus copies, and resources." />
+                    <ComingSoonCard
+                      title="Downloads — Coming Soon"
+                      subtitle="Ph.D. regulations, syllabus copies, and question papers will be downloadable here soon."
+                    />
+                  </>)}
                   {active === "results" && (<>
                     <SectionHead icon={GraduationCap} title="Results" subtitle="Official examination results and student portal for UG, PG, and Ph.D. programs." />
                     <NotificationList items={examResults} query={query} />
@@ -840,6 +1047,21 @@ const Examinations = () => {
     </div>
   );
 };
+
+
+const ComingSoonCard = ({ title, subtitle }: { title?: string; subtitle?: string }) => (
+  <div className="rounded-2xl border border-dashed border-border bg-card/60 p-10 md:p-14 text-center shadow-sm">
+    <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary mx-auto mb-4 flex items-center justify-center">
+      <Clock className="w-8 h-8" />
+    </div>
+    <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
+      {title || "Coming Soon"}
+    </h3>
+    <p className="text-sm md:text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
+      {subtitle || "This section is currently being updated for Ph.D Programmes. Please check back soon or contact the Office of Controller of Examinations for immediate assistance."}
+    </p>
+  </div>
+);
 
 /* ---------------- Sub-views ---------------- */
 const EmptyState = ({ message }: { message: string }) => (
