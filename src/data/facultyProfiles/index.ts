@@ -39,6 +39,7 @@ export interface FacultySection {
 export interface FacultyProfile {
   name: string;
   designation: string;
+  qualification?: string;
   image?: string;
   email?: string;
   officeAddress?: string;

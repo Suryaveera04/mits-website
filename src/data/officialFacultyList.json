@@ -1,5 +1,19 @@
 [
   {
+    "sno": "99A",
+    "name": "Dr. S. Padma",
+    "qualification": "Ph.D. (Bharathiar University)",
+    "designation": "Assoc. Professor & Head",
+    "department": "CSE - AI and ML",
+    "deptKey": "aiml",
+    "dbId": "6a8cffde4a60b7dd6ea7a267",
+    "dbFullName": "Dr. Padma S",
+    "slug": "dr-s-padma",
+    "email": "drpadmas@mits.ac.in",
+    "profilePhoto": "/uploads/profile/profilePhoto-Padma_New-1792666985204-227744666.jpeg",
+    "oldProfileUrl": "https://mits.ac.in/facultyprofile/144"
+  },
+  {
     "sno": "1",
     "name": "Dr. Dipankar Roy",
     "qualification": "Ph.D. (University of Pisa, Italy)",
@@ -1378,7 +1392,7 @@
     "dbFullName": "Chandra sekhar",
     "slug": "dr-v-chandra-sekhar",
     "email": "chandrasekharvo@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-1548968168275-1794040743744-650824539.jpg",
+    "profilePhoto": "/uploads/profile/profilePhoto-Chandra_Sekhar-1794564920291-288016395.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1130"
   },
   {
@@ -1486,11 +1500,11 @@
     "designation": "Assistant Professor",
     "department": "CSE - AI and ML",
     "deptKey": "aiml",
-    "dbId": "mits_fac_aiml_1144",
-    "dbFullName": "Mr. Sri Ramakrishna V.G",
+    "dbId": "6af7f981529beb441e315bb6",
+    "dbFullName": "Mr. Sri Ramakrishna",
     "slug": "mr-sri-ramakrishna-v-g",
-    "email": "sriramkrishnavg@mits.ac.in",
-    "profilePhoto": "https://mits.ac.in/public/uploads/faculty/Surjeet-Kaushik.jpg",
+    "email": "sriramakrishnavg@mits.ac.in",
+    "profilePhoto": "/uploads/profile/file-Sriram_Photo-1794821926882-600567835.jpeg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1151"
   },
   {
@@ -2612,5 +2626,65 @@
     "email": "drvenkateswararajuc@mits.ac.in",
     "profilePhoto": "/uploads/profile/profilePhoto-Venkateswara_Raju-1793787513998-702617099.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/602"
+  },
+  {
+    "sno": "189",
+    "name": "Mr. P. Udayakumar",
+    "qualification": "M.E., (Ph.D.) (VIT, Vellore)",
+    "designation": "Assistant Professor",
+    "department": "CSE - AI and ML",
+    "deptKey": "aiml",
+    "dbId": "6a8d00e64a60b7dd6ea7a327",
+    "dbFullName": "Udayakumar P",
+    "slug": "mr-p-udayakumar",
+    "profilePhoto": "/uploads/profile/profilePhoto-Udayakumar-1793784223517-970896076.JPG"
+  },
+  {
+    "sno": "190",
+    "name": "Mr. G. Nithin",
+    "qualification": "MS",
+    "designation": "Assistant Professor",
+    "department": "CSE - AI and ML",
+    "deptKey": "aiml",
+    "dbId": "6a8d00e94a60b7dd6ea7a329",
+    "dbFullName": "Nithin G",
+    "slug": "mr-g-nithin",
+    "profilePhoto": "/uploads/profile/profilePhoto-Nithin-1793859166980-643664530.JPG"
+  },
+  {
+    "sno": "191",
+    "name": "Mr. B. Tharakeswara Raju",
+    "qualification": "M.Tech., (Ph.D.) (IIT, Tirupati)",
+    "designation": "Assistant Professor",
+    "department": "CSE - AI and ML",
+    "deptKey": "aiml",
+    "dbId": "6a8d00ec4a60b7dd6ea7a32b",
+    "dbFullName": "Tharakeswara Raju B",
+    "slug": "mr-b-tharakeswara-raju",
+    "profilePhoto": "/uploads/profile/profilePhoto-Tharakeswara_Raju-1793856414711-496353034.png"
+  },
+  {
+    "sno": "192",
+    "name": "Mr. V. Sivaraman",
+    "qualification": "M.Tech., (Ph.D.) (VTU)",
+    "designation": "Assistant Professor",
+    "department": "CSE - AI and ML",
+    "deptKey": "aiml",
+    "dbId": "6a8d011e4a60b7dd6ea7a34f",
+    "dbFullName": "Sivaraman V",
+    "slug": "mr-v-sivaraman",
+    "profilePhoto": "/uploads/profile/profilePhoto-Sivaraman-1793790247921-252962815.JPG"
+  },
+  {
+    "sno": "193",
+    "name": "Mrs. Usha Rayala",
+    "qualification": "M.Tech., (Ph.D.) (SIMATS, Chennai)",
+    "designation": "Assistant Professor",
+    "department": "CSE - AI and ML",
+    "deptKey": "aiml",
+    "dbId": "6aec620aaf902f4a81188bf4",
+    "dbFullName": "Usha Rayala",
+    "slug": "mrs-usha-rayala",
+    "profilePhoto": "/uploads/profile/profilePhoto-1Usha-1793877099998-610097809.jpg"
   }
 ]

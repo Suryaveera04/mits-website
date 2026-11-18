@@ -4,7 +4,7 @@
  */
 
 import fallbackData from "@/data/facultyApiFallback.json";
-import { slugifyFaculty, cleanFacultyName } from "./facultySlug";
+import { slugifyFaculty, cleanFacultyName, hasPhdDegree } from "./facultySlug";
 import type { FacultyMember } from "@/data/departmentData";
 import type { FacultyProfile, FacultySection } from "@/data/facultyProfiles";
 
@@ -249,7 +249,8 @@ export function getFacultyPhotoUrl(photoPath?: string): string | undefined {
 export function apiFacultyToFacultyMember(f: APIFacultyMember, staticImageFallback?: string): FacultyMember {
   const deptKey = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
   const subDept = deptKey === "bsh" ? getBshSubDepartment(f.department?.code, f.department?.name) : undefined;
-  const qualification = f.phd?.status === "Awarded" || f.phd?.topic ? "Ph.D." : (f.pg?.degree || f.ug?.degree || "M.Tech / M.Sc");
+  const isPhd = hasPhdDegree(f.fullName, undefined, f.phd) || f.phd?.status === "Awarded" || !!f.phd?.topic;
+  const qualification = isPhd ? "Ph.D." : (f.pg?.degree || f.ug?.degree || "M.Tech / M.Sc");
   const name = cleanFacultyName(f.fullName);
 
   return {
@@ -306,12 +307,14 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
 
   // 1. Educational Qualifications Section
   const eduRows: Record<string, string>[] = [];
-  if (f.phd?.topic || f.phd?.university) {
+  const hasPhd = hasPhdDegree(f.fullName, undefined, f.phd) || f.phd?.status === "Awarded" || !!f.phd?.topic;
+  if (f.phd?.topic || f.phd?.university || hasPhd) {
+    const isDrPadma = f.fullName.toLowerCase().includes("padma");
     eduRows.push({
       "Degree / Program": "Ph.D.",
-      "Topic / Specialization": f.phd.topic || "Research Work",
-      "University / Institution": f.phd.university || "-",
-      "Year / Status": f.phd.yearOfAward ? String(f.phd.yearOfAward) : (f.phd.status || "Awarded"),
+      "Topic / Specialization": f.phd?.topic || (isDrPadma ? "Computer Science and Engineering" : "Research Work"),
+      "University / Institution": f.phd?.university || (isDrPadma ? "Bharathiar University" : "-"),
+      "Year / Status": f.phd?.yearOfAward ? String(f.phd.yearOfAward) : (f.phd?.status || "Awarded"),
     });
   }
   if (f.pg?.degree) {
@@ -445,9 +448,12 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
   }
 
   const name = cleanFacultyName(f.fullName);
+  const isPhd = hasPhdDegree(f.fullName, undefined, f.phd) || f.phd?.status === "Awarded" || !!f.phd?.topic;
+  const qualification = isPhd ? "Ph.D." : (f.pg?.degree || f.ug?.degree || "M.Tech / M.Sc");
   return {
     name,
     designation: f.designation,
+    qualification,
     email: f.email,
     // Strictly only display profile photo if available in the database; no alternative static fallbacks
     image: getFacultyPhotoUrl(f.profilePhoto) || undefined,
@@ -456,24 +462,50 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
   };
 }
 
-const CACHE_KEY = "mits_faculty_api_cache_v2";
-const CACHE_TIME_KEY = "mits_faculty_api_cache_time_v1";
+const CACHE_KEY = "mits_faculty_api_cache_v4";
+const CACHE_TIME_KEY = "mits_faculty_api_cache_time_v4";
 const CACHE_TTL_MS = 1000 * 60 * 30; // 30 minutes
 
 /**
- * Sanitizes faculty names in a list to prevent trailing 'a' artifacts
+ * Sanitizes faculty names in a list to prevent trailing 'a' artifacts and normalize known discrepancies
  */
 export function sanitizeFacultyList(list: APIFacultyMember[]): APIFacultyMember[] {
-  return list.map((f) => ({
-    ...f,
-    fullName: cleanFacultyName(f.fullName),
-    profilePhoto: f.profilePhoto
+  return list.map((f) => {
+    let fullName = cleanFacultyName(f.fullName);
+    let designation = f.designation;
+    let phd = f.phd;
+    let profilePhoto = f.profilePhoto
       ? f.profilePhoto
           .replace(/^(?:https?:)?\/\/(?:127\.0\.0\.1|localhost):5005/i, "")
           .replace(/^(?:127\.0\.0\.1|localhost):5005/i, "")
           .replace(/(?:127\.0\.0\.1|localhost):5005/gi, "")
-      : undefined,
-  }));
+      : undefined;
+
+    const lowerName = fullName.toLowerCase();
+    if (f._id === "6af7f981529beb441e315bb6" || lowerName === "mr. sri ramakrishna" || lowerName === "sri ramakrishna") {
+      fullName = "Mr. Sri Ramakrishna V.G";
+      profilePhoto = "/uploads/profile/file-Sriram_Photo-1794821926882-600567835.jpeg";
+    }
+
+    if (f._id === "6a8cffde4a60b7dd6ea7a267" || lowerName === "dr. padma s" || lowerName === "dr padma s") {
+      fullName = "Dr. S. Padma";
+      phd = { ...phd, status: "Awarded", university: phd?.university || "Bharathiar University", topic: phd?.topic || "Computer Science and Engineering" };
+    }
+
+    if (f._id === "6a8d01124a60b7dd6ea7a347" || lowerName === "chandra sekhar") {
+      fullName = "Dr. V. Chandra Sekhar";
+      designation = "Professor of Practice & Technical Training - Head";
+      profilePhoto = "/uploads/profile/profilePhoto-Chandra_Sekhar-1794564920291-288016395.png";
+    }
+
+    return {
+      ...f,
+      fullName,
+      designation,
+      phd,
+      profilePhoto,
+    };
+  });
 }
 
 /**

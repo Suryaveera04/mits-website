@@ -313,7 +313,13 @@ const FacultyProfilePage = () => {
     // 3. Resolve rich profile: live API profile -> static Profile -> static getFacultyProfile -> buildFromFacultyMember
     const rich = liveProfile || staticProfile || getFacultyProfile(deptKey || "", f?.name || "");
     const merged: FacultyProfile | undefined = rich
-      ? { ...rich, name: cleanFacultyName(rich.name), image: rich.image || f?.image, email: rich.email || f?.email }
+      ? {
+          ...rich,
+          name: cleanFacultyName(rich.name),
+          image: rich.image || f?.image,
+          email: rich.email || f?.email,
+          qualification: rich.qualification || f?.qualification,
+        }
       : f ? buildFromFacultyMember(f) : undefined;
 
     // Scoped Prev / Next navigation for BSH constituent disciplines (English, Mathematics, Physics, Chemistry)
@@ -553,8 +559,8 @@ const FacultyProfilePage = () => {
                 {profile.name}
               </h1>
               <p className="text-lg md:text-xl text-accent font-medium mb-2">{profile.designation}</p>
-              {faculty.qualification && (
-                <p className="text-sm text-white/80 mb-4">{faculty.qualification}</p>
+              {(profile.qualification || faculty?.qualification) && (
+                <p className="text-sm text-white/80 mb-4">{profile.qualification || faculty?.qualification}</p>
               )}
 
               <div className="flex flex-wrap gap-4 justify-center md:justify-start text-sm">

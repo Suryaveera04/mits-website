@@ -374,6 +374,10 @@ export function useFacultyData() {
           if (o.dbId) officialByDbId.set(o.dbId, o);
           const clean = cleanFacultyName(o.name).toLowerCase();
           if (!officialByName.has(clean)) officialByName.set(clean, o);
+          if (o.dbFullName) {
+            const cleanDb = cleanFacultyName(o.dbFullName).toLowerCase();
+            if (!officialByName.has(cleanDb)) officialByName.set(cleanDb, o);
+          }
         }
       }
 
@@ -392,13 +396,25 @@ export function useFacultyData() {
           officialByName.get(cleanFacultyName(f.fullName).toLowerCase());
 
         if (official) {
+          if (official.name) {
+            member.name = official.name;
+          }
+          if (official.designation) {
+            member.designation = official.designation;
+          }
+          if (official.qualification) {
+            member.qualification = official.qualification;
+          }
           if (official.slug) {
             member.profileUrl = `/department/${normalizedKey}/faculty/${official.slug}`;
           }
-          if (official.profilePhoto && !member.image) {
-            member.image =
+          if (official.profilePhoto) {
+            const photoUrl =
               getFacultyPhotoUrl(official.profilePhoto) ||
               (official.profilePhoto.startsWith("http") ? official.profilePhoto : undefined);
+            if (photoUrl) {
+              member.image = photoUrl;
+            }
           }
         }
 
@@ -474,26 +490,48 @@ export function useFacultyData() {
         (officialFacultyList as any[]).find(
           (o) => o.slug === slug || slugifyFaculty(o.name) === slug || o.dbId === slug
         );
+
+      let found: APIFacultyMember | undefined;
       if (officialMatch?.dbId) {
-        const found = facultyList.find((f) => f._id === officialMatch.dbId);
-        if (found) {
-          const prof = apiFacultyToFacultyProfile(found);
-          if (officialMatch.name) prof.name = officialMatch.name;
-          if (officialMatch.designation) prof.designation = officialMatch.designation;
-          return prof;
-        }
+        found = facultyList.find((f) => f._id === officialMatch.dbId);
+      }
+      if (!found && officialMatch?.dbFullName) {
+        found = facultyList.find((f) => cleanFacultyName(f.fullName).toLowerCase() === cleanFacultyName(officialMatch.dbFullName).toLowerCase());
+      }
+      if (!found && officialMatch?.name) {
+        found = facultyList.find((f) => matchFacultyNameScore(officialMatch.name, f.fullName) >= 0.6);
       }
 
       // 2. Direct database lookup
-      const match = facultyList.find((f) => {
-        const memberDept = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
-        const memberSlug = slugifyFaculty(f.fullName);
-        const matchesDept = memberDept === normalizedKey || normalizedKey === "all";
-        return memberSlug === slug && matchesDept;
-      }) || facultyList.find((f) => slugifyFaculty(f.fullName) === slug);
+      if (!found) {
+        found = facultyList.find((f) => {
+          const memberDept = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
+          const memberSlug = slugifyFaculty(f.fullName);
+          const matchesDept = memberDept === normalizedKey || normalizedKey === "all";
+          return memberSlug === slug && matchesDept;
+        }) || facultyList.find((f) => slugifyFaculty(f.fullName) === slug || f._id === slug);
+      }
 
-      if (match) {
-        return apiFacultyToFacultyProfile(match);
+      if (found) {
+        const prof = apiFacultyToFacultyProfile(found);
+        const resolvedOfficial =
+          officialMatch ||
+          (officialFacultyList as any[]).find(
+            (o) => o.dbId === found?._id || cleanFacultyName(o.name).toLowerCase() === cleanFacultyName(found?.fullName || "").toLowerCase()
+          );
+
+        if (resolvedOfficial) {
+          if (resolvedOfficial.name) prof.name = resolvedOfficial.name;
+          if (resolvedOfficial.designation) prof.designation = resolvedOfficial.designation;
+          if (resolvedOfficial.qualification) prof.qualification = resolvedOfficial.qualification;
+          if (resolvedOfficial.profilePhoto) {
+            const photoUrl =
+              getFacultyPhotoUrl(resolvedOfficial.profilePhoto) ||
+              (resolvedOfficial.profilePhoto.startsWith("http") ? resolvedOfficial.profilePhoto : undefined);
+            if (photoUrl) prof.image = photoUrl;
+          }
+        }
+        return prof;
       }
       return undefined;
     },
