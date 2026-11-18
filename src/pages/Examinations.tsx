@@ -16,39 +16,46 @@ const BASE = import.meta.env.BASE_URL;
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
 import {
-  ugNotifications, ugMidTermTimetables, ugEndSemTimetables,
+  ugNotifications, ugMidTermTimetables, ugModelLabTimetables, ugPracticalSecTimetables, ugTheoryEndTimetables, ugEndSemTimetables,
   ugFacultyFormats, ugStudentFormats, ugDownloads, ugCirculars,
-  pgNotifications, pgCirculars, pgMidTermTimetables, pgEndSemTimetables,
+  pgNotifications, pgCirculars, pgMidTermTimetables, pgModelLabTimetables, pgPracticalSecTimetables, pgTheoryEndTimetables, pgEndSemTimetables,
   pgFacultyFormats, pgStudentFormats, pgDownloads,
   ugResults, pgResults, apaarAbc,
   coeOffice, coeResponsibilities, type ExamLink,
 } from "@/data/examData";
 
 type SectionKey =
-  | "overview" | "ug-notif" | "ug-circulars" | "ug-mid" | "ug-end"
+  | "overview" | "ug-notif" | "ug-circulars" | "ug-timetables" | "ug-mid" | "ug-end"
   | "ug-fac" | "ug-stu" | "ug-down"
-  | "pg-notif" | "pg-circulars" | "pg-mid" | "pg-end" | "pg-fac" | "pg-stu" | "pg-down"
+  | "pg-notif" | "pg-circulars" | "pg-timetables" | "pg-mid" | "pg-end" | "pg-fac" | "pg-stu" | "pg-down"
   | "results" | "apaar" | "contact";
 
+type TimetableCategory = "mid-term" | "model-lab" | "practical-sec-end" | "theory-end";
+
+const TIMETABLE_OPTIONS: { id: TimetableCategory; label: string; icon: LucideIcon }[] = [
+  { id: "mid-term", label: "Mid Term Test", icon: Calendar },
+  { id: "model-lab", label: "Model Lab Test", icon: Sparkles },
+  { id: "practical-sec-end", label: "Practical\\SEC End Semester", icon: FileSpreadsheet },
+  { id: "theory-end", label: "Theory End Semester", icon: ClipboardList },
+];
+
 const NAV: { id: SectionKey; label: string; icon: LucideIcon; group: string }[] = [
-  { id: "overview",     label: "Home",                     icon: Building2,     group: "Office of CoE" },
-  { id: "ug-notif",     label: "Notifications",            icon: Megaphone,     group: "Office of CoE" },
-  { id: "ug-circulars", label: "Circulars",                icon: FileText,      group: "Office of CoE" },
-  { id: "ug-mid",       label: "Mid Term Tests",           icon: Calendar,      group: "Office of CoE" },
-  { id: "ug-end",       label: "End Semester Exams",       icon: ClipboardList, group: "Office of CoE" },
-  { id: "ug-fac",       label: "Formats — Faculty",        icon: FileSpreadsheet, group: "Office of CoE" },
-  { id: "ug-stu",       label: "Formats — Students",       icon: FileSpreadsheet, group: "Office of CoE" },
-  { id: "ug-down",      label: "Downloads",                icon: FolderDown,    group: "Office of CoE" },
-  { id: "pg-notif",     label: "Notifications",            icon: Megaphone,     group: "Office of CoE" },
+  { id: "overview",      label: "Home",                     icon: Building2,     group: "Office of CoE" },
+  { id: "ug-notif",      label: "Notifications",            icon: Megaphone,     group: "Office of CoE" },
+  { id: "ug-circulars",  label: "Circulars",                icon: FileText,      group: "Office of CoE" },
+  { id: "ug-timetables", label: "Time Tables",              icon: Calendar,      group: "Office of CoE" },
+  { id: "ug-fac",        label: "Formats — Faculty",        icon: FileSpreadsheet, group: "Office of CoE" },
+  { id: "ug-stu",        label: "Formats — Students",       icon: FileSpreadsheet, group: "Office of CoE" },
+  { id: "ug-down",       label: "Downloads",                icon: FolderDown,    group: "Office of CoE" },
+  { id: "pg-notif",      label: "Notifications",            icon: Megaphone,     group: "Office of CoE" },
   { id: "pg-circulars",  label: "Circulars",                icon: FileText,      group: "Office of CoE" },
-  { id: "pg-mid",       label: "Mid Term Tests",           icon: Calendar,      group: "Office of CoE" },
-  { id: "pg-end",       label: "End Semester Exams",       icon: ClipboardList, group: "Office of CoE" },
-  { id: "pg-fac",       label: "Formats — Faculty",        icon: FileSpreadsheet, group: "Office of CoE" },
-  { id: "pg-stu",       label: "Formats — Students",       icon: FileSpreadsheet, group: "Office of CoE" },
-  { id: "pg-down",      label: "Downloads",                icon: FolderDown,    group: "Office of CoE" },
-  { id: "results",      label: "Results",                  icon: GraduationCap, group: "Results & Records" },
-  { id: "apaar",        label: "APAAR / ABC",              icon: IdCard,        group: "Results & Records" },
-  { id: "contact",      label: "Contact Us",               icon: Phone,         group: "Office of CoE" },
+  { id: "pg-timetables", label: "Time Tables",              icon: Calendar,      group: "Office of CoE" },
+  { id: "pg-fac",        label: "Formats — Faculty",        icon: FileSpreadsheet, group: "Office of CoE" },
+  { id: "pg-stu",        label: "Formats — Students",       icon: FileSpreadsheet, group: "Office of CoE" },
+  { id: "pg-down",       label: "Downloads",                icon: FolderDown,    group: "Office of CoE" },
+  { id: "results",       label: "Results",                  icon: GraduationCap, group: "Results & Records" },
+  { id: "apaar",         label: "APAAR / ABC",              icon: IdCard,        group: "Results & Records" },
+  { id: "contact",       label: "Contact Us",               icon: Phone,         group: "Office of CoE" },
 ];
 
 const kindIcon = (k?: ExamLink["kind"]) => {
@@ -139,14 +146,52 @@ const Examinations = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [ugOpen, setUgOpen] = useState(false);
   const [pgOpen, setPgOpen] = useState(false);
+  const [ugTimetableTab, setUgTimetableTab] = useState<TimetableCategory>("mid-term");
+  const [pgTimetableTab, setPgTimetableTab] = useState<TimetableCategory>("mid-term");
+  const [ugTimetableMenuOpen, setUgTimetableMenuOpen] = useState(false);
+  const [pgTimetableMenuOpen, setPgTimetableMenuOpen] = useState(false);
   const [pgDownloadsOpen, setPgDownloadsOpen] = useState({ mba: false, mca: false, mtech: false });
 
   useEffect(() => {
     if (location.hash) {
-      const k = location.hash.slice(1) as SectionKey;
-      if (NAV.some((n) => n.id === k)) setActive(k);
+      const k = location.hash.slice(1);
+      if (k === "ug-timetables" || k === "ug-mid" || k === "ug-end" || k === "ug-model-lab" || k === "ug-practical-sec" || k === "ug-theory-end") {
+        setActive("ug-timetables");
+        setUgOpen(true);
+        setUgTimetableMenuOpen(true);
+        if (k === "ug-model-lab") setUgTimetableTab("model-lab");
+        else if (k === "ug-practical-sec") setUgTimetableTab("practical-sec-end");
+        else if (k === "ug-theory-end" || k === "ug-end") setUgTimetableTab("theory-end");
+        else setUgTimetableTab("mid-term");
+      } else if (k === "pg-timetables" || k === "pg-mid" || k === "pg-end" || k === "pg-model-lab" || k === "pg-practical-sec" || k === "pg-theory-end") {
+        setActive("pg-timetables");
+        setPgOpen(true);
+        setPgTimetableMenuOpen(true);
+        if (k === "pg-model-lab") setPgTimetableTab("model-lab");
+        else if (k === "pg-practical-sec") setPgTimetableTab("practical-sec-end");
+        else if (k === "pg-theory-end" || k === "pg-end") setPgTimetableTab("theory-end");
+        else setPgTimetableTab("mid-term");
+      } else if (NAV.some((n) => n.id === (k as SectionKey))) {
+        setActive(k as SectionKey);
+        if (k.startsWith("ug-")) setUgOpen(true);
+        if (k.startsWith("pg-")) setPgOpen(true);
+      }
     }
   }, []);
+
+  const ugItemCounts = useMemo<Record<TimetableCategory, number>>(() => ({
+    "mid-term": ugMidTermTimetables.length,
+    "model-lab": ugModelLabTimetables.length,
+    "practical-sec-end": ugPracticalSecTimetables.length,
+    "theory-end": ugTheoryEndTimetables.length,
+  }), []);
+
+  const pgItemCounts = useMemo<Record<TimetableCategory, number>>(() => ({
+    "mid-term": pgMidTermTimetables.length,
+    "model-lab": pgModelLabTimetables.length,
+    "practical-sec-end": pgPracticalSecTimetables.length,
+    "theory-end": pgTheoryEndTimetables.length,
+  }), []);
 
   const grouped = useMemo(() => {
     const map: Record<string, typeof NAV> = {};
@@ -289,23 +334,83 @@ const Examinations = () => {
                         </CollapsibleTrigger>
                         <CollapsibleContent className="pt-1">
                           <ul className="space-y-1 pl-2">
-                            {ugItems.filter((item) => item.id !== "overview" && item.id !== "contact").map((n) => (
-                              <li key={n.id}>
-                                <button
-                                  onClick={() => { setActive(n.id); setMobileNavOpen(false); window.scrollTo({ top: 200, behavior: "smooth" }); }}
-                                  className={cn(
-                                    "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all group",
-                                    active === n.id
-                                      ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md"
-                                      : "text-foreground hover:bg-muted",
-                                  )}
-                                >
-                                  <n.icon className={cn("w-4 h-4 shrink-0", active === n.id ? "" : "text-muted-foreground group-hover:text-primary")} />
-                                  <span className="flex-1 text-left truncate">{n.label}</span>
-                                  {active === n.id && <ChevronRight className="w-4 h-4" />}
-                                </button>
-                              </li>
-                            ))}
+                            {ugItems.filter((item) => item.id !== "overview" && item.id !== "contact").map((n) => {
+                              if (n.id === "ug-timetables") {
+                                const isTtActive = active === "ug-timetables" || active === "ug-mid" || active === "ug-end";
+                                const isExpanded = ugTimetableMenuOpen || isTtActive;
+                                return (
+                                  <li key={n.id} className="space-y-1">
+                                    <button
+                                      onClick={() => {
+                                        setActive("ug-timetables");
+                                        setUgTimetableMenuOpen((prev) => (isTtActive ? !prev : true));
+                                        setMobileNavOpen(false);
+                                        window.scrollTo({ top: 200, behavior: "smooth" });
+                                      }}
+                                      className={cn(
+                                        "w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm transition-all group",
+                                        isTtActive
+                                          ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md"
+                                          : "text-foreground hover:bg-muted"
+                                      )}
+                                    >
+                                      <div className="flex items-center gap-3 truncate">
+                                        <n.icon className={cn("w-4 h-4 shrink-0", isTtActive ? "" : "text-muted-foreground group-hover:text-primary")} />
+                                        <span className="flex-1 text-left truncate">{n.label}</span>
+                                      </div>
+                                      <ChevronRight className={cn("w-4 h-4 transition-transform text-muted-foreground shrink-0", isExpanded && "rotate-90", isTtActive && "text-primary-foreground")} />
+                                    </button>
+
+                                    {isExpanded && (
+                                      <ul className="pl-3.5 space-y-1 border-l-2 border-primary/25 ml-3 pt-1 pb-0.5">
+                                        {TIMETABLE_OPTIONS.map((sub) => {
+                                          const isSubActive = isTtActive && ugTimetableTab === sub.id;
+                                          return (
+                                            <li key={sub.id}>
+                                              <button
+                                                onClick={() => {
+                                                  setActive("ug-timetables");
+                                                  setUgTimetableTab(sub.id);
+                                                  setMobileNavOpen(false);
+                                                  window.scrollTo({ top: 200, behavior: "smooth" });
+                                                }}
+                                                className={cn(
+                                                  "w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all text-left",
+                                                  isSubActive
+                                                    ? "bg-primary/10 text-primary font-semibold"
+                                                    : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                                                )}
+                                              >
+                                                <span className={cn("w-1.5 h-1.5 rounded-full shrink-0", isSubActive ? "bg-primary" : "bg-muted-foreground/40")} />
+                                                <span className="truncate">{sub.label}</span>
+                                              </button>
+                                            </li>
+                                          );
+                                        })}
+                                      </ul>
+                                    )}
+                                  </li>
+                                );
+                              }
+
+                              return (
+                                <li key={n.id}>
+                                  <button
+                                    onClick={() => { setActive(n.id); setMobileNavOpen(false); window.scrollTo({ top: 200, behavior: "smooth" }); }}
+                                    className={cn(
+                                      "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all group",
+                                      active === n.id
+                                        ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md"
+                                        : "text-foreground hover:bg-muted",
+                                    )}
+                                  >
+                                    <n.icon className={cn("w-4 h-4 shrink-0", active === n.id ? "" : "text-muted-foreground group-hover:text-primary")} />
+                                    <span className="flex-1 text-left truncate">{n.label}</span>
+                                    {active === n.id && <ChevronRight className="w-4 h-4" />}
+                                  </button>
+                                </li>
+                              );
+                            })}
                           </ul>
                         </CollapsibleContent>
                       </Collapsible>
@@ -318,23 +423,83 @@ const Examinations = () => {
                         </CollapsibleTrigger>
                         <CollapsibleContent className="pt-1">
                           <ul className="space-y-1 pl-2">
-                            {pgItems.map((n) => (
-                              <li key={n.id}>
-                                <button
-                                  onClick={() => { setActive(n.id); setMobileNavOpen(false); window.scrollTo({ top: 200, behavior: "smooth" }); }}
-                                  className={cn(
-                                    "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all group",
-                                    active === n.id
-                                      ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md"
-                                      : "text-foreground hover:bg-muted",
-                                  )}
-                                >
-                                  <n.icon className={cn("w-4 h-4 shrink-0", active === n.id ? "" : "text-muted-foreground group-hover:text-primary")} />
-                                  <span className="flex-1 text-left truncate">{n.label}</span>
-                                  {active === n.id && <ChevronRight className="w-4 h-4" />}
-                                </button>
-                              </li>
-                            ))}
+                            {pgItems.map((n) => {
+                              if (n.id === "pg-timetables") {
+                                const isTtActive = active === "pg-timetables" || active === "pg-mid" || active === "pg-end";
+                                const isExpanded = pgTimetableMenuOpen || isTtActive;
+                                return (
+                                  <li key={n.id} className="space-y-1">
+                                    <button
+                                      onClick={() => {
+                                        setActive("pg-timetables");
+                                        setPgTimetableMenuOpen((prev) => (isTtActive ? !prev : true));
+                                        setMobileNavOpen(false);
+                                        window.scrollTo({ top: 200, behavior: "smooth" });
+                                      }}
+                                      className={cn(
+                                        "w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm transition-all group",
+                                        isTtActive
+                                          ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md"
+                                          : "text-foreground hover:bg-muted"
+                                      )}
+                                    >
+                                      <div className="flex items-center gap-3 truncate">
+                                        <n.icon className={cn("w-4 h-4 shrink-0", isTtActive ? "" : "text-muted-foreground group-hover:text-primary")} />
+                                        <span className="flex-1 text-left truncate">{n.label}</span>
+                                      </div>
+                                      <ChevronRight className={cn("w-4 h-4 transition-transform text-muted-foreground shrink-0", isExpanded && "rotate-90", isTtActive && "text-primary-foreground")} />
+                                    </button>
+
+                                    {isExpanded && (
+                                      <ul className="pl-3.5 space-y-1 border-l-2 border-primary/25 ml-3 pt-1 pb-0.5">
+                                        {TIMETABLE_OPTIONS.map((sub) => {
+                                          const isSubActive = isTtActive && pgTimetableTab === sub.id;
+                                          return (
+                                            <li key={sub.id}>
+                                              <button
+                                                onClick={() => {
+                                                  setActive("pg-timetables");
+                                                  setPgTimetableTab(sub.id);
+                                                  setMobileNavOpen(false);
+                                                  window.scrollTo({ top: 200, behavior: "smooth" });
+                                                }}
+                                                className={cn(
+                                                  "w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all text-left",
+                                                  isSubActive
+                                                    ? "bg-primary/10 text-primary font-semibold"
+                                                    : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                                                )}
+                                              >
+                                                <span className={cn("w-1.5 h-1.5 rounded-full shrink-0", isSubActive ? "bg-primary" : "bg-muted-foreground/40")} />
+                                                <span className="truncate">{sub.label}</span>
+                                              </button>
+                                            </li>
+                                          );
+                                        })}
+                                      </ul>
+                                    )}
+                                  </li>
+                                );
+                              }
+
+                              return (
+                                <li key={n.id}>
+                                  <button
+                                    onClick={() => { setActive(n.id); setMobileNavOpen(false); window.scrollTo({ top: 200, behavior: "smooth" }); }}
+                                    className={cn(
+                                      "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all group",
+                                      active === n.id
+                                        ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md"
+                                        : "text-foreground hover:bg-muted",
+                                    )}
+                                  >
+                                    <n.icon className={cn("w-4 h-4 shrink-0", active === n.id ? "" : "text-muted-foreground group-hover:text-primary")} />
+                                    <span className="flex-1 text-left truncate">{n.label}</span>
+                                    {active === n.id && <ChevronRight className="w-4 h-4" />}
+                                  </button>
+                                </li>
+                              );
+                            })}
                           </ul>
                         </CollapsibleContent>
                       </Collapsible>
@@ -398,13 +563,86 @@ const Examinations = () => {
                     <SectionHead icon={FileText} title="Circulars" subtitle="Latest circulars from the Controller of Examinations." />
                     <NotificationList items={ugCirculars} query={query} emptyMessage="No active circulars at this time. Please check back later or refer to the latest notifications." />
                   </>)}
-                  {active === "ug-mid" && (<>
-                    <SectionHead icon={Calendar} title="Mid Term Tests" subtitle="Time tables for I & II Mid term examinations including Engineering Graphics." />
-                    <NotificationList items={ugMidTermTimetables} query={query} />
-                  </>)}
-                  {active === "ug-end" && (<>
-                    <SectionHead icon={ClipboardList} title="End Semester Exams" subtitle="Theory, practical and model lab time tables." />
-                    <NotificationList items={ugEndSemTimetables} query={query} />
+                  {(active === "ug-timetables" || active === "ug-mid" || active === "ug-end") && (<>
+                    <SectionHead
+                      icon={Calendar}
+                      title="Time Tables"
+                      subtitle="UG Examination Time Tables for Mid Term Tests, Model Lab Tests, Practical\SEC End Semester, and Theory End Semester."
+                    />
+
+                    <div className="mb-6 p-4 rounded-xl border border-border bg-card shadow-sm space-y-3">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <label htmlFor="ug-tt-select" className="text-sm font-semibold text-foreground flex items-center gap-2">
+                          <Calendar className="w-4 h-4 text-primary" />
+                          <span>Select Time Table Category:</span>
+                        </label>
+                        <div className="relative w-full sm:w-80">
+                          <select
+                            id="ug-tt-select"
+                            value={ugTimetableTab}
+                            onChange={(e) => setUgTimetableTab(e.target.value as TimetableCategory)}
+                            aria-label="Select UG Time Table Category"
+                            className="w-full bg-background border border-input rounded-lg px-3.5 py-2 text-sm font-medium text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary appearance-none cursor-pointer pr-10"
+                          >
+                            {TIMETABLE_OPTIONS.map((opt) => (
+                              <option key={opt.id} value={opt.id}>
+                                {opt.label} ({ugItemCounts[opt.id]})
+                              </option>
+                            ))}
+                          </select>
+                          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-muted-foreground">
+                            <ChevronRight className="w-4 h-4 rotate-90" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-border/60">
+                        {TIMETABLE_OPTIONS.map((opt) => {
+                          const isSelected = ugTimetableTab === opt.id;
+                          const count = ugItemCounts[opt.id];
+                          const Icon = opt.icon;
+                          return (
+                            <button
+                              key={opt.id}
+                              onClick={() => setUgTimetableTab(opt.id)}
+                              className={cn(
+                                "inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all",
+                                isSelected
+                                  ? "bg-primary text-primary-foreground shadow-sm"
+                                  : "bg-muted/70 text-foreground hover:bg-muted hover:text-primary"
+                              )}
+                            >
+                              <Icon className="w-3.5 h-3.5" />
+                              <span>{opt.label}</span>
+                              <span
+                                className={cn(
+                                  "px-1.5 py-0.5 rounded-full text-[11px] font-semibold leading-none",
+                                  isSelected
+                                    ? "bg-white/20 text-white"
+                                    : "bg-background/80 text-muted-foreground border border-border/50"
+                                )}
+                              >
+                                {count}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <NotificationList
+                      items={
+                        ugTimetableTab === "mid-term"
+                          ? ugMidTermTimetables
+                          : ugTimetableTab === "model-lab"
+                          ? ugModelLabTimetables
+                          : ugTimetableTab === "practical-sec-end"
+                          ? ugPracticalSecTimetables
+                          : ugTheoryEndTimetables
+                      }
+                      query={query}
+                      emptyMessage={`No active ${TIMETABLE_OPTIONS.find((o) => o.id === ugTimetableTab)?.label} time tables are available at this time.`}
+                    />
                   </>)}
                   {active === "ug-fac" && (<>
                     <SectionHead icon={FileSpreadsheet} title="Formats — Faculty" subtitle="Forms and templates for invigilation, evaluation and lab awards." />
@@ -426,13 +664,86 @@ const Examinations = () => {
                     <SectionHead icon={FileText} title="Circulars" subtitle="Latest circulars and official examination updates." />
                     <NotificationList items={pgCirculars} query={query} emptyMessage="No active PG circulars are available right now." />
                   </>)}
-                  {active === "pg-mid" && (<>
-                    <SectionHead icon={Calendar} title="Mid Term Tests" subtitle="Mid term examination notices and time table updates." />
-                    <NotificationList items={pgMidTermTimetables} query={query} emptyMessage="No active PG mid term test notices are available right now." />
-                  </>)}
-                  {active === "pg-end" && (<>
-                    <SectionHead icon={ClipboardList} title="End Semester Exams" subtitle="Current end-semester examination notices." />
-                    <NotificationList items={pgEndSemTimetables} query={query} emptyMessage="No active PG end semester exam items are available right now." />
+                  {(active === "pg-timetables" || active === "pg-mid" || active === "pg-end") && (<>
+                    <SectionHead
+                      icon={Calendar}
+                      title="Time Tables"
+                      subtitle="PG Examination Time Tables for Mid Term Tests, Model Lab Tests, Practical\SEC End Semester, and Theory End Semester."
+                    />
+
+                    <div className="mb-6 p-4 rounded-xl border border-border bg-card shadow-sm space-y-3">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <label htmlFor="pg-tt-select" className="text-sm font-semibold text-foreground flex items-center gap-2">
+                          <Calendar className="w-4 h-4 text-primary" />
+                          <span>Select Time Table Category:</span>
+                        </label>
+                        <div className="relative w-full sm:w-80">
+                          <select
+                            id="pg-tt-select"
+                            value={pgTimetableTab}
+                            onChange={(e) => setPgTimetableTab(e.target.value as TimetableCategory)}
+                            aria-label="Select PG Time Table Category"
+                            className="w-full bg-background border border-input rounded-lg px-3.5 py-2 text-sm font-medium text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary appearance-none cursor-pointer pr-10"
+                          >
+                            {TIMETABLE_OPTIONS.map((opt) => (
+                              <option key={opt.id} value={opt.id}>
+                                {opt.label} ({pgItemCounts[opt.id]})
+                              </option>
+                            ))}
+                          </select>
+                          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-muted-foreground">
+                            <ChevronRight className="w-4 h-4 rotate-90" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-border/60">
+                        {TIMETABLE_OPTIONS.map((opt) => {
+                          const isSelected = pgTimetableTab === opt.id;
+                          const count = pgItemCounts[opt.id];
+                          const Icon = opt.icon;
+                          return (
+                            <button
+                              key={opt.id}
+                              onClick={() => setPgTimetableTab(opt.id)}
+                              className={cn(
+                                "inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all",
+                                isSelected
+                                  ? "bg-primary text-primary-foreground shadow-sm"
+                                  : "bg-muted/70 text-foreground hover:bg-muted hover:text-primary"
+                              )}
+                            >
+                              <Icon className="w-3.5 h-3.5" />
+                              <span>{opt.label}</span>
+                              <span
+                                className={cn(
+                                  "px-1.5 py-0.5 rounded-full text-[11px] font-semibold leading-none",
+                                  isSelected
+                                    ? "bg-white/20 text-white"
+                                    : "bg-background/80 text-muted-foreground border border-border/50"
+                                )}
+                              >
+                                {count}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <NotificationList
+                      items={
+                        pgTimetableTab === "mid-term"
+                          ? pgMidTermTimetables
+                          : pgTimetableTab === "model-lab"
+                          ? pgModelLabTimetables
+                          : pgTimetableTab === "practical-sec-end"
+                          ? pgPracticalSecTimetables
+                          : pgTheoryEndTimetables
+                      }
+                      query={query}
+                      emptyMessage={`No active PG ${TIMETABLE_OPTIONS.find((o) => o.id === pgTimetableTab)?.label} time tables are available at this time.`}
+                    />
                   </>)}
                   {active === "pg-fac" && (<>
                     <SectionHead icon={FileSpreadsheet} title="Formats — Faculty" subtitle="Official formats used by faculty for PG examinations." />
