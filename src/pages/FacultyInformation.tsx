@@ -252,6 +252,11 @@ const FacultyInformation = () => {
 
   const filteredFaculty = useMemo(() => {
     const list = enrichedFacultyList.filter((f) => {
+      // In University Faculty Information, strictly include only University faculty.
+      // Exclude faculty whose status is set to 'Autonomous'.
+      const isAutonomous = (f.institutionCadre || "").trim().toLowerCase() === "autonomous";
+      if (isAutonomous) return false;
+
       const name = (f.name || "").toLowerCase();
       const email = (f.email || "").toLowerCase();
       const des = (f.designation || "").toLowerCase();
