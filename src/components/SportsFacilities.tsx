@@ -13,6 +13,7 @@ import {
   Medal,
   Activity,
   ArrowRight,
+  Mail,
 } from "lucide-react";
 
 interface SportsDoc {
@@ -22,36 +23,368 @@ interface SportsDoc {
   description?: string;
 }
 
-const currentEvents2027_28: SportsDoc[] = [
+interface SportsEvent {
+  title: string;
+  url?: string;
+}
+
+const currentEvents2026_27: SportsDoc[] = [
   {
-    title: 'The "80th Independence Day Celebration" was organized by Department of Physical Education at MITS Deemed to be University on 15th August 2027.',
-    url: "https://mits.ac.in/assets/pdf/assoc/80th Independence Day Celebration.pdf",
-    year: "2027-28",
+    title: 'The "80th Independence Day Celebration" was organized by Department of Physical Education at MITS Deemed to be University on 15th August 2026.',
+    url: "https://mits.ac.in/assets/pdf/assoc/80th Independence Day Celebration Report.pdf",
   },
   {
-    title: 'A Campaign on "Tiranga Rally – Har Ghar Tiranga" was organized by MITS NCC, NSS and Sports Teams on 14th August 2027.',
-    url: "https://mits.ac.in/assets/pdf/assoc/Tiranga Rally.pdf",
-    year: "2027-28",
+    title: 'A Campaign on "Tiranga Rally – Har Ghar Tiranga” was organized by MITS NCC, NSS and Sports Teams on 14th August 2026.',
+    url: "https://mits.ac.in/assets/pdf/assoc/Tiranga%20Rally%20%E2%80%93%20Har%20Ghar%20Tiranga.pdf",
   },
   {
-    title: 'A "World International Yoga Day Programme-2027" was organized by Department of Physical Education and Sports & Yoga and Meditation Club on 21st June 2027.',
-    url: "https://mits.ac.in/assets/pdf/facility/World International Yoga Day Programme-2027.pdf",
-    year: "2027-28",
+    title: "AIU Director of Sports Meeting Held at SRM University Chennai on 16th July 2026.",
+    url: "https://mits.ac.in/assets/pdf/assoc/Report on AIU SPORTS MEET ALL FOUR ZONES.pdf",
   },
   {
-    title: "MITS Inter Department Faculty Cricket Tournament 2027-2028 was organized by Department of Physical Education & Sports from 19th to 25th May 2027.",
-    url: "https://mits.ac.in/assets/pdf/facility/MITS Inter Department Faculty Cricket Tournament 2027-2028.pdf",
-    year: "2027-28",
+    title: 'A "World International Yoga Day Programme-2026" was organized by Department of Physical Education and Sports & Yoga and Meditation Club on 21st June 2026.',
+    url: "https://mits.ac.in/assets/pdf/facility/World International Yoga Day Programme-2026.pdf",
   },
   {
-    title: "Report on International Conference on Sports (SRM)",
-    url: "https://mits.ac.in/assets/pdf/facility/Report on international conference on sports (SRM)-compressed.pdf",
-    year: "2027-28",
+    title: "MITS Inter Department Faculty Cricket Tournament 2026-2027 was organized by Department of Physical Education & Sports from 19th to 25th May 2026.",
+    url: "https://mits.ac.in/assets/pdf/facility/MITS Inter Department Faculty Cricket Tournament 2026-2027.pdf",
   },
+];
+
+const sportsEventArchive: { year: string; events: SportsEvent[] }[] = [
   {
-    title: "79th Independence Day Celebration Event Report",
-    url: "https://mits.ac.in/assets/pdf/facility/79th independence day.pdf",
     year: "2025-26",
+    events: [
+      {
+        title: "The 3rd International Conference on Advanced Sports Science & Intelligence Performance Technologies (Ic-Assipt-2026) was organised by SRMIST Chennai on 27th & 28th March 2026 (Sportintel 2026).",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on international conference on sports (SRM)-compressed.pdf",
+      },
+      {
+        title: "79th Independence Day Celebrations at MITS was organized by Department of Physical Education on 15th August 2025.",
+        url: "https://mits.ac.in/assets/pdf/facility/79th independence day.pdf",
+      },
+    ],
+  },
+  {
+    year: "2024-25",
+    events: [
+      {
+        title: "Women's Day Sports Event was organized at MITS on 7th May 2025.",
+        url: "https://mits.ac.in/assets/pdf/facility/WOMENS DAY SPORTS EVENT RESULTS -2025.pdf",
+      },
+      {
+        title: '"Ashv - The Race of Talent", a vibrant two-day techno-cultural-sports fest, was organized at MITS on 21st & 22nd February 2025.',
+        url: "https://mits.ac.in/assets/pdf/facility/ASHV 2K25 REPORT.pdf",
+      },
+      {
+        title: "Inter-Collegiate Games Meet 2025.",
+        url: "https://mits.ac.in/assets/pdf/facility/ICT - TOURNAMENT JNTUA- KALIKIRI.pdf",
+      },
+      {
+        title: "76th Republic Day Celebrations at MITS was organized by Department of Physical Education on 26th January 2025.",
+        url: "https://mits.ac.in/assets/pdf/facility/76th Republic Day Celebrations.pdf",
+      },
+      {
+        title: '"SANYOG 2K24" was held from 28th September to 2nd October 2024.',
+        url: "https://mits.ac.in/assets/pdf/facility/REPORT OF IIT PARTICIPANTS.pdf",
+      },
+      {
+        title: "78th Independence Day Celebrations at MITS was organized by Department of Physical Education on 15th August 2024.",
+        url: "https://mits.ac.in/assets/pdf/facility/78th Independence Day Celebrations.pdf",
+      },
+    ],
+  },
+  {
+    year: "2023-24",
+    events: [
+      {
+        title: "Intramural Sports Competitions 2024 were held from 21st to 24th November 2024.",
+        url: "https://mits.ac.in/assets/pdf/facility/Intramural 2k24.pdf",
+      },
+      {
+        title: "Fresher's Day Sports was organized at MITS from 1st to 5th November 2024.",
+        url: "https://mits.ac.in/assets/pdf/facility/FRESHERS DAY REPORT 2k24.pdf",
+      },
+      {
+        title: "An International Sports Day - Medal Ceremony was organized by the Department of Artificial Intelligence in association with the Department of Physical Education and Sports on 30th April 2024.",
+        url: "https://mits.ac.in/assets/pdf/facility/International Sports Day – Medal Ceremony 2024.pdf",
+      },
+      {
+        title: '"Ashv - The Race of Talent", a vibrant two-day techno-cultural-sports fest, was organized at MITS on 25th & 26th April 2024.',
+        url: "https://mits.ac.in/assets/pdf/facility/ASHV 2K24 REPORT.pdf",
+      },
+      {
+        title: "75th Republic Day Celebrations at MITS was organized by Department of Physical Education on 26th January 2024.",
+        url: "https://mits.ac.in/assets/pdf/facility/75th Republic Day Celebrations.pdf",
+      },
+      {
+        title: "77th Independence Day Celebrations at MITS was organized by Department of Physical Education on 15th August 2023.",
+        url: "https://mits.ac.in/assets/pdf/facility/77th Independence Day Celebrations.pdf",
+      },
+    ],
+  },
+  {
+    year: "2022-23",
+    events: [
+      {
+        title: "Intramural Sports Competitions were held from 2nd to 8th December 2023.",
+        url: "https://mits.ac.in/assets/pdf/facilityintramural competiton2k23.pdf",
+      },
+      {
+        title: '"Ashv - The Race of Talent", a vibrant two-day techno-cultural-sports fest, was organized at MITS on 12th & 13th May 2023.',
+        url: "https://mits.ac.in/assets/pdf/facility/REPORT ASHV 2K23.pdf",
+      },
+      {
+        title: "KSRM Intercollegiate Trophy 2023 was held at KSRM College of Engineering, Kadapa from 10th to 14th April 2023.",
+        url: "https://mits.ac.in/assets/pdf/facility/KSRM INTERCOLLEGIATE TROPHY 2K23.pdf",
+      },
+      {
+        title: "The National Sports Day was organized by Department of Physical Education on 29th August 2022.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on NSD 2022.pdf",
+      },
+      {
+        title: "76th Independence Day Celebrations at MITS was organized by Department of Physical Education on 15th August 2022.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on 76th Independence Day 2022.pdf",
+      },
+    ],
+  },
+  {
+    year: "2021-22",
+    events: [
+      {
+        title: "SAAP (Sports Authority of Andhra Pradesh) State Level Yoga Asana League 2022 was held from 29th-31st July 2022 at Guntur, AP.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report_IV Position_Yoga 2022.pdf",
+      },
+      {
+        title: "Inter-Department Sports Competitions 2022 were organized by MITS Sports Club from 23rd to 26th May 2022 at MITS Campus.",
+        url: "https://mits.ac.in/assets/pdf/facility/REPORT ON Sports Int dept 2022.pdf",
+      },
+      {
+        title: "Rajanna Memorial Football Tournament 2022 was held at Madanapalle from 22nd to 24th April 2022.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on Rajanna Tournament 2022_Football.pdf",
+      },
+      {
+        title: "KSNR Trophy Intercollegiate Sports Meet 2022 was held at KSRM College of Engineering, Kadapa from 11th to 15th April 2022.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on KSRMCE_KSNR Trophy 2022-min.pdf",
+      },
+      {
+        title: "Women's Day celebrations were organized by Sports Club, Department of Physical Education & Sports of MITS on 8th March 2022.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on womens day 2022-min.pdf",
+      },
+      {
+        title: "Fresher's Day Sports was organized by MITS Sports Club from 2nd to 4th March 2022.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report_ Freshers day Sports 2021-22-min.pdf",
+      },
+      {
+        title: "73rd Republic Day Celebrations at MITS was organized by Department of Physical Education on 26th January 2022.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on 73nd Republic Day Celebrations.pdf",
+      },
+      {
+        title: "GEOFIESTA National Level Sports Fest 2021 was held at SVEC College, Tirupati from 18th to 20th December 2021.",
+        url: "https://mits.ac.in/assets/pdf/facility/REPORT Geofiesta fest 2021.pdf",
+      },
+      {
+        title: "Inter-Department Shuttle Badminton Tournament was organized by Sports Club on 26th November 2021 at MITS Campus.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on inter department shuttle badminton tournament.pdf",
+      },
+    ],
+  },
+  {
+    year: "2020-21",
+    events: [
+      {
+        title: "The Department of Physical Education and Sports conducted a sports awareness programme to promote sports among B.Tech. first-year students on 10th April 2021.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report_Sports Awareness Program I B.Tech._2021.pdf",
+      },
+      {
+        title: "72nd Republic Day Celebrations at MITS were organized by Department of Physical Education on 26th January 2021.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on 72nd Republic Day Celebrations at MITS.pdf",
+      },
+    ],
+  },
+  {
+    year: "2019-20",
+    events: [
+      {
+        title: "6th District Level Handball Tournament was organized by Chittoor District Handball Association at Nampalle, Chittoor on 1st March 2020.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on Inter district Handball Tournament.pdf",
+      },
+      {
+        title: "SELESTA National Level Sports Fest 2020 was held at SVCET College, Chittoor from 27th to 29th February 2020.",
+        url: "https://mits.ac.in/assets/pdf/facility/REPORT SELESTA fest  2020.pdf",
+      },
+      {
+        title: "71st Republic Day Celebrations at MITS were organized by Department of Physical Education on 26th January 2020.",
+        url: "https://mits.ac.in/assets/pdf/facility/71st Republic Day Report 2020.pdf",
+      },
+      {
+        title: "JNTUA Autonomous Engineering Colleges Games Meet 2019-2020 was held at SVCET, Chittoor from 9th to 11th January 2020.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report of Autonomous Tournament 2019-20_SVCET-min.pdf",
+      },
+      {
+        title: "The 13th edition of Eenadu Champion Cricket Cup 2019 was held at Tirupati from 20th to 30th December 2019.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report_2019_Eenadu Cup-min.pdf",
+      },
+      {
+        title: "JNTUA Inter University Team Selection Trials Kho-Kho (Men) were organized by Department of Physical Education at MITS on 16th October 2019.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on Kho-kho_ JNTUA Selection Trials_2019-20-min.pdf",
+      },
+      {
+        title: "National Sports Day Celebrations were held at MITS Campus on 29th August 2019.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on National Sports Day 2019-min.pdf",
+      },
+      {
+        title: "The 73rd Independence Day of India was celebrated at MITS campus on 15th August 2019.",
+        url: "https://mits.ac.in/assets/pdf/facility/73nd independence day Report 2019-min.pdf",
+      },
+    ],
+  },
+  {
+    year: "2018-19",
+    events: [
+      {
+        title: "Annual Day Sports 2019 was held at MITS on 18th April 2019.",
+        url: "https://mits.ac.in/assets/pdf/facility/annualsportsday-2019-min.pdf",
+      },
+      {
+        title: "JNTUA Inter University Sports Representatives of 2018-19.",
+        url: "https://mits.ac.in/assets/pdf/facility/JNTUA Players_2018-19.pdf",
+      },
+      {
+        title: "Selesta Sports Fest 2019 was held at SVCET College, Chittoor on 22nd and 23rd March 2019.",
+        url: "https://mits.ac.in/assets/pdf/facility/REPORT SELESTA fest 2019-min.pdf",
+      },
+      {
+        title: "JNTUA Intercollegiate Games Tournament 2019 was held at CBIT College, Proddatur from 15th to 17th March 2019.",
+        url: "https://mits.ac.in/assets/pdf/facility/REPORT JNTUA Games meet CBIT 2019-min.pdf",
+      },
+      {
+        title: "Ashv - The Race of Talent 2K19 Sports Fest was organized by Department of Physical Education & Sports from 12th to 16th February 2019.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on ASHV sports fest 19-min.pdf",
+      },
+      {
+        title: "The 70th Republic Day was celebrated at MITS on 26th January 2019.",
+        url: "https://mits.ac.in/assets/pdf/facility/70th Republic Day Celebrations-min.pdf",
+      },
+      {
+        title: "The 12th edition of Eenadu Champion Cricket Cup 2018 was held at Tirupati from 22nd to 31st December 2018.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report of Eenadu Champion Cricket Cup  2018-min.pdf",
+      },
+      {
+        title: "JNTUA Inter University Football Team Selections were held on 25th October 2018, organized by Department of Physical Education & Sports.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on FB_ JNTUA Selection Trials_2018-19-min.pdf",
+      },
+      {
+        title: "JNTUA Autonomous Sports Meet was held at RGM, Nandyala.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report of Autonomous Games Meet  2018-19-min.pdf",
+      },
+      {
+        title: "National Sports Day Celebrations were held at MITS Campus on 29th August 2018.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report National Sports Day 18-min.pdf",
+      },
+      {
+        title: "The 72nd Independence Day of India was celebrated at MITS campus on 15th August 2018.",
+        url: "https://mits.ac.in/assets/pdf/facility/72nd Independence Day.pdf",
+      },
+    ],
+  },
+  {
+    year: "2017-18",
+    events: [
+      {
+        title: "Annual Day Staff Cricket Match 2018 was organized by Department of Physical Education & Sports from 9th to 19th March 2018.",
+        url: "https://mits.ac.in/assets/pdf/assoc/Report_Staff Cricket 2018-min.pdf",
+      },
+      {
+        title: "Intramural Sports 2017-2018.",
+        url: "https://mits.ac.in/assets/pdf/assoc/Intramural Sports Report 2018-min.pdf",
+      },
+      {
+        title: "Annual Day Sports 2017-2018.",
+        url: "https://mits.ac.in/assets/pdf/assoc/Reports on Annual Day Sports 18-min.pdf",
+      },
+      {
+        title: "Ashv - The Race of Talent 2K18 Sports Fest was held on 16th & 17th February 2018.",
+        url: "https://mits.ac.in/assets/pdf/assoc/ASHV 2k18 SPORTS REPORT.pdf",
+      },
+      {
+        title: "JNTUA Inter University Sports Representatives of 2017-18.",
+        url: "https://mits.ac.in/assets/pdf/assoc/JNTUA Players_2017-18.pdf",
+      },
+      {
+        title: "Birth Anniversary of Sardar Vallabhbhai Patel was organized by NSS, NCC Cell & Sports Club on 31st October 2017.",
+        url: "https://mits.ac.in/assets/pdf/assoc/Sardar Vallabhbhai Patel.pdf",
+      },
+      {
+        title: "National Unity Day - Unity Run was organized by NSS, NCC & Sports on 31st October 2017.",
+      },
+      {
+        title: "Sports Achievement Report on JNTUA Affiliated Autonomous Colleges Intercollegiate Games Tournament 2017 was held at AITS, Rajampet from 15th-17th September 2017.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report _AITS Autonomous2017-18.pdf",
+      },
+      {
+        title: "National Sports Day 2017 was organized by MITS Sports Club and Department of Physical Education on 29th August 2017.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report National Sports Day 17.pdf",
+      },
+      {
+        title: "71st Independence Day Celebrations at MITS were organized by Department of Physical Education & Sports Club on 15th August 2017.",
+        url: "https://mits.ac.in/assets/pdf/facility/71th Independence Day Celebrations.pdf",
+      },
+    ],
+  },
+  {
+    year: "2016-17",
+    events: [
+      {
+        title: "Intramural Sports 2016-2017.",
+        url: "https://mits.ac.in/assets/pdf/facility/Intramural Sports Report 2017.pdf",
+      },
+      {
+        title: "Annual Day Sports 2016-2017.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report on Annual Day Sports 17.pdf",
+      },
+      {
+        title: "JNTUA Intercollegiate Games Tournament 2017 was held at NBKRIST, Nellore on 13th, 14th & 15th March 2017.",
+        url: "https://mits.ac.in/assets/pdf/facility/JNTUA Vb Runner up Report-2017.pdf",
+      },
+      {
+        title: "Annual Day Staff Cricket Match 2017 was organized by Department of Physical Education & Sports on 22nd, 23rd & 24th March 2017.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report_Staff Cricket 2017.pdf",
+      },
+      {
+        title: "Ashv - The Race of Sports Fest was organized by MITS on 22nd & 23rd February 2017.",
+        url: "https://mits.ac.in/assets/pdf/facility/ASHV 2k17 SPORTS REPORT.pdf",
+      },
+      {
+        title: "JNTUA Inter University Sports Representatives of 2016-17.",
+        url: "https://mits.ac.in/assets/pdf/facility/JNTUA Players 2016-17.pdf",
+      },
+    ],
+  },
+  {
+    year: "2015-16",
+    events: [
+      {
+        title: "Ashv '16 Sports Fest.",
+        url: "https://mits.ac.in/assets/pdf/facility/ASHV SPORTS REPORT 2016.pdf",
+      },
+      {
+        title: "College Women's Team Achievement in Selesta 2K16 Sports Fest was held at SVCET College, Chittoor from 25th-27th February 2016.",
+        url: "https://mits.ac.in/assets/pdf/facility/Report_selesta_2k16.pdf",
+      },
+      {
+        title: "JNTUA Inter University Sports Representatives of 2015-16.",
+        url: "https://mits.ac.in/assets/pdf/facility/JNTUA Players_2015-16.pdf",
+      },
+      {
+        title: "The JNTUA Inter University Men Handball Camp was organized by Department of Physical Education, MITS from 28th December 2015 to 2nd January 2016 at MITS Campus.",
+        url: "https://mits.ac.in/assets/pdf/facility/Handball Camp.pdf",
+      },
+      {
+        title: "JNTUA Inter University Men Team Selection Trials (Handball & Kabaddi) were organized at MITS on 18th & 19th September 2015.",
+        url: "https://mits.ac.in/assets/pdf/facility/JNTUA Men Team Selection Trials Handball & Kabaddi.pdf",
+      },
+    ],
   },
 ];
 
@@ -62,6 +395,9 @@ const sportsCommittees: SportsDoc[] = [
   { title: "Sports Committee 2020-21 Notification", url: "https://mits.ac.in/public/uploads/facilites/56abaddb38a169f9460629efdda978b7.pdf", year: "2020-21" },
   { title: "Sports Committee 2018-19 Office Order", url: "https://mits.ac.in/public/uploads/facilites/dcd57e90a1a0f6833f4af4fe28865a6b.pdf", year: "2018-19" },
   { title: "Sports Committee 2017-18 Office Order", url: "https://mits.ac.in/public/uploads/facilites/301fe6de98e11515e7ea5410b09c9e84.pdf", year: "2017-18" },
+  { title: "Sports Committee 2016-17 Office Order", url: "https://mits.ac.in/public/uploads/facilites/856310cf60a10f2cb07ed7ae0b66bbbc.pdf", year: "2016-17" },
+  { title: "Sports Committee 2015-16 Office Order", url: "https://mits.ac.in/public/uploads/facilites/b5d61306027ba61e232b78950217b8f3.pdf", year: "2015-16" },
+  { title: "Sports Committee 2014-15 Office Order", url: "https://mits.ac.in/public/uploads/facilites/03162b562c55d6f1dea93145c87b611d.pdf", year: "2014-15" },
 ];
 
 const sportsClubEvents: SportsDoc[] = [
@@ -80,6 +416,51 @@ const jntuaPlayers: SportsDoc[] = [
   { title: "2021-2022 JNTUA Players NBA 2022", url: "https://mits.ac.in/public/uploads/facilites/JNTUA Players_2021-22 NBA 2022.pdf", year: "2021-22" },
   { title: "2019-2020 JNTUA Representation Details", url: "https://mits.ac.in/public/uploads/facilites/6b6e28b6867781770d749a7b4b5f9faf.pdf", year: "2019-20" },
   { title: "2018-2019 JNTUA Representation Details", url: "https://mits.ac.in/public/uploads/facilites/d892c78a9cd011c9dcdadb835a02d9da.pdf", year: "2018-19" },
+  { title: "2017-2018 JNTUA Representation Details", url: "https://mits.ac.in/public/uploads/facilites/1b2cc504a90d1be60d9f4f9fee607d11.pdf", year: "2017-18" },
+  { title: "2016-2017 JNTUA Representation Details", url: "https://mits.ac.in/public/uploads/facilites/2dee95581f5c2b5d5c8173c126b68afa.pdf", year: "2016-17" },
+  { title: "2015-2016 JNTUA Representation Details", url: "https://mits.ac.in/public/uploads/facilites/461f4331527065da7e9db4700f6af186.pdf", year: "2015-16" },
+];
+
+interface SportingAchievement {
+  name: string;
+  dept: string;
+  rollNo: string;
+  game: string;
+  organizer: string;
+  batch: string;
+}
+
+const sportingAchievementAwardWinners: SportingAchievement[] = [
+  { name: "S.T.MADHU SUDHAN RAJU", dept: "IV ECE", rollNo: "15699A0450", game: "SOFT BALL", organizer: "ALL INDIA INTER UNIVERSITY", batch: "2018-19" },
+  { name: "G.NAGA SOWMYA", dept: "II ECE", rollNo: "17691A04D1", game: "FENCING", organizer: "ALL INDIA INTER UNIVERSITY G N D University, Amritsar", batch: "2018-19" },
+  { name: "E.SURESH", dept: "IV CE", rollNo: "15691A0149", game: "KHO-KHO", organizer: "SV UNIVERSITY, ANDHRA", batch: "2018-19" },
+  { name: "K.ARUN KUMAR REDDY", dept: "II CSE", rollNo: "17691A0511", game: "KHO-KHO", organizer: "SV UNIVERSITY, ANDHRA", batch: "2018-19" },
+  { name: "R.SRAVANI", dept: "II ECE", rollNo: "16699A0455", game: "VOLLEY BALL", organizer: "KERALA", batch: "2018-19" },
+  { name: "G.RAJA SHEKAR", dept: "II MBA", rollNo: "17691E00D6", game: "VOLLEY BALL", organizer: "SRM UNIVERSITY, TAMIL NADU", batch: "2018-19" },
+  { name: "K.ROOPESH REDDY", dept: "I ME", rollNo: "18691A03A3", game: "HOCKEY", organizer: "AN UNIVERSITY, GUNTUR", batch: "2018-19" },
+  { name: "DHANIRAM PARAJULI", dept: "II CE", rollNo: "17691A0163", game: "Football", organizer: "Pondicherry University, PY", batch: "2018-19" },
+  { name: "SURAJ KANDAL", dept: "I CSE", rollNo: "18691A05E4", game: "Football", organizer: "Pondicherry University, PY", batch: "2018-19" },
+  { name: "UKESH SHARMA", dept: "I CSE", rollNo: "18691A05G0", game: "Football", organizer: "Pondicherry University, PY", batch: "2018-19" },
+  { name: "G.BHAVYA SREE", dept: "IV ME", rollNo: "14691A03J6", game: "BASKETBALL", organizer: "ANNA UNIVERSITY, TAMIL NADU", batch: "2017-18" },
+  { name: "E.SURESH", dept: "III CE", rollNo: "15691A0149", game: "KHO-KHO", organizer: "UNIVERSITY OF MYSURU, KARNATAKA", batch: "2017-18" },
+  { name: "G. SHIVA KRISHNA", dept: "III ECE", rollNo: "15691A04H9", game: "KABADDI", organizer: "SATHYABAMA UNIVERSITY, TAMIL NADU", batch: "2017-18" },
+  { name: "P.SAHITHI", dept: "II ECE", rollNo: "16699A0455", game: "VOLLEYBALL", organizer: "KANNUR UNIVERSITY, KERALA", batch: "2017-18" },
+  { name: "M.HEMALATHA", dept: "III CSE", rollNo: "15691A0547", game: "VOLLEYBALL", organizer: "KANNUR UNIVERSITY, KERALA", batch: "2017-18" },
+  { name: "SG.Md.ASHFAQ", dept: "III ME", rollNo: "15699A0315", game: "VOLLEYBALL", organizer: "SRM UNIVERSITY,TN", batch: "2017-18" },
+  { name: "G.BHAVYA SREE", dept: "III ME", rollNo: "14691A03J6", game: "BASKETBALL", organizer: "KERALA UNIVERSITY KERALA", batch: "2016-17" },
+  { name: "E.SURESH", dept: "II CE", rollNo: "15691A0149", game: "KHO-KHO", organizer: "KUVEMBU UNIVERSITY KARNATAKA", batch: "2016-17" },
+  { name: "G.SHIVA KRISHNA", dept: "II ECE", rollNo: "15691A04H9", game: "KABADDI", organizer: "VEL TECH UNIVERSITYTAMIL NADU", batch: "2016-17" },
+  { name: "G.SHIVA KRISHNA", dept: "I ECE", rollNo: "15691A04H9", game: "KABADDI", organizer: "KUVEMBU UNIVERSITY, KARNATAKA", batch: "2015-16" },
+  { name: "S.AKBAR ALI", dept: "III CSE", rollNo: "13691A0503", game: "CRICKET", organizer: "SAVITHA UNIVERSITY TAMILNADU", batch: "2015-16" },
+  { name: "G.SAI PRATAP", dept: "III EEE", rollNo: "13691A0230", game: "CRICKET", organizer: "SAVITHA UNIVERSITY TAMILNADU", batch: "2015-16" },
+  { name: "S.CHANDRA SEKAR NAIK", dept: "III EEE", rollNo: "11691A0416", game: "KHO-KHO", organizer: "ANNA UNIVERSITY, TAMIL NADU", batch: "2014-15" },
+  { name: "B.JANARDHAN", dept: "II MCA", rollNo: "11691F0048", game: "CRICKET", organizer: "PONDICHERRY UNIVERSITY", batch: "2013-14" },
+  { name: "S.CHANDRA SEKAR NAIK", dept: "III ECE", rollNo: "11691A0416", game: "KHO-KHO", organizer: "CALICUT UNIVERSITY, KERALA", batch: "2013-14" },
+  { name: "B.JANARDHAN", dept: "II MCA", rollNo: "11691F0048", game: "CRICKET", organizer: "MANIPAL UNIVERSITY", batch: "2012-13" },
+  { name: "T.AZIMUDDIN", dept: "II MCA", rollNo: "11691F0005", game: "VOLLEYBALL", organizer: "SRM UNIVERSITY, TN", batch: "2012-13" },
+  { name: "L. P. PRASAD", dept: "II MBA", rollNo: "10691E0022", game: "HANDBALL", organizer: "SANTHIRAM CE, KURNOOL. AP", batch: "2011-12" },
+  { name: "M. RAJA SEKHAR", dept: "II MBA", rollNo: "10691E0025", game: "VOLLEYBALL", organizer: "PRIYADARSHINI CE, NELLORE, AP", batch: "2011-12" },
+  { name: "B. KUMAR", dept: "IV ECE", rollNo: "08691A0538", game: "CHESS", organizer: "ACE RAJAM PETA, KADAPA, AP", batch: "2011-12" },
 ];
 
 const gymFacilities: SportsDoc[] = [
@@ -160,7 +541,7 @@ export const SportsFacilities: React.FC = () => {
 
         {/* Right Content Panel */}
         <div className="lg:col-span-8 p-5 sm:p-7">
-          {/* Subtab 1: About Sports with Current Events 2027-28 Accordion */}
+          {/* Subtab 1: About Sports */}
           {activeSubTab === "about" && (
             <div className="space-y-6">
               <div>
@@ -172,7 +553,7 @@ export const SportsFacilities: React.FC = () => {
                 </p>
               </div>
 
-              {/* Accordion: Current Events 2027-28 matching reference image */}
+              {/* Current events from the official MITS facilities page */}
               <div className="rounded-xl border border-slate-200 overflow-hidden shadow-xs">
                 <button
                   onClick={() => setCurrentEventsOpen(!currentEventsOpen)}
@@ -180,7 +561,7 @@ export const SportsFacilities: React.FC = () => {
                 >
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4 text-[#b30000]" />
-                    <span className="font-bold text-sm text-[#b30000]">Current Events 2027-28</span>
+                    <span className="font-bold text-sm text-[#b30000]">Current Events 2026-27</span>
                   </div>
                   {currentEventsOpen ? (
                     <ChevronUp className="w-4 h-4 text-slate-500" />
@@ -191,8 +572,8 @@ export const SportsFacilities: React.FC = () => {
 
                 {currentEventsOpen && (
                   <div className="p-4 bg-white divide-y divide-slate-100 space-y-3">
-                    {currentEvents2027_28.map((event, idx) => (
-                      <div key={idx} className="pt-3 first:pt-0">
+                    {currentEvents2026_27.map((event) => (
+                      <div key={event.title} className="pt-3 first:pt-0">
                         <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                           {event.title}
                         </p>
@@ -211,6 +592,64 @@ export const SportsFacilities: React.FC = () => {
                   </div>
                 )}
               </div>
+
+              <section className="space-y-3">
+                <h4 className="font-display text-lg font-bold text-[#0f2a44]">
+                  Previous Events
+                </h4>
+                <div className="space-y-2">
+                  {sportsEventArchive.map(({ year, events }, archiveIndex) => (
+                    <details
+                      key={year}
+                      open={archiveIndex === 0}
+                      className="group rounded-xl border border-slate-200 bg-white"
+                    >
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm font-bold text-[#0f2a44] hover:bg-slate-100 [&::-webkit-details-marker]:hidden">
+                        <span>Events {year}</span>
+                        <ChevronDown className="h-4 w-4 shrink-0 text-slate-500 transition-transform group-open:rotate-180" />
+                      </summary>
+                      <div className="divide-y divide-slate-100 px-4">
+                        {events.map((event) => (
+                          <div key={event.title} className="py-3 first:pt-4 last:pb-4">
+                            <p className="text-xs leading-relaxed text-slate-700 sm:text-sm">
+                              {event.title}
+                            </p>
+                            {event.url && (
+                              <a
+                                href={event.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-1.5 inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f2a44] transition-colors hover:text-[#b30000] hover:underline"
+                              >
+                                <FileText className="h-3.5 w-3.5 text-[#b30000]" />
+                                <span>Click here for Report on Event</span>
+                                <ExternalLink className="h-3 w-3 text-slate-400" />
+                              </a>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </section>
+
+              <section className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <h4 className="font-display text-lg font-bold text-[#0f2a44]">
+                  Department Contact
+                </h4>
+                <div className="mt-2 space-y-1 text-sm text-slate-700">
+                  <p>Dr. C. Damodharan</p>
+                  <p>Mrs. Kadithi Radha</p>
+                  <a
+                    href="mailto:sports@mits.ac.in"
+                    className="inline-flex items-center gap-2 font-semibold text-[#0f2a44] hover:text-[#b30000] hover:underline"
+                  >
+                    <Mail className="h-4 w-4" />
+                    Sports@mits.ac.in
+                  </a>
+                </div>
+              </section>
             </div>
           )}
 
@@ -539,6 +978,51 @@ export const SportsFacilities: React.FC = () => {
                       <td className="py-2.5 px-3">ECE</td>
                       <td className="py-2.5 px-3 font-medium text-amber-700">Volleyball</td>
                     </tr>
+                    <tr className="hover:bg-slate-50">
+                      <td className="py-2.5 px-3 font-semibold text-slate-900">2016-17</td>
+                      <td className="py-2.5 px-3">G. Bhavyasree</td>
+                      <td className="py-2.5 px-3">Women</td>
+                      <td className="py-2.5 px-3">ME</td>
+                      <td className="py-2.5 px-3 font-medium text-amber-700">Basketball</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="space-y-2">
+                <h4 className="font-display text-lg font-bold text-[#0f2a44]">
+                  MITS Recognition of Sporting Achievement
+                </h4>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  These annual awards recognize exceptional student achievement in individual and team sports. International, National, All India University and University sports persons (Men &amp; Women) are awarded a MITS memento during the Annual Day celebration.
+                </p>
+                <h5 className="text-sm font-bold text-[#0f2a44]">
+                  Award Winners (2011-2019)
+                </h5>
+              </div>
+              <div className="overflow-x-auto rounded-xl border border-slate-200">
+                <table className="w-full min-w-[700px] text-left text-xs sm:text-sm">
+                  <thead className="bg-[#0f2a44] text-[11px] uppercase tracking-wider text-white">
+                    <tr>
+                      <th className="px-3 py-2.5">Batch</th>
+                      <th className="px-3 py-2.5">Name</th>
+                      <th className="px-3 py-2.5">Dept</th>
+                      <th className="px-3 py-2.5">Roll No.</th>
+                      <th className="px-3 py-2.5">Game/Sport</th>
+                      <th className="px-3 py-2.5">Organizer</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 bg-white">
+                    {sportingAchievementAwardWinners.map((winner) => (
+                      <tr key={`${winner.batch}-${winner.rollNo}-${winner.game}`} className="hover:bg-slate-50">
+                        <td className="px-3 py-2.5 font-semibold text-slate-900">{winner.batch}</td>
+                        <td className="px-3 py-2.5">{winner.name}</td>
+                        <td className="px-3 py-2.5">{winner.dept}</td>
+                        <td className="px-3 py-2.5">{winner.rollNo}</td>
+                        <td className="px-3 py-2.5 font-medium text-amber-700">{winner.game}</td>
+                        <td className="px-3 py-2.5">{winner.organizer}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -634,13 +1118,13 @@ export const SportsFacilities: React.FC = () => {
                   </div>
                 </div>
                 <a
-                  href="https://mits.ac.in/public/uploads/facilites/Sports%20Physical%20Facilities.pdf"
+                  href="https://mits.ac.in/public/uploads"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#0f2a44] hover:bg-[#1a4168] text-white rounded-lg text-xs font-semibold transition-colors"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  <span>Download Protocol</span>
+                  <span>Open Source Link</span>
                 </a>
               </div>
             </div>
