@@ -88,7 +88,7 @@ const infrastructure = [
 ];
 
 const contactInfo = [
-  { icon: MapPin, title: "Address", lines: ["Post Box No. 4, Angallu", "Madanapalle – 517325", "Annamayya District, Andhra Pradesh"] },
+  { icon: MapPin, title: "Address", lines: ["Madanapalle-Kadiri Road, NH-42", "Kurabalakota Mandal, Madanapalle-517325", "Andhra Pradesh, India"] },
   { icon: Phone, title: "Phone", lines: ["+91 8571 280255", "+91 8571 280256"] },
   { icon: Mail, title: "Email", lines: ["info@mits.ac.in", "admissions@mits.ac.in"] },
   { icon: Clock, title: "Office Hours", lines: ["Mon – Fri: 9:00 AM – 5:00 PM", "Sat: 9:00 AM – 1:00 PM"] },
