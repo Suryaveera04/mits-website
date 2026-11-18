@@ -462,9 +462,10 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
   };
 }
 
-const CACHE_KEY = "mits_faculty_api_cache_v4";
-const CACHE_TIME_KEY = "mits_faculty_api_cache_time_v4";
-const CACHE_TTL_MS = 1000 * 60 * 30; // 30 minutes
+const CACHE_KEY = "mits_faculty_api_cache_v5";
+const CACHE_TIME_KEY = "mits_faculty_api_cache_time_v5";
+const isLocalEnv = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+const CACHE_TTL_MS = isLocalEnv ? 1000 * 10 : 1000 * 60 * 5; // 10s on localhost for instant reflection of faculty edits, 5 mins in prod
 
 /**
  * Sanitizes faculty names in a list to prevent trailing 'a' artifacts and normalize known discrepancies

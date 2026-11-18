@@ -80,7 +80,7 @@
     "dbFullName": "Dr Turuganti Venkateswarlu",
     "slug": "dr-turuganti-venkateswarlu",
     "email": "drvenkateswarlut@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-resize-168500857861272632photo-1793080384554-69268090.jpg",
+    "profilePhoto": "/uploads/profile/profilePhoto-venkat-1794564844206-617666183.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1141"
   },
   {
@@ -388,7 +388,7 @@
     "dbFullName": "Karthik A",
     "slug": "mr-a-karthik",
     "email": "karthika@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Karthik-1793785672118-711817023.JPG",
+    "profilePhoto": "/uploads/profile/profilePhoto-suit_profile_photo-1794375709212-536459319.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1097"
   },
   {
@@ -668,7 +668,8 @@
     "dbFullName": "Dr Arunkumar G A",
     "slug": "dr-g-arun-kumar",
     "email": "drarunkumarg@mits.ac.in",
-    "oldProfileUrl": "https://mits.ac.in/facultyprofile/84"
+    "oldProfileUrl": "https://mits.ac.in/facultyprofile/84",
+    "profilePhoto": "/uploads/profile/profilePhoto-Arun_Kumar-1794810425895-198780124.JPG"
   },
   {
     "sno": "48",
@@ -751,7 +752,8 @@
     "dbFullName": "Prasath B",
     "slug": "dr-prasath-b",
     "email": "prasathb@mits.ac.in",
-    "oldProfileUrl": "https://mits.ac.in/facultyprofile/690"
+    "oldProfileUrl": "https://mits.ac.in/facultyprofile/690",
+    "profilePhoto": "/uploads/profile/profilePhoto-Prasath-1794810186244-856672014.JPG"
   },
   {
     "sno": "54",
@@ -778,7 +780,8 @@
     "dbFullName": "Dr Lakshmana Rao N",
     "slug": "dr-lakshmana-rao-n",
     "email": "drlakshmanaraon@mits.ac.in",
-    "oldProfileUrl": "https://mits.ac.in/facultyprofile/1118"
+    "oldProfileUrl": "https://mits.ac.in/facultyprofile/1118",
+    "profilePhoto": "/uploads/profile/profilePhoto-Lakshmana_Rao-1794810312231-3905705.JPG"
   },
   {
     "sno": "56",
@@ -889,7 +892,8 @@
     "dbFullName": "K. Lokesh A",
     "slug": "mr-lokesh-k",
     "email": "lokeshk@mits.ac.in",
-    "oldProfileUrl": "https://mits.ac.in/facultyprofile/1136"
+    "oldProfileUrl": "https://mits.ac.in/facultyprofile/1136",
+    "profilePhoto": "/uploads/profile/profilePhoto-lokeshA-1794810281846-306834171.jpg"
   },
   {
     "sno": "65",
@@ -972,7 +976,7 @@
     "dbFullName": "Viswanath J",
     "slug": "mr-j-viswanath",
     "email": "viswanathj@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Viswanath-1793790345964-273860738.JPG",
+    "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-IMG_2040-1794396542191-615649827.PNG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/129"
   },
   {
@@ -1098,7 +1102,7 @@
     "dbFullName": "Kiran Kumar G",
     "slug": "mr-g-kiran-kumar",
     "email": "kirankumarg@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-DSC_0036-1793705463322-874761863.JPG",
+    "profilePhoto": "/uploads/profile/profilePhoto-Kiran_Kumar-1794551971656-516164687.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/511"
   },
   {
@@ -1196,7 +1200,7 @@
     "dbFullName": "Dr Brahm Prakash",
     "slug": "dr-brahm-prakash",
     "email": "drbrahmprakash@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-pic-1793962727228-194039120.jpg",
+    "profilePhoto": "/uploads/profile/profilePhoto-Brahm_Prakash-1794552024257-480240001.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1085"
   },
   {
@@ -1224,7 +1228,7 @@
     "dbFullName": "Komala A",
     "slug": "mrs-a-komala",
     "email": "komalaa@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-komala-photo-1793792633296-267786702.jpeg",
+    "profilePhoto": "/uploads/profile/profilePhoto-komala-1794543428299-549935508.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/95"
   },
   {
@@ -1448,7 +1452,7 @@
     "dbFullName": "Dr E Sandhya",
     "slug": "dr-e-sandhya",
     "email": "drsandhyae@mits.ac.in",
-    "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-passport1-1793940565234-395235074.jpg",
+    "profilePhoto": "/uploads/profile/profilePhoto-Sandhya-1794564968468-745776374.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/501"
   },
   {
@@ -1476,7 +1480,7 @@
     "dbFullName": "Dr Shahnazeer C K",
     "slug": "dr-shahnazeer-c-k",
     "email": "drshahnazeerck@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-VAVAMOL-RECENT-1793809548429-110588222.png",
+    "profilePhoto": "/uploads/profile/profilePhoto-Shahnazeer-1794564999206-679007694.JPG",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/1114"
   },
   {
@@ -1812,7 +1816,7 @@
     "dbFullName": "Dr. Kolati Yeliyya",
     "slug": "dr-kolati-yeliyya",
     "email": "dryeliyyak@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-Kolati_Yeliyya-1793788781046-484586098.JPG",
+    "profilePhoto": "https://127.0.0.1:5005/uploads/profile/file-Image-1794639514318-72957420.jpg",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/727"
   },
   {
@@ -2428,7 +2432,7 @@
     "dbFullName": "Sanjaya Brahma",
     "slug": "dr-sanjaya-brahma",
     "email": "drsanjayabrahma@mits.ac.in",
-    "profilePhoto": "/uploads/profile/profilePhoto-San-1785829777880-630435213.jpg",
+    "profilePhoto": "/uploads/profile/profilePhoto-Sanjaya_Brahma-1794555624988-174693071.png",
     "oldProfileUrl": "https://mits.ac.in/facultyprofile/715"
   },
   {

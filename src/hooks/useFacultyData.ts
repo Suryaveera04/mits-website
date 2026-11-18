@@ -336,8 +336,8 @@ export function useFacultyData() {
   }, []);
 
   useEffect(() => {
-    // Non-blocking background sync with live API
-    loadData();
+    // Non-blocking background sync with live API (forceRefresh ensures latest faculty edits reflect immediately)
+    loadData(true);
   }, [loadData]);
 
   /**
@@ -396,19 +396,16 @@ export function useFacultyData() {
           officialByName.get(cleanFacultyName(f.fullName).toLowerCase());
 
         if (official) {
-          if (official.name) {
-            member.name = official.name;
-          }
-          if (official.designation) {
-            member.designation = official.designation;
-          }
-          if (official.qualification) {
-            member.qualification = official.qualification;
-          }
           if (official.slug) {
             member.profileUrl = `/department/${normalizedKey}/faculty/${official.slug}`;
           }
-          if (official.profilePhoto) {
+          if (official.qualification && (!member.qualification || member.qualification === "M.Tech / M.Sc")) {
+            member.qualification = official.qualification;
+          }
+          // STRICT RULE: Only use official.profilePhoto as fallback if member.image from the live API is missing!
+          // This ensures that whenever a faculty member updates their photo in the Faculty Management System,
+          // their latest photo is immediately reflected across all cards and profiles.
+          if (!member.image && official.profilePhoto) {
             const photoUrl =
               getFacultyPhotoUrl(official.profilePhoto) ||
               (official.profilePhoto.startsWith("http") ? official.profilePhoto : undefined);
@@ -521,10 +518,14 @@ export function useFacultyData() {
           );
 
         if (resolvedOfficial) {
-          if (resolvedOfficial.name) prof.name = resolvedOfficial.name;
-          if (resolvedOfficial.designation) prof.designation = resolvedOfficial.designation;
-          if (resolvedOfficial.qualification) prof.qualification = resolvedOfficial.qualification;
-          if (resolvedOfficial.profilePhoto) {
+          if (resolvedOfficial.name && (prof.name.toLowerCase() === "chandra sekhar" || !prof.name)) {
+            prof.name = resolvedOfficial.name;
+          }
+          if (resolvedOfficial.qualification && (!prof.qualification || prof.qualification === "M.Tech / M.Sc")) {
+            prof.qualification = resolvedOfficial.qualification;
+          }
+          // STRICT RULE: Only use resolvedOfficial.profilePhoto as fallback if prof.image from live API is missing!
+          if (!prof.image && resolvedOfficial.profilePhoto) {
             const photoUrl =
               getFacultyPhotoUrl(resolvedOfficial.profilePhoto) ||
               (resolvedOfficial.profilePhoto.startsWith("http") ? resolvedOfficial.profilePhoto : undefined);
