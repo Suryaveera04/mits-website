@@ -221,7 +221,7 @@ const SECTION_ICONS: Record<string, React.ComponentType<{ className?: string }>>
   "Previous Employment & Experience": Briefcase,
   "Subjects Taught": BookOpen,
   "Laboratories Handled": Award,
-  "Certifications": FileText,
+  "Certifications": Award,
 };
 
 const FacultyProfilePage = () => {

@@ -45,6 +45,7 @@ export interface FacultyMember {
     patents?: { title: string; year: string; status: string }[];
     awards?: string[];
     education?: { degree: string; specializatio: string; university: string; year: string }[];
+    certifications?: { title: string; issuingAuthority?: string; year?: string }[];
   };
 }
 

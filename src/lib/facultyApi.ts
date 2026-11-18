@@ -58,8 +58,11 @@ export interface APIPublication {
 
 export interface APICertification {
   _id?: string;
+  name?: string;
   title?: string;
+  issuingAuthority?: string;
   issuingOrganization?: string;
+  year?: number | string;
   issueDate?: string;
   credentialId?: string;
   credentialUrl?: string;
@@ -268,6 +271,11 @@ export function apiFacultyToFacultyMember(f: APIFacultyMember, staticImageFallba
     institutionCadre: f.institutionCadre,
     profile: {
       researchAreas: f.specialization?.join(", "),
+      certifications: f.certifications?.map((c) => ({
+        title: c.name || c.title || "",
+        issuingAuthority: c.issuingAuthority || c.issuingOrganization || "",
+        year: c.year !== null && c.year !== undefined && String(c.year).trim() !== "" ? String(c.year) : (c.issueDate ? String(c.issueDate) : ""),
+      })),
       publications: f.publications?.map((p) => ({
         title: p.title || "",
         year: p.publicationDate ? new Date(p.publicationDate).getFullYear().toString() : "",
@@ -440,9 +448,9 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
   if (f.certifications && f.certifications.length > 0) {
     const certRows: Record<string, string>[] = f.certifications.map((c, idx) => ({
       "S.No": String(idx + 1),
-      Certification: c.title || "-",
-      "Issuing Organization": c.issuingOrganization || "-",
-      "Credential ID": c.credentialId || "-",
+      "Certification / Course Name": c.name || c.title || "-",
+      "Issuing Authority / Organization": c.issuingAuthority || c.issuingOrganization || "-",
+      "Year of Award": c.year !== null && c.year !== undefined && String(c.year).trim() !== "" ? String(c.year) : (c.issueDate ? String(c.issueDate) : "-"),
     }));
 
     sections.push({
@@ -466,10 +474,10 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
   };
 }
 
-const CACHE_KEY = "mits_faculty_api_cache_v5";
-const CACHE_TIME_KEY = "mits_faculty_api_cache_time_v5";
+const CACHE_KEY = "mits_faculty_api_cache_v6";
+const CACHE_TIME_KEY = "mits_faculty_api_cache_time_v6";
 const isLocalEnv = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
-const CACHE_TTL_MS = isLocalEnv ? 1000 * 10 : 1000 * 60 * 5; // 10s on localhost for instant reflection of faculty edits, 5 mins in prod
+const CACHE_TTL_MS = isLocalEnv ? 1000 * 5 : 1000 * 15; // 15s max cache TTL ensures live CMS updates reflect almost immediately without stale cache
 
 /**
  * Orders faculty members strictly by API teamDisplayOrder ascending (where present),
@@ -570,17 +578,19 @@ export async function fetchFacultyProfiles(forceRefresh = false): Promise<APIFac
     }
   }
 
-  // 2. Determine fetch endpoint (local dev proxy vs production)
+  // 2. Determine fetch endpoint (local dev proxy vs production) with cache-busting
   const isLocal = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
-  const endpoint = isLocal ? "/faculty-api/v1/faculty/public-profiles" : FACULTY_API_URL;
+  const baseEndpoint = isLocal ? "/faculty-api/v1/faculty/public-profiles" : FACULTY_API_URL;
+  const endpoint = `${baseEndpoint}${baseEndpoint.includes("?") ? "&" : "?"}_t=${Date.now()}`;
 
   try {
     const controller = new AbortController();
-    // Fast 3.5s timeout prevents sluggish UI when origin database is experiencing latency
-    const timeoutId = setTimeout(() => controller.abort(), 3500);
+    // 4.5s timeout prevents sluggish UI when origin database is experiencing latency
+    const timeoutId = setTimeout(() => controller.abort(), 4500);
 
     const res = await fetch(endpoint, {
       method: "GET",
+      cache: "no-store",
       headers: {
         "x-api-key": FACULTY_API_KEY,
         Accept: "application/json",
