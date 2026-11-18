@@ -291,8 +291,8 @@ export const sdgPoliciesData: PdfDocument[] = [
     "url": "https://mits.ac.in/assets/pdf/iqac/DISABILITY ACCOMMODATION POLICY.pdf"
   },
   {
-    "title": "Energy Efficient Renovation And Building Policy",
-    "url": "https://mits.ac.in/assets/pdf/iqac/ENERGY EFFICIENT RENOVATION AND BUILDING POLICY.pdf"
+    "title": "Energy-Efficient Renovation and Building Policy",
+    "url": "https://mits.ac.in/assets/pdf/iqac/ENERGY-EFFICIENT RENOVATION AND BUILDING POLICY.pdf"
   },
   {
     "title": "Gender Equity Policy",
@@ -345,6 +345,26 @@ export const sdgPoliciesData: PdfDocument[] = [
   {
     "title": "Sustainable Procurement Policy",
     "url": "https://mits.ac.in/assets/pdf/iqac/Sustainable Procurement Policy-compressed.pdf"
+  },
+  {
+    "title": "Carbon Management and Greenhouse Gas Emission Reduction Policy",
+    "url": "https://mits.ac.in/assets/pdf/iqac/CARBON MANAGEMENT AND GREENHOUSE GAS EMISSION REDUCTION POLICY.pdf"
+  },
+  {
+    "title": "Energy Conservation and Energy Consumption",
+    "url": "https://mits.ac.in/assets/pdf/iqac/ENERGY CONSERVATION AND ENERGY CONSUMPTION.pdf"
+  },
+  {
+    "title": "Energy Wastage Identification and Management",
+    "url": "https://mits.ac.in/assets/pdf/iqac/ENERGY WASTAGE IDENTIFICATION AND MANAGEMENT.pdf"
+  },
+  {
+    "title": "Existing Building Energy Efficiency Upgradation",
+    "url": "https://mits.ac.in/assets/pdf/iqac/EXISTING BUILDING ENERGY EFFICIENCY UPGRADATION.pdf"
+  },
+  {
+    "title": "Water Reuse and Recycling Policy Revision",
+    "url": "https://mits.ac.in/assets/pdf/iqac/WATER REUSE AND RECYCLING POLICY Revision.pdf"
   }
 ];
 
