@@ -464,6 +464,7 @@ const sportingAchievementAwardWinners: SportingAchievement[] = [
 ];
 
 const gymFacilities: SportsDoc[] = [
+  { title: "2025-26 New Gym Facilities", url: "https://mits.ac.in/public/uploads/facilites/New Gym Facilities 2025.pdf", year: "2025-26" },
   { title: "Gym Facilities 2018-19", url: "https://mits.ac.in/public/uploads/facilites/gymfacilities-2018-19.pdf", year: "2018-19" },
   { title: "Gym Facilities 2017-18", url: "https://mits.ac.in/public/uploads/facilites/bc3438117d6223a5712f85222ae24bb5.pdf", year: "2017-18" },
   { title: "Gym Facilities 2016-17", url: "https://mits.ac.in/public/uploads/facilites/f62fce690d251b3ee9ccfddb50d35689.pdf", year: "2016-17" },
