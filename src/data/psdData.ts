@@ -118,7 +118,7 @@ export const psdSections: PsdSection[] = [
       { subject: "Sports", category: "Student", actions: [int("/campus-life")] },
       { subject: "NSS", category: "Student", actions: [int("/campus-life")] },
       { subject: "NCC", category: "Student", actions: [int("/campus-life")] },
-      { subject: "Student Clubs & Activities", category: "Student", actions: [int("/campus-life/student-clubs")] },
+      { subject: "Student Clubs & Activities", category: "Student", actions: [int("/studentclubs")] },
       { subject: "Placements & Activities", category: "Student", actions: [int("/placements")] },
       { subject: "Student Grievance Redressal Committee (SGRC)", category: "Student", actions: [int("/cells")] },
       { subject: "Health Facilities", category: "Student", actions: [int("/infrastructure")] },

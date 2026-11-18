@@ -111,7 +111,6 @@ const Footer = () => {
                 { label: "Cells & Committees", href: "/cells" },
                 { label: "MITS Radio", href: "/mits-radio" },
                 { label: "Venture Studio", href: "/Venture-Studio" },
-                { label: "Skill Development Centre", href: "/skill-development-centre" },
                 { label: "Moodle Login", href: "https://moodle.mits.ac.in/" },
               ].map((link) => (
                 <li key={link.label}>

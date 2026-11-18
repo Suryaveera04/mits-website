@@ -142,21 +142,59 @@ function cmsProxyPlugin() {
           const a = itemDept.toLowerCase().trim();
           const b = targetDept.toLowerCase().trim();
           if (a === b) return true;
+          if (b === "ai" || b === "cse-ai") {
+            if (a.includes("aiml") || a.includes("machine") || a.includes("data") || a.includes("cyber")) return false;
+            return a === "ai" || a === "cse-ai" || a === "artificial intelligence";
+          }
+          if (b === "aiml" || b === "cse-aiml") {
+            return a === "aiml" || a.includes("aiml") || a.includes("machine learning");
+          }
           if (b === "cse" && (a === "cse" || a.includes("computer science & eng") || a.includes("computer science and eng"))) return true;
           if (b === "cst" && (a === "cst" || a.includes("computer science and tech") || a.includes("computer science & tech"))) return true;
           if ((b === "ce" || b === "civil") && (a === "ce" || a === "civil" || a.includes("civil"))) return true;
           if ((b === "me" || b === "mech" || b === "mechanical") && (a === "me" || a === "mech" || a.includes("mech") || a.includes("mechanical"))) return true;
           if (b === "eee" && (a === "eee" || a.includes("electrical"))) return true;
           if (b === "ece" && (a === "ece" || a.includes("electronics"))) return true;
-          if (b === "ai" && (a === "ai" || a === "cse-ai")) return true;
-          if (b === "aiml" && (a === "aiml" || a.includes("aiml") || a.includes("machine learning"))) return true;
           if (b === "cseds" && (a === "cseds" || a === "ds" || a.includes("data science"))) return true;
           if (b === "csecs" && (a === "csecs" || a === "cs" || a.includes("cyber"))) return true;
           if ((b === "mca" || b === "ca" || b === "computer applications") && (a === "mca" || a === "ca" || a.includes("computer application") || a.includes("mca"))) return true;
           if (b === "mba" && (a === "mba" || a.includes("management"))) return true;
           if (b === "bsh" && (a === "bsh" || a.includes("basic science") || a.includes("humanities"))) return true;
+          if (b === "ai" || a === "ai") return false;
           return a.includes(b) || b.includes(a);
         };
+
+        // Events routing with strict department isolation
+        if (endpointOnly === "/events.php") {
+          const searchParams = new URLSearchParams(queryStr || "");
+          const deptParam = searchParams.get("dept") || searchParams.get("department");
+          const cmsUrl = deptParam
+            ? `/backend/public_api/events.php?dept=${encodeURIComponent(deptParam)}`
+            : "/backend/public_api/events.php";
+          cmsRequest(cmsUrl)
+            .then((body) => {
+              try {
+                const json = JSON.parse(body);
+                let events = json.success ? (json.events || []) : [];
+                if (deptParam && deptParam !== "all") {
+                  events = events.filter((e: any) => isDeptMatch(e.department, deptParam));
+                }
+                res.setHeader("Content-Type", "application/json; charset=utf-8");
+                res.setHeader("Access-Control-Allow-Origin", "*");
+                res.statusCode = 200;
+                res.end(JSON.stringify({ success: true, count: events.length, events }));
+              } catch (e: any) {
+                res.statusCode = 502;
+                res.end(JSON.stringify({ success: false, error: e?.message, events: [] }));
+              }
+            })
+            .catch((err) => {
+              console.error("[cms-proxy] Events error:", err.message);
+              res.statusCode = 502;
+              res.end(JSON.stringify({ success: false, error: err.message, events: [] }));
+            });
+          return;
+        }
 
         // Subjects routing to /backend/get_subjects.php
         if (endpointOnly === "/get_subjects.php" || endpointOnly === "/subjects.php") {

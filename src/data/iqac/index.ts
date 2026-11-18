@@ -107,6 +107,8 @@ export const aqarTimelineParagraphs = [
 ];
 
 export const aqarReportsYearly: Doc[] = [
+  { title: "AQAR 2025-26 Report", url: "#", type: "pdf" },
+  { title: "AQAR 2024-25 Report", url: "#", type: "pdf" },
   { title: "AQAR 2023-24 Report", url: "https://mits.ac.in/assets/pdf/iqac/AQAR 2023-24.pdf", type: "pdf" },
   { title: "AQAR 2022-23 Report", url: "https://mits.ac.in/public/uploads/naac/AQAR 2022-23.pdf", type: "pdf" },
   { title: "AQAR 2021-22 Report", url: "https://mits.ac.in/public/uploads/naac/AQAR%202021-2022.pdf", type: "pdf" },
@@ -120,6 +122,11 @@ export const compositionYearly: Doc[] = [
   {
     title: "Composition of Committee Members for Year 2027-2028",
     url: "https://mits.ac.in/assets/pdf/iqac/Composition of committee members for Year 2027-2028.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Composition of Committee Members for Year 2026-2027",
+    url: "https://mits.ac.in/assets/pdf/iqac/Composition of committee members for Year 2026-2027.pdf",
     type: "pdf"
   },
   {
@@ -178,6 +185,21 @@ export const organogram = {
 
 // ---------------- NAAC REFORMS 2024 ----------------
 export const naacReforms2024: Doc[] = [
+  {
+    title: "NAAC Coordinator Office Order",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC Coordinator Order.pdf",
+    type: "pdf"
+  },
+  {
+    title: "University-wise NAAC Criterion Coordinators",
+    url: "https://mits.ac.in/assets/pdf/iqac/University-wise NAAC Criterion Coordinators_2026.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Updated Department-wise NAAC Coordinators",
+    url: "https://mits.ac.in/assets/pdf/iqac/Updated_Department-wise NAAC Coordinators.pdf",
+    type: "pdf"
+  },
   {
     title: "Department-wise DQAC Coordinators List 2026-27",
     url: "https://mits.ac.in/assets/pdf/iqac/Departmentwise DQAC Coordinators List 2026-27.pdf",
@@ -574,6 +596,11 @@ export const feedbackPolicy: Doc[] = [
     "title": "MITS Stakeholder Feedback - Policy",
     "url": "https://mits.ac.in/assets/pdf/iqac/MITS-Stakeholder Feedback-Policy.pdf",
     "type": "pdf"
+  },
+  {
+    "title": "Coordinator - Office Order",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Coordinator Office Order.pdf",
+    "type": "pdf"
   }
 ];
 export const actionTakenReports: Doc[] = [
@@ -717,7 +744,7 @@ export const externalAuditReports: Doc[] = [
 export const internalAuditReports: Doc[] = [
   {
     "title": "Internal Audit Report 2024-25",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Internal Audit Report 2024-25.pdf",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Internal Audit Report for-2024-2025.pdf",
     "type": "pdf"
   },
   {
@@ -727,29 +754,29 @@ export const internalAuditReports: Doc[] = [
   },
   {
     "title": "Internal Audit Report 2022-23",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Internal Audit Report 2022-23.pdf",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Index for Internal Audit Report 2022-23.pdf",
     "type": "pdf"
   },
   {
     "title": "Internal Audit Report 2021-22",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Internal Audit Report 2021-22.pdf",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Index for Internal Audit Report 2021-22.pdf",
     "type": "pdf"
   }
 ];
 export const externalAuditATR: Doc[] = [
   {
     "title": "External Audit ATR 2023-24",
-    "url": "https://mits.ac.in/assets/pdf/iqac/External Audit ATR 2023-24.pdf",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Index for ATR - External Audit Report 2023-24.pdf",
     "type": "pdf"
   },
   {
     "title": "External Audit ATR 2022-23",
-    "url": "https://mits.ac.in/assets/pdf/iqac/External Audit ATR 2022-23.pdf",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Index for ATR - External Audit Report 2022-23.pdf",
     "type": "pdf"
   },
   {
     "title": "External Audit ATR 2021-22",
-    "url": "https://mits.ac.in/assets/pdf/iqac/External Audit ATR 2021-22.pdf",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Index for ATR - External Audit Report 2021-22.pdf",
     "type": "pdf"
   }
 ];
@@ -761,17 +788,17 @@ export const internalAuditATR: Doc[] = [
   },
   {
     "title": "Internal Action Taken Report 2023-24",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Internal Audit ATR 2023-24.pdf",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Index for ATR - Internal Audit Report 2023-24.pdf",
     "type": "pdf"
   },
   {
     "title": "Internal Action Taken Report 2022-23",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Internal Audit ATR 2022-23.pdf",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Index _ATR_ Internal Audit 2022-23 .pdf",
     "type": "pdf"
   },
   {
     "title": "Internal Action Taken Report 2021-22",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Internal Audit ATR 2021-22.pdf",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Index for ATR - Internal Audit Report 2021-22.pdf",
     "type": "pdf"
   }
 ];
@@ -1422,6 +1449,28 @@ export const iqacEvents: IqacEvent[] = [
 ];
 export const iqacENotices = [
   {
+    title: "📢 Internal Administrative Audit – AY 2025–26",
+    detail: "Internal Administrative Audit for the Academic Year 2025–26 is scheduled from 4th November 2026 to 6th November 2026. Conducted by: IQAC – MITS",
+    date: "Nov 2026",
+    url: "#",
+    highlight: true
+  },
+  {
+    title: "GURU- DAKSHTA: Two-Week Faculty Induction Program (26.10.2026 to 05.11.2026)",
+    detail: "Two-Week Faculty Induction Program from 26.10.2026 to 05.11.2026 | Time: 4.00 P.M. to 5.00 P.M. | Venue: Seminar Hall A",
+    date: "Oct - Nov 2026",
+    url: "https://mits.ac.in/assets/pdf/iqac/FIP-Schedule 2026-27.pdf",
+    linkText: "Click here for Event Details",
+    highlight: true
+  },
+  {
+    title: "📢 Internal Academic Audit – AY 2025–26, Semester–II",
+    detail: "Internal Academic Audit for UG (II/III/IV Year B.Tech.) and PG (MBA, MCA & M.Tech.) programmes is scheduled from 21st to 29th September 2026. Special Note: DTBU First Year – Semester I & II records for AY 2025–26 will also be covered. Conducted BY PAARC & IQAC Team - MITS",
+    date: "Sept 2026",
+    url: "#",
+    highlight: true
+  },
+  {
     title: "📢 Internal Academic Audit – AY 2025–26, Semester–II for UG & PG programs (9th – 13th March 2026, Conducted by PAARC & IQAC Team)",
     date: "March 2026",
     url: "https://mits.ac.in/assets/pdf/iqac/IQAC PDP poster-2026.pdf",
@@ -1609,6 +1658,12 @@ export const iqacENotices = [
     detail: "February 12th – 16th 2024",
     url: "https://mits.ac.in/assets/pdf/iqac/NITTTR Banner.pdf",
     linkText: "Click here for Event Banner"
+  },
+  {
+    title: "NITTTR Professional Development Program on \"NBA Accreditation\" - Brochure",
+    detail: "February 12th – 16th 2024",
+    url: "https://mits.ac.in/assets/pdf/iqac/NITTTR Brochure.pdf",
+    linkText: "Click here for Event Brochure"
   },
   {
     title: "NITTTRC Professional Development Program on \"NBA Accreditation\"",
@@ -3336,6 +3391,11 @@ export const mitsDtbuPolicies: Doc[] = [
     "title": "MITS IEEE Student Branch Policy",
     "url": "https://mits.ac.in/assets/pdf/iqac/MITS IEEE SB DTBU Policy.pdf",
     "type": "pdf"
+  },
+  {
+    "title": "International Relations Office (IRO) Policy",
+    "url": "https://www.mits.ac.in/assets/pdf/admin/IRO Policy.pdf",
+    "type": "pdf"
   }
 ];
 
@@ -3473,6 +3533,16 @@ export const qualityInitiativesOverview = [
 ];
 
 export const qualityInitiatives: Doc[] = [
+  {
+    "title": "IQAC Quality Initiatives",
+    "url": "https://mits.ac.in/assets/pdf/iqac/MITS IQAC Quality Framework-1.pdf",
+    "type": "pdf"
+  },
+  {
+    "title": "International Relations Office (IRO) Policy",
+    "url": "https://www.mits.ac.in/assets/pdf/admin/IRO Policy.pdf",
+    "type": "pdf"
+  },
   {
     "title": "QA Initiatives",
     "url": "https://mits.ac.in/public/uploads/naac/QA%20Initiatives.pdf",

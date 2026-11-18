@@ -492,10 +492,20 @@ export const userBestPracticesDocs: Doc[] = [
     "title": "Best Practice : 2 - MITS Radio 90.8:Voice of the Community - Educate, Empower & Engage",
     "url": "https://mits.ac.in/assets/pdf/iqac/MITS-DTBU-Mpl-Best%20Practices-2.pdf",
     "type": "pdf"
+  },
+  {
+    "title": "Best Practice : 3 - Institutional Excellence through ISO 21001:2018 Educational Organizations Management System (EOMS): A Learner-Centric Quality Management Framework",
+    "url": "https://mits.ac.in/assets/pdf/iqac/MITS-DTBU-Mpl-Best Practices-3.pdf",
+    "type": "pdf"
   }
 ];
 
 export const userSssDocs: Doc[] = [
+  {
+    "title": "Student Satisfaction Survey 2025-26",
+    "url": "https://mits.ac.in/public/uploads/naac/Student_Satisfaction_Survey_AY_2025-26.pdf",
+    "type": "pdf"
+  },
   {
     "title": "Student Satisfaction Survey 2024-25",
     "url": "https://mits.ac.in/public/uploads/naac/Student%20Satisfaction%20Survey%20AY%202024-25.pdf",
@@ -764,6 +774,11 @@ export const userUgcMandateDocs: Doc[] = [
 ];
 export const userIqacEventsDocs: Doc[] = [
   {
+    "title": "\"Student Induction Program (SIP) (Deekshaarambh)\" was conducted for I B.Tech/BCA/BBA students from 18-August-2026 to 29-August-2026",
+    "url": "https://mits.ac.in/assets/pdf/iqac/SIP_AY 2026-27.pdf",
+    "type": "pdf"
+  },
+  {
     "title": "A Five - Day Professional Development Programme (PDP) on \"AI in Teaching and Learning\" was organized by IQAC in association with NITTTR, Chennai (06.04.2026 to 10.04.2026)",
     "url": "https://mits.ac.in/assets/pdf/iqac/AI%20in%20teaching%20and%20Learning.pdf",
     "type": "pdf"
@@ -771,6 +786,16 @@ export const userIqacEventsDocs: Doc[] = [
   {
     "title": "A Three Days ISO 21001: 2018 Surveillance Audit 2 was held during 22nd – 24th January 2026 by TUV SUD South Asia",
     "url": "https://mits.ac.in/assets/pdf/iqac/ISO%20Surveillnace%202%20Audit%20Report%2022nd%20&%2024th%20January%202026.pdf",
+    "type": "pdf"
+  },
+  {
+    "title": "A \"Guru-Dakshta Faculty Induction Program (FIP)\" was organized by IQAC, MITS for the Academic Year 2025-26 from 27th October 2025 to 15th November 2025.",
+    "url": "https://mits.ac.in/assets/pdf/iqac/Gurudakhsta Report _ Faculty Induction Program _ 25-26.pdf",
+    "type": "pdf"
+  },
+  {
+    "title": "\"Student Induction Program (SIP) (Deekshaarambh)\" was conducted for I B.Tech students from 19th August-2025 to 30th August-2025",
+    "url": "https://mits.ac.in/assets/pdf/iqac/SIP 2025.pdf",
     "type": "pdf"
   },
   {
@@ -945,7 +970,7 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "Quality Objective Parameters",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Quality%20Objective%20Parameters.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Quality Objective Parameters.xlsx",
         "type": "xlsx"
       }
     ]
@@ -956,7 +981,7 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "Files to be maintained by Department for B.Tech Programme Version.1",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Files%20to%20be_maintained%20by%20Department%20for%20B.Tech%20V0.1.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Files to be_maintained by Department for B.Tech V0.1.pdf",
         "type": "pdf"
       }
     ]
@@ -967,7 +992,7 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "Files to be maintained by the Department for M.Tech / MBA / MCA Programme Version.1",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Files%20to%20be_maintained%20by%20Department%20for%20B.Tech%20V0.1.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Files to be_maintained by Department for B.Tech V0.1.pdf",
         "type": "pdf"
       }
     ]
@@ -978,7 +1003,7 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "General Information to be maintained by the Department",
-        "url": "https://mits.ac.in/assets/pdf/iqac/General%20Information%20to%20be%20maintained%20by%20Department.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/General Information to be maintained by Department.pdf",
         "type": "pdf"
       }
     ]
@@ -989,49 +1014,74 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "Action Taken Reports to be maintained",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Action%20Taken%20Reports%20to%20be%20maintained.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Action Taken Reports to be maintained.pdf",
         "type": "pdf"
       }
     ]
   },
   {
     "sno": 7,
-    "title": "Academic Calendar",
+    "title": "Academic Calendar &bull; Institute Academic Calendar &bull; Department Activity Calendar",
     "formats": [
       {
         "name": "Institute Academic Calendar",
         "url": "https://mits.ac.in/ugc-autonomous-exam-portal",
-        "type": "link"
+        "type": "pdf"
       },
       {
         "name": "Department Activity Calendar",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Department%20Activity%20Calendar.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Department Activity Calendar.xlsx",
         "type": "xlsx"
       }
     ]
   },
   {
     "sno": 8,
-    "title": "Curriculum",
+    "title": "Curriculum &bull; R20 Curriculum & Regulations &bull; R23 Curriculum & Regulations",
     "formats": [
       {
         "name": "R20 Curriculum & Regulations",
         "url": "https://mits.ac.in/ugc-autonomous-exam-portal",
-        "type": "link"
+        "type": "pdf"
       },
       {
         "name": "R23 Curriculum & Regulations",
         "url": "https://mits.ac.in/ugc-autonomous-exam-portal",
-        "type": "link"
+        "type": "pdf"
       }
     ]
   },
   {
     "sno": 9,
-    "title": "Course Allocation",
+    "title": "Course Allocation &bull; Teaching hours calculation &bull; Faculty Course Choices &bull; Faculty Wise Course Allocation &bull; Class Wise Course Allocation &bull; Student Elective Choices &bull; MOOC Courses",
     "formats": [
       {
-        "name": "Course Allocation Formats",
+        "name": "Course Allocation",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Course_Allocation.xlsx",
+        "type": "xlsx"
+      },
+      {
+        "name": "Faculty Course Choices",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Course_Allocation.xlsx",
+        "type": "xlsx"
+      },
+      {
+        "name": "Faculty Wise Course Allocation",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Course_Allocation.xlsx",
+        "type": "xlsx"
+      },
+      {
+        "name": "Class Wise Course Allocation",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Course_Allocation.xlsx",
+        "type": "xlsx"
+      },
+      {
+        "name": "Student Elective Choices",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Course_Allocation.xlsx",
+        "type": "xlsx"
+      },
+      {
+        "name": "MOOC Courses",
         "url": "https://mits.ac.in/assets/pdf/iqac/Course_Allocation.xlsx",
         "type": "xlsx"
       }
@@ -1039,21 +1089,21 @@ export const userManualsTableData = [
   },
   {
     "sno": 10,
-    "title": "Time Table",
+    "title": "Time Table &bull; Class Time Table &bull; Faculty Time Table &bull; Class Room Occupancy &bull; Laboratory Occupancy &bull; Master Time Table",
     "formats": []
   },
   {
     "sno": 11,
-    "title": "Course Monitoring",
+    "title": "Course Monitoring Daily Class Conduction Record Course Monitoring (Syllabus Coverage Record)",
     "formats": []
   },
   {
     "sno": 12,
-    "title": "Continuous Internal Evaluation",
+    "title": "Continuous Internal Evaluation &bull; Sample Mid Exam Schedule (Notice) &bull; Sample Seating Arrangement &bull; Sample Invigilation Duty Allocation for Mid Exam &bull; Department Internal Exam Result Analysis",
     "formats": [
       {
         "name": "Department Internal Exam Result Analysis",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Department%20Internal%20-%20Exam%20Result%20Analysis.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Department Internal - Exam Result Analysis.xlsx",
         "type": "xlsx"
       }
     ]
@@ -1069,42 +1119,42 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "Course File Theory (DTBU)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20DTBU%20Theory%20Course%20File.rar",
-        "type": "rar"
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU Theory Course File.rar",
+        "type": "zip"
       },
       {
         "name": "Course File Theory (UGC-Autonomous)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Course%20File%20Theory.rar",
-        "type": "rar"
+        "url": "https://mits.ac.in/assets/pdf/iqac/Course File Theory.rar",
+        "type": "zip"
       },
       {
         "name": "Master List of Documents - B.Tech Theory Course File",
-        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_B.Tech%20Theory%20Course%20File.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_B.Tech Theory Course File.pdf",
         "type": "pdf"
       },
       {
         "name": "Master List of Documents - M.Tech Theory Course File",
-        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.Tech%20Theory%20Course%20File.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.Tech Theory Course File.pdf",
         "type": "pdf"
       },
       {
         "name": "Course File Theory - MCA (UGC-Autonomous)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Course%20File%20Theory-MCA.rar",
-        "type": "rar"
+        "url": "https://mits.ac.in/assets/pdf/iqac/Course File Theory-MCA.rar",
+        "type": "zip"
       },
       {
         "name": "Master List of Documents - MCA Theory Course File",
-        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.C.A%20Theory%20Course%20File.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.C.A Theory Course File.pdf",
         "type": "pdf"
       },
       {
         "name": "Course File Theory - MBA (UGC-Autonomous)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Coursefile%20Theory-MBA.rar",
-        "type": "rar"
+        "url": "https://mits.ac.in/assets/pdf/iqac/Coursefile Theory-MBA.rar",
+        "type": "zip"
       },
       {
         "name": "Master List of Documents - MBA Theory Course File",
-        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.B.A%20Theory%20Course%20File.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.B.A Theory Course File.pdf",
         "type": "pdf"
       }
     ]
@@ -1115,37 +1165,37 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "Course File Laboratory (DTBU)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20DTBU%20Laboratory%20Course%20FIle.rar",
-        "type": "rar"
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU Laboratory Course FIle-23-10-2026.rar",
+        "type": "zip"
       },
       {
         "name": "Course File Laboratory (UGC-Autonomous)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Course%20File%20Laboratory.rar",
-        "type": "rar"
+        "url": "https://mits.ac.in/assets/pdf/iqac/Course File Laboratory.rar",
+        "type": "zip"
       },
       {
         "name": "Master List of Documents - B.Tech Laboratory Course File",
-        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_B.Tech%20Laboratory%20Course%20File.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_B.Tech Laboratory Course File.pdf",
         "type": "pdf"
       },
       {
         "name": "Course File Laboratory - MBA (UGC-Autonomous)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Lab%20Coursefile%20Theory-MBA.rar",
-        "type": "rar"
+        "url": "https://mits.ac.in/assets/pdf/iqac/Lab Coursefile Theory-MBA.rar",
+        "type": "zip"
       },
       {
         "name": "Master List of Documents - MBA Laboratory Course File",
-        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.B.A%20Laboratory%20Course%20File.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.B.A Laboratory Course File.pdf",
         "type": "pdf"
       },
       {
         "name": "Course File Laboratory - MCA (UGC-Autonomous)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Course%20File_Laboratory_MCA.rar",
-        "type": "rar"
+        "url": "https://mits.ac.in/assets/pdf/iqac/Course File_Laboratory_MCA.rar",
+        "type": "zip"
       },
       {
         "name": "Master List of Documents - MCA Laboratory Course File",
-        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.C.A%20Laboratory%20Course%20File.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/DOC-ID_M.C.A Laboratory Course File.pdf",
         "type": "pdf"
       }
     ]
@@ -1157,7 +1207,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 17,
-    "title": "Value Added Course",
+    "title": "Value Added Course &bull; Proposal for Offering Value-Added Courses &bull; Checklist : Value-Added Courses",
     "formats": [
       {
         "name": "Proposal for Offering Value-Added Courses",
@@ -1166,47 +1216,47 @@ export const userManualsTableData = [
       },
       {
         "name": "Checklist : Value-Added Courses",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Check%20lIst-Value%20Added%20Course.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Check lIst-Value Added Course.docx",
         "type": "doc"
       }
     ]
   },
   {
     "sno": 18,
-    "title": "Remedial Classes",
+    "title": "Remedial Classes &bull; Schedule & Time Table for Remedial Classes &bull; List of Failure Students &bull; Remedial Coaching Attendance Record &bull; Report on Performance Improvement after Remedial Classes",
     "formats": [
       {
-        "name": "Remedial Classes Formats",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Remedial%20Class%20Schedule%20&%20Attendance%20Improvement.xlsx",
+        "name": "Remedial Classes",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Remedial Class Schedule & Attendance Improvement.xlsx",
         "type": "xlsx"
       }
     ]
   },
   {
     "sno": 19,
-    "title": "Mentoring Scheme",
+    "title": "Mentoring Scheme &bull; List of Mentees Mentee /Student Profile &bull; Mentor-Mentee Session Attendance &bull; Mentor-Mentee Session Weekly Report &bull; Student Counselling Record &bull; Improvement Status of Mentee",
     "formats": [
       {
-        "name": "Mentoring Scheme Formats",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Mentoring%20Scheme.xlsx",
+        "name": "Mentoring Scheme",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Mentoring Scheme.xlsx",
         "type": "xlsx"
       }
     ]
   },
   {
     "sno": 20,
-    "title": "Bridge Course",
+    "title": "Bridge Course &bull; Bridge Course Schedule &bull; Bridge Course Attendance",
     "formats": [
       {
         "name": "Bridge Course Schedule & Attendance",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Bridge%20Course%20Schedule%20&%20Attendance.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Bridge Course Schedule & Attendance.xlsx",
         "type": "xlsx"
       }
     ]
   },
   {
     "sno": 21,
-    "title": "Stakeholder Feedback",
+    "title": "Stakeholder Feedback &bull; Questionnaire &bull; Stakeholder Feedback - Action taken Report",
     "formats": [
       {
         "name": "Questionnaire",
@@ -1214,24 +1264,24 @@ export const userManualsTableData = [
         "type": "pdf"
       },
       {
-        "name": "Stakeholder Feedback - Action taken Report Format",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Stakeholders%20Action%20Taken%20Report%20format.docx",
+        "name": "Stakeholder Feedback - Action taken Report",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Stakeholders Action Taken Report format.docx",
         "type": "doc"
       }
     ]
   },
   {
     "sno": 22,
-    "title": "Industrial Visit",
+    "title": "Industrial Visit &bull; Permission for Industrial Visit &bull; Industrial Visit Report",
     "formats": [
       {
         "name": "Permission for Industrial Visit",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Permission%20for%20Industrial%20Visit.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Permission for Industrial Visit.docx",
         "type": "doc"
       },
       {
         "name": "Industrial Visit Report",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Industrial%20Visit%20Report.doc",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Industrial Visit Report.doc",
         "type": "doc"
       }
     ]
@@ -1264,7 +1314,7 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "Proposal for Research Seed Funding",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Proposal%20for%20Research%20Seed%20Funding.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Proposal for Research Seed Funding.docx",
         "type": "doc"
       }
     ]
@@ -1275,7 +1325,7 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "Proposal for Organizing NSS, NCC, Sports, and Cultural Events",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Proposal_to_Organize_NSS_Sports_Cultural%20Events.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Proposal_to_Organize_NSS_Sports_Cultural Events.docx",
         "type": "doc"
       }
     ]
@@ -1286,7 +1336,7 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "Laboratory Equipment Maintenance",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Laboratory%20Equipment%20Maintenance.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Laboratory Equipment Maintenance.docx",
         "type": "doc"
       }
     ]
@@ -1308,14 +1358,14 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "Laboratory Equipment Maintenance Action Report",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Laboratory%20Equipment%20%20Maintenance%20Action%20Report.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Laboratory Equipment  Maintenance Action Report.docx",
         "type": "doc"
       }
     ]
   },
   {
     "sno": 30,
-    "title": "Appraisal and 360° Feedback Calculation",
+    "title": "Appraisal and 360&deg; Feedback Calculation",
     "formats": [
       {
         "name": "Appraisal and 360° Feedback Calculation",
@@ -1345,33 +1395,208 @@ export const userManualsTableData = [
     "title": "AUDIT Formats",
     "formats": [
       {
-        "name": "MITS EOMS Theory Course File Audit ISO 21001",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Theory%20Course%20File%20Audit.pdf",
+        "name": "MITS EOMS Theory Course File Audit ISO 21001 (DTBU)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Theory Course File Audit ISO 21001(DTBU)-1.pdf",
         "type": "pdf"
       },
       {
-        "name": "MITS EOMS Laboratory Course File Audit ISO 21001",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Lab%20Course%20File%20Audit%20ISO%2021001.pdf",
+        "name": "MITS EOMS Laboratory Course File Audit ISO 21001 (DTBU)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Laboratory Course File Audit ISO 21001 (DTBU)-1.pdf",
         "type": "pdf"
+      },
+      {
+        "name": "MITS Laboratory EOMS Audit Notes ISO 21001 (DTBU)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS_Laboratory _EOMS Audit Notes DTBU.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS Department Check List ISO 21001 (DTBU)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Department Check List  ISO 21001 DTBU.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS Non Conformity Report ISO 21001 (DTBU)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Non Conformity Report ISO 21001 DTBU.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Performance on MITS Objectives & Goals, Actions (DTBU)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS Performance on Objectives_Goals_Actions.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS Theory Course File Audit ISO 21001 (AU)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Theory Course File Audit.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS Laboratory Course File Audit ISO 21001 (AU)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Lab Course File Audit ISO 21001.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS ISO 21001 DTBU Curriculum Design Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU ISO 21001 Curriculum Design Format.docx",
+        "type": "doc"
+      },
+      {
+        "name": "Ready Reckoner for Curriculum Design Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Ready_Reckoner_Curriculum_Design_Template.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MITS EOMS ISO 21001 DTBU Admissions Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS ISO 21001 DTBU Admissions Audit Format.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MITS EOMS ISO 21001 DTBU Examination Cell Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU ISO 21001 Examination Cell Audit Format.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MITS EOMS ISO 21001 DTBU Library Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS ISO 21001 Library Audit Format.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MITS EOMS ISO 21001 DTBU Canteen Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS ISO 21001 DTBU CANTEEN AUDIT FORMAT.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MITS EOMS ISO 21001 DTBU Training and Placement Cell Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Updated MITS DTBU ISO 21001 AUDIT FORMAT TPC.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MITS EOMS ISO 21001 DTBU IT Infrastructure Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU ISO 21001 IT Infrastructure Audit Format.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MITS EOMS ISO 21001 DTBU Transport Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS ISO 21001 DTBU Transport Audit Format.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MITS EOMS ISO 21001 DTBU General Maintenance Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS ISO 21001 DTBU General Maintenance Audit Format.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MITS EOMS ISO 21001 DTBU HR Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS ISO 21001 DTBU HR AUDIT FORMAT.docx",
+        "type": "doc"
+      },
+      {
+        "name": "MITS ISO 21001 DTBU EOMS Activities Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS ISO 21001 DTBU EOMS Activities Audit Format.docx",
+        "type": "doc"
       },
       {
         "name": "MITS Laboratory EOMS Audit Notes ISO 21001",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20Laboratory%20EOMS%20Audit%20Notes%20ISO%2021001.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS Laboratory EOMS Audit Notes ISO 21001.pdf",
         "type": "pdf"
       },
       {
         "name": "MITS EOMS Department Check List ISO 21001",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Department%20Check%20List%20%20ISO%2021001.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Department Check List  ISO 21001.pdf",
         "type": "pdf"
       },
       {
         "name": "MITS EOMS Non Conformity Report ISO 21001",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Non%20Conformity%20Report%20ISO%2021001.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Non Conformity Report ISO 21001.pdf",
         "type": "pdf"
       },
       {
         "name": "MITS Department Objectives Target & Achieved",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20Department%20Objectives%20Target%20&%20achieved.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS Department Objectives Target & achieved.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Admin Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/ADMIN%20AUDIT%20FORMAT.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "External Department Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/External Department Audit Format.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "External Audit Frame work - Mapping of P Files & Supporting FIles",
+        "url": "https://mits.ac.in/assets/pdf/iqac/External Audit Frame work - Mapping of P Files & Supporting FIles.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Faculty Audit Format",
+        "url": "https://mits.ac.in/assets/pdf/iqac/FACULTY%20AUDIT%20FORMAT.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS NCR Report ISO 21001",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20NCR%20Report%20ISO%2021001.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS Department Check List ISO 21001",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Department%20Check%20List%20ISO%2021001.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS Internal Audit Notes ISO 21001",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Internal%20Audit%20Notes%20ISO%2021001.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS Course File Audit ISO 21001",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Course%20File%20Audit%20ISO%2021001.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Comparison of NAAC Criteria and ISO 210012018 EOMS Clauses",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Comparison%20of%20NAAC%20Criteria%20and%20ISO%20210012018%20EOMS%20Clauses.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS Check List - Laboratory Audit",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20Check%20List%20Laboratory%20Audit.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Sample Laboratory MITS EOMS Internal Audit Notes ISO 21001",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Sample_Laboratory_MITS EOMS Internal Audit Notes ISO 21001.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Sample 1 Lab Course MITS EOMS Internal Audit Notes ISO 21001",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Sample1_Lab_course_MITS EOMS Internal Audit Notes ISO 21001.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Sample 2 Lab Course MITS EOMS Internal Audit Notes ISO 21001",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Sample_2_Lab_course_MITS EOMS Internal Audit Notes ISO 21001.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Sample Theory Course MITS EOMS Internal Audit Notes ISO 21001",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Course File Audit ISO 21001 template.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS Theory Course File Audit ISO 21001 2024-25",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Theory Course File Audit ISO 21001 2024-25.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS Lab Course File Audit ISO 21001 2024-25",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Lab Course File Audit ISO 21001 2024-25.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "MITS EOMS Internal Audit Notes ISO 21001 Curriculum Design",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS EOMS Internal Audit Notes ISO 21001 Curriculum Design.pdf",
         "type": "pdf"
       }
     ]
@@ -1402,92 +1627,92 @@ export const userManualsTableData = [
       },
       {
         "name": "Stakeholders Feedback - Action Taken Report Format",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20Dept_Stakeholders%20Action%20Taken%20Report_format.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS Dept_Stakeholders Action Taken Report_format.docx",
         "type": "doc"
       },
       {
-        "name": "Correlation between New NAAC Reforms 2024 & Existing NAAC Criterion",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Correlation%20between%20New%20NAAC%20Reforms%202024%20&%20Existing%20NAAC%20Criterion%20Key%20Indicators.pdf",
+        "name": "Correlation between New NAAC Reforms 2024 & Existing NAAC Criterion (Key Indicators)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Correlation between New NAAC Reforms 2024 & Existing NAAC Criterion Key Indicators.pdf",
         "type": "pdf"
       },
       {
-        "name": "MITS Responsibilities Matrix for NAAC 2024 Reforms",
-        "url": "https://mits.ac.in/assets/pdf/iqac/New%20Reforms%20Correlation%20and%20MIts%20Responsibilities.pdf",
+        "name": "MITS Responsibilities Matrix for NAAC 2024 Reforms (MBGL)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/New Reforms Correlation and MIts Responsibilities.pdf",
         "type": "pdf"
       },
       {
-        "name": "Extended Profile Mapping Between SSR and AQAR",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Extended%20Profile%20Mapping%20Between%20SSR%20and%20AQAR(Autonomous%20College-Manual).pdf",
+        "name": "Extended Profile Mapping Between SSR and AQAR (Autonomous College-Manual)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Extended Profile Mapping Between SSR and AQAR(Autonomous College-Manual).pdf",
         "type": "pdf"
       },
       {
-        "name": "NAAC RAF SSR NEW Format (Autonomous College)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/NAAC%20RAF%20SSR%20NEW%20Format%20(9-8-2023)(Autonomous%20College).pdf",
+        "name": "NAAC RAF SSR NEW Format (9-8-2023) (Autonomous College)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/NAAC RAF SSR NEW Format (9-8-2023)(Autonomous College).pdf",
         "type": "pdf"
       },
       {
-        "name": "Criterion I – Curricular Aspects SSR AQAR Mapping",
+        "name": "Criterion_1_Curricular_Aspects_SSR_AQAR_Mapping",
         "url": "https://mits.ac.in/assets/pdf/iqac/Criterion_1_Curricular_Aspects_SSR_AQAR_Mapping_Autonomous_College-1.pdf",
         "type": "pdf"
       },
       {
-        "name": "Criterion II – Teaching-Learning and Evaluation SSR AQAR Mapping",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion%20II%20%E2%80%93%20Teaching-Learning%20and%20Evaluation_SSR_AQAR_Mapping_Autonomous_College-1.pdf",
+        "name": "Criterion II – Teaching-Learning and Evaluation_SSR_AQAR_Mapping",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion II – Teaching-Learning and Evaluation_SSR_AQAR_Mapping_Autonomous_College-1.pdf",
         "type": "pdf"
       },
       {
-        "name": "Criterion III – Research, Innovations and Extension SSR AQAR Mapping",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion%20III%20%E2%80%93%20%E2%80%93%20Research,%20Innovations%20and%20Extension%20_SSR_AQAR_Mapping_Autonomous_College-2-1.pdf",
+        "name": "Criterion III – Research, Innovations and Extension _SSR_AQAR_Mapping",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion III – – Research, Innovations and Extension _SSR_AQAR_Mapping_Autonomous_College-2-1.pdf",
         "type": "pdf"
       },
       {
-        "name": "Criterion IV – Infrastructure and Learning Resources SSR AQAR Mapping",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion%20IV%20%E2%80%93%20Infrastructure%20and%20Learning%20Resources%20_SSR_AQAR_Mapping_Autonomous_College.pdf",
+        "name": "Criterion IV – Infrastructure and Learning Resources _SSR_AQAR_Mapping",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion IV – Infrastructure and Learning Resources _SSR_AQAR_Mapping_Autonomous_College.pdf",
         "type": "pdf"
       },
       {
-        "name": "Criterion V – Student Support and Progression SSR AQAR Mapping",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion%20V%20%E2%80%93%20Student%20Support%20and%20Progression_SSR_AQAR_Mapping_Autonomous_College.pdf",
+        "name": "Criterion V – Student Support and Progression_SSR_AQAR_Mapping",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion V – Student Support and Progression_SSR_AQAR_Mapping_Autonomous_College.pdf",
         "type": "pdf"
       },
       {
-        "name": "Criterion VI – Governance, Leadership and Management SSR AQAR Mapping",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion%20VI%20%E2%80%93%20Governance.pdf",
+        "name": "Criterion VI – Governance, Leadership and Management_SSR_AQAR_Mapping",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion VI – Governance.pdf",
         "type": "pdf"
       },
       {
-        "name": "Criterion VII – Institutional Values and Best Practices SSR AQAR Mapping",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion%20VII%20%E2%80%93Institutional%20Values%20and%20Best%20Practices%20_SSR_AQAR_Mapping_Autonomous_College.pdf",
+        "name": "Criterion VII –Institutional Values and Best Practices _SSR_AQAR_Mapping",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Criterion VII –Institutional Values and Best Practices _SSR_AQAR_Mapping_Autonomous_College.pdf",
         "type": "pdf"
       },
       {
         "name": "NBA-NAAC Comparison",
-        "url": "https://mits.ac.in/assets/pdf/iqac/NBA-NAAC%20Comparsion.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/NBA-NAAC Comparsion.xlsx",
         "type": "xlsx"
       },
       {
         "name": "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criteria I-II-III",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR%20Mapping%20_Supporting_Document_Manual_Criteria-I_II_III.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR Mapping _Supporting_Document_Manual_Criteria-I_II_III.docx",
         "type": "doc"
       },
       {
         "name": "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion IV",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR%20Mapping%20_Supporting_Document_Manual_Criterion-IV.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR Mapping _Supporting_Document_Manual_Criterion-IV.docx",
         "type": "doc"
       },
       {
         "name": "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion V",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR%20Mapping%20_Supporting_Document_Manual_Criterion-V.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR Mapping _Supporting_Document_Manual_Criterion-V.docx",
         "type": "doc"
       },
       {
         "name": "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion VI",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR_SSR%20Mapping%20_Supporting_Document_Manual_Criterion-VI.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR_SSR Mapping _Supporting_Document_Manual_Criterion-VI.docx",
         "type": "doc"
       },
       {
         "name": "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion VII",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR_SSR%20Mapping%20_Supporting_Document_Manual_Criterion-VII.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR_SSR Mapping _Supporting_Document_Manual_Criterion-VII.docx",
         "type": "doc"
       }
     ]
@@ -1498,18 +1723,23 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "R23 CO-PO-Assesment Template - UG Engineering",
-        "url": "https://mits.ac.in/assets/pdf/iqac/R23%20CO-PO-Assesment%20Template%20-%20UG%20Engineering.rar",
-        "type": "rar"
+        "url": "https://mits.ac.in/assets/pdf/iqac/R23 CO-PO-Assesment Template - UG Engineering.rar",
+        "type": "zip"
       },
       {
         "name": "R20 CO-PO-Assesment Template - UG Engineering",
-        "url": "https://mits.ac.in/assets/pdf/iqac/R20_CO-PO-Assesment_Template-UG%20Engineering.rar",
-        "type": "rar"
+        "url": "https://mits.ac.in/assets/pdf/iqac/R20_CO-PO-Assesment_Template-UG Engineering.rar",
+        "type": "zip"
       },
       {
-        "name": "NBA (New SAR) - List of Files to be Maintained in ENGG Departments",
+        "name": "NBA (New SAR) - List of Files to be Maintained in the ENGG Departments",
         "url": "https://www.nbaind.org/files/UG_Acrreditaion/10-List%20of%20documents-UG-EG-T1-5-7-24.pdf",
         "type": "pdf"
+      },
+      {
+        "name": "NBA UG SAR – P-File Documentation & Evidence Guidelines",
+        "url": "https://mits.ac.in/assets/pdf/iqac/NBA UG SAR – P-File Documentation & Evidence Guidelines.xlsx",
+        "type": "xlsx"
       },
       {
         "name": "NBA Supporting Document Manual - Program Specific Files",
@@ -1517,73 +1747,83 @@ export const userManualsTableData = [
         "type": "pdf"
       },
       {
-        "name": "NBA - List of Files to be Maintained in BSH Department",
-        "url": "https://mits.ac.in/assets/pdf/iqac/NBA%20-%20List%20of%20Files%20to%20be%20Maintained%20in%20the%20BSH%20Department.pdf",
+        "name": "NBA - List of Files to be Maintained in the BSH Department",
+        "url": "https://mits.ac.in/assets/pdf/iqac/NBA - List of Files to be Maintained in the BSH Department.pdf",
         "type": "pdf"
       },
       {
-        "name": "NBA - List of Files to be Maintained in ENGG Departments",
-        "url": "https://mits.ac.in/assets/pdf/iqac/NBA%20-%20List%20of%20Files%20to%20be%20Maintained%20in%20the%20ENGG%20Departments.pdf",
+        "name": "NBA - List of Files to be Maintained in the ENGG Departments",
+        "url": "https://mits.ac.in/assets/pdf/iqac/NBA - List of Files to be Maintained in the ENGG Departments.pdf",
         "type": "pdf"
       },
       {
-        "name": "NBA - List of Files to be Maintained in MBA Department",
-        "url": "https://mits.ac.in/assets/pdf/iqac/NBA%20-%20List%20of%20Files%20to%20be%20Maintained%20in%20the%20MBA%20Department.pdf",
+        "name": "NBA - List of Files to be Maintained in the MBA Department",
+        "url": "https://mits.ac.in/assets/pdf/iqac/NBA - List of Files to be Maintained in the MBA Department.pdf",
         "type": "pdf"
       },
       {
-        "name": "NBA - List of Files to be Maintained in MCA Department",
-        "url": "https://mits.ac.in/assets/pdf/iqac/NBA%20-%20List%20of%20Files%20to%20be%20Maintained%20in%20the%20MCA%20Department.pdf",
+        "name": "NBA - List of Files to be Maintained in the MCA Department",
+        "url": "https://mits.ac.in/assets/pdf/iqac/NBA - List of Files to be Maintained in the MCA Department.pdf",
         "type": "pdf"
       },
       {
         "name": "AICTE CO-PO Mapping Template CSE Allied Branches",
-        "url": "https://mits.ac.in/assets/pdf/iqac/AICTE%20CO-PO%20Mapping%20Template_CSE%20Allied%20Branches.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/AICTE CO-PO Mapping Template_CSE Allied Branches.xlsx",
         "type": "xlsx"
       },
       {
         "name": "AICTE CO-PO Mapping Template Core Branches",
-        "url": "https://mits.ac.in/assets/pdf/iqac/AICTE%20CO-PO%20Mapping%20Template_Core%20Branches.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/AICTE CO-PO Mapping Template_Core Branches.xlsx",
         "type": "xlsx"
       },
       {
         "name": "Complex Engineering Problem Solving CPS Form",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Complex%20Engineering%20Problem-Solving%20_CPS_Form.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Complex Engineering Problem-Solving _CPS_Form.xlsx",
         "type": "xlsx"
       },
       {
         "name": "Program Outcomes (PO) Mapping with WA & WK",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Program%20Outcomes%20(PO)%20Mapping%20with%20WA%20&%20WK.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Program Outcomes (PO) Mapping with WA & WK.xlsx",
         "type": "xlsx"
       },
       {
         "name": "SDG Mapping",
-        "url": "https://mits.ac.in/assets/pdf/iqac/SDG%20Mapping.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/SDG Mapping.xlsx",
         "type": "xlsx"
       },
       {
         "name": "IEA-GAPC2021 Graduate Attributes & Professional Competencies",
-        "url": "https://mits.ac.in/assets/pdf/iqac/IEA-GAPC2021_GRADUATE%20ATTRIBUTES%20&%20PROFESSIONAL%20COMPETENCIES.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/IEA-GAPC2021_GRADUATE ATTRIBUTES & PROFESSIONAL COMPETENCIES.xlsx",
         "type": "xlsx"
       },
       {
         "name": "Mapping of Courses to Knowledge Profile (WK)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Mapping%20of%20Courses%20to%20Knowledge%20Profile%20(WK).xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Mapping of Courses to Knowledge Profile (WK).xlsx",
         "type": "xlsx"
       },
       {
-        "name": "SDG Global Indicator Framework (PDF)",
+        "name": "SDG-Global-Indicator-Framework-after-2024-refinement",
         "url": "https://unstats.un.org/sdgs/indicators/Global-Indicator-Framework-after-2024-refinement-English.pdf",
         "type": "pdf"
       },
       {
-        "name": "SDG Global Indicator Framework (XLSX)",
+        "name": "SDG-Global-Indicator-Framework-after-2024-refinement",
         "url": "https://unstats.un.org/sdgs/indicators/Global-Indicator-Framework-after-2024-refinement-English.xlsx",
         "type": "xlsx"
       },
       {
+        "name": "SDG-The Impact Rankings Template",
+        "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fthe-ranking.s3.eu-west-1.amazonaws.com%2FIMPACT%2FIMPACT2023%2FImpact%2B2023-data%2Bcollection%2Bsupport_updated%2Bv1.xlsx&wdOrigin=BROWSEView",
+        "type": "pdf"
+      },
+      {
         "name": "QP Analysis Basis of Blooms Level Template",
-        "url": "https://mits.ac.in/assets/pdf/iqac/IQAC_QP%20Analysis%20Basis%20of%20Blooms%20Level_Template.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/IQAC_QP Analysis Basis of Blooms Level_Template.xlsx",
+        "type": "xlsx"
+      },
+      {
+        "name": "Complex Engineering Activities CEA Form",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Complex Engineering Activities (CEA) form.xlsx",
         "type": "xlsx"
       }
     ]
@@ -1594,12 +1834,12 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "NIRF Department Data Template",
-        "url": "https://mits.ac.in/assets/pdf/iqac/NIRF-%20Department_data_template_MITS(3).xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/NIRF- Department_data_template_MITS(3).xlsx",
         "type": "xlsx"
       },
       {
         "name": "NIRF Financial Data Template",
-        "url": "https://mits.ac.in/assets/pdf/iqac/NIRF%20-%20Financial_data_template_MITS(3).xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/NIRF - Financial_data_template_MITS(3).xlsx",
         "type": "xlsx"
       }
     ]
@@ -1610,17 +1850,17 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "Check List- Anti-Ragging Committee (ARC)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Anti-Ragging%20Committee%20(ARC).pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Check List- Anti-Ragging Committee (ARC).pdf",
         "type": "pdf"
       },
       {
         "name": "Check List- Culturals",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Culturals.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Check List- Culturals.pdf",
         "type": "pdf"
       },
       {
-        "name": "Check List- Events Organized (NSS/NCC)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20EVENTS%20ORGANIZED%20(NSS_NCC).pdf",
+        "name": "Check List- Events Organized (NSS_NCC)",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Check List- EVENTS ORGANIZED (NSS_NCC).pdf",
         "type": "pdf"
       },
       {
@@ -1630,22 +1870,22 @@ export const userManualsTableData = [
       },
       {
         "name": "Check List- Grievances and Redressal Committee (GRC)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Grievances%20and%20Redressal%20Committee%20(GRC).pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Check List- Grievances and Redressal Committee (GRC).pdf",
         "type": "pdf"
       },
       {
         "name": "Check List- Internal Complaint Committee (ICC)",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Internal%20Complaint%20Committee%20(ICC).pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Check List- Internal Complaint Committee (ICC).pdf",
         "type": "pdf"
       },
       {
         "name": "Check List- Sports",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Sports.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Check List- Sports.pdf",
         "type": "pdf"
       },
       {
         "name": "Check List- Stakeholders Feedback",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Stakeholders%20Feedback.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Check List- Stakeholders Feedback.pdf",
         "type": "pdf"
       },
       {
@@ -1655,7 +1895,7 @@ export const userManualsTableData = [
       },
       {
         "name": "MITS Check List - DAB, PAC & IAAB",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Check%20List-DAB-PAC-IAAB.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Check List-DAB-PAC-IAAB.pdf",
         "type": "pdf"
       }
     ]
@@ -1665,8 +1905,8 @@ export const userManualsTableData = [
     "title": "Faculty Personal File",
     "formats": [
       {
-        "name": "Faculty Personal File Template",
-        "url": "https://mits.ac.in/assets/pdf/iqac/37_Personal%20File_template_2024.docx",
+        "name": "Faculty Personal File",
+        "url": "https://mits.ac.in/assets/pdf/iqac/37_Personal File_template_2024.docx",
         "type": "doc"
       }
     ]
@@ -1681,43 +1921,43 @@ export const userManualsTableData = [
         "type": "pdf"
       },
       {
-        "name": "228 Active Learning Strategies",
+        "name": "228-Active-Learning-Strategies",
         "url": "https://mits.ac.in/assets/pdf/iqac/handout-interactive-techniques.pdf",
         "type": "pdf"
       },
       {
         "name": "3-2-1 Technique",
-        "url": "https://mits.ac.in/assets/pdf/iqac/3-2-1%20Technique.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/3-2-1 Technique.pdf",
         "type": "pdf"
       },
       {
         "name": "Analytic Teams",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Analytic%20Teams.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Analytic Teams.pdf",
         "type": "pdf"
       },
       {
         "name": "Blended Learning",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Blended%20Learning.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Blended Learning.pdf",
         "type": "pdf"
       },
       {
         "name": "Case Based Learning",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Case%20Based%20Learning.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Case Based Learning.pdf",
         "type": "pdf"
       },
       {
         "name": "Contemporary Issues Journal",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Contemporary%20Issues%20Journal.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Contemporary Issues Journal.pdf",
         "type": "pdf"
       },
       {
         "name": "Digital Story",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Digital%20Story.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Digital Story.pdf",
         "type": "pdf"
       },
       {
-        "name": "Experiential Learning",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Experential%20Learning.pdf",
+        "name": "Experential Learning",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Experential Learning.pdf",
         "type": "pdf"
       },
       {
@@ -1727,12 +1967,12 @@ export const userManualsTableData = [
       },
       {
         "name": "Flipped Classroom",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Flipped%20Classroom.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Flipped Classroom.pdf",
         "type": "pdf"
       },
       {
         "name": "Group Grid",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Group%20Grid.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Group Grid.pdf",
         "type": "pdf"
       },
       {
@@ -1742,47 +1982,47 @@ export const userManualsTableData = [
       },
       {
         "name": "Jig Saw",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Jig%20Saw.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Jig Saw.pdf",
         "type": "pdf"
       },
       {
         "name": "Mind Mapping",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Mind%20Mapping.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Mind Mapping.pdf",
         "type": "pdf"
       },
       {
         "name": "Peer Assisted Learning",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Peer%20Assisted%20Learning.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Peer Assisted Learning.pdf",
         "type": "pdf"
       },
       {
         "name": "The Minute Paper",
-        "url": "https://mits.ac.in/assets/pdf/iqac/The%20Minute%20Paper.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/The Minute Paper.pdf",
         "type": "pdf"
       },
       {
         "name": "Think Pair Share",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Think%20Pair%20Share.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Think Pair Share.pdf",
         "type": "pdf"
       },
       {
         "name": "Three Minute Message",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Three%20Minute%20Message.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Three Minute Message.pdf",
         "type": "pdf"
       },
       {
         "name": "Problem Based Learning",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Problem%20Based%20Learning.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Problem Based Learning.pdf",
         "type": "pdf"
       },
       {
         "name": "Project Based Learning",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Project%20based%20Learning.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Project based Learning.pdf",
         "type": "pdf"
       },
       {
         "name": "Learning Outcomes",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Learning%20Outcomes.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Learning Outcomes.pdf",
         "type": "pdf"
       }
     ]
@@ -1792,13 +2032,13 @@ export const userManualsTableData = [
     "title": "NEP 2020 – WIT & WIL Method",
     "formats": [
       {
-        "name": "WIT & WIL Method Sample Template",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Sample%20Template_WIT&%20WIL%20method.pdf",
+        "name": "NEP 2020 – WIT& WIL Method Sample Template",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Sample Template_WIT& WIL method.pdf",
         "type": "pdf"
       },
       {
         "name": "WIT & WIL Method",
-        "url": "https://mits.ac.in/assets/pdf/iqac/WIT%20&%20WIL%20Method.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/WIT & WIL Method.pdf",
         "type": "pdf"
       }
     ]
@@ -1809,7 +2049,7 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "NEP 2020 – MITS Lab Protocol",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20Lab%20Protocol%206.11.24.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS Lab Protocol 6.11.24.pdf",
         "type": "pdf"
       }
     ]
@@ -1820,7 +2060,7 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "NEP 2020 – Show & Tell Corner",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Show%20&%20Tell%20Corner.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Show & Tell Corner.pdf",
         "type": "pdf"
       }
     ]
@@ -1832,7 +2072,7 @@ export const userManualsTableData = [
       {
         "name": "MITS SDG Cell",
         "url": "https://mits.ac.in/sdg-cell",
-        "type": "link"
+        "type": "pdf"
       },
       {
         "name": "SDG Mapping",
@@ -1841,7 +2081,7 @@ export const userManualsTableData = [
       },
       {
         "name": "SDG Events Mapping Template",
-        "url": "https://mits.ac.in/assets/pdf/iqac/SDG%20Events%20Mapping%20_Template.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/SDG Events Mapping _Template.xlsx",
         "type": "xlsx"
       },
       {
@@ -1851,27 +2091,27 @@ export const userManualsTableData = [
       },
       {
         "name": "SDG Project Mapping Template",
-        "url": "https://mits.ac.in/assets/pdf/iqac/SDG%20Project%20Mapping%20_Template.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/SDG Project Mapping _Template.xlsx",
         "type": "xlsx"
       },
       {
         "name": "SDG Internship Mapping Template",
-        "url": "https://mits.ac.in/assets/pdf/iqac/SDG%20Internship%20Mapping%20_Template.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/SDG Internship Mapping _Template.xlsx",
         "type": "xlsx"
       },
       {
         "name": "SDG-The Impact Rankings Template",
-        "url": "https://the-ranking.s3.eu-west-1.amazonaws.com/IMPACT/IMPACT2023/Impact%2B2023-data%2Bcollection%2Bsupport_updated%2Bv1.xlsx",
-        "type": "xlsx"
+        "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fthe-ranking.s3.eu-west-1.amazonaws.com%2FIMPACT%2FIMPACT2023%2FImpact%2B2023-data%2Bcollection%2Bsupport_updated%2Bv1.xlsx&wdOrigin=BROWSEView",
+        "type": "pdf"
       },
       {
         "name": "SDG: QS Sustainability Rankings Template",
-        "url": "https://mits.ac.in/assets/pdf/iqac/SDG-QS%20Sustainability%20Rankings%20Template.xlsx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/SDG-QS Sustainability Rankings Template.xlsx",
         "type": "xlsx"
       },
       {
         "name": "Sample Procedure for SDG Curriculum Mapping",
-        "url": "https://mits.ac.in/assets/pdf/iqac/Sample%20Procedure%20for%20SDG%20Curriculum%20Mapping.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/Sample Procedure for SDG Curriculum Mapping.pdf",
         "type": "pdf"
       }
     ]
@@ -1893,7 +2133,7 @@ export const userManualsTableData = [
     "formats": [
       {
         "name": "OBE Teaching Formula",
-        "url": "https://mits.ac.in/assets/pdf/iqac/OBE%20Teaching%20Formula.pdf",
+        "url": "https://mits.ac.in/assets/pdf/iqac/OBE Teaching Formula.pdf",
         "type": "pdf"
       }
     ]
@@ -1903,35 +2143,34 @@ export const userManualsTableData = [
     "title": "AI in Teaching and Learning",
     "formats": [
       {
-        "name": "AI in Teaching and Learning Document",
-        "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20DTBU_%20AI%20Tools%20Teaching%20&%20Learning-compressed.pdf",
+        "name": "AI in Teaching and Learning",
+        "url": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU_ AI Tools Teaching & Learning-compressed.pdf",
         "type": "pdf"
       },
       {
         "name": "AI Visual Guides for Educators",
         "url": "https://medkharbach.com/visuals/",
-        "type": "link"
+        "type": "pdf"
       },
       {
         "name": "AI Literacy Guides",
         "url": "https://medkharbach.com/ai-literacy-guides/",
-        "type": "link"
+        "type": "pdf"
       },
       {
-        "name": "AI PDP Material Sharepoint",
-        "url": "https://mitsacin-my.sharepoint.com/:f:/g/personal/iqaccell_mits_ac_in/IgBrcDUBn35qQ5ssGj35VXnoASLgg70R5kObtWG7w4ya8aY?e=xjhvzp",
-        "type": "link"
+        "name": "AI PDP 2026 Material",
+        "url": "https://mitsacin-my.sharepoint.com/:f:/g/personal/iqaccell_mits_ac_in/IgBrcDUBn35qQ5ssGj35VXnoASLgg70R5kObtWG7w4ya8aY?e=xjhvzp​",
+        "type": "pdf"
       }
     ]
-  }
-,
+  },
   {
     "sno": 46,
-    "title": "MITS DTBU Monthly Cell / Committee Review",
+    "title": "MITS DTBU Monthly Cell /Committee Review",
     "formats": [
       {
-        "name": "MITS DTBU Monthly Cell Review Template 2026",
-        "url": "https://mits.ac.in/assets/pdf/iqac/46.%20MITS%20DTBU%20Monthly_Cell_Review_Template%202026.docx",
+        "name": "MITS DTBU Monthly Cell /Committee Review",
+        "url": "https://mits.ac.in/assets/pdf/iqac/46. MITS DTBU Monthly_Cell_Review_Template 2026.docx",
         "type": "doc"
       }
     ]
@@ -1941,44 +2180,49 @@ export const userManualsTableData = [
     "title": "IQAC Hours - Agenda & Minutes of Meeting",
     "formats": [
       {
-        "name": "IQAC Hours MoM Template",
-        "url": "https://mits.ac.in/assets/pdf/iqac/47.IQAC%20Hours%20_MoM%20_Template.docx",
+        "name": "IQAC Hours - Circular Template",
+        "url": "https://mits.ac.in/assets/pdf/iqac/47.IQAC_Hours_Circular.docx",
+        "type": "doc"
+      },
+      {
+        "name": "IQAC Hours - Agenda & Minutes of Meeting",
+        "url": "https://mits.ac.in/assets/pdf/iqac/47.IQAC Hours _MoM _Template.docx",
         "type": "doc"
       }
     ]
   },
   {
     "sno": 48,
-    "title": "MITS DTBU – Department Vision Mission PEO/PO/PSO",
+    "title": "MITS DTBU –Department Vision Mission PEO/PO/PSO",
     "formats": [
       {
         "name": "B.Tech Department Vision & Mission, PEO, PO & PSO",
-        "url": "https://mits.ac.in/assets/pdf/iqac/1.B.Tech%20Department%20Vision%20&%20Mission,%20PEO,%20PO%20&%20PSO.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/1.B.Tech Department Vision & Mission, PEO, PO & PSO.docx",
         "type": "doc"
       },
       {
         "name": "M.Tech Department Vision & Mission, PEO, PO",
-        "url": "https://mits.ac.in/assets/pdf/iqac/2.M.Tech%20Department%20Vision%20&%20Mission,%20PEO,%20PO.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/2.M.Tech Department Vision & Mission, PEO, PO.docx",
         "type": "doc"
       },
       {
         "name": "BBA Department Vision & Mission, PEO",
-        "url": "https://mits.ac.in/assets/pdf/iqac/3.BBA%20Department%20Vision%20&%20Mission,%20PEO.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/3.BBA Department Vision & Mission, PEO.docx",
         "type": "doc"
       },
       {
-        "name": "MBA Department Vision & Mission, PEO, PO & PSO",
-        "url": "https://mits.ac.in/assets/pdf/iqac/4.MBA%20Department%20Vision%20&%20Mission,%20PEO,%20PO%20&%20PSO.docx",
+        "name": "MBA Department Vision & Mission, PEO, PO,PSO",
+        "url": "https://mits.ac.in/assets/pdf/iqac/4.MBA Department Vision & Mission, PEO, PO & PSO.docx",
         "type": "doc"
       },
       {
         "name": "BCA Department Vision & Mission, PEO",
-        "url": "https://mits.ac.in/assets/pdf/iqac/5.BCA%20Department%20Vision%20&%20Mission,%20PEO.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/5.BCA Department Vision & Mission, PEO.docx",
         "type": "doc"
       },
       {
         "name": "MCA Department Vision & Mission, PEO, PO",
-        "url": "https://mits.ac.in/assets/pdf/iqac/6.MCA%20Department%20Vision%20&%20Mission,%20PEO,%20PO.docx",
+        "url": "https://mits.ac.in/assets/pdf/iqac/6.MCA Department Vision & Mission, PEO, PO.docx",
         "type": "doc"
       }
     ]

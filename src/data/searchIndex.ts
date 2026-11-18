@@ -437,7 +437,7 @@ const coreWebsiteItems: SearchItem[] = [
     title: "Student Technical & Cultural Clubs",
     category: "Campus Life & Facilities",
     description: "Coding clubs, robotics society, music and dance clubs, photography guild, literary circle, and social outreach.",
-    href: "/campus-life/student-clubs",
+    href: "/studentclubs",
     tags: ["clubs", "student clubs", "coding club", "robotics", "cultural club", "music", "dance", "photography", "literary"],
     metaBadge: "Clubs",
   },

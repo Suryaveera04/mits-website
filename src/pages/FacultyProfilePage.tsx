@@ -312,15 +312,33 @@ const FacultyProfilePage = () => {
 
     // 3. Resolve rich profile: live API profile -> static Profile -> static getFacultyProfile -> buildFromFacultyMember
     const rich = liveProfile || staticProfile || getFacultyProfile(deptKey || "", f?.name || "");
+
+    // The live database photo from the faculty management system must always take priority over legacy static URLs
+    const liveImage = liveProfile?.image || f?.image;
+    const finalImage = liveImage || rich?.image;
+
+    // Detect Ph.D. degree from title, qualifications, or department head status
+    const candidateName = cleanFacultyName(rich?.name || f?.name || "");
+    const isDoc =
+      candidateName.toLowerCase().startsWith("dr.") ||
+      hasPhdDegree(candidateName, rich?.qualification || f?.qualification, rawCandidate?.phd || (raw as any)?.phd) ||
+      (f?.qualification || "").includes("Ph.D") ||
+      (rich?.qualification || "").includes("Ph.D");
+
+    let finalQual = rich?.qualification || f?.qualification;
+    if (isDoc && (!finalQual || finalQual === "M.Tech / M.Sc" || finalQual.toLowerCase() === "m.tech")) {
+      finalQual = "Ph.D.";
+    }
+
     const merged: FacultyProfile | undefined = rich
       ? {
           ...rich,
-          name: cleanFacultyName(rich.name),
-          image: rich.image || f?.image,
+          name: candidateName,
+          image: finalImage,
           email: rich.email || f?.email,
-          qualification: rich.qualification || f?.qualification,
+          qualification: finalQual,
         }
-      : f ? buildFromFacultyMember(f) : undefined;
+      : f ? buildFromFacultyMember({ ...f, image: finalImage, qualification: finalQual || f.qualification }) : undefined;
 
     // Scoped Prev / Next navigation for BSH constituent disciplines (English, Mathematics, Physics, Chemistry)
     const bshSubDeptByFacultyName: Record<string, string> = {

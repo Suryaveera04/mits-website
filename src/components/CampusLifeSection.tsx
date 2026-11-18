@@ -7,7 +7,7 @@ import { campusLifeData } from "@/data/galleryData/campusLife";
 
 // Map keys to their route and icon
 const categoryConfig: Record<string, { href: string; icon: React.ComponentType<{ className?: string }> }> = {
-  clubs: { href: "/campus-life/student-clubs", icon: Users },
+  clubs: { href: "/studentclubs", icon: Users },
   cultural: { href: "/campus-life/cultural-life", icon: Sparkles },
   sports: { href: "/sports", icon: Dumbbell },
   infrastructure: { href: "/infrastructure", icon: Building2 },

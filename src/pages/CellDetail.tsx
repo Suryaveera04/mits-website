@@ -41,6 +41,7 @@ import RdCellView from "@/components/cells/RdCellView";
 import InnovationCenterView from "@/components/cells/InnovationCenterView";
 import NasscomView from "@/components/cells/NasscomView";
 import IeeeView from "@/components/cells/IeeeView";
+import SkillDevelopmentCentre from "@/pages/SkillDevelopmentCentre";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
 
@@ -176,6 +177,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "startup") {
     return <StartupView />;
+  }
+
+  if (targetId === "sdc" || targetId === "skill-development-centre") {
+    return <SkillDevelopmentCentre />;
   }
 
   if (targetId === "ipr") {

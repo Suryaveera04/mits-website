@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { useEffect, Suspense, lazy } from "react";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -146,9 +146,9 @@ const App = () => (
             <Route path="/cisco-networking-academy" element={<CiscoNetworkingAcademy />} />
             <Route path="/cisco-self-paced-courses" element={<CiscoSelfPacedCourses />} />
             <Route path="/campus-life" element={<CampusLife />} />
-            <Route path="/campus-life/student-clubs" element={<CampusLifeDetail categoryKey="clubs" />} />
-            <Route path="/studentclub" element={<CampusLifeDetail categoryKey="clubs" />} />
-            <Route path="/student-clubs" element={<CampusLifeDetail categoryKey="clubs" />} />
+            <Route path="/campus-life/student-clubs" element={<Navigate to="/studentclubs" replace />} />
+            <Route path="/university/campus-life/student-clubs" element={<Navigate to="/studentclubs" replace />} />
+            <Route path="/studentclub" element={<Navigate to="/studentclubs" replace />} />
             <Route path="/campus-life/cultural-life" element={<CampusLifeDetail categoryKey="cultural" />} />
             <Route path="/sports" element={<CampusLifeDetail categoryKey="sports" />} />
             <Route path="/sports-athletics" element={<SportsAthletics />} />
@@ -287,7 +287,9 @@ const App = () => (
             <Route path="/sdg-goal/:slug" element={<SdgGoalDetailView />} />
             <Route path="/student-clubs-sac" element={<StudentClubs />} />
             <Route path="/studentclubs" element={<StudentClubs />} />
+            <Route path="/university/studentclubs" element={<StudentClubs />} />
             <Route path="/student-clubs" element={<StudentClubs />} />
+            <Route path="/university/student-clubs" element={<StudentClubs />} />
             <Route path="/faculty-information" element={<FacultyInformation />} />
             <Route path="/university/faculty-information" element={<FacultyInformation />} />
             <Route path="/faculty" element={<FacultyInformation />} />

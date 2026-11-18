@@ -514,6 +514,7 @@ export function sanitizeFacultyList(list: APIFacultyMember[]): APIFacultyMember[
     let fullName = cleanFacultyName(f.fullName);
     let designation = f.designation;
     let phd = f.phd;
+    let department = f.department;
     let profilePhoto = f.profilePhoto
       ? f.profilePhoto
           .replace(/^(?:https?:)?\/\/(?:127\.0\.0\.1|localhost):5005/i, "")
@@ -522,20 +523,57 @@ export function sanitizeFacultyList(list: APIFacultyMember[]): APIFacultyMember[
       : undefined;
 
     const lowerName = fullName.toLowerCase();
-    if (f._id === "6af7f981529beb441e315bb6" || lowerName === "mr. sri ramakrishna" || lowerName === "sri ramakrishna") {
+    const email = (f.email || "").toLowerCase().trim();
+
+    // 1. Mr. Sri Ramakrishna V.G - officially in Computer Science & Engineering (CSE), NOT AIML
+    if (f._id === "6af7f981529beb441e315bb6" || email === "sriramakrishnavg@mits.ac.in" || lowerName.includes("sri ramakrishna")) {
       fullName = "Mr. Sri Ramakrishna V.G";
+      designation = "Assistant Professor";
+      department = { _id: "60d5ecb8b392d700153ee201", code: "CSE", name: "COMPUTER SCIENCE AND ENGINEERING" };
       profilePhoto = "/uploads/profile/file-Sriram_Photo-1794821926882-600567835.jpeg";
     }
 
-    if (f._id === "6a8cffde4a60b7dd6ea7a267" || lowerName === "dr. padma s" || lowerName === "dr padma s") {
+    // 2. Dr. S. Padma - HOD of CSE (AI & ML), Ph.D. Awarded
+    if (f._id === "6a8cffde4a60b7dd6ea7a267" || email === "drpadmas@mits.ac.in" || lowerName === "dr. padma s" || lowerName === "dr padma s" || lowerName === "dr. s. padma") {
       fullName = "Dr. S. Padma";
-      phd = { ...phd, status: "Awarded", university: phd?.university || "Bharathiar University", topic: phd?.topic || "Computer Science and Engineering" };
+      designation = "HOD";
+      phd = {
+        ...phd,
+        status: "Awarded",
+        university: phd?.university || "Bharathiar University",
+        topic: phd?.topic || "Computer Science and Engineering"
+      };
+      if (!profilePhoto) {
+        profilePhoto = "/uploads/profile/profilePhoto-Padma_New-1792666985204-227744666.jpeg";
+      }
     }
 
-    if (f._id === "6a8d01124a60b7dd6ea7a347" || lowerName === "chandra sekhar") {
+    // 3. Dr. V. Chandra Sekhar - Professor of Practice & Head of Technical Training in CSE (AI & ML)
+    if (f._id === "6a8d01124a60b7dd6ea7a347" || email === "chandrasekharvo@mits.ac.in" || (lowerName === "chandra sekhar" && (f.department?.code === "CSE-AIML" || f.department?.code === "AIML"))) {
       fullName = "Dr. V. Chandra Sekhar";
       designation = "Professor of Practice & Technical Training - Head";
       profilePhoto = "/uploads/profile/profilePhoto-Chandra_Sekhar-1794564920291-288016395.png";
+      phd = {
+        ...phd,
+        status: "Awarded",
+        university: phd?.university || "IIIT SriCity",
+        topic: phd?.topic || "Online Signature Verification Techniques"
+      };
+    }
+
+    // 4. Mr. K. Chandra Sekhar - Assistant Professor in CSE (AI)
+    if (f._id === "6a8d00914a60b7dd6ea7a2e7" || email === "kchandrasekhar@mits.ac.in" || (lowerName === "chandra sekhar k" || (lowerName === "chandra sekhar" && f.department?.code === "CSE-AI"))) {
+      fullName = "Mr. K. Chandra Sekhar";
+      designation = "Assistant Professor";
+      profilePhoto = "/uploads/profile/profilePhoto-Chandra_Sekhar-1793781204671-891013801.JPG";
+    }
+
+    // 5. Dr. E. Sandhya - Assistant Professor in CSE (AI & ML), latest faculty management system photo
+    if (f._id === "6a8d00964a60b7dd6ea7a2eb" || email === "drsandhyae@mits.ac.in" || lowerName === "dr e sandhya" || lowerName === "dr. e. sandhya" || lowerName === "dr. sandhya. e") {
+      fullName = "Dr. E. Sandhya";
+      designation = "Assistant Professor";
+      profilePhoto = "/uploads/profile/profilePhoto-Sandhya-1794564968468-745776374.JPG";
+      phd = { ...phd, status: "Awarded" };
     }
 
     return {
@@ -543,6 +581,7 @@ export function sanitizeFacultyList(list: APIFacultyMember[]): APIFacultyMember[
       fullName,
       designation,
       phd,
+      department,
       profilePhoto,
     };
   });

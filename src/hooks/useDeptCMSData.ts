@@ -99,14 +99,19 @@ export interface CMSEventCoordinator {
   role?: string;
   type?: string;  // 'faculty' | 'student'
   phone?: string;
+  contact?: string;
   email?: string;
 }
 
 export interface CMSEventResourcePerson {
   id: number;
   name: string;
+  qualification?: string;
+  experience?: string;
   designation?: string;
+  institute?: string;
   organization?: string;
+  department?: string;
   topic?: string;
 }
 
@@ -610,8 +615,13 @@ export function isDepartmentMatch(itemDept: string | undefined | null, deptKey: 
   if (k === "me" || k === "mech" || k === "mechanical" || k === "mechanical-engineering") return d === "me" || d === "mech" || d.includes("mech") || d.includes("mechanical");
   if (k === "eee" || k === "electrical-electronics-engineering" || k === "electrical-and-electronics-engineering") return d === "eee" || d.includes("electrical");
   if (k === "ece" || k === "electronics-communication-engineering" || k === "electronics-and-communication-engineering") return d === "ece" || d.includes("electronics");
-  if (k === "ai" || k === "cse-ai") return d === "ai" || d === "cse-ai";
-  if (k === "aiml" || k === "cse-ai-ml" || k === "ai-ml" || k === "ai&ml") return d === "aiml" || d.includes("aiml") || d.includes("ai & ml") || d.includes("machine learning");
+  if (k === "ai" || k === "cse-ai") {
+    if (d.includes("aiml") || d.includes("machine") || d.includes("data") || d.includes("cyber")) return false;
+    return d === "ai" || d === "cse-ai" || d === "artificial intelligence";
+  }
+  if (k === "aiml" || k === "cse-aiml" || k === "cse-ai-ml" || k === "ai-ml" || k === "ai&ml") {
+    return d === "aiml" || d.includes("aiml") || d.includes("ai & ml") || d.includes("machine learning");
+  }
   if (k === "cseds" || k === "cse-ds") return d === "cseds" || d === "ds" || d === "aids" || d.includes("data science");
   if (k === "csecs" || k === "cse-cs" || k === "cyber-security") return d === "csecs" || d === "cs" || d.includes("cyber");
   if (k === "mca" || k === "computer-applications" || k === "master-of-computer-applications" || k === "ca" || k === "18") {
@@ -623,6 +633,7 @@ export function isDepartmentMatch(itemDept: string | undefined | null, deptKey: 
   if (k === "bsh" || k === "basic-sciences" || k === "basic-sciences-humanities" || k === "humanities") {
     return d === "bsh" || d.includes("basic science") || d.includes("humanities");
   }
+  if (k === "ai" || d === "ai") return false;
   return d.includes(k) || k.includes(d);
 }
 
@@ -694,7 +705,7 @@ export function useDeptCMSData(deptKey: string) {
     ]).then(async ([events, mous, achievements, patents, publications, placements, projectsRaw, subjectsRaw]) => {
       if (cancelled) return;
 
-      let finalEvents = normalizeEvents(events);
+      let finalEvents = normalizeEvents(events).filter((e) => isEventForDepartment(e, normalizedKey));
 
       // If department events list is empty or special dept, query the global events pool
       if (finalEvents.length === 0 || isSpecialDept) {

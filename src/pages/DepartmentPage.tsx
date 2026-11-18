@@ -36,7 +36,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import InlineFacultyProfile from "@/components/InlineFacultyProfile";
 import { getFacultyProfile, type FacultyProfile } from "@/data/facultyProfiles";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
-import { useDeptCMSData, type CMSMoU, type CMSAchievement, type CMSPatent, type CMSPublication, type CMSPlacement, type CMSProject, type CMSSubject } from "@/hooks/useDeptCMSData";
+import { useDeptCMSData, parseEventConductedTime, type CMSMoU, type CMSAchievement, type CMSPatent, type CMSPublication, type CMSPlacement, type CMSProject, type CMSSubject } from "@/hooks/useDeptCMSData";
 import { useFacultyData, compareFacultyByApiOrder } from "@/hooks/useFacultyData";
 import EventDetailModal from "@/components/EventDetailModal";
 import MouDetailModal from "@/components/MouDetailModal";
@@ -46,7 +46,7 @@ import PublicationDetailModal from "@/components/PublicationDetailModal";
 import PlacementDetailModal from "@/components/PlacementDetailModal";
 import ProjectDetailModal from "@/components/ProjectDetailModal";
 import {
-  Users, Award, FlaskConical, FileText, BookOpen, Calendar, Handshake, Briefcase, FolderOpen, GraduationCap, Building2, ChevronRight, Eye, Target, Trophy, Lightbulb, Mail, Phone, ExternalLink, Search, Filter, Sparkles, RefreshCw, ChevronDown, Layers, Download, Clock, MoreHorizontal, Loader2
+  Users, Award, FlaskConical, FileText, BookOpen, Calendar, MapPin, Handshake, Briefcase, FolderOpen, GraduationCap, Building2, ChevronRight, Eye, Target, Trophy, Lightbulb, Mail, Phone, ExternalLink, Search, Filter, Sparkles, RefreshCw, ChevronDown, Layers, Download, Clock, MoreHorizontal, Loader2, Globe
 } from "lucide-react";
 
 interface SidebarSubItem {
@@ -3609,29 +3609,67 @@ const DepartmentPage = () => {
                         return (
                           <div key={status}>
                             <h3 className="font-semibold text-sm text-primary mb-2">{status} ({filtered.length})</h3>
-                            <div className="space-y-2">
+                            <div className="space-y-2.5">
                               {filtered.map((p, i) => {
                                 const isCMS = 'id' in p && typeof p.id === 'number';
+                                const rawInventors = ('inventors' in p && (p as Record<string, unknown>).inventors)
+                                  ? String((p as Record<string, unknown>).inventors).replace(/^[\["\s']+|[\]"\s']+$/g, "").replace(/["']/g, "")
+                                  : "";
+                                const appNo = ('application_number' in p && (p as Record<string, unknown>).application_number)
+                                  ? String((p as Record<string, unknown>).application_number)
+                                  : "";
+                                const patNo = ('patent_number' in p && (p as Record<string, unknown>).patent_number)
+                                  ? String((p as Record<string, unknown>).patent_number)
+                                  : "";
+                                const year = p.year && p.year !== '0' && p.year !== '0000' ? String(p.year) : "";
+
                                 return (
-                                  <Card key={i} onClick={() => isCMS && setSelectedPatent(p as CMSPatent)}
-                                    className={`transition-all ${
-                                      isCMS ? "hover:shadow-lg hover:-translate-y-1 cursor-pointer" : "hover:shadow-md"
-                                    }`}>
-                                    <CardContent className="p-3 flex items-center justify-between">
-                                      <div className="flex-1 min-w-0 pr-3">
-                                        <p className="text-sm font-medium text-secondary">{p.title}</p>
-                                        {'inventors' in p && (p as Record<string, unknown>).inventors && <p className="text-sm text-muted-foreground mt-0.5">Inventors: {String((p as Record<string, unknown>).inventors)}</p>}
-                                        {p.year && <p className="text-sm text-muted-foreground">Year: {p.year}</p>}
-                                        {isCMS && <p className="text-sm text-primary font-medium mt-1 flex items-center gap-1"><ChevronRight className="w-3 h-3" />View Details</p>}
-                                        {'external_link' in p && (p as Record<string, unknown>).external_link && !isCMS && (
-                                          <a href={String((p as Record<string, unknown>).external_link)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-primary hover:underline mt-1">
-                                            <ExternalLink className="w-3 h-3" />View
-                                          </a>
+                                  <div
+                                    key={i}
+                                    onClick={() => isCMS && setSelectedPatent(p as CMSPatent)}
+                                    className={`group rounded-2xl p-4 bg-white border border-slate-200/80 shadow-xs transition-all duration-300 flex items-start justify-between gap-4 ${
+                                      isCMS ? "hover:shadow-lg hover:-translate-y-1 hover:border-primary/40 cursor-pointer" : "hover:shadow-md"
+                                    }`}
+                                  >
+                                    <div className="flex-1 min-w-0">
+                                      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                                        <span className="w-2 h-2 rounded-full bg-primary" />
+                                        {(appNo || patNo) && (
+                                          <span className="text-[11px] font-mono font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
+                                            {patNo ? `Patent: ${patNo}` : `App: ${appNo}`}
+                                          </span>
+                                        )}
+                                        {year && (
+                                          <span className="text-[11px] font-semibold text-slate-500">
+                                            • {year}
+                                          </span>
                                         )}
                                       </div>
-                                      <span className={`shrink-0 text-sm px-2 py-1 rounded-full font-medium ${status === "Granted" ? "bg-green-100 text-green-700" : status === "Published" ? "bg-blue-100 text-blue-700" : "bg-amber-100 text-amber-700"}`}>{status}</span>
-                                    </CardContent>
-                                  </Card>
+                                      <h4 className="text-sm font-bold text-slate-900 group-hover:text-primary transition-colors leading-snug">
+                                        {p.title}
+                                      </h4>
+                                      {rawInventors && (
+                                        <p className="text-xs text-slate-600 mt-1 line-clamp-1">
+                                          <span className="font-semibold text-slate-700">Inventors:</span> {rawInventors}
+                                        </p>
+                                      )}
+                                      {isCMS && (
+                                        <p className="text-xs text-primary font-semibold mt-2.5 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                                          <span>View Patent Details</span>
+                                          <ChevronRight className="w-3 h-3" />
+                                        </p>
+                                      )}
+                                    </div>
+                                    <span className={`shrink-0 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${
+                                      status === "Granted"
+                                        ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                                        : status === "Published"
+                                        ? "bg-blue-50 text-blue-700 border border-blue-200"
+                                        : "bg-amber-50 text-amber-700 border border-amber-200"
+                                    }`}>
+                                      {status}
+                                    </span>
+                                  </div>
                                 );
                               })}
                             </div>
@@ -3670,22 +3708,53 @@ const DepartmentPage = () => {
                       <div className="space-y-2">
                         {items.map((p, i) => {
                           const isCMS = ('id' in p) && typeof p.id === 'number';
+                          const authors = p.authors && p.authors.trim();
+                          const venue = ('venue' in p && (p as any).venue) ? String((p as any).venue).trim() : null;
+                          const indexing = ('indexing' in p && (p as any).indexing) ? String((p as any).indexing).trim() : null;
+
                           return (
-                            <Card key={i} onClick={() => isCMS && setSelectedPublication(p as CMSPublication)}
-                              className={`transition-all ${isCMS ? "hover:shadow-lg hover:-translate-y-1 cursor-pointer" : "hover:shadow-md"}`}>
-                              <CardContent className="p-3">
-                                <p className="text-sm font-medium text-secondary">{p.title}</p>
-                                <div className="flex flex-wrap items-center gap-3 mt-1">
-                                  {p.authors && <span className="text-sm text-muted-foreground">{p.authors}</span>}
-                                  {p.year && <span className="text-sm bg-muted px-2 py-0.5 rounded-full">{p.year}</span>}
-                                  {('venue' in p) && (p as Record<string, unknown>).venue && <span className="text-sm text-muted-foreground italic">{String((p as Record<string, unknown>).venue)}</span>}
-                                  {('indexing' in p) && (p as Record<string, unknown>).indexing && <span className="text-sm bg-primary/5 text-primary px-2 py-0.5 rounded-full">{String((p as Record<string, unknown>).indexing)}</span>}
-                                  {isCMS && <span className="text-sm text-primary font-medium flex items-center gap-1"><ChevronRight className="w-3 h-3" />View Details</span>}
-                                  {!isCMS && ('doi' in p) && (p as Record<string, unknown>).doi && <a href={`https://doi.org/${(p as Record<string, unknown>).doi}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-primary hover:underline"><ExternalLink className="w-3 h-3" />DOI</a>}
-                                  {!isCMS && ('external_link' in p) && (p as Record<string, unknown>).external_link && <a href={String((p as Record<string, unknown>).external_link)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-primary hover:underline"><ExternalLink className="w-3 h-3" />Link</a>}
+                            <div
+                              key={i}
+                              onClick={() => isCMS && setSelectedPublication(p as CMSPublication)}
+                              className={`group rounded-2xl bg-white border border-slate-200/80 p-4 shadow-sm transition-all duration-300 ${
+                                isCMS ? "hover:shadow-lg hover:-translate-y-0.5 cursor-pointer" : ""
+                              }`}
+                            >
+                              <h4 className="font-semibold text-sm text-slate-900 group-hover:text-primary transition-colors leading-snug">
+                                {p.title}
+                              </h4>
+                              {authors && (
+                                <p className="text-xs text-slate-600 mt-1 flex items-center gap-1.5">
+                                  <Users className="w-3 h-3 text-slate-400 shrink-0" />
+                                  <span className="line-clamp-1">{authors}</span>
+                                </p>
+                              )}
+                              <div className="flex flex-wrap items-center justify-between gap-2 mt-2 pt-2 border-t border-slate-100 text-xs">
+                                <div className="flex flex-wrap items-center gap-2">
+                                  {p.year && (
+                                    <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 font-medium">
+                                      {p.year}
+                                    </span>
+                                  )}
+                                  {venue && (
+                                    <span className="text-slate-500 italic line-clamp-1 max-w-[260px]">
+                                      {venue}
+                                    </span>
+                                  )}
+                                  {indexing && (
+                                    <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
+                                      {indexing}
+                                    </span>
+                                  )}
                                 </div>
-                              </CardContent>
-                            </Card>
+                                {isCMS && (
+                                  <span className="inline-flex items-center gap-1 font-bold text-primary group-hover:translate-x-0.5 transition-transform">
+                                    Details
+                                    <ChevronRight className="w-3.5 h-3.5" />
+                                  </span>
+                                )}
+                              </div>
+                            </div>
                           );
                         })}
                       </div>
@@ -3737,50 +3806,112 @@ const DepartmentPage = () => {
                   if (allEvents.length === 0) {
                     return <p className="text-muted-foreground text-sm py-8">No event records available at this time.</p>;
                   }
+                  const formatEventDate = (dateStr?: string | null) => {
+                    if (!dateStr) return "Date TBA";
+                    const s = String(dateStr).trim();
+                    if (!s || s.startsWith("0000") || s.toLowerCase() === "invalid date") return "Date TBA";
+                    const t = parseEventConductedTime(s);
+                    if (!t || isNaN(t)) return s;
+                    try {
+                      return new Date(t).toLocaleDateString("en-IN", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                      });
+                    } catch {
+                      return s;
+                    }
+                  };
+
                   return (
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {allEvents.map((e, i) => {
-                      const isCMS = 'id' in e && typeof e.id === 'number';
-                      return (
-                        <Card
-                          key={i}
-                          onClick={() => isCMS && setSelectedEventId((e as { id: number }).id)}
-                          className={`transition-all duration-300 overflow-hidden ${
-                            isCMS ? "hover:shadow-lg hover:-translate-y-1 cursor-pointer" : ""
-                          }`}
-                        >
-                          {'poster' in e && e.poster && (
-                            <div className="relative w-full h-36 bg-slate-100 overflow-hidden">
-                              <img
-                                src={e.poster}
-                                alt={e.title}
-                                loading="lazy"
-                                className="w-full h-full object-cover"
-                                onError={ev => { (ev.target as HTMLImageElement).style.display = 'none'; }}
-                              />
+                        const isCMS = 'id' in e && typeof e.id === 'number';
+                        const rawDesc = ('description' in e && e.description) ? String(e.description) : "";
+                        const cleanDesc = rawDesc.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+                        const rawDate = ('date' in e ? e.date : '') || ('from_date' in e ? e.from_date : '');
+                        const displayDate = formatEventDate(rawDate);
+                        const eventType = ('type' in e ? e.type : '') || ('event_type' in e ? (e as any).event_type : '');
+                        const posterUrl = ('poster' in e && e.poster) ? e.poster : null;
+
+                        return (
+                          <div
+                            key={i}
+                            onClick={() => isCMS && setSelectedEventId((e as { id: number }).id)}
+                            className={`group relative rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-sm transition-all duration-300 flex flex-col ${
+                              isCMS ? "hover:shadow-xl hover:-translate-y-1.5 cursor-pointer" : ""
+                            }`}
+                          >
+                            {/* Image / Header Banner */}
+                            <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900 flex items-center justify-center">
+                              {posterUrl ? (
+                                <img
+                                  src={posterUrl}
+                                  alt={e.title}
+                                  loading="lazy"
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                  onError={(ev) => {
+                                    (ev.target as HTMLImageElement).style.display = 'none';
+                                  }}
+                                />
+                              ) : (
+                                <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-950 via-slate-900 to-primary/80 text-white">
+                                  <Calendar className="w-10 h-10 mb-2 text-primary opacity-80" />
+                                  <span className="text-[11px] uppercase tracking-wider font-semibold text-slate-400">Department Event</span>
+                                  <span className="font-bold text-sm text-white mt-0.5 line-clamp-1">{dept.name}</span>
+                                </div>
+                              )}
+
+                              {/* Event Type Badge */}
+                              {eventType && (
+                                <div className="absolute top-3 right-3 z-10 inline-flex items-center gap-1 rounded-full bg-white/95 text-primary px-2.5 py-1 text-xs font-bold shadow-md backdrop-blur-sm">
+                                  {eventType}
+                                </div>
+                              )}
                             </div>
-                          )}
-                          <CardContent className="p-4">
-                            <div className="flex items-center justify-between mb-2">
-                              <span className="flex items-center gap-1 text-sm text-muted-foreground">
-                                <Calendar className="w-3.5 h-3.5 text-primary" />
-                                {('date' in e ? e.date : '') || ('from_date' in e ? e.from_date : '')}
-                              </span>
-                              {e.type && <span className="text-sm bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">{e.type}</span>}
+
+                            {/* Content */}
+                            <div className="p-5 flex-1 flex flex-col justify-between">
+                              <div>
+                                <h4 className="font-display text-base font-bold text-slate-900 group-hover:text-primary transition-colors line-clamp-2 leading-snug mb-2">
+                                  {e.title}
+                                </h4>
+                                {cleanDesc ? (
+                                  <p className="text-sm text-slate-500 line-clamp-2 leading-relaxed mb-3">
+                                    {cleanDesc}
+                                  </p>
+                                ) : (
+                                  <p className="text-xs text-slate-400 italic mb-3">
+                                    Click to view schedule, speakers, coordinators & registration.
+                                  </p>
+                                )}
+                              </div>
+
+                              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                                <span className="flex items-center gap-1.5 font-medium text-slate-700">
+                                  <Calendar className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                                  {displayDate}
+                                </span>
+
+                                {'venue' in e && e.venue && (
+                                  <span className="flex items-center gap-1 truncate max-w-[130px] text-slate-500">
+                                    <MapPin className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
+                                    <span className="truncate">{e.venue}</span>
+                                  </span>
+                                )}
+
+                                {isCMS && (
+                                  <span className="inline-flex items-center gap-1 font-bold text-primary group-hover:translate-x-0.5 transition-transform">
+                                    Details
+                                    <ChevronRight className="w-3.5 h-3.5" />
+                                  </span>
+                                )}
+                              </div>
                             </div>
-                            <h4 className="font-semibold text-sm text-secondary">{e.title}</h4>
-                            {e.description && <p className="text-sm text-muted-foreground mt-1 line-clamp-2" dangerouslySetInnerHTML={{ __html: e.description }} />}
-                            {'venue' in e && e.venue && <p className="text-sm text-muted-foreground mt-1">📍 {e.venue}</p>}
-                            {isCMS && (
-                              <p className="text-sm text-primary font-medium mt-2 flex items-center gap-1">
-                                <ChevronRight className="w-3 h-3" /> View Details
-                              </p>
-                            )}
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
+                          </div>
+                        );
+                      })}
+                    </div>
                   );
                 })()}
               </motion.div>
@@ -3797,36 +3928,88 @@ const DepartmentPage = () => {
                   return (
                     <div className="grid md:grid-cols-2 gap-4">
                       {allMous.map((m, i) => {
-                      const isCMS = 'id' in m && typeof m.id === 'number';
-                      return (
-                        <Card key={i} onClick={() => isCMS && setSelectedMou(m as CMSMoU)}
-                          className={`border-l-4 border-l-primary/30 transition-all ${
-                            isCMS ? "hover:shadow-lg hover:-translate-y-1 cursor-pointer" : "hover:shadow-md"
-                          }`}>
-                          <CardContent className="p-4">
-                            <div className="flex items-start justify-between gap-2">
-                              <h4 className="font-bold text-sm text-secondary flex-1">
-                                {'organization' in m ? m.organization : ('name' in m ? m.name : '')}
-                              </h4>
-                              {'status' in m && m.status && (
-                                <span className={`shrink-0 text-sm px-2 py-0.5 rounded-full font-medium ${ m.status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-600'}`}>{m.status}</span>
+                        const isCMS = 'id' in m && typeof m.id === 'number';
+                        const org = ('organization' in m ? m.organization : ('name' in m ? m.name : '')) || '';
+                        const title = ('title' in m && m.title) ? String(m.title) : '';
+                        const purpose = m.purpose && m.purpose !== 'null' && m.purpose !== 'N/A' ? String(m.purpose) : '';
+                        const country = 'country' in m && m.country && m.country !== 'null' ? String(m.country) : '';
+                        const status = 'status' in m && m.status ? String(m.status) : '';
+                        const year = m.year && m.year !== '0' && m.year !== '0000' ? String(m.year) : '';
+                        const collab = ('collabAreas' in m && Array.isArray(m.collabAreas)) ? m.collabAreas.filter(Boolean) : [];
+
+                        return (
+                          <div
+                            key={i}
+                            onClick={() => isCMS && setSelectedMou(m as CMSMoU)}
+                            className={`group rounded-2xl p-5 bg-white border border-slate-200/80 shadow-xs transition-all duration-300 flex flex-col justify-between ${
+                              isCMS ? "hover:shadow-xl hover:-translate-y-1.5 hover:border-primary/40 cursor-pointer" : "hover:shadow-md"
+                            }`}
+                          >
+                            <div>
+                              <div className="flex items-start justify-between gap-3 mb-2">
+                                <div className="flex items-start gap-2.5 min-w-0 flex-1">
+                                  <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <Building2 className="w-4 h-4" />
+                                  </div>
+                                  <div className="min-w-0 flex-1">
+                                    <h4 className="font-bold text-base text-slate-900 group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                                      {org}
+                                    </h4>
+                                    {title && title !== org && (
+                                      <p className="text-xs text-primary font-medium mt-0.5 line-clamp-1">{title}</p>
+                                    )}
+                                  </div>
+                                </div>
+                                {status && (
+                                  <span className={`shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${
+                                    status.toLowerCase() === 'active'
+                                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                      : 'bg-slate-100 text-slate-600 border border-slate-200'
+                                  }`}>
+                                    {status}
+                                  </span>
+                                )}
+                              </div>
+
+                              {purpose && (
+                                <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed mt-2.5 pl-11">
+                                  {purpose}
+                                </p>
                               )}
                             </div>
-                            {'title' in m && m.title && <p className="text-sm font-medium text-primary mt-1">{m.title}</p>}
-                            <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{m.purpose}</p>
-                            {'country' in m && m.country && <p className="text-sm text-muted-foreground mt-0.5">🌍 {m.country}</p>}
-                            <div className="flex flex-wrap gap-2 mt-2">
-                              {m.year && <span className="text-sm bg-muted px-2 py-0.5 rounded-full">{m.year}</span>}
-                              {'collabAreas' in m && (m.collabAreas ?? []).slice(0, 3).map((area: string, j: number) => (
-                                <span key={j} className="text-sm bg-primary/5 text-primary px-2 py-0.5 rounded-full">{area}</span>
-                              ))}
+
+                            <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
+                              <div className="flex flex-wrap items-center gap-1.5">
+                                {year && (
+                                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                                    <Calendar className="w-3 h-3 text-slate-500" />
+                                    {year}
+                                  </span>
+                                )}
+                                {country && (
+                                  <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                                    <Globe className="w-3 h-3 text-slate-400" />
+                                    {country}
+                                  </span>
+                                )}
+                                {collab.slice(0, 2).map((area: string, j: number) => (
+                                  <span key={j} className="text-[10px] font-medium bg-primary/5 text-primary border border-primary/10 px-2 py-0.5 rounded-full">
+                                    {area}
+                                  </span>
+                                ))}
+                              </div>
+
+                              {isCMS && (
+                                <span className="inline-flex items-center gap-1 text-xs font-bold text-primary group-hover:translate-x-0.5 transition-transform">
+                                  Details
+                                  <ChevronRight className="w-3.5 h-3.5" />
+                                </span>
+                              )}
                             </div>
-                            {isCMS && <p className="text-sm text-primary font-medium mt-2 flex items-center gap-1"><ChevronRight className="w-3 h-3" />View Details</p>}
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
+                          </div>
+                        );
+                      })}
+                    </div>
                 );
               })()}
             </motion.div>
@@ -3874,40 +4057,50 @@ const DepartmentPage = () => {
                 {!cmsLoading && cms.placements.length > 0 && (
                   <>
                     <h3 className="font-semibold text-secondary mb-3">Placement Records</h3>
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {cms.placements.map((p, i) => (
-                        <Card key={i} onClick={() => setSelectedPlacement(p)}
-                          className="hover:shadow-lg hover:-translate-y-1 cursor-pointer transition-all">
-                          <CardContent className="p-4">
-                            <div className="flex items-start justify-between gap-2">
-                              <div className="flex-1 min-w-0">
-                                {p.subtype === 'Training' ? (
-                                  <>
-                                    <p className="font-semibold text-sm text-secondary">{p.programTitle}</p>
-                                    <p className="text-sm text-muted-foreground mt-0.5">By: {p.conductedBy}</p>
-                                    {p.numberOfStudents ? <p className="text-sm text-muted-foreground">{p.numberOfStudents} students</p> : null}
-                                  </>
-                                ) : (
-                                  <>
-                                    <p className="font-semibold text-sm text-secondary">{p.studentName}</p>
-                                    <p className="text-sm text-primary font-medium">{p.companyName}</p>
-                                    {p.role && <p className="text-sm text-muted-foreground">{p.role}</p>}
-                                    {p.package && <p className="text-sm font-semibold text-green-700">{p.package}</p>}
-                                  </>
-                                )}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {cms.placements.map((p, i) => {
+                        const isTraining = p.subtype === 'Training';
+                        const title = isTraining ? p.programTitle : p.studentName;
+                        const sub = isTraining ? (p.conductedBy ? `Conducted by: ${p.conductedBy}` : '') : (p.companyName || '');
+                        const pkg = !isTraining && p.package && p.package !== 'null' ? p.package : '';
+                        const role = !isTraining && p.role && p.role !== 'null' ? p.role : '';
+                        const year = p.year && p.year !== '0' && p.year !== '0000' ? p.year : '';
+                        const students = isTraining && p.numberOfStudents ? `${p.numberOfStudents} students attended` : '';
+
+                        return (
+                          <div
+                            key={i}
+                            onClick={() => setSelectedPlacement(p)}
+                            className="group rounded-2xl p-5 bg-white border border-slate-200/80 shadow-xs hover:shadow-xl hover:-translate-y-1.5 hover:border-primary/40 cursor-pointer transition-all flex flex-col justify-between"
+                          >
+                            <div>
+                              <div className="flex items-start justify-between gap-2 mb-2">
+                                <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${
+                                  p.subtype === 'Placement'
+                                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                    : p.subtype === 'Internship'
+                                    ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                                    : 'bg-purple-50 text-purple-700 border border-purple-200'
+                                }`}>
+                                  {p.subtype}
+                                </span>
+                                {year && <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{year}</span>}
                               </div>
-                              <div className="text-right shrink-0">
-                                <span className={`text-sm px-2 py-0.5 rounded-full font-medium ${
-                                  p.subtype === 'Placement' ? 'bg-green-100 text-green-700' :
-                                  p.subtype === 'Internship' ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700'
-                                }`}>{p.subtype}</span>
-                                {p.year && <p className="text-sm text-muted-foreground mt-1">{p.year}</p>}
-                              </div>
+                              <h4 className="font-bold text-base text-slate-900 group-hover:text-primary transition-colors leading-snug">
+                                {title}
+                              </h4>
+                              {sub && <p className="text-xs font-semibold text-primary mt-1">{sub}</p>}
+                              {role && <p className="text-xs text-slate-500 mt-0.5">Role: {role}</p>}
+                              {pkg && <p className="text-xs font-bold text-emerald-700 mt-1">Package: {pkg}</p>}
+                              {students && <p className="text-xs text-slate-500 mt-0.5">{students}</p>}
                             </div>
-                            <p className="text-sm text-primary font-medium mt-2 flex items-center gap-1"><ChevronRight className="w-3 h-3" />View Details</p>
-                          </CardContent>
-                        </Card>
-                      ))}
+                            <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-xs text-primary font-bold">
+                              <span>View Placement Details</span>
+                              <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </>
                 )}

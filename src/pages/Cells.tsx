@@ -292,6 +292,36 @@ export default function Cells() {
                             </span>
                           </div>
                         </Link>
+                      ) : cell.href.startsWith("/") ? (
+                        <Link
+                          to={cell.href}
+                          className="group bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 hover:shadow-lg hover:border-[#caa74d] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer h-full block"
+                        >
+                          <div>
+                            <div className="flex items-center justify-between mb-4">
+                              <div className="w-10 h-10 rounded-xl bg-[#0f2a44]/5 text-[#0f2a44] flex items-center justify-center group-hover:bg-[#caa74d]/10 group-hover:text-[#b31317] transition-all">
+                                <CategoryIcon className="w-5 h-5" />
+                              </div>
+                              {cell.abbreviation && (
+                                <span className="bg-[#fff8e6] border border-[#ffd15c]/25 text-[#b31317] text-sm font-bold px-2.5 py-0.5 rounded-full">
+                                  {cell.abbreviation}
+                                </span>
+                              )}
+                            </div>
+                            <h3 className="font-display font-bold text-base text-[#0f2a44] group-hover:text-[#b31317] transition-colors leading-snug">
+                              {cell.name}
+                            </h3>
+                            <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400 mt-2 block">
+                              {cell.categoryTitle}
+                            </p>
+                          </div>
+                          <div className="mt-6 pt-4 border-t border-[#0f2a44]/5 flex items-center justify-between">
+                            <span className="text-sm font-medium text-[#caa74d] group-hover:underline">View details</span>
+                            <span className="w-8 h-8 rounded-full bg-gray-50 text-gray-400 group-hover:bg-[#b31317] group-hover:text-white flex items-center justify-center transition-all shadow-sm">
+                              <ArrowUpRight className="w-4 h-4" />
+                            </span>
+                          </div>
+                        </Link>
                       ) : (
                         <a
                           href={cell.href}
@@ -366,6 +396,15 @@ export default function Cells() {
                                   </span>
                                 )}
                               </Link>
+                            ) : cell.href.startsWith("/") ? (
+                              <Link to={cell.href} className="hover:text-[#b31317] transition-colors inline-flex items-center gap-1.5">
+                                {cell.name}
+                                {cell.abbreviation && (
+                                  <span className="text-[10px] bg-red-50 text-[#b31317] border border-red-100 px-2 py-0.5 rounded font-bold uppercase tracking-wide">
+                                    {cell.abbreviation}
+                                  </span>
+                                )}
+                              </Link>
                             ) : (
                               <a href={cell.href} target="_blank" rel="noopener noreferrer" className="hover:text-[#b31317] transition-colors inline-flex items-center gap-1.5">
                                 {cell.name}
@@ -383,6 +422,11 @@ export default function Cells() {
                           <td className="py-4 px-6 text-center">
                             {cell.detailId && cellsDetailData[cell.detailId] ? (
                               <Link to={`/cells/${cell.detailId}`} className="inline-flex items-center gap-1 text-sm font-bold text-[#b31317] hover:text-[#0f2a44] transition-colors hover:underline">
+                                <span>View Cell</span>
+                                <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                              </Link>
+                            ) : cell.href.startsWith("/") ? (
+                              <Link to={cell.href} className="inline-flex items-center gap-1 text-sm font-bold text-[#b31317] hover:text-[#0f2a44] transition-colors hover:underline">
                                 <span>View Cell</span>
                                 <ChevronRight className="w-3.5 h-3.5 shrink-0" />
                               </Link>

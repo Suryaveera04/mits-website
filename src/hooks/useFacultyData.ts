@@ -406,16 +406,32 @@ export function useFacultyData() {
   const getFacultyProfileBySlug = useCallback(
     (deptKey: string, slug: string): ReturnType<typeof apiFacultyToFacultyProfile> | undefined => {
       const normalizedKey = deptKey.toLowerCase().trim();
+      const cleanSlug = slug.replace(/^(?:dr|mr|mrs|ms|prof)-+/i, "");
+
       // 1. Check official match first within the requested department
+      const matchOfficial = (o: any) => {
+        const oSlug = o.slug || "";
+        const cleanOSlug = oSlug.replace(/^(?:dr|mr|mrs|ms|prof)-+/i, "");
+        const nameSlug = slugifyFaculty(o.name);
+        const dbNameSlug = o.dbFullName ? slugifyFaculty(o.dbFullName) : "";
+        return (
+          o.slug === slug ||
+          cleanOSlug === cleanSlug ||
+          nameSlug === slug ||
+          nameSlug === cleanSlug ||
+          dbNameSlug === slug ||
+          dbNameSlug === cleanSlug ||
+          o.dbId === slug
+        );
+      };
+
       const officialMatch =
         (officialFacultyList as any[]).find(
           (o) =>
             (normalizedKey === "" || normalizedKey === "all" || o.deptKey === normalizedKey) &&
-            (o.slug === slug || slugifyFaculty(o.name) === slug || o.dbId === slug)
+            matchOfficial(o)
         ) ||
-        (officialFacultyList as any[]).find(
-          (o) => o.slug === slug || slugifyFaculty(o.name) === slug || o.dbId === slug
-        );
+        (officialFacultyList as any[]).find((o) => matchOfficial(o));
 
       let found: APIFacultyMember | undefined;
       if (officialMatch?.dbId) {
@@ -433,9 +449,14 @@ export function useFacultyData() {
         found = facultyList.find((f) => {
           const memberDept = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
           const memberSlug = slugifyFaculty(f.fullName);
+          const cleanMemberSlug = memberSlug.replace(/^(?:dr|mr|mrs|ms|prof)-+/i, "");
           const matchesDept = memberDept === normalizedKey || normalizedKey === "all";
-          return memberSlug === slug && matchesDept;
-        }) || facultyList.find((f) => slugifyFaculty(f.fullName) === slug || f._id === slug);
+          return (memberSlug === slug || cleanMemberSlug === cleanSlug) && matchesDept;
+        }) || facultyList.find((f) => {
+          const memberSlug = slugifyFaculty(f.fullName);
+          const cleanMemberSlug = memberSlug.replace(/^(?:dr|mr|mrs|ms|prof)-+/i, "");
+          return memberSlug === slug || cleanMemberSlug === cleanSlug || f._id === slug;
+        });
       }
 
       if (found) {
@@ -461,6 +482,14 @@ export function useFacultyData() {
             if (photoUrl) prof.image = photoUrl;
           }
         }
+
+        // Guarantee Ph.D. status is preserved for all doctoral faculty
+        if (prof.name.toLowerCase().startsWith("dr.") || found.phd?.status === "Awarded" || found.phd?.topic) {
+          if (!prof.qualification || prof.qualification === "M.Tech / M.Sc" || prof.qualification.toLowerCase() === "m.tech") {
+            prof.qualification = "Ph.D.";
+          }
+        }
+
         return prof;
       }
       return undefined;

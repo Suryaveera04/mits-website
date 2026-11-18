@@ -66,7 +66,7 @@ export const cellCategories: CellCategory[] = [
       { name: "Industry-Institute Interaction Cell", abbreviation: "IIIC", href: "/cells/iiic", detailId: "iiic" },
       { name: "Entrepreneurship Development Cell", abbreviation: "EDC", href: "/cells/edc", detailId: "edc" },
       { name: "Venture Studio", href: "/Venture-Studio" },
-      { name: "Skill Development Centre", abbreviation: "SDC", href: "/skill-development-centre" },
+      { name: "Skill Development Centre", abbreviation: "SDC", href: "/skill-development-centre", detailId: "sdc" },
       { name: "R & D Cell Formation", href: "/cells/rd-cell", detailId: "rd-cell" },
     ],
   },

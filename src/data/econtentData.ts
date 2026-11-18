@@ -1965,6 +1965,10 @@ export const econtentDepartmentsData: DepartmentEContent[] = [
           {
             "title": "Hall Effect",
             "url": "https://youtu.be/ei6lYuDzE28"
+          },
+          {
+            "title": "Trust",
+            "url": "https://youtu.be/7tNCDyavq2M"
           }
         ]
       },
@@ -2248,7 +2252,7 @@ export const econtentDepartmentsData: DepartmentEContent[] = [
     ]
   },
   {
-    "id": "ug-tab54",
+    "id": "ug-tab25",
     "name": "Department of Management Studies",
     "facultyList": [
       {
@@ -2823,6 +2827,86 @@ export const econtentDepartmentsData: DepartmentEContent[] = [
           {
             "title": "Sum up",
             "url": "https://mitsacin-my.sharepoint.com/:v:/g/personal/mitsradio90_8cr_mits_ac_in/Ef7AIddoEDBHlW7QIfNQqHsBhtI5TgAkAsqt5cFvk7RD0A"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ug-tab26",
+    "name": "Department of Computer Applications (MCA)",
+    "facultyList": [
+      {
+        "name": "Faculty 1",
+        "links": [
+          {
+            "title": "AQAR Criterion wise",
+            "url": "https://mits.ac.in/aqarcriteria"
+          }
+        ]
+      },
+      {
+        "name": "Faculty 2",
+        "links": [
+          {
+            "title": "AQAR 2021-22 Report",
+            "url": "https://mits.ac.in/public/uploads/naac/AQAR%202021-2022.pdf"
+          },
+          {
+            "title": "AQAR Criterion wise",
+            "url": "https://mits.ac.in/aqarcriteria"
+          }
+        ]
+      },
+      {
+        "name": "Faculty 3",
+        "links": [
+          {
+            "title": "AQAR 2020-21 Report",
+            "url": "https://mits.ac.in/public/uploads/naac/AQAR%202020-2021.pdf"
+          },
+          {
+            "title": "AQAR Criterion wise",
+            "url": "https://mits.ac.in/aqarcriteria"
+          }
+        ]
+      },
+      {
+        "name": "Faculty 4",
+        "links": [
+          {
+            "title": "AQAR 2019-20 Report",
+            "url": "https://mits.ac.in/public/uploads/naac/AQAR2019-20.pdf"
+          },
+          {
+            "title": "AQAR Criterion wise",
+            "url": "https://mits.ac.in/aqarcriteria"
+          }
+        ]
+      },
+      {
+        "name": "Faculty 5",
+        "links": [
+          {
+            "title": "AQAR 2018-19 Report",
+            "url": "https://mits.ac.in/public/uploads/naac/AQAR2018-19.pdf"
+          },
+          {
+            "title": "AQAR Criterion wise",
+            "url": "https://mits.ac.in/aqarcriteria"
+          }
+        ]
+      },
+      {
+        "name": "Faculty 6",
+        "links": [
+          {
+            "title": "AQAR 2017-18 Report",
+            "url": "https://mits.ac.in/public/uploads/naac/AQAR2017-18.pdf"
+          },
+          {
+            "title": "AQAR Criterion wise",
+            "url": "https://mits.ac.in/aqarcriteria"
           }
         ]
       }

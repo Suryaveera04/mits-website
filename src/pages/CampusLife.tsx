@@ -50,7 +50,7 @@ const experienceCards = [
     image: getLocalUrl(campusLifeData.clubs.images[0]),
     icon: Users,
     stats: campusLifeData.clubs.stats,
-    href: "/campus-life/student-clubs",
+    href: "/studentclubs",
   },
   {
     id: "sports",
