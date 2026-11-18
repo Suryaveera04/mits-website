@@ -477,7 +477,7 @@ const Examinations = () => {
                     </div>
                   </>)}
                   {active === "results" && (<>
-                    <SectionHead icon={GraduationCap} title="Results" subtitle="UG and PG results portal — including recounting and re-evaluation outcomes." />
+                    <SectionHead icon={GraduationCap} title="Results" subtitle="Official examination results and student portal for UG and PG programs." />
                     <div className="space-y-8">
                       <div>
                         <h3 className="font-display text-xl font-semibold mb-3 text-foreground">UG Results</h3>

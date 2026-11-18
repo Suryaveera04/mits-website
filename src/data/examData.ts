@@ -1063,16 +1063,19 @@ export const pgMtechQuestionPapers: ExamLink[] = [
 
 
 export const ugResults: ExamLink[] = [
-  { title: "UG Results — Announced from May 2024 onwards (Live Portal)", href: "http://125.16.54.154/mitsresults/resultug", kind: "link" },
-  { title: "UG Results — Announced up to April 2024", href: "https://mits.ac.in/ugresults", kind: "link" },
-  { title: "UG Recounting Results — Announced from May 2024 onwards", href: "https://mits.ac.in/recountingugresults", kind: "link" },
-  { no: 1, title: "Re-Evaluation Results — B.Tech I Year I Semester (R25) Regular End Exams January 2026", href: "https://mits.ac.in/public/uploads/ugc/Re%20Evaluation%20Results%20for%20B.Tech%20I%20Year%20I%20Semester%20(R25)%20Regular%20End%20Exams%20January%202026.pdf", kind: "pdf" },
+  {
+    title: "UG Examination Results — Student Portal (University Solutions)",
+    href: "https://studentportal.universitysolutions.in/",
+    kind: "link",
+  },
 ];
 
 export const pgResults: ExamLink[] = [
-  { title: "PG Results — Announced from May 2024 onwards (Live Portal)", href: "http://125.16.54.154/mitsresults/resultpg", kind: "link" },
-  { title: "PG Results — Announced up to April 2024", href: "https://mits.ac.in/pgresults", kind: "link" },
-  { title: "PG Recounting Results — Announced from May 2024 onwards", href: "https://mits.ac.in/recountingpgresults", kind: "link" },
+  {
+    title: "PG Examination Results — Student Portal (University Solutions)",
+    href: "https://studentportal.universitysolutions.in/",
+    kind: "link",
+  },
 ];
 
 // -------------------- APAAR / ABC --------------------
