@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { useEffect, Suspense, lazy } from "react";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 // Lazy load components for code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -107,7 +108,8 @@ const App = () => (
       <Sonner />
       <Router basename="/university" future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
-        <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
@@ -314,7 +316,8 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-        <FloatingWhatsApp />
+      </ErrorBoundary>
+      <FloatingWhatsApp />
        </Router>
     </TooltipProvider>
   </QueryClientProvider>
