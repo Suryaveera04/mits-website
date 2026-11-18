@@ -20,7 +20,7 @@ import {
   ugFacultyFormats, ugStudentFormats, ugDownloads, ugCirculars,
   pgNotifications, pgCirculars, pgMidTermTimetables, pgModelLabTimetables, pgPracticalSecTimetables, pgTheoryEndTimetables, pgEndSemTimetables,
   pgFacultyFormats, pgStudentFormats, pgDownloads,
-  ugResults, pgResults, apaarAbc, examinationCommittee,
+  examResults, ugResults, pgResults, apaarAbc, examinationCommittee,
   coeOffice, coeResponsibilities, type ExamLink,
 } from "@/data/examData";
 
@@ -791,32 +791,8 @@ const Examinations = () => {
                     </div>
                   </>)}
                   {active === "results" && (<>
-                    <SectionHead icon={GraduationCap} title="Results" subtitle="Official examination results and student portal for UG and PG programs." />
-                    <div className="flex items-center gap-2 mb-6 p-1.5 bg-muted/60 rounded-xl border border-border/50 max-w-md">
-                      <button
-                        onClick={() => setActive("results")}
-                        className="flex-1 py-2 px-3 text-xs sm:text-sm font-semibold rounded-lg bg-primary text-primary-foreground shadow-sm transition-all text-center"
-                      >
-                        Results Portal
-                      </button>
-                      <button
-                        onClick={() => { setActive("committee"); window.scrollTo({ top: 200, behavior: "smooth" }); }}
-                        className="flex-1 py-2 px-3 text-xs sm:text-sm font-medium rounded-lg text-muted-foreground hover:text-foreground hover:bg-background transition-all text-center flex items-center justify-center gap-1.5"
-                      >
-                        <Users className="w-4 h-4" />
-                        <span>Committee</span>
-                      </button>
-                    </div>
-                    <div className="space-y-8">
-                      <div>
-                        <h3 className="font-display text-xl font-semibold mb-3 text-foreground">UG Results</h3>
-                        <NotificationList items={ugResults} query={query} />
-                      </div>
-                      <div>
-                        <h3 className="font-display text-xl font-semibold mb-3 text-foreground">PG Results</h3>
-                        <NotificationList items={pgResults} query={query} />
-                      </div>
-                    </div>
+                    <SectionHead icon={GraduationCap} title="Results" subtitle="Official examination results and student portal for UG, PG, and Ph.D. programs." />
+                    <NotificationList items={examResults} query={query} />
                   </>)}
                   {active === "apaar" && (<>
                     <SectionHead icon={IdCard} title="APAAR / ABC" subtitle="Automated Permanent Academic Account Registry and Academic Bank of Credits." />
@@ -835,21 +811,6 @@ const Examinations = () => {
                       title="Examination Committee"
                       subtitle="Official orders, constitution, and governance of the University Examination Committee."
                     />
-                    <div className="flex items-center gap-2 mb-6 p-1.5 bg-muted/60 rounded-xl border border-border/50 max-w-md">
-                      <button
-                        onClick={() => { setActive("results"); window.scrollTo({ top: 200, behavior: "smooth" }); }}
-                        className="flex-1 py-2 px-3 text-xs sm:text-sm font-medium rounded-lg text-muted-foreground hover:text-foreground hover:bg-background transition-all text-center flex items-center justify-center gap-1.5"
-                      >
-                        <GraduationCap className="w-4 h-4" />
-                        <span>Results Portal</span>
-                      </button>
-                      <button
-                        onClick={() => setActive("committee")}
-                        className="flex-1 py-2 px-3 text-xs sm:text-sm font-semibold rounded-lg bg-primary text-primary-foreground shadow-sm transition-all text-center"
-                      >
-                        Committee
-                      </button>
-                    </div>
 
                     <div className="rounded-xl border border-border bg-gradient-to-br from-primary/5 to-accent/5 p-6 mb-6">
                       <div className="flex items-start gap-4">

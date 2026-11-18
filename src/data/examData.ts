@@ -1112,21 +1112,17 @@ export const pgMtechQuestionPapers: ExamLink[] = [
 ];
 
 
-export const ugResults: ExamLink[] = [
+export const examResults: ExamLink[] = [
   {
-    title: "UG Examination Results — Student Portal (University Solutions)",
+    title: "Examination Results (UG, PG & Ph.D.) — Student Portal (University Solutions)",
     href: "https://studentportal.universitysolutions.in/",
     kind: "link",
   },
 ];
 
-export const pgResults: ExamLink[] = [
-  {
-    title: "PG Examination Results — Student Portal (University Solutions)",
-    href: "https://studentportal.universitysolutions.in/",
-    kind: "link",
-  },
-];
+export const ugResults = examResults;
+export const pgResults = examResults;
+export const phdResults = examResults;
 
 // -------------------- APAAR / ABC --------------------
 export const apaarAbc: ExamLink[] = [

@@ -1,19 +1,28 @@
 import { describe, it, expect } from "vitest";
-import { ugResults, pgResults } from "@/data/examData";
+import { examResults, ugResults, pgResults, phdResults } from "@/data/examData";
 import fs from "fs";
 import path from "path";
 
 describe("Examinations Portal - Results Tab", () => {
-  it("ugResults must contain only the official student portal link", () => {
-    expect(ugResults.length).toBe(1);
-    expect(ugResults[0].href).toBe("https://studentportal.universitysolutions.in/");
-    expect(ugResults[0].title).toContain("UG");
+  it("examResults must contain the unified student portal link for UG, PG, and Ph.D.", () => {
+    expect(examResults.length).toBe(1);
+    expect(examResults[0].href).toBe("https://studentportal.universitysolutions.in/");
+    expect(examResults[0].title).toContain("UG");
+    expect(examResults[0].title).toContain("PG");
+    expect(examResults[0].title).toContain("Ph.D.");
+    expect(examResults[0].kind).toBe("link");
   });
 
-  it("pgResults must contain only the official student portal link", () => {
-    expect(pgResults.length).toBe(1);
-    expect(pgResults[0].href).toBe("https://studentportal.universitysolutions.in/");
-    expect(pgResults[0].title).toContain("PG");
+  it("ugResults, pgResults, and phdResults alias examResults", () => {
+    expect(ugResults).toBe(examResults);
+    expect(pgResults).toBe(examResults);
+    expect(phdResults).toBe(examResults);
+  });
+
+  it("Examinations page must not contain toggle buttons in Results or Committee view", () => {
+    const pagePath = path.resolve(__dirname, "../pages/Examinations.tsx");
+    const content = fs.readFileSync(pagePath, "utf-8");
+    expect(content).not.toContain("Results Portal</button>");
   });
 
   it("examData must not contain legacy internal IP links for results", () => {
