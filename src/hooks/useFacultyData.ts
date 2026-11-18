@@ -7,6 +7,7 @@ import {
   getBshSubDepartment,
   getInitialFacultyData,
   getFacultyPhotoUrl,
+  compareFacultyByApiOrder,
   type APIFacultyMember,
 } from "@/lib/facultyApi";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
@@ -366,54 +367,11 @@ export function useFacultyData() {
         return mapped === normalizedKey;
       });
 
-      // Map official faculty records for this department by dbId, clean name, and slug for metadata enrichment
-      const officialByDbId = new Map<string, any>();
-      const officialByName = new Map<string, any>();
-      for (const o of (officialFacultyList as any[])) {
-        if (o.deptKey === normalizedKey) {
-          if (o.dbId) officialByDbId.set(o.dbId, o);
-          const clean = cleanFacultyName(o.name).toLowerCase();
-          if (!officialByName.has(clean)) officialByName.set(clean, o);
-          if (o.dbFullName) {
-            const cleanDb = cleanFacultyName(o.dbFullName).toLowerCase();
-            if (!officialByName.has(cleanDb)) officialByName.set(cleanDb, o);
-          }
-        }
-      }
-
-      // Sort database faculty by institutional seniority priority, then clean name
-      const sortedDbFaculty = [...filtered].sort((a, b) => {
-        const pA = getFacultySeniorityPriority(a, normalizedKey);
-        const pB = getFacultySeniorityPriority(b, normalizedKey);
-        if (pA !== pB) return pA - pB;
-        return cleanFacultyName(a.fullName).localeCompare(cleanFacultyName(b.fullName));
-      });
+      // Sort database faculty strictly by API teamDisplayOrder ascending, then clean name
+      const sortedDbFaculty = [...filtered].sort(compareFacultyByApiOrder);
 
       const result: FacultyMember[] = sortedDbFaculty.map((f) => {
         const member = apiFacultyToFacultyMember(f);
-        const official =
-          (f._id ? officialByDbId.get(f._id) : null) ||
-          officialByName.get(cleanFacultyName(f.fullName).toLowerCase());
-
-        if (official) {
-          if (official.slug) {
-            member.profileUrl = `/department/${normalizedKey}/faculty/${official.slug}`;
-          }
-          if (official.qualification && (!member.qualification || member.qualification === "M.Tech / M.Sc")) {
-            member.qualification = official.qualification;
-          }
-          // STRICT RULE: Only use official.profilePhoto as fallback if member.image from the live API is missing!
-          // This ensures that whenever a faculty member updates their photo in the Faculty Management System,
-          // their latest photo is immediately reflected across all cards and profiles.
-          if (!member.image && official.profilePhoto) {
-            const photoUrl =
-              getFacultyPhotoUrl(official.profilePhoto) ||
-              (official.profilePhoto.startsWith("http") ? official.profilePhoto : undefined);
-            if (photoUrl) {
-              member.image = photoUrl;
-            }
-          }
-        }
 
         if (normalizedKey === "bsh") {
           member.subDepartment = getBshSubDepartment(f.department?.code, f.department?.name);
@@ -422,37 +380,13 @@ export function useFacultyData() {
         return member;
       });
 
-      // Ensure any member in officialFacultyList for this department who might be missing from database is included
-      const includedDbIds = new Set(filtered.map((f) => f._id).filter(Boolean));
-      for (const o of (officialFacultyList as any[])) {
-        if (o.deptKey === normalizedKey && (!o.dbId || !includedDbIds.has(o.dbId))) {
-          const photoUrl =
-            getFacultyPhotoUrl(o.profilePhoto) ||
-            (o.profilePhoto?.startsWith("http") ? o.profilePhoto : undefined);
-          const subDept =
-            normalizedKey === "bsh"
-              ? getBshSubDepartment(o.department, o.department)
-              : undefined;
-          result.push({
-            name: o.name,
-            designation: o.designation,
-            qualification: o.qualification,
-            email: o.email || undefined,
-            image: photoUrl,
-            subDepartment: subDept,
-            profileUrl: `/department/${normalizedKey}/faculty/${o.slug || slugifyFaculty(o.name)}`,
-          });
-          if (o.dbId) includedDbIds.add(o.dbId);
-        }
-      }
-
       return result;
     },
     [facultyList]
   );
 
   /**
-   * Returns raw API faculty records for a department, sorted by institutional seniority
+   * Returns raw API faculty records for a department, sorted by API order
    */
   const getRawFacultyByDept = useCallback(
     (deptKey: string): APIFacultyMember[] => {
@@ -461,12 +395,7 @@ export function useFacultyData() {
         const mapped = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
         return mapped === normalizedKey;
       });
-      return [...filtered].sort((a, b) => {
-        const pA = getFacultySeniorityPriority(a, normalizedKey);
-        const pB = getFacultySeniorityPriority(b, normalizedKey);
-        if (pA !== pB) return pA - pB;
-        return cleanFacultyName(a.fullName).localeCompare(cleanFacultyName(b.fullName));
-      });
+      return [...filtered].sort(compareFacultyByApiOrder);
     },
     [facultyList]
   );
@@ -809,3 +738,5 @@ export function useFacultyData() {
     searchFaculty,
   };
 }
+
+export { compareFacultyByApiOrder };

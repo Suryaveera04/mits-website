@@ -127,6 +127,8 @@ export interface APIFacultyMember {
   subjectsTaught?: APISubjectTaught[];
   coursesDeveloped?: APICourseDeveloped[];
   laboratoriesHandled?: APILaboratoryHandled[];
+  teamDisplayOrder?: number;
+  institutionCadre?: "University" | "Autonomous" | "Both" | string;
 }
 
 export interface APIFacultyResponse {
@@ -262,6 +264,8 @@ export function apiFacultyToFacultyMember(f: APIFacultyMember, staticImageFallba
     image: getFacultyPhotoUrl(f.profilePhoto) || undefined,
     subDepartment: subDept,
     profileUrl: `/department/${deptKey}/faculty/${slugifyFaculty(name)}`,
+    teamDisplayOrder: f.teamDisplayOrder,
+    institutionCadre: f.institutionCadre,
     profile: {
       researchAreas: f.specialization?.join(", "),
       publications: f.publications?.map((p) => ({
@@ -468,6 +472,33 @@ const isLocalEnv = typeof window !== "undefined" && (window.location.hostname ==
 const CACHE_TTL_MS = isLocalEnv ? 1000 * 10 : 1000 * 60 * 5; // 10s on localhost for instant reflection of faculty edits, 5 mins in prod
 
 /**
+ * Orders faculty members strictly by API teamDisplayOrder ascending (where present),
+ * with secondary fallback to alphabetical order by clean name for unset members.
+ */
+export function compareFacultyByApiOrder(
+  a: { teamDisplayOrder?: number; fullName?: string; name?: string },
+  b: { teamDisplayOrder?: number; fullName?: string; name?: string }
+): number {
+  const orderA = a.teamDisplayOrder;
+  const orderB = b.teamDisplayOrder;
+
+  const hasOrderA = typeof orderA === "number" && !isNaN(orderA);
+  const hasOrderB = typeof orderB === "number" && !isNaN(orderB);
+
+  if (hasOrderA && hasOrderB) {
+    if (orderA !== orderB) return orderA - orderB;
+  } else if (hasOrderA && !hasOrderB) {
+    return -1;
+  } else if (!hasOrderA && hasOrderB) {
+    return 1;
+  }
+
+  const nameA = cleanFacultyName(a.fullName || a.name || "").toLowerCase();
+  const nameB = cleanFacultyName(b.fullName || b.name || "").toLowerCase();
+  return nameA.localeCompare(nameB);
+}
+
+/**
  * Sanitizes faculty names in a list to prevent trailing 'a' artifacts and normalize known discrepancies
  */
 export function sanitizeFacultyList(list: APIFacultyMember[]): APIFacultyMember[] {
@@ -563,34 +594,16 @@ export async function fetchFacultyProfiles(forceRefresh = false): Promise<APIFac
       const json = (await res.json()) as APIFacultyResponse;
       if (json.success && Array.isArray(json.data) && json.data.length > 0) {
         const cleaned = sanitizeFacultyList(json.data);
-        // Merge official fallback roster to ensure 100% faculty coverage even if live database has omissions
-        const fallbackList = getInitialFacultyData();
-        const mergedMap = new Map<string, APIFacultyMember>();
-        for (const f of cleaned) {
-          mergedMap.set(f._id, f);
-        }
-        for (const f of fallbackList) {
-          if (!mergedMap.has(f._id)) {
-            const fSlug = slugifyFaculty(f.fullName);
-            const exists = Array.from(mergedMap.values()).some(
-              (m) => slugifyFaculty(m.fullName) === fSlug
-            );
-            if (!exists) {
-              mergedMap.set(f._id, f);
-            }
-          }
-        }
-        const merged = Array.from(mergedMap.values());
 
         if (typeof window !== "undefined") {
           try {
-            localStorage.setItem(CACHE_KEY, JSON.stringify(merged));
+            localStorage.setItem(CACHE_KEY, JSON.stringify(cleaned));
             localStorage.setItem(CACHE_TIME_KEY, String(Date.now()));
           } catch {
             // storage limit or disabled
           }
         }
-        return merged;
+        return cleaned;
       }
     }
   } catch {

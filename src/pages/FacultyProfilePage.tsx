@@ -242,9 +242,9 @@ const FacultyProfilePage = () => {
   const { faculty, profile, rawFaculty, prev, next, index } = useMemo(() => {
     if (!dept || !slug) return { faculty: undefined, profile: undefined, rawFaculty: undefined, prev: undefined, next: undefined, index: -1 };
 
-    // 1. Get live faculty list for department (fallback to static dept.faculty)
+    // 1. Get live faculty list for department from database API
     const liveDeptFaculty = getFacultyByDept(deptKey || "");
-    const effectiveDeptFaculty = liveDeptFaculty.length > 0 ? liveDeptFaculty : dept.faculty;
+    const effectiveDeptFaculty = liveDeptFaculty;
 
     // 2. Find faculty member by slug in department list
     let idx = effectiveDeptFaculty.findIndex(
@@ -521,7 +521,7 @@ const FacultyProfilePage = () => {
                     alt={profile.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {
-                      const fallbackImage = dept.faculty.find(
+                      const fallbackImage = liveDeptFaculty.find(
                         (member) => slugifyFaculty(member.name) === slug
                       )?.image;
                       if (

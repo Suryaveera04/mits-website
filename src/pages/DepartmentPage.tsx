@@ -37,7 +37,7 @@ import InlineFacultyProfile from "@/components/InlineFacultyProfile";
 import { getFacultyProfile, type FacultyProfile } from "@/data/facultyProfiles";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
 import { useDeptCMSData, type CMSMoU, type CMSAchievement, type CMSPatent, type CMSPublication, type CMSPlacement, type CMSProject, type CMSSubject } from "@/hooks/useDeptCMSData";
-import { useFacultyData, getFacultySeniorityPriority } from "@/hooks/useFacultyData";
+import { useFacultyData, compareFacultyByApiOrder } from "@/hooks/useFacultyData";
 import EventDetailModal from "@/components/EventDetailModal";
 import MouDetailModal from "@/components/MouDetailModal";
 import AchievementDetailModal from "@/components/AchievementDetailModal";
@@ -1312,19 +1312,8 @@ const DepartmentPage = () => {
 
   const liveFaculty = getFacultyByDept(deptKey || "");
   const effectiveFaculty = useMemo(() => {
-    const rawList =
-      deptKey === "aiml"
-        ? liveFaculty
-        : liveFaculty.length > 0
-        ? liveFaculty
-        : dept.faculty || [];
-    return [...rawList].sort((a, b) => {
-      const pA = getFacultySeniorityPriority(a, deptKey);
-      const pB = getFacultySeniorityPriority(b, deptKey);
-      if (pA !== pB) return pA - pB;
-      return cleanFacultyName(a.name).localeCompare(cleanFacultyName(b.name));
-    });
-  }, [liveFaculty, dept.faculty, deptKey]);
+    return [...liveFaculty].sort(compareFacultyByApiOrder);
+  }, [liveFaculty]);
 
   const filteredFaculty = effectiveFaculty.filter((f) => {
     const q = facultySearch.toLowerCase().trim();

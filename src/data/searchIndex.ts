@@ -555,39 +555,9 @@ function generateDepartmentItems(): SearchItem[] {
       department: dept.shortName,
       metaBadge: "Achievements",
     });
-
-    // 6. Individual Faculty Members inside this department
-    if (dept.faculty && Array.isArray(dept.faculty)) {
-      dept.faculty.forEach((fac, idx) => {
-        if (!fac.name) return;
-        const facSlug = fac.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-        items.push({
-          id: `fac-${key}-${idx}`,
-          title: `${fac.name}`,
-          category: "Faculty & Leadership",
-          description: `${fac.designation} (${fac.qualification || "Faculty"}) in ${dept.name}. ${fac.email ? `Email: ${fac.email}` : ""}`,
-          href: fac.profileUrl || `/department/${key}/faculty/${facSlug}`,
-          isExternal: Boolean(fac.profileUrl?.startsWith("http")),
-          tags: [
-            fac.name.toLowerCase(),
-            fac.designation.toLowerCase(),
-            dept.shortName.toLowerCase(),
-            dept.name.toLowerCase(),
-            "faculty",
-            "professor",
-            fac.qualification ? fac.qualification.toLowerCase() : "",
-            fac.email ? fac.email.toLowerCase() : "",
-          ].filter(Boolean),
-          department: dept.shortName,
-          designation: fac.designation,
-          qualification: fac.qualification,
-          metaBadge: dept.shortName,
-        });
-      });
-    }
   });
 
-  // 7. Dynamic Faculty from live database fallback snapshot
+  // 6. Dynamic Faculty from live database fallback snapshot
   if (fallbackFacultyData && Array.isArray((fallbackFacultyData as { data?: any[] }).data)) {
     (fallbackFacultyData as { data: any[] }).data.forEach((f, idx) => {
       if (!f.fullName) return;

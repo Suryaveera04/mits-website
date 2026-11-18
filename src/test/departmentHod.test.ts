@@ -158,7 +158,7 @@ describe("Department Head of Department (HOD) Resolution", () => {
     const { getFacultyByDept } = result.current;
 
     const bshMembers = getFacultyByDept("bsh");
-    expect(bshMembers.length).toBe(45);
+    expect(bshMembers.length).toBe(43);
 
     const validSubDepts = new Set([
       "Department of English & Foreign Languages",
@@ -179,9 +179,9 @@ describe("Department Head of Department (HOD) Resolution", () => {
     });
 
     expect(counts["Department of English & Foreign Languages"]).toBe(9);
-    expect(counts["Department of Mathematics"]).toBe(10);
+    expect(counts["Department of Mathematics"]).toBe(9);
     expect(counts["Department of Physics"]).toBe(11);
-    expect(counts["Department of Chemistry"]).toBe(9);
+    expect(counts["Department of Chemistry"]).toBe(8);
     expect(counts["Department of Humanities"]).toBe(6);
   });
 
@@ -193,16 +193,16 @@ describe("Department Head of Department (HOD) Resolution", () => {
     const cseMembers = getFacultyByDept("cse");
     expect(cseMembers.length).toBe(43);
 
-    // ECE: 31 members in database
+    // ECE: 29 members in database
     const eceMembers = getFacultyByDept("ece");
-    expect(eceMembers.length).toBe(31);
+    expect(eceMembers.length).toBe(29);
 
     // CE: 9 members in database
     const ceMembers = getFacultyByDept("ce");
     expect(ceMembers.length).toBe(9);
 
-    // AI: 25 members in database
+    // AI: 24 members in database
     const aiMembers = getFacultyByDept("ai");
-    expect(aiMembers.length).toBe(25);
+    expect(aiMembers.length).toBe(24);
   });
 });

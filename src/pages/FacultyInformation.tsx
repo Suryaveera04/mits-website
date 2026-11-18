@@ -15,13 +15,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
-import { useFacultyData, getFacultySeniorityPriority } from "@/hooks/useFacultyData";
-import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
-import { getFacultyPhotoUrl, mapApiDeptToDeptKey } from "@/lib/facultyApi";
+import { useFacultyData } from "@/hooks/useFacultyData";
+import { slugifyFaculty, cleanFacultyName, hasPhdDegree } from "@/lib/facultySlug";
+import {
+  getFacultyPhotoUrl,
+  mapApiDeptToDeptKey,
+  getBshSubDepartment,
+  compareFacultyByApiOrder,
+} from "@/lib/facultyApi";
 import { Button } from "@/components/ui/button";
-import officialFacultyData from "@/data/officialFacultyList.json";
 
-interface OfficialFacultyItem {
+interface EnrichedFacultyItem {
   sno: string;
   name: string;
   qualification: string;
@@ -31,18 +35,16 @@ interface OfficialFacultyItem {
   dbId: string | null;
   dbFullName: string;
   slug: string;
-  email: string | null;
-  profilePhoto: string | null;
-  oldProfileUrl: string | null;
-}
-
-interface EnrichedFacultyItem extends OfficialFacultyItem {
-  fullName: string;
-  cleanName: string;
-  slug: string;
   email: string | undefined;
   photoUrl: string | undefined;
+  profilePhoto: string | null;
+  oldProfileUrl: string | null;
   dbMatch: any;
+  fullName: string;
+  cleanName: string;
+  subDepartment?: string;
+  teamDisplayOrder?: number;
+  institutionCadre?: string;
 }
 
 const DEPT_ORDER = ["ce", "me", "eee", "ece", "cse", "ai", "cseds", "csecs", "aiml", "mba", "mca", "bsh"];
@@ -83,7 +85,7 @@ const BSH_CONSTITUENT_DEPTS: BshConstituentDept[] = [
     icon: BookOpen,
     description: "Faculty specializing in communicative English, linguistics, literature, and foreign languages.",
     matcher: (f) => {
-      const d = (f.department || "").toLowerCase();
+      const d = ((f.subDepartment || "") + " " + (f.department || "")).toLowerCase();
       return d.includes("english") || d.includes("fl") || d.includes("efl") || d.includes("humanit");
     },
   },
@@ -94,7 +96,7 @@ const BSH_CONSTITUENT_DEPTS: BshConstituentDept[] = [
     icon: Calculator,
     description: "Faculty specializing in pure & applied mathematics, numerical analysis, and statistics.",
     matcher: (f) => {
-      const d = (f.department || "").toLowerCase();
+      const d = ((f.subDepartment || "") + " " + (f.department || "")).toLowerCase();
       return d.includes("math");
     },
   },
@@ -105,7 +107,7 @@ const BSH_CONSTITUENT_DEPTS: BshConstituentDept[] = [
     icon: Atom,
     description: "Faculty specializing in materials science, crystallography, optics, and applied physics.",
     matcher: (f) => {
-      const d = (f.department || "").toLowerCase();
+      const d = ((f.subDepartment || "") + " " + (f.department || "")).toLowerCase();
       return d.includes("physic");
     },
   },
@@ -116,7 +118,7 @@ const BSH_CONSTITUENT_DEPTS: BshConstituentDept[] = [
     icon: FlaskConical,
     description: "Faculty specializing in organic, inorganic, analytical, and applied chemistry.",
     matcher: (f) => {
-      const d = (f.department || "").toLowerCase();
+      const d = ((f.subDepartment || "") + " " + (f.department || "")).toLowerCase();
       return d.includes("chemis");
     },
   },
@@ -210,52 +212,40 @@ const FacultyInformation = () => {
   const [selectedBshSubDept, setSelectedBshSubDept] = useState("all");
   const [selectedDesignation, setSelectedDesignation] = useState("all");
 
-  // Enrich the strict official roster of faculties with database profiles
+  // Dynamically map all active faculty directly from the database API
   const enrichedFacultyList: EnrichedFacultyItem[] = useMemo(() => {
-    const dbMapById = new Map<string, (typeof facultyList)[0]>();
-    const dbMapByDeptAndSlug = new Map<string, (typeof facultyList)[0]>();
-    const dbMapByGlobalSlug = new Map<string, (typeof facultyList)[0]>();
+    // Sort strictly by API order (teamDisplayOrder ascending where set, then alphabetical by name)
+    const sortedList = [...facultyList].sort(compareFacultyByApiOrder);
 
-    for (const db of facultyList) {
-      if (db._id) dbMapById.set(db._id, db);
-      const dept = mapApiDeptToDeptKey(db.department?.code, db.department?.name);
-      const s = slugifyFaculty(db.fullName);
-      if (s) {
-        if (dept) dbMapByDeptAndSlug.set(`${dept}:${s}`, db);
-        if (!dbMapByGlobalSlug.has(s)) dbMapByGlobalSlug.set(s, db);
-      }
-    }
-
-    return (officialFacultyData as OfficialFacultyItem[]).map((item) => {
-      const cleanName = cleanFacultyName(item.name);
-      const slug = item.slug || slugifyFaculty(cleanName);
-      const deptSlugKey = `${item.deptKey}:${slug}`;
-      const deptNameKey = `${item.deptKey}:${slugifyFaculty(item.name)}`;
-
-      // Strictly prioritize:
-      // 1. Exact unique dbId match
-      // 2. Department-scoped slug match
-      // 3. Department-scoped raw name match
-      // 4. Global slug match fallback
-      const dbMatch =
-        (item.dbId ? dbMapById.get(item.dbId) : null) ||
-        dbMapByDeptAndSlug.get(deptSlugKey) ||
-        dbMapByDeptAndSlug.get(deptNameKey) ||
-        dbMapByGlobalSlug.get(slug) ||
-        dbMapByGlobalSlug.get(slugifyFaculty(item.name));
-
-      const rawPhoto = dbMatch?.profilePhoto || item.profilePhoto;
-      const photoUrl = getFacultyPhotoUrl(rawPhoto) || (rawPhoto?.startsWith("http") ? rawPhoto : undefined);
-      const email = dbMatch?.email || item.email || undefined;
+    return sortedList.map((f, index) => {
+      const cleanName = cleanFacultyName(f.fullName);
+      const slug = slugifyFaculty(cleanName);
+      const deptKey = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
+      const subDept = deptKey === "bsh" ? getBshSubDepartment(f.department?.code, f.department?.name) : undefined;
+      const isPhd = hasPhdDegree(f.fullName, undefined, f.phd) || f.phd?.status === "Awarded" || !!f.phd?.topic;
+      const qualification = isPhd ? "Ph.D." : (f.pg?.degree || f.ug?.degree || "M.Tech / M.Sc");
+      const photoUrl = getFacultyPhotoUrl(f.profilePhoto);
 
       return {
-        ...item,
-        fullName: item.name,
+        sno: String(index + 1),
+        name: cleanName,
+        fullName: cleanName,
         cleanName,
         slug,
-        email,
+        qualification,
+        designation: f.designation,
+        department: subDept || f.department?.name || deptKey.toUpperCase(),
+        deptKey,
+        dbId: f._id,
+        dbFullName: f.fullName,
+        email: f.email || undefined,
         photoUrl,
-        dbMatch,
+        profilePhoto: f.profilePhoto || null,
+        oldProfileUrl: null,
+        dbMatch: f,
+        subDepartment: subDept,
+        teamDisplayOrder: f.teamDisplayOrder,
+        institutionCadre: f.institutionCadre,
       };
     });
   }, [facultyList]);
@@ -318,30 +308,7 @@ const FacultyInformation = () => {
         if (idxA !== idxB) return idxA - idxB;
       }
 
-      // Hierarchy: Vice Principal -> Principal -> Registrar -> HODs -> PhD Professors -> Professors -> Associate Professors -> Assistant Professors
-      const pA = getFacultySeniorityPriority(
-        {
-          fullName: a.name,
-          designation: a.designation,
-          qualification: a.qualification,
-          academicAdministrationRoles: a.dbMatch?.academicAdministrationRoles,
-          phd: a.dbMatch?.phd,
-        },
-        a.deptKey
-      );
-      const pB = getFacultySeniorityPriority(
-        {
-          fullName: b.name,
-          designation: b.designation,
-          qualification: b.qualification,
-          academicAdministrationRoles: b.dbMatch?.academicAdministrationRoles,
-          phd: b.dbMatch?.phd,
-        },
-        b.deptKey
-      );
-
-      if (pA !== pB) return pA - pB;
-      return a.cleanName.localeCompare(b.cleanName);
+      return compareFacultyByApiOrder(a, b);
     });
   }, [enrichedFacultyList, searchTerm, selectedDept, selectedDesignation]);
 

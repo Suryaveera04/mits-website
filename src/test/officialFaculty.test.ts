@@ -3,8 +3,8 @@ import officialList from "@/data/officialFacultyList.json";
 import fallbackData from "@/data/facultyApiFallback.json";
 
 describe("Official University Faculty Roster", () => {
-  it("must contain 187 faculty members after the CSE (AI) and BSH removals", () => {
-    expect(officialList.length).toBe(187);
+  it("must contain 193 faculty members after the CSE (AI) and BSH updates", () => {
+    expect(officialList.length).toBe(193);
   });
 
   it("must not include Dr. Ben Sujin in the CSE (AI) faculty listing", () => {
@@ -36,9 +36,9 @@ describe("Official University Faculty Roster", () => {
     });
   });
 
-  it("must contain exactly 19 faculty members in CSE (AI & ML) matching their database records in CSE-AIML", () => {
+  it("must contain exactly 25 faculty members in CSE (AI & ML) matching their database records in CSE-AIML", () => {
     const aimlFaculty = officialList.filter((f) => f.deptKey === "aiml");
-    expect(aimlFaculty.length).toBe(19);
+    expect(aimlFaculty.length).toBe(25);
 
     const dbList = fallbackData.data;
     aimlFaculty.forEach((f) => {
@@ -59,10 +59,10 @@ describe("Official University Faculty Roster", () => {
       if (match) resolved++;
     });
 
-    expect(resolved).toBe(187);
+    expect(resolved).toBe(186);
   });
 
-  it("must contain no duplicate dbIds across all 187 faculty members", () => {
+  it("must contain no duplicate dbIds across all faculty members", () => {
     const ids = officialList.map((f) => f.dbId).filter(Boolean);
     const uniqueIds = new Set(ids);
     expect(uniqueIds.size).toBe(ids.length);
