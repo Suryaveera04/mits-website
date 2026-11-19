@@ -334,6 +334,7 @@ export const mandatoryDisclosures: DisclosureCategory[] = [
       { label: "UGC Guidelines", url: "https://mits.ac.in/assets/pdf/admin/UGC%20AUTONOMOUS%20GUIDELINES.pdf" },
       { label: "UGC Undertaking", url: "https://mits.ac.in/assets/pdf/admin/UGC-Undertaking.pdf" },
       { label: "UGC Approval Letter for Autonomous Status", url: "https://mits.ac.in/assets/pdf/admin/Extension%20of%20Autonomous%20Status.pdf" },
+      { label: "UGC - Public Advisory", url: "https://mits.ac.in/assets/pdf/admin/All the HEIs.pdf" },
       { label: "2(f) & 12(B) Certificates", url: "https://mits.ac.in/assets/pdf/admin/2f%20&%2012B.pdf" },
     ],
   },

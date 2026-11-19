@@ -42,6 +42,11 @@ export const mandatoryDisclosureRecords: MandatoryDisclosureRecord[] = [
     "href": "https://mits.ac.in/assets/pdf/admin/Extension of Autonomous Status.pdf"
   },
   {
+    "sno": "7.1",
+    "title": "UGC - Public Advisory",
+    "href": "https://mits.ac.in/assets/pdf/admin/All the HEIs.pdf"
+  },
+  {
     "sno": "8",
     "title": "Functioning is as per the professional code of prescribed / Suggested by statutory bodies / Regulatory authorities",
     "href": "https://mits.ac.in/assets/pdf/admin/Professional%20Code%20of%20Conduct.pdf"
