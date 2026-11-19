@@ -15,6 +15,7 @@ import {
   ScrollText,
   Building2,
   BarChart3,
+  Globe,
   LucideIcon,
 } from "lucide-react";
 const BASE = import.meta.env.BASE_URL;
@@ -37,6 +38,7 @@ type SectionKey =
   | "aicte"
   | "naac"
   | "nirf"
+  | "globalRankings"
   | "nba"
   | "research"
   | "ugc2f12b"
@@ -49,6 +51,7 @@ const sections: { key: SectionKey; title: string; icon: LucideIcon }[] = [
   { key: "aicte", title: "Approved by AICTE, New Delhi", icon: ScrollText },
   { key: "naac", title: "Accredited by NAAC", icon: Award },
   { key: "nirf", title: "National Institutional Ranking Framework", icon: BarChart3 },
+  { key: "globalRankings", title: "Global Rankings & Recognition", icon: Globe },
   { key: "nba", title: "Accredited by NBA for CIVIL, CSE, ECE, EEE, ME, MBA & MCA", icon: BadgeCheck },
   { key: "research", title: "Recognised Research Centre", icon: Microscope },
   { key: "ugc2f12b", title: "Recognised by UGC under Sections 2(f) & 12(B)", icon: Shield },
@@ -84,6 +87,7 @@ const AffiliationsAccreditations = () => {
     aicte: false,
     naac: false,
     nirf: false,
+    globalRankings: false,
     nba: false,
     research: false,
     ugc2f12b: false,
@@ -316,6 +320,38 @@ const AffiliationsAccreditations = () => {
                                 url="https://mits.ac.in/public/uploads/scholarship/Overall.NIRF_2027.pdf"
                               />
                             </div>
+                          </div>
+                        )}
+
+                        {s.key === "globalRankings" && (
+                          <div className="mt-5 grid sm:grid-cols-2 gap-3">
+                            {[
+                              {
+                                title: "UI GreenMetric World University Rankings 2026",
+                                url: "https://uigreenmetric.com/university/mits.ac.in",
+                              },
+                              {
+                                title: "Times Higher Education World University Ranking 2027",
+                                url: "https://www.timeshighereducation.com/world-university-rankings/madanapalle-institute-technology-and-science-deemed-be-university",
+                              },
+                            ].map((ranking) => (
+                              <motion.a
+                                key={ranking.url}
+                                href={ranking.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ y: -2 }}
+                                className="group flex items-center gap-3 rounded-xl border border-[#0f2a44]/10 bg-white p-4 shadow-sm transition-all hover:shadow-[0_12px_32px_rgba(15,42,68,0.12)] hover:border-[#caa74d]"
+                              >
+                                <div className="shrink-0 w-11 h-11 rounded-lg flex items-center justify-center text-white bg-gradient-to-br from-[#b31317] to-[#7a0a0d]">
+                                  <Globe className="w-5 h-5" />
+                                </div>
+                                <p className="flex-1 font-body font-semibold text-[#0f2a44] text-sm leading-snug">
+                                  {ranking.title}
+                                </p>
+                                <ExternalLink className="w-4 h-4 text-[#0f2a44]/40 group-hover:text-[#b31317]" />
+                              </motion.a>
+                            ))}
                           </div>
                         )}
 
