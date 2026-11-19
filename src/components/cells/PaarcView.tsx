@@ -42,6 +42,11 @@ const documents = [
 
 const officialNotices = [
   {
+    id: 5,
+    title: "Times Higher Education Interdisciplinary Science Rankings 2027",
+    text: `Madanapalle Institute of Technology and Science (MITS) – Deemed to be University\n🏆 Global Rank Band: 601–800\n📊 Overall Score: 28.2–35.6`,
+  },
+  {
     id: 1,
     title: "Orientation Programme",
     text: `An Orientation Programme on "Outcome-Based Curriculum – Criterion 1 of the New NBA SAR" is scheduled as per the following details:\nDate: 16th October 2026\nTime: 4:30 PM\nVenue: Scale-Up Classroom, LB 102`,
