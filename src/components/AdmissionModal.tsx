@@ -8,7 +8,7 @@ const BASE = import.meta.env.BASE_URL;
 export const AdmissionModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [imgSrc, setImgSrc] = useState(`${BASE}mitsuniversity.jpg`);
+  const [imgSrc, setImgSrc] = useState(`${BASE}global-rank.jpg`);
   const fallbackIndexRef = useRef(0);
 
   useEffect(() => {
@@ -18,16 +18,16 @@ export const AdmissionModal = () => {
 
     // Immediately preload image in background
     const preloader = new Image();
-    preloader.src = `${BASE}mitsuniversity.jpg`;
+    preloader.src = `${BASE}global-rank.jpg`;
     preloader.onload = () => {
       setIsLoaded(true);
     };
     preloader.onerror = () => {
       // Try relative root fallback immediately
       const fb = new Image();
-      fb.src = "/mitsuniversity.jpg";
+      fb.src = "/global-rank.jpg";
       fb.onload = () => {
-        setImgSrc("/mitsuniversity.jpg");
+        setImgSrc("/global-rank.jpg");
         setIsLoaded(true);
       };
     };
@@ -59,9 +59,11 @@ export const AdmissionModal = () => {
 
   const handleImageError = () => {
     const fallbacks = [
+      "/global-rank.jpg",
+      "https://www.mits.ac.in/global-rank.jpg",
+      `${BASE}mitsuniversity.jpg`,
       "/mitsuniversity.jpg",
       `${BASE}Hero-Section/admissions.png`,
-      "https://mits.ac.in/mitsuniversity.jpg",
     ];
 
     if (fallbackIndexRef.current < fallbacks.length) {
@@ -85,16 +87,16 @@ export const AdmissionModal = () => {
             aria-hidden="true"
           />
 
-          {/* Modal Card - Responsive and proportioned with aspect-square so it NEVER collapses */}
+          {/* Modal Card - Proportioned to banner aspect ratio (1600x972 ≈ 16:9.7) so the entire graphic is displayed cleanly */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 12 }}
             transition={{ type: "spring", duration: 0.35, bounce: 0.1 }}
-            className="relative bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-[360px] xs:max-w-[400px] sm:max-w-[440px] md:max-w-[460px] flex flex-col z-10 border border-slate-200/90 my-auto"
+            className="relative bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-[92vw] sm:max-w-[560px] md:max-w-[640px] flex flex-col z-10 border border-slate-200/90 my-auto"
             role="dialog"
             aria-modal="true"
-            aria-label="Admissions Open 2027-28"
+            aria-label="MITS Global Ranking 2027"
           >
             {/* Close Button */}
             <button
@@ -105,37 +107,37 @@ export const AdmissionModal = () => {
               <X className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
             </button>
 
-            {/* Poster / Image Container with explicit aspect-square so it NEVER collapses */}
+            {/* Poster / Image Container with explicit aspect-[1600/972] so it NEVER collapses or stretches */}
             <Link
               to="/admissions"
               onClick={handleClose}
-              className="relative block group w-full aspect-square bg-slate-100 overflow-hidden cursor-pointer"
+              className="relative block group w-full aspect-[1600/972] bg-slate-950 overflow-hidden cursor-pointer"
               title="Click to view admissions details"
             >
               {/* Shimmer skeleton with branding while image loads */}
               {!isLoaded && (
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-slate-200/70 to-slate-100 animate-pulse flex flex-col items-center justify-center gap-3 p-6 text-center">
-                  <div className="w-12 h-12 rounded-full bg-[#8B1D1D]/10 flex items-center justify-center text-[#8B1D1D]">
-                    <Loader2 className="w-6 h-6 animate-spin text-[#8B1D1D]" />
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#0f2a44] to-slate-900 animate-pulse flex flex-col items-center justify-center gap-3 p-6 text-center text-white">
+                  <div className="w-12 h-12 rounded-full bg-[#ffd15c]/15 flex items-center justify-center text-[#ffd15c]">
+                    <Loader2 className="w-6 h-6 animate-spin text-[#ffd15c]" />
                   </div>
                   <div>
-                    <p className="font-bold text-slate-800 text-sm">Admissions Open 2027-28</p>
-                    <p className="text-xs text-slate-500">MITS Deemed to be University</p>
+                    <p className="font-bold text-white text-sm">Times Higher Education Global Rank 601–800</p>
+                    <p className="text-xs text-white/70">MITS Deemed to be University</p>
                   </div>
                 </div>
               )}
 
               <img
                 src={imgSrc}
-                alt="MITS Deemed University Admissions 2027-28"
-                width={450}
-                height={450}
+                alt="MITS Global Rank Band 601-800 - Times Higher Education Interdisciplinary Science Rankings 2027"
+                width={1600}
+                height={972}
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
                 onLoad={() => setIsLoaded(true)}
                 onError={handleImageError}
-                className={`w-full h-full object-cover transition-opacity duration-300 ${
+                className={`w-full h-full object-contain bg-slate-950 transition-opacity duration-300 ${
                   isLoaded ? "opacity-100" : "opacity-0"
                 } group-hover:scale-[1.01]`}
               />
@@ -145,7 +147,7 @@ export const AdmissionModal = () => {
             <div className="px-4 py-3 bg-gradient-to-r from-slate-900 via-[#0f2a44] to-slate-900 flex items-center justify-between gap-3 shrink-0 border-t border-white/10">
               <div className="min-w-0">
                 <p className="text-[#ffd15c] font-bold text-xs sm:text-sm tracking-wide truncate">
-                  Admissions Open 2027-28
+                  THE Global Ranking 2027: Rank 601–800
                 </p>
                 <p className="text-white/70 text-[10px] sm:text-xs truncate">
                   MITS Deemed to be University
@@ -163,7 +165,7 @@ export const AdmissionModal = () => {
                   onClick={handleClose}
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#b31317] hover:bg-[#8b0000] text-white text-xs font-bold rounded-lg shadow transition-colors"
                 >
-                  <span>Apply Now</span>
+                  <span>Admissions</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </Link>
               </div>
