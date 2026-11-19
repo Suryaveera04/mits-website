@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { getNewsEventImageSrc, hasValidEventImage } from "@/data/newsEvents";
 import InstagramFeed from "@/components/InstagramFeed";
 import { useLiveEvents } from "@/hooks/useLiveEvents";
+import EventDetailModal from "@/components/EventDetailModal";
 
 const EventCardSkeleton = ({ index }: { index: number }) => (
   <div
@@ -41,7 +42,15 @@ const EventCardSkeleton = ({ index }: { index: number }) => (
   </div>
 );
 
-const HomeEventCard = ({ item, index }: { item: any; index: number }) => {
+const HomeEventCard = ({
+  item,
+  index,
+  onSelect,
+}: {
+  item: any;
+  index: number;
+  onSelect: (id: number) => void;
+}) => {
   const [imageFailed, setImageFailed] = useState(false);
   const deptLabel = item.departmentBadge || item.department || "MITS";
   const imageSrc = getNewsEventImageSrc(item.image);
@@ -51,13 +60,28 @@ const HomeEventCard = ({ item, index }: { item: any; index: number }) => {
     return null;
   }
 
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (item.id && typeof item.id === "number") {
+      onSelect(item.id);
+    }
+  };
+
   return (
     <ScrollReveal delay={index * 0.08}>
-      <Link
-        to={`/news-events/${item.slug}`}
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={handleClick}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handleClick(e as any);
+          }
+        }}
         className="block group relative rounded-2xl overflow-hidden bg-white border border-border/40
           shadow-md transition-all duration-400 ease-out
-          hover:shadow-2xl hover:-translate-y-2 flex flex-col"
+          hover:shadow-2xl hover:-translate-y-2 flex flex-col cursor-pointer text-left select-none"
         style={{ height: "300px" }}
       >
         <div className="relative overflow-hidden h-[210px] bg-slate-900">
@@ -108,11 +132,11 @@ const HomeEventCard = ({ item, index }: { item: any; index: number }) => {
             opacity-0 translate-y-4
             group-hover:opacity-100 group-hover:translate-y-0
             transition-all duration-400 ease-out pointer-events-none group-hover:pointer-events-auto"
-          style={{ background: "rgba(140,50,60,0.75)" }}
+          style={{ background: "rgba(140,50,60,0.85)" }}
         >
           <div
             className="px-5 py-4"
-            style={{ background: "rgba(120,40,52,0.92)" }}
+            style={{ background: "rgba(120,40,52,0.95)" }}
           >
             <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider mb-2">
               {deptLabel}
@@ -120,7 +144,7 @@ const HomeEventCard = ({ item, index }: { item: any; index: number }) => {
             <h4 className="text-white font-bold text-sm leading-snug line-clamp-2 mb-1">
               {item.title}
             </h4>
-            <p className="text-gray-300 text-xs flex items-center gap-1.5 mb-2">
+            <p className="text-gray-200 text-xs flex items-center gap-1.5 mb-2">
               <Calendar className="w-3 h-3 flex-shrink-0" />
               {item.date}
             </p>
@@ -129,20 +153,22 @@ const HomeEventCard = ({ item, index }: { item: any; index: number }) => {
             </p>
             <span
               className="inline-flex items-center gap-1.5 w-fit px-4 py-1.5 rounded-full
-                bg-secondary text-white text-xs font-semibold shadow-md"
+                bg-secondary text-white text-xs font-semibold shadow-md group-hover:bg-primary transition-colors"
             >
-              View Event
+              View Full Details
               <ChevronRight className="w-3.5 h-3.5" />
             </span>
           </div>
         </div>
-      </Link>
+      </div>
     </ScrollReveal>
   );
 };
 
 const NewsEventsSection = () => {
   const { latestDeptEvents, events, loading } = useLiveEvents();
+  const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
+
   // Strictly one most recently conducted event per department with valid CMS image, top 6
   const displayEvents = latestDeptEvents
     .filter((ev) => hasValidEventImage(ev.image))
@@ -214,7 +240,12 @@ const NewsEventsSection = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayEvents.map((item, i) => (
-              <HomeEventCard key={item.slug} item={item} index={i} />
+              <HomeEventCard
+                key={item.slug || item.id}
+                item={item}
+                index={i}
+                onSelect={(id) => setSelectedEventId(id)}
+              />
             ))}
           </div>
         )}
@@ -231,6 +262,14 @@ const NewsEventsSection = () => {
           </div>
         </ScrollReveal>
       </div>
+
+      {/* Complete Authoritative CMS Event Detail Modal */}
+      {selectedEventId && (
+        <EventDetailModal
+          eventId={selectedEventId}
+          onClose={() => setSelectedEventId(null)}
+        />
+      )}
     </section>
   );
 };

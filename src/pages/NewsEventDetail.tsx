@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button";
 import {
   Calendar, ChevronLeft, MapPin, Users, BookOpen, Clock,
   ExternalLink, Loader2, FileText, Download, Building2,
-  Star, Link2, Mail, Phone, ImageOff
+  Star, Link2, Mail, Phone, ImageOff, Maximize2, X
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { getNewsEventBySlug, getNewsEventImageSrc, hasValidEventImage } from "@/data/newsEvents";
 import { fetchEventDetail, type CMSEvent } from "@/hooks/useDeptCMSData";
@@ -48,10 +49,11 @@ function fmtTime(t?: string | null): string | null {
 
 const NewsEventDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { getEventBySlug, loading: liveLoading } = useLiveEvents();
+  const { getEventBySlug, cmsEvents, loading: liveLoading } = useLiveEvents();
   const [cmsEvent, setCmsEvent] = useState<CMSEvent | null>(null);
   const [cmsLoading, setCmsLoading] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
+  const [lightboxImg, setLightboxImg] = useState<string | null>(null);
 
   // 1. Resolve live/cached event item
   const liveItem = slug ? (getEventBySlug(slug) || getNewsEventBySlug(slug)) : undefined;
@@ -62,8 +64,19 @@ const NewsEventDetail = () => {
     const match = slug.match(/^cms-(\d+)/) || slug.match(/^(\d+)$/);
     if (match) return Number(match[1]);
     if (liveItem?.id && typeof liveItem.id === "number") return liveItem.id;
+    // Look up in cmsEvents by slug number, or match by title
+    if (cmsEvents && cmsEvents.length > 0) {
+      const matchInCms = cmsEvents.find(
+        (c) =>
+          c.id === Number(slug) ||
+          slug.includes(`-${c.id}-`) ||
+          slug.endsWith(`-${c.id}`) ||
+          (liveItem?.title && c.title.toLowerCase().trim() === liveItem.title.toLowerCase().trim())
+      );
+      if (matchInCms) return matchInCms.id;
+    }
     return null;
-  }, [slug, liveItem?.id]);
+  }, [slug, liveItem?.id, liveItem?.title, cmsEvents]);
 
   // 3. Fetch authoritative CMS event details if this is a CMS event
   useEffect(() => {
@@ -188,7 +201,7 @@ const NewsEventDetail = () => {
             <article className="bg-card border border-border rounded-2xl overflow-hidden shadow-md">
               {/* Event Poster / Banner */}
               {showImage && (
-                <div className="w-full bg-slate-950 flex justify-center max-h-[500px] overflow-hidden relative">
+                <div className="w-full bg-slate-950 flex flex-col items-center justify-center relative p-3 sm:p-5">
                   {liveItem?.pinned && (
                     <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 rounded-full bg-[#b30000] px-3 py-1 text-xs font-bold text-white shadow-md">
                       📌 Pinned Event
@@ -197,9 +210,20 @@ const NewsEventDetail = () => {
                   <img
                     src={imageSrc}
                     alt={title}
-                    className="w-full h-auto object-contain max-h-[500px]"
+                    className="max-h-[600px] w-auto max-w-full object-contain rounded-xl shadow-lg cursor-pointer hover:opacity-95 transition-opacity"
+                    onClick={() => setLightboxImg(imageSrc)}
                     onError={() => setImageFailed(true)}
                   />
+                  <div className="mt-3 flex items-center justify-center">
+                    <button
+                      type="button"
+                      onClick={() => setLightboxImg(imageSrc)}
+                      className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/90 hover:bg-white text-slate-800 text-xs font-semibold shadow-md transition-all cursor-pointer"
+                    >
+                      <Maximize2 className="w-3.5 h-3.5 text-primary" />
+                      View Full Flyer
+                    </button>
+                  </div>
                 </div>
               )}
 
@@ -370,15 +394,21 @@ const NewsEventDetail = () => {
                 {/* Photo Gallery (if multiple pictures available) */}
                 {gallery.length > 0 && (
                   <div className="pt-6 border-t border-border/70 space-y-3">
-                    <h3 className="text-base sm:text-lg font-bold text-secondary">Event Gallery</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-secondary">Event Gallery ({gallery.length} Photos)</h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                       {gallery.map((gUrl, gIdx) => (
-                        <a
+                        <div
                           key={gIdx}
-                          href={gUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded-xl overflow-hidden aspect-video bg-muted border border-border/60 hover:opacity-90 transition-opacity block"
+                          role="button"
+                          tabIndex={0}
+                          onClick={() => setLightboxImg(gUrl)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              setLightboxImg(gUrl);
+                            }
+                          }}
+                          className="rounded-xl overflow-hidden aspect-video bg-muted border border-border/60 hover:opacity-90 hover:scale-[1.02] transition-all block cursor-pointer group relative"
                         >
                           <img
                             src={gUrl}
@@ -386,7 +416,12 @@ const NewsEventDetail = () => {
                             className="w-full h-full object-cover"
                             loading="lazy"
                           />
-                        </a>
+                          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="px-2.5 py-1 rounded-full bg-black/60 text-white text-[11px] font-medium flex items-center gap-1">
+                              <Maximize2 className="w-3 h-3" /> Zoom
+                            </span>
+                          </div>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -439,6 +474,56 @@ const NewsEventDetail = () => {
           </div>
         </section>
       </main>
+
+      {/* Full Screen Image Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxImg && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 backdrop-blur-md"
+            onClick={() => setLightboxImg(null)}
+          >
+            <button
+              type="button"
+              onClick={() => setLightboxImg(null)}
+              className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-10 cursor-pointer"
+              aria-label="Close image popup"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-full max-h-[90vh] flex flex-col items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={lightboxImg}
+                alt="Enlarged view"
+                className="max-h-[86vh] max-w-[92vw] object-contain rounded-xl shadow-2xl border border-white/10"
+              />
+              <div className="mt-3 flex items-center gap-2">
+                <a
+                  href={lightboxImg}
+                  download="mits-event-image.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold backdrop-blur-sm transition-colors border border-white/15"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  Download Image
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <Footer />
     </div>
   );
