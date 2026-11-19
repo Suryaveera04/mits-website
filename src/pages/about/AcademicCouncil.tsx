@@ -47,6 +47,10 @@ const AcademicCouncil = () => {
             <div className="space-y-4">
               {[
                 {
+                  title: "Minutes of 5th Academic Council Meeting",
+                  url: "https://mits.ac.in/public/uploads/static-pdf/Minutes of 5th Academic Council Meeting.pdf",
+                },
+                {
                   title: "Minutes of 4th Academic Council Meeting",
                   date: "August 14, 2026",
                   url: "https://mits.ac.in/public/uploads/static-pdf/MoM-4th%20Academic%20Council%20Meeting_30.09.2026.pdf",
@@ -79,10 +83,12 @@ const AcademicCouncil = () => {
                       <h4 className="font-semibold text-secondary text-sm sm:text-base">
                         {meeting.title}
                       </h4>
-                      <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                        <Calendar className="w-3.5 h-3.5" />
-                        Meeting Date: {meeting.date}
-                      </p>
+                      {meeting.date && (
+                        <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
+                          <Calendar className="w-3.5 h-3.5" />
+                          Meeting Date: {meeting.date}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <Button asChild variant="outline" size="sm" className="shrink-0 border-primary text-primary hover:bg-primary hover:text-white transition-colors">
