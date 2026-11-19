@@ -47,6 +47,7 @@ const usefulLinks = [
 
 const documents = [
   { label: "UHV Cell Policy Document 2025-26", href: "https://mits.ac.in/assets/pdf/assoc/UHV Cell Policy document ver01_25-26.pdf" },
+  { label: "Student Induction Program (SIP) 2025-26", href: "https://mits.ac.in/assets/pdf/bsh/SIP_MAIN%20REPORT%20-%2011.09.26.pdf" },
   { label: "Student Induction Program (SIP) 2024-25", href: "https://mits.ac.in/assets/pdf/assoc/SIP%202024-25.pdf" },
   { label: "Student Induction Program (SIP) 2023-24", href: "https://mits.ac.in/public/uploads/uhv/UHV-SIP-2023-24.pdf" },
   { label: "Student Induction Program (SIP) 2022-23", href: "https://mits.ac.in/public/uploads/uhv/UHV-SIP-2022-23.pdf" },
