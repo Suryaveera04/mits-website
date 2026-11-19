@@ -84,7 +84,7 @@ const DEFAULT_TABS: { id: TabId; label: string }[] = [
   { id: "contact", label: "Contact Us" },
 ];
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 // Helper to make URLs and emails clickable in about text
 function renderTextWithLinks(text: string) {

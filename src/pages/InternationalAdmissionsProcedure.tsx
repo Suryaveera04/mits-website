@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Globe, ShieldCheck, Landmark, CheckCircle2, UserCheck, Compass, GraduationCap, Scale, Award, Info } from "lucide-react";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const InternationalAdmissionsProcedure = () => {
   return (

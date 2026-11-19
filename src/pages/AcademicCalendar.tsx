@@ -7,7 +7,7 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { GraduationCap, FileText, Download, Eye, X, Search, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 interface CalendarItem {
   sno: number;

@@ -2675,7 +2675,7 @@ const DepartmentPage = () => {
                         {/* OBE Flowchart Image */}
                         <div className="rounded-xl border border-border bg-card p-4 flex justify-center shadow-xs overflow-hidden">
                           <img
-                            src={`${import.meta.env.BASE_URL}departments/mech_obe_flowchart.png`}
+                            src="https://mits.edu/departments/mech_obe_flowchart.png"
                             alt="Outcome Based Education Process Flowchart"
                             className="max-w-full h-auto rounded-lg"
                           />

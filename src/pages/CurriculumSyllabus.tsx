@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { GraduationCap, FileText, Download, Eye, X, Search, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 interface SyllabusItem {
   id: number;

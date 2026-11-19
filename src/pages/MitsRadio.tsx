@@ -35,7 +35,7 @@ import {
   radioGallery,
 } from "@/data/radioData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 type TabKey =
   | "home"

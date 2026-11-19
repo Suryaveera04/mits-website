@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import SportsFacilities from "@/components/SportsFacilities";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const SportsAthletics = () => (
   <div className="min-h-screen bg-gradient-to-b from-[#fdfbf7] via-white to-white">

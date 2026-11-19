@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="lg:col-span-3">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-14 rounded-md bg-white p-1.5 flex items-center justify-center shadow-md">
-                <img src={`${import.meta.env.BASE_URL}mits-official-logo.png`} alt="MITS Official Logo" className="h-full w-auto object-contain" />
+                <img src="https://mits.edu/mits-official-logo.png" alt="MITS Official Logo" className="h-full w-auto object-contain" />
               </div>
             </div>
             <p className="font-body text-white/80 text-sm leading-relaxed">

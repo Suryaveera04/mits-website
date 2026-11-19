@@ -31,7 +31,7 @@ import {
 } from "./qsSustainabilityData";
 import { sdgContactData } from "./sdgData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 type QsTabKey =
   | "about"

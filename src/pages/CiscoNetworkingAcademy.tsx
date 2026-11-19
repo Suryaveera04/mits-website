@@ -42,7 +42,7 @@ import {
   Building
 } from "lucide-react";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 type TabId =
   | "about-cisco"

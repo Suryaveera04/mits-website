@@ -125,7 +125,7 @@ import {
   type Doc,
 } from "@/data/iqac";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 type SectionKey =
   | "about"

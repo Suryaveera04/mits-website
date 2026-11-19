@@ -18,7 +18,7 @@ import {
   Globe,
   LucideIcon,
 } from "lucide-react";
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";

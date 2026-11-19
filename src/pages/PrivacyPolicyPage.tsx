@@ -6,7 +6,7 @@ import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import { ShieldCheck, Mail, Globe, MapPin } from "lucide-react";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 export default function PrivacyPolicyPage() {
   return (

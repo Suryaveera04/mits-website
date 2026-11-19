@@ -50,7 +50,7 @@ const recruiters = [
 ];
 
 
-const getRecruiterLogoSrc = (logo: string) => `${import.meta.env.BASE_URL}recruiters/${logo}`;
+const getRecruiterLogoSrc = (logo: string) => `https://mits.edu/recruiters/${logo}`;
 
 const CountUp = ({ target, suffix, duration = 2 }: { target: number; suffix: string; duration?: number }) => {
   const ref = useRef<HTMLSpanElement>(null);

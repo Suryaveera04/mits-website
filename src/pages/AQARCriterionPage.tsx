@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { aqarCriteriaData } from "@/data/iqac";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 export const AQARCriterionPage = () => {
   const [activeCriterionId, setActiveCriterionId] = useState("criterion-1");

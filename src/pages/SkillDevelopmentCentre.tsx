@@ -22,7 +22,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { sdcEventsData } from "@/data/sdcEventsData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const officialDocs = [
   {

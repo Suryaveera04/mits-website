@@ -6,7 +6,7 @@ import SEO from "@/components/SEO";
 import { selfPacedCoursesData, type SelfPacedCourse } from "@/data/ciscoData";
 import { Calendar, Search, FileText, ExternalLink, ArrowLeft } from "lucide-react";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const CiscoSelfPacedCourses = () => {
   const [searchQuery, setSearchQuery] = useState("");

@@ -26,7 +26,7 @@ import {
   iiicActivities,
 } from "./iiicData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const relatedCells = [
   { label: "Training & Placements", to: "/placements" },

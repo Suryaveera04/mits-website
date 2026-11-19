@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const images = [
   { src: `${BASE}gallery/mits-about-menu.jpg`, alt: "MITS Campus Aerial View", span: "md:col-span-2" },

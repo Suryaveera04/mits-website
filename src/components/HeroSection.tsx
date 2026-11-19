@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, ChevronDown, Play, Pause } from "lucide-react";
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 interface Slide {
   id: string;

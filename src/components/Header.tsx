@@ -186,9 +186,9 @@ const Header = () => {
             onMouseEnter={handleCloseImmediate}
           >
             <img
-              src={`${import.meta.env.BASE_URL}mits-official-logo.png`}
+              src="https://mits.edu/mits-official-logo.png"
               onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = `${import.meta.env.BASE_URL}mits-logo.png`;
+                (e.currentTarget as HTMLImageElement).src = "https://mits.edu/mits-logo.png";
               }}
               alt="MITS Madanapalle official logo"
               className="h-9 min-[400px]:h-11 sm:h-14 md:h-16 lg:h-[76px] w-auto max-w-[170px] min-[360px]:max-w-[200px] min-[400px]:max-w-[250px] sm:max-w-[330px] md:max-w-[390px] object-contain shrink"

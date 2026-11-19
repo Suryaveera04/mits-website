@@ -6,7 +6,7 @@ import { BookOpen, Brain, Building2, FlaskConical, GraduationCap, Microscope, Us
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const schools = [
   {

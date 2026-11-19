@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState } from "react";
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 import { ArrowRight, Search, Filter, Cpu, Building2, Zap, CircuitBoard, Microscope, Database, Shield, Code, Briefcase, Brain, GraduationCap, Beaker, TrendingUp, Users, BookOpen, Award, Target, Activity, Factory, Construction, Globe, Sparkles, FlaskConical, LineChart, GraduationCap as Cap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

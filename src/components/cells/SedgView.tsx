@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const objectives = [
   "To provide academic mentoring, socio-emotional counselling, support and monitor, circulate, publicise the implementation of facilities, guidelines and instructions of UGC and Govt from time to time.",

@@ -41,7 +41,7 @@ const mitsBuildPdfUrl = mitsBuildCharterDoc.url;
 const mitsNmrlPdfUrl = mitsNmrlDoc.url;
 const innovationAchievements = innovationAchievementsData;
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 type TabId =
   | "about"

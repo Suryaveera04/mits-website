@@ -227,7 +227,7 @@ export function parseTrendingItems(rows: Record<string, string>[]): TrendingItem
     return {
       id: r.id || `sheet-trending-${idx}`,
       url: rawUrl,
-      image: imgUrl || `${import.meta.env.BASE_URL}gallery/camp1.JPG`,
+      image: imgUrl || "https://mits.edu/gallery/camp1.JPG",
       caption: title,
       date: r.date || "",
       isReel: Boolean(isReel),

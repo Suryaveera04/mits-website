@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { newsletterList } from "@/data/newsletterData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const NewsletterPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");

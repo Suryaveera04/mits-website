@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const documents = [
   { title: "Office Order - Women helpline 24X7 - 15.08.2025", href: "https://mits.ac.in/assets/pdf/assoc/Women Helpline-16-8-2025.pdf" },

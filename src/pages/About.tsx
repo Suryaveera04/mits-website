@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { leadershipProfiles, type LeadershipProfile } from "@/data/aboutData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const EomsLogo = ({ className = "w-8 h-8" }: { className?: string }) => (
   <svg

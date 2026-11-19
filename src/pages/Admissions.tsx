@@ -13,7 +13,7 @@ import {
   Users, Building, ChevronLeft, ChevronRight,
 } from "lucide-react";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const whyCards = [
   { img: `${BASE}Hero-Section/image 1.JPG`, caption: "Modern Learning Environment", sub: "State-of-the-art classrooms & smart labs" },

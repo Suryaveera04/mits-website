@@ -24,7 +24,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { cellCategories, type CellItem, type CellCategory } from "@/data/cellsData";
 import { cellsDetailData } from "@/data/cellsDetailData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 // Mapping categories to Lucide icons
 const categoryIcons: Record<string, any> = {

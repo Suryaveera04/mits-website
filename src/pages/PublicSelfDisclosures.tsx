@@ -24,7 +24,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { psdSections, psdOverviewPdf, type PsdRow } from "@/data/psdData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const sectionIcon: Record<string, LucideIcon> = {
   "about-hei": Landmark,

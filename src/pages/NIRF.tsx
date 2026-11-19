@@ -33,7 +33,7 @@ import {
   type NirfDoc,
 } from "@/data/nirfData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 type TabKey = string; // year key, "data", "committee"
 

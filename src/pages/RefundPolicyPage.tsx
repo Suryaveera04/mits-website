@@ -6,7 +6,7 @@ import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import { CreditCard, FileText, CheckCircle2, Mail, ShieldAlert } from "lucide-react";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const REFUND_TABLE_DATA = [
   { category: "1", percentage: "100 %", timeline: "15 Days or more before the formally notified last date of admission" },

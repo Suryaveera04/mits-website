@@ -23,7 +23,7 @@ import {
   EContentLink,
 } from "@/data/econtentData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const EContentPage: React.FC = () => {
   const [activeDeptId, setActiveDeptId] = useState<string>(

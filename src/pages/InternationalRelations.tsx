@@ -344,7 +344,7 @@ const AboutSection = () => (
       </p>
       <div className="recruiter-marquee-track">
         {[...partners, ...partners].map((p, i) => {
-          const BASE = import.meta.env.BASE_URL;
+          const BASE = "https://mits.edu/";
           const local = localLogos[p.name];
           return (
             <div key={`${p.name}-${i}`} className="recruiter-logo-card" aria-hidden={i >= partners.length}>
@@ -672,7 +672,7 @@ export const localLogos: Record<string, string> = {
 
 export const PartnerCard = ({ p }: { p: (typeof partners)[0] }) => {
   const [imgFailed, setImgFailed] = useState(false);
-  const BASE = import.meta.env.BASE_URL;
+  const BASE = "https://mits.edu/";
   const localLogo = localLogos[p.name];
   const logoUrl = localLogo ? `${BASE}${localLogo}` : null;
 
@@ -763,7 +763,7 @@ export const PartnerCard = ({ p }: { p: (typeof partners)[0] }) => {
 /** Single logo tile — no redirect, pure image only */
 const PartnerLogoTile = ({ p }: { p: (typeof partners)[0] }) => {
   const [imgFailed, setImgFailed] = useState(false);
-  const BASE = import.meta.env.BASE_URL;
+  const BASE = "https://mits.edu/";
   const localLogo = localLogos[p.name];
   const logoUrl = localLogo ? `${BASE}${localLogo}` : null;
 
