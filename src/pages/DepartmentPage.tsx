@@ -1990,15 +1990,7 @@ const DepartmentPage = () => {
                                 </div>
                                 <h4 className="text-base font-bold text-secondary mb-1">{sub.title}</h4>
                                 <p className="text-xs font-semibold text-primary/90 mb-2">{sub.head} — <span className="font-normal text-muted-foreground">{sub.role}</span></p>
-                                <p className="text-xs text-muted-foreground leading-relaxed mb-4">{sub.desc}</p>
-                                <button
-                                  type="button"
-                                  onClick={() => handleSectionClick("faculty")}
-                                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary/80 hover:underline cursor-pointer"
-                                >
-                                  <span>Explore Faculty Directory</span>
-                                  <ChevronRight className="w-3.5 h-3.5" />
-                                </button>
+                                <p className="text-xs text-muted-foreground leading-relaxed">{sub.desc}</p>
                               </CardContent>
                             </Card>
                           ))}
