@@ -13,7 +13,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "sync:instagram": "node scripts/sync-instagram.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

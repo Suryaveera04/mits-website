@@ -1,102 +1,146 @@
 import { useState, useEffect, useCallback } from "react";
-import { SHEETS_CONFIG } from "@/config/sheetsConfig";
-import { fetchSheetTab, parseTrendingItems, type TrendingItem } from "@/services/googleSheetsService";
+import { type TrendingItem } from "@/services/googleSheetsService";
 
 export const DEFAULT_TRENDING_ITEMS: TrendingItem[] = [
   {
-    id: "ashv-2027",
-    url: SHEETS_CONFIG.INSTAGRAM_PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/ashv(2k26).jpg`,
-    caption: "ASHV 2027 moments from the campus cultural festival",
-    date: "2027-03-01",
+    id: "ig-396315558",
+    url: "https://www.instagram.com/reel/Dfm3StiD5Dk/",
+    image: `${import.meta.env.BASE_URL}gallery/instagram/highlight-1.webp`,
+    caption: "⚡ 𝗧𝗘𝗥𝗔–𝟮𝗞𝟮𝟲 | 𝗣𝗼𝘄𝗲𝗿𝗶𝗻𝗴 𝗜𝗱𝗲𝗮𝘀, 𝗜𝗻𝘀𝗽𝗶𝗿𝗶𝗻𝗴 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻𝘀! ⚡ A glimpse into the excitement, innovation and technical brilliance of TERA–2K26.",
+    date: "2026-11-11",
     isReel: true,
     pinned: false,
     order: 1,
   },
   {
-    id: "alumni-connect",
-    url: SHEETS_CONFIG.INSTAGRAM_PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/alumni.jpg`,
-    caption: "Alumni connect and career inspiration at MITS",
-    date: "2027-02-25",
+    id: "ig-396315559",
+    url: "https://www.instagram.com/p/Dfly2KHmlLt/",
+    image: `${import.meta.env.BASE_URL}gallery/instagram/highlight-2.webp`,
+    caption: "𝗪𝗜𝗘 𝗔𝗻𝗮𝗻𝘁𝗮𝗽𝘂𝗿𝗮𝗺 𝗭𝗼𝗻𝗮𝗹 𝗖𝗼𝗻𝗴𝗿𝗲𝘀𝘀 – 𝟮𝟬𝟮𝟲! IEEE Women in Engineering Student Branch at MITS.",
+    date: "2026-11-11",
     isReel: false,
     pinned: false,
     order: 2,
   },
   {
-    id: "computer-lab",
-    url: SHEETS_CONFIG.INSTAGRAM_PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/computer_Lab1.jpg`,
-    caption: "Digital learning spaces and hands-on lab experiences",
-    date: "2027-02-20",
+    id: "ig-396315560",
+    url: "https://www.instagram.com/p/DflhOT7CePc/",
+    image: `${import.meta.env.BASE_URL}gallery/instagram/highlight-3.webp`,
+    caption: "𝗡𝗮𝘁𝗶𝗼𝗻𝗮𝗹 𝗘𝗱𝘂𝗰𝗮𝘁𝗶𝗼𝗻 𝗗𝗮𝘆 | 𝟭𝟭 𝗡𝗼𝘃𝗲𝗺𝗯𝗲𝗿 - MITS proudly celebrates National Education Day.",
+    date: "2026-11-11",
     isReel: false,
     pinned: false,
     order: 3,
   },
   {
-    id: "seminar-hall",
-    url: SHEETS_CONFIG.INSTAGRAM_PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/seminar_hall_audience.jpg`,
-    caption: "Guest lectures, seminars, and student engagement",
-    date: "2027-02-15",
+    id: "ig-396267402",
+    url: "https://www.instagram.com/reel/DfkFoHmNsoA/",
+    image: `${import.meta.env.BASE_URL}gallery/instagram/highlight-4.webp`,
+    caption: "🎃👻 HALLOWEEN VIBES AT MITS! 🕸️🦇 Creative costumes, thrilling moments and unforgettable memories!",
+    date: "2026-11-10",
     isReel: true,
     pinned: false,
     order: 4,
   },
   {
-    id: "sports-ground",
-    url: SHEETS_CONFIG.INSTAGRAM_PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/Ground-1.JPG`,
-    caption: "Sports and fitness culture across campus",
-    date: "2027-02-10",
+    id: "ig-396267403",
+    url: "https://www.instagram.com/p/DfjRZ6ZGvim/",
+    image: `${import.meta.env.BASE_URL}gallery/instagram/highlight-5.webp`,
+    caption: "𝗣𝗵.𝗗. 𝗔𝗱𝗺𝗶𝘀𝘀𝗶𝗼𝗻𝘀 𝟮𝟬𝟮𝟲–𝟮𝟳 𝗡𝗼𝘄 𝗢𝗽𝗲𝗻 𝗮𝘁 𝗠𝗜𝗧𝗦! Apply online for doctoral research programs.",
+    date: "2026-11-10",
     isReel: false,
     pinned: false,
     order: 5,
   },
   {
-    id: "campus-activities",
-    url: SHEETS_CONFIG.INSTAGRAM_PROFILE_URL,
-    image: `${import.meta.env.BASE_URL}gallery/camp1.JPG`,
-    caption: "Student activities, industry visits, and campus life",
-    date: "2027-02-05",
-    isReel: true,
+    id: "ig-396221907",
+    url: "https://www.instagram.com/p/DfhHvTsn0LD/",
+    image: `${import.meta.env.BASE_URL}gallery/instagram/highlight-6.webp`,
+    caption: "𝗗𝗢𝗡’𝗧 𝗝𝗨𝗦𝗧 𝗨𝗦𝗘 𝗔𝗜. 𝗕𝗨𝗜𝗟𝗗 𝗜𝗧! 🎓 B.Tech. in CSE (Artificial Intelligence & Machine Learning).",
+    date: "2026-11-09",
+    isReel: false,
     pinned: false,
     order: 6,
   },
+  {
+    id: "ig-396174288",
+    url: "https://www.instagram.com/p/Dfdy1eiDfG8/",
+    image: `${import.meta.env.BASE_URL}gallery/instagram/highlight-7.webp`,
+    caption: "𝗛𝗮𝗽𝗽𝘆 𝗗𝗶𝘄𝗮𝗹𝗶! ✨🪔 May the divine light of Diwali illuminate our lives with wisdom and happiness.",
+    date: "2026-11-08",
+    isReel: false,
+    pinned: false,
+    order: 7,
+  },
+  {
+    id: "ig-396174289",
+    url: "https://www.instagram.com/p/DfbOCiwj-WX/",
+    image: `${import.meta.env.BASE_URL}gallery/instagram/highlight-8.webp`,
+    caption: "𝗪𝗮𝗿𝗺 𝗪𝗶𝘀𝗵𝗲𝘀 𝗼𝗻 𝗡𝗮𝗿𝗮𝗸𝗮 𝗖𝗵𝗮𝘁𝘂𝗿𝗱𝗮𝘀𝗵𝗶! Celebrating the triumph of light and learning.",
+    date: "2026-11-07",
+    isReel: false,
+    pinned: false,
+    order: 8,
+  },
+  {
+    id: "ig-396174290",
+    url: "https://www.instagram.com/reel/DfaFVaNNBrX/",
+    image: `${import.meta.env.BASE_URL}gallery/instagram/highlight-9.webp`,
+    caption: "A Festival of Lights, Joy, Togetherness & New Beginnings! ✨🪔 Diwali celebrations at MITS campus.",
+    date: "2026-11-06",
+    isReel: true,
+    pinned: false,
+    order: 9,
+  },
+  {
+    id: "ig-396174291",
+    url: "https://www.instagram.com/p/DfX0vB4DWiV/",
+    image: `${import.meta.env.BASE_URL}gallery/instagram/highlight-10.webp`,
+    caption: "𝗠𝗜𝗧𝗦 𝗛𝗢𝗦𝗧𝗦 𝗧𝗛𝗥𝗘𝗘-𝗗𝗔𝗬 𝗡𝗔𝗧𝗜𝗢𝗡𝗔𝗟 𝗪𝗢𝗥𝗞𝗦𝗛𝗢𝗣 - Hands-on engineering and industrial training.",
+    date: "2026-11-06",
+    isReel: false,
+    pinned: false,
+    order: 10,
+  },
 ];
+
+function normalizeImageUrl(img: string): string {
+  if (!img) return "";
+  if (img.startsWith("http://") || img.startsWith("https://") || img.startsWith("data:")) {
+    return img;
+  }
+  const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const cleanPath = img.replace(/^\//, "");
+  return `${baseUrl}/${cleanPath}`;
+}
 
 export function useTrendingFeed() {
   const [items, setItems] = useState<TrendingItem[]>(DEFAULT_TRENDING_ITEMS);
   const [loading, setLoading] = useState<boolean>(false);
-  const [isLiveSheet, setIsLiveSheet] = useState<boolean>(false);
 
   const loadFeed = useCallback(async () => {
-    if (!SHEETS_CONFIG.SPREADSHEET_ID.trim()) return;
-
     setLoading(true);
     try {
-      const rows = await fetchSheetTab(SHEETS_CONFIG.TRENDING_TAB);
-      if (rows && rows.length > 0) {
-        console.log("[MITS Trending] Loaded live rows from Google Sheet:", rows);
-        const parsed = parseTrendingItems(rows);
-        if (parsed.length > 0) {
-          // Put sheet items first, and fill the remaining spots up to 6 with default campus highlights
-          const combined: TrendingItem[] = [...parsed];
-          for (const def of DEFAULT_TRENDING_ITEMS) {
-            if (combined.length >= 6) break;
-            if (!combined.some((c) => c.caption === def.caption || c.id === def.id)) {
-              combined.push({ ...def, pinned: false });
-            }
-          }
-          setItems(combined);
-          setIsLiveSheet(true);
+      // 1. Fetch the automatically synced JSON feed
+      const feedUrl = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/data/trending-feed.json?t=${Date.now()}`;
+      const res = await fetch(feedUrl);
+      if (res.ok) {
+        const json: TrendingItem[] = await res.json();
+        if (Array.isArray(json) && json.length > 0) {
+          const normalized = json.map((item) => ({
+            ...item,
+            image: normalizeImageUrl(item.image),
+          }));
+          setItems(normalized);
+          setLoading(false);
+          return;
         }
       }
     } catch (err) {
-      console.warn("[useTrendingFeed] Could not load live sheet:", err);
-    } finally {
-      setLoading(false);
+      console.warn("[useTrendingFeed] Could not load static JSON feed:", err);
     }
+
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -106,7 +150,6 @@ export function useTrendingFeed() {
   return {
     items,
     loading,
-    isLiveSheet,
     refresh: loadFeed,
   };
 }

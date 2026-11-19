@@ -1,0 +1,49 @@
+name: Sync Instagram Highlights
+
+on:
+  schedule:
+    # Runs every 8 hours automatically
+    - cron: '0 */8 * * *'
+  # Allows manual 1-click execution anytime from GitHub Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-instagram-feed
+  cancel-in-progress: true
+
+jobs:
+  sync-instagram:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Instagram & Highlights sync
+        run: node scripts/sync-instagram.mjs
+
+      - name: Commit and push changes if updated
+        shell: bash
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/gallery/instagram/*.webp public/data/trending-feed.json
+          if git diff --staged --quiet; then
+            echo "No changes in Instagram highlights. Everything is up to date."
+          else
+            git commit -m "chore(instagram): auto-sync latest campus highlights [skip ci]"
+            git push origin main
+          fi
