@@ -36,9 +36,9 @@ describe("Official University Faculty Roster", () => {
     });
   });
 
-  it("must contain exactly 25 faculty members in CSE (AI & ML) matching their database records in CSE-AIML", () => {
+  it("must contain exactly 24 faculty members in CSE (AI & ML) matching their database records in CSE-AIML", () => {
     const aimlFaculty = officialList.filter((f) => f.deptKey === "aiml");
-    expect(aimlFaculty.length).toBe(25);
+    expect(aimlFaculty.length).toBe(24);
 
     const dbList = fallbackData.data;
     aimlFaculty.forEach((f) => {

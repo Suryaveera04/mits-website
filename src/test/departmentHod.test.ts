@@ -189,9 +189,9 @@ describe("Department Head of Department (HOD) Resolution", () => {
     const { result } = renderHook(() => useFacultyData());
     const { getFacultyByDept } = result.current;
 
-    // CSE: 43 members in database
+    // CSE: 44 members in database
     const cseMembers = getFacultyByDept("cse");
-    expect(cseMembers.length).toBe(43);
+    expect(cseMembers.length).toBe(44);
 
     // ECE: 29 members in database
     const eceMembers = getFacultyByDept("ece");

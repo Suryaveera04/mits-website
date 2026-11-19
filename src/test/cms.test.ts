@@ -78,8 +78,8 @@ describe("App routing (BrowserRouter)", () => {
   it("builds correct full URLs for key routes", () => {
     const routes = ["/", "/about", "/admissions", "/department/cse", "/placements"];
     routes.forEach((r) => {
-      const full = `https://mits.edu${APP_BASENAME}${r === "/" ? "" : r}`;
-      expect(full).toContain("mits.edu/university");
+      const full = `https://mits.ac.in${APP_BASENAME}${r === "/" ? "" : r}`;
+      expect(full).toContain("mits.ac.in/university");
       expect(full).not.toContain("#");
     });
   });

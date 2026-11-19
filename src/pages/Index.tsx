@@ -18,8 +18,8 @@ const orgSchema = {
   "@type": "CollegeOrUniversity",
   "name": "Madanapalle Institute of Technology & Science",
   "alternateName": "MITS Madanapalle",
-  "url": "https://mits.ac.in",
-  "logo": "https://ragupathi05.github.io/MITS-Design1/mits-logo.png",
+  "url": "https://mits.ac.in/university",
+  "logo": "https://mits.ac.in/university/mits-logo.png",
   "description": "NAAC A+ accredited, UGC-recognised Deemed University in Andhra Pradesh offering B.Tech, M.Tech, MBA and MCA programmes.",
   "address": {
     "@type": "PostalAddress",

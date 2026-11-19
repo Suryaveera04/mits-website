@@ -3,10 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://mits.edu/university",
+  "homepage": "https://mits.ac.in/university",
   "scripts": {
     "dev": "node init && vite",
-    "build": "node init && vite build",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "build": "node init && node scripts/generate-sitemap.mjs && vite build",
     "build:dev": "node init && vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
