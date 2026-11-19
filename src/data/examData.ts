@@ -16,8 +16,20 @@ const link = (title: string, href: string): ExamLink => ({ title, href, kind: "l
 
 // ==================== UG PROGRAMMES ====================
 
-// 1. UG Notifications (8 items)
+// 1. UG Notifications (10 items)
 export const ugNotifications: ExamLink[] = [
+  {
+    "no": 10,
+    "title": "Notification for BCA I Year I Semester (R26) Regular End Semester Examinations January 2026",
+    "href": "https://mits.ac.in/public/uploads/files/Notification for BCA I Year I Semestere (R26) Regular End Semester Examinations January 2026.pdf",
+    "kind": "pdf"
+  },
+  {
+    "no": 9,
+    "title": "Notification for BBA I Year I Semester (R26) Regular End Semester Examinations January 2027",
+    "href": "https://mits.ac.in/public/uploads/files/Notification for BBA I Year I Semester (R26) Regular End Semester Examinatins January 2027.pdf",
+    "kind": "pdf"
+  },
   {
     "no": 8,
     "title": "Notification - B.Tech. II Year I Semester (R25) Regular End Semester Examinations - December 2026",
