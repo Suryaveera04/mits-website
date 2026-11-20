@@ -172983,9 +172983,9 @@
       "fullName": "Mr. Sri Ramakrishna V.G",
       "email": "sriramakrishnavg@mits.ac.in",
       "department": {
-        "_id": "60d5ecb8b392d700153ee201",
-        "code": "CSE",
-        "name": "COMPUTER SCIENCE AND ENGINEERING"
+        "_id": "60d5ecb8b392d700153ee205",
+        "code": "CSE-AIML",
+        "name": "COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)"
       },
       "designation": "Assistant Professor",
       "experience": 0,

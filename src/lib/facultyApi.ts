@@ -525,11 +525,11 @@ export function sanitizeFacultyList(list: APIFacultyMember[]): APIFacultyMember[
     const lowerName = fullName.toLowerCase();
     const email = (f.email || "").toLowerCase().trim();
 
-    // 1. Mr. Sri Ramakrishna V.G - officially in Computer Science & Engineering (CSE), NOT AIML
+    // 1. Mr. Sri Ramakrishna V.G - officially in Computer Science & Engineering (AI & ML) (AIML)
     if (f._id === "6af7f981529beb441e315bb6" || email === "sriramakrishnavg@mits.ac.in" || lowerName.includes("sri ramakrishna")) {
       fullName = "Mr. Sri Ramakrishna V.G";
       designation = "Assistant Professor";
-      department = { _id: "60d5ecb8b392d700153ee201", code: "CSE", name: "COMPUTER SCIENCE AND ENGINEERING" };
+      department = { _id: "60d5ecb8b392d700153ee205", code: "CSE-AIML", name: "COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)" };
       profilePhoto = "/uploads/profile/file-Sriram_Photo-1794821926882-600567835.jpeg";
     }
 
