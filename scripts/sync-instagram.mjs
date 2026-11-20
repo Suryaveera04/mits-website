@@ -30,7 +30,7 @@ async function fetchInstagramPosts() {
 
   // 1. Fetch from MITS official feed endpoint (provides 100% real Instagram post thumbnails and captions)
   try {
-    const res = await fetch("https://api.curator.io/v1/feeds/68b9a853-f0ff-4369-b268-a07b146db634/posts?limit=25", {
+    const res = await fetch("https://api.curator.io/v1/feeds/1a6d1223-3ae3-46ea-8c39-adea5ff5e1d8/posts?limit=25", {
       signal: AbortSignal.timeout(10000),
     });
     if (res.ok) {
