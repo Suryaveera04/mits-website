@@ -1,4 +1,5 @@
 import { FileText, ExternalLink, BookOpen, Calendar, Archive } from "lucide-react";
+import { Link } from "react-router-dom";
 import PageShell from "@/components/about/PageShell";
 import { Button } from "@/components/ui/button";
 import { academicCouncil } from "@/data/aboutData";
@@ -47,10 +48,10 @@ const AcademicCouncil = () => {
                 Minutes of Academic Council Meetings
               </h3>
               <Button asChild size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white transition-colors">
-                <a href="/about/minutes-ac" className="flex items-center gap-1.5 text-xs font-semibold">
+                <Link to="/minutes-ac" className="flex items-center gap-1.5 text-xs font-semibold">
                   <Archive className="w-3.5 h-3.5" />
                   View All Minutes (2014-2026) <ExternalLink className="w-3 h-3" />
-                </a>
+                </Link>
               </Button>
             </div>
 
@@ -114,15 +115,13 @@ const AcademicCouncil = () => {
                   <Archive className="w-4 h-4 text-primary" />
                   <span className="text-sm font-semibold text-secondary">Complete Academic Council Minutes Repository (2014-2026)</span>
                 </div>
-                <a
-                  href="https://mits.ac.in/minutes-ac"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/minutes-ac"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
                 >
                   <span>Explore Archive</span>
                   <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
