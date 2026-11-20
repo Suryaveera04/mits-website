@@ -4,9 +4,15 @@ import officialList from "@/data/officialFacultyList.json";
 describe("BSH Faculty Segregation into 4 Constituent Departments", () => {
   const bshMembers = officialList.filter((f) => f.deptKey === "bsh");
 
-  const matchEnglish = (f: { department?: string }) => {
-    const d = (f.department || "").toLowerCase();
-    return d.includes("english") || d.includes("fl") || d.includes("efl") || d.includes("humanit");
+  const matchEnglish = (f: { department?: string; subDepartment?: string }) => {
+    const d = ((f.subDepartment || "") + " " + (f.department || "")).toLowerCase();
+    if (d.includes("humanit")) return false;
+    return d.includes("english") || d.includes("fl") || d.includes("efl");
+  };
+
+  const matchHumanities = (f: { department?: string; subDepartment?: string }) => {
+    const d = ((f.subDepartment || "") + " " + (f.department || "")).toLowerCase();
+    return d.includes("humanit");
   };
 
   const matchMath = (f: { department?: string }) => {
@@ -69,5 +75,19 @@ describe("BSH Faculty Segregation into 4 Constituent Departments", () => {
     const chemistryNames = bshMembers.filter(matchChemistry).map((f) => f.name);
     expect(chemistryNames).toContain("Dr. Renjith Bhaskaran");
     expect(chemistryNames).toContain("Dr. K. Chandra Mohan");
+  });
+
+  it("ensures Humanities faculty are segregated to Department of Humanities and never English", () => {
+    const humanitiesSample = [
+      { name: "Dr. DAMODHARAN C", department: "Department of Humanities", subDepartment: "Department of Humanities" },
+      { name: "Dr. Venkata Ramana N", department: "Department of Humanities", subDepartment: "Department of Humanities" },
+      { name: "DR.C.Srinivasa Raju", department: "Department of Humanities", subDepartment: "Department of Humanities" },
+      { name: "Dr. Suresh Babu M", department: "HUMANITIES", subDepartment: "Department of Humanities" },
+    ];
+
+    humanitiesSample.forEach((f) => {
+      expect(matchHumanities(f)).toBe(true);
+      expect(matchEnglish(f)).toBe(false);
+    });
   });
 });

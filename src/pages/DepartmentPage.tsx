@@ -1948,7 +1948,7 @@ const DepartmentPage = () => {
                           </h3>
                         </div>
                         <p className="text-xs sm:text-sm text-muted-foreground mb-6">
-                          The Department of Basic Sciences & Humanities comprises four specialized constituent academic departments providing multidisciplinary foundation across science, mathematics, and languages.
+                          The Department of Basic Sciences & Humanities comprises five specialized constituent academic departments providing multidisciplinary foundation across science, mathematics, languages, and humanities.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                           {[
@@ -1958,6 +1958,13 @@ const DepartmentPage = () => {
                               role: "Assoc. Professor & Head (I/c)",
                               desc: "Advanced communicative competence, technical writing, professional soft skills, and foreign languages for engineering graduates.",
                               badge: "Languages & Soft Skills",
+                            },
+                            {
+                              title: "Department of Humanities",
+                              head: "Dr. C. Srinivasa Raju",
+                              role: "Asst. Professor & Coordinator",
+                              desc: "Foundational human values, ethics, behavioral competency development, and physical education.",
+                              badge: "Humanities & Social Sciences",
                             },
                             {
                               title: "Department of Mathematics",

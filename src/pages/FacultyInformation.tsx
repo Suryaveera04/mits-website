@@ -10,6 +10,7 @@ import {
   Calculator,
   Atom,
   FlaskConical,
+  Landmark,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -86,7 +87,19 @@ const BSH_CONSTITUENT_DEPTS: BshConstituentDept[] = [
     description: "Faculty specializing in communicative English, linguistics, literature, and foreign languages.",
     matcher: (f) => {
       const d = ((f.subDepartment || "") + " " + (f.department || "")).toLowerCase();
-      return d.includes("english") || d.includes("fl") || d.includes("efl") || d.includes("humanit");
+      if (d.includes("humanit")) return false;
+      return d.includes("english") || d.includes("efl") || d.includes("foreign language");
+    },
+  },
+  {
+    key: "humanities",
+    name: "Department of Humanities",
+    shortName: "Humanities",
+    icon: Landmark,
+    description: "Faculty specializing in humanities, social sciences, human values, and physical education.",
+    matcher: (f) => {
+      const d = ((f.subDepartment || "") + " " + (f.department || "")).toLowerCase();
+      return d.includes("humanit");
     },
   },
   {
@@ -469,7 +482,7 @@ const FacultyInformation = () => {
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
                 }`}
               >
-                All 4 Departments ({bshConstituentCounts.total})
+                All {BSH_CONSTITUENT_DEPTS.length} Departments ({bshConstituentCounts.total})
               </button>
               {BSH_CONSTITUENT_DEPTS.map((sub) => {
                 const count = bshConstituentCounts[sub.key] || 0;
@@ -569,7 +582,7 @@ const FacultyInformation = () => {
                           </h2>
                         </div>
                         <p className="text-xs md:text-sm text-slate-500 mt-1 pl-6">
-                          Faculty organized into 4 constituent academic disciplines: English &amp; Foreign Languages, Mathematics, Physics, and Chemistry.
+                          Faculty organized into 5 constituent academic disciplines: English &amp; Foreign Languages, Humanities, Mathematics, Physics, and Chemistry.
                         </p>
                       </div>
                       <div className="flex items-center gap-3 shrink-0">
