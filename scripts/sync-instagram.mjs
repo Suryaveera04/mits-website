@@ -54,6 +54,7 @@ async function fetchInstagramPosts() {
 
           // Clean HTML tags (<br />), broken entities, hashtags and extra whitespace
           const cleanCaption = (p.text || "")
+            .normalize("NFKD")
             .replace(/<br\s*\/?>/gi, " ")
             .replace(/<\/?[^>]+(>|$)/g, " ")
             .replace(/&#039;/g, "'")

@@ -190,7 +190,7 @@ const NewsEventsSection = () => {
 
         <div className="mb-12">
           <ScrollReveal>
-            <div className="bg-white border border-border rounded-2xl p-5 shadow-sm lg:h-[600px] flex flex-col w-full">
+            <div className="bg-white border border-border rounded-2xl p-5 shadow-sm min-h-[520px] flex flex-col w-full">
               <InstagramFeed />
             </div>
           </ScrollReveal>

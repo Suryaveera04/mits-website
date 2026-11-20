@@ -132,6 +132,7 @@ export function useTrendingFeed() {
 
           for (const item of json) {
             const cleanCap = (item.caption || "")
+              .normalize("NFKD")
               .replace(/<br\s*\/?>/gi, " ")
               .replace(/<\/?[^>]+(>|$)/g, " ")
               .replace(/&#039;/g, "'")
