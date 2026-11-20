@@ -48,7 +48,7 @@ describe("Examinations Portal - Time Tables Segregation", () => {
   });
 
   it("PG Time Tables segregation correctly classifies all items", () => {
-    expect(pgMidTermTimetables.length).toBe(38);
+    expect(pgMidTermTimetables.length).toBe(37);
     expect(pgModelLabTimetables.length).toBe(0);
     expect(pgPracticalSecTimetables.length).toBe(10);
     expect(pgTheoryEndTimetables.length).toBe(9);

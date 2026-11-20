@@ -596,8 +596,14 @@ export const pgCirculars: ExamLink[] = [
   }
 ];
 
-// 3. PG Mid Term Tests (36 items)
+// 3. PG Mid Term Tests (37 items)
 export const pgMidTermTimetables: ExamLink[] = [
+  {
+    no: 37,
+    title: "M.Tech I Year I Semester (CSE-AI &ML) SEC I Mid Term Test I Schedule December 2026",
+    href: "https://mits.ac.in/public/uploads/files/M.Tech I Year I Semester (CSE-AI &ML) SEC I Mid Term Test I Schedule December 2026 .pdf",
+    kind: "pdf",
+  },
   {
     no: 36,
     title: "M.Tech I Year I Semester (R25) I Mid Term Test Schedule November 2026",
