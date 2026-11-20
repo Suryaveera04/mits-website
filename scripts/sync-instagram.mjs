@@ -36,24 +36,54 @@ async function fetchInstagramPosts() {
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data.posts) && data.posts.length > 0) {
-        console.log(`[Instagram Feed] Successfully fetched ${data.posts.length} real Instagram posts from @${INSTAGRAM_USERNAME}`);
-        for (const p of data.posts) {
+        console.log(`[Instagram Feed] Successfully fetched ${data.posts.length} real posts from @${INSTAGRAM_USERNAME}`);
+        const seenKeys = new Set();
+
+        // Filter for Instagram posts only to prevent duplicate cross-posts from Facebook
+        const instaPosts = data.posts.filter((p) => {
+          const net = (p.network_name || p.network || "").toLowerCase();
+          const u = (p.url || "").toLowerCase();
+          return net.includes("instagram") || u.includes("instagram.com");
+        });
+
+        const targetPosts = instaPosts.length >= 6 ? instaPosts : data.posts;
+
+        for (const p of targetPosts) {
           const rawImage = p.image_large || p.image || "";
           if (!rawImage) continue;
 
-          // Clean hashtags and extra line breaks from Instagram caption
+          // Clean HTML tags (<br />), broken entities, hashtags and extra whitespace
           const cleanCaption = (p.text || "")
+            .replace(/<br\s*\/?>/gi, " ")
+            .replace(/<\/?[^>]+(>|$)/g, " ")
+            .replace(/&#039;/g, "'")
+            .replace(/&apos;/g, "'")
+            .replace(/&quot;/g, '"')
+            .replace(/&amp;/g, "&")
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&;s/g, "'s")
+            .replace(/&;/g, "")
+            .replace(/&!/g, "")
             .replace(/#[\w_]+/g, "")
-            .replace(/\n+/g, " ")
+            .replace(/[\r\n\t]+/g, " ")
             .replace(/\s+/g, " ")
-            .trim()
-            .slice(0, 140);
+            .trim();
+
+          // Deduplicate cross-posted items appearing on both Instagram and Facebook
+          const dedupKey = cleanCaption.toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 25);
+          if (dedupKey && seenKeys.has(dedupKey)) {
+            continue;
+          }
+          if (dedupKey) {
+            seenKeys.add(dedupKey);
+          }
 
           posts.push({
             id: `ig-${p.id}`,
             url: p.url || `https://www.instagram.com/p/${p.source_identifier || ""}/`,
             rawImage,
-            caption: cleanCaption || "Campus highlight from @mits_mpl",
+            caption: cleanCaption.slice(0, 140) || "Campus highlight from @mits_mpl",
             date: p.source_created_at ? p.source_created_at.split("T")[0] : "",
             isReel: p.has_video === 1 || (p.url && p.url.includes("/reel/")),
             pinned: false,

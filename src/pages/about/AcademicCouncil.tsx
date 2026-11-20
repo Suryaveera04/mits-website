@@ -18,15 +18,25 @@ const AcademicCouncil = () => {
                   Constitution of the Academic Council
                 </h3>
                 <p className="text-sm text-secondary/70 mt-1 leading-relaxed">
-                  Composition and academic responsibilities of the Council under the
+                  Composition, member committee, and academic responsibilities of the Council under the
                   MITS Deemed to be University statutes.
                 </p>
-                <Button asChild className="mt-4 bg-primary hover:bg-primary/90">
-                  <a href={academicCouncil.constitutionUrl} target="_blank" rel="noopener noreferrer">
-                    <FileText className="w-4 h-4 mr-2" />
-                    View Constitution
-                  </a>
-                </Button>
+                <div className="flex flex-wrap gap-3 mt-4">
+                  <Button asChild className="bg-primary hover:bg-primary/90">
+                    <a href={academicCouncil.constitutionUrl} target="_blank" rel="noopener noreferrer">
+                      <FileText className="w-4 h-4 mr-2" />
+                      Constitution of Academic Council - Click to View Committee
+                    </a>
+                  </Button>
+                  {academicCouncil.statutoryConstitutionUrl && (
+                    <Button asChild variant="outline" className="border-primary/40 text-primary hover:bg-primary/5">
+                      <a href={academicCouncil.statutoryConstitutionUrl} target="_blank" rel="noopener noreferrer">
+                        <FileText className="w-4 h-4 mr-2" />
+                        Statutory Constitution (DTBU)
+                      </a>
+                    </Button>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -37,7 +47,7 @@ const AcademicCouncil = () => {
                 Minutes of Academic Council Meetings
               </h3>
               <Button asChild size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white transition-colors">
-                <a href="https://mits.ac.in/minutes-ac" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold">
+                <a href="/about/minutes-ac" className="flex items-center gap-1.5 text-xs font-semibold">
                   <Archive className="w-3.5 h-3.5" />
                   View All Minutes (2014-2026) <ExternalLink className="w-3 h-3" />
                 </a>
@@ -48,7 +58,7 @@ const AcademicCouncil = () => {
               {[
                 {
                   title: "Minutes of 5th Academic Council Meeting",
-                  url: "https://mits.ac.in/public/uploads/static-pdf/Minutes of 5th Academic Council Meeting.pdf",
+                  url: "https://mits.ac.in/public/uploads/static-pdf/Minutes%20of%205th%20Academic%20Council%20Meeting.pdf",
                 },
                 {
                   title: "Minutes of 4th Academic Council Meeting",
@@ -58,17 +68,17 @@ const AcademicCouncil = () => {
                 {
                   title: "Minutes of 3rd Academic Council Meeting",
                   date: "June 2026",
-                  url: "https://mits.ac.in/public/uploads/mandatory/MoM-%203rd%20AC%20meeting%20DTBU%20Jun%202026.pdf",
+                  url: "https://mits.ac.in/public/uploads/static-pdf/MoM-%203rd%20AC%20meeting%20DTBU%20Jun%202026.pdf",
                 },
                 {
                   title: "Minutes of 2nd Academic Council Meeting",
                   date: "August 25, 2025",
-                  url: "https://mits.ac.in/public/uploads/mandatory/Minutes-2nd AC meeting.pdf",
+                  url: "https://mits.ac.in/public/uploads/static-pdf/Minutes-2nd%20AC%20meeting.pdf",
                 },
                 {
                   title: "Minutes of 1st Academic Council Meeting",
                   date: "August 5, 2025",
-                  url: "https://mits.ac.in/public/uploads/mandatory/Minutes-1st_AC COUNCIL-Meeting.pdf",
+                  url: "https://mits.ac.in/public/uploads/static-pdf/Minutes-1st_AC%20COUNCIL-Meeting.pdf",
                 },
               ].map((meeting, index) => (
                 <div

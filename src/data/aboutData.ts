@@ -303,6 +303,8 @@ export const academicCouncil = {
   description:
     "The Academic Council is the apex academic body of the University, responsible for academic policy, curriculum, evaluation reforms and overall academic standards of all schools and departments.",
   constitutionUrl:
+    "https://mits.ac.in/assets/pdf/admin/Constitution%20of%20AC%20Council-3rd%20Aug%202026.pdf",
+  statutoryConstitutionUrl:
     "https://mits.ac.in/assets/pdf/admin/Academic%20Council%20Constitution%20DTBU.pdf",
   sourceUrl: "https://mits.ac.in/mits-minutes-ac",
 };

@@ -126,10 +126,43 @@ export function useTrendingFeed() {
       if (res.ok) {
         const json: TrendingItem[] = await res.json();
         if (Array.isArray(json) && json.length > 0) {
-          const normalized = json.map((item) => ({
-            ...item,
-            image: normalizeImageUrl(item.image),
-          }));
+          // Clean and deduplicate items that have similar captions across Facebook and Instagram
+          const seen = new Set<string>();
+          const normalized: TrendingItem[] = [];
+
+          for (const item of json) {
+            const cleanCap = (item.caption || "")
+              .replace(/<br\s*\/?>/gi, " ")
+              .replace(/<\/?[^>]+(>|$)/g, " ")
+              .replace(/&#039;/g, "'")
+              .replace(/&apos;/g, "'")
+              .replace(/&quot;/g, '"')
+              .replace(/&amp;/g, "&")
+              .replace(/&lt;/g, "<")
+              .replace(/&gt;/g, ">")
+              .replace(/&;s/g, "'s")
+              .replace(/&;/g, "")
+              .replace(/#[\w_]+/g, "")
+              .replace(/[\r\n\t]+/g, " ")
+              .replace(/\s+/g, " ")
+              .trim();
+
+            // Key to deduplicate cross-posts between Facebook and Instagram
+            const dedupKey = cleanCap.toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 25);
+            if (dedupKey && seen.has(dedupKey)) {
+              continue;
+            }
+            if (dedupKey) {
+              seen.add(dedupKey);
+            }
+
+            normalized.push({
+              ...item,
+              caption: cleanCap,
+              image: normalizeImageUrl(item.image),
+            });
+          }
+
           setItems(normalized);
           setLoading(false);
           return;

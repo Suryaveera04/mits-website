@@ -6,6 +6,26 @@ import { SHEETS_CONFIG } from "@/config/sheetsConfig";
 const USERNAME = SHEETS_CONFIG.INSTAGRAM_HANDLE;
 const PROFILE_URL = SHEETS_CONFIG.INSTAGRAM_PROFILE_URL;
 
+function formatCleanCaption(text: string): string {
+  if (!text) return "View on Instagram";
+  return text
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/<\/?[^>]+(>|$)/g, " ")
+    .replace(/&#039;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&;s/g, "'s")
+    .replace(/&;/g, "")
+    .replace(/&!/g, "")
+    .replace(/#[\w_]+/g, "")
+    .replace(/[\r\n\t]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 const InstagramFeed = () => {
   const { items: visibleItems } = useTrendingFeed();
   const [isPaused, setIsPaused] = useState(false);
@@ -278,7 +298,7 @@ const InstagramFeed = () => {
                   <span>{p.isReel ? "Reel" : "Post"}</span>
                   {p.date && <span>{p.date}</span>}
                 </div>
-                <p className="text-sm leading-relaxed text-foreground/85 line-clamp-3">{p.caption || "View on Instagram"}</p>
+                <p className="text-sm leading-relaxed text-foreground/85 line-clamp-3">{formatCleanCaption(p.caption)}</p>
               </div>
             </a>
           ))}
