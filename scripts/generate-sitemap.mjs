@@ -59,6 +59,9 @@ export const CORE_PAGES = [
   { path: "/national-admissions-procedure", changefreq: "monthly", priority: "0.8" },
   { path: "/international-admissions-procedure", changefreq: "monthly", priority: "0.8" },
   { path: "/phd-admissions", changefreq: "weekly", priority: "0.8" },
+  { path: "/phd-admissions-2026-27-july-session", changefreq: "weekly", priority: "0.8" },
+  { path: "/phd-supervisors", changefreq: "weekly", priority: "0.8" },
+  { path: "/phd-supervisors-2026-27-july-session", changefreq: "weekly", priority: "0.8" },
   { path: "/academic-regulations", changefreq: "monthly", priority: "0.7" },
   { path: "/curriculum-academic-syllabus", changefreq: "monthly", priority: "0.7" },
 

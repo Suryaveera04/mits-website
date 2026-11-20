@@ -15,11 +15,13 @@ import {
   JANUARY_SUB_TABS,
   JULY_SUB_TABS,
   RESEARCH_AREAS_DEPARTMENTS,
+  PHD_SUPERVISORS_JANUARY_DEPARTMENTS,
+  PHD_SUPERVISORS_JULY_DEPARTMENTS,
 } from "@/data/phdData";
 import "./PhdAdmissions.css";
 
 interface PhdAdmissionsProps {
-  initialView?: "january" | "july" | "research-areas";
+  initialView?: "january" | "july" | "research-areas" | "supervisors-january" | "supervisors-july";
 }
 
 // Icon helper to render the corresponding Lucide icon
@@ -44,20 +46,34 @@ function getDeptIcon(iconName: string, size = 18) {
 export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
   const location = useLocation();
 
-  // Determine current active view: "january" | "july" | "research-areas"
-  const activeSession = useMemo<"january" | "july" | "research-areas">(() => {
+  // Determine current active view: "january" | "july" | "research-areas" | "supervisors-january" | "supervisors-july"
+  const activeSession = useMemo<"january" | "july" | "research-areas" | "supervisors-january" | "supervisors-july">(() => {
     if (initialView) return initialView;
     const path = location.pathname.toLowerCase();
+    if (path.includes("supervisors-2026-27-july-session") || (path.includes("supervisors") && path.includes("july"))) {
+      return "supervisors-july";
+    }
+    if (path.includes("phd-supervisors") || path.includes("supervisors")) {
+      return "supervisors-january";
+    }
     if (path.includes("july")) return "july";
     if (path.includes("research-areas")) return "research-areas";
     return "january";
   }, [location.pathname, initialView]);
+
+  const isSupervisorsMode = activeSession === "supervisors-january" || activeSession === "supervisors-july";
 
   // Selected department tab in Syllabus view
   const [activeSyllabusId, setActiveSyllabusId] = useState<string>("ug-tab21");
 
   // Selected department tab in Research Areas view
   const [activeResearchDeptId, setActiveResearchDeptId] = useState<string>("ug-tab22");
+
+  // Selected department tab in Supervisors view (January)
+  const [activeSupervisorJanId, setActiveSupervisorJanId] = useState<string>("sup-jan-civil");
+
+  // Selected department tab in Supervisors view (July)
+  const [activeSupervisorJulId, setActiveSupervisorJulId] = useState<string>("sup-jul-civil");
 
   // Auto-scroll on tab click or update
   useEffect(() => {
@@ -80,9 +96,43 @@ export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
     );
   }, [activeResearchDeptId]);
 
+  // Current active supervisor department
+  const supervisorDepartments = useMemo(() => {
+    return activeSession === "supervisors-july"
+      ? PHD_SUPERVISORS_JULY_DEPARTMENTS
+      : PHD_SUPERVISORS_JANUARY_DEPARTMENTS;
+  }, [activeSession]);
+
+  const activeSupervisorDept = useMemo(() => {
+    if (activeSession === "supervisors-july") {
+      return (
+        PHD_SUPERVISORS_JULY_DEPARTMENTS.find((d) => d.id === activeSupervisorJulId) ||
+        PHD_SUPERVISORS_JULY_DEPARTMENTS[0]
+      );
+    }
+    return (
+      PHD_SUPERVISORS_JANUARY_DEPARTMENTS.find((d) => d.id === activeSupervisorJanId) ||
+      PHD_SUPERVISORS_JANUARY_DEPARTMENTS[0]
+    );
+  }, [activeSession, activeSupervisorJanId, activeSupervisorJulId]);
+
   // Banner titles and breadcrumbs based on active view
   const bannerConfig = useMemo(() => {
     switch (activeSession) {
+      case "supervisors-january":
+        return {
+          title: "Admissions for Ph.D. Programs January 2026-27",
+          pageTitle: "List of Eligible Supervisors for Ph.D. Admissions 2026-27 (January Session) | MITS Deemed to be University",
+          description: "Department wise list of eligible research supervisors for Ph.D. Admissions 2026-27 January Session at MITS Deemed to be University.",
+          deptTitle: "Eligible Supervisor's for Ph.D. Admissions 2026-27",
+        };
+      case "supervisors-july":
+        return {
+          title: "Admissions for Ph.D. Programs July 2026-27",
+          pageTitle: "List of Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session) | MITS Deemed to be University",
+          description: "Department wise list of eligible research supervisors for Ph.D. Admissions 2026-27 July Session at MITS Deemed to be University.",
+          deptTitle: "Eligible Supervisor's for Ph.D. Admissions 2026-27",
+        };
       case "july":
         return {
           title: "Admissions for Ph.D. Programs July 2026-27",
@@ -112,9 +162,11 @@ export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
   const subTabs = useMemo(() => {
     switch (activeSession) {
       case "july":
+      case "supervisors-july":
         return JULY_SUB_TABS;
       case "research-areas":
       case "january":
+      case "supervisors-january":
       default:
         return JANUARY_SUB_TABS;
     }
@@ -158,7 +210,15 @@ export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
             <span className="crumb-sep">/</span>
             <Link to="/admissions">Admissions</Link>
             <span className="crumb-sep">/</span>
-            <span className="crumb-active">Ph.D. Admissions</span>
+            {isSupervisorsMode ? (
+              <>
+                <Link to={activeSession === "supervisors-july" ? "/phd-admissions-2026-27-july-session" : "/phd-admissions"}>Ph.D. Admissions</Link>
+                <span className="crumb-sep">/</span>
+                <span className="crumb-active">Eligible Supervisors</span>
+              </>
+            ) : (
+              <span className="crumb-active">Ph.D. Admissions</span>
+            )}
           </div>
         </div>
       </div>
@@ -169,7 +229,7 @@ export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
         <div className="phd-session-nav">
           <Link
             to="/phd-admissions"
-            className={`phd-session-btn ${activeSession === "january" ? "active" : ""}`}
+            className={`phd-session-btn ${activeSession === "january" || activeSession === "supervisors-january" ? "active" : ""}`}
           >
             <GraduationCap size={18} />
             <span>January 2026-27 Session</span>
@@ -177,7 +237,7 @@ export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
 
           <Link
             to="/phd-admissions-2026-27-july-session"
-            className={`phd-session-btn ${activeSession === "july" ? "active" : ""}`}
+            className={`phd-session-btn ${activeSession === "july" || activeSession === "supervisors-july" ? "active" : ""}`}
           >
             <GraduationCap size={18} />
             <span>July 2026-27 Session</span>
@@ -237,7 +297,7 @@ export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
           <div className="rearch-left">
             <div className="dept-title-card">
               <div className="dept-title-badge-row">
-                <span className="new-badge">MITSDAT 2026-27</span>
+                <span className="new-badge">{isSupervisorsMode ? "SUPERVISORS 2026-27" : "MITSDAT 2026-27"}</span>
               </div>
               <h3 className="dept-title-heading">
                 <GraduationCap size={18} />
@@ -245,8 +305,163 @@ export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
               </h3>
             </div>
 
-            {/* If in Syllabus mode (January or July) */}
-            {activeSession !== "research-areas" ? (
+            {/* If in Supervisors mode (January or July) */}
+            {isSupervisorsMode ? (
+              <ul className="courses-tab-list">
+                {supervisorDepartments.map((dept) => {
+                  const isSelected =
+                    activeSession === "supervisors-july"
+                      ? activeSupervisorJulId === dept.id
+                      : activeSupervisorJanId === dept.id;
+                  return (
+                    <li key={dept.id} className="courses-tab-item">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (activeSession === "supervisors-july") {
+                            setActiveSupervisorJulId(dept.id);
+                          } else {
+                            setActiveSupervisorJanId(dept.id);
+                          }
+                        }}
+                        className={`courses-tab-btn ${isSelected ? "active" : ""}`}
+                        aria-selected={isSelected}
+                      >
+                        <div className="tab-left-content">
+                          <div className="tab-icon-wrap">
+                            {getDeptIcon(dept.iconName, 18)}
+                          </div>
+                          <div className="tab-text-wrap">
+                            <span className="tab-dept-name">{dept.name}</span>
+                          </div>
+                        </div>
+                        <ChevronRight size={16} className="tab-chevron" />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : activeSession !== "research-areas" ? (
+              <ul className="courses-tab-list">
+                {PHD_SYLLABUS_DEPARTMENTS.map((dept) => {
+                  const isSelected = activeSyllabusId === dept.id;
+                  return (
+                    <li key={dept.id} className="courses-tab-item">
+                      <button
+                        type="button"
+                        onClick={() => setActiveSyllabusId(dept.id)}
+                        className={`courses-tab-btn ${isSelected ? "active" : ""}`}
+                        aria-selected={isSelected}
+                      >
+                        <div className="tab-left-content">
+                          <div className="tab-icon-wrap">
+                            {getDeptIcon(dept.iconName, 18)}
+                          </div>
+                          <div className="tab-text-wrap">
+                            <span className="tab-dept-name">{dept.name}</span>
+                            {dept.subname && (
+                              <span className="tab-dept-subname">{dept.subname}</span>
+                            )}
+                          </div>
+                        </div>
+                        <ChevronRight size={16} className="tab-chevron" />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : (
+              /* If in Research Areas mode */
+              <ul className="courses-tab-list">
+                {RESEARCH_AREAS_DEPARTMENTS.map((dept) => {
+                  const isSelected = activeResearchDeptId === dept.id;
+                  return (
+                    <li key={dept.id} className="courses-tab-item">
+                      <button
+                        type="button"
+                        onClick={() => setActiveResearchDeptId(dept.id)}
+                        className={`courses-tab-btn ${isSelected ? "active" : ""}`}
+                        aria-selected={isSelected}
+                      >
+                        <div className="tab-left-content">
+                          <div className="tab-icon-wrap">
+                            {getDeptIcon(dept.iconName, 18)}
+                          </div>
+                          <div className="tab-text-wrap">
+                            <span className="tab-dept-name">{dept.name}</span>
+                          </div>
+                        </div>
+                        <ChevronRight size={16} className="tab-chevron" />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+
+          {/* ════ RIGHT COLUMN: CONTENT PANE ════ */}
+          <div className="rearch-right">
+            {isSupervisorsMode ? (
+              /* ── SUPERVISORS PDF EMBED PANE ── */
+              <div className="research-box">
+                <div className="research-box-header">
+                  <div className="research-box-title">
+                    {getDeptIcon(activeSupervisorDept.iconName, 20)}
+                    <span>{activeSupervisorDept.heading}</span>
+                  </div>
+                  <div className="research-box-actions">
+                    <a
+                      href={activeSupervisorDept.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="research-action-btn"
+                      title="Open full PDF in a new browser tab"
+                    >
+                      <ExternalLink size={13} />
+                      <span>Open in New Tab</span>
+                    </a>
+                    <a
+                      href={activeSupervisorDept.pdfUrl}
+                      download
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="research-action-btn btn-gold"
+                      title="Download supervisor list PDF"
+                    >
+                      <Download size={13} />
+                      <span>Download PDF</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Embedded High-Resolution PDF Iframe */}
+                <iframe
+                  key={activeSupervisorDept.pdfUrl}
+                  src={activeSupervisorDept.pdfUrl}
+                  title={`${activeSupervisorDept.heading} - ${activeSupervisorDept.name}`}
+                  className="research-pdf-iframe"
+                  loading="lazy"
+                />
+
+                {/* Mobile & Tablet Fallback helper */}
+                <div className="pdf-mobile-fallback">
+                  <p>
+                    Having trouble viewing the PDF preview directly on this device?
+                  </p>
+                  <a
+                    href={activeSupervisorDept.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="research-action-btn btn-gold"
+                    style={{ padding: "9px 20px" }}
+                  >
+                    <Download size={15} />
+                    <span>Download {activeSupervisorDept.name} Supervisors PDF</span>
+                  </a>
+                </div>
+              </div>
+            ) : activeSession !== "research-areas" ? (
               <ul className="courses-tab-list">
                 {PHD_SYLLABUS_DEPARTMENTS.map((dept) => {
                   const isSelected = activeSyllabusId === dept.id;

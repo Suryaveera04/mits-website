@@ -1,4 +1,4 @@
-// src/data/phdData.ts - Ph.D. Admissions & Syllabus Data from https://mits.ac.in/phd-admissions
+// src/data/phdData.ts - Ph.D. Admissions, Supervisors & Syllabus Data from https://mits.ac.in/phd-admissions
 
 export interface PhdSubTab {
   title: string;
@@ -12,6 +12,14 @@ export interface DepartmentSyllabus {
   id: string;
   name: string;
   subname?: string;
+  heading: string;
+  iconName: string;
+  pdfUrl: string;
+}
+
+export interface SupervisorDepartment {
+  id: string;
+  name: string;
   heading: string;
   iconName: string;
   pdfUrl: string;
@@ -159,6 +167,12 @@ export const JANUARY_SUB_TABS: PhdSubTab[] = [
     isExternal: true,
   },
   {
+    title: "List of Eligible supervisors for the Academic Year 2026-27 January Session",
+    href: "/phd-supervisors",
+    badge: true,
+    isExternal: false,
+  },
+  {
     title: "MITSDAT Notification 2026-27 July Session",
     href: "/phd-admissions-2026-27-july-session",
     badge: false,
@@ -243,9 +257,15 @@ export const JULY_SUB_TABS: PhdSubTab[] = [
   },
   {
     title: "Ph.D Academic Calendar - 2026-27",
-    href: "https://mits.ac.in/assets/pdf/syllabus/Ph.D Academic Calendar-2026-27.pdf",
+    href: "https://mits.ac.in/assets/pdf/syllabus/MITS DTBU_Ph.D_July 2026 Session_I & II Semester_Academic Calender.pdf",
     badge: false,
     isExternal: true,
+  },
+  {
+    title: "List of Eligible Supervisors for Academic Year 2026-27 July Session",
+    href: "/phd-supervisors-2026-27-july-session",
+    badge: false,
+    isExternal: false,
   },
   {
     title: "MITSDAT Notification 2026-27 January Session",
@@ -253,6 +273,168 @@ export const JULY_SUB_TABS: PhdSubTab[] = [
     badge: false,
     isExternal: false,
     isNavy: true,
+  },
+];
+
+// ── January Session Supervisors (11 Departments from https://mits.ac.in/phd-supervisors) ────
+export const PHD_SUPERVISORS_JANUARY_DEPARTMENTS: SupervisorDepartment[] = [
+  {
+    id: "sup-jan-civil",
+    name: "DEPARTMENT OF CIVIL ENGINEERING",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27",
+    iconName: "Building2",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/01Civil.pdf",
+  },
+  {
+    id: "sup-jan-eee",
+    name: "DEPARTMENT OF ELECTRICAL AND ELCETRONICS ENGINEERING",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27",
+    iconName: "Zap",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/02-EE.pdf#zoom=125",
+  },
+  {
+    id: "sup-jan-mech",
+    name: "DEPARTMENT OF MECHANICAL ENGINEERING",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27",
+    iconName: "Settings",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/03-ME.pdf#zoom=125",
+  },
+  {
+    id: "sup-jan-ece",
+    name: "DEPARTMENT OF ELCETRONICS & COMMUNICATION ENGINEERING",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27",
+    iconName: "Radio",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/04-ECE.pdf#zoom=125",
+  },
+  {
+    id: "sup-jan-cse",
+    name: "DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27",
+    iconName: "Laptop",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/05-CSE.pdf#zoom=125",
+  },
+  {
+    id: "sup-jan-mca",
+    name: "DEPARTMENT OF COMPUTER SCIENCE (MCA)",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27",
+    iconName: "Code2",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/06-MCA.pdf#zoom=125",
+  },
+  {
+    id: "sup-jan-mba",
+    name: "DEPARTMENT OF MANAGEMENT STUDIES (MBA)",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27",
+    iconName: "TrendingUp",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/07-MBA.pdf#zoom=125",
+  },
+  {
+    id: "sup-jan-phy",
+    name: "DEPARTMENT OF PHYSICS",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27",
+    iconName: "Atom",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/08-PHY.pdf#zoom=125",
+  },
+  {
+    id: "sup-jan-chem",
+    name: "DEPARTMENT OF CHEMISTRY",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27",
+    iconName: "FlaskConical",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/09-CHEM.pdf#zoom=125",
+  },
+  {
+    id: "sup-jan-eng",
+    name: "DEPARTMENT OF ENGLISH",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27",
+    iconName: "BookOpen",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/10-ENG.pdf#zoom=125",
+  },
+  {
+    id: "sup-jan-math",
+    name: "DEPARTMENT OF MATHEMATICS",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27",
+    iconName: "Calculator",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/11-MATH.pdf#zoom=125",
+  },
+];
+
+// ── July Session Supervisors (11 Departments from https://mits.ac.in/phd-supervisors-2026-27-july-session) ────
+export const PHD_SUPERVISORS_JULY_DEPARTMENTS: SupervisorDepartment[] = [
+  {
+    id: "sup-jul-civil",
+    name: "DEPARTMENT OF CIVIL ENGINEERING",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session)",
+    iconName: "Building2",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/01-Civil-July Session 2026.pdf",
+  },
+  {
+    id: "sup-jul-eee",
+    name: "DEPARTMENT OF ELECTRICAL AND ELCETRONICS ENGINEERING",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session)",
+    iconName: "Zap",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/02-EE-July Session 2026.pdf#zoom=125",
+  },
+  {
+    id: "sup-jul-mech",
+    name: "DEPARTMENT OF MECHANICAL ENGINEERING",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session)",
+    iconName: "Settings",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/03-ME-July Session 2026.pdf#zoom=125",
+  },
+  {
+    id: "sup-jul-ece",
+    name: "DEPARTMENT OF ELCETRONICS & COMMUNICATION ENGINEERING",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session)",
+    iconName: "Radio",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/04-ECE-July Session 2026.pdf#zoom=125",
+  },
+  {
+    id: "sup-jul-cse",
+    name: "DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session)",
+    iconName: "Laptop",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/05-CSE-July Session 2026.pdf#zoom=125",
+  },
+  {
+    id: "sup-jul-mca",
+    name: "DEPARTMENT OF COMPUTER SCIENCE (MCA)",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session)",
+    iconName: "Code2",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/06-MCA-July Session 2026.pdf#zoom=125",
+  },
+  {
+    id: "sup-jul-mba",
+    name: "DEPARTMENT OF MANAGEMENT STUDIES (MBA)",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session)",
+    iconName: "TrendingUp",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/07-MBA-July Session 2026.pdf#zoom=125",
+  },
+  {
+    id: "sup-jul-phy",
+    name: "DEPARTMENT OF PHYSICS",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session)",
+    iconName: "Atom",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/08-PHY-July Session 2026.pdf#zoom=125",
+  },
+  {
+    id: "sup-jul-chem",
+    name: "DEPARTMENT OF CHEMISTRY",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session)",
+    iconName: "FlaskConical",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/09-CHEM-July Session 2026.pdf#zoom=125",
+  },
+  {
+    id: "sup-jul-eng",
+    name: "DEPARTMENT OF ENGLISH",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session)",
+    iconName: "BookOpen",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/10-ENG-July Session 2026.pdf#zoom=125",
+  },
+  {
+    id: "sup-jul-math",
+    name: "DEPARTMENT OF MATHEMATICS",
+    heading: "Eligible Supervisors for Ph.D. Admissions 2026-27 (July Session)",
+    iconName: "Calculator",
+    pdfUrl: "https://mits.ac.in/assets/pdf/syllabus/11-MATH-July Session 2026.pdf#zoom=125",
   },
 ];
 

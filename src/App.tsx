@@ -138,6 +138,10 @@ const App = () => (
             <Route path="/admissions" element={<Admissions />} />
             <Route path="/phd-admissions" element={<PhdAdmissions />} />
             <Route path="/phd-admissions-2026-27-july-session" element={<PhdAdmissions />} />
+            <Route path="/phd-supervisors" element={<PhdAdmissions />} />
+            <Route path="/phd-supervisors-2026-27-july-session" element={<PhdAdmissions />} />
+            <Route path="/university/phd-supervisors" element={<PhdAdmissions />} />
+            <Route path="/university/phd-supervisors-2026-27-july-session" element={<PhdAdmissions />} />
             <Route path="/phd" element={<PhdAdmissions />} />
             <Route path="/research-areas" element={<ResearchAreas />} />
             <Route path="/research" element={<Research />} />
