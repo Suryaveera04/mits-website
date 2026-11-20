@@ -337,8 +337,8 @@ export function useFacultyData() {
   }, []);
 
   useEffect(() => {
-    // Non-blocking background sync with live API (forceRefresh ensures latest faculty edits reflect immediately)
-    loadData(true);
+    // Non-blocking background sync with live API using cache
+    loadData(false);
   }, [loadData]);
 
   /**

@@ -3302,18 +3302,6 @@ const DepartmentPage = () => {
                           Distinguished faculty and researchers in the Department of {dept.shortName}
                         </p>
                       </div>
-
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => refreshFaculty()}
-                          disabled={facultyLoading}
-                          title="Refresh faculty list from database"
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-primary bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-lg transition-colors disabled:opacity-50"
-                        >
-                          <RefreshCw className={`w-3.5 h-3.5 ${facultyLoading ? "animate-spin text-primary" : ""}`} />
-                          <span className="hidden sm:inline">Sync Data</span>
-                        </button>
-                      </div>
                     </div>
 
                     {/* Search & Filter Toolbar */}

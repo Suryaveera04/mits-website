@@ -474,8 +474,8 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
   };
 }
 
-const CACHE_KEY = "mits_faculty_api_cache_v6";
-const CACHE_TIME_KEY = "mits_faculty_api_cache_time_v6";
+const CACHE_KEY = "mits_faculty_api_cache_v7";
+const CACHE_TIME_KEY = "mits_faculty_api_cache_time_v7";
 const isLocalEnv = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
 const CACHE_TTL_MS = isLocalEnv ? 1000 * 5 : 1000 * 15; // 15s max cache TTL ensures live CMS updates reflect almost immediately without stale cache
 
