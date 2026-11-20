@@ -7,7 +7,7 @@ import SEO from "@/components/SEO";
 import { getDepartmentByKey, departmentsData, type FacultyMember } from "@/data/departmentData";
 import { facultyProfiles, getFacultyProfile, type FacultyProfile, type FacultySection } from "@/data/facultyProfiles";
 import { departmentHeads, deansList } from "@/data/aboutData";
-import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
+import { slugifyFaculty, cleanFacultyName, hasPhdDegree } from "@/lib/facultySlug";
 import { getBshSubDepartment, mapApiDeptToDeptKey, getFacultyPhotoUrl } from "@/lib/facultyApi";
 import { useFacultyData } from "@/hooks/useFacultyData";
 import {
