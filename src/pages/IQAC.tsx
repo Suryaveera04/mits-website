@@ -169,46 +169,46 @@ type SectionKey =
   | "gallery"
   | "contact";
 
-const sections: { key: SectionKey; label: string; icon: React.ComponentType<{ className?: string }>; group: string }[] = [
-  { key: "about", label: "About IQAC", icon: BookOpen, group: "Introduction" },
-  { key: "objectives", label: "Objective & Strategies", icon: Target, group: "Introduction" },
-  { key: "functions", label: "Functions & Benefits", icon: Layers, group: "Introduction" },
-  { key: "composition", label: "IQAC Composition", icon: Users, group: "Governance" },
-  { key: "organogram", label: "IQAC Organogram", icon: FolderTree, group: "Governance" },
-  { key: "policies", label: "IQAC Policies", icon: ShieldCheck, group: "Governance" },
-  { key: "policiesDtbu", label: "Policies (MITS DTBU)", icon: ShieldCheck, group: "Governance" },
-  { key: "activities", label: "Activities of IQAC", icon: Calendar, group: "Operations" },
-  { key: "initiatives", label: "IQAC Quality Initiatives", icon: Sparkles, group: "Operations" },
-  { key: "milestones", label: "Milestones", icon: Milestone, group: "Operations" },
-  { key: "meetings", label: "Minutes of the Meeting", icon: ClipboardList, group: "Operations" },
-  { key: "meetingsDtbu", label: "Minutes of Meeting (MITS DTBU)", icon: ClipboardList, group: "Operations" },
-  { key: "certifications", label: "Certifications", icon: Award, group: "Accreditation" },
-  { key: "iso", label: "ISO 21001 : 2018 EOMS", icon: ShieldCheck, group: "Accreditation" },
-  { key: "ims", label: "IMS (ISO 14001:2015 & ISO 50001:2018)", icon: ShieldCheck, group: "Accreditation" },
-  { key: "aicte", label: "AICTE Quality Mandate", icon: Trophy, group: "Accreditation" },
-  { key: "aqar", label: "AQAR", icon: ClipboardCheck, group: "Accreditation" },
-  { key: "reports", label: "Reports", icon: FileText, group: "Accreditation" },
-  { key: "feedback", label: "Feedback System", icon: MessageSquare, group: "Assurance" },
-  { key: "aaa", label: "Academic and Administrative Audit (AAA)", icon: ScrollText, group: "Assurance" },
-  { key: "aaaRef", label: "AAA & R References", icon: BookMarked, group: "Assurance" },
-  { key: "strategic", label: "Strategic Plan", icon: Target, group: "Planning" },
-  { key: "bestPractices", label: "Best Practice of the Institute", icon: Star, group: "Planning" },
-  { key: "distinctive", label: "Distinctive Performance of the Institute", icon: Sparkles, group: "Planning" },
-  { key: "sss", label: "Student Satisfaction Survey", icon: BarChart3, group: "Assurance" },
-  { key: "econtent", label: "e-Content Facility", icon: LibraryIcon, group: "Academic" },
-  { key: "popsoco", label: "Vision-Mission-PEO-PO-PSO-CO of All Departments", icon: GraduationCap, group: "Academic" },
-  { key: "copoAttainment", label: "CO-PO Attainment of All Departments", icon: Target, group: "Academic" },
-  { key: "annual", label: "MITS Annual Report", icon: FileText, group: "Publications" },
-  { key: "newsletter", label: "Newsletter", icon: Newspaper, group: "Publications" },
-  { key: "handbook", label: "Hand Book", icon: BookMarked, group: "Publications" },
-  { key: "ugc", label: "UGC Quality Mandate", icon: Building2, group: "External" },
-  { key: "events", label: "IQAC Events & Collaborations", icon: Calendar, group: "External" },
-  { key: "eiqac", label: "e-IQAC", icon: Globe, group: "External" },
-  { key: "downloads", label: "Downloads", icon: Download, group: "Downloads" },
-  { key: "naacReforms", label: "NAAC Reforms 2024", icon: ShieldCheck, group: "Accreditation" },
-  { key: "manuals", label: "Manual / Format / Guidelines", icon: Files, group: "Downloads" },
-  { key: "gallery", label: "Gallery", icon: ImageIcon, group: "External" },
-  { key: "contact", label: "Contact Us", icon: Mail, group: "External" },
+const sections: { key: SectionKey; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { key: "about", label: "About IQAC", icon: BookOpen },
+  { key: "objectives", label: "Objective & Strategies", icon: Target },
+  { key: "functions", label: "Functions & Benefits", icon: Layers },
+  { key: "composition", label: "IQAC Composition", icon: Users },
+  { key: "organogram", label: "IQAC Organogram", icon: FolderTree },
+  { key: "policies", label: "IQAC Policies", icon: ShieldCheck },
+  { key: "policiesDtbu", label: "Policies (MITS DTBU)", icon: ShieldCheck },
+  { key: "activities", label: "Activities of IQAC", icon: Calendar },
+  { key: "initiatives", label: "IQAC Quality Initiatives", icon: Sparkles },
+  { key: "milestones", label: "Milestones", icon: Milestone },
+  { key: "meetings", label: "Minutes of the Meeting", icon: ClipboardList },
+  { key: "meetingsDtbu", label: "Minutes of Meeting (MITS DTBU)", icon: ClipboardList },
+  { key: "certifications", label: "Certifications", icon: Award },
+  { key: "iso", label: "ISO 21001 : 2018 EOMS", icon: ShieldCheck },
+  { key: "ims", label: "IMS (ISO 14001:2015 and ISO 50001:2018)", icon: ShieldCheck },
+  { key: "aicte", label: "AICTE Quality Mandate", icon: Trophy },
+  { key: "aqar", label: "AQAR", icon: ClipboardCheck },
+  { key: "reports", label: "Reports", icon: FileText },
+  { key: "feedback", label: "Feedback System", icon: MessageSquare },
+  { key: "aaa", label: "Academic and Administrative Audit (AAA)", icon: ScrollText },
+  { key: "aaaRef", label: "AAA & R References", icon: BookMarked },
+  { key: "strategic", label: "Strategic Plan", icon: Target },
+  { key: "bestPractices", label: "Best Practice of the Institute", icon: Star },
+  { key: "distinctive", label: "Distinctive Performance of the Institute", icon: Sparkles },
+  { key: "sss", label: "Student Satisfaction Survey", icon: BarChart3 },
+  { key: "econtent", label: "e-Content Facility", icon: LibraryIcon },
+  { key: "popsoco", label: "Vision-Mission-PEO-PO-PSO-CO of All Departments", icon: GraduationCap },
+  { key: "copoAttainment", label: "CO-PO Attainment of All Departments", icon: Target },
+  { key: "annual", label: "MITS Annual Report", icon: FileText },
+  { key: "newsletter", label: "Newsletter", icon: Newspaper },
+  { key: "handbook", label: "Hand Book", icon: BookMarked },
+  { key: "ugc", label: "UGC Quality Mandate", icon: Building2 },
+  { key: "events", label: "IQAC Events & Collaborations", icon: Calendar },
+  { key: "eiqac", label: "e-IQAC", icon: Globe },
+  { key: "downloads", label: "Downloads", icon: Download },
+  { key: "naacReforms", label: "NAAC Reforms 2024", icon: ShieldCheck },
+  { key: "manuals", label: "Manual / Format / Guidelines", icon: Files },
+  { key: "gallery", label: "Gallery", icon: ImageIcon },
+  { key: "contact", label: "Contact Us", icon: Mail },
 ];
 
 const NAVY = "#0f2a44";
@@ -736,14 +736,6 @@ const IQAC = () => {
     return docs.filter((d) => d.title.toLowerCase().includes(q));
   };
 
-  const grouped = useMemo(() => {
-    const map: Record<string, typeof sections> = {};
-    sections.forEach((s) => {
-      (map[s.group] ||= []).push(s);
-    });
-    return map;
-  }, []);
-
   return (
     <div className="min-h-screen bg-[#faf7f2]">
       <Header />
@@ -828,32 +820,29 @@ const IQAC = () => {
                     className="w-full pl-9 pr-3 py-2 rounded-lg border border-[#0f2a44]/15 bg-[#faf7f2] text-sm font-body focus:outline-none focus:border-[#caa74d]"
                   />
                 </div>
-                <nav className="space-y-3">
-                  {Object.entries(grouped).map(([group, items]) => (
-                    <div key={group}>
-                      <p className="font-body text-[10px] font-bold uppercase tracking-[0.18em] text-[#0f2a44]/50 px-2 mb-1">{group}</p>
-                      <div className="space-y-0.5">
-                        {items.map((s) => {
-                          const Icon = s.icon;
-                          const isActive = active === s.key;
-                          return (
-                            <button
-                              key={s.key}
-                              onClick={() => setActive(s.key)}
-                              className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-[13px] font-body font-semibold text-left transition-all ${
-                                isActive
-                                  ? "bg-gradient-to-r from-[#b31317] to-[#8a0e12] text-white shadow-md shadow-[#b31317]/20"
-                                  : "text-[#0f2a44]/75 hover:bg-[#b31317]/10 hover:text-[#b31317]"
-                              }`}
-                            >
-                              <Icon className="w-4 h-4 shrink-0" />
-                              <span className="truncate">{s.label}</span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ))}
+                <nav className="space-y-0.5">
+                  {sections.map((s, idx) => {
+                    const Icon = s.icon;
+                    const isActive = active === s.key;
+                    return (
+                      <button
+                        key={s.key}
+                        onClick={() => setActive(s.key)}
+                        className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-body font-semibold text-left transition-all ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#b31317] to-[#8a0e12] text-white shadow-md shadow-[#b31317]/20 font-bold"
+                            : "text-[#0f2a44]/80 hover:bg-[#b31317]/10 hover:text-[#b31317]"
+                        }`}
+                        title={s.label}
+                      >
+                        <span className={`text-[11px] font-mono shrink-0 w-5 text-right ${isActive ? "text-white/80" : "text-slate-400"}`}>
+                          {idx + 1}.
+                        </span>
+                        <Icon className="w-4 h-4 shrink-0" />
+                        <span className="truncate">{s.label}</span>
+                      </button>
+                    );
+                  })}
                 </nav>
               </div>
               <div className="bg-gradient-to-br from-[#0f2a44] to-[#152f4f] text-white rounded-xl p-5 shadow-sm">
@@ -886,23 +875,26 @@ const IQAC = () => {
                   initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }}
                   className="overflow-hidden bg-white border border-t-0 border-[#0f2a44]/10 rounded-b-xl"
                 >
-                  <div className="p-2 grid grid-cols-2 gap-1 max-h-[60vh] overflow-y-auto">
-                    {sections.map((s) => {
+                  <div className="p-2 grid grid-cols-1 sm:grid-cols-2 gap-1 max-h-[60vh] overflow-y-auto">
+                    {sections.map((s, idx) => {
                       const Icon = s.icon;
+                      const isActive = active === s.key;
                       return (
                         <button
                           key={s.key}
                           onClick={() => { setActive(s.key); setMobileNavOpen(false); }}
-                          className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-body font-medium text-left ${
-                            active === s.key ? "bg-[#b31317] text-white font-bold shadow-xs" : "text-[#0f2a44]/75 hover:bg-[#b31317]/10"
+                          className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-xs sm:text-sm font-body font-semibold text-left transition-all ${
+                            isActive ? "bg-[#b31317] text-white font-bold shadow-xs" : "text-[#0f2a44]/80 hover:bg-[#b31317]/10"
                           }`}
                         >
+                          <span className={`text-[11px] font-mono shrink-0 w-4 text-right ${isActive ? "text-white/80" : "text-slate-400"}`}>
+                            {idx + 1}.
+                          </span>
                           <Icon className="w-3.5 h-3.5 shrink-0" />
                           <span className="truncate">{s.label}</span>
                         </button>
                       );
-                    })}
-                  </div>
+                    })}</div>
                 </motion.div>
               )}
             </AnimatePresence>
