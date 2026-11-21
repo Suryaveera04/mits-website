@@ -18,12 +18,12 @@
 # BrowserRouter support — rewrite all non-file requests to index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /university/
 
-  # Skip real files and manifest — but NOT directories (BrowserRouter routes look like dirs)
+  # Skip real files, directories and manifest
   RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !\.webmanifest$
 
-  # Rewrite everything else (including directory-like routes) to index.html
+  # Rewrite everything else to index.html
   RewriteRule ^ index.html [L]
 </IfModule>

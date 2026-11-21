@@ -1,0 +1,61 @@
+
+name: Deploy MITS Website to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mits-hostinger-trial
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build for Hostinger
+        run: npm run build:hostinger
+
+      - name: Validate Build
+        run: |
+          test -s dist/index.html
+          test -d dist/assets
+          test -f dist/.htaccess
+          echo "Hostinger build validated"
+
+      - name: Deploy to Hostinger
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.HOSTINGER_SSH_HOST }}
+          username: ${{ secrets.HOSTINGER_SSH_USERNAME }}
+          key: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.HOSTINGER_SSH_PASSPHRASE }}
+          port: 65002
+
+          fingerprint: ${{ secrets.HOSTINGER_SSH_FINGERPRINT }}
+
+          source: "dist/*,dist/.htaccess"
+          target: ${{ secrets.HOSTINGER_REMOTE_PATH }}
+
+          strip_components: 1
+          overwrite: true
+          rm: false

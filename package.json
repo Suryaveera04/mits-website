@@ -8,6 +8,7 @@
     "dev": "vite",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "build": "node scripts/generate-sitemap.mjs && vite build",
+    "build:hostinger": "node scripts/build-hostinger.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",

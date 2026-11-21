@@ -323,8 +323,15 @@ function facultyProxyPlugin() {
   };
 }
 
-export default defineConfig(({ mode }) => ({
-  base: "/university/",
+export default defineConfig(({ mode }) => {
+  const basePath =
+    process.env.VITE_BASE_PATH ||
+    (process.env.BUILD_TARGET === "hostinger" || process.env.BUILD_TARGET === "root"
+      ? "/"
+      : "/university/");
+
+  return {
+    base: basePath,
   server: {
     host: "::",
     port: 8080,
@@ -369,4 +376,5 @@ export default defineConfig(({ mode }) => ({
     },
     chunkSizeWarningLimit: 600,
   },
-}));
+};
+});
