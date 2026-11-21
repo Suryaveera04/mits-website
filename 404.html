@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Redirect all 404s back to the app with the path encoded as a query param
+      // The app's index.html will decode it and navigate to the correct route.
+      var seg = window.location.pathname.replace(/^\/university/, "") || "/";
+      var query = window.location.search;
+      var hash = window.location.hash;
+      window.location.replace(
+        "/university/?p=" + encodeURIComponent(seg + query) + hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

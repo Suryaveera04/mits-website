@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /cms-api/
+Disallow: /faculty-api/
+
+Sitemap: https://mits.ac.in/university/sitemap.xml
+Sitemap: https://mits.ac.in/sitemap.xml
