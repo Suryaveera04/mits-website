@@ -573,11 +573,12 @@ const IQAC = () => {
                   {sections.map((s) => {
                     const Icon = s.icon;
                     const isActive = active === s.key;
-                    if (s.key === "iso") {
+                    if (s.key === "iso" || s.key === "ims") {
+                      const targetPath = s.key === "iso" ? "/iso" : "/ims";
                       return (
                         <Link
                           key={s.key}
-                          to="/iso"
+                          to={targetPath}
                           className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-[13px] font-body font-semibold text-left transition-all text-[#0f2a44]/80 hover:bg-[#b31317]/10 hover:text-[#b31317] group"
                           title={s.label}
                         >
@@ -642,11 +643,12 @@ const IQAC = () => {
                     {sections.map((s) => {
                       const Icon = s.icon;
                       const isActive = active === s.key;
-                      if (s.key === "iso") {
+                      if (s.key === "iso" || s.key === "ims") {
+                        const targetPath = s.key === "iso" ? "/iso" : "/ims";
                         return (
                           <Link
                             key={s.key}
-                            to="/iso"
+                            to={targetPath}
                             onClick={() => setMobileNavOpen(false)}
                             className="flex items-center justify-between px-3 py-2.5 rounded-lg text-xs sm:text-sm font-body font-semibold text-left transition-all text-[#0f2a44]/80 hover:bg-[#b31317]/10 hover:text-[#b31317]"
                           >
