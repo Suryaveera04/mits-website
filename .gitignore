@@ -33,3 +33,4 @@ dist.zip
 *.zip
 config.bat
 init
+.andromity/

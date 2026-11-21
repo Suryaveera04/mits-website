@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import SEO from "@/components/SEO";
-import { Award, BookOpen, Building2, ExternalLink, GraduationCap, History, Landmark, Shield, ShieldCheck, Star, Target, Eye, Users, MapPin, Phone, Mail, Clock, Send, User } from "lucide-react";
+import { Award, BookOpen, Building2, ExternalLink, GraduationCap, History, Landmark, Shield, ShieldCheck, Star, Target, Eye, Users, MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
@@ -389,11 +389,11 @@ const About = () => {
                   </ScrollReveal>
                 )}
 
-                {/* 3. Additional Registrar (No link, neutral avatar placeholder, blank data) */}
+                {/* 3. Additional Registrar */}
                 <ScrollReveal delay={0.12}>
                   <div className="block bg-card border border-border rounded-xl p-6 shadow-sm text-center h-full flex flex-col select-none">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center mb-4">
-                      <User className="w-8 h-8 text-secondary/40" />
+                    <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center mb-4 overflow-hidden">
+                      <img src="https://mits.ac.in/images/prathiba.jpeg" alt="Additional Registrar" className="w-full h-full object-cover object-top" />
                     </div>
                     <div className="flex-1">
                       <h4 className="font-display text-lg font-bold text-card-foreground mb-1 min-h-[3rem] flex items-center justify-center">Additional Registrar</h4>

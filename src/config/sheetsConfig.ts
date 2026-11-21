@@ -11,6 +11,7 @@ export const SHEETS_CONFIG = {
   // Set to your college Google Sheet ID (from the sheet URL: /spreadsheets/d/<ID>/edit)
   SPREADSHEET_ID: "1-3K6POxhEvBqOpwlVtO63AoLYrh72KMThsJ_uUdS_b0",
 
+
   // Tab names inside the Google Sheet
   TRENDING_TAB: "Trending",
   EVENTS_TAB: "Events",

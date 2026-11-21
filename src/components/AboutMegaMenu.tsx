@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, User } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { aboutSections, leadershipProfiles } from "@/data/aboutData";
 
 const BASE = import.meta.env.BASE_URL;
@@ -171,11 +171,13 @@ const AboutMegaMenu = ({ open, onClose, onMouseEnter, onMouseLeave }: Props) => 
         </Link>
       )}
 
-      {/* 4. Additional Registrar (No link, no photo, blank data, matching style) */}
+      {/* 4. Additional Registrar */}
       <div className="flex items-center gap-2 p-2 rounded-md text-left select-none">
-        <div className="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center border border-border shrink-0">
-          <User className="w-4 h-4 text-secondary/50" />
-        </div>
+        <img
+          src="https://mits.ac.in/images/prathiba.jpeg"
+          alt="Additional Registrar"
+          className="w-9 h-9 rounded-full object-cover border border-border shrink-0"
+        />
         <div className="min-w-0 flex-1 text-left">
           <p className="text-left text-[11px] font-semibold text-secondary leading-snug line-clamp-2 [text-align:left]">
             ADDITIONAL REGISTRAR

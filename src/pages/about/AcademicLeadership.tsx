@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, User } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import PageShell from "@/components/about/PageShell";
 import { leadershipProfiles } from "@/data/aboutData";
 
@@ -115,7 +115,7 @@ const AcademicLeadership = () => {
           </motion.div>
         )}
 
-        {/* 3. Additional Registrar (No link, no photo, blank details) */}
+        {/* 3. Additional Registrar */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -123,10 +123,12 @@ const AcademicLeadership = () => {
           transition={{ duration: 0.45, delay: 0.12 }}
         >
           <div className="block bg-white border border-border rounded-2xl overflow-hidden h-full flex flex-col select-none">
-            <div className="aspect-[4/5] bg-secondary/5 flex flex-col items-center justify-center relative p-6">
-              <div className="w-20 h-20 rounded-full bg-secondary/10 flex items-center justify-center border border-border">
-                <User className="w-9 h-9 text-secondary/40" />
-              </div>
+            <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative">
+              <img
+                src="https://mits.ac.in/images/prathiba.jpeg"
+                alt="Additional Registrar"
+                className="w-full h-full object-cover object-top"
+              />
               <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent" />
               <div className="absolute bottom-3 left-4 right-4 text-white">
                 <p className="text-[10px] uppercase tracking-[0.18em] text-accent font-bold">
