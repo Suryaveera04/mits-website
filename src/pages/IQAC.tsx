@@ -686,20 +686,15 @@ const IQAC = () => {
                     <div className="my-6 border-t border-slate-100" />
 
                     <TabHeading title="Submission of Annual Quality Assurance Report (AQAR)" />
-                    <div className="space-y-3 font-body text-slate-800 text-sm md:text-base leading-relaxed text-justify">
-                      {aqarSubmissionParagraphs.map((p, i) => (
-                        <p key={i}>{p}</p>
-                      ))}
-                    </div>
+                    <BulletList items={aqarSubmissionParagraphs} />
 
                     <div className="my-6 border-t border-slate-100" />
 
                     <TabHeading title="Timeline" />
-                    <div className="space-y-3 font-body text-slate-800 text-sm md:text-base leading-relaxed text-justify">
-                      {aqarTimelineParagraphs.map((p, i) => (
-                        <p key={i}>{p}</p>
-                      ))}
-                    </div>
+                    <p className="font-body text-slate-800 text-sm md:text-base leading-relaxed text-justify mb-3">
+                      {aqarTimelineParagraphs[0]}
+                    </p>
+                    <BulletList items={aqarTimelineParagraphs.slice(1)} />
                   </section>
                 )}
 
@@ -769,33 +764,19 @@ const IQAC = () => {
                 {active === "initiatives" && (
                   <section className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-6">
                     <TabHeading title="IQAC Quality Initiatives" />
-                    <PublicationList docs={filter(qualityInitiatives)} />
-
-                    <div className="my-8 border-t border-slate-100" />
-                    <TabHeading title="Institutional Quality Architecture & Infographics" />
-                    <div className="grid sm:grid-cols-2 gap-5 pt-2">
+                    <div className="space-y-6">
                       {qualityInitiativeInfographics.map((item, idx) => (
-                        <div key={idx} className="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden shadow-2xs">
+                        <div key={idx} className="rounded-xl border border-slate-200 overflow-hidden shadow-xs">
                           <img
                             src={item.src}
                             alt={item.title}
-                            className="w-full h-auto border-b border-slate-200"
+                            className="w-full h-auto object-contain"
                           />
-                          <div className="p-4 space-y-2">
-                            <h4 className="font-display font-bold text-base text-[#0f2a44]">{item.title}</h4>
-                            <p className="font-body text-xs text-slate-600 leading-relaxed">{item.subtitle}</p>
-                            <a
-                              href={item.downloadUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#b31317] hover:underline pt-1"
-                            >
-                              <ExternalLink className="w-3.5 h-3.5" /> {item.downloadLabel}
-                            </a>
-                          </div>
                         </div>
                       ))}
                     </div>
+
+                    <PublicationList docs={filter(qualityInitiatives)} />
                   </section>
                 )}
 
@@ -925,24 +906,16 @@ const IQAC = () => {
 
                     <div className="my-6 border-t border-slate-100" />
                     <TabHeading title="Online Feedback Forms" />
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 my-4">
-                      {userFeedbackSections.onlineCurriculumForms.map((f) => (
-                        <a
-                          key={f.category}
-                          href={f.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#b31317] hover:bg-white transition-all group"
-                        >
-                          <span className="font-body font-semibold text-sm text-[#0f2a44] group-hover:text-[#b31317]">
-                            {f.category}
-                          </span>
-                          <span className="inline-flex items-center gap-1 text-xs font-bold text-[#b31317]">
-                            View <ExternalLink className="w-3.5 h-3.5" />
-                          </span>
-                        </a>
-                      ))}
-                    </div>
+                    <BoldIntro text="Feedback on Curriculum" />
+                    <PublicationList
+                      docs={filter(
+                        userFeedbackSections.onlineCurriculumForms.map((f) => ({
+                          title: f.category,
+                          url: f.url,
+                          type: "link" as const,
+                        }))
+                      )}
+                    />
 
                     <div className="my-6 border-t border-slate-100" />
                     <TabHeading title="Other Feedback Views" />
@@ -1011,27 +984,11 @@ const IQAC = () => {
 
                 {/* 24. Distinctive Performance of the Institute */}
                 {active === "distinctive" && (
-                  <section className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-6">
+                  <section className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-4">
                     <TabHeading title="Distinctive Performance of the Institute" />
-                    <p className="font-body text-base text-[#0f2a44] font-medium">
+                    <p className="font-body text-slate-800 text-sm md:text-base leading-relaxed">
                       The IQAC shall have the following functions:
                     </p>
-                    <div className="grid sm:grid-cols-2 gap-4 pt-2">
-                      {[
-                        { t: "Deemed to be University Status", d: "Declared Deemed to be University u/s 3 of UGC Act, 1956 — Gazette Notification dated 15.07.2025." },
-                        { t: "NAAC A+ Accreditation", d: "Accredited with NAAC A+ Grade in Cycle 1." },
-                        { t: "NBA Accreditation", d: "Tier-I NBA accredited UG and PG engineering and professional programs." },
-                        { t: "ISO 21001:2018 EOMS Certified", d: "Certified Educational Organizations Management System for quality assurance." },
-                        { t: "NIRF Ranked Institution", d: "Consistently ranked in NIRF Innovation, Engineering, and Overall bands." },
-                        { t: "Global Pathways & Internationalization", d: "Active dual-degree & credit transfer partnerships with leading foreign universities." },
-                      ].map((d, i) => (
-                        <div key={i} className="bg-slate-50 rounded-xl border border-slate-200 p-5 shadow-2xs">
-                          <Star className="w-5 h-5 text-[#caa74d] mb-2" />
-                          <h4 className="font-display font-bold text-[#0f2a44] text-base">{d.t}</h4>
-                          <p className="font-body text-sm text-slate-600 mt-1.5 leading-relaxed">{d.d}</p>
-                        </div>
-                      ))}
-                    </div>
                   </section>
                 )}
 
@@ -1287,7 +1244,7 @@ const IQAC = () => {
                         </p>
                         <p className="flex items-center gap-2">
                           <Mail className="w-4 h-4 text-[#b31317]" />
-                          <span>Email: iqaccell@mits.ac.in ; iqac-coordinator@mits.ac.in</span>
+                          <span>Email: iqaccoordinator@mits.ac.in ; iqacdocmanager@mits.ac.in</span>
                         </p>
                       </div>
                     </div>
