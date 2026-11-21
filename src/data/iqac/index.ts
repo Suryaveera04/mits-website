@@ -3554,8 +3554,8 @@ export const bannerImage = "https://mits.ac.in/images/inner-banner.jpg";
 
 export { iso21001Subtabs, type ISOSubtab } from "./isoData";
 export { imsSubtabs, type IMSSubtab } from "./imsData";
-export { aqarReportsList, aqarCriteriaData, type AQARCriterion, type AQARReportItem } from "./aqarData";
-export { userReportsDocs, userFeedbackSections, userAaaDocs, userAaaRefDocs, userStrategicDocs, userBestPracticesDocs, userSssDocs, userAnnualReportsDocs, userIqacHoursDocs, userHandbookDocs, userUgcMandateDocs, userIqacEventsDocs, userEiqacDocs, userGalleryDocs, userManualsTableData } from "./userUpdatedSections";
+export { aqarCriteriaData, type AQARCriterion, type AQARReportItem } from "./aqarData";
+export { userAaaDocs, userAaaRefDocs, userStrategicDocs, userBestPracticesDocs, userSssDocs, userAnnualReportsDocs, userIqacHoursDocs, userHandbookDocs, userUgcMandateDocs, userIqacEventsDocs, userEiqacDocs, userGalleryDocs, userManualsTableData } from "./userUpdatedSections";
 
 export const actionPlanImg = "https://mits.ac.in/assets/images/IQAC Action Plan 2026-27.png";
 export const milestonesImg = "https://mits.ac.in/assets/images/IQAC Milestones.png";
