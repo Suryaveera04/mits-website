@@ -573,6 +573,22 @@ const IQAC = () => {
                   {sections.map((s) => {
                     const Icon = s.icon;
                     const isActive = active === s.key;
+                    if (s.key === "iso") {
+                      return (
+                        <Link
+                          key={s.key}
+                          to="/iso"
+                          className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-[13px] font-body font-semibold text-left transition-all text-[#0f2a44]/80 hover:bg-[#b31317]/10 hover:text-[#b31317] group"
+                          title={s.label}
+                        >
+                          <div className="flex items-center gap-2.5 truncate">
+                            <Icon className="w-4 h-4 shrink-0 text-[#b31317]" />
+                            <span className="truncate">{s.label}</span>
+                          </div>
+                          <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#b31317] shrink-0" />
+                        </Link>
+                      );
+                    }
                     return (
                       <button
                         key={s.key}
@@ -626,6 +642,22 @@ const IQAC = () => {
                     {sections.map((s) => {
                       const Icon = s.icon;
                       const isActive = active === s.key;
+                      if (s.key === "iso") {
+                        return (
+                          <Link
+                            key={s.key}
+                            to="/iso"
+                            onClick={() => setMobileNavOpen(false)}
+                            className="flex items-center justify-between px-3 py-2.5 rounded-lg text-xs sm:text-sm font-body font-semibold text-left transition-all text-[#0f2a44]/80 hover:bg-[#b31317]/10 hover:text-[#b31317]"
+                          >
+                            <div className="flex items-center gap-2.5 truncate">
+                              <Icon className="w-3.5 h-3.5 shrink-0 text-[#b31317]" />
+                              <span className="truncate">{s.label}</span>
+                            </div>
+                            <ExternalLink className="w-3 h-3 text-slate-400 shrink-0" />
+                          </Link>
+                        );
+                      }
                       return (
                         <button
                           key={s.key}
