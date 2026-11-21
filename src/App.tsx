@@ -102,13 +102,18 @@ const LoadingSpinner = () => (
   </div>
 );
 
+const appBasename =
+  import.meta.env.BASE_URL && import.meta.env.BASE_URL !== "/"
+    ? import.meta.env.BASE_URL.replace(/\/$/, "")
+    : undefined;
+
 const App = () => (
   <HelmetProvider>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <Router basename="/university" future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <Router basename={appBasename} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
         <ErrorBoundary>
           <Suspense fallback={<LoadingSpinner />}>
