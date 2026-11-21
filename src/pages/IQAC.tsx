@@ -86,7 +86,7 @@ import {
   userEiqacDocs,
   userGalleryDocs,
   userManualsTableData,
-  downloadsDocs,
+  naacReforms2024,
   econtent,
   poPsoCoUG,
   poPsoCoPG,
@@ -124,14 +124,12 @@ type SectionKey =
   | "sss"
   | "econtent"
   | "popsoco"
-  | "copoAttainment"
   | "annual"
   | "newsletter"
   | "handbook"
   | "ugc"
   | "events"
   | "eiqac"
-  | "downloads"
   | "naacReforms"
   | "manuals"
   | "gallery"
@@ -165,14 +163,12 @@ const sections: { key: SectionKey; label: string; icon: React.ComponentType<{ cl
   { key: "sss", label: "Student Satisfaction Survey", icon: BarChart3 },
   { key: "econtent", label: "e-Content Facility", icon: LibraryIcon },
   { key: "popsoco", label: "Vision-Mission-PEO-PO-PSO-CO of All Departments", icon: GraduationCap },
-  { key: "copoAttainment", label: "CO-PO Attainment of All Departments", icon: Target },
   { key: "annual", label: "MITS Annual Report", icon: FileText },
   { key: "newsletter", label: "Newsletter", icon: Newspaper },
   { key: "handbook", label: "Hand Book", icon: BookMarked },
   { key: "ugc", label: "UGC Quality Mandate", icon: Building2 },
   { key: "events", label: "IQAC Events & Collaborations", icon: Calendar },
   { key: "eiqac", label: "e-IQAC", icon: Globe },
-  { key: "downloads", label: "Downloads", icon: Download },
   { key: "naacReforms", label: "NAAC Reforms 2024", icon: ShieldCheck },
   { key: "manuals", label: "Manual / Format / Guidelines", icon: Files },
   { key: "gallery", label: "Gallery", icon: ImageIcon },
@@ -1087,21 +1083,6 @@ const IQAC = () => {
                   </section>
                 )}
 
-                {/* 28. CO-PO Attainment of All Departments */}
-                {active === "copoAttainment" && (
-                  <section className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-4">
-                    <TabHeading title="CO-PO Attainment of All Departments" />
-                    <div className="font-body text-slate-700 text-sm md:text-base leading-relaxed text-justify space-y-3">
-                      <p>
-                        The Course Outcome (CO) and Programme Outcome (PO) attainment calculations, direct and indirect assessment matrices, and evaluation summaries are systematically recorded and monitored by the Internal Quality Assurance Cell (IQAC) in coordination with respective Department Quality Assurance Cells (DQAC).
-                      </p>
-                      <p>
-                        Attainment portfolios and calculation rubrics are archived within respective departmental records and presented during internal and external Academic and Administrative Audits (AAA).
-                      </p>
-                    </div>
-                  </section>
-                )}
-
                 {/* 29. MITS Annual Report */}
                 {active === "annual" && (
                   <section className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-6">
@@ -1154,15 +1135,6 @@ const IQAC = () => {
                   </section>
                 )}
 
-                {/* 35. Downloads */}
-                {active === "downloads" && (
-                  <section className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm">
-                    <TabHeading title="Downloads" />
-                    <TabHeading title="AUDIT Formats" />
-                    <PublicationList docs={filter(downloadsDocs)} />
-                  </section>
-                )}
-
                 {/* 36. NAAC Reforms 2024 */}
                 {active === "naacReforms" && (
                   <section className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm">
@@ -1204,8 +1176,33 @@ const IQAC = () => {
                                   <td className="py-3.5 px-4 font-bold text-slate-500 text-center align-top">
                                     {row.sno}
                                   </td>
-                                  <td className="py-3.5 px-4 font-bold text-[#0f2a44] align-top">
-                                    {row.title}
+                                  <td className="py-3.5 px-4 align-top">
+                                    {(() => {
+                                      const parts = row.title.split(/&bull;|•/).map(p => p.trim()).filter(Boolean);
+                                      if (parts.length <= 1) {
+                                        return (
+                                          <span className="font-bold text-[#0f2a44] text-sm">
+                                            {row.title}
+                                          </span>
+                                        );
+                                      }
+                                      const [heading, ...bullets] = parts;
+                                      return (
+                                        <div className="flex flex-col gap-1.5 text-sm">
+                                          <span className="font-bold text-[#b31317]">
+                                            {heading}
+                                          </span>
+                                          <ul className="space-y-1 pl-1">
+                                            {bullets.map((bullet, bIdx) => (
+                                              <li key={bIdx} className="flex items-start gap-1.5 text-slate-700 font-normal">
+                                                <span className="text-slate-400 font-bold">•</span>
+                                                <span>{bullet}</span>
+                                              </li>
+                                            ))}
+                                          </ul>
+                                        </div>
+                                      );
+                                    })()}
                                   </td>
                                   <td className="py-3.5 px-4 align-top">
                                     {row.formats.length === 0 ? (
@@ -1241,7 +1238,7 @@ const IQAC = () => {
                   </section>
                 )}
 
-                {/* 38. Gallery */}
+                {/* Gallery */}
                 {active === "gallery" && (
                   <section className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-6">
                     <TabHeading title="Gallery" />
@@ -1251,14 +1248,15 @@ const IQAC = () => {
                           key={idx}
                           className="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden shadow-2xs group flex flex-col justify-between"
                         >
-                          <div className="overflow-hidden bg-slate-100 flex items-center justify-center">
+                          <div className="overflow-hidden bg-slate-100 flex items-center justify-center p-2">
                             <img
-                              src={item.src}
+                              src={item.src || item.img}
                               alt={item.title}
-                              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                              className="w-full h-52 object-contain group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
                             />
                           </div>
-                          <div className="p-4 flex-1 flex flex-col justify-between">
+                          <div className="p-4 flex-1 flex flex-col justify-between bg-white border-t border-slate-100">
                             <p className="font-body text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
                               {item.title}
                             </p>

@@ -191,189 +191,89 @@ export const naacReforms2024: Doc[] = [
     type: "pdf"
   },
   {
+    title: "Department Wise DQAC Coordinators",
+    url: "https://mits.ac.in/assets/pdf/iqac/Departmentwise DQAC Coordinators List 2026-27.pdf",
+    type: "pdf"
+  },
+  {
     title: "University-wise NAAC Criterion Coordinators",
     url: "https://mits.ac.in/assets/pdf/iqac/University-wise NAAC Criterion Coordinators_2026.pdf",
     type: "pdf"
   },
   {
-    title: "Updated Department-wise NAAC Coordinators",
+    title: "Department-wise NAAC Coordinators",
     url: "https://mits.ac.in/assets/pdf/iqac/Updated_Department-wise NAAC Coordinators.pdf",
     type: "pdf"
   },
   {
-    title: "Department-wise DQAC Coordinators List 2026-27",
-    url: "https://mits.ac.in/assets/pdf/iqac/Departmentwise DQAC Coordinators List 2026-27.pdf",
-    type: "pdf"
-  },
-  {
-    title: "Department-wise NAAC Coordinators 2026-27",
-    url: "https://mits.ac.in/assets/pdf/iqac/Department-wise NAAC Coordinators 2026-27.pdf",
-    type: "pdf"
-  },
-  {
-    title: "Institutional Cells & Committee Incharges Details 14th August 2026",
+    title: "Institutional Cells & Committee Incharges Details",
     url: "https://mits.ac.in/assets/pdf/iqac/Cells Coordinators Details 14th August 2026.pdf",
     type: "pdf"
   },
   {
-    title: "NAAC_Survey (Draft) 21-04-2026 - Dr. K. Sathesh",
+    title: "NAAC-Reforms in Accreditation",
+    url: "http://naac.gov.in/images/docs/NAAC-Major_Reforms_in_Accreditation-Press_Release-27January_2024.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Dr Radhakrishnan Committee Report",
+    url: "http://naac.gov.in/images/docs/DrRadhakrishnanCommittee-FinalReport.pdf",
+    type: "pdf"
+  },
+  {
+    title: "NAAC Reforms 2024: Dt.29th June 2024",
+    url: "http://naac.gov.in/images/docs/announcement/NAAC_Reforms_2024-Announcements-29thJune2024_240629_143341.pdf",
+    type: "pdf"
+  },
+  {
+    title: "SoP for Colleges and Universities and SoP for Assessors: Dt.07th April 2025",
+    url: "http://naac.gov.in/images/docs/announcement/NAAC_Press_Release_10022025.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Validity Extension Notification: Dt.5th December 2025",
+    url: "http://naac.gov.in/images/docs/notification/validity_extension_notification_5_12_25.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS Responsibilities Matrix for NAAC 2024 Reforms (MBGL)",
+    url: "https://mits.ac.in/assets/pdf/iqac/New Reforms Correlation and MIts Responsibilities.pdf",
+    type: "pdf"
+  },
+  {
+    title: "NAAC Accreditation Preparedness",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC Accreditation Preparedness 21-04-2026- Dr.K.Sathesh.pdf",
+    type: "pdf"
+  },
+  {
+    title: "NAAC_Survey (Draft)",
     url: "https://mits.ac.in/assets/pdf/iqac/NAAC_Survey 21-04-2026-Dr.K.Sathesh.pdf",
     type: "pdf"
   },
   {
-    title: "Extended Profile Mapping Between SSR and AQAR (Autonomous College-Manual)",
-    url: "https://mits.ac.in/assets/pdf/iqac/Extended Profile Mapping Between SSR and AQAR(Autonomous College-Manual).pdf",
+    title: "Department-wise Stakeholder Feedback Coordinators",
+    url: "https://mits.ac.in/assets/pdf/iqac/Department-wise Stakeholder Feedback Coordinators.pdf",
     type: "pdf"
   },
   {
-    title: "NAAC RAF SSR NEW Format (9-8-2023) (Autonomous College)",
-    url: "https://mits.ac.in/assets/pdf/iqac/NAAC RAF SSR NEW Format (9-8-2023)(Autonomous College).pdf",
-    type: "pdf"
-  },
-  {
-    title: "Criterion I – Curricular Aspects (SSR-AQAR Mapping)",
-    url: "https://mits.ac.in/assets/pdf/iqac/Criterion_1_Curricular_Aspects_SSR_AQAR_Mapping_Autonomous_College-1.pdf",
-    type: "pdf"
-  },
-  {
-    title: "Criterion II – Teaching-Learning and Evaluation (SSR-AQAR Mapping)",
-    url: "https://mits.ac.in/assets/pdf/iqac/Criterion II – Teaching-Learning and Evaluation_SSR_AQAR_Mapping_Autonomous_College-1.pdf",
-    type: "pdf"
-  },
-  {
-    title: "Criterion III – Research, Innovations and Extension (SSR-AQAR Mapping)",
-    url: "https://mits.ac.in/assets/pdf/iqac/Criterion III – – Research, Innovations and Extension _SSR_AQAR_Mapping_Autonomous_College-2-1.pdf",
-    type: "pdf"
-  },
-  {
-    title: "Criterion IV – Infrastructure and Learning Resources (SSR-AQAR Mapping)",
-    url: "https://mits.ac.in/assets/pdf/iqac/Criterion IV – Infrastructure and Learning Resources _SSR_AQAR_Mapping_Autonomous_College.pdf",
-    type: "pdf"
-  },
-  {
-    title: "Criterion V – Student Support and Progression (SSR-AQAR Mapping)",
-    url: "https://mits.ac.in/assets/pdf/iqac/Criterion V – Student Support and Progression_SSR_AQAR_Mapping_Autonomous_College.pdf",
-    type: "pdf"
-  },
-  {
-    title: "Criterion VI – Governance, Leadership and Management (SSR-AQAR Mapping)",
-    url: "https://mits.ac.in/assets/pdf/iqac/Criterion VI – Governance.pdf",
-    type: "pdf"
-  },
-  {
-    title: "Criterion VII – Institutional Values and Best Practices (SSR-AQAR Mapping)",
-    url: "https://mits.ac.in/assets/pdf/iqac/Criterion VII –Institutional Values and Best Practices _SSR_AQAR_Mapping_Autonomous_College.pdf",
-    type: "pdf"
-  },
-  {
-    title: "NBA-NAAC Comparison",
-    url: "https://mits.ac.in/assets/pdf/iqac/NBA-NAAC Comparsion.xlsx",
-    type: "xlsx"
-  },
-  {
-    title: "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criteria I-II-III",
-    url: "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR Mapping _Supporting_Document_Manual_Criteria-I_II_III.docx",
+    title: "NAAC Reforms 2024 Pilot Survey for Binary Accreditation Framework (University) (Draft Copy) Data Template",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC Reforms 2024 Pilot Survey for Binary Accreditation Framework (University) (Draft Copy)_Data_Template.docx",
     type: "doc"
   },
   {
-    title: "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion IV",
-    url: "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR Mapping _Supporting_Document_Manual_Criterion-IV.docx",
+    title: "NAAC Survey– QnM & QlM Data Collection Manual (Draft Copy)",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS NAAC Survey– QnM & QlM Data Collection Manual (Draft Copy).docx",
     type: "doc"
   },
   {
-    title: "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion V",
-    url: "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR-SSR Mapping _Supporting_Document_Manual_Criterion-V.docx",
+    title: "NAAC Accreditation Preparedness Supporting Document Manual (Draft Copy)",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC Accreditation Preparedness _Supporting_Document_Manual (Draft Copy).docx",
     type: "doc"
   },
   {
-    title: "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion VI",
-    url: "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR_SSR Mapping _Supporting_Document_Manual_Criterion-VI.docx",
+    title: "NAAC Supporting Document Manual Based on Dr. K. Radhakrishnan Report, November 2023 (Draft Copy)",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC Supporting Document Manual Based on Dr. K. Radhakrishnan Report, November 2023 (Draft Copy).docx",
     type: "doc"
-  },
-  {
-    title: "MITS NAAC AQAR SSR Mapping Supporting Document Manual Criterion VII",
-    url: "https://mits.ac.in/assets/pdf/iqac/MITS_NAAC_AQAR_SSR Mapping _Supporting_Document_Manual_Criterion-VII.docx",
-    type: "doc"
-  },
-  {
-    "title": "Institution-wise NAAC Criterion Coordinators 2026",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Institution-wise NAAC Criterion Coordinators_2026.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Department-wise NAAC Coordinators",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Department-wise NAAC Coordinators.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Institutional Cells & Committee Incharges Details",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Institutional Cells & Committee Incharges Details.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "NAAC-Reforms in Accreditation",
-    "url": "http://naac.gov.in/images/docs/NAAC-Major_Reforms_in_Accreditation-Press_Release-27January_2024.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Dr Radhakrishnan Committee Report",
-    "url": "http://naac.gov.in/images/docs/DrRadhakrishnanCommittee-FinalReport.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "NAAC Reforms 2024: Dt.29th June 2024",
-    "url": "http://naac.gov.in/images/docs/announcement/NAAC_Reforms_2024-Announcements-29thJune2024_240629_143341.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "SoP for Colleges and Universities and SoP for Assessors: Dt.07th April 2025",
-    "url": "http://naac.gov.in/images/docs/announcement/NAAC_Press_Release_10022025.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Validity Extension Notification: Dt.5th December 2025",
-    "url": "http://naac.gov.in/images/docs/notification/validity_extension_notification_5_12_25.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "MITS Responsibilities Matrix for NAAC 2024 Reforms (MBGL)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/New Reforms Correlation and MIts Responsibilities.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "NAAC Accreditation Preparedness",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC Accreditation Preparedness 21-04-2026- Dr.K.Sathesh.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "NAAC_Survey (Draft)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC_Survey 21-04-2026- Dr.K.Sathesh.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Department-wise Stakeholder Feedback Coordinators",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Department-wise Stakeholder Feedback Coordinators.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "NAAC Reforms 2024 Pilot Survey for Binary Accreditation Framework (University) (Draft Copy) Data Template",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC Reforms 2024 Pilot Survey for Binary Accreditation Framework (University) (Draft Copy)_Data_Template.docx",
-    "type": "doc"
-  },
-  {
-    "title": "NAAC Survey– QnM & QlM Data Collection Manual (Draft Copy)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/MITS NAAC Survey– QnM & QlM Data Collection Manual (Draft Copy).docx",
-    "type": "doc"
-  },
-  {
-    "title": "NAAC Accreditation Preparedness Supporting Document Manual (Draft Copy)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC Accreditation Preparedness _Supporting_Document_Manual (Draft Copy).docx",
-    "type": "doc"
-  },
-  {
-    "title": "NAAC Supporting Document Manual Based on Dr. K. Radhakrishnan Report, November 2023 (Draft Copy)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC Supporting Document Manual Based on Dr. K. Radhakrishnan Report, November 2023 (Draft Copy).docx",
-    "type": "doc"
   }
 ];
 
