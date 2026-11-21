@@ -606,6 +606,14 @@ const IQAC = () => {
                         ))}
                       </div>
 
+                      <TabHeading title="Vision" />
+                      <p className="font-body text-slate-800 text-sm md:text-base leading-relaxed text-justify">
+                        {about.vision}
+                      </p>
+
+                      <TabHeading title="Mission" />
+                      <BulletList items={about.mission} />
+
                       <div className="my-6 space-y-6">
                         <img
                           src={qualityFrameworkImg}
@@ -618,14 +626,6 @@ const IQAC = () => {
                           className="w-full h-auto rounded-xl border border-slate-200"
                         />
                       </div>
-
-                      <TabHeading title="Vision" />
-                      <p className="font-body text-slate-800 text-sm md:text-base leading-relaxed text-justify">
-                        {about.vision}
-                      </p>
-
-                      <TabHeading title="Mission" />
-                      <BulletList items={about.mission} />
                     </div>
                   </section>
                 )}

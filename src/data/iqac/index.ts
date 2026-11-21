@@ -3344,13 +3344,68 @@ export const iqacPolicies: Doc[] = [
 ];
 export const mitsDtbuPolicies: Doc[] = [
   {
-    title: "Women Empowerment Cell Policy",
-    url: "https://mits.ac.in/assets/pdf/iqac/WEC Policy.pdf",
+    title: "Internal Quality Assurance Cell Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20DTBU%20Internal%20Quality%20Assurnace%20Cell%20Policy.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Anti Bribery Corruption Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/Anti%20Bribery%20%20Corruption%20Policy.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Climate Action Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/Climate%20Action%20Policy.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Sustainable Investment Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/Diversity%20and%20Inclusion%20Policy.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Equality, Diversity and Inclusion Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/Equality.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Sustainable Procurement Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/Sustainable%20Investment%20Policy.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Industry Relations Cell Policy Document 2026",
+    url: "https://mits.ac.in/assets/pdf/iqac/Industry%20Relations%20Cell%20_%20Policy%20Document_2026.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Integrated Management System Policy (ISO 14001:2015 and ISO 50001:2018)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Approved%20IMS%20Policy_ISO.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Minority Cell Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/Minority%20Cell%20Policy%20Document(1)-1.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS Radio 90.8 MHz Community Radio Station Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/POLICY%20DOCUMENT%20_%20MITS%20Radio%20_%20Signed.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS IEEE Student Branch Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20IEEE%20SB%20DTBU%20Policy.pdf",
     type: "pdf"
   },
   {
     title: "MITS IETE Policy",
-    url: "https://mits.ac.in/assets/pdf/iqac/MITS IETE Policy.pdf",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20IETE%20Policy.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Women Empowerment Cell Policy",
+    url: "https://mits.ac.in/assets/pdf/iqac/WEC%20Policy.pdf",
     type: "pdf"
   },
   {
@@ -3360,83 +3415,28 @@ export const mitsDtbuPolicies: Doc[] = [
   },
   {
     title: "MITS Anti-Ragging Cell Policy",
-    url: "https://mits.ac.in/assets/pdf/iqac/ver1_POLICY DOCUMENT OF ANTI-RAGGING CELL.pdf",
+    url: "https://mits.ac.in/assets/pdf/iqac/ver1_POLICY%20DOCUMENT%20OF%20ANTI-RAGGING%20CELL.pdf",
     type: "pdf"
   },
   {
     title: "MITS SC ST Policy",
-    url: "https://mits.ac.in/assets/pdf/iqac/MITS SC ST Policy Document .pdf",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20SC%20ST%20Policy%20Document%20.pdf",
     type: "pdf"
   },
   {
     title: "Internal Complaints Committee (ICC) Policy",
-    url: "https://mits.ac.in/assets/pdf/iqac/ICC Policy.pdf",
+    url: "https://mits.ac.in/assets/pdf/iqac/ICC%20Policy.pdf",
     type: "pdf"
   },
   {
-    title: "Students\' Grievance Redressal Committee (SGRC) Policy",
+    title: "Students' Grievance Redressal Committee (SGRC) Policy",
     url: "https://www.mits.ac.in/assets/pdf/admin/Students%20Grievance%20Redressal%20Policy.pdf",
     type: "pdf"
   },
   {
-    "title": "Internal Quality Assurance Cell Policy",
-    "url": "https://mits.ac.in/assets/pdf/iqac/MITS DTBU Internal Quality Assurnace Cell Policy.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Anti Bribery Corruption Policy",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Anti%20Bribery%20%20Corruption%20Policy.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Climate Action Policy",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Climate%20Action%20Policy.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Sustainable Investment Policy",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Diversity%20and%20Inclusion%20Policy.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Equality, Diversity and Inclusion Policy",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Equality.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Sustainable Procurement Policy",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Sustainable%20Investment%20Policy.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Industry Relations Cell Policy Document 2026",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Industry Relations Cell _ Policy Document_2026.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Integrated Management System Policy (ISO 14001:2015 and ISO 50001:2018)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Approved%20IMS%20Policy_ISO.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Minority Cell Policy",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Minority Cell Policy Document(1)-1.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "MITS Radio 90.8 MHz Community Radio Station Policy",
-    "url": "https://mits.ac.in/assets/pdf/iqac/POLICY DOCUMENT _ MITS Radio _ Signed.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "MITS IEEE Student Branch Policy",
-    "url": "https://mits.ac.in/assets/pdf/iqac/MITS IEEE SB DTBU Policy.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "International Relations Office (IRO) Policy",
-    "url": "https://www.mits.ac.in/assets/pdf/admin/IRO Policy.pdf",
-    "type": "pdf"
+    title: "International Relations Office (IRO) Policy",
+    url: "https://www.mits.ac.in/assets/pdf/admin/IRO%20Policy.pdf",
+    type: "pdf"
   }
 ];
 
@@ -3444,120 +3444,45 @@ export const mitsDtbuPolicies: Doc[] = [
 export const meetingsMom: Doc[] = [
   {
     title: "MoM 2024-25",
-    url: "https://mits.ac.in/public/uploads/naac/IQAC_MoM 2024-25.pdf",
+    url: "https://mits.ac.in/public/uploads/naac/IQAC_MoM%202024-25.pdf",
     type: "pdf"
   },
   {
-    "title": "IQAC Committee",
-    "url": "https://mits.ac.in/public/uploads/naac/Composition%20of%20IQAC.pdf",
-    "type": "pdf"
+    title: "MoM 2023-24",
+    url: "https://mits.ac.in/public/uploads/naac/MoM%202023-24.pdf",
+    type: "pdf"
   },
   {
-    "title": "MoM 2025-26",
-    "url": "https://mits.ac.in/public/uploads/naac/MoM 2025-26.pdf",
-    "type": "pdf"
+    title: "MoM 2022-23",
+    url: "https://mits.ac.in/public/uploads/naac/MoM_2022-2023.pdf",
+    type: "pdf"
   },
   {
-    "title": "MoM 2023-24",
-    "url": "https://mits.ac.in/public/uploads/naac/MoM 2023-24.pdf",
-    "type": "pdf"
+    title: "MoM 2021-22",
+    url: "https://mits.ac.in/public/uploads/naac/IQAC%20MINUTES%20OF%20MEETING%202021%20-2022.pdf",
+    type: "pdf"
   },
   {
-    "title": "MoM 2022-23",
-    "url": "https://mits.ac.in/public/uploads/naac/MoM_2022-2023.pdf",
-    "type": "pdf"
+    title: "MoM 2020-21",
+    url: "https://mits.ac.in/public/uploads/naac/0fde145546a6c0e9d269571626392b6d.pdf",
+    type: "pdf"
   },
   {
-    "title": "MoM 2021-22",
-    "url": "https://mits.ac.in/public/uploads/naac/IQAC%20MINUTES%20OF%20MEETING%202021%20-2022.pdf",
-    "type": "pdf"
+    title: "MoM 2019-20",
+    url: "https://mits.ac.in/public/uploads/naac/2dba8e25c77e6c7ac33aa492458bb520.pdf",
+    type: "pdf"
   },
   {
-    "title": "MoM 2020-21",
-    "url": "https://mits.ac.in/public/uploads/naac/0fde145546a6c0e9d269571626392b6d.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "MoM 2019-20",
-    "url": "https://mits.ac.in/public/uploads/naac/2dba8e25c77e6c7ac33aa492458bb520.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "MoM 2018-19",
-    "url": "https://mits.ac.in/public/uploads/naac/86b13e657eeba50d11452a0f0f0c54fd.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Action Taken Report 2021-22",
-    "url": "https://mits.ac.in/public/uploads/naac/ATR 2021-22.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Action Taken Report 2020-21",
-    "url": "https://mits.ac.in/public/uploads/naac/ATR 2020-21.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Action Taken Report 2019-20",
-    "url": "https://mits.ac.in/public/uploads/naac/ATR 2019-20.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Action Taken Report 2018-19",
-    "url": "https://mits.ac.in/public/uploads/naac/ATR 2018-19.pdf",
-    "type": "pdf"
+    title: "MoM 2018-19",
+    url: "https://mits.ac.in/public/uploads/naac/86b13e657eeba50d11452a0f0f0c54fd.pdf",
+    type: "pdf"
   }
 ];
 export const meetingsDtbu: Doc[] = [
   {
-    "title": "IQAC Committee",
-    "url": "https://mits.ac.in/public/uploads/naac/Composition%20of%20IQAC.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "MoM 2025-26",
-    "url": "https://mits.ac.in/public/uploads/naac/MoM-2025-26.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Action Taken Report 2021-22",
-    "url": "https://mits.ac.in/public/uploads/naac/ATR 2021-22.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Action Taken Report 2020-21",
-    "url": "https://mits.ac.in/public/uploads/naac/ATR 2020-21.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Action Taken Report 2019-20",
-    "url": "https://mits.ac.in/public/uploads/naac/ATR 2019-20.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Action Taken Report 2018-19",
-    "url": "https://mits.ac.in/public/uploads/naac/ATR 2018-19.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "IQAC Committee",
-    "url": "https://mits.ac.in/public/uploads/naac/Composition%20of%20IQAC.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Admin Audit Format",
-    "url": "https://mits.ac.in/public/uploads/naac/ADMIN%20AUDIT%20FORMAT.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Department Audit Format",
-    "url": "https://mits.ac.in/public/uploads/naac/DEPARTMENT%20AUDIT%20FORMAT.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Faculty Audit Format",
-    "url": "https://mits.ac.in/public/uploads/naac/FACULTY%20AUDIT%20FORMAT.pdf",
-    "type": "pdf"
+    title: "MoM 2025-26",
+    url: "https://mits.ac.in/public/uploads/naac/MoM%202025-26.pdf",
+    type: "pdf"
   }
 ];
 
@@ -3575,59 +3500,49 @@ export const qualityInitiativesOverview = [
 
 export const qualityInitiatives: Doc[] = [
   {
-    "title": "IQAC Quality Initiatives",
-    "url": "https://mits.ac.in/assets/pdf/iqac/MITS IQAC Quality Framework-1.pdf",
-    "type": "pdf"
+    title: "QA Initiatives",
+    url: "https://mits.ac.in/public/uploads/naac/QA%20Initiatives.pdf",
+    type: "pdf"
   },
   {
-    "title": "International Relations Office (IRO) Policy",
-    "url": "https://www.mits.ac.in/assets/pdf/admin/IRO Policy.pdf",
-    "type": "pdf"
+    title: "QA Initiatives 2022-23",
+    url: "https://mits.ac.in/public/uploads/naac/QA 2022-23.pdf",
+    type: "pdf"
   },
   {
-    "title": "QA Initiatives",
-    "url": "https://mits.ac.in/public/uploads/naac/QA%20Initiatives.pdf",
-    "type": "pdf"
+    title: "QA Initiatives 2021-22",
+    url: "https://mits.ac.in/public/uploads/naac/QA 2021-22.pdf",
+    type: "pdf"
   },
   {
-    "title": "QA Initiatives 2022-23",
-    "url": "https://mits.ac.in/public/uploads/naac/QA 2022-23.pdf",
-    "type": "pdf"
+    title: "MITS - IQAC Hours",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS-IQAC Hours.pdf",
+    type: "pdf"
   },
   {
-    "title": "QA Initiatives 2021-22",
-    "url": "https://mits.ac.in/public/uploads/naac/QA 2021-22.pdf",
-    "type": "pdf"
+    title: "Total Quality Management in HEIs (Higher Education Institutions)",
+    url: "https://mits.ac.in/assets/pdf/iqac/TQM in HEIs.pdf",
+    type: "pdf"
   },
   {
-    "title": "MITS - IQAC Hours",
-    "url": "https://mits.ac.in/assets/pdf/iqac/MITS-IQAC Hours.pdf",
-    "type": "pdf"
+    title: "Academic Audit Process",
+    url: "https://mits.ac.in/assets/pdf/iqac/Academic Audit Process of IQAC.pdf",
+    type: "pdf"
   },
   {
-    "title": "Total Quality Management in HEIs (Higher Education Institutions)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/TQM in HEIs.pdf",
-    "type": "pdf"
+    title: "Student Feedback Process",
+    url: "https://mits.ac.in/assets/pdf/iqac/Student Feedback Process Flow.pdf",
+    type: "pdf"
   },
   {
-    "title": "Academic Audit Process",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Academic Audit Process of IQAC.pdf",
-    "type": "pdf"
+    title: "Fish Bone Chart",
+    url: "https://mits.ac.in/assets/pdf/iqac/Fish Bone Chart.pdf",
+    type: "pdf"
   },
   {
-    "title": "Student Feedback Process",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Student Feedback Process Flow.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Fish Bone Chart",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Fish Bone Chart.pdf",
-    "type": "pdf"
-  },
-  {
-    "title": "Faculty Professional Growth Plan",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Faculty Professional Growth Plan.pdf",
-    "type": "pdf"
+    title: "Faculty Professional Growth Plan",
+    url: "https://mits.ac.in/assets/pdf/iqac/Faculty Professional Growth Plan.pdf",
+    type: "pdf"
   }
 ];
 
