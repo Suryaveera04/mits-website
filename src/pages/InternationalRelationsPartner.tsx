@@ -129,7 +129,7 @@ const InternationalRelationsPartner = () => {
   const gallery = specificGallery && specificGallery.length > 0 ? specificGallery : fallbackGallery;
   const isSpecific = Boolean(specificGallery && specificGallery.length > 0);
 
-  const BASE = import.meta.env.BASE_URL;
+  const BASE = "https://mits.edu/";
   const localLogo = localLogos[partner.name];
   const logoUrl = localLogo ? `${BASE}${localLogo}` : null;
 

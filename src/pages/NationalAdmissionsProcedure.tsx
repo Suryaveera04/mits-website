@@ -18,7 +18,7 @@ import {
   BookOpen,
 } from "lucide-react";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const NationalAdmissionsProcedure = () => {
   return (

@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const objectives = [
   "Shift the emphasis from purely theoretical courses to practical, hands-on learning through design thinking principles.",

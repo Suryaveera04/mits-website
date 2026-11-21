@@ -27,7 +27,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { nccResultsData, nccActivitiesData } from "./nccData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 // Sharp PDF Icon matching the official MITS style
 function PdfIcon({ className = "w-7 h-7" }: { className?: string }) {

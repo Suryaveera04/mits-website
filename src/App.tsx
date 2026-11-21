@@ -126,6 +126,8 @@ const App = () => (
             <Route path="/mandatory-disclosures" element={<MandatoryDisclosures />} />
             <Route path="/bog" element={<BogPage />} />
             <Route path="/minutes-ac" element={<MinutesAcPage />} />
+            <Route path="/about/minutes-ac" element={<MinutesAcPage />} />
+            <Route path="/mits-minutes-ac" element={<MinutesAcPage />} />
             <Route path="/university-finance-committee" element={<UniversityFinanceCommitteePage />} />
             <Route path="/finance-committee" element={<FinanceCommitteePage />} />
             <Route path="/about/university-finance-committee" element={<UniversityFinanceCommitteePage />} />

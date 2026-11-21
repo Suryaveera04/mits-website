@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock, Globe, MessageSquare, Send } from "lucide-react";
 import { useState } from "react";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const contactCards = [
   { icon: MapPin, title: "Address", lines: ["Madanapalle Institute of Technology & Science", "Deemed to be University", "Madanapalle-Kadiri Road, NH-42, Kurabalakota Mandal, Madanapalle-517325, Andhra Pradesh, India"], accent: "from-[#b30000] to-[#d93030]" },

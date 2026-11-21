@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { X, ExternalLink, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 export const AdmissionModal = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -244,242 +244,247 @@ export const userFeedbackSections: Record<string, any> = {
   ]
 };
 export const userAaaDocs: Record<string, any> = {
-  "policy": {
-    "title": "Academic and Administrative Audit Policy (Autonomous)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20IQAC%20Academic%20Audit%20Policy.pdf",
-    "type": "pdf"
-  },
-  "dtbuPolicy": {
-    "title": "Academic and Administrative Audit Policy (MITS DTBU Version 1)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/MITS-DTBU%20AAA_%20POLICY%20DOCUMENT%20Version%201.pdf",
-    "type": "pdf"
-  },
-  "externalReports": [
+  introParagraph: "Madanapalle Institute of Technology & Science is committed to maintaining and enhancing academic excellence through a structured Quality assurance mechanism. Academic & Administrative audit serves as a critical tool to assess, monitor, and improve the quality of Teaching & Learning, and Academic processes and the administrative system to support the quality of such a delivery. This policy applies to all Academic Departments, Programs, and Faculty members, ensuring a systematic review of instructional methods, curriculum effectiveness, student engagement, Faculty performance, and overall academic governance. Audit process of quality of education impart and assess compliance with accreditation bodies such as NAAC, NBA and other regulatory requirements for its sustenance is monitored through the Internal Quality Assurance Cell (IQAC).",
+  academicAuditParagraph: "Academic Audit is a structured and methodical approach to evaluate the Quality of an Institution's academic processes. It involves a deliberate and systematic sampling to assess the effectiveness of Academic delivery, encompassing areas such as Teaching-Learning practices, Curriculum Design and evaluation, Research initiatives, outreach programs, and other related academic endeavours. This process aligns with quality assurance principles and aims to evaluate the effectiveness of Academic Procedures and Processes adopted by Departments for quality enhancement.",
+  administrativeAuditParagraph: "Administrative Audit focuses on evaluating the effectiveness of various administrative processes that facilitate academic activities. This includes areas such as student support services, management of Academic Infrastructure, Campus maintenance, IT services, student facilities, and measures ensuring the safety and security of students and the campus as a whole. Audit process typically involves sampling methods and conducting targeted interviews with relevant stakeholders.",
+  policies: [
     {
-      "title": "External Audit Report 2024-25",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202024-25.pdf",
-      "type": "pdf"
+      title: "Academic and Administrative Audit Policy (DTBU)",
+      url: "https://mits.ac.in/assets/pdf/iqac/MITS-DTBU%20AAA_%20POLICY%20DOCUMENT%20Version%201.pdf",
+      type: "pdf"
     },
     {
-      "title": "External Audit Report 2023-24",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202023-24.pdf",
-      "type": "pdf"
-    },
-    {
-      "title": "External Audit Report 2022-23",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202022-23.pdf",
-      "type": "pdf"
-    },
-    {
-      "title": "External Audit Report 2021-22",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202021-22.pdf",
-      "type": "pdf"
+      title: "Academic and Administrative Audit Policy",
+      url: "https://mits.ac.in/assets/pdf/iqac/MITS%20IQAC%20Academic%20Audit%20Policy.pdf",
+      type: "pdf"
     }
   ],
-  "internalReports": [
+  externalReports: [
     {
-      "title": "Internal Audit Report 2025-26",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_Internal%20Audit%20Report%20for%202025-2026.pdf",
-      "type": "pdf"
+      title: "External Audit Report 2024-25",
+      url: "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202024-25.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Audit Report 2024-25",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20Report%202024-2025.pdf",
-      "type": "pdf"
+      title: "External Audit Report 2023-24",
+      url: "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202023-24.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Audit Report 2023-24",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal-Audit-Report%202023-2024.pdf",
-      "type": "pdf"
+      title: "External Audit Report 2022-23",
+      url: "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202022-23.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Audit Report 2022-23",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20Report%202022-23.pdf",
-      "type": "pdf"
-    },
-    {
-      "title": "Internal Audit Report 2021-22",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20Report%202021-22.pdf",
-      "type": "pdf"
+      title: "External Audit Report 2021-22",
+      url: "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202021-22.pdf",
+      type: "pdf"
     }
   ],
-  "externalAtr": [
+  internalReports: [
     {
-      "title": "External Audit ATR 2024-25",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR%20-%20External%20Audit%202024-25.pdf",
-      "type": "pdf"
+      title: "Internal Audit Report 2025-26",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20_Internal%20Audit%20Report%20for%202025-2026.pdf",
+      type: "pdf"
     },
     {
-      "title": "External Audit ATR 2023-24",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20ATR%202023-24.pdf",
-      "type": "pdf"
+      title: "Internal Audit Report 2024-25",
+      url: "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20Report%20for-2024-2025.pdf",
+      type: "pdf"
     },
     {
-      "title": "External Audit ATR 2022-23",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20ATR%202022-23.pdf",
-      "type": "pdf"
+      title: "Internal Audit Report 2023-24",
+      url: "https://mits.ac.in/assets/pdf/iqac/Internal-Audit-Report%202023-2024.pdf",
+      type: "pdf"
     },
     {
-      "title": "External Audit ATR 2021-22",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20ATR%202021-22.pdf",
-      "type": "pdf"
+      title: "Internal Audit Report 2022-23",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20Internal%20Audit%20Report%202022-23.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Internal Audit Report 2021-22",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20Internal%20Audit%20Report%202021-22.pdf",
+      type: "pdf"
     }
   ],
-  "internalAtr": [
+  externalAtr: [
     {
-      "title": "Internal Action Taken Report 2025-26",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR_Internal%20Audit%20Report%20for%202025-2026.pdf",
-      "type": "pdf"
+      title: "External Audit ATR 2024-25",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR%20-%20External%20Audit%202024-25.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Action Taken Report 2024-25",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_%20ATR_%202024-25%20_AAA.pdf",
-      "type": "pdf"
+      title: "External Audit ATR 2023-24",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20ATR%20-%20External%20Audit%20Report%202023-24.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Action Taken Report 2023-24",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20ATR%202023-24.pdf",
-      "type": "pdf"
+      title: "External Audit ATR 2022-23",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20ATR%20-%20External%20Audit%20Report%202022-23.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Action Taken Report 2022-23",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20ATR%202022-23.pdf",
-      "type": "pdf"
+      title: "External Audit ATR 2021-22",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20ATR%20-%20External%20Audit%20Report%202021-22.pdf",
+      type: "pdf"
+    }
+  ],
+  internalAtr: [
+    {
+      title: "Internal Action Taken Report 2025-26",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR_Internal%20Audit%20Report%20for%202025-2026.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Action Taken Report 2021-22",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20ATR%202021-22.pdf",
-      "type": "pdf"
+      title: "Internal Action Taken Report 2024-25",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20_%20ATR_%202024-25%20_AAA.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Internal Action Taken Report 2023-24",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20ATR%20-%20Internal%20Audit%20Report%202023-24.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Internal Action Taken Report 2022-23",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR_%20Internal%20Audit%202022-23%20.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Internal Action Taken Report 2021-22",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20ATR%20-%20Internal%20Audit%20Report%202021-22.pdf",
+      type: "pdf"
     }
   ]
 };
 export const userAaaRefDocs: Doc[] = [
   {
-    "title": "NAAC - Brief Advisory Note on Academic and Administrative Audit (AAA)",
-    "url": "https://naac.gov.in/docs/Miscellaneous/NAAC_AAA_Note.pdf",
-    "type": "pdf"
+    title: "NAAC (1st Cycle) - Self Study Report (SSR)",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC%20(1st%20Cycle)%20-%20Self%20Study%20Report%20(SSR).pdf",
+    type: "pdf"
   },
   {
-    "title": "NAAC (1st Cycle) - Self Study Report (SSR)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC%20(1st%20Cycle)%20-%20Self%20Study%20Report%20(SSR).pdf",
-    "type": "pdf"
+    title: "NAAC Autonomous College Benchmarks December 2022",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College%20Benchmarks%20December%202022.pdf",
+    type: "pdf"
   },
   {
-    "title": "NAAC Autonomous College Benchmarks December 2022",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College%20Benchmarks%20December%202022.pdf",
-    "type": "pdf"
+    title: "NAAC Autonomous College SOP December 2022",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College_SOP%20December%202022.pdf",
+    type: "pdf"
   },
   {
-    "title": "NAAC Autonomous College SOP December 2022",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College_SOP%20December%202022.pdf",
-    "type": "pdf"
+    title: "NAAC Autonomous College Manual 2023",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College%20Manual_29-03-2023_Updated_9-8-2023.pdf",
+    type: "pdf"
   },
   {
-    "title": "NAAC Autonomous College Manual 2023",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College%20Manual_29-03-2023_Updated_9-8-2023.pdf",
-    "type": "pdf"
+    title: "NAAC-Reforms in Accreditation",
+    url: "http://naac.gov.in/images/docs/NAAC-Major_Reforms_in_Accreditation-Press_Release-27January_2024.pdf",
+    type: "pdf"
   },
   {
-    "title": "NAAC-Reforms in Accreditation",
-    "url": "http://naac.gov.in/images/docs/NAAC-Major_Reforms_in_Accreditation-Press_Release-27January_2024.pdf",
-    "type": "pdf"
+    title: "NAAC - Brief advisory note on Academic and Administrative Audit (AAA)",
+    url: "https://naac.gov.in/docs/Miscellaneous/NAAC_AAA_Note.pdf",
+    type: "pdf"
   },
   {
-    "title": "Comparison of NAAC Criteria and ISO 21001:2018 EOMS Clauses",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Comparison%20of%20NAAC%20Criteria%20and%20ISO%20210012018%20EOMS%20Clauses.pdf",
-    "type": "pdf"
+    title: "Comparison of NAAC Criteria and ISO 21001:2018 EOMS Clauses",
+    url: "https://mits.ac.in/assets/pdf/iqac/Comparison%20of%20NAAC%20Criteria%20and%20ISO%20210012018%20EOMS%20Clauses.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA Guidelines for Faculty 2023",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NBA_Guidelines%20for%20Faculty%20Updated%2022-08-2023.pdf",
-    "type": "pdf"
+    title: "NBA Guidelines for Faculty 2023",
+    url: "https://mits.ac.in/assets/pdf/iqac/NBA_Guidelines%20for%20Faculty%20Updated%2022-08-2023.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA UG Engg Tier I Manual",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NBA_UGEngg_Tier_I_Manual%20(uploaded%20on%2020231102)-2.pdf",
-    "type": "pdf"
+    title: "NBA UG Engg Tier I Manual",
+    url: "https://mits.ac.in/assets/pdf/iqac/NBA_UGEngg_Tier_I_Manual%20(uploaded%20on%2020231102)-2.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA-Self Assessment Report (SAR)-UG-Engineering (TIER-I Institutions)",
-    "url": "https://www.nbaind.org/files/2-SAR-UG-EG-T1_1%20August%202024_revised_Format_20240801144723.pdf",
-    "type": "pdf"
+    title: "NBA-Self Assessment Report (SAR)-UG-Engineering (TIER-I Institutions)",
+    url: "https://www.nbaind.org/files/2-SAR-UG-EG-T1_1%20August%202024_revised_Format_20240801144723.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA-Self Assessment Report (SAR)-PG-Management (TIER-I Institutions)",
-    "url": "https://www.nbaind.org/files/SAR-PG-MAG-18-4-2024_Format_20240514144527.pdf",
-    "type": "pdf"
+    title: "NBA-Self Assessment Report (SAR)-PG-Management (TIER-I Institutions)",
+    url: "https://www.nbaind.org/files/SAR-PG-MAG-18-4-2024_Format_20240514144527.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA-Self Assessment Report (SAR)-PG-Computer Application- MCA (TIER-I Institutions)",
-    "url": "https://www.nbaind.org/Files/MCA_New/2-SAR-MCA-final-21-12-2023.pdf",
-    "type": "pdf"
+    title: "NBA-Self Assessment Report (SAR)-PG-Computer Application- MCA (TIER-I Institutions)",
+    url: "https://www.nbaind.org/Files/MCA_New/2-SAR-MCA-final-21-12-2023.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA-New_Self Assessment Report (SAR)-UG-Engineering (TIER-I Institutions)",
-    "url": "https://nbaind.org/files/2-SAR-UG-EG-T1_1%20August%202024_Format_20240801124948.pdf",
-    "type": "pdf"
+    title: "NBA-New_Self Assessment Report (SAR)-UG-Engineering (TIER-I Institutions)",
+    url: "https://nbaind.org/files/2-SAR-UG-EG-T1_1%20August%202024_Format_20240801124948.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA-Self Assessment Report (SAR)-PG-Engineering (TIER-I Institutions)",
-    "url": "https://www.nbaind.org/files/PG-Eng-SAR-13-8-24_Format_20240813153128.pdf",
-    "type": "pdf"
+    title: "NBA-Self Assessment Report (SAR)-PG-Engineering (TIER-I Institutions)",
+    url: "https://www.nbaind.org/files/PG-Eng-SAR-13-8-24_Format_20240813153128.pdf",
+    type: "pdf"
   },
   {
-    "title": "NIRF 2023 Methodology - Engineering",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Engineering.pdf",
-    "type": "pdf"
+    title: "NIRF 2023 Methodology - Engineering",
+    url: "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Engineering.pdf",
+    type: "pdf"
   },
   {
-    "title": "NIRF 2023 Methodology - Management",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Management.pdf",
-    "type": "pdf"
+    title: "NIRF 2023 Methodology - Management",
+    url: "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Management.pdf",
+    type: "pdf"
   },
   {
-    "title": "NIRF 2023 Methodology - Overall",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Overall.pdf",
-    "type": "pdf"
+    title: "NIRF 2023 Methodology - Overall",
+    url: "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Overall.pdf",
+    type: "pdf"
   }
 ];
 export const userStrategicDocs: Doc[] = [
   {
-    "title": "MITS DTBU Institutional Development Plan (IDP 2025-35)",
-    "url": "https://mits.ac.in/assets/pdf/admin/MITS%20DTBU%20IDP%202025-35.pdf",
-    "type": "pdf"
+    title: "Institutional Development Plan (IDP) - MITS DTBU",
+    url: "https://mits.ac.in/assets/pdf/admin/MITS%20DTBU%20IDP%202025-35.pdf",
+    type: "pdf"
   },
   {
-    "title": "Office Order - 34 (A) - IDP Constitution - Steering Committee",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Office%20Order%20-%2034%20(A)%20-%20IDP%20Constitution%20-%20Steering%20Committee.pdf",
-    "type": "pdf"
+    title: "Institutional Development Plan (IDP) Steering Committee",
+    url: "https://mits.ac.in/assets/pdf/iqac/Office%20Order%20-%2034%20(A)%20-%20IDP%20Constitution%20-%20Steering%20Committee.pdf",
+    type: "pdf"
   },
   {
-    "title": "IDP Minutes of Meeting",
-    "url": "https://mits.ac.in/assets/pdf/iqac/IDP_Minutes_of_Meeting.pdf",
-    "type": "pdf"
+    title: "Institutional Development Plan_Minutes of Meeting",
+    url: "https://mits.ac.in/assets/pdf/iqac/IDP_Minutes_of_Meeting.pdf",
+    type: "pdf"
   },
   {
-    "title": "Strategic Plan Review Minutes of Meeting",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Strategic%20Plan%20Review%20_Minutes%20of%20Meeting.pdf",
-    "type": "pdf"
+    title: "Strategic Plan Implementation (AY 2023-24 Gap Analysis Report)",
+    url: "https://mits.ac.in/assets/pdf/iqac/23-24_GAp%20ANalysis%20Report.pdf",
+    type: "pdf"
   },
   {
-    "title": "Strategic Plan Implementation (AY 2023-24 Gap Analysis Report)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/23-24_GAp%20ANalysis%20Report.pdf",
-    "type": "pdf"
+    title: "Strategic Plan Implementation (AY 2022-23 Gap Analysis Report)",
+    url: "https://mits.ac.in/assets/pdf/iqac/22-23_GAp%20ANalysis%20Report.pdf",
+    type: "pdf"
   },
   {
-    "title": "Strategic Plan Implementation (AY 2022-23 Gap Analysis Report)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/22-23_GAp%20ANalysis%20Report.pdf",
-    "type": "pdf"
+    title: "Strategic Plan Implementation",
+    url: "https://mits.ac.in/assets/pdf/admin/Strategic-Plan-Implementation.pdf",
+    type: "pdf"
   },
   {
-    "title": "Strategic Plan (2022-23 to 2026-27)",
-    "url": "https://mits.ac.in/assets/pdf/admin/Strategic%20Plan%202022-27.pdf",
-    "type": "pdf"
+    title: "Strategic Plan (2022-23 to 2026-27)",
+    url: "https://mits.ac.in/assets/pdf/admin/Strategic%20Plan%202022-27.pdf",
+    type: "pdf"
   },
   {
-    "title": "Strategic Plan Implementation",
-    "url": "https://mits.ac.in/assets/pdf/admin/Strategic-Plan-Implementation.pdf",
-    "type": "pdf"
+    title: "Strategic Plan - Minutes of Meeting (MoM)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Strategic%20Plan%20Review%20_Minutes%20of%20Meeting.pdf",
+    type: "pdf"
   }
 ];
 export const userBestPracticesDocs: Doc[] = [
@@ -878,84 +883,84 @@ export const userEiqacDocs: Doc[] = [
 ];
 export const userGalleryDocs = [
   {
-    "title": "PDP on AI in Teaching and Learning — Session 1",
-    "img": "https://mits.ac.in/public/uploads/iqac/1ai.JPG"
+    title: 'ISO 21001:2018 Surveillance Audit 2 during 22nd January 2026 to 24th January 2026 - Lead Auditor Dr.K.Sundaresan " organized by IQAC',
+    src: "https://mits.ac.in/public/uploads/iqac/ISO 210012018 Surveillance Audit 2 during 22nd January 2026 to 24th January 2026 - Lead Auditor Dr.K.Sundaresan organized by IQAC.png",
+    img: "https://mits.ac.in/public/uploads/iqac/ISO 210012018 Surveillance Audit 2 during 22nd January 2026 to 24th January 2026 - Lead Auditor Dr.K.Sundaresan organized by IQAC.png"
   },
   {
-    "title": "PDP on AI in Teaching and Learning — Session 2",
-    "img": "https://mits.ac.in/public/uploads/iqac/2ai.JPG"
+    title: "AICTE's 360 Degree Feedback Appreciation Certificate",
+    src: "https://mits.ac.in/public/uploads/iqac/AICTE 360 Degree Feedback.jpeg",
+    img: "https://mits.ac.in/public/uploads/iqac/AICTE 360 Degree Feedback.jpeg"
   },
   {
-    "title": "PDP on AI in Teaching and Learning — Session 3",
-    "img": "https://mits.ac.in/public/uploads/iqac/3ai.JPG"
+    title: "ISO 21001:2018 (EOMS) Certificate (22.02.2024 to 21.02.2027)",
+    src: "https://mits.ac.in/public/uploads/iqac/iso1.jpg",
+    img: "https://mits.ac.in/public/uploads/iqac/iso1.jpg"
   },
   {
-    "title": "PDP on AI in Teaching and Learning — Session 4",
-    "img": "https://mits.ac.in/public/uploads/iqac/4ai.JPG"
+    title: 'ISO 21001:2018 Surveillance Audit - EOMS" Organized by Internal Quality Assurance Cell (IQAC) in association with Planning Approvals Accreditations Rankings & Certifications Cell from 10.03.2025 to 11.03.2025.',
+    src: "https://mits.ac.in/public/uploads/iqac/1ISO 210012018 Surveillance Audit.jpeg",
+    img: "https://mits.ac.in/public/uploads/iqac/1ISO 210012018 Surveillance Audit.jpeg"
   },
   {
-    "title": "ISO 21001:2018 Surveillance Audit 2 during 22nd to 24th January 2026",
-    "img": "https://mits.ac.in/public/uploads/iqac/ISO%20210012018%20Surveillance%20Audit%202%20during%2022nd%20January%202026%20to%2024th%20January%202026%20-%20Lead%20Auditor%20Dr.K.Sundaresan%20organized%20by%20IQAC.png"
+    title: 'Five-day Professional Development Programme (PDP) on "National Education Policy 2020 & Institutional Development", Organized by Internal Quality Assurance Cell (IQAC) in association with NITTTR, Chennai from 10.03.2025 to 14.03.2025',
+    src: "https://mits.ac.in/public/uploads/iqac/2Five-day Professional Development Programme (PDP) on National Education Policy.jpeg",
+    img: "https://mits.ac.in/public/uploads/iqac/2Five-day Professional Development Programme (PDP) on National Education Policy.jpeg"
   },
   {
-    "title": "AICTE's 360 Degree Feedback Appreciation Certificate",
-    "img": "https://mits.ac.in/public/uploads/iqac/AICTE%20360%20Degree%20Feedback.jpeg"
+    title: 'Six-day Professional Development Programme (PDP) on "Augmented Reality and Virtual Reality", Organized by Internal Quality Assurance Cell (IQAC) in association with NITTTR, Chennai from 24.02.2025 to 1.03.2025',
+    src: "https://mits.ac.in/public/uploads/iqac/3Six-day Professional Development Programme (PDP) on Augmented Reality and Virtual Reality.jpeg",
+    img: "https://mits.ac.in/public/uploads/iqac/3Six-day Professional Development Programme (PDP) on Augmented Reality and Virtual Reality.jpeg"
   },
   {
-    "title": "ISO 21001:2018 (EOMS) Certificate Press Release",
-    "img": "https://mits.ac.in/public/uploads/iqac/iso1.jpg"
+    title: 'Awareness Program on "AICTE 360° Feedback System" Organized by Internal Quality Assurance Cell (IQAC)',
+    src: "https://mits.ac.in/public/uploads/iqac/4Awareness Program on AICTE 360° Feedback System Organized by Internal Quality Assurance Cell.jpeg",
+    img: "https://mits.ac.in/public/uploads/iqac/4Awareness Program on AICTE 360° Feedback System Organized by Internal Quality Assurance Cell.jpeg"
   },
   {
-    "title": "ISO 21001:2018 EOMS First Surveillance Audit March 2025",
-    "img": "https://mits.ac.in/public/uploads/iqac/1ISO%20210012018%20Surveillance%20Audit.jpeg"
+    title: 'One Day Workshop on "National Credit Framework (NCrF): Revamping Curriculum, Pedagogy & Assessment" Organized by Internal Quality Assurance Cell (IQAC) on 29.01.2025',
+    src: "https://mits.ac.in/public/uploads/iqac/5One Day Workshop on National Credit Framework.jpeg",
+    img: "https://mits.ac.in/public/uploads/iqac/5One Day Workshop on National Credit Framework.jpeg"
   },
   {
-    "title": "PDP on National Education Policy 2020 & Institutional Development",
-    "img": "https://mits.ac.in/public/uploads/iqac/2Five-day%20Professional%20Development%20Programme%20(PDP)%20on%20National%20Education%20Policy.jpeg"
+    title: 'Two-days "External Academic and Administrative Audit for AY 2023-24" Organized by Internal Quality Assurance Cell from 18.12.2024 to 19.12.2024',
+    src: "https://mits.ac.in/public/uploads/iqac/6Two-days External Academic and Administrative Audit for AY 2024.jpg",
+    img: "https://mits.ac.in/public/uploads/iqac/6Two-days External Academic and Administrative Audit for AY 2024.jpg"
   },
   {
-    "title": "PDP on Augmented Reality and Virtual Reality",
-    "img": "https://mits.ac.in/public/uploads/iqac/3Six-day%20Professional%20Development%20Programme%20(PDP)%20on%20Augmented%20Reality%20and%20Virtual%20Reality.jpeg"
+    title: 'Expert Talk on "Generative AI" Organized by Internal Quality Assurance Cell (IQAC) on 21.11.2024',
+    src: "https://mits.ac.in/public/uploads/iqac/7Expert Talk on Generative AI Organized by Internal Quality Assurance Cell.jpeg",
+    img: "https://mits.ac.in/public/uploads/iqac/7Expert Talk on Generative AI Organized by Internal Quality Assurance Cell.jpeg"
   },
   {
-    "title": "Awareness Program on AICTE 360° Feedback System",
-    "img": "https://mits.ac.in/public/uploads/iqac/4Awareness%20Program%20on%20AICTE%20360%C2%B0%20Feedback%20System%20Organized%20by%20Internal%20Quality%20Assurance%20Cell.jpeg"
+    title: 'Guru-Dakshta Faculty Induction Program(FIP)" Organized by IQAC, MITS for the Academic Year 2024-25 from 17.09.2024 to 27.09.2024',
+    src: "https://mits.ac.in/public/uploads/iqac/8Guru-Dakshta Faculty Induction Program.jpg",
+    img: "https://mits.ac.in/public/uploads/iqac/8Guru-Dakshta Faculty Induction Program.jpg"
   },
   {
-    "title": "One-Day Workshop on National Credit Framework (NCrF)",
-    "img": "https://mits.ac.in/public/uploads/iqac/5One%20Day%20Workshop%20on%20National%20Credit%20Framework.jpeg"
+    title: 'Five- Day Online Professional Development Programme(PDP) on "Block Chain Technologies" Organized by Internal Quality Assurance Cell (IQAC) in association with NITTTR, Chennai 03.06.2024 – 07.06.2024',
+    src: "https://mits.ac.in/public/uploads/iqac/9Five- Day Online Professional Development Programme(PDP) on Block Chain Technologies.jpeg",
+    img: "https://mits.ac.in/public/uploads/iqac/9Five- Day Online Professional Development Programme(PDP) on Block Chain Technologies.jpeg"
   },
   {
-    "title": "Two-Days External Academic and Administrative Audit for AY 2023-24",
-    "img": "https://mits.ac.in/public/uploads/iqac/6Two-days%20External%20Academic%20and%20Administrative%20Audit%20for%20AY%202024.jpg"
+    title: 'Professional Development Programme(PDP) on "NBA ACCREDITATION " Organized by Internal Quality Assurance Cell (IQAC), MITS in association with NITTTR, Chennai 12.02.2024 – 16.02.2024',
+    src: "https://mits.ac.in/public/uploads/iqac/10Professional Development Programme(PDP) on NBA ACCREDITATION.jpeg",
+    img: "https://mits.ac.in/public/uploads/iqac/10Professional Development Programme(PDP) on NBA ACCREDITATION.jpeg"
   },
   {
-    "title": "Expert Talk on Generative AI Organized by IQAC",
-    "img": "https://mits.ac.in/public/uploads/iqac/7Expert%20Talk%20on%20Generative%20AI%20Organized%20by%20Internal%20Quality%20Assurance%20Cell.jpeg"
+    title: 'ISO 21001:2018 Certification Audit - EOMS Stage 2 Duration: 27th November 2023 to 1st December 2023 (5 Days) Auditors: Dr. K. Sundaresan & Sreenivasulu Rupineni Organised by PAARC Cell and IQAC',
+    src: "https://mits.ac.in/public/uploads/iqac/11ISO 210012018 Certification Audit - EOMS.jpeg",
+    img: "https://mits.ac.in/public/uploads/iqac/11ISO 210012018 Certification Audit - EOMS.jpeg"
   },
   {
-    "title": "Guru-Dakshta Faculty Induction Program (FIP)",
-    "img": "https://mits.ac.in/public/uploads/iqac/8Guru-Dakshta%20Faculty%20Induction%20Program.jpg"
+    title: 'Five-day Professional Development Programme (PDP) on "UI / UX Design", Organized by Internal Quality Assurance Cell (IQAC) in association with NITTTR, Chennai from 30.06.2025 to 04.07.2025.',
+    src: "https://mits.ac.in/public/uploads/iqac/UIUX Design.JPG",
+    img: "https://mits.ac.in/public/uploads/iqac/UIUX Design.JPG"
   },
   {
-    "title": "Online PDP on Block Chain Technologies",
-    "img": "https://mits.ac.in/public/uploads/iqac/9Five-%20Day%20Online%20Professional%20Development%20Programme(PDP)%20on%20Block%20Chain%20Technologies.jpeg"
-  },
-  {
-    "title": "PDP on NBA ACCREDITATION with NITTTR Chennai",
-    "img": "https://mits.ac.in/public/uploads/iqac/10Professional%20Development%20Programme(PDP)%20on%20NBA%20ACCREDITATION.jpeg"
-  },
-  {
-    "title": "ISO 21001:2018 Certification Audit - EOMS Stage 2",
-    "img": "https://mits.ac.in/public/uploads/iqac/11ISO%20210012018%20Certification%20Audit%20-%20EOMS.jpeg"
-  },
-  {
-    "title": "Professional Development Programme on UI / UX Design",
-    "img": "https://mits.ac.in/public/uploads/iqac/UIUX%20Design.JPG"
-  },
-  {
-    "title": "PDP on AI in Teaching and Learning",
-    "img": "https://mits.ac.in/public/uploads/iqac/5ai.JPG"
+    title: 'Five-day Professional Development Programme (PDP) on "AI in Teaching and Learning", Organized by Industry Relations Cell (IRC) and Internal Quality Assurance Cell (IQAC) in association with NITTTR, Chennai from 06.04.2026 to 10.04.2026.',
+    src: "https://mits.ac.in/public/uploads/iqac/5ai.JPG",
+    img: "https://mits.ac.in/public/uploads/iqac/5ai.JPG"
   }
 ];
 export const userManualsTableData = [
@@ -1021,7 +1026,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 7,
-    "title": "Academic Calendar &bull; Institute Academic Calendar &bull; Department Activity Calendar",
+    "title": "Academic Calendar • Institute Academic Calendar • Department Activity Calendar",
     "formats": [
       {
         "name": "Institute Academic Calendar",
@@ -1037,7 +1042,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 8,
-    "title": "Curriculum &bull; R20 Curriculum & Regulations &bull; R23 Curriculum & Regulations",
+    "title": "Curriculum • R20 Curriculum & Regulations • R23 Curriculum & Regulations",
     "formats": [
       {
         "name": "R20 Curriculum & Regulations",
@@ -1053,7 +1058,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 9,
-    "title": "Course Allocation &bull; Teaching hours calculation &bull; Faculty Course Choices &bull; Faculty Wise Course Allocation &bull; Class Wise Course Allocation &bull; Student Elective Choices &bull; MOOC Courses",
+    "title": "Course Allocation • Teaching hours calculation • Faculty Course Choices • Faculty Wise Course Allocation • Class Wise Course Allocation • Student Elective Choices • MOOC Courses",
     "formats": [
       {
         "name": "Course Allocation",
@@ -1089,7 +1094,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 10,
-    "title": "Time Table &bull; Class Time Table &bull; Faculty Time Table &bull; Class Room Occupancy &bull; Laboratory Occupancy &bull; Master Time Table",
+    "title": "Time Table • Class Time Table • Faculty Time Table • Class Room Occupancy • Laboratory Occupancy • Master Time Table",
     "formats": []
   },
   {
@@ -1099,7 +1104,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 12,
-    "title": "Continuous Internal Evaluation &bull; Sample Mid Exam Schedule (Notice) &bull; Sample Seating Arrangement &bull; Sample Invigilation Duty Allocation for Mid Exam &bull; Department Internal Exam Result Analysis",
+    "title": "Continuous Internal Evaluation • Sample Mid Exam Schedule (Notice) • Sample Seating Arrangement • Sample Invigilation Duty Allocation for Mid Exam • Department Internal Exam Result Analysis",
     "formats": [
       {
         "name": "Department Internal Exam Result Analysis",
@@ -1207,7 +1212,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 17,
-    "title": "Value Added Course &bull; Proposal for Offering Value-Added Courses &bull; Checklist : Value-Added Courses",
+    "title": "Value Added Course • Proposal for Offering Value-Added Courses • Checklist : Value-Added Courses",
     "formats": [
       {
         "name": "Proposal for Offering Value-Added Courses",
@@ -1223,7 +1228,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 18,
-    "title": "Remedial Classes &bull; Schedule & Time Table for Remedial Classes &bull; List of Failure Students &bull; Remedial Coaching Attendance Record &bull; Report on Performance Improvement after Remedial Classes",
+    "title": "Remedial Classes • Schedule & Time Table for Remedial Classes • List of Failure Students • Remedial Coaching Attendance Record • Report on Performance Improvement after Remedial Classes",
     "formats": [
       {
         "name": "Remedial Classes",
@@ -1234,7 +1239,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 19,
-    "title": "Mentoring Scheme &bull; List of Mentees Mentee /Student Profile &bull; Mentor-Mentee Session Attendance &bull; Mentor-Mentee Session Weekly Report &bull; Student Counselling Record &bull; Improvement Status of Mentee",
+    "title": "Mentoring Scheme • List of Mentees Mentee /Student Profile • Mentor-Mentee Session Attendance • Mentor-Mentee Session Weekly Report • Student Counselling Record • Improvement Status of Mentee",
     "formats": [
       {
         "name": "Mentoring Scheme",
@@ -1245,7 +1250,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 20,
-    "title": "Bridge Course &bull; Bridge Course Schedule &bull; Bridge Course Attendance",
+    "title": "Bridge Course • Bridge Course Schedule • Bridge Course Attendance",
     "formats": [
       {
         "name": "Bridge Course Schedule & Attendance",
@@ -1256,7 +1261,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 21,
-    "title": "Stakeholder Feedback &bull; Questionnaire &bull; Stakeholder Feedback - Action taken Report",
+    "title": "Stakeholder Feedback • Questionnaire • Stakeholder Feedback - Action taken Report",
     "formats": [
       {
         "name": "Questionnaire",
@@ -1272,7 +1277,7 @@ export const userManualsTableData = [
   },
   {
     "sno": 22,
-    "title": "Industrial Visit &bull; Permission for Industrial Visit &bull; Industrial Visit Report",
+    "title": "Industrial Visit • Permission for Industrial Visit • Industrial Visit Report",
     "formats": [
       {
         "name": "Permission for Industrial Visit",

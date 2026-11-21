@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { aboutSections, leadershipProfiles } from "@/data/aboutData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 interface Props {
   open: boolean;

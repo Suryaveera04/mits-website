@@ -188,7 +188,7 @@ export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
       <div className="phd-hero-banner">
         <div className="phd-hero-bg">
           <img
-            src={`${import.meta.env.BASE_URL}images/inner-banner.jpg`}
+            src="https://mits.edu/images/inner-banner.jpg"
             alt="MITS Ph.D. Admissions Banner"
             className="phd-hero-img"
             onError={(e) => {

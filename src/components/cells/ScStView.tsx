@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const publications = [
   { title: "Annexure A - Office Order - SC/ST Cell - 05.11.2025", href: "https://mits.ac.in/assets/pdf/assoc/SC-ST CELL-2025.pdf" },

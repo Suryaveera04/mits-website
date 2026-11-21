@@ -26,7 +26,7 @@ import {
 } from "@/data/researchData";
 import BarChart from "@/components/research/BarChart";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const sectionTabs = [
   { id: "overview", label: "Overview", icon: BookOpen },

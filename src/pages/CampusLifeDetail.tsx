@@ -10,15 +10,16 @@ import StudentClubsSection from "@/components/StudentClubsSection";
 
 const getLocalUrl = (url: string) => {
   if (!url) return "";
+  if (url.startsWith("https://mits.edu/")) return url;
   if (url.startsWith("http://") || url.startsWith("https://")) {
     const filename = encodeURIComponent(url.substring(url.lastIndexOf("/") + 1));
-    return `${import.meta.env.BASE_URL}gallery/${filename}`;
+    return `https://mits.edu/gallery/${filename}`;
   }
   if (url.startsWith("/gallery/")) {
-    return `${import.meta.env.BASE_URL}${url.substring(1)}`;
+    return `https://mits.edu${url}`;
   }
   if (url.startsWith("gallery/")) {
-    return `${import.meta.env.BASE_URL}${url}`;
+    return `https://mits.edu/${url}`;
   }
   return url;
 };

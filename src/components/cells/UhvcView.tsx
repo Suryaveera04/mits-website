@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const aboutParagraphs = [
   "MITS - Deemed to be University Universal Human Values Cell is constituted, with the following members, to ensure proper infrastructure and structure for UHV Cell as per guidelines of AICTE, to articulate, refine & share vision and educational goals, particularly those that are related to Universal Human Values and to define indicators or measures related to Universal Human Values goals & activities.",

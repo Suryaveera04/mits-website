@@ -27,7 +27,7 @@
  *      the corresponding faculty array item directly.
  */
 // Comprehensive department data extracted from official MITS website (mits.ac.in)
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 export interface FacultyMember {
   name: string;

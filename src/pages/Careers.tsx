@@ -34,7 +34,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const SectionHeading = ({ title, subtitle }: { title: string; subtitle?: string }) => (
   <div className="mb-6">

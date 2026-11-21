@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const objectives = [
   "To establish a structured evaluation system covering aptitude, NEP-allied courses, core subjects, and emerging disciplines.",

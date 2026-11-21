@@ -1,7 +1,7 @@
 // Official Exact Structured Data for National Education Policy (NEP) Cell
 // Exactly matched with live https://www.mits.ac.in/nep-cell
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 export interface NepLinkItem {
   id: number;

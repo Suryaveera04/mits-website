@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CalendarDays, ClipboardCheck, ShieldCheck, UserRoundPlus } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const processSteps = [
   { title: "Registration",  description: "Fill the online form with basic details.",                      icon: UserRoundPlus },

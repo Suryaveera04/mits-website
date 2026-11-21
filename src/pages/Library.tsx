@@ -52,7 +52,7 @@ import {
   libraryContacts,
 } from "@/data/libraryData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 const heroImg = `${BASE}departments/department images/library.png`;
 const galleryImgs = [
   `${BASE}infrastructure/library/library-2.webp`,

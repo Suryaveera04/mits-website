@@ -12,7 +12,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 type TabKey = "ug-tab20" | "ug-tab53" | "ug-tab24" | "ug-tab54";
 

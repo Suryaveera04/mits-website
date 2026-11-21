@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { PanInfo } from "framer-motion";
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const SLIDE_INTERVAL = 4800;

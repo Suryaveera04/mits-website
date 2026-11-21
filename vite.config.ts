@@ -87,7 +87,7 @@ function cmsProxyPlugin() {
       server.middlewares.use((req, res, next) => {
         const rawUrl = req.url || "";
         const cleanUrl = rawUrl.split("?")[0];
-        if (cleanUrl === "/site.webmanifest" || cleanUrl === "/manifest.json" || cleanUrl === "/university/site.webmanifest" || cleanUrl === "/university/manifest.json") {
+        if (cleanUrl.endsWith("/site.webmanifest") || cleanUrl.endsWith("/manifest.json")) {
           const manifestPath = path.resolve(__dirname, "public/site.webmanifest");
           if (fs.existsSync(manifestPath)) {
             res.setHeader("Content-Type", "application/manifest+json; charset=utf-8");

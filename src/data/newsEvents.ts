@@ -84,7 +84,7 @@ export const getNewsEventImageSrc = (imagePath?: string | null): string => {
     cleanPath = cleanPath.slice(baseUrl.length);
   }
   cleanPath = cleanPath.replace(/^\/+/, "");
-  return `${baseUrl}${cleanPath}`;
+  return `https://mits.edu/${cleanPath}`;
 };
 
 export const newsEvents: NewsEventItem[] = [

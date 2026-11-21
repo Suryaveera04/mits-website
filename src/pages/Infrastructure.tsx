@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 // ─── Full-Bleed Layout Container (Matching International Relations) ───────────
 const WIDE = "w-full max-w-[1900px] mx-auto px-3 sm:px-6 lg:px-10 xl:px-16";

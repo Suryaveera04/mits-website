@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const sidebarTabs = [
   { id: "training-placement-cell", label: "Training & Placement Cell", icon: Users2 },

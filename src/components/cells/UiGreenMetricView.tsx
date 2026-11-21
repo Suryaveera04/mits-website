@@ -29,7 +29,7 @@ import {
 } from "./uiGreenMetricData";
 import { sdgContactData } from "./sdgData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 function PdfIcon({ className = "w-7 h-7" }: { className?: string }) {
   return (

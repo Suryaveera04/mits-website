@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { officialClubsTabs, OfficialClubTab } from "@/data/studentClubsData";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 // Detailed directory table from Screenshot 2 (Official 17 rows)
 interface CoordinatorEntry {

@@ -11,7 +11,7 @@ interface Props {
   bannerImage?: string;
 }
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = "https://mits.edu/";
 
 const PageShell = ({ eyebrow = "About", title, intro, children, bannerImage }: Props) => {
   const splitTitle = (text: string) => {
