@@ -69,7 +69,9 @@ import {
   meetingsMom,
   meetingsDtbu,
   aqarReportsList,
+  aqarAccordionGroups,
   userReportsDocs,
+  feedbackSystemData,
   userFeedbackSections,
   userAaaDocs,
   userAaaRefDocs,
@@ -439,6 +441,68 @@ const IQACMilestonesSlider = () => {
           </motion.div>
         </div>
       </div>
+    </div>
+  );
+};
+
+const AQARAccordion = ({ search }: { search: string }) => {
+  const [openYears, setOpenYears] = useState<Record<string, boolean>>({
+    "AQAR 2025-26": true,
+  });
+
+  const toggleYear = (year: string) => {
+    setOpenYears((prev) => ({ ...prev, [year]: !prev[year] }));
+  };
+
+  return (
+    <div className="space-y-3 my-4">
+      {aqarAccordionGroups.map((group) => {
+        const filteredDocs = search.trim()
+          ? group.docs.filter((d) => d.title.toLowerCase().includes(search.toLowerCase()))
+          : group.docs;
+
+        if (search.trim() && filteredDocs.length === 0 && !group.year.toLowerCase().includes(search.toLowerCase())) {
+          return null;
+        }
+
+        const isOpen = search.trim() ? true : !!openYears[group.year];
+
+        return (
+          <div
+            key={group.year}
+            className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-xs transition-all"
+          >
+            <button
+              onClick={() => toggleYear(group.year)}
+              className="w-full flex items-center justify-between p-4 bg-slate-50 hover:bg-slate-100/80 transition-colors text-left cursor-pointer"
+            >
+              <span className="font-display font-bold text-base md:text-lg text-[#b31317]">
+                {group.year}
+              </span>
+              <ChevronRight
+                className={`w-5 h-5 text-slate-500 transition-transform duration-200 ${
+                  isOpen ? "rotate-90 text-[#b31317]" : ""
+                }`}
+              />
+            </button>
+            <AnimatePresence>
+              {isOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="overflow-hidden border-t border-slate-100"
+                >
+                  <div className="p-3 bg-white">
+                    <PublicationList docs={filteredDocs} />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      })}
     </div>
   );
 };
@@ -873,7 +937,7 @@ const IQAC = () => {
                 {active === "aqar" && (
                   <section className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm">
                     <TabHeading title="AQAR" />
-                    <PublicationList docs={filter(aqarReportsList)} />
+                    <AQARAccordion search={search} />
                   </section>
                 )}
 
@@ -888,38 +952,29 @@ const IQAC = () => {
                 {/* 19. Feedback System */}
                 {active === "feedback" && (
                   <section className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-6">
-                    <TabHeading title="Feedback System" />
                     <TabHeading title="AICTE's 360 Degree Feedback" />
-                    <PublicationList docs={filter(userFeedbackSections.aicteFeedbackDocs)} />
+                    <PublicationList docs={filter(feedbackSystemData.aicte360Feedback)} />
 
                     <div className="my-6 border-t border-slate-100" />
                     <TabHeading title="Stakeholder Feedback" />
-                    <PublicationList docs={filter(userFeedbackSections.stakeholderFeedbackDocs)} />
+                    <PublicationList docs={filter(feedbackSystemData.stakeholderFeedback)} />
 
                     <div className="my-6 border-t border-slate-100" />
                     <TabHeading title="Stakeholder Feedback - Action Taken Report" />
-                    <PublicationList docs={filter(userFeedbackSections.actionTakenReports)} />
+                    <PublicationList docs={filter(feedbackSystemData.actionTakenReports)} />
 
                     <div className="my-6 border-t border-slate-100" />
                     <TabHeading title="Evidences on ATR" />
-                    <PublicationList docs={filter(userFeedbackSections.atrEvidence)} />
+                    <PublicationList docs={filter(feedbackSystemData.evidencesOnAtr)} />
 
                     <div className="my-6 border-t border-slate-100" />
                     <TabHeading title="Online Feedback Forms" />
                     <BoldIntro text="Feedback on Curriculum" />
-                    <PublicationList
-                      docs={filter(
-                        userFeedbackSections.onlineCurriculumForms.map((f) => ({
-                          title: f.category,
-                          url: f.url,
-                          type: "link" as const,
-                        }))
-                      )}
-                    />
+                    <PublicationList docs={filter(feedbackSystemData.onlineCurriculumForms)} />
 
                     <div className="my-6 border-t border-slate-100" />
                     <TabHeading title="Other Feedback Views" />
-                    <PublicationList docs={filter(userFeedbackSections.otherFeedbackViews)} />
+                    <PublicationList docs={filter(feedbackSystemData.otherFeedbackViews)} />
                   </section>
                 )}
 
