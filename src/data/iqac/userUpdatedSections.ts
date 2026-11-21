@@ -244,242 +244,247 @@ export const userFeedbackSections: Record<string, any> = {
   ]
 };
 export const userAaaDocs: Record<string, any> = {
-  "policy": {
-    "title": "Academic and Administrative Audit Policy (Autonomous)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/MITS%20IQAC%20Academic%20Audit%20Policy.pdf",
-    "type": "pdf"
-  },
-  "dtbuPolicy": {
-    "title": "Academic and Administrative Audit Policy (MITS DTBU Version 1)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/MITS-DTBU%20AAA_%20POLICY%20DOCUMENT%20Version%201.pdf",
-    "type": "pdf"
-  },
-  "externalReports": [
+  introParagraph: "Madanapalle Institute of Technology & Science is committed to maintaining and enhancing academic excellence through a structured Quality assurance mechanism. Academic & Administrative audit serves as a critical tool to assess, monitor, and improve the quality of Teaching & Learning, and Academic processes and the administrative system to support the quality of such a delivery. This policy applies to all Academic Departments, Programs, and Faculty members, ensuring a systematic review of instructional methods, curriculum effectiveness, student engagement, Faculty performance, and overall academic governance. Audit process of quality of education impart and assess compliance with accreditation bodies such as NAAC, NBA and other regulatory requirements for its sustenance is monitored through the Internal Quality Assurance Cell (IQAC).",
+  academicAuditParagraph: "Academic Audit is a structured and methodical approach to evaluate the Quality of an Institution's academic processes. It involves a deliberate and systematic sampling to assess the effectiveness of Academic delivery, encompassing areas such as Teaching-Learning practices, Curriculum Design and evaluation, Research initiatives, outreach programs, and other related academic endeavours. This process aligns with quality assurance principles and aims to evaluate the effectiveness of Academic Procedures and Processes adopted by Departments for quality enhancement.",
+  administrativeAuditParagraph: "Administrative Audit focuses on evaluating the effectiveness of various administrative processes that facilitate academic activities. This includes areas such as student support services, management of Academic Infrastructure, Campus maintenance, IT services, student facilities, and measures ensuring the safety and security of students and the campus as a whole. Audit process typically involves sampling methods and conducting targeted interviews with relevant stakeholders.",
+  policies: [
     {
-      "title": "External Audit Report 2024-25",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202024-25.pdf",
-      "type": "pdf"
+      title: "Academic and Administrative Audit Policy (DTBU)",
+      url: "https://mits.ac.in/assets/pdf/iqac/MITS-DTBU%20AAA_%20POLICY%20DOCUMENT%20Version%201.pdf",
+      type: "pdf"
     },
     {
-      "title": "External Audit Report 2023-24",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202023-24.pdf",
-      "type": "pdf"
-    },
-    {
-      "title": "External Audit Report 2022-23",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202022-23.pdf",
-      "type": "pdf"
-    },
-    {
-      "title": "External Audit Report 2021-22",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202021-22.pdf",
-      "type": "pdf"
+      title: "Academic and Administrative Audit Policy",
+      url: "https://mits.ac.in/assets/pdf/iqac/MITS%20IQAC%20Academic%20Audit%20Policy.pdf",
+      type: "pdf"
     }
   ],
-  "internalReports": [
+  externalReports: [
     {
-      "title": "Internal Audit Report 2025-26",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_Internal%20Audit%20Report%20for%202025-2026.pdf",
-      "type": "pdf"
+      title: "External Audit Report 2024-25",
+      url: "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202024-25.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Audit Report 2024-25",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20Report%202024-2025.pdf",
-      "type": "pdf"
+      title: "External Audit Report 2023-24",
+      url: "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202023-24.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Audit Report 2023-24",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal-Audit-Report%202023-2024.pdf",
-      "type": "pdf"
+      title: "External Audit Report 2022-23",
+      url: "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202022-23.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Audit Report 2022-23",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20Report%202022-23.pdf",
-      "type": "pdf"
-    },
-    {
-      "title": "Internal Audit Report 2021-22",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20Report%202021-22.pdf",
-      "type": "pdf"
+      title: "External Audit Report 2021-22",
+      url: "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Report%202021-22.pdf",
+      type: "pdf"
     }
   ],
-  "externalAtr": [
+  internalReports: [
     {
-      "title": "External Audit ATR 2024-25",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR%20-%20External%20Audit%202024-25.pdf",
-      "type": "pdf"
+      title: "Internal Audit Report 2025-26",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20_Internal%20Audit%20Report%20for%202025-2026.pdf",
+      type: "pdf"
     },
     {
-      "title": "External Audit ATR 2023-24",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20ATR%202023-24.pdf",
-      "type": "pdf"
+      title: "Internal Audit Report 2024-25",
+      url: "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20Report%20for-2024-2025.pdf",
+      type: "pdf"
     },
     {
-      "title": "External Audit ATR 2022-23",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20ATR%202022-23.pdf",
-      "type": "pdf"
+      title: "Internal Audit Report 2023-24",
+      url: "https://mits.ac.in/assets/pdf/iqac/Internal-Audit-Report%202023-2024.pdf",
+      type: "pdf"
     },
     {
-      "title": "External Audit ATR 2021-22",
-      "url": "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20ATR%202021-22.pdf",
-      "type": "pdf"
+      title: "Internal Audit Report 2022-23",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20Internal%20Audit%20Report%202022-23.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Internal Audit Report 2021-22",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20Internal%20Audit%20Report%202021-22.pdf",
+      type: "pdf"
     }
   ],
-  "internalAtr": [
+  externalAtr: [
     {
-      "title": "Internal Action Taken Report 2025-26",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR_Internal%20Audit%20Report%20for%202025-2026.pdf",
-      "type": "pdf"
+      title: "External Audit ATR 2024-25",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR%20-%20External%20Audit%202024-25.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Action Taken Report 2024-25",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Index%20_%20ATR_%202024-25%20_AAA.pdf",
-      "type": "pdf"
+      title: "External Audit ATR 2023-24",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20ATR%20-%20External%20Audit%20Report%202023-24.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Action Taken Report 2023-24",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20ATR%202023-24.pdf",
-      "type": "pdf"
+      title: "External Audit ATR 2022-23",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20ATR%20-%20External%20Audit%20Report%202022-23.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Action Taken Report 2022-23",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20ATR%202022-23.pdf",
-      "type": "pdf"
+      title: "External Audit ATR 2021-22",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20ATR%20-%20External%20Audit%20Report%202021-22.pdf",
+      type: "pdf"
+    }
+  ],
+  internalAtr: [
+    {
+      title: "Internal Action Taken Report 2025-26",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR_Internal%20Audit%20Report%20for%202025-2026.pdf",
+      type: "pdf"
     },
     {
-      "title": "Internal Action Taken Report 2021-22",
-      "url": "https://mits.ac.in/assets/pdf/iqac/Internal%20Audit%20ATR%202021-22.pdf",
-      "type": "pdf"
+      title: "Internal Action Taken Report 2024-25",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20_%20ATR_%202024-25%20_AAA.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Internal Action Taken Report 2023-24",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20ATR%20-%20Internal%20Audit%20Report%202023-24.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Internal Action Taken Report 2022-23",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20_ATR_%20Internal%20Audit%202022-23%20.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Internal Action Taken Report 2021-22",
+      url: "https://mits.ac.in/assets/pdf/iqac/Index%20for%20ATR%20-%20Internal%20Audit%20Report%202021-22.pdf",
+      type: "pdf"
     }
   ]
 };
 export const userAaaRefDocs: Doc[] = [
   {
-    "title": "NAAC - Brief Advisory Note on Academic and Administrative Audit (AAA)",
-    "url": "https://naac.gov.in/docs/Miscellaneous/NAAC_AAA_Note.pdf",
-    "type": "pdf"
+    title: "NAAC (1st Cycle) - Self Study Report (SSR)",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC%20(1st%20Cycle)%20-%20Self%20Study%20Report%20(SSR).pdf",
+    type: "pdf"
   },
   {
-    "title": "NAAC (1st Cycle) - Self Study Report (SSR)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC%20(1st%20Cycle)%20-%20Self%20Study%20Report%20(SSR).pdf",
-    "type": "pdf"
+    title: "NAAC Autonomous College Benchmarks December 2022",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College%20Benchmarks%20December%202022.pdf",
+    type: "pdf"
   },
   {
-    "title": "NAAC Autonomous College Benchmarks December 2022",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College%20Benchmarks%20December%202022.pdf",
-    "type": "pdf"
+    title: "NAAC Autonomous College SOP December 2022",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College_SOP%20December%202022.pdf",
+    type: "pdf"
   },
   {
-    "title": "NAAC Autonomous College SOP December 2022",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College_SOP%20December%202022.pdf",
-    "type": "pdf"
+    title: "NAAC Autonomous College Manual 2023",
+    url: "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College%20Manual_29-03-2023_Updated_9-8-2023.pdf",
+    type: "pdf"
   },
   {
-    "title": "NAAC Autonomous College Manual 2023",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NAAC%20Autonomous_College%20Manual_29-03-2023_Updated_9-8-2023.pdf",
-    "type": "pdf"
+    title: "NAAC-Reforms in Accreditation",
+    url: "http://naac.gov.in/images/docs/NAAC-Major_Reforms_in_Accreditation-Press_Release-27January_2024.pdf",
+    type: "pdf"
   },
   {
-    "title": "NAAC-Reforms in Accreditation",
-    "url": "http://naac.gov.in/images/docs/NAAC-Major_Reforms_in_Accreditation-Press_Release-27January_2024.pdf",
-    "type": "pdf"
+    title: "NAAC - Brief advisory note on Academic and Administrative Audit (AAA)",
+    url: "https://naac.gov.in/docs/Miscellaneous/NAAC_AAA_Note.pdf",
+    type: "pdf"
   },
   {
-    "title": "Comparison of NAAC Criteria and ISO 21001:2018 EOMS Clauses",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Comparison%20of%20NAAC%20Criteria%20and%20ISO%20210012018%20EOMS%20Clauses.pdf",
-    "type": "pdf"
+    title: "Comparison of NAAC Criteria and ISO 21001:2018 EOMS Clauses",
+    url: "https://mits.ac.in/assets/pdf/iqac/Comparison%20of%20NAAC%20Criteria%20and%20ISO%20210012018%20EOMS%20Clauses.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA Guidelines for Faculty 2023",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NBA_Guidelines%20for%20Faculty%20Updated%2022-08-2023.pdf",
-    "type": "pdf"
+    title: "NBA Guidelines for Faculty 2023",
+    url: "https://mits.ac.in/assets/pdf/iqac/NBA_Guidelines%20for%20Faculty%20Updated%2022-08-2023.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA UG Engg Tier I Manual",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NBA_UGEngg_Tier_I_Manual%20(uploaded%20on%2020231102)-2.pdf",
-    "type": "pdf"
+    title: "NBA UG Engg Tier I Manual",
+    url: "https://mits.ac.in/assets/pdf/iqac/NBA_UGEngg_Tier_I_Manual%20(uploaded%20on%2020231102)-2.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA-Self Assessment Report (SAR)-UG-Engineering (TIER-I Institutions)",
-    "url": "https://www.nbaind.org/files/2-SAR-UG-EG-T1_1%20August%202024_revised_Format_20240801144723.pdf",
-    "type": "pdf"
+    title: "NBA-Self Assessment Report (SAR)-UG-Engineering (TIER-I Institutions)",
+    url: "https://www.nbaind.org/files/2-SAR-UG-EG-T1_1%20August%202024_revised_Format_20240801144723.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA-Self Assessment Report (SAR)-PG-Management (TIER-I Institutions)",
-    "url": "https://www.nbaind.org/files/SAR-PG-MAG-18-4-2024_Format_20240514144527.pdf",
-    "type": "pdf"
+    title: "NBA-Self Assessment Report (SAR)-PG-Management (TIER-I Institutions)",
+    url: "https://www.nbaind.org/files/SAR-PG-MAG-18-4-2024_Format_20240514144527.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA-Self Assessment Report (SAR)-PG-Computer Application- MCA (TIER-I Institutions)",
-    "url": "https://www.nbaind.org/Files/MCA_New/2-SAR-MCA-final-21-12-2023.pdf",
-    "type": "pdf"
+    title: "NBA-Self Assessment Report (SAR)-PG-Computer Application- MCA (TIER-I Institutions)",
+    url: "https://www.nbaind.org/Files/MCA_New/2-SAR-MCA-final-21-12-2023.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA-New_Self Assessment Report (SAR)-UG-Engineering (TIER-I Institutions)",
-    "url": "https://nbaind.org/files/2-SAR-UG-EG-T1_1%20August%202024_Format_20240801124948.pdf",
-    "type": "pdf"
+    title: "NBA-New_Self Assessment Report (SAR)-UG-Engineering (TIER-I Institutions)",
+    url: "https://nbaind.org/files/2-SAR-UG-EG-T1_1%20August%202024_Format_20240801124948.pdf",
+    type: "pdf"
   },
   {
-    "title": "NBA-Self Assessment Report (SAR)-PG-Engineering (TIER-I Institutions)",
-    "url": "https://www.nbaind.org/files/PG-Eng-SAR-13-8-24_Format_20240813153128.pdf",
-    "type": "pdf"
+    title: "NBA-Self Assessment Report (SAR)-PG-Engineering (TIER-I Institutions)",
+    url: "https://www.nbaind.org/files/PG-Eng-SAR-13-8-24_Format_20240813153128.pdf",
+    type: "pdf"
   },
   {
-    "title": "NIRF 2023 Methodology - Engineering",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Engineering.pdf",
-    "type": "pdf"
+    title: "NIRF 2023 Methodology - Engineering",
+    url: "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Engineering.pdf",
+    type: "pdf"
   },
   {
-    "title": "NIRF 2023 Methodology - Management",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Management.pdf",
-    "type": "pdf"
+    title: "NIRF 2023 Methodology - Management",
+    url: "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Management.pdf",
+    type: "pdf"
   },
   {
-    "title": "NIRF 2023 Methodology - Overall",
-    "url": "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Overall.pdf",
-    "type": "pdf"
+    title: "NIRF 2023 Methodology - Overall",
+    url: "https://mits.ac.in/assets/pdf/iqac/NIRF%202023%20Methodology%20-%20Overall.pdf",
+    type: "pdf"
   }
 ];
 export const userStrategicDocs: Doc[] = [
   {
-    "title": "MITS DTBU Institutional Development Plan (IDP 2025-35)",
-    "url": "https://mits.ac.in/assets/pdf/admin/MITS%20DTBU%20IDP%202025-35.pdf",
-    "type": "pdf"
+    title: "Institutional Development Plan (IDP) - MITS DTBU",
+    url: "https://mits.ac.in/assets/pdf/admin/MITS%20DTBU%20IDP%202025-35.pdf",
+    type: "pdf"
   },
   {
-    "title": "Office Order - 34 (A) - IDP Constitution - Steering Committee",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Office%20Order%20-%2034%20(A)%20-%20IDP%20Constitution%20-%20Steering%20Committee.pdf",
-    "type": "pdf"
+    title: "Institutional Development Plan (IDP) Steering Committee",
+    url: "https://mits.ac.in/assets/pdf/iqac/Office%20Order%20-%2034%20(A)%20-%20IDP%20Constitution%20-%20Steering%20Committee.pdf",
+    type: "pdf"
   },
   {
-    "title": "IDP Minutes of Meeting",
-    "url": "https://mits.ac.in/assets/pdf/iqac/IDP_Minutes_of_Meeting.pdf",
-    "type": "pdf"
+    title: "Institutional Development Plan_Minutes of Meeting",
+    url: "https://mits.ac.in/assets/pdf/iqac/IDP_Minutes_of_Meeting.pdf",
+    type: "pdf"
   },
   {
-    "title": "Strategic Plan Review Minutes of Meeting",
-    "url": "https://mits.ac.in/assets/pdf/iqac/Strategic%20Plan%20Review%20_Minutes%20of%20Meeting.pdf",
-    "type": "pdf"
+    title: "Strategic Plan Implementation (AY 2023-24 Gap Analysis Report)",
+    url: "https://mits.ac.in/assets/pdf/iqac/23-24_GAp%20ANalysis%20Report.pdf",
+    type: "pdf"
   },
   {
-    "title": "Strategic Plan Implementation (AY 2023-24 Gap Analysis Report)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/23-24_GAp%20ANalysis%20Report.pdf",
-    "type": "pdf"
+    title: "Strategic Plan Implementation (AY 2022-23 Gap Analysis Report)",
+    url: "https://mits.ac.in/assets/pdf/iqac/22-23_GAp%20ANalysis%20Report.pdf",
+    type: "pdf"
   },
   {
-    "title": "Strategic Plan Implementation (AY 2022-23 Gap Analysis Report)",
-    "url": "https://mits.ac.in/assets/pdf/iqac/22-23_GAp%20ANalysis%20Report.pdf",
-    "type": "pdf"
+    title: "Strategic Plan Implementation",
+    url: "https://mits.ac.in/assets/pdf/admin/Strategic-Plan-Implementation.pdf",
+    type: "pdf"
   },
   {
-    "title": "Strategic Plan (2022-23 to 2026-27)",
-    "url": "https://mits.ac.in/assets/pdf/admin/Strategic%20Plan%202022-27.pdf",
-    "type": "pdf"
+    title: "Strategic Plan (2022-23 to 2026-27)",
+    url: "https://mits.ac.in/assets/pdf/admin/Strategic%20Plan%202022-27.pdf",
+    type: "pdf"
   },
   {
-    "title": "Strategic Plan Implementation",
-    "url": "https://mits.ac.in/assets/pdf/admin/Strategic-Plan-Implementation.pdf",
-    "type": "pdf"
+    title: "Strategic Plan - Minutes of Meeting (MoM)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Strategic%20Plan%20Review%20_Minutes%20of%20Meeting.pdf",
+    type: "pdf"
   }
 ];
 export const userBestPracticesDocs: Doc[] = [

@@ -4095,13 +4095,8 @@ export const aqarAccordionGroups: AQARYearGroup[] = [
     docs: [
       {
         title: "AQAR 2023-24 Report",
-        url: "https://mits.ac.in/assets/pdf/iqac/AQAR 2023-24.pdf",
+        url: "https://mits.ac.in/assets/pdf/iqac/AQAR%202023-24.pdf",
         type: "pdf"
-      },
-      {
-        title: "AQAR Criterion wise",
-        url: "https://mits.ac.in/aqarcriteria",
-        type: "link"
       }
     ]
   },
@@ -4110,13 +4105,8 @@ export const aqarAccordionGroups: AQARYearGroup[] = [
     docs: [
       {
         title: "AQAR 2022-23 Report",
-        url: "https://mits.ac.in/public/uploads/naac/AQAR 2022-23.pdf",
+        url: "https://mits.ac.in/public/uploads/naac/AQAR%202022-23.pdf",
         type: "pdf"
-      },
-      {
-        title: "AQAR Criterion wise",
-        url: "https://mits.ac.in/aqarcriteria",
-        type: "link"
       }
     ]
   },
@@ -4127,11 +4117,6 @@ export const aqarAccordionGroups: AQARYearGroup[] = [
         title: "AQAR 2021-22 Report",
         url: "https://mits.ac.in/public/uploads/naac/AQAR%202021-2022.pdf",
         type: "pdf"
-      },
-      {
-        title: "AQAR Criterion wise",
-        url: "https://mits.ac.in/aqarcriteria",
-        type: "link"
       }
     ]
   },
@@ -4142,11 +4127,6 @@ export const aqarAccordionGroups: AQARYearGroup[] = [
         title: "AQAR 2020-21 Report",
         url: "https://mits.ac.in/public/uploads/naac/AQAR%202020-2021.pdf",
         type: "pdf"
-      },
-      {
-        title: "AQAR Criterion wise",
-        url: "https://mits.ac.in/aqarcriteria",
-        type: "link"
       }
     ]
   },
@@ -4157,11 +4137,6 @@ export const aqarAccordionGroups: AQARYearGroup[] = [
         title: "AQAR 2019-20 Report",
         url: "https://mits.ac.in/public/uploads/naac/AQAR2019-20.pdf",
         type: "pdf"
-      },
-      {
-        title: "AQAR Criterion wise",
-        url: "https://mits.ac.in/aqarcriteria",
-        type: "link"
       }
     ]
   },
@@ -4172,11 +4147,6 @@ export const aqarAccordionGroups: AQARYearGroup[] = [
         title: "AQAR 2018-19 Report",
         url: "https://mits.ac.in/public/uploads/naac/AQAR2018-19.pdf",
         type: "pdf"
-      },
-      {
-        title: "AQAR Criterion wise",
-        url: "https://mits.ac.in/aqarcriteria",
-        type: "link"
       }
     ]
   },
@@ -4187,11 +4157,6 @@ export const aqarAccordionGroups: AQARYearGroup[] = [
         title: "AQAR 2017-18 Report",
         url: "https://mits.ac.in/public/uploads/naac/AQAR2017-18.pdf",
         type: "pdf"
-      },
-      {
-        title: "AQAR Criterion wise",
-        url: "https://mits.ac.in/aqarcriteria",
-        type: "link"
       }
     ]
   }

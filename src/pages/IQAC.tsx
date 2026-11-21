@@ -88,6 +88,8 @@ import {
   userManualsTableData,
   downloadsDocs,
   econtent,
+  poPsoCoUG,
+  poPsoCoPG,
   contact,
   type Doc,
 } from "@/data/iqac";
@@ -982,14 +984,21 @@ const IQAC = () => {
                 {active === "aaa" && (
                   <section className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-6">
                     <TabHeading title="Academic and Administrative Audit (AAA)" />
-                    <div className="space-y-4 font-body text-slate-800 text-sm md:text-base leading-relaxed text-justify">
-                      <p>
-                        Madanapalle Institute of Technology & Science is committed to fostering academic and operational excellence through a systematic, evidence-based, and objective evaluation of its educational and administrative processes. The Academic and Administrative Audit (AAA) serves as a structured institutional mechanism to review, assess, and continuously enhance curriculum implementation, teaching-learning practices, research productivity, infrastructure support, governance efficiency, and student-support services.
-                      </p>
-                      <p>
-                        Conducted regularly by internal audit teams (IQAC/PAARC) and distinguished external peer audit committees from premier institutions, AAA identifies operational non-conformities, benchmarks academic standards against regulatory frameworks (UGC, AICTE, NAAC, NBA, ISO 21001:2018), and formulates rigorous Action Taken Reports (ATRs) for sustained quality elevation.
-                      </p>
-                    </div>
+                    <p className="font-body text-slate-800 text-sm md:text-base leading-relaxed text-justify">
+                      {userAaaDocs.introParagraph}
+                    </p>
+
+                    <TabHeading title="Academic Audit" />
+                    <p className="font-body text-slate-800 text-sm md:text-base leading-relaxed text-justify">
+                      {userAaaDocs.academicAuditParagraph}
+                    </p>
+
+                    <TabHeading title="Administrative Audit" />
+                    <p className="font-body text-slate-800 text-sm md:text-base leading-relaxed text-justify">
+                      {userAaaDocs.administrativeAuditParagraph}
+                    </p>
+
+                    <PublicationList docs={filter(userAaaDocs.policies)} />
 
                     <div className="my-6 border-t border-slate-100" />
                     <TabHeading title="Academic and Administrative Audit (AAA) Reports" />
