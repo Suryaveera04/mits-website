@@ -1,647 +1,742 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronRight,
+  ChevronDown,
   FileText,
-  ExternalLink,
-  Award,
-  Users,
+  Download,
   Mail,
   Phone,
   MapPin,
-  Sparkles,
-  Trophy,
-  BookOpen,
-  ClipboardList,
-  ScrollText,
-  GraduationCap,
-  Building2,
-  ShieldCheck,
+  User,
   Video,
-  Menu,
-  Download,
+  ExternalLink,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ScrollReveal from "@/components/ScrollReveal";
 import SEO from "@/components/SEO";
-import {
-  accreditationCore,
-  cycle1Documents,
-  aisheReports,
-  criteria,
-  criteriaWithMetrics,
-  extendedProfileDVV,
-  naacOfficeOrders,
-  naacContacts,
-  NAAC_GRADE,
-  NAAC_CYCLE,
-  type DocLink,
-} from "@/data/naacData";
 
-type SectionKey =
-  | "overview"
-  | "cycle"
-  | "reassessment"
-  | "criteria"
-  | "dvv-ep"
-  | "aishe";
+const BASE = "https://mits.edu/";
 
-const sections: { key: SectionKey; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
-  { key: "overview", label: "Home", icon: BookOpen },
-  { key: "cycle", label: "Cycle", icon: Award },
-  { key: "reassessment", label: "REASSESSMENT 2020 - Cycle 1", icon: Trophy },
-  { key: "criteria", label: "DVV Quantitative Metrics (Criteria 1–7)", icon: ScrollText },
-  { key: "dvv-ep", label: "DVV Extended Profile", icon: GraduationCap },
-  { key: "aishe", label: "AISHE Reports", icon: Building2 },
+// Data structures matching official https://mits.ac.in/naac
+
+interface SubmenuItem {
+  title: string;
+  url: string;
+  type?: "pdf" | "video" | "link";
+}
+
+interface DropdownItem {
+  title: string;
+  url?: string;
+  type?: "pdf" | "video" | "link";
+  isSubmenu?: boolean;
+  submenuItems?: SubmenuItem[];
+}
+
+const cycleDropdownItems: DropdownItem[] = [
+  {
+    title: "NAAC Certificate",
+    url: "https://mits.ac.in/public/uploads/naac/9b55cb6cdd40bf4ca955cdd3a5383031.pdf",
+    type: "pdf",
+  },
+  {
+    title: "Validity Extension Public Notification - NAAC",
+    url: "https://mits.ac.in/public/uploads/naac/NAAC_notification_public_notice_BAF_MBGL_22nd_April_2026.pdf",
+    type: "pdf",
+  },
+  {
+    title: "Peer Team Report",
+    url: "https://mits.ac.in/public/uploads/naac/Peer Team Report.pdf",
+    type: "pdf",
+  },
+  {
+    title: "SSR",
+    url: "https://mits.ac.in/public/uploads/naac/MITS-Updated-SSR-16.pdf",
+    type: "pdf",
+  },
+  {
+    title: "MITS-NAAC visit Video",
+    isSubmenu: true,
+    submenuItems: [
+      {
+        title: "MITS NAAC Visit Video",
+        url: "https://mits.ac.in/assets/videos/MITS-NAAC.mp4",
+        type: "video",
+      },
+    ],
+  },
 ];
 
-const DocCard = ({ doc, highlight }: { doc: DocLink; highlight?: boolean }) => {
-  const isVideo = doc.type === "video";
-  const isLink = doc.type === "link";
-  const Icon = isVideo ? Video : isLink ? ExternalLink : FileText;
+const reassessmentDropdownItems: DropdownItem[] = [
+  {
+    title: "NAAC Certificate",
+    url: "https://mits.ac.in/public/uploads/naac/9b55cb6cdd40bf4ca955cdd3a5383031.pdf",
+    type: "pdf",
+  },
+  {
+    title: "NAAC Institutional Grade Sheet",
+    url: "https://mits.ac.in/public/uploads/naac/Institutional_Grade_Sheet.pdf",
+    type: "pdf",
+  },
+  {
+    title: "NAAC Peer Team Report",
+    url: "https://mits.ac.in/public/uploads/naac/NAAC%20PEER%20TEAM%20REPORT.pdf",
+    type: "pdf",
+  },
+  {
+    title: "Peer Team Metric wise Score Report",
+    url: "https://mits.ac.in/public/uploads/naac/NAAC%20Peer%20Team%20Metric%20wise%20Score%20Report.pdf",
+    type: "pdf",
+  },
+  {
+    title: "NAAC Committee",
+    url: "https://mits.ac.in/public/uploads/naac/NAAC Revised Advisory Committee.pdf",
+    type: "pdf",
+  },
+  {
+    title: "NAAC Undertaking",
+    url: "https://mits.ac.in/public/uploads/naac/NAAC Undertaking.pdf",
+    type: "pdf",
+  },
+  {
+    title: "NAAC Declaration",
+    url: "https://mits.ac.in/public/uploads/naac/NAAC  Declaration.pdf",
+    type: "pdf",
+  },
+  {
+    title: "AISHE",
+    isSubmenu: true,
+    submenuItems: [
+      { title: "AISHE 2024-25", url: "https://mits.ac.in/public/uploads/naac/AISHE Certificate 2024-25.pdf", type: "pdf" },
+      { title: "AISHE 2023-24", url: "https://mits.ac.in/public/uploads/naac/AISHE Certificate 2023-24.pdf", type: "pdf" },
+      { title: "AISHE 2022-23", url: "https://mits.ac.in/public/uploads/naac/AISHE Certificate 2022-23.pdf", type: "pdf" },
+      { title: "AISHE 2021-22", url: "https://mits.ac.in/public/uploads/naac/AISHE Certificate 2021-22.pdf", type: "pdf" },
+      { title: "AISHE 2020-21", url: "https://mits.ac.in/public/uploads/naac/AISHE_Certificate 2020-21.pdf", type: "pdf" },
+      { title: "AISHE 2019-20", url: "https://mits.ac.in/public/uploads/naac/AISHE Certificate-2019-20.pdf", type: "pdf" },
+      { title: "AISHE 2018-19", url: "https://mits.ac.in/public/uploads/naac/f5af7fa3126e73f5849448285357c15b.pdf", type: "pdf" },
+      { title: "AISHE 2017-18", url: "https://mits.ac.in/public/uploads/naac/abb32c1c49e24a4aa4cc09776ea9f0e5.pdf", type: "pdf" },
+      { title: "AISHE 2016-17", url: "https://mits.ac.in/public/uploads/naac/b888a17d471e9045000bf6179deb334b.pdf", type: "pdf" },
+      { title: "AISHE 2015-16", url: "https://mits.ac.in/public/uploads/naac/3ea2b62d7c31398763fa3b97008d33ec.pdf", type: "pdf" },
+    ],
+  },
+  {
+    title: "IIQA",
+    url: "https://mits.ac.in/public/uploads/naac/IIQA.pdf",
+    type: "pdf",
+  },
+  {
+    title: "SSR",
+    url: "https://mits.ac.in/public/uploads/naac/SSR of MITS.pdf",
+    type: "pdf",
+  },
+];
+
+const metricsDropdownItems: DropdownItem[] = [
+  { title: "Criterion 1", url: "https://mits.ac.in/criterion/1", type: "link" },
+  { title: "Criterion 2", url: "https://mits.ac.in/criterion/2", type: "link" },
+  { title: "Criterion 3", url: "https://mits.ac.in/criterion/3", type: "link" },
+  { title: "Criterion 4", url: "https://mits.ac.in/criterion/4", type: "link" },
+  { title: "Criterion 5", url: "https://mits.ac.in/criterion/5", type: "link" },
+  { title: "Criterion 6", url: "https://mits.ac.in/criterion/6", type: "link" },
+  { title: "Criterion 7", url: "https://mits.ac.in/criterion/7", type: "link" },
+];
+
+const extendedProfileDocs = [
+  {
+    title: "Number of programs offered year-wise for last five years?",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-1.1.pdf",
+  },
+  {
+    title: "Number of departments offering academic programmes.",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-1.2.pdf",
+  },
+  {
+    title: "Number of students year-wise during last five years",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-2.1.pdf",
+  },
+  {
+    title: "Number of outgoing / final year students year-wise during last five years",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-2.2.pdf",
+  },
+  {
+    title: "Number of students appeared in the examination conducted by the Institution, year-wise during the last five years",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-2.3.pdf",
+  },
+  {
+    title: "Number of revaluation applications year-wise during last five years",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-2.4.pdf",
+  },
+  {
+    title: "Number of courses in all programs year-wise during last five years",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-3.1.pdf",
+  },
+  {
+    title: "Number of full time teachers year-wise during the last five years",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-3.2.pdf",
+  },
+  {
+    title: "Number of sanctioned posts year-wise during last five years",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-3.3.pdf",
+  },
+  {
+    title: "Number of eligible applications received for admissions to all the programs year-wise during last five years",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-4.1.pdf",
+  },
+  {
+    title: "Number of seats earmarked for reserved category as per GOI/State Govt rule year-wise during last five years",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-4.2.pdf",
+  },
+  {
+    title: "Total number of classrooms and seminar halls",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-4.3.pdf",
+  },
+  {
+    title: "Total number of computers in the campus for academic purpose",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-4.4.pdf",
+  },
+  {
+    title: "Total Expenditure excluding salary year-wise during last five years ( INR in Lakhs)",
+    url: "https://mits.ac.in/public/uploads/dvv/EP-DVV-4.5.pdf",
+  },
+];
+
+export const NAAC = () => {
+  const [activeTab, setActiveTab] = useState<"home" | "extendedProfile">("home");
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+
+  const closeDropdowns = () => {
+    setOpenDropdown(null);
+    setOpenSubmenu(null);
+  };
+
   return (
-    <motion.a
-      href={doc.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      whileHover={{ y: -3 }}
-      className={`group relative flex items-center gap-4 rounded-xl border bg-white p-4 md:p-5 shadow-sm transition-all hover:shadow-[0_12px_32px_rgba(15,42,68,0.12)] hover:border-[#caa74d] ${
-        highlight ? "border-[#caa74d]/60 bg-gradient-to-br from-[#fff8e6] to-white" : "border-[#0f2a44]/10"
-      }`}
-    >
-      <div
-        className={`shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center ${
-          highlight
-            ? "bg-gradient-to-br from-[#caa74d] to-[#a8862e] text-white"
-            : isVideo
-              ? "bg-gradient-to-br from-[#0f2a44] to-[#1a3a5c] text-white"
-              : "bg-gradient-to-br from-[#0f2a44] to-[#11355a] text-white"
-        }`}
-      >
-        <Icon className="w-6 h-6" />
-      </div>
-      <div className="flex-1 min-w-0">
-        <p className="font-body font-semibold text-[#0f2a44] text-sm md:text-base leading-snug">
-          {doc.title}
-        </p>
-        <p className="font-body text-sm text-[#0f2a44]/60 mt-1 uppercase tracking-wider">
-          {isVideo ? "Video" : isLink ? "External Link" : "PDF Document"}
-        </p>
-      </div>
-      {(() => {
-        const ActionIcon = isLink || isVideo ? ExternalLink : Download;
-        return <ActionIcon className="w-5 h-5 text-primary/40 group-hover:text-[#caa74d] transition-colors shrink-0" />;
-      })()}
-    </motion.a>
-  );
-};
-
-const SectionHeader = ({ eyebrow, title, description }: { eyebrow: string; title: string; description?: string }) => (
-  <div className="mb-8">
-    <p className="font-body text-sm uppercase tracking-[0.2em] text-[#caa74d] font-semibold mb-2">{eyebrow}</p>
-    <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0f2a44]">{title}</h2>
-    {description && (
-      <p className="font-body text-[#0f2a44]/70 mt-3 max-w-3xl leading-relaxed">{description}</p>
-    )}
-  </div>
-);
-
-const DocGrid = ({ docs }: { docs: DocLink[] }) => (
-  <div className="grid sm:grid-cols-2 gap-4">
-    {docs.map((d) => (
-      <DocCard key={d.title + d.url} doc={d} />
-    ))}
-  </div>
-);
-
-const NAAC = () => {
-  const [active, setActive] = useState<SectionKey>("overview");
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [selectedCriterion, setSelectedCriterion] = useState<number>(1);
-
-  const filter = (docs: DocLink[]) => docs;
-
-  return (
-    <div className="min-h-screen bg-[#faf7f2]">
+    <div className="min-h-screen bg-[#faf7f2] font-body text-slate-800">
       <Header />
       <SEO
-        title="MITS NAAC A+ Accreditation – Grade, SSR & IQAC Documents"
-        description="MITS Madanapalle holds NAAC A+ accreditation. Access the SSR, IQAC reports, criteria documents, DVV clarifications, AISHE data, and peer team reports for MITS deemed university."
+        title="NAAC – Madanapalle Institute of Technology & Science"
+        description="National Assessment and Accreditation Council (NAAC) details, Cycles, Reassessment, DVV Clarifications Quantitative Metrics, and Extended Profile of Madanapalle Institute of Technology & Science."
         canonical="/naac"
       />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0f2a44] via-[#152f4f] to-[#0a1d33] text-white">
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 20%, #caa74d 0%, transparent 40%), radial-gradient(circle at 80% 80%, #b31317 0%, transparent 50%)",
-          }}
-        />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22><path d=%22M0 0h60v60H0z%22 fill=%22none%22/><path d=%22M30 0v60M0 30h60%22 stroke=%22%23ffffff%22 stroke-opacity=%220.04%22/></svg>')]" />
-        <div className="container relative mx-auto px-4 py-16 md:py-24">
-          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6 font-body">
-            <Link to="/" className="hover:text-[#caa74d] transition-colors">Home</Link>
-            <ChevronRight className="w-4 h-4" />
-            <Link to="/about" className="hover:text-[#caa74d] transition-colors">About</Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-[#caa74d]">NAAC Accreditation</span>
+      {/* Hero — Simple Title */}
+      <section
+        className="relative pt-32 md:pt-40 pb-16 overflow-hidden"
+        style={{
+          backgroundImage: `url("${BASE}Hero-Section/image-5.jpg")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <h1 className="font-display text-3xl md:text-5xl font-bold text-white tracking-tight">
+            NAAC
+          </h1>
+        </div>
+        <div className="absolute bottom-3 left-6 z-10 hidden sm:block">
+          <nav aria-label="Breadcrumb">
+            <ol className="flex items-center gap-1.5 text-xs text-white/80">
+              <li>
+                <Link to="/" className="text-white/70 hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li className="text-white/50">›</li>
+              <li className="text-[#ffd15c] font-semibold">NAAC</li>
+            </ol>
           </nav>
-          <div className="max-w-4xl">
-            <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#caa74d]/15 border border-[#caa74d]/30 text-[#caa74d] text-sm font-semibold uppercase tracking-[0.2em] mb-5">
-              <Award className="w-3.5 h-3.5" /> NAAC Accredited · Grade {NAAC_GRADE}
-            </p>
-            <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight text-white">
-              National Assessment and<br />
-              <span className="text-[#caa74d]">Accreditation Council</span>
-            </h1>
-            <p className="font-body text-lg md:text-xl text-white/80 mt-6 max-w-2xl leading-relaxed">
-              MITS' commitment to quality, transparency and continuous improvement — documented through
-              NAAC accreditation, IQAC governance and the seven-criterion framework.
-            </p>
-            <div className="flex flex-wrap gap-3 mt-8">
-              <a
-                href={accreditationCore[0].url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#caa74d] text-[#0f2a44] font-semibold hover:bg-[#dbb95c] transition-colors"
-              >
-                <Award className="w-4 h-4" /> View NAAC Certificate
-              </a>
-              <a
-                href={accreditationCore[3].url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-white/30 text-white hover:bg-white/10 transition-colors"
-              >
-                <ClipboardList className="w-4 h-4" /> Download SSR
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Main */}
-      <div className="container mx-auto px-4 py-10 md:py-14">
-        <div className="lg:grid lg:grid-cols-[260px_1fr] lg:gap-8">
-          {/* Sidebar */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-24 space-y-6">
-              <div className="bg-white rounded-xl border border-[#0f2a44]/10 p-5 shadow-sm">
-                <p className="font-display font-bold text-[#0f2a44] text-sm uppercase tracking-wider mb-3">
-                  NAAC Portal
-                </p>
-                <nav className="space-y-1">
-                  {sections.map((s) => {
-                    const Icon = s.icon;
-                    const isActive = active === s.key;
+      {/* Main Body */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        {/* Horizontal Navigation Menu — Matches old portal library-tabs */}
+        <div className="relative z-30 bg-white border-b border-slate-200 shadow-2xs rounded-t-xl mb-8">
+          <ul
+            className="flex flex-wrap items-center text-xs sm:text-sm font-semibold text-slate-700 divide-x divide-slate-200"
+            onMouseLeave={closeDropdowns}
+          >
+            {/* 1. Home */}
+            <li className="relative">
+              <button
+                onClick={() => {
+                  setActiveTab("home");
+                  closeDropdowns();
+                }}
+                className={`px-4 py-3.5 transition-colors cursor-pointer flex items-center gap-1 ${
+                  activeTab === "home"
+                    ? "text-[#b31317] border-b-2 border-[#b31317] font-bold"
+                    : "hover:text-[#b31317]"
+                }`}
+              >
+                Home
+              </button>
+            </li>
+
+            {/* 2. IQAC */}
+            <li className="relative">
+              <Link
+                to="/iqac"
+                className="px-4 py-3.5 transition-colors flex items-center gap-1 hover:text-[#b31317] text-slate-700"
+              >
+                IQAC
+              </Link>
+            </li>
+
+            {/* 3. Cycle */}
+            <li
+              className="relative"
+              onMouseEnter={() => {
+                setOpenDropdown("cycle");
+                setOpenSubmenu(null);
+              }}
+            >
+              <button
+                onClick={() =>
+                  setOpenDropdown(openDropdown === "cycle" ? null : "cycle")
+                }
+                className={`px-4 py-3.5 transition-colors cursor-pointer flex items-center gap-1 ${
+                  openDropdown === "cycle"
+                    ? "text-[#b31317] font-bold"
+                    : "hover:text-[#b31317]"
+                }`}
+              >
+                <span>Cycle</span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+
+              {/* Cycle Dropdown */}
+              {openDropdown === "cycle" && (
+                <div className="absolute left-0 top-full mt-0 w-72 bg-[#8a0e12] text-white shadow-xl rounded-b-md py-1.5 z-50">
+                  {cycleDropdownItems.map((item, idx) => {
+                    if (item.isSubmenu) {
+                      const isSubOpen = openSubmenu === "cycle-video";
+                      return (
+                        <div
+                          key={idx}
+                          className="relative"
+                          onMouseEnter={() => setOpenSubmenu("cycle-video")}
+                        >
+                          <div
+                            onClick={() =>
+                              setOpenSubmenu(
+                                isSubOpen ? null : "cycle-video"
+                              )
+                            }
+                            className={`flex items-center justify-between px-4 py-2.5 text-xs sm:text-[13px] font-medium transition-colors cursor-pointer ${
+                              isSubOpen
+                                ? "bg-[#0f2a44] text-white"
+                                : "hover:bg-[#a01015]"
+                            }`}
+                          >
+                            <span>{item.title}</span>
+                            <ChevronRight className="w-3.5 h-3.5" />
+                          </div>
+
+                          {/* Flyout Submenu */}
+                          {isSubOpen && (
+                            <div
+                              className="absolute left-full top-0 w-64 bg-[#8a0e12] text-white shadow-xl rounded-md py-1.5 -ml-0.5 z-50 border-l border-red-900/30"
+                              onMouseLeave={() => setOpenSubmenu(null)}
+                            >
+                              {item.submenuItems?.map((sub, sIdx) => (
+                                <a
+                                  key={sIdx}
+                                  href={sub.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-2 px-4 py-2 text-xs sm:text-[13px] hover:bg-[#a01015] transition-colors"
+                                  onClick={closeDropdowns}
+                                >
+                                  <Video className="w-3.5 h-3.5 text-[#caa74d] shrink-0" />
+                                  <span>{sub.title}</span>
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }
+
                     return (
-                      <button
-                        key={s.key}
-                        onClick={() => setActive(s.key)}
-                        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-body font-medium text-left transition-all ${
-                          isActive
-                            ? "bg-gradient-to-r from-[#0f2a44] to-[#11355a] text-[#caa74d] shadow-md"
-                            : "text-[#0f2a44]/75 hover:bg-[#0f2a44]/5 hover:text-[#0f2a44]"
-                        }`}
+                      <a
+                        key={idx}
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-2.5 text-xs sm:text-[13px] font-medium hover:bg-[#a01015] transition-colors"
+                        onClick={closeDropdowns}
                       >
-                        <Icon className="w-4 h-4 shrink-0" />
-                        <span className="truncate">{s.label}</span>
-                      </button>
+                        {item.title}
+                      </a>
                     );
                   })}
-                  <Link
-                    to="/iqac"
-                    className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-body font-semibold text-[#b31317] hover:bg-[#b31317]/10 transition-all border border-[#b31317]/20 mt-2"
-                  >
-                    <span className="flex items-center gap-2">
-                      <ExternalLink className="w-4 h-4" />
-                      IQAC Portal
-                    </span>
-                    <span className="text-xs bg-[#b31317] text-white px-2 py-0.5 rounded font-bold">Visit</span>
-                  </Link>
-                </nav>
-              </div>
-
-              <div className="bg-gradient-to-br from-[#0f2a44] to-[#152f4f] text-white rounded-xl p-5">
-                <p className="font-body text-sm uppercase tracking-[0.2em] text-[#caa74d] mb-2">Status</p>
-                <p className="font-display text-2xl font-bold text-white">Grade {NAAC_GRADE}</p>
-                <p className="font-body text-white/70 text-sm mt-1">{NAAC_CYCLE}</p>
-              </div>
-            </div>
-          </aside>
-
-          {/* Mobile nav */}
-          <div className="lg:hidden mb-6">
-            <button
-              onClick={() => setMobileNavOpen((v) => !v)}
-              className="w-full flex items-center justify-between px-4 py-3 bg-white border border-[#0f2a44]/10 rounded-xl shadow-sm"
-            >
-              <span className="flex items-center gap-2 font-body font-semibold text-primary">
-                <Menu className="w-4 h-4" />
-                {sections.find((s) => s.key === active)?.label}
-              </span>
-              <ChevronRight className={`w-4 h-4 transition-transform ${mobileNavOpen ? "rotate-90" : ""}`} />
-            </button>
-            <AnimatePresence>
-              {mobileNavOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  className="overflow-hidden bg-white border border-t-0 border-[#0f2a44]/10 rounded-b-xl"
-                >
-                  <div className="p-2 grid grid-cols-2 gap-1">
-                    {sections.map((s) => {
-                      const Icon = s.icon;
-                      return (
-                        <button
-                          key={s.key}
-                          onClick={() => {
-                            setActive(s.key);
-                            setMobileNavOpen(false);
-                          }}
-                          className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-body font-medium text-left ${
-                            active === s.key
-                              ? "bg-[#0f2a44] text-[#caa74d]"
-                              : "text-[#0f2a44]/75 hover:bg-[#0f2a44]/5"
-                          }`}
-                        >
-                          <Icon className="w-3.5 h-3.5 shrink-0" />
-                          <span className="truncate">{s.label}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
-          </div>
+            </li>
 
-          {/* Content */}
-          <main className="min-w-0">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.25 }}
+            {/* 4. REASSESSMENT 2020 - (Cycle: 1) */}
+            <li
+              className="relative"
+              onMouseEnter={() => {
+                setOpenDropdown("reassessment");
+                setOpenSubmenu(null);
+              }}
+            >
+              <button
+                onClick={() =>
+                  setOpenDropdown(
+                    openDropdown === "reassessment" ? null : "reassessment"
+                  )
+                }
+                className={`px-4 py-3.5 transition-colors cursor-pointer flex items-center gap-1 ${
+                  openDropdown === "reassessment"
+                    ? "text-[#b31317] font-bold"
+                    : "hover:text-[#b31317]"
+                }`}
               >
-                {active === "overview" && (
-                  <section>
-                    <SectionHeader
-                      eyebrow="About"
-                      title="NAAC at MITS"
-                    />
-                    <div className="bg-white rounded-2xl border border-[#0f2a44]/10 p-6 md:p-10 shadow-sm">
-                      <div className="prose max-w-none font-body text-[#0f2a44]/85 leading-relaxed space-y-4">
-                        <p>
-                          Madanapalle Institute of Technology &amp; Science (MITS), established in 1998, is a premier
-                          institution with a strong legacy of academic excellence. The Government of India conferred
-                          Deemed to be University status under Section 3 of the UGC Act, 1956 (Notification dated
-                          15 July 2025).
-                        </p>
-                        <p>
-                          MITS is committed to excellence in higher education through continuous quality enhancement,
-                          innovation, and institutional best practices.
-                        </p>
-                        <p>
-                          The institution is accredited by the <strong>National Assessment and Accreditation Council
-                          (NAAC)</strong>, a hallmark of quality in teaching-learning processes, research, infrastructure,
-                          governance, and student support systems. NAAC accreditation reflects MITS&apos; adherence to
-                          well-defined standards and commitment to fostering a culture of academic and administrative excellence.
-                        </p>
-                        <p>
-                          MITS has successfully completed its <strong>first cycle of NAAC accreditation with an A+ Grade</strong>,
-                          demonstrating its foundation in quality education, research, and holistic student development.
-                          The institution is progressing towards its next accreditation cycle, focusing on outcome-based
-                          education, research impact, innovation ecosystems, and global engagement.
-                        </p>
-                        <p>
-                          Through its <strong>Internal Quality Assurance Cell (IQAC)</strong>, MITS monitors and enhances
-                          academic and administrative performance by implementing quality benchmarks, collecting
-                          stakeholder feedback, and ensuring systematic documentation and compliance with NAAC criteria.
-                        </p>
-                        <p><strong>The university emphasizes:</strong></p>
-                      </div>
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-8">
-                        {[
-                          "Student-centric learning and outcome-based education",
-                          "Research, innovation, and consultancy",
-                          "Industry interaction and skill development",
-                          "Inclusive practices and social responsibility",
-                          "Sustainable and green campus initiatives",
-                        ].map((t) => (
+                <span>REASSESSMENT 2020 - (Cycle: 1)</span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+
+              {/* Reassessment Dropdown */}
+              {openDropdown === "reassessment" && (
+                <div className="absolute left-0 top-full mt-0 w-80 bg-[#8a0e12] text-white shadow-xl rounded-b-md py-1.5 z-50">
+                  {reassessmentDropdownItems.map((item, idx) => {
+                    if (item.isSubmenu) {
+                      const isSubOpen = openSubmenu === "aishe";
+                      return (
+                        <div
+                          key={idx}
+                          className="relative"
+                          onMouseEnter={() => setOpenSubmenu("aishe")}
+                        >
                           <div
-                            key={t}
-                            className="flex items-start gap-2 p-3 rounded-lg bg-[#faf7f2] border border-[#caa74d]/20"
+                            onClick={() =>
+                              setOpenSubmenu(isSubOpen ? null : "aishe")
+                            }
+                            className={`flex items-center justify-between px-4 py-2 text-xs sm:text-[13px] font-medium transition-colors cursor-pointer ${
+                              isSubOpen
+                                ? "bg-[#0f2a44] text-white"
+                                : "hover:bg-[#a01015]"
+                            }`}
                           >
-                            <Sparkles className="w-4 h-4 text-[#caa74d] mt-0.5 shrink-0" />
-                            <span className="font-body text-sm text-[#0f2a44]/85">{t}</span>
+                            <span>{item.title}</span>
+                            <ChevronRight className="w-3.5 h-3.5" />
                           </div>
-                        ))}
+
+                          {/* Flyout Submenu for AISHE */}
+                          {isSubOpen && (
+                            <div
+                              className="absolute left-full top-0 w-56 bg-[#8a0e12] text-white shadow-xl rounded-md py-1.5 -ml-0.5 z-50 border-l border-red-900/30 max-h-96 overflow-y-auto"
+                              onMouseLeave={() => setOpenSubmenu(null)}
+                            >
+                              {item.submenuItems?.map((sub, sIdx) => (
+                                <a
+                                  key={sIdx}
+                                  href={sub.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="block px-4 py-1.5 text-xs sm:text-[13px] hover:bg-[#a01015] transition-colors"
+                                  onClick={closeDropdowns}
+                                >
+                                  {sub.title}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <a
+                        key={idx}
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-2 text-xs sm:text-[13px] font-medium hover:bg-[#a01015] transition-colors"
+                        onClick={closeDropdowns}
+                      >
+                        {item.title}
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
+            </li>
+
+            {/* 5. DVV Clarifications Quantitative Metrics */}
+            <li
+              className="relative"
+              onMouseEnter={() => {
+                setOpenDropdown("metrics");
+                setOpenSubmenu(null);
+              }}
+            >
+              <button
+                onClick={() =>
+                  setOpenDropdown(
+                    openDropdown === "metrics" ? null : "metrics"
+                  )
+                }
+                className={`px-4 py-3.5 transition-colors cursor-pointer flex items-center gap-1 ${
+                  openDropdown === "metrics"
+                    ? "text-[#b31317] font-bold"
+                    : "hover:text-[#b31317]"
+                }`}
+              >
+                <span>DVV Clarifications Quantitative Metrics</span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+
+              {/* Metrics Dropdown */}
+              {openDropdown === "metrics" && (
+                <div className="absolute left-0 top-full mt-0 w-56 bg-[#8a0e12] text-white shadow-xl rounded-b-md py-1.5 z-50">
+                  {metricsDropdownItems.map((item, idx) => (
+                    <a
+                      key={idx}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-4 py-2 text-xs sm:text-[13px] font-medium hover:bg-[#a01015] transition-colors"
+                      onClick={closeDropdowns}
+                    >
+                      {item.title}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </li>
+
+            {/* 6. DVV Clarifications Extended Profile */}
+            <li className="relative">
+              <button
+                onClick={() => {
+                  setActiveTab("extendedProfile");
+                  closeDropdowns();
+                }}
+                className={`px-4 py-3.5 transition-colors cursor-pointer flex items-center gap-1 ${
+                  activeTab === "extendedProfile"
+                    ? "text-[#b31317] border-b-2 border-[#b31317] font-bold"
+                    : "hover:text-[#b31317]"
+                }`}
+              >
+                DVV Clarifications Extended Profile
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        {/* Tab 1 Content: Home */}
+        {activeTab === "home" && (
+          <div className="space-y-6">
+            {/* Heading */}
+            <div className="border-b border-slate-200 pb-3">
+              <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-[#b31317] tracking-tight">
+                Welcome to MITS National Assessment and Accreditation Council (NAAC) Details Page!
+              </h2>
+            </div>
+
+            {/* Official Campus Photo */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100">
+              <img
+                src="https://mits.ac.in/public/uploads/naac/3f118aff-9c81-4949-bf33-b96aa5a8fc41.jfif"
+                alt="MITS NAAC Accredited Campus"
+                className="w-full h-auto max-h-[460px] object-cover"
+                loading="eager"
+              />
+            </div>
+
+            {/* Text Content — Verbatim from Official Portal */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-4 font-body text-slate-700 text-sm md:text-base leading-relaxed text-justify">
+              <p>
+                Madanapalle Institute of Technology &amp; Science (MITS), established in 1998, is a premier institution with a strong legacy of academic excellence. In recognition of its sustained quality in higher education, MITS has been conferred the status of a <strong>Deemed to be University</strong> by the Government of India under Section 3 of the UGC Act, 1956 (Notification dated 15th July 2025).
+              </p>
+              <p>
+                MITS is committed to excellence in higher education through continuous quality enhancement, innovation, and institutional best practices.
+              </p>
+              <p>
+                The institution is accredited by the <strong>National Assessment and Accreditation Council (NAAC)</strong>, which serves as a hallmark of quality in teaching-learning processes, research, infrastructure, governance, and student support systems. NAAC accreditation reflects the institution’s adherence to well-defined standards and its commitment to fostering a culture of academic and administrative excellence.
+              </p>
+              <p>
+                MITS has successfully undergone its <strong>first cycle of NAAC accreditation</strong>, achieving an <strong>A+ Grade</strong>, which signifies its strong foundation in quality education, research output, and holistic student development. The institution is now progressing towards its next cycle of accreditation, with a focus on strengthening outcome-based education, research impact, innovation ecosystems, and global engagement.
+              </p>
+              <p>
+                Through its <strong>Internal Quality Assurance Cell (IQAC)</strong>, MITS continuously monitors and enhances academic and administrative performance by implementing quality benchmarks, collecting stakeholder feedback, and ensuring systematic documentation and compliance with NAAC criteria.
+              </p>
+              <div>
+                <p className="font-bold text-[#0f2a44] mb-2">The university emphasizes:</p>
+                <ul className="space-y-1.5 pl-4 list-disc text-slate-700">
+                  <li>Student-centric learning and outcome-based education</li>
+                  <li>Research, innovation, and consultancy</li>
+                  <li>Industry interaction and skill development</li>
+                  <li>Inclusive practices and social responsibility</li>
+                  <li>Sustainable and green campus initiatives</li>
+                </ul>
+              </div>
+              <div className="pt-2">
+                <p className="font-semibold text-[#0f2a44]">
+                  <strong>MITS</strong> is dedicated to maintaining the highest standards of <strong>quality, accountability, and continuous improvement</strong>, aligned with national and global educational benchmarks.
+                </p>
+              </div>
+
+              {/* 2 Document Links */}
+              <div className="pt-4 border-t border-slate-100">
+                <div className="bg-white rounded-xl border border-slate-200 divide-y divide-slate-100 overflow-hidden shadow-xs">
+                  <a
+                    href="https://mits.ac.in/assets/pdf/iqac/NAAC%20Coordinator%20Order.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between py-3.5 px-5 hover:bg-red-50/30 transition-colors group"
+                  >
+                    <span className="font-body text-sm font-semibold text-[#0f2a44] group-hover:text-[#b31317] transition-colors pr-4">
+                      NAAC Coordinator Office Order
+                    </span>
+                    <span className="shrink-0 flex items-center gap-1.5 text-xs text-slate-400 group-hover:text-[#b31317]">
+                      <FileText className="w-4 h-4 text-[#b31317]" />
+                      <Download className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#b31317]" />
+                    </span>
+                  </a>
+                  <a
+                    href="https://mits.ac.in/assets/pdf/iqac/Office%20Order-78-NAAC%20Criterion-Coordinator.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between py-3.5 px-5 hover:bg-red-50/30 transition-colors group"
+                  >
+                    <span className="font-body text-sm font-semibold text-[#0f2a44] group-hover:text-[#b31317] transition-colors pr-4">
+                      University-wise NAAC Criterion Coordinators
+                    </span>
+                    <span className="shrink-0 flex items-center gap-1.5 text-xs text-slate-400 group-hover:text-[#b31317]">
+                      <FileText className="w-4 h-4 text-[#b31317]" />
+                      <Download className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#b31317]" />
+                    </span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Contact Us Card — Verbatim from Official Portal */}
+              <div className="pt-6 border-t border-slate-100">
+                <h3 className="font-display font-bold text-xl text-[#0f2a44] mb-4">
+                  Contact Us
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {/* Coordinator 1 */}
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div className="w-8 h-8 rounded-full bg-[#b31317]/10 text-[#b31317] flex items-center justify-center mb-3">
+                      <User className="w-4 h-4" />
+                    </div>
+                    <h5 className="font-bold text-[#0f2a44] text-sm">Dr. K. Sathesh</h5>
+                    <p className="text-xs text-slate-600 mt-1">IQAC &amp; NAAC Coordinator</p>
+                  </div>
+
+                  {/* Coordinator 2 */}
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div className="w-8 h-8 rounded-full bg-[#b31317]/10 text-[#b31317] flex items-center justify-center mb-3">
+                      <User className="w-4 h-4" />
+                    </div>
+                    <h5 className="font-bold text-[#0f2a44] text-sm">Mr. T. Manivannan</h5>
+                    <p className="text-xs text-slate-600 mt-1">
+                      Accreditation Compliance &amp; Data Validation Associate
+                    </p>
+                  </div>
+
+                  {/* Address */}
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div className="w-8 h-8 rounded-full bg-[#caa74d]/20 text-[#caa74d] flex items-center justify-center mb-3">
+                      <MapPin className="w-4 h-4 text-[#0f2a44]" />
+                    </div>
+                    <h5 className="font-bold text-[#0f2a44] text-sm mb-1">Address</h5>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Room No: SRB211A<br />
+                      Madanapalle Institute of Technology &amp; Science<br />
+                      Deemed to be University<br />
+                      Madanapalle–Kadiri Road<br />
+                      Kurabalakota Mandal, Madanapalle–517325<br />
+                      Andhra Pradesh, India
+                    </p>
+                  </div>
+
+                  {/* Phone & Email */}
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                    <div>
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-[#0f2a44] mb-1">
+                        <Phone className="w-3.5 h-3.5 text-[#b31317]" />
+                        <span>Phone</span>
                       </div>
-                      <p className="font-body text-[#0f2a44]/85 leading-relaxed mt-6">
-                        <strong>MITS is dedicated to maintaining the highest standards of quality, accountability,
-                        and continuous improvement</strong>, aligned with national and global educational benchmarks.
+                      <p className="text-xs text-slate-600">
+                        <a href="tel:+918571280255" className="hover:text-[#b31317] hover:underline">
+                          +91 08571 280255
+                        </a>
+                        ,{" "}
+                        <a href="tel:+919100973388" className="hover:text-[#b31317] hover:underline">
+                          9100973388
+                        </a>
                       </p>
                     </div>
 
-                    <div className="mt-8">
-                      <h3 className="font-display text-xl font-bold text-[#0f2a44] mb-4">NAAC Office Orders</h3>
-                      <DocGrid docs={naacOfficeOrders} />
-                    </div>
-
-                    <div className="mt-8">
-                      <h3 className="font-display text-xl font-bold text-[#0f2a44] mb-4">Contact Us</h3>
-                      <div className="bg-white rounded-2xl border border-[#0f2a44]/10 p-6 md:p-8 shadow-sm">
-                        <p className="font-display text-xl font-bold text-[#0f2a44]">IQAC &amp; NAAC Office</p>
-                        <p className="font-body text-[#0f2a44]/70 mt-1">{naacContacts.institute}</p>
-                        <div className="grid md:grid-cols-2 gap-4 mt-6">
-                          {naacContacts.coordinators.map((contact) => (
-                            <div
-                              key={contact.name}
-                              className="flex items-start gap-3 p-4 rounded-lg bg-[#faf7f2]"
-                            >
-                              <Users className="w-5 h-5 text-[#caa74d] shrink-0 mt-0.5" />
-                              <div>
-                                <p className="font-semibold text-sm text-[#0f2a44]">{contact.name}</p>
-                                <p className="font-body text-sm text-[#0f2a44]/70 mt-1">{contact.role}</p>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="grid gap-4 lg:grid-cols-2 mt-4 items-stretch">
-                          <div className="h-full min-w-0 flex items-start gap-3 p-4 rounded-lg bg-[#faf7f2] lg:col-span-2">
-                            <MapPin className="w-5 h-5 text-[#caa74d] shrink-0 mt-0.5" />
-                            <div className="min-w-0">
-                              <p className="font-semibold text-sm text-[#0f2a44] mb-2">Address</p>
-                              <address className="not-italic font-body text-sm text-[#0f2a44]/85 leading-relaxed">
-                                Room No: {naacContacts.room}<br />
-                                {naacContacts.institute}<br />
-                                Deemed to be University<br />
-                                {naacContacts.address}
-                              </address>
-                            </div>
-                          </div>
-                          <div className="h-full min-w-0 flex items-start gap-3 p-4 rounded-lg bg-[#faf7f2]">
-                            <Phone className="w-5 h-5 text-[#caa74d] shrink-0 mt-0.5" />
-                            <div className="min-w-0">
-                              <p className="font-semibold text-sm text-[#0f2a44] mb-2">Phone</p>
-                              <div className="flex items-center gap-1 whitespace-nowrap">
-                                {naacContacts.phones.map((phone, index) => (
-                                  <span key={phone} className="inline-flex items-center gap-1">
-                                    {index > 0 && <span aria-hidden="true">,</span>}
-                                    <a
-                                      href={`tel:${phone.replace(/\s/g, "")}`}
-                                      className="font-body text-sm text-[#0f2a44]/85 hover:text-[#b31317]"
-                                    >
-                                      {phone}
-                                    </a>
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                          <div className="h-full min-w-0 flex items-start gap-3 p-4 rounded-lg bg-[#faf7f2]">
-                            <Mail className="w-5 h-5 text-[#caa74d] shrink-0 mt-0.5" />
-                            <div className="min-w-0">
-                              <p className="font-semibold text-sm text-[#0f2a44] mb-2">Email</p>
-                              <div className="space-y-1">
-                                {naacContacts.emails.map((email) => (
-                                  <a
-                                    key={email}
-                                    href={`mailto:${email}`}
-                                    className="block font-body text-sm text-[#0f2a44]/85 hover:text-[#b31317]"
-                                  >
-                                    {email}
-                                  </a>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                    <div>
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-[#0f2a44] mb-1">
+                        <Mail className="w-3.5 h-3.5 text-[#b31317]" />
+                        <span>Email</span>
                       </div>
+                      <p className="text-xs text-slate-600 space-y-0.5">
+                        <a
+                          href="mailto:naaccell@mits.ac.in"
+                          className="block text-[#b31317] hover:underline"
+                        >
+                          naaccell@mits.ac.in
+                        </a>
+                        <a
+                          href="mailto:compliance.datavalidation@mits.ac.in"
+                          className="block text-[#b31317] hover:underline break-all"
+                        >
+                          compliance.datavalidation@mits.ac.in
+                        </a>
+                      </p>
                     </div>
-                  </section>
-                )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
-                {active === "cycle" && (
-                  <section>
-                    <SectionHeader
-                      eyebrow="NAAC Cycle"
-                      title="Cycle Accreditation Records"
-                      description="Core institutional accreditation records including the NAAC Certificate, validity extension public notification, Peer Team Report, Institutional SSR, and Peer Team Visit Video."
-                    />
-                    <DocGrid docs={filter(accreditationCore)} />
-                  </section>
-                )}
+        {/* Tab 6 Content: DVV Clarifications Extended Profile */}
+        {activeTab === "extendedProfile" && (
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-5">
+            <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-[#b31317] tracking-tight">
+                Extended Profile DVV Clarifications
+              </h2>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-[#b31317] border border-red-100">
+                14 Documents
+              </span>
+            </div>
 
-                {active === "reassessment" && (
-                  <section>
-                    <SectionHeader
-                      eyebrow="Cycle 1"
-                      title="REASSESSMENT 2020 — Cycle 1"
-                      description="Complete documentation set submitted and issued during the Reassessment 2020 Cycle 1 of NAAC accreditation."
-                    />
-                    <DocGrid docs={filter(cycle1Documents)} />
-                  </section>
-                )}
-
-                {active === "criteria" && (
-                  <section>
-                    <SectionHeader
-                      eyebrow="Framework & DVV Clarifications"
-                      title="NAAC Criteria 1 – 7"
-                      description="The seven criteria framework prescribed by NAAC for institutional assessment. Access metric-wise DVV clarifications and supporting PDF documentation for each criterion."
-                    />
-
-                    {/* Criterion Selector Pills */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {criteriaWithMetrics.map((c) => {
-                        const isSelected = selectedCriterion === c.number;
-                        return (
-                          <button
-                            key={c.number}
-                            onClick={() => setSelectedCriterion(c.number)}
-                            className={`px-4 py-2.5 rounded-xl font-body text-sm font-semibold transition-all flex items-center gap-2 ${
-                              isSelected
-                                ? "bg-[#0f2a44] text-[#caa74d] shadow-md border-b-2 border-[#caa74d]"
-                                : "bg-white text-[#0f2a44]/80 border border-[#0f2a44]/10 hover:bg-[#faf7f2] hover:text-[#0f2a44]"
-                            }`}
-                          >
-                            <span className={`w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold ${isSelected ? "bg-[#caa74d] text-[#0f2a44]" : "bg-[#0f2a44]/10 text-[#0f2a44]"}`}>
-                              {c.number}
-                            </span>
-                            <span>Criterion {c.number}</span>
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* Selected Criterion Details */}
-                    {(() => {
-                      const current = criteriaWithMetrics.find((c) => c.number === selectedCriterion) || criteriaWithMetrics[0];
-                      return (
-                        <div className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden">
-                          <div className="p-6 bg-gradient-to-r from-[#0f2a44] to-[#1a3a5c] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                            <div>
-                              <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#caa74d]">
-                                Criterion {current.number}
-                              </span>
-                              <h3 className="font-display text-2xl font-bold text-white mt-1">
-                                {current.title}
-                              </h3>
-                              <p className="font-body text-white/80 text-sm mt-1 max-w-2xl leading-relaxed">
-                                {current.description}
-                              </p>
-                            </div>
-                            <a
-                              href={current.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 transition-all shrink-0"
-                            >
-                              Official Portal Page <ExternalLink className="w-3.5 h-3.5" />
-                            </a>
-                          </div>
-
-                          <div className="p-4 md:p-6">
-                            <h4 className="font-display text-lg font-bold text-[#0f2a44] mb-4 flex items-center gap-2">
-                              <ScrollText className="w-5 h-5 text-[#caa74d]" />
-                              Metric-wise DVV Clarifications
-                            </h4>
-                            <div className="overflow-x-auto rounded-xl border border-[#0f2a44]/10">
-                              <table className="w-full text-left border-collapse">
-                                <thead>
-                                  <tr className="bg-[#0f2a44] text-white font-display text-sm">
-                                    <th className="py-3.5 px-4 font-bold w-28 shrink-0">Metric ID</th>
-                                    <th className="py-3.5 px-4 font-bold">DVV Clarifications</th>
-                                    <th className="py-3.5 px-4 font-bold text-center w-36 shrink-0">Download PDF</th>
-                                  </tr>
-                                </thead>
-                                <tbody className="divide-y divide-[#0f2a44]/10 font-body text-sm">
-                                  {current.metrics.map((m, idx) => (
-                                    <tr
-                                      key={m.metricId + idx}
-                                      className="hover:bg-[#faf7f2] transition-colors"
-                                    >
-                                      <td className="py-4 px-4 font-bold text-[#0f2a44] align-top">
-                                        <span className="inline-block px-2.5 py-1 rounded-md bg-[#0f2a44]/10 text-[#0f2a44] font-mono text-xs font-bold">
-                                          {m.metricId}
-                                        </span>
-                                      </td>
-                                      <td className="py-4 px-4 text-[#0f2a44]/85 leading-relaxed align-top">
-                                        {m.description}
-                                      </td>
-                                      <td className="py-4 px-4 text-center align-top shrink-0">
-                                        <a
-                                          href={m.url}
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#b31317] hover:bg-[#7a0a0d] text-white text-xs font-semibold shadow-sm transition-all hover:shadow"
-                                        >
-                                          <Download className="w-3.5 h-3.5" />
-                                          Download
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })()}
-                  </section>
-                )}
-
-                {active === "dvv-ep" && (
-                  <section>
-                    <SectionHeader
-                      eyebrow="DVV Clarifications"
-                      title="Extended Profile DVV Clarifications"
-                      description="Data Validation & Verification (DVV) clarifications submitted against the Extended Profile metrics, fully verified with metric IDs and supporting PDFs."
-                    />
-
-                    <div className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden p-4 md:p-6">
-                      <div className="overflow-x-auto rounded-xl border border-[#0f2a44]/10">
-                        <table className="w-full text-left border-collapse">
-                          <thead>
-                            <tr className="bg-[#0f2a44] text-white font-display text-sm">
-                              <th className="py-3.5 px-4 font-bold w-28 shrink-0">Metric ID</th>
-                              <th className="py-3.5 px-4 font-bold">Extended Profile Metric Description</th>
-                              <th className="py-3.5 px-4 font-bold text-center w-36 shrink-0">Download PDF</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-[#0f2a44]/10 font-body text-sm">
-                            {extendedProfileDVV.map((ep, idx) => (
-                              <tr
-                                key={ep.metricId || idx}
-                                className="hover:bg-[#faf7f2] transition-colors"
-                              >
-                                <td className="py-4 px-4 font-bold text-[#0f2a44] align-top">
-                                  <span className="inline-block px-2.5 py-1 rounded-md bg-[#caa74d]/20 text-[#0f2a44] font-mono text-xs font-bold border border-[#caa74d]/40">
-                                    {ep.metricId || `EP-${idx + 1}`}
-                                  </span>
-                                </td>
-                                <td className="py-4 px-4 text-[#0f2a44]/85 leading-relaxed align-top font-medium">
-                                  {ep.title}
-                                </td>
-                                <td className="py-4 px-4 text-center align-top shrink-0">
-                                  <a
-                                    href={ep.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#0f2a44] hover:bg-[#1a3a5c] text-white text-xs font-semibold shadow-sm transition-all hover:shadow"
-                                  >
-                                    <Download className="w-3.5 h-3.5 text-[#caa74d]" />
-                                    Download
-                                  </a>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </section>
-                )}
-
-                {active === "aishe" && (
-                  <section>
-                    <SectionHeader
-                      eyebrow="AISHE"
-                      title="All India Survey on Higher Education"
-                      description="Year-wise AISHE certificates filed with the Ministry of Education, Government of India."
-                    />
-                    <DocGrid docs={filter(aisheReports)} />
-                  </section>
-                )}
-
-                {active === "certificate" && (
-                  <section>
-                    <SectionHeader
-                      eyebrow="Recognition"
-                      title="NAAC Certificate & Grade Sheet"
-                    />
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <DocCard doc={cycle1Documents[0]} highlight />
-                      <DocCard doc={cycle1Documents[1]} highlight />
-                    </div>
-                  </section>
-                )}
-              </motion.div>
-            </AnimatePresence>
-
-
-          </main>
-        </div>
+            <div className="bg-white rounded-xl border border-slate-200 divide-y divide-slate-100 overflow-hidden shadow-xs">
+              {extendedProfileDocs.map((doc, idx) => (
+                <a
+                  key={idx}
+                  href={doc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between py-3.5 px-5 hover:bg-red-50/30 transition-colors group"
+                >
+                  <span className="font-body text-xs sm:text-sm font-medium text-slate-800 group-hover:text-[#b31317] transition-colors pr-4 leading-relaxed">
+                    {doc.title}
+                  </span>
+                  <span className="shrink-0 flex items-center gap-1 text-slate-400 group-hover:text-[#b31317]">
+                    <FileText className="w-4 h-4 text-[#b31317]" />
+                    <Download className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#b31317]" />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <Footer />
