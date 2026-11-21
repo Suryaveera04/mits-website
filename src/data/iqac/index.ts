@@ -951,66 +951,107 @@ export const econtent: Doc[] = [
 // ---------------- PO-PSO-CO ----------------
 export const poPsoCoUG: Doc[] = [
   {
-    "title": "B.Tech - Civil Engineering",
-    "url": "https://mits.ac.in/public/uploads/courseattainment/ed46c87d7524601b5488d7516cf131d5.pdf",
-    "type": "pdf"
+    title: "B.Tech - Bioinformatics",
+    url: "https://mits.ac.in/public/uploads/courseattainment/10_B.Tech_Bioinformatics_Vision%20&%20Mission.pdf",
+    type: "pdf"
   },
   {
-    "title": "B.Tech - Computer Science & Engineering",
-    "url": "https://mits.ac.in/public/uploads/courseattainment/CSE%20UG%20PEOs%20&%20POs.pdf",
-    "type": "pdf"
+    title: "B.Tech - Civil Engineering",
+    url: "https://mits.ac.in/public/uploads/courseattainment/B.Tech%20CE.pdf",
+    type: "pdf"
   },
   {
-    "title": "B.Tech - Computer Science and Technology",
-    "url": "https://mits.ac.in/public/uploads/courseattainment/5bd07f16cbebedd4a2ae66f779cb8412.pdf",
-    "type": "pdf"
+    title: "B.Tech - Computer Science & Engineering",
+    url: "https://mits.ac.in/public/uploads/courseattainment/2_B.Tech%20CSE.pdf",
+    type: "pdf"
   },
   {
-    "title": "B.Tech - Electronics & Communication Engineering",
-    "url": "https://mits.ac.in/public/uploads/courseattainment/bf5cbf47b24c0038d0214b4c63a286fb.pdf",
-    "type": "pdf"
+    title: "B.Tech - Computer Science and Engineering (Artificial Intelligence and Data Science)",
+    url: "https://mits.ac.in/public/uploads/courseattainment/B.Tech%20CSE_AIDS.pdf",
+    type: "pdf"
   },
   {
-    "title": "B.Tech - Electrical and Electronics Engineering",
-    "url": "https://mits.ac.in/public/uploads/courseattainment/3085fc5bac5d124dfac551ddc5c04bc4.pdf",
-    "type": "pdf"
+    title: "B.Tech - Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
+    url: "https://mits.ac.in/public/uploads/courseattainment/4_B.Tech_AIML.pdf",
+    type: "pdf"
   },
   {
-    "title": "B.Tech - Mechanical Engineering",
-    "url": "https://mits.ac.in/public/uploads/courseattainment/dad4367ee11ac4205b47349921354e98.pdf",
-    "type": "pdf"
+    title: "B.Tech - Computer Science and Engineering (Cyber Security)",
+    url: "https://mits.ac.in/public/uploads/courseattainment/B.Tech%20CSE%20CS.pdf",
+    type: "pdf"
+  },
+  {
+    title: "B.Tech - Computer Science and Engineering (Artificial Intelligence and Robotics)",
+    url: "https://mits.ac.in/public/uploads/courseattainment/5_B.Tech_AI%20and%20Robotics.pdf",
+    type: "pdf"
+  },
+  {
+    title: "B.Tech - Electrical and Electronics Engineering",
+    url: "https://mits.ac.in/public/uploads/courseattainment/7_B.Tech_EEE.pdf",
+    type: "pdf"
+  },
+  {
+    title: "B.Tech - Electronics & Communication Engineering",
+    url: "https://mits.ac.in/public/uploads/courseattainment/8_B.Tech_ECE.pdf",
+    type: "pdf"
+  },
+  {
+    title: "B.Tech - Mechanical Engineering",
+    url: "https://mits.ac.in/public/uploads/courseattainment/9_B.Tech_ME.pdf",
+    type: "pdf"
+  },
+  {
+    title: "BBA - Bachelor of Business Administration",
+    url: "https://mits.ac.in/public/uploads/courseattainment/BBA%20Vision%20Mission.pdf",
+    type: "pdf"
+  },
+  {
+    title: "BCA - Bachelor Of Computer Applications",
+    url: "https://mits.ac.in/public/uploads/courseattainment/BCA%20Vision%20Mission.pdf",
+    type: "pdf"
   }
 ];
+
 export const poPsoCoPG: Doc[] = [
   {
-    title: "B.B.A. - Bachelor of Business Administration (Vision & Mission)",
-    url: "https://mits.ac.in/public/uploads/courseattainment/BBA%20vision,%20mission.pdf",
+    title: "M.C.A. - Master of Computer Applications",
+    url: "https://mits.ac.in/public/uploads/courseattainment/18_MCA-Vision%20&%20Mission.pdf",
     type: "pdf"
   },
   {
-    title: "M.B.A. - Master of Business Administration (Vision & Mission)",
-    url: "https://mits.ac.in/public/uploads/courseattainment/MBA%20Vision%20and%20Mission.pdf",
+    title: "M.B.A. - Master of Business Administration",
+    url: "https://mits.ac.in/public/uploads/courseattainment/MBA%20Vision%20Mission.pdf",
     type: "pdf"
   },
   {
-    "title": "M.B.A. - Master of Business Administration",
-    "url": "https://mits.ac.in/public/uploads/courseattainment/a362fcdaee05429e6c443f6b052b7282.pdf",
-    "type": "pdf"
+    title: "M.Tech - Computer Science And Engineering",
+    url: "https://mits.ac.in/public/uploads/courseattainment/11_M.Tech%20CSE.pdf",
+    type: "pdf"
   },
   {
-    "title": "M.C.A. - Master of Computer Applications",
-    "url": "https://mits.ac.in/public/uploads/courseattainment/3246f8050efcce5e4666346725a26690.pdf",
-    "type": "pdf"
+    title: "M.Tech - VLSI Design And Embedded Systems",
+    url: "https://mits.ac.in/public/uploads/courseattainment/M.Tech%20VLSIES.pdf",
+    type: "pdf"
   },
   {
-    "title": "M.Tech - Computer Science And Engineering",
-    "url": "https://mits.ac.in/public/uploads/courseattainment/CSE%20UG%20PEOs%20&%20POs.pdf",
-    "type": "pdf"
+    title: "M.Tech - Automation and Robotics",
+    url: "https://mits.ac.in/public/uploads/courseattainment/M.Tech%20Automation%20Robotics.pdf",
+    type: "pdf"
   },
   {
-    "title": "M.Tech - VLSI Design And Embedded Systems",
-    "url": "https://mits.ac.in/public/uploads/courseattainment/bf5cbf47b24c0038d0214b4c63a286fb.pdf",
-    "type": "pdf"
+    title: "M.Tech - Electric Vehicle Technology",
+    url: "https://mits.ac.in/public/uploads/courseattainment/14_M.Tech_Electric%20VT.pdf",
+    type: "pdf"
+  },
+  {
+    title: "M.Tech - Construction Engineering and Management",
+    url: "https://mits.ac.in/public/uploads/courseattainment/15_M.Tech_Construction%20Engg%20and%20Mgmt.pdf",
+    type: "pdf"
+  },
+  {
+    title: "M.Tech - Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
+    url: "https://mits.ac.in/public/uploads/courseattainment/16_M.Tech_CSE_AIML.pdf",
+    type: "pdf"
   }
 ];
 
@@ -3664,4 +3705,204 @@ export const qualityInitiativeInfographics = [
     downloadUrl: "https://mits.ac.in/assets/images/MITS NEP.png",
     downloadLabel: "View Full Resolution Infographic"
   }
+];
+
+
+// ---------------- DOWNLOADS (AUDIT FORMATS) ----------------
+export const downloadsDocs: Doc[] = [
+  {
+    title: "Admin Audit Format",
+    url: "https://mits.ac.in/assets/pdf/iqac/ADMIN%20AUDIT%20FORMAT.pdf",
+    type: "pdf"
+  },
+  {
+    title: "External Department Audit Format",
+    url: "https://mits.ac.in/assets/pdf/iqac/External%20Department%20Audit%20Format.pdf",
+    type: "pdf"
+  },
+  {
+    title: "External Audit Frame work - Mapping of P Files & Supporting FIles",
+    url: "https://mits.ac.in/assets/pdf/iqac/External%20Audit%20Frame%20work%20-%20Mapping%20of%20P%20Files%20&%20Supporting%20FIles.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Faculty Audit Format",
+    url: "https://mits.ac.in/assets/pdf/iqac/FACULTY%20AUDIT%20FORMAT.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS EOMS NCR Report ISO 21001",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20NCR%20Report%20ISO%2021001.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS EOMS Department Check List ISO 21001",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Department%20Check%20List%20ISO%2021001.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS EOMS Internal Audit Notes ISO 21001",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Internal%20Audit%20Notes%20ISO%2021001.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS EOMS Course File Audit ISO 21001",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Course%20File%20Audit%20ISO%2021001.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Comparison of NAAC Criteria and ISO 210012018 EOMS Clauses",
+    url: "https://mits.ac.in/assets/pdf/iqac/Comparison%20of%20NAAC%20Criteria%20and%20ISO%20210012018%20EOMS%20Clauses.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS Check List - Laboratory Audit",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20Check%20List%20Laboratory%20Audit.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS EOMS Theory Course File Audit ISO 21001 2024-25",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Theory%20Course%20File%20Audit%20ISO%2021001%202024-25.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS EOMS Lab Course File Audit ISO 21001 2024-25",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20EOMS%20Lab%20Course%20File%20Audit%20ISO%2021001%202024-25.pdf",
+    type: "pdf"
+  },
+  {
+    title: "NAAC AQAR\u2019S Support Documents",
+    url: "https://mits.ac.in/assets/pdf/iqac/AQAR_MITS%20Support%20Documents.pdf",
+    type: "pdf"
+  },
+  {
+    title: "NAAC Supporting Document Manual - Quantitative Inputs For AQAR",
+    url: "https://mits.ac.in/assets/pdf/iqac/Supporting%20Document%20Manual%20-%20Quantitative%20Inputs%20For%20AQAR.pdf",
+    type: "pdf"
+  },
+  {
+    title: "NAAC Benchmarks and SOP (Standard Operating Procedures)",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS_benchmarks-_IQAC.xlsx",
+    type: "xlsx"
+  },
+  {
+    title: "NAAC AQAR Benchmarks & SOP",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS-AQAR-Benchmarks-SOP.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Stakeholders Feedback - Action Taken Report Format",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20Dept_Stakeholders%20Action%20Taken%20Report_format.docx",
+    type: "doc"
+  },
+  {
+    title: "Correlation between New NAAC Reforms 2024 & Existing NAAC Criterion (Key Indicators)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Correlation%20between%20New%20NAAC%20Reforms%202024%20&%20Existing%20NAAC%20Criterion%20Key%20Indicators.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS Responsibilities Matrix for NAAC 2024 Reforms (MBGL)",
+    url: "https://mits.ac.in/assets/pdf/iqac/New%20Reforms%20Correlation%20and%20MIts%20Responsibilities.pdf",
+    type: "pdf"
+  },
+  {
+    title: "NBA Supporting Document Manual - Program Specific Files",
+    url: "https://mits.ac.in/assets/pdf/iqac/NBA%20Supporting%20Document%20Manual%20-%20Program%20Specific%20Files.pdf",
+    type: "pdf"
+  },
+  {
+    title: "NBA - List of Files to be Maintained in the BSH Department",
+    url: "https://mits.ac.in/assets/pdf/iqac/BSH_NBA_Files%20List.pdf",
+    type: "pdf"
+  },
+  {
+    title: "AICTE CO-PO Mapping Template CSE Allied Branches",
+    url: "https://mits.ac.in/assets/pdf/iqac/AICTE%20CO-PO%20Mapping%20Template_CSE%20Allied%20Branches.xlsx",
+    type: "xlsx"
+  },
+  {
+    title: "AICTE CO-PO Mapping Template Core Branches",
+    url: "https://mits.ac.in/assets/pdf/iqac/AICTE%20CO-PO%20Mapping%20Template_Core%20Branches.xlsx",
+    type: "xlsx"
+  },
+  {
+    title: "Complex Engineering Problem Solving CPS Form",
+    url: "https://mits.ac.in/assets/pdf/iqac/Complex%20Engineering%20Problem-Solving%20_CPS_Form.xlsx",
+    type: "xlsx"
+  },
+  {
+    title: "Program Outcomes (PO) Mapping with WA & WK",
+    url: "https://mits.ac.in/assets/pdf/iqac/Program%20Outcomes%20(PO)%20Mapping%20with%20WA%20&%20WK.xlsx",
+    type: "xlsx"
+  },
+  {
+    title: "SDG Mapping",
+    url: "https://mits.ac.in/assets/pdf/iqac/SDG%20Mapping.xlsx",
+    type: "xlsx"
+  },
+  {
+    title: "IEA-GAPC2021 Graduate Attributes & Professional Competencies",
+    url: "https://mits.ac.in/assets/pdf/iqac/IEA-GAPC2021_GRADUATE%20ATTRIBUTES%20&%20PROFESSIONAL%20COMPETENCIES.xlsx",
+    type: "xlsx"
+  },
+  {
+    title: "NIRF Department Data Template",
+    url: "https://mits.ac.in/assets/pdf/iqac/NIRF-%20Department_data_template_MITS(3).xlsx",
+    type: "xlsx"
+  },
+  {
+    title: "NIRF Financial Data Template",
+    url: "https://mits.ac.in/assets/pdf/iqac/NIRF%20-%20Financial_data_template_MITS(3).xlsx",
+    type: "xlsx"
+  },
+  {
+    title: "Check List- Anti-Ragging Committee (ARC)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Anti-Ragging%20Committee%20(ARC).pdf",
+    type: "pdf"
+  },
+  {
+    title: "Check List- Culturals",
+    url: "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Culturals.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Check List- Events Organized (NSS_NCC)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20EVENTS%20ORGANIZED%20(NSS_NCC).pdf",
+    type: "pdf"
+  },
+  {
+    title: "Check List- Events Organized",
+    url: "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Events%20Organized.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Check List- Grievances and Redressal Committee (GRC)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Grievances%20and%20Redressal%20Committee%20(GRC).pdf",
+    type: "pdf"
+  },
+  {
+    title: "Check List- Internal Complaint Committee (ICC)",
+    url: "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Internal%20Complaint%20Committee%20(ICC).pdf",
+    type: "pdf"
+  },
+  {
+    title: "Check List- Sports",
+    url: "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Sports.pdf",
+    type: "pdf"
+  },
+  {
+    title: "Check List- Stakeholders Feedback",
+    url: "https://mits.ac.in/assets/pdf/iqac/Check%20List-%20Stakeholders%20Feedback.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS Check List - DAB, PAC & IAAB",
+    url: "https://mits.ac.in/assets/pdf/iqac/MITS%20Check%20List%20-%20DAB,%20PAC%20&%20IAAB.pdf",
+    type: "pdf"
+  },
+  {
+    title: "MITS Check List - Value Added Course",
+    url: "https://mits.ac.in/assets/pdf/iqac/Check%20lIst-Value%20Added%20Course.pdf",
+    type: "pdf"
+  },
 ];

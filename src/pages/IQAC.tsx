@@ -120,6 +120,7 @@ import {
   userEiqacDocs,
   userGalleryDocs,
   userManualsTableData,
+  downloadsDocs,
   contact,
   bannerImage,
   type Doc,
@@ -134,10 +135,12 @@ type SectionKey =
   | "composition"
   | "organogram"
   | "policies"
+  | "policiesDtbu"
   | "activities"
   | "initiatives"
   | "milestones"
   | "meetings"
+  | "meetingsDtbu"
   | "certifications"
   | "iso"
   | "ims"
@@ -153,12 +156,14 @@ type SectionKey =
   | "sss"
   | "econtent"
   | "popsoco"
+  | "copoAttainment"
   | "annual"
   | "newsletter"
   | "handbook"
   | "ugc"
   | "events"
   | "eiqac"
+  | "downloads"
   | "naacReforms"
   | "manuals"
   | "gallery"
@@ -166,16 +171,16 @@ type SectionKey =
 
 const sections: { key: SectionKey; label: string; icon: React.ComponentType<{ className?: string }>; group: string }[] = [
   { key: "about", label: "About IQAC", icon: BookOpen, group: "Introduction" },
-  { key: "objectives", label: "Objectives & Strategies", icon: Target, group: "Introduction" },
+  { key: "objectives", label: "Objective & Strategies", icon: Target, group: "Introduction" },
   { key: "functions", label: "Functions & Benefits", icon: Layers, group: "Introduction" },
   { key: "composition", label: "IQAC Composition", icon: Users, group: "Governance" },
   { key: "organogram", label: "IQAC Organogram", icon: FolderTree, group: "Governance" },
   { key: "policies", label: "IQAC Policies", icon: ShieldCheck, group: "Governance" },
   { key: "policiesDtbu", label: "Policies (MITS DTBU)", icon: ShieldCheck, group: "Governance" },
   { key: "activities", label: "Activities of IQAC", icon: Calendar, group: "Operations" },
-  { key: "initiatives", label: "Quality Initiatives", icon: Sparkles, group: "Operations" },
+  { key: "initiatives", label: "IQAC Quality Initiatives", icon: Sparkles, group: "Operations" },
   { key: "milestones", label: "Milestones", icon: Milestone, group: "Operations" },
-  { key: "meetings", label: "Minutes of Meeting", icon: ClipboardList, group: "Operations" },
+  { key: "meetings", label: "Minutes of the Meeting", icon: ClipboardList, group: "Operations" },
   { key: "meetingsDtbu", label: "Minutes of Meeting (MITS DTBU)", icon: ClipboardList, group: "Operations" },
   { key: "certifications", label: "Certifications", icon: Award, group: "Accreditation" },
   { key: "iso", label: "ISO 21001 : 2018 EOMS", icon: ShieldCheck, group: "Accreditation" },
@@ -184,22 +189,24 @@ const sections: { key: SectionKey; label: string; icon: React.ComponentType<{ cl
   { key: "aqar", label: "AQAR", icon: ClipboardCheck, group: "Accreditation" },
   { key: "reports", label: "Reports", icon: FileText, group: "Accreditation" },
   { key: "feedback", label: "Feedback System", icon: MessageSquare, group: "Assurance" },
-  { key: "aaa", label: "Academic & Admin Audit", icon: ScrollText, group: "Assurance" },
-  { key: "aaaRef", label: "AAA & References", icon: BookMarked, group: "Assurance" },
+  { key: "aaa", label: "Academic and Administrative Audit (AAA)", icon: ScrollText, group: "Assurance" },
+  { key: "aaaRef", label: "AAA & R References", icon: BookMarked, group: "Assurance" },
   { key: "strategic", label: "Strategic Plan", icon: Target, group: "Planning" },
-  { key: "bestPractices", label: "Best Practices", icon: Star, group: "Planning" },
-  { key: "distinctive", label: "Distinctive Performance", icon: Sparkles, group: "Planning" },
+  { key: "bestPractices", label: "Best Practice of the Institute", icon: Star, group: "Planning" },
+  { key: "distinctive", label: "Distinctive Performance of the Institute", icon: Sparkles, group: "Planning" },
   { key: "sss", label: "Student Satisfaction Survey", icon: BarChart3, group: "Assurance" },
   { key: "econtent", label: "e-Content Facility", icon: LibraryIcon, group: "Academic" },
-  { key: "popsoco", label: "PO-PSO-CO", icon: GraduationCap, group: "Academic" },
+  { key: "popsoco", label: "Vision-Mission-PEO-PO-PSO-CO of All Departments", icon: GraduationCap, group: "Academic" },
+  { key: "copoAttainment", label: "CO-PO Attainment of All Departments", icon: Target, group: "Academic" },
   { key: "annual", label: "MITS Annual Report", icon: FileText, group: "Publications" },
   { key: "newsletter", label: "Newsletter", icon: Newspaper, group: "Publications" },
   { key: "handbook", label: "Hand Book", icon: BookMarked, group: "Publications" },
   { key: "ugc", label: "UGC Quality Mandate", icon: Building2, group: "External" },
   { key: "events", label: "IQAC Events & Collaborations", icon: Calendar, group: "External" },
   { key: "eiqac", label: "e-IQAC", icon: Globe, group: "External" },
+  { key: "downloads", label: "Downloads", icon: Download, group: "Downloads" },
   { key: "naacReforms", label: "NAAC Reforms 2024", icon: ShieldCheck, group: "Accreditation" },
-  { key: "manuals", label: "Manuals / Formats / Guidelines", icon: Files, group: "Downloads" },
+  { key: "manuals", label: "Manual / Format / Guidelines", icon: Files, group: "Downloads" },
   { key: "gallery", label: "Gallery", icon: ImageIcon, group: "External" },
   { key: "contact", label: "Contact Us", icon: Mail, group: "External" },
 ];
@@ -1628,6 +1635,56 @@ const IQAC = () => {
                   </section>
                 )}
 
+                
+                {active === "copoAttainment" && (
+                  <section className="space-y-6">
+                    <SectionHeader
+                      eyebrow="Outcomes"
+                      title="CO-PO Attainment of All Departments"
+                      description="Course Outcome (CO) and Programme Outcome (PO) Attainment calculation, assessment rubrics, and continuous quality improvement mechanisms across all departments."
+                    />
+                    <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-5">
+                      <div className="flex items-center gap-3 text-[#0f2a44]">
+                        <div className="p-3 rounded-xl bg-red-50 text-[#b31317]">
+                          <Target className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <h3 className="font-display font-bold text-lg md:text-xl text-[#0f2a44]">
+                            CO-PO Attainment of All Departments
+                          </h3>
+                          <p className="text-xs text-slate-500 font-medium">
+                            Internal Quality Assurance Cell (IQAC) & Department Quality Assurance Cells (DQAC)
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="font-body text-slate-700 text-sm leading-relaxed">
+                        The attainment of Course Outcomes (COs) and Programme Outcomes (POs) is evaluated through direct and indirect assessment methods. Direct attainment is computed from internal examinations, continuous assessments, and semester-end examinations, while indirect attainment incorporates course-exit surveys and stakeholder feedback. Attainment portfolios and calculation sheets are archived within respective departmental records and presented during internal and external Academic and Administrative Audits (AAA).
+                      </p>
+
+                      <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                        <span className="text-xs text-slate-500 font-medium">
+                          For department-specific curriculum, vision, and attainment details:
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => setActive("popsoco")}
+                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#0f2a44] text-xs sm:text-sm font-bold transition-colors cursor-pointer"
+                          >
+                            <GraduationCap className="w-4 h-4 text-[#caa74d]" /> View PO-PSO-CO
+                          </button>
+                          <Link
+                            to="/departments"
+                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#b31317] hover:bg-[#8a0e12] text-white text-xs sm:text-sm font-bold transition-colors"
+                          >
+                            Departments <ChevronRight className="w-4 h-4" />
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                )}
+
                 {active === "annual" && (
                   <section className="space-y-6">
                     <SectionHeader eyebrow="Annual Reports" title="MITS Annual Report & IQAC Hours Reports" description="Institution-wide annual reports covering academics, research, placements, infrastructure, governance, and monthly IQAC hours reports." />
@@ -1700,6 +1757,19 @@ const IQAC = () => {
                   <section>
                     <SectionHeader eyebrow="Digital IQAC" title="e-IQAC Trackers" description="MITS e-IQAC portal — internal tracker for departments, cells and committees." />
                     <DocGrid docs={filter(userEiqacDocs)} />
+                  </section>
+                )}
+
+                
+                {active === "downloads" && (
+                  <section className="space-y-6">
+                    <SectionHeader
+                      eyebrow="Downloads"
+                      title="Downloads"
+                      description="Official IQAC Audit Formats, EOMS Checklists, Laboratory Inspection Templates, and Non-Conformance Resolution formats."
+                    />
+                    <SubHeader title="AUDIT Formats" />
+                    <DocGrid docs={filter(downloadsDocs)} />
                   </section>
                 )}
 
