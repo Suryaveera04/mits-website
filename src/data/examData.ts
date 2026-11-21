@@ -291,7 +291,7 @@ export const ugModelLabTimetables: ExamLink[] = [
   {
     no: 8,
     title: "CSE (DS) - B.Tech II Year I Semester (R25) Model Laboratory Examinations November 2026",
-    href: "https://mits.ac.in/public/uploads/exam/CSE ( DS ) - B. Tech II Year I Semester (R25) Model Laboratory Examinations - November 2026.pdf",
+    href: "https://mits.ac.in/public/uploads/exam/CSE%20(DS)%20-%20B.%20Tech%20II%20Year%20I%20Semester%20(R25)%20Model%20Laboratory%20Examinations%20-%20November%202026.pdf",
     kind: "pdf",
   },
   {

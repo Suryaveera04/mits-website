@@ -49,6 +49,7 @@ const FinanceCommitteePage = lazy(() => import("./pages/about/FinanceCommitteePa
 const NIRF = lazy(() => import("./pages/NIRF"));
 const NAAC = lazy(() => import("./pages/NAAC"));
 const IQAC = lazy(() => import("./pages/IQAC"));
+const ISO = lazy(() => import("./pages/ISO"));
 const AffiliationsAccreditations = lazy(() => import("./pages/AffiliationsAccreditations"));
 const PublicSelfDisclosures = lazy(() => import("./pages/PublicSelfDisclosures"));
 const InternationalRelations = lazy(() => import("./pages/InternationalRelations"));
@@ -168,6 +169,8 @@ const App = () => (
             <Route path="/nirf" element={<NIRF />} />
             <Route path="/naac" element={<NAAC />} />
             <Route path="/iqac" element={<IQAC />} />
+            <Route path="/iso" element={<ISO />} />
+            <Route path="/university/iso" element={<ISO />} />
             <Route path="/aqarcriteria" element={<AQARCriterionPage />} />
             <Route path="/aqar-criterion" element={<AQARCriterionPage />} />
             <Route path="/affiliations-accreditations" element={<AffiliationsAccreditations />} />

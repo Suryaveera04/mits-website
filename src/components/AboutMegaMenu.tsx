@@ -176,7 +176,7 @@ const AboutMegaMenu = ({ open, onClose, onMouseEnter, onMouseLeave }: Props) => 
         <img
           src="https://mits.ac.in/images/prathiba.jpeg"
           alt="Additional Registrar"
-          className="w-9 h-9 rounded-full object-cover border border-border shrink-0"
+          className="w-9 h-9 rounded-full object-cover object-top border border-border shrink-0"
         />
         <div className="min-w-0 flex-1 text-left">
           <p className="text-left text-[11px] font-semibold text-secondary leading-snug line-clamp-2 [text-align:left]">
