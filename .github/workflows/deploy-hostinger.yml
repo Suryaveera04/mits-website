@@ -47,15 +47,13 @@ jobs:
         with:
           host: ${{ secrets.HOSTINGER_SSH_HOST }}
           username: ${{ secrets.HOSTINGER_SSH_USERNAME }}
+          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
           key: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.HOSTINGER_SSH_PASSPHRASE }}
-          port: 65002
-
-          fingerprint: ${{ secrets.HOSTINGER_SSH_FINGERPRINT }}
-
+          port: ${{ secrets.HOSTINGER_SSH_PORT || 65002 }}
+          timeout: 120s
           source: "dist/*,dist/.htaccess"
-          target: ${{ secrets.HOSTINGER_REMOTE_PATH }}
-
+          target: ${{ secrets.HOSTINGER_REMOTE_PATH || 'public_html' }}
           strip_components: 1
           overwrite: true
           rm: false
