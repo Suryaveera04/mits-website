@@ -155,7 +155,7 @@ export default function GrcView() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* LEFT / MAIN COLUMN */}
-          <div className="lg:col-span-8 xl:col-span-9 space-y-8">
+          <div className="lg:col-span-7 xl:col-span-8 space-y-8">
             {/* ABOUT GRC */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8">
@@ -404,7 +404,7 @@ export default function GrcView() {
           </div>
 
           {/* RIGHT / SIDEBAR COLUMN */}
-          <div className="lg:col-span-4 xl:col-span-3 space-y-6">
+          <div className="lg:col-span-5 xl:col-span-4 space-y-6">
             {/* CONTACT CARD */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden">

@@ -149,7 +149,7 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
     return <MmcView />;
   }
 
-  if (targetId === "minority") {
+  if (targetId === "minority" || targetId === "minoritycell" || targetId === "minority-cell") {
     return <MinorityView />;
   }
 
