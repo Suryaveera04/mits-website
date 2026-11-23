@@ -45,6 +45,7 @@ import IeeeView from "@/components/cells/IeeeView";
 import GrcView from "@/components/cells/GrcView";
 import SwcView from "@/components/cells/SwcView";
 import AntiRaggingView from "@/components/cells/AntiRaggingView";
+import NssView from "@/components/cells/NssView";
 import SkillDevelopmentCentre from "@/pages/SkillDevelopmentCentre";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
@@ -233,6 +234,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "csi" || targetId === "csi-content") {
     return <CsiView />;
+  }
+
+  if (targetId === "nss" || targetId === "national-service-scheme" || targetId === "nss-cell") {
+    return <NssView />;
   }
 
   if (targetId === "ncc-army" || targetId === "ncc") {
