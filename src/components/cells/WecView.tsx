@@ -91,7 +91,7 @@ export default function WecView() {
         </nav>
       </section>
 
-      <main className="container mx-auto px-4 py-10 md:py-14 max-w-7xl">
+      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
         <button
           onClick={() => navigate("/cells")}
           className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#b31317] transition-colors"
@@ -100,10 +100,10 @@ export default function WecView() {
           Back to Cells &amp; Committees
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
           {/* LEFT / MAIN CONTENT */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-7 xl:col-span-8 space-y-8">
 
             {/* ABOUT */}
             <ScrollReveal>
@@ -146,28 +146,43 @@ export default function WecView() {
 
             {/* VISION & MISSION */}
             <ScrollReveal>
-              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/80 text-center">
-                    <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-[#b31317]/10 flex items-center justify-center">
-                      <span className="text-[#b31317] font-bold text-lg">V</span>
-                    </div>
-                    <h3 className="font-display text-base font-bold text-[#0f2a44] uppercase tracking-wider mb-3">Vision</h3>
-                    <p className="text-slate-700 text-sm leading-relaxed text-justify">
-                      To promote general well-being of female students, teaching and non-teaching women staff of the College and to provide and maintain a dignified, congenial working environment for women and enable them to explore their imminent potential in all aspects.
-                    </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* VISION - ORANGE CARD */}
+                <div className="bg-[#f58220] rounded-2xl p-7 md:p-8 text-white flex flex-col items-center text-center shadow-lg transition-transform hover:-translate-y-1">
+                  <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-3">
+                    <img
+                      src="https://mits.ac.in/public/uploads/images/vision-icon.png"
+                      alt="VISION"
+                      className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                      loading="lazy"
+                    />
                   </div>
-                  <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/80 text-center">
-                    <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-[#0f2a44]/10 flex items-center justify-center">
-                      <span className="text-[#0f2a44] font-bold text-lg">M</span>
-                    </div>
-                    <h3 className="font-display text-base font-bold text-[#0f2a44] uppercase tracking-wider mb-3">Mission</h3>
-                    <p className="text-slate-700 text-sm leading-relaxed text-justify">
-                      To train women to acquire wide range of skills and knowledge and to develop and increase their social, economic and intellectual capacities for amity, security and prosperity of mankind.
-                    </p>
-                  </div>
+                  <h3 className="font-display text-2xl font-bold tracking-wider uppercase mb-4 !text-white text-white drop-shadow-sm">
+                    VISION
+                  </h3>
+                  <p className="text-sm md:text-base leading-relaxed text-white/95 !text-justify text-justify font-normal">
+                    To promote general well-being of female students, teaching and non-teaching women staff of the College and to provide and maintain a dignified, congenial working environment for women and enable them to explore their imminent potential in all aspects.
+                  </p>
                 </div>
-              </section>
+
+                {/* MISSION - PURPLE CARD */}
+                <div className="bg-[#7e57c2] rounded-2xl p-7 md:p-8 text-white flex flex-col items-center text-center shadow-lg transition-transform hover:-translate-y-1">
+                  <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-3">
+                    <img
+                      src="https://mits.ac.in/public/uploads/images/mission-icon.png"
+                      alt="MISSION"
+                      className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3 className="font-display text-2xl font-bold tracking-wider uppercase mb-4 !text-white text-white drop-shadow-sm">
+                    MISSION
+                  </h3>
+                  <p className="text-sm md:text-base leading-relaxed text-white/95 !text-justify text-justify font-normal">
+                    To train women to acquire wide range of skills and knowledge and to develop and increase their social, economic and intellectual capacities for amity, security and prosperity of mankind.
+                  </p>
+                </div>
+              </div>
             </ScrollReveal>
 
             {/* OBJECTIVES */}
@@ -221,45 +236,49 @@ export default function WecView() {
 
           </div>
 
-          {/* RIGHT SIDEBAR */}
-          <div className="space-y-6">
+          {/* RIGHT / SIDEBAR COLUMN (5 cols on lg, 4 cols on xl - Increased Width) */}
+          <div className="lg:col-span-5 xl:col-span-4 space-y-6">
 
             {/* CONTACT CARD */}
             <ScrollReveal>
-              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden">
-                <div className="bg-[#b31317] px-5 py-3">
-                  <h3 className="font-display text-base font-bold text-white tracking-wide">Contact us</h3>
+              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden text-left">
+                <div className="bg-[#b31317] px-6 py-4">
+                  <h3 className="font-display text-lg font-bold !text-white text-white tracking-wide">Contact</h3>
                 </div>
-                <div className="p-5 space-y-4 text-sm text-slate-700">
-                  <div>
-                    <p className="font-bold text-[#0f2a44] text-base">Dr. S. Shanmuga Priya</p>
-                    <p className="text-xs text-[#b31317] font-semibold mt-0.5">WEC Coordinator - Chair Person</p>
+                <div className="p-6 space-y-5 text-sm text-slate-700">
+                  <div className="text-left">
+                    <p className="font-bold text-[#0f2a44] text-lg !text-left">Dr. S. Shanmuga Priya</p>
+                    <p className="text-sm text-[#b31317] font-semibold mt-0.5 !text-left">WEC Coordinator - Chairperson</p>
                   </div>
-                  <hr className="border-slate-100" />
-                  <div className="flex items-start gap-2.5">
-                    <MapPin className="w-4 h-4 text-[#b31317] shrink-0 mt-0.5" />
-                    <div className="text-xs text-slate-600 leading-relaxed">
-                      <p className="font-semibold text-slate-800">Address:</p>
-                      <p>Madanapalle Institute of Technology &amp; Science</p>
-                      <p>Deemed to be University</p>
-                      <p>Madanapalle-Kadiri Road</p>
-                      <p>Kurabalakota Mandal, Madanapalle-517325</p>
-                      <p>Andhra Pradesh, India</p>
+                  <hr className="border-gray-100" />
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-[#b31317] shrink-0 mt-1" />
+                    <div className="text-xs sm:text-sm leading-relaxed text-left space-y-0.5">
+                      <p className="font-semibold text-[#0f2a44] !text-left">Address :</p>
+                      <p className="font-bold text-[#0f2a44] !text-left">Madanapalle Institute of Technology &amp; Science</p>
+                      <p className="!text-left">Deemed to be University</p>
+                      <p className="!text-left">Madanapalle-Kadiri Road</p>
+                      <p className="!text-left">Kurabalakota Mandal, Madanapalle-517325</p>
+                      <p className="!text-left">Andhra Pradesh, India</p>
                     </div>
                   </div>
-                  <hr className="border-slate-100" />
-                  <div className="flex items-center gap-2.5">
-                    <Phone className="w-4 h-4 text-[#b31317] shrink-0" />
-                    <div className="text-xs text-slate-700">
-                      <span className="font-semibold">Phone: </span>+91-9100973251; 8571-280255; 280706
+                  <hr className="border-gray-100" />
+                  <div className="flex items-start gap-3 border-t border-gray-100 pt-3">
+                    <Phone className="w-4 h-4 text-[#b31317] shrink-0 mt-1" />
+                    <div className="text-left">
+                      <p className="font-semibold text-[#0f2a44] !text-left">Phone :</p>
+                      <p className="text-slate-600 !text-left">+91-9100973251; 8571-280255; 280706</p>
                     </div>
                   </div>
-                  <hr className="border-slate-100" />
-                  <div className="flex items-center gap-2.5">
-                    <Mail className="w-4 h-4 text-[#b31317] shrink-0" />
-                    <a href="mailto:wec@mits.ac.in" className="text-xs text-[#b31317] hover:underline font-medium">
-                      wec@mits.ac.in
-                    </a>
+                  <hr className="border-gray-100" />
+                  <div className="flex items-start gap-3 border-t border-gray-100 pt-3">
+                    <Mail className="w-4 h-4 text-[#b31317] shrink-0 mt-1" />
+                    <div className="text-left">
+                      <p className="font-semibold text-[#0f2a44] !text-left">Email :</p>
+                      <a href="mailto:wec@mits.ac.in" className="text-[#b31317] hover:underline font-semibold whitespace-nowrap block">
+                        wec@mits.ac.in
+                      </a>
+                    </div>
                   </div>
                 </div>
               </section>

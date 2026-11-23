@@ -14,6 +14,7 @@ import SacView from "@/components/cells/SacView";
 import MmcView from "@/components/cells/MmcView";
 import MinorityView from "@/components/cells/MinorityView";
 import ScStView from "@/components/cells/ScStView";
+import IccView from "@/components/cells/IccView";
 import WecView from "@/components/cells/WecView";
 import SedgView from "@/components/cells/SedgView";
 import EofcView from "@/components/cells/EofcView";
@@ -149,12 +150,16 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
     return <MmcView />;
   }
 
-  if (targetId === "minority") {
+  if (targetId === "minority" || targetId === "minoritycell" || targetId === "minority-cell") {
     return <MinorityView />;
   }
 
-  if (targetId === "sc-st") {
+  if (targetId === "sc-st" || targetId === "sc-st-cell" || targetId === "scst" || targetId === "scst-cell") {
     return <ScStView />;
+  }
+
+  if (targetId === "icc" || targetId === "posh" || targetId === "internal-complaints-committee") {
+    return <IccView />;
   }
 
   if (targetId === "wec") {
