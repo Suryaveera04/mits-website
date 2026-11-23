@@ -305,42 +305,49 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "name": "Help Line",
         "designation": "Anti-Ragging Helpline",
         "email": "antiragginghelpline@mits.ac.in",
-        "phone": "Phone :\n+91 8008500767\n",
-        "address": "Madanapalle Institute of Technology & Science"
+        "phone": "+91 8008500767",
+        "address": "Meet @ EB-016, Ground Floor, East Block, MITS"
+      },
+      {
+        "name": "Dr Thulasiram Naidu R",
+        "designation": "Advisor R&D and Chief Coordinator - Anti-Ragging Cell",
+        "email": "drrtnaidu@mits.ac.in",
+        "phone": "+91 8008500767",
+        "address": "Meet @ EB-016, Ground Floor, East Block, MITS"
       },
       {
         "name": "Dr. Chandra Mohan K",
-        "designation": "Coordinator - Anti-Ragging Squad",
-        "email": "",
-        "phone": "Phone :\n+91 9100973269\n",
-        "address": "Madanapalle Institute of Technology & Science"
+        "designation": "Coordinator - Anti-Ragging Cell",
+        "email": "fbc-che@mits.ac.in",
+        "phone": "+91 9100973269",
+        "address": "Meet @ SB-211, IInd Floor, South Block, MITS"
       },
       {
         "name": "Dr.Subba Rao A",
-        "designation": "Additional Coordinator - Anti-Ragging Squad",
-        "email": "",
-        "phone": "Phone :\n+91 9160020473\n",
+        "designation": "Co-Coordinator - Anti-Ragging Cell",
+        "email": "fbc-phy@mits.ac.in",
+        "phone": "+91 9160020473",
         "address": "Madanapalle Institute of Technology & Science"
       },
       {
-        "name": "Dr. G. Hemalatha",
-        "designation": "Additional Coordinator (Women) - Anti-Ragging Squad",
-        "email": "",
-        "phone": "Phone :\n+91 9629966218\n",
+        "name": "Dr. K. Lakshmi Devi",
+        "designation": "Additional Coordinator - Anti-Ragging Cell",
+        "email": "drlakshmidevik@mits.ac.in",
+        "phone": "+91 9703108186",
         "address": "Madanapalle Institute of Technology & Science"
       },
       {
         "name": "Mrs. Vijaya Lakshmi U",
         "designation": "Associate Director - International Relations & Institute Counsellor - MITS",
         "email": "vijayalakshmiu@mits.ac.in",
-        "phone": "Phone :\n+91 9100600773\n",
+        "phone": "+91 9100600773",
         "address": "Madanapalle Institute of Technology & Science"
       },
       {
-        "name": "Dr.Chennaiah R",
-        "designation": "Medical Officer",
-        "email": "",
-        "phone": "",
+        "name": "Mr. Pavan Kumar Sarma P",
+        "designation": "Administrative Assistant",
+        "email": "pavankumarsarmap@mits.ac.in",
+        "phone": "+91 9063435712",
         "address": "Madanapalle Institute of Technology & Science"
       }
     ],

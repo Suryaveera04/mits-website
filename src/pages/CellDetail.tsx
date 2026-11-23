@@ -42,6 +42,7 @@ import InnovationCenterView from "@/components/cells/InnovationCenterView";
 import NasscomView from "@/components/cells/NasscomView";
 import IeeeView from "@/components/cells/IeeeView";
 import GrcView from "@/components/cells/GrcView";
+import AntiRaggingView from "@/components/cells/AntiRaggingView";
 import SkillDevelopmentCentre from "@/pages/SkillDevelopmentCentre";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
@@ -130,6 +131,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "grc" || targetId === "grievance-redressal-cell") {
     return <GrcView />;
+  }
+
+  if (targetId === "anti-ragging" || targetId === "antiragging" || targetId === "anti-ragging-cell") {
+    return <AntiRaggingView />;
   }
 
   if (targetId === "iei") {
