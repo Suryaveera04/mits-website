@@ -19,7 +19,7 @@ const ugSyllabus: SyllabusItem[] = [
   {
     id: 1,
     title: "Course Structure & Syllabi (R25) B.Tech Programme - Civil Engineering",
-    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech CIVIL-R25-MITS DTBU.pdf",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech%20CIVIL-%20R25%20MITS%20DTBU-1-1.pdf",
     level: "UG",
     regulation: "R25",
   },
