@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
@@ -14,6 +14,8 @@ import {
   AlertCircle,
   GraduationCap,
   CheckCircle2,
+  Image as ImageIcon,
+  DollarSign,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -91,9 +93,61 @@ const eventsData = [
   },
 ];
 
+const galleryImages = [
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-05-19%20at%208.17.02%20AM.jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-05-19%20at%208.55.26%20AM.jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-05-07%20at%2010.05.39%20AM.jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-05-15%20at%208.05.06%20AM%20(1).jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-05-07%20at%2010.05.39%20AM%20(1).jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-05-15%20at%208.05.04%20AM%20(1).jpeg",
+  "https://mits.ac.in/public/uploads/gallery/swc-2026.jpg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-04-01%20at%203.41.53%20PM.jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-04-06%20at%208.07.31%20AM%20(1).jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-04-06%20at%208.07.31%20AM.jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-04-06%20at%208.07.32%20AM%20(1).jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-04-06%20at%208.07.32%20AM%20(2).jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-04-06%20at%208.07.32%20AM.jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-04-06%20at%208.07.33%20AM%20(1).jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-04-06%20at%208.07.33%20AM%20(2).jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-04-06%20at%208.07.33%20AM.jpeg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-04-06%20at%208.07.34%20AM.jpeg",
+  "https://mits.ac.in/public/uploads/gallery/886a22fa-24a3-4f01-897e-2b7c1fa67cc6.jpg",
+  "https://mits.ac.in/public/uploads/gallery/aa98f6e3-3f9b-471d-942f-1594d8244609.jpg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-03-05%20at%202.51.59%20PM.jpg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-03-05%20at%202.52.01%20PM.jpg",
+  "https://mits.ac.in/public/uploads/gallery/111swc.jpg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-03-09%20at%203.43.27%20PM.jpg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-03-09%20at%203.43.28%20PM%20(3).jpg",
+  "https://mits.ac.in/public/uploads/gallery/WhatsApp%20Image%202026-03-09%20at%203.43.28%20PM.jpg",
+];
+
 export default function SwcView() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<string>("home");
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === "#tab-gallery" || hash === "#gallery") {
+        setActiveTab("gallery");
+      } else if (hash === "#tab-8" || hash === "#financial-aid" || hash === "#tab-financial-aid") {
+        setActiveTab("financial-aid");
+      } else if (hash === "#tab-2" || hash === "#scholarships") {
+        setActiveTab("scholarships");
+      } else if (hash === "#tab-4" || hash === "#documents") {
+        setActiveTab("documents");
+      } else if (hash === "#tab-5" || hash === "#events") {
+        setActiveTab("events");
+      } else if (hash === "#tab-7" || hash === "#contact") {
+        setActiveTab("contact");
+      } else if (hash === "#tab-1" || hash === "#home") {
+        setActiveTab("home");
+      }
+    };
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#fafaf7] text-slate-800">
@@ -157,6 +211,8 @@ export default function SwcView() {
             { id: "scholarships", label: "Scholarships" },
             { id: "documents", label: "Forms & Documents" },
             { id: "events", label: "Events" },
+            { id: "gallery", label: "Gallery" },
+            { id: "financial-aid", label: "Financial Aid" },
             { id: "contact", label: "Contact Us" },
           ].map((tab) => (
             <button
@@ -446,7 +502,87 @@ export default function SwcView() {
         )}
 
         {/* ========================================================================= */}
-        {/* TAB 5: CONTACT (#tab-7) - EXACT TEXT & ADDRESS PER USER PROMPT */}
+        {/* TAB 5: GALLERY (#tab-gallery) */}
+        {/* ========================================================================= */}
+        {activeTab === "gallery" && (
+          <ScrollReveal>
+            <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8 space-y-6">
+              <div className="border-b border-gray-100 pb-4">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0f2a44] flex items-center gap-2.5">
+                  <ImageIcon className="w-6 h-6 text-[#b31317]" />
+                  Gallery
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                  Photographic highlights of student welfare programs, scholarship drives, and workshops.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                {galleryImages.map((src, i) => (
+                  <a
+                    key={i}
+                    href={src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block overflow-hidden rounded-xl border border-gray-200 hover:border-[#b31317] transition-all group aspect-4/3 shadow-xs bg-slate-50"
+                  >
+                    <img
+                      src={src}
+                      alt={`SWC Gallery image ${i + 1}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </a>
+                ))}
+              </div>
+            </section>
+          </ScrollReveal>
+        )}
+
+        {/* ========================================================================= */}
+        {/* TAB 6: FINANCIAL AID (#tab-8) */}
+        {/* ========================================================================= */}
+        {activeTab === "financial-aid" && (
+          <ScrollReveal>
+            <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8 space-y-5">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-gray-100 pb-4">
+                <div>
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0f2a44] flex items-center gap-2.5">
+                    <DollarSign className="w-6 h-6 text-[#b31317]" />
+                    Financial Aid
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                    MITS Financial Aid Scheme guidelines and eligibility criteria.
+                  </p>
+                </div>
+                <a
+                  href="https://mits.ac.in/assets/pdf/swc/Financial-AID.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#b31317] text-white text-xs sm:text-sm font-semibold rounded-lg hover:bg-[#8e0f13] transition-colors shadow-sm"
+                >
+                  <FileDown className="w-4 h-4" />
+                  <span>Download Financial Aid PDF</span>
+                </a>
+              </div>
+
+              <div className="w-full rounded-xl overflow-hidden border border-gray-200 shadow-sm bg-slate-50">
+                <iframe
+                  src="https://mits.ac.in/assets/pdf/swc/Financial-AID.pdf#toolbar=1&navpanes=0&scrollbar=1&zoom=page-width"
+                  width="100%"
+                  height="1000"
+                  className="w-full min-h-[700px] md:min-h-[1000px] border-0"
+                  title="Financial Aid"
+                >
+                  Financial Aid
+                </iframe>
+              </div>
+            </section>
+          </ScrollReveal>
+        )}
+
+        {/* ========================================================================= */}
+        {/* TAB 7: CONTACT (#tab-7) - EXACT TEXT & ADDRESS PER USER PROMPT */}
         {/* ========================================================================= */}
         {activeTab === "contact" && (
           <ScrollReveal>
