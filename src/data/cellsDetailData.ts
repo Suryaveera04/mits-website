@@ -64,7 +64,7 @@ export const cellsDetailData: Record<string, CellDetail> = {
         "name": "Dr. P. Ramanathan",
         "designation": "Principal",
         "position": "Chairperson",
-        "email": "drramanathanp@mits.ac.in"
+        "email": "principal@mits.ac.in"
       },
       {
         "sno": "2",
@@ -105,19 +105,19 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "documents": [
       {
         "title": "Ombudsperson by JNTUA",
-        "href": "http://www.mits.ac.in/assets/pdf/admin/appointment of - OMBUDSMAN-Nomination.pdf"
+        "href": "https://www.mits.ac.in/assets/pdf/admin/appointment%20of%20-%20OMBUDSMAN-Nomination.pdf"
       },
       {
         "title": "Student Grievance Redressal Policy",
-        "href": "http://www.mits.ac.in/assets/pdf/admin/Student Grievance Redressal Policy-2025-26.pdf"
+        "href": "https://www.mits.ac.in/assets/pdf/admin/Students%20Grievance%20Redressal%20Policy.pdf"
       },
       {
         "title": "Student Grievance Redressal Committee 2025-26",
-        "href": "http://www.mits.ac.in/assets/pdf/admin/Office Order-SGRC Appointment.pdf"
+        "href": "https://www.mits.ac.in/assets/pdf/admin/Office%20Order-SGRC%20Appointment.pdf"
       },
       {
         "title": "Student Grievance Redressal Committee 2024-25",
-        "href": "http://www.mits.ac.in/assets/pdf/admin/Student Grievance Redressal Committee.pdf"
+        "href": "https://www.mits.ac.in/assets/pdf/admin/Student%20Grievance%20Redressal%20Committee.pdf"
       },
       {
         "title": "Grievances Redressed",
@@ -127,10 +127,10 @@ export const cellsDetailData: Record<string, CellDetail> = {
     "contacts": [
       {
         "name": "Dr. C. Kamal Basha",
-        "designation": "Co-Ordinator",
+        "designation": "Co-Ordinator\nGrievance Redressal Committee",
         "email": "grc@mits.ac.in",
-        "phone": "Phone :\n+91-8571-280255; 280706\n",
-        "address": "Madanapalle Institute of Technology & Science"
+        "phone": "+91-8571-280255; 280706",
+        "address": "Madanapalle Institute of Technology & Science\nDeemed to be University\nMadanapalle-Kadiri Road\nKurabalakota Mandal, Madanapalle-517325\nAndhra Pradesh, India"
       }
     ],
     "id": "grc",
