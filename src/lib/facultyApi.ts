@@ -4,6 +4,7 @@
  */
 
 import fallbackData from "@/data/facultyApiFallback.json";
+import officialFacultyList from "@/data/officialFacultyList.json";
 import { slugifyFaculty, cleanFacultyName, hasPhdDegree } from "./facultySlug";
 import type { FacultyMember } from "@/data/departmentData";
 import type { FacultyProfile, FacultySection } from "@/data/facultyProfiles";
@@ -256,7 +257,11 @@ export function getFacultyPhotoUrl(photoPath?: string): string | undefined {
  */
 export function cleanInstitutionName(raw?: string | null): string {
   if (!raw) return "";
-  let clean = raw.replace(/[\t\r\n]+/g, " ").replace(/\s+/g, " ").trim();
+  let clean = raw
+    .replace(/&amp;/g, "&")
+    .replace(/[\t\r\n]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
   clean = clean.replace(/^[-,.\s]+|[-,.\s]+$/g, "");
   const lower = clean.toLowerCase();
   if (
@@ -275,14 +280,51 @@ export function cleanInstitutionName(raw?: string | null): string {
 }
 
 /**
+ * Cleans degree titles removing leading bullets, HTML entities, and formatting artifacts
+ */
+export function cleanDegreeName(raw?: string | null): string {
+  if (!raw) return "";
+  let clean = raw
+    .replace(/&amp;/g, "&")
+    .replace(/^[•\t\-\s*]+/, "")
+    .replace(/[\t\r\n]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  clean = clean.replace(/^[-,.\s]+|[-,.\s]+$/g, "");
+  return clean;
+}
+
+/**
+ * Formats a degree title with its awarding institution / college, avoiding duplicate university mentions
+ */
+export function formatDegreeWithInstitution(degree: string, institution?: string | null): string {
+  const cleanDeg = cleanDegreeName(degree);
+  const cleanUni = cleanInstitutionName(institution);
+  if (!cleanDeg && !cleanUni) return "";
+  if (!cleanUni) return cleanDeg;
+  if (!cleanDeg) return cleanUni;
+
+  const degLower = cleanDeg.toLowerCase();
+  const uniLower = cleanUni.toLowerCase();
+  if (degLower.includes(uniLower)) {
+    return cleanDeg;
+  }
+
+  return `${cleanDeg} (${cleanUni})`;
+}
+
+/**
  * Resolves faculty qualification strictly according to database fields:
  * - Shows "Ph.D." ONLY if phd.status is explicitly "Awarded".
  * - For "Pursuing" or "Not Applicable" faculty: shows Post Graduation (PG) degree, or falls back to UG degree.
- * - Appends College / University name after the degree if available: e.g. "Ph.D. (University of Kota)"
- *   or "M.Tech (SASTRA University)".
+ * - Always appends College / University name after the degree if available: e.g. "Ph.D. (University of Kota)",
+ *   "MA (Economics) (S V UNIVERSITY)", or "M.Tech (CSE) (Bapatla Engineering College)".
+ * - Falls back to official faculty records if degree fields in the API database are blank.
  */
 export function resolveFacultyQualification(
   f: {
+    _id?: string;
+    id?: string;
     phd?: APIPhd;
     pg?: APIEducationDegree;
     ug?: APIEducationDegree;
@@ -295,39 +337,93 @@ export function resolveFacultyQualification(
   const phdStatus = (f.phd?.status || "").trim().toLowerCase();
   const isPhdAwarded = phdStatus === "awarded";
 
+  // Pre-match official faculty record if candidate ID or Name matches
+  const candidateId = f._id || f.id;
+  const cleanName = cleanFacultyName(f.fullName || f.name || "").replace(/^Dr\.?\s*/i, "").trim().toLowerCase();
+  const officialMatch = (officialFacultyList as any[]).find((o) => {
+    if (candidateId && o.dbId === candidateId) return true;
+    const oName = cleanFacultyName(o.name || "").replace(/^Dr\.?\s*/i, "").trim().toLowerCase();
+    const oDbName = cleanFacultyName(o.dbFullName || "").replace(/^Dr\.?\s*/i, "").trim().toLowerCase();
+    return (cleanName && oName === cleanName) || (cleanName && oDbName === cleanName);
+  });
+
   if (isPhdAwarded) {
-    const uni = cleanInstitutionName(f.phd?.university);
+    let uni = cleanInstitutionName(f.phd?.university);
+    if (!uni && officialMatch?.qualification) {
+      const match = officialMatch.qualification.match(/\(([^)]+)\)/);
+      if (match && match[1]) {
+        uni = cleanInstitutionName(match[1]);
+      }
+    }
     return uni ? `Ph.D. (${uni})` : "Ph.D.";
   }
 
-  // Check Post Graduation (PG) for Pursuing, Not Applicable, or other
-  const pgDegree = (f.pg?.degree || "").trim();
-  const pgUni = cleanInstitutionName(f.pg?.university || f.pg?.school || f.pg?.board);
+  const isPursuing = phdStatus === "pursuing";
 
-  if (pgDegree) {
-    if (pgDegree.includes("(") && pgDegree.includes(")")) {
-      return pgDegree;
-    }
-    return pgUni ? `${pgDegree} (${pgUni})` : pgDegree;
+  // Ph.D. institution where the faculty member is pursuing their doctorate
+  const phdUni = cleanInstitutionName(f.phd?.university);
+
+  // Post Graduation (PG) degree and college
+  const pgDegree = cleanDegreeName(f.pg?.degree);
+  const pgUni = cleanInstitutionName(
+    f.pg?.university || f.pg?.school || f.pg?.board || (f.pg as any)?.college || (f.pg as any)?.institute
+  );
+
+  // Under Graduation (UG) degree and college
+  const ugDegree = cleanDegreeName(f.ug?.degree);
+  const ugUni = cleanInstitutionName(
+    f.ug?.university || f.ug?.school || f.ug?.board || (f.ug as any)?.college || (f.ug as any)?.institute
+  );
+
+  // 1. For Pursuing: show PG/UG course and their Ph.D. college (fallback to PG/UG college if phd.university is empty)
+  // 2. For Not Applicable: show PG/UG course and their last graduation college (PG college, or UG college)
+  const targetDegree = pgDegree || ugDegree;
+  const targetCollege = isPursuing
+    ? (phdUni || pgUni || ugUni)
+    : (pgUni || ugUni);
+
+  if (targetDegree) {
+    return formatDegreeWithInstitution(targetDegree, targetCollege);
   }
 
-  // Check Under Graduation (UG)
-  const ugDegree = (f.ug?.degree || "").trim();
-  const ugUni = cleanInstitutionName(f.ug?.university || f.ug?.school || f.ug?.board);
-
-  if (ugDegree) {
-    if (ugDegree.includes("(") && ugDegree.includes(")")) {
-      return ugDegree;
+  // 3. Fallback to Official Faculty List qualification
+  if (officialMatch?.qualification) {
+    let qual = officialMatch.qualification.trim();
+    if (isPursuing) {
+      qual = qual.replace(/,\s*\(\s*ph\.?d\.?\s*\)/gi, "")
+                 .replace(/\(\s*ph\.?d\.?\s*\)/gi, "")
+                 .replace(/\s+/g, " ")
+                 .trim();
+      if (phdUni) {
+        const baseDegMatch = qual.match(/^([^(]+)/);
+        const baseDeg = baseDegMatch ? cleanDegreeName(baseDegMatch[1]) : qual;
+        if (baseDeg) {
+          return formatDegreeWithInstitution(baseDeg, phdUni);
+        }
+      }
     }
-    return ugUni ? `${ugDegree} (${ugUni})` : ugDegree;
+    if (qual && qual !== "M.Tech / M.Sc") {
+      return qual;
+    }
   }
 
-  // Fallback if provided (e.g. for official leaders whose degrees aren't yet filled in DB)
+  // 4. Fallback if explicitly provided
   if (fallbackQualification && fallbackQualification !== "M.Tech / M.Sc") {
-    if (/ph\.?d/i.test(fallbackQualification) && phdStatus === "pursuing") {
-      return "Post Graduate";
+    let qual = fallbackQualification.trim();
+    if (isPursuing) {
+      qual = qual.replace(/,\s*\(\s*ph\.?d\.?\s*\)/gi, "")
+                 .replace(/\(\s*ph\.?d\.?\s*\)/gi, "")
+                 .replace(/\s+/g, " ")
+                 .trim();
+      if (phdUni) {
+        const baseDegMatch = qual.match(/^([^(]+)/);
+        const baseDeg = baseDegMatch ? cleanDegreeName(baseDegMatch[1]) : qual;
+        if (baseDeg) {
+          return formatDegreeWithInstitution(baseDeg, phdUni);
+        }
+      }
     }
-    return fallbackQualification;
+    return qual;
   }
 
   return "";
@@ -432,18 +528,26 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
 
   if (f.pg?.degree) {
     eduRows.push({
-      "Degree / Program": f.pg.degree,
+      "Degree / Program": cleanDegreeName(f.pg.degree),
       "Topic / Specialization": (f.pg as any).specialization || "-",
-      "University / Institution": f.pg.university || f.pg.school || "-",
+      "University / Institution": cleanInstitutionName(f.pg.university || f.pg.school) || "-",
       "Year / Status": f.pg.yearOfPassing ? String(f.pg.yearOfPassing) : (f.pg.percentage ? `${f.pg.percentage}%` : "-"),
     });
   }
   if (f.ug?.degree) {
     eduRows.push({
-      "Degree / Program": f.ug.degree,
+      "Degree / Program": cleanDegreeName(f.ug.degree),
       "Topic / Specialization": (f.ug as any).specialization || "-",
-      "University / Institution": f.ug.university || f.ug.school || "-",
+      "University / Institution": cleanInstitutionName(f.ug.university || f.ug.school) || "-",
       "Year / Status": f.ug.yearOfPassing ? String(f.ug.yearOfPassing) : (f.ug.percentage ? `${f.ug.percentage}%` : "-"),
+    });
+  }
+  if (eduRows.length === 0 && qualification) {
+    eduRows.push({
+      "Degree / Program": qualification,
+      "Topic / Specialization": "-",
+      "University / Institution": "-",
+      "Year / Status": "-",
     });
   }
   if (eduRows.length > 0) {

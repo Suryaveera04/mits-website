@@ -7,6 +7,8 @@ import {
   apiFacultyToFacultyProfile,
   resolveFacultyQualification,
   cleanInstitutionName,
+  cleanDegreeName,
+  formatDegreeWithInstitution,
   type APIFacultyMember,
 } from "@/lib/facultyApi";
 import { slugifyFaculty } from "@/lib/facultySlug";
@@ -198,7 +200,7 @@ describe("Faculty API & Department Segregation", () => {
     };
     expect(resolveFacultyQualification(awardedNoUni)).toBe("Ph.D.");
 
-    // 3. Pursuing Ph.D. -> MUST NOT display Ph.D., should display PG degree and college
+    // 3. Pursuing Ph.D. -> MUST display PG degree and Ph.D. college
     const pursuingFaculty: APIFacultyMember = {
       _id: "pur1",
       fullName: "Mr. Charlie Brown",
@@ -216,7 +218,21 @@ describe("Faculty API & Department Segregation", () => {
         university: "JNTUH",
       },
     };
-    expect(resolveFacultyQualification(pursuingFaculty)).toBe("M.Tech (NIT Warangal)");
+    expect(resolveFacultyQualification(pursuingFaculty)).toBe("M.Tech (VTU Belagavi)");
+
+    // 3b. Pursuing Ph.D. with empty phd.university -> falls back to PG college
+    const pursuingEmptyPhdUni: APIFacultyMember = {
+      _id: "pur1b",
+      fullName: "Mr. Alan Turing",
+      phd: {
+        status: "Pursuing",
+      },
+      pg: {
+        degree: "M.Tech",
+        university: "NIT Warangal",
+      },
+    };
+    expect(resolveFacultyQualification(pursuingEmptyPhdUni)).toBe("M.Tech (NIT Warangal)");
 
     // 4. Pursuing Ph.D. with PG degree but no PG university
     const pursuingNoPgUni: APIFacultyMember = {
@@ -260,15 +276,54 @@ describe("Faculty API & Department Segregation", () => {
     };
     expect(resolveFacultyQualification(notApplicableFaculty)).toBe("MBA (Indian Institute of Science)");
 
-    // 7. Not Applicable with fallback qualification
-    const fallbackOnlyFaculty: APIFacultyMember = {
-      _id: "na2",
-      fullName: "Mr. George Clark",
+    // 8. Degrees with parentheses in degree name must still append college name
+    const pursuingDegreeWithParens: APIFacultyMember = {
+      _id: "pur4",
+      fullName: "Mr. Gangadharam T",
+      phd: {
+        status: "Pursuing",
+        university: "S V UNIVERSITY",
+      },
+      pg: {
+        degree: "MA (Economics)",
+        university: "S V UNIVERSITY",
+      },
+    };
+    expect(resolveFacultyQualification(pursuingDegreeWithParens)).toBe("MA (Economics) (S V UNIVERSITY)");
+
+    const pursuingMtechWithBranch: APIFacultyMember = {
+      _id: "pur5",
+      fullName: "Mr. Noorbhasha Junnu Babu",
+      phd: {
+        status: "Pursuing",
+        university: "Pondicherry University, Karaikal Campus",
+      },
+      pg: {
+        degree: "M.Tech. (Computer Science and Engineering)",
+        university: "Bapatla Engineering College, Bapatla",
+      },
+    };
+    expect(resolveFacultyQualification(pursuingMtechWithBranch)).toBe("M.Tech. (Computer Science and Engineering) (Pondicherry University, Karaikal Campus)");
+
+    const notApplicableWithBranch: APIFacultyMember = {
+      _id: "na3",
+      fullName: "Mr. Sabarishkumar P",
       phd: {
         status: "Not Applicable",
       },
+      pg: {
+        degree: "M.E (Structural Engineering)",
+        university: "Institute of Road and Transport Technology, Erode",
+      },
     };
-    expect(resolveFacultyQualification(fallbackOnlyFaculty, "M.Tech")).toBe("M.Tech");
+    expect(resolveFacultyQualification(notApplicableWithBranch)).toBe("M.E (Structural Engineering) (Institute of Road and Transport Technology, Erode)");
+
+    // 9. Do not duplicate college name if degree already mentions the university
+    expect(formatDegreeWithInstitution("M.Tech (IIT Madras)", "IIT Madras")).toBe("M.Tech (IIT Madras)");
+
+    // 10. Clean leading bullets and formatting artifacts from degree strings
+    expect(cleanDegreeName("•\tM. Tech. (Information Technology) ")).toBe("M. Tech. (Information Technology)");
+    expect(formatDegreeWithInstitution("•\tM. Tech. (Information Technology) ", "Vignan University")).toBe("M. Tech. (Information Technology) (Vignan University)");
   });
 
   it("should clean institution names properly removing placeholders and whitespace", () => {
