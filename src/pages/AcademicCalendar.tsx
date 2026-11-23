@@ -4,8 +4,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
-import { GraduationCap, FileText, Download, Eye, X, Search, Calendar } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { FileDown, Search, Calendar } from "lucide-react";
 
 const BASE = "https://mits.edu/";
 
@@ -118,7 +117,6 @@ const AcademicCalendar = () => {
 
   const [activeTab, setActiveTab] = useState<"UG" | "PG" | "PHD">(getInitialTab);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedPdf, setSelectedPdf] = useState<{ title: string; pdfUrl: string } | null>(null);
 
   const currentList =
     activeTab === "UG" ? ugCalendars : activeTab === "PG" ? pgCalendars : phdCalendars;
@@ -184,12 +182,12 @@ const AcademicCalendar = () => {
         </section>
 
         {/* CONTENT SECTION */}
-        <section className="py-12 md:py-16 px-4">
-          <div className="container mx-auto max-w-4xl">
+        <section className="py-10 md:py-14 px-2 sm:px-4">
+          <div className="w-full max-w-[96%] mx-auto px-2 sm:px-4">
             {/* Title Header with Graduation Icon */}
             <div className="text-center mb-8">
               <div className="inline-flex items-center justify-center gap-3 text-2xl sm:text-3xl font-display font-bold text-[#8b0000]">
-                <GraduationCap className="w-8 h-8 text-[#8b0000]" />
+                <span className="text-3xl">🎓</span>
                 <h2>Academic Calendars</h2>
               </div>
               <p className="text-slate-500 text-sm mt-1">
@@ -251,51 +249,23 @@ const AcademicCalendar = () => {
               )}
             </div>
 
-            {/* List Container */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 shadow-md overflow-hidden">
+            {/* List Container matching Official Portal */}
+            <div className="bg-white rounded-xl border border-slate-200/90 shadow-xs overflow-hidden">
               <div className="divide-y divide-slate-100">
                 {filteredList.length > 0 ? (
-                  filteredList.map((item) => (
-                    <div
-                      key={`${activeTab}-${item.sno}-${item.title}`}
-                      className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-slate-50/80 transition-colors group"
+                  filteredList.map((item, idx) => (
+                    <a
+                      key={`${activeTab}-${idx}-${item.title}`}
+                      href={item.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between py-3.5 px-4 sm:px-6 hover:bg-slate-50 transition-colors group"
                     >
-                      <div className="flex items-start gap-3 sm:gap-4">
-                        <span className="font-semibold text-sm text-slate-400 group-hover:text-[#8b0000] transition-colors pt-0.5 min-w-[20px]">
-                          {item.sno}.
-                        </span>
-                        <div>
-                          <h3 className="font-medium text-sm sm:text-base text-slate-800 group-hover:text-[#8b0000] transition-colors leading-snug">
-                            {item.title}
-                          </h3>
-                          <p className="text-xs text-slate-400 mt-0.5">
-                            Official Academic Schedule • Approved
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-2 self-end sm:self-center">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setSelectedPdf({ title: item.title, pdfUrl: item.pdfUrl })}
-                          className="h-9 px-3 text-xs font-semibold border-slate-200 text-slate-700 hover:text-[#8b0000] hover:border-[#8b0000]/30 hover:bg-[#8b0000]/5 transition-all gap-1.5"
-                        >
-                          <Eye className="w-3.5 h-3.5 text-[#8b0000]" />
-                          <span>View</span>
-                        </Button>
-
-                        <a
-                          href={item.pdfUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-md bg-[#8b0000] hover:bg-[#6e0000] text-white text-xs font-semibold transition-all shadow-xs"
-                        >
-                          <Download className="w-3.5 h-3.5" />
-                          <span>PDF</span>
-                        </a>
-                      </div>
-                    </div>
+                      <span className="font-body text-xs sm:text-sm text-slate-700 group-hover:text-[#b31317] transition-colors pr-4 leading-relaxed">
+                        {item.title}
+                      </span>
+                      <FileDown className="w-5 h-5 text-slate-400 group-hover:text-[#b31317] transition-colors shrink-0" />
+                    </a>
                   ))
                 ) : (
                   <div className="p-12 text-center text-slate-400 text-sm">
@@ -307,48 +277,6 @@ const AcademicCalendar = () => {
           </div>
         </section>
       </main>
-
-      {/* PDF MODAL VIEWER */}
-      {selectedPdf && (
-        <div className="fixed inset-0 z-[200] bg-black/75 backdrop-blur-xs flex items-center justify-center p-2 sm:p-4 md:p-6">
-          <div className="bg-white w-full max-w-5xl h-[90vh] rounded-2xl flex flex-col overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-200">
-            {/* Modal Header */}
-            <div className="px-4 py-3 bg-[#0f2a44] text-white flex items-center justify-between border-b border-white/10">
-              <div className="flex items-center gap-2 truncate pr-4">
-                <FileText className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span className="font-semibold text-xs sm:text-sm truncate">{selectedPdf.title}</span>
-              </div>
-              <div className="flex items-center gap-2 flex-shrink-0">
-                <a
-                  href={selectedPdf.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold text-xs transition-colors flex items-center gap-1"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">Open Original</span>
-                </a>
-                <button
-                  onClick={() => setSelectedPdf(null)}
-                  className="p-1.5 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-colors"
-                  aria-label="Close PDF Viewer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Modal Body / iframe */}
-            <div className="flex-1 bg-slate-100 relative">
-              <iframe
-                src={`https://docs.google.com/viewer?url=${encodeURIComponent(selectedPdf.pdfUrl)}&embedded=true`}
-                title={selectedPdf.title}
-                className="w-full h-full border-0"
-              />
-            </div>
-          </div>
-        </div>
-      )}
 
       <Footer />
     </div>

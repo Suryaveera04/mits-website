@@ -3,8 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
-import { GraduationCap, FileText, Download, Eye, X, Search, BookOpen } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { FileDown, Search, BookOpen } from "lucide-react";
 
 const BASE = "https://mits.edu/";
 
@@ -34,35 +33,35 @@ const ugSyllabus: SyllabusItem[] = [
   {
     id: 3,
     title: "Course Structure & Syllabi (R25) B.Tech Programme - Mechanical Engineering",
-    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech MECH-R25 MITS-DTBU.pdf",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech MECH - R25 MITS DTBU.pdf",
     level: "UG",
     regulation: "R25",
   },
   {
     id: 4,
     title: "Course Structure & Syllabi (R25) B.Tech Programme - Electronics & Communication Engineering",
-    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech-ECE-25 MITS DTBU.pdf",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech ECE - R25 MITS DTBU.pdf",
     level: "UG",
     regulation: "R25",
   },
   {
     id: 5,
     title: "Course Structure & Syllabi (R25) B.Tech Programme - Computer Science & Engineering",
-    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech-CSE-R25-MITS-DTBU.pdf",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech CSE - R25 MITS DTBU.pdf",
     level: "UG",
     regulation: "R25",
   },
   {
     id: 6,
     title: "Course Structure & Syllabi (R25) B.Tech Programme - Computer Science and Engineering (Artificial Intelligence)",
-    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech-CSE (AI) - R25 MITS DTTBU.pdf",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech CSE (AI) - R25 MITS DTTBU.pdf",
     level: "UG",
     regulation: "R25",
   },
   {
     id: 7,
     title: "Course Structure & Syllabi (R25) B.Tech Programme - Computer Science and Engineering (Data Science)",
-    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech CSE (DS)-R25 MITS-DTBU.pdf",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech CSE (DS) - R25 MITS DTBU.pdf",
     level: "UG",
     regulation: "R25",
   },
@@ -76,7 +75,7 @@ const ugSyllabus: SyllabusItem[] = [
   {
     id: 9,
     title: "Course Structure & Syllabi (R25) B.Tech Programme - Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
-    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech CSE (AI&ML) - R25 MITS DTTBU-1.pdf",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech CSE (AI&ML) - R25 MITS DTBU.pdf",
     level: "UG",
     regulation: "R25",
   },
@@ -97,21 +96,21 @@ const ugSyllabus: SyllabusItem[] = [
   {
     id: 12,
     title: "Course Structure & Syllabi (R25) B.Tech Programme - Bioinformatics",
-    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech Bioinformatics-R25 MITS DTBU.pdf",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/B.Tech Bioinformatics - R25 MITS DTBU.pdf",
     level: "UG",
     regulation: "R25",
   },
   {
     id: 13,
     title: "Course Structure & Syllabi (R26) Bachelor of Business Administration Programme - BBA",
-    pdfUrl: "https://mits.ac.in/public/uploads/ugc/BBA - R26 MITS DTBU-1.pdf",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/BBA - R26 MITS DTBU.pdf",
     level: "UG",
     regulation: "R26",
   },
   {
     id: 14,
     title: "Course Structure & Syllabi (R26) Bachelor of Computer Applications Programme - BCA",
-    pdfUrl: "https://mits.ac.in/public/uploads/ugc/BCA - R26 MITS DTBU-1.pdf",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/BCA - R26 MITS DTBU.pdf",
     level: "UG",
     regulation: "R26",
   },
@@ -179,7 +178,6 @@ const pgSyllabus: SyllabusItem[] = [
 const CurriculumSyllabus = () => {
   const [activeTab, setActiveTab] = useState<"UG" | "PG">("UG");
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedPdf, setSelectedPdf] = useState<{ title: string; pdfUrl: string } | null>(null);
 
   const currentList = activeTab === "UG" ? ugSyllabus : pgSyllabus;
   const filteredList = currentList.filter((item) =>
@@ -244,8 +242,8 @@ const CurriculumSyllabus = () => {
         </section>
 
         {/* CONTENT SECTION */}
-        <section className="py-12 md:py-16 px-4">
-          <div className="container mx-auto max-w-4xl">
+        <section className="py-10 md:py-14 px-2 sm:px-4">
+          <div className="w-full max-w-[96%] mx-auto px-2 sm:px-4">
             {/* Title Header with Graduation Icon matching reference design */}
             <div className="text-center mb-8">
               <div className="inline-flex items-center justify-center gap-3 text-2xl sm:text-3xl font-display font-bold text-[#8b0000]">
@@ -299,54 +297,23 @@ const CurriculumSyllabus = () => {
               )}
             </div>
 
-            {/* List Container matching Image 3 */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            {/* List Container matching Official Portal */}
+            <div className="bg-white rounded-xl border border-slate-200/90 shadow-xs overflow-hidden">
               <div className="divide-y divide-slate-100">
                 {filteredList.length > 0 ? (
-                  filteredList.map((item, idx) => (
-                    <div
+                  filteredList.map((item) => (
+                    <a
                       key={item.id}
-                      className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-slate-50/80 transition-colors group"
+                      href={item.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between py-3.5 px-4 sm:px-6 hover:bg-slate-50 transition-colors group"
                     >
-                      <div className="flex items-start gap-3 sm:gap-4">
-                        <span className="font-semibold text-sm text-slate-400 group-hover:text-[#8b0000] transition-colors pt-0.5">
-                          {idx + 1}.
-                        </span>
-                        <div>
-                          <h3 className="font-medium text-sm sm:text-base text-slate-800 group-hover:text-[#8b0000] transition-colors leading-snug">
-                            {item.title}
-                          </h3>
-                          <div className="flex items-center gap-2 mt-1">
-                            <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-50 text-amber-800 border border-amber-200/50">
-                              {item.regulation} Regulation
-                            </span>
-                            <span className="text-xs text-slate-400">• Approved by Academic Council</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-2 self-end sm:self-center">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setSelectedPdf({ title: item.title, pdfUrl: item.pdfUrl })}
-                          className="h-9 px-3 text-xs font-semibold border-slate-200 text-slate-700 hover:text-[#8b0000] hover:border-[#8b0000]/30 hover:bg-[#8b0000]/5 transition-all gap-1.5"
-                        >
-                          <Eye className="w-3.5 h-3.5 text-[#8b0000]" />
-                          <span>View</span>
-                        </Button>
-
-                        <a
-                          href={item.pdfUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-md bg-[#8b0000] hover:bg-[#6e0000] text-white text-xs font-semibold transition-all shadow-xs"
-                        >
-                          <Download className="w-3.5 h-3.5" />
-                          <span>PDF</span>
-                        </a>
-                      </div>
-                    </div>
+                      <span className="font-body text-xs sm:text-sm text-slate-700 group-hover:text-[#b31317] transition-colors pr-4 leading-relaxed">
+                        {item.title}
+                      </span>
+                      <FileDown className="w-5 h-5 text-slate-400 group-hover:text-[#b31317] transition-colors shrink-0" />
+                    </a>
                   ))
                 ) : (
                   <div className="p-12 text-center text-slate-400 text-sm">
@@ -373,48 +340,6 @@ const CurriculumSyllabus = () => {
           </div>
         </section>
       </main>
-
-      {/* PDF MODAL VIEWER */}
-      {selectedPdf && (
-        <div className="fixed inset-0 z-[200] bg-[#0f2a44]/85 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 md:p-6">
-          <div className="bg-white w-full max-w-5xl h-[90vh] rounded-2xl flex flex-col overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-200">
-            {/* Modal Header */}
-            <div className="px-4 py-3 bg-[#0f2a44] text-white flex items-center justify-between border-b border-white/10">
-              <div className="flex items-center gap-2 truncate pr-4">
-                <FileText className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span className="font-semibold text-xs sm:text-sm truncate">{selectedPdf.title}</span>
-              </div>
-              <div className="flex items-center gap-2 flex-shrink-0">
-                <a
-                  href={selectedPdf.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold text-xs transition-colors flex items-center gap-1"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">Open Original</span>
-                </a>
-                <button
-                  onClick={() => setSelectedPdf(null)}
-                  className="p-1.5 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-colors"
-                  aria-label="Close PDF Viewer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Modal Body / iframe */}
-            <div className="flex-1 bg-slate-100 relative">
-              <iframe
-                src={`https://docs.google.com/viewer?url=${encodeURIComponent(selectedPdf.pdfUrl)}&embedded=true`}
-                title={selectedPdf.title}
-                className="w-full h-full border-0"
-              />
-            </div>
-          </div>
-        </div>
-      )}
 
       <Footer />
     </div>
