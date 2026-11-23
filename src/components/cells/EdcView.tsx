@@ -1237,18 +1237,6 @@ export default function EdcView() {
               </section>
             </ScrollReveal>
 
-            {/* SOURCE LINK */}
-            <ScrollReveal>
-              <a
-                href="https://mits.ac.in/ed-cell"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-2 text-xs text-[#0f2a44]/60 hover:text-[#b31317] transition-colors px-1"
-              >
-                <span>View original website page</span>
-                <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-              </a>
-            </ScrollReveal>
           </div>
         </div>
       </main>

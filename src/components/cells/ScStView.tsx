@@ -354,19 +354,6 @@ export default function ScStView() {
               </section>
             </ScrollReveal>
 
-            {/* ORIGINAL SOURCE LINK */}
-            <ScrollReveal>
-              <a
-                href="https://mits.ac.in/sc-st-cell"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-2 text-sm text-[#0f2a44]/50 hover:text-[#b31317] transition-colors px-1"
-              >
-                <span>View original source page</span>
-                <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-              </a>
-            </ScrollReveal>
-
           </div>
         </div>
       </main>

@@ -133,6 +133,27 @@ html, body, #root {
     letter-spacing: -0.01em;
   }
 
+  .text-white h1,
+  .text-white h2,
+  .text-white h3,
+  .text-white h4,
+  .text-white h5,
+  .text-white h6,
+  [class*="bg-[#b31317]"] h1,
+  [class*="bg-[#b31317]"] h2,
+  [class*="bg-[#b31317]"] h3,
+  [class*="bg-[#b31317]"] h4,
+  [class*="bg-[#b31317]"] h5,
+  [class*="bg-[#b31317]"] h6,
+  .bg-\[\#b31317\] h1,
+  .bg-\[\#b31317\] h2,
+  .bg-\[\#b31317\] h3,
+  .bg-\[\#b31317\] h4,
+  .bg-\[\#b31317\] h5,
+  .bg-\[\#b31317\] h6 {
+    color: #ffffff !important;
+  }
+
   p {
     line-height: 1.65;
     color: #1a1a1a;

@@ -310,15 +310,6 @@ export default function MmcView() {
                   <p className="text-[11px] uppercase tracking-wider text-[#ffd15c] font-bold">Active Since</p>
                   <p className="font-bold text-base text-white mt-0.5">February 2025</p>
                 </div>
-                <a
-                  href="https://mits.ac.in/mentor-menteecell"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-[#b31317] hover:bg-[#990000] text-white text-xs font-bold uppercase tracking-wider transition-colors"
-                >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  View Original Page
-                </a>
               </section>
             </ScrollReveal>
 

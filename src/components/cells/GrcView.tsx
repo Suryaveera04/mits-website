@@ -409,7 +409,7 @@ export default function GrcView() {
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden">
                 <div className="bg-[#b31317] text-white px-6 py-4">
-                  <h2 className="font-display text-lg font-bold">Contact</h2>
+                  <h2 className="font-display text-lg font-bold !text-white text-white">Contact</h2>
                 </div>
                 <div className="p-6 space-y-4">
                   <div>
@@ -423,31 +423,31 @@ export default function GrcView() {
                   <div className="space-y-3.5 text-sm text-[#0f2a44]/80">
                     <div className="flex items-start gap-3">
                       <MapPin className="w-4 h-4 text-[#b31317] shrink-0 mt-1" />
-                      <div className="text-xs sm:text-sm leading-relaxed">
-                        <p className="font-semibold text-[#0f2a44]">Address :</p>
-                        <p className="font-bold text-[#0f2a44]">Madanapalle Institute of Technology &amp; Science</p>
-                        <p>Deemed to be University</p>
-                        <p>Madanapalle-Kadiri Road</p>
-                        <p>Kurabalakota Mandal, Madanapalle-517325</p>
-                        <p>Andhra Pradesh, India</p>
+                      <div className="text-xs sm:text-sm leading-relaxed text-left space-y-0.5">
+                        <p className="font-semibold text-[#0f2a44] !text-left">Address :</p>
+                        <p className="font-bold text-[#0f2a44] !text-left">Madanapalle Institute of Technology &amp; Science</p>
+                        <p className="!text-left">Deemed to be University</p>
+                        <p className="!text-left">Madanapalle-Kadiri Road</p>
+                        <p className="!text-left">Kurabalakota Mandal, Madanapalle-517325</p>
+                        <p className="!text-left">Andhra Pradesh, India</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3 border-t border-gray-100 pt-3">
                       <Phone className="w-4 h-4 text-[#b31317] shrink-0 mt-1" />
-                      <div>
-                        <p className="font-semibold text-[#0f2a44]">Phone :</p>
-                        <p className="text-slate-600">+91-8571-280255; 280706</p>
+                      <div className="text-left">
+                        <p className="font-semibold text-[#0f2a44] !text-left">Phone :</p>
+                        <p className="text-slate-600 !text-left">+91-8571-280255; 280706</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3 border-t border-gray-100 pt-3">
                       <Mail className="w-4 h-4 text-[#b31317] shrink-0 mt-1" />
-                      <div>
-                        <p className="font-semibold text-[#0f2a44]">E Mail :</p>
+                      <div className="text-left">
+                        <p className="font-semibold text-[#0f2a44] !text-left">E Mail :</p>
                         <a
                           href="mailto:grc@mits.ac.in"
-                          className="text-[#b31317] hover:underline font-semibold"
+                          className="text-[#b31317] hover:underline font-semibold whitespace-nowrap block"
                         >
                           grc@mits.ac.in
                         </a>
@@ -521,19 +521,6 @@ export default function GrcView() {
                   ))}
                 </div>
               </section>
-            </ScrollReveal>
-
-            {/* ORIGINAL SOURCE LINK */}
-            <ScrollReveal>
-              <a
-                href="https://mits.ac.in/grc"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-2 text-xs text-[#0f2a44]/50 hover:text-[#b31317] transition-colors px-1"
-              >
-                <span>View original source page (mits.ac.in/grc)</span>
-                <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-              </a>
             </ScrollReveal>
           </div>
         </div>

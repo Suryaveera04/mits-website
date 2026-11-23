@@ -456,87 +456,64 @@ export default function AntiRaggingView() {
               </section>
             </ScrollReveal>
 
-            {/* SOCIAL MEDIA AWARENESS & POSTERS */}
+            {/* SOCIAL MEDIA AWARENESS */}
             <ScrollReveal>
-              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8">
-                <div className="border-b border-gray-100 pb-4 mb-6">
-                  <h3 className="font-display text-xl font-bold text-[#0f2a44]">
-                    Social Media Awareness &amp; Campaigns
-                  </h3>
-                  <p className="text-xs text-[#0f2a44]/60">Posters and official social outreach campaigns</p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* INSTAGRAM POSTER */}
-                  <div className="rounded-xl border border-gray-200 overflow-hidden bg-slate-50/50 p-4 flex flex-col justify-between">
-                    <div className="overflow-hidden rounded-lg border border-gray-200 bg-white mb-4">
-                      <img
-                        src="https://mits.ac.in/images/ar-instagram.jpg"
-                        alt="Anti-Ragging Instagram Campaign"
-                        className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                      />
-                    </div>
+              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8 space-y-8">
+                {/* INSTAGRAM */}
+                <div className="space-y-4">
+                  <div>
+                    <img
+                      src="https://mits.ac.in/images/ar-instagram.jpg"
+                      alt="Instagram"
+                      className="h-8 md:h-9 w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <span className="w-4 h-4 rounded-full bg-[#b31317] flex items-center justify-center shrink-0 mt-0.5">
+                      <ChevronRight className="w-2.5 h-2.5 text-white stroke-[3]" />
+                    </span>
                     <a
                       href="https://www.instagram.com/p/C-xqEMSPG4l/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 text-white py-2.5 px-4 rounded-lg text-sm font-semibold hover:opacity-95 transition-opacity"
+                      className="text-xs sm:text-sm text-[#0f2a44] hover:text-[#b31317] break-all underline transition-colors"
                     >
-                      <Instagram className="w-4 h-4" />
-                      <span>View Instagram Post</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      https://www.instagram.com/p/C-xqEMSPG4l/?utm_source=ig_web_copy_link&amp;igsh=MzRlODBiNWFlZA==
                     </a>
                   </div>
+                </div>
 
-                  {/* FACEBOOK POSTER & LINKS */}
-                  <div className="rounded-xl border border-gray-200 overflow-hidden bg-slate-50/50 p-4 flex flex-col justify-between">
-                    <div>
-                      <div className="overflow-hidden rounded-lg border border-gray-200 bg-white mb-4">
-                        <img
-                          src="https://mits.ac.in/images/fb.png"
-                          alt="Anti-Ragging Facebook Campaign"
-                          className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div className="space-y-2 mb-4">
+                {/* FACEBOOK */}
+                <div className="space-y-4 pt-4 border-t border-gray-100">
+                  <div>
+                    <img
+                      src="https://mits.ac.in/images/fb.png"
+                      alt="Facebook"
+                      className="h-8 md:h-9 w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="space-y-2.5">
+                    {[
+                      "https://www.facebook.com/share/p/12EMRtxoQNd/",
+                      "https://www.facebook.com/share/p/159URfnm6h/",
+                      "https://www.facebook.com/share/v/1Ew6f3MciT/"
+                    ].map((fbUrl, i) => (
+                      <div key={i} className="flex items-start gap-2.5">
+                        <span className="w-4 h-4 rounded-full bg-[#b31317] flex items-center justify-center shrink-0 mt-0.5">
+                          <ChevronRight className="w-2.5 h-2.5 text-white stroke-[3]" />
+                        </span>
                         <a
-                          href="https://www.facebook.com/share/p/12EMRtxoQNd/"
+                          href={fbUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block text-xs font-medium text-[#1877F2] hover:underline truncate"
+                          className="text-xs sm:text-sm text-[#0f2a44] hover:text-[#b31317] break-all underline transition-colors"
                         >
-                          • facebook.com/share/p/12EMRtxoQNd/
-                        </a>
-                        <a
-                          href="https://www.facebook.com/share/p/159URfnm6h/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block text-xs font-medium text-[#1877F2] hover:underline truncate"
-                        >
-                          • facebook.com/share/p/159URfnm6h/
-                        </a>
-                        <a
-                          href="https://www.facebook.com/share/v/1Ew6f3MciT/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block text-xs font-medium text-[#1877F2] hover:underline truncate"
-                        >
-                          • facebook.com/share/v/1Ew6f3MciT/
+                          {fbUrl}
                         </a>
                       </div>
-                    </div>
-                    <a
-                      href="https://www.facebook.com/share/p/12EMRtxoQNd/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-[#1877F2] text-white py-2.5 px-4 rounded-lg text-sm font-semibold hover:bg-[#166fe5] transition-colors"
-                    >
-                      <Facebook className="w-4 h-4" />
-                      <span>View Facebook Campaign</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
+                    ))}
                   </div>
                 </div>
               </section>
@@ -547,45 +524,45 @@ export default function AntiRaggingView() {
           <div className="lg:col-span-4 xl:col-span-3 space-y-6">
             {/* CONTACT CARD */}
             <ScrollReveal>
-              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden">
+              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden text-left">
                 <div className="bg-[#b31317] text-white px-6 py-4">
-                  <h2 className="font-display text-lg font-bold">Contact</h2>
+                  <h2 className="font-display text-lg font-bold !text-white text-white">Contact</h2>
                 </div>
                 <div className="p-6 space-y-6">
                   {/* HELPLINE */}
                   <div className="bg-[#fff8e6] border border-[#ffd15c] rounded-xl p-3.5">
-                    <p className="text-xs font-bold text-[#b31317] uppercase tracking-wider mb-1">
+                    <p className="text-xs font-bold text-[#b31317] uppercase tracking-wider mb-1 !text-left">
                       Help Line
                     </p>
                     <a
                       href="mailto:antiragginghelpline@mits.ac.in"
-                      className="text-sm font-bold text-[#0f2a44] hover:text-[#b31317] underline break-all flex items-center gap-1.5"
+                      className="text-xs sm:text-[13px] font-bold text-[#0f2a44] hover:text-[#b31317] underline whitespace-nowrap flex items-center gap-1.5 overflow-hidden"
                     >
                       <Mail className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                      <span>antiragginghelpline@mits.ac.in</span>
+                      <span className="whitespace-nowrap">antiragginghelpline@mits.ac.in</span>
                     </a>
                   </div>
 
                   {/* OFFICER 1 */}
-                  <div className="space-y-1.5 text-sm border-b border-gray-100 pb-4">
-                    <p className="font-bold text-[#0f2a44] text-base">Dr Thulasiram Naidu R</p>
-                    <p className="text-xs text-[#b31317] font-semibold">
+                  <div className="space-y-1.5 text-sm border-b border-gray-100 pb-4 text-left">
+                    <p className="font-bold text-[#0f2a44] text-base !text-left">Dr Thulasiram Naidu R</p>
+                    <p className="text-xs text-[#b31317] font-semibold !text-left">
                       Advisor R&amp;D and Chief Coordinator - Anti-Ragging Cell
                     </p>
-                    <div className="pt-1 space-y-1 text-xs text-slate-600">
-                      <p className="flex items-start gap-1.5">
+                    <div className="pt-1 space-y-1 text-xs text-slate-600 text-left">
+                      <p className="flex items-start gap-1.5 !text-left">
                         <MapPin className="w-3.5 h-3.5 text-[#b31317] shrink-0 mt-0.5" />
-                        <span>Address : Meet @ EB-016, Ground Floor, East Block, MITS</span>
+                        <span className="!text-left">Address : Meet @ EB-016, Ground Floor, East Block, MITS</span>
                       </p>
-                      <p className="flex items-center gap-1.5">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Phone className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>Phone : +91 8008500767</span>
+                        <span className="!text-left">Phone : +91 8008500767</span>
                       </p>
-                      <p className="flex items-center gap-1.5">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Mail className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>
+                        <span className="!text-left">
                           E Mail :{" "}
-                          <a href="mailto:drrtnaidu@mits.ac.in" className="text-[#b31317] hover:underline font-medium">
+                          <a href="mailto:drrtnaidu@mits.ac.in" className="text-[#b31317] hover:underline font-medium whitespace-nowrap">
                             drrtnaidu@mits.ac.in
                           </a>
                         </span>
@@ -594,25 +571,25 @@ export default function AntiRaggingView() {
                   </div>
 
                   {/* OFFICER 2 */}
-                  <div className="space-y-1.5 text-sm border-b border-gray-100 pb-4">
-                    <p className="font-bold text-[#0f2a44] text-base">Dr. Chandra Mohan K</p>
-                    <p className="text-xs text-[#b31317] font-semibold">
+                  <div className="space-y-1.5 text-sm border-b border-gray-100 pb-4 text-left">
+                    <p className="font-bold text-[#0f2a44] text-base !text-left">Dr. Chandra Mohan K</p>
+                    <p className="text-xs text-[#b31317] font-semibold !text-left">
                       Coordinator - Anti-Ragging Cell
                     </p>
-                    <div className="pt-1 space-y-1 text-xs text-slate-600">
-                      <p className="flex items-start gap-1.5">
+                    <div className="pt-1 space-y-1 text-xs text-slate-600 text-left">
+                      <p className="flex items-start gap-1.5 !text-left">
                         <MapPin className="w-3.5 h-3.5 text-[#b31317] shrink-0 mt-0.5" />
-                        <span>Address : Meet @ SB-211, IInd Floor, South Block, MITS</span>
+                        <span className="!text-left">Address : Meet @ SB-211, IInd Floor, South Block, MITS</span>
                       </p>
-                      <p className="flex items-center gap-1.5">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Phone className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>Phone : +91 9100973269</span>
+                        <span className="!text-left">Phone : +91 9100973269</span>
                       </p>
-                      <p className="flex items-center gap-1.5">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Mail className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>
+                        <span className="!text-left">
                           E Mail :{" "}
-                          <a href="mailto:fbc-che@mits.ac.in" className="text-[#b31317] hover:underline font-medium">
+                          <a href="mailto:fbc-che@mits.ac.in" className="text-[#b31317] hover:underline font-medium whitespace-nowrap">
                             fbc-che@mits.ac.in
                           </a>
                         </span>
@@ -621,21 +598,21 @@ export default function AntiRaggingView() {
                   </div>
 
                   {/* OFFICER 3 */}
-                  <div className="space-y-1.5 text-sm border-b border-gray-100 pb-4">
-                    <p className="font-bold text-[#0f2a44] text-base">Dr.Subba Rao A</p>
-                    <p className="text-xs text-[#b31317] font-semibold">
+                  <div className="space-y-1.5 text-sm border-b border-gray-100 pb-4 text-left">
+                    <p className="font-bold text-[#0f2a44] text-base !text-left">Dr.Subba Rao A</p>
+                    <p className="text-xs text-[#b31317] font-semibold !text-left">
                       Co-Coordinator - Anti-Ragging Cell
                     </p>
-                    <div className="pt-1 space-y-1 text-xs text-slate-600">
-                      <p className="flex items-center gap-1.5">
+                    <div className="pt-1 space-y-1 text-xs text-slate-600 text-left">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Phone className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>Phone : +91 9160020473</span>
+                        <span className="!text-left">Phone : +91 9160020473</span>
                       </p>
-                      <p className="flex items-center gap-1.5">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Mail className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>
+                        <span className="!text-left">
                           E Mail :{" "}
-                          <a href="mailto:fbc-phy@mits.ac.in" className="text-[#b31317] hover:underline font-medium">
+                          <a href="mailto:fbc-phy@mits.ac.in" className="text-[#b31317] hover:underline font-medium whitespace-nowrap">
                             fbc-phy@mits.ac.in
                           </a>
                         </span>
@@ -644,21 +621,21 @@ export default function AntiRaggingView() {
                   </div>
 
                   {/* OFFICER 4 */}
-                  <div className="space-y-1.5 text-sm border-b border-gray-100 pb-4">
-                    <p className="font-bold text-[#0f2a44] text-base">Dr. K. Lakshmi Devi</p>
-                    <p className="text-xs text-[#b31317] font-semibold">
+                  <div className="space-y-1.5 text-sm border-b border-gray-100 pb-4 text-left">
+                    <p className="font-bold text-[#0f2a44] text-base !text-left">Dr. K. Lakshmi Devi</p>
+                    <p className="text-xs text-[#b31317] font-semibold !text-left">
                       Additional Coordinator - Anti-Ragging Cell
                     </p>
-                    <div className="pt-1 space-y-1 text-xs text-slate-600">
-                      <p className="flex items-center gap-1.5">
+                    <div className="pt-1 space-y-1 text-xs text-slate-600 text-left">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Phone className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>Phone : +91 9703108186</span>
+                        <span className="!text-left">Phone : +91 9703108186</span>
                       </p>
-                      <p className="flex items-center gap-1.5">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Mail className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>
+                        <span className="!text-left">
                           E Mail :{" "}
-                          <a href="mailto:drlakshmidevik@mits.ac.in" className="text-[#b31317] hover:underline font-medium">
+                          <a href="mailto:drlakshmidevik@mits.ac.in" className="text-[#b31317] hover:underline font-medium whitespace-nowrap">
                             drlakshmidevik@mits.ac.in
                           </a>
                         </span>
@@ -667,21 +644,21 @@ export default function AntiRaggingView() {
                   </div>
 
                   {/* OFFICER 5 */}
-                  <div className="space-y-1.5 text-sm border-b border-gray-100 pb-4">
-                    <p className="font-bold text-[#0f2a44] text-base">Mrs. Vijaya Lakshmi U</p>
-                    <p className="text-xs text-[#b31317] font-semibold">
+                  <div className="space-y-1.5 text-sm border-b border-gray-100 pb-4 text-left">
+                    <p className="font-bold text-[#0f2a44] text-base !text-left">Mrs. Vijaya Lakshmi U</p>
+                    <p className="text-xs text-[#b31317] font-semibold !text-left">
                       Associate Director - International Relations &amp; Institute Counsellor - MITS
                     </p>
-                    <div className="pt-1 space-y-1 text-xs text-slate-600">
-                      <p className="flex items-center gap-1.5">
+                    <div className="pt-1 space-y-1 text-xs text-slate-600 text-left">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Phone className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>Phone : +91 9100600773</span>
+                        <span className="!text-left">Phone : +91 9100600773</span>
                       </p>
-                      <p className="flex items-center gap-1.5">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Mail className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>
+                        <span className="!text-left">
                           E Mail :{" "}
-                          <a href="mailto:vijayalakshmiu@mits.ac.in" className="text-[#b31317] hover:underline font-medium">
+                          <a href="mailto:vijayalakshmiu@mits.ac.in" className="text-[#b31317] hover:underline font-medium whitespace-nowrap">
                             vijayalakshmiu@mits.ac.in
                           </a>
                         </span>
@@ -690,21 +667,21 @@ export default function AntiRaggingView() {
                   </div>
 
                   {/* OFFICER 6 */}
-                  <div className="space-y-1.5 text-sm">
-                    <p className="font-bold text-[#0f2a44] text-base">Mr. Pavan Kumar Sarma P</p>
-                    <p className="text-xs text-[#b31317] font-semibold">
+                  <div className="space-y-1.5 text-sm text-left">
+                    <p className="font-bold text-[#0f2a44] text-base !text-left">Mr. Pavan Kumar Sarma P</p>
+                    <p className="text-xs text-[#b31317] font-semibold !text-left">
                       Administrative Assistant
                     </p>
-                    <div className="pt-1 space-y-1 text-xs text-slate-600">
-                      <p className="flex items-center gap-1.5">
+                    <div className="pt-1 space-y-1 text-xs text-slate-600 text-left">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Phone className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>Phone : +91 9063435712</span>
+                        <span className="!text-left">Phone : +91 9063435712</span>
                       </p>
-                      <p className="flex items-center gap-1.5">
+                      <p className="flex items-center gap-1.5 !text-left">
                         <Mail className="w-3.5 h-3.5 text-[#b31317] shrink-0" />
-                        <span>
+                        <span className="!text-left">
                           E Mail :{" "}
-                          <a href="mailto:pavankumarsarmap@mits.ac.in" className="text-[#b31317] hover:underline font-medium">
+                          <a href="mailto:pavankumarsarmap@mits.ac.in" className="text-[#b31317] hover:underline font-medium whitespace-nowrap">
                             pavankumarsarmap@mits.ac.in
                           </a>
                         </span>
@@ -740,19 +717,6 @@ export default function AntiRaggingView() {
                   ))}
                 </div>
               </section>
-            </ScrollReveal>
-
-            {/* ORIGINAL SOURCE LINK */}
-            <ScrollReveal>
-              <a
-                href="https://mits.ac.in/anti-ragging"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-2 text-xs text-[#0f2a44]/50 hover:text-[#b31317] transition-colors px-1"
-              >
-                <span>View original source page (mits.ac.in/anti-ragging)</span>
-                <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-              </a>
             </ScrollReveal>
           </div>
         </div>
