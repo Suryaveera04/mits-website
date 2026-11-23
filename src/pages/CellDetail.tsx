@@ -43,6 +43,7 @@ import InnovationCenterView from "@/components/cells/InnovationCenterView";
 import NasscomView from "@/components/cells/NasscomView";
 import IeeeView from "@/components/cells/IeeeView";
 import GrcView from "@/components/cells/GrcView";
+import SwcView from "@/components/cells/SwcView";
 import AntiRaggingView from "@/components/cells/AntiRaggingView";
 import SkillDevelopmentCentre from "@/pages/SkillDevelopmentCentre";
 
@@ -144,6 +145,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
 
   if (targetId === "sac" || targetId === "student-activity-center" || targetId === "student-activity-center-sac") {
     return <SacView />;
+  }
+
+  if (targetId === "swc" || targetId === "student-welfare-cell" || targetId === "student-welfare") {
+    return <SwcView />;
   }
 
   if (targetId === "mmc" || targetId === "mentor-menteecell" || targetId === "mentor-mentee" || targetId === "mentor-mentee-cell") {
