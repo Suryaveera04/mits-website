@@ -332,13 +332,13 @@ export default function IiicView() {
             </ScrollReveal>
           </div>
 
-          {/* SIDEBAR (RIGHT 1 COLUMN) */}
-          <div className="space-y-6">
+          {/* SIDEBAR COLUMN (RIGHT 4-5 COLUMNS) */}
+          <div className="lg:col-span-5 xl:col-span-4 space-y-6">
             {/* IIIC DOCUMENTS / POLICIES */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden">
                 <div className="bg-[#b31317] px-5 py-3">
-                  <h3 className="font-display text-base font-bold text-white tracking-wide">
+                  <h3 className="font-display text-base font-bold !text-white text-white tracking-wide">
                     IIIC Documents &amp; Policy
                   </h3>
                 </div>
@@ -364,10 +364,7 @@ export default function IiicView() {
                 </div>
               </section>
             </ScrollReveal>
-          </div>
 
-          {/* SIDEBAR COLUMN */}
-          <div className="lg:col-span-5 xl:col-span-4 space-y-6">
             {/* CONTACT CARD */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden">
