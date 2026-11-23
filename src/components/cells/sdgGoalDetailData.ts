@@ -327,6 +327,10 @@ export const sdgGoals2027Data: Record<string, SdgGoalDetail> = {
     {
       "title": "Publications",
       "url": "https://mits.ac.in/assets/pdf/sdg/MITS SDG 17 Publications-27.pdf"
+    },
+    {
+      "title": "Cross-Sectoral Engagement and NGO Collaboration",
+      "url": "https://mits.ac.in/assets/pdf/sdg/Cross-Sectoral%20Engagement%20and%20NGO%20Collaboration.pdf"
     }
   ],
   "allParagraphs": [

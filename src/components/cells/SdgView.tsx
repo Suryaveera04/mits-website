@@ -96,6 +96,12 @@ interface NavItem {
 const navItems: NavItem[] = [
   { id: "about", label: "About SDG Cell:" },
   { id: "rankings-2027", label: "Times Higher Education (THE) Impact Rankings 2027" },
+  {
+    id: "ext",
+    label: "Publications",
+    isExternal: true,
+    href: "https://mits.ac.in/assets/pdf/sdg/SDG%20wise%20Publications%20MITS.pdf",
+  },
   { id: "rankings-2025", label: "Times Higher Education (THE) Impact Rankings 2025" },
   {
     id: "link",
@@ -396,14 +402,26 @@ export default function SdgView() {
             {activeTab === "rankings-2027" && (
               <ScrollReveal>
                 <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-6">
-                  <div className="pb-4 border-b border-gray-100">
-                    <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] flex items-center gap-3">
-                      <Award className="w-7 h-7 text-[#990000]" />
-                      <span>Times Higher Education (THE) Impact Rankings 2027</span>
-                    </h2>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                      Explore MITS sustainability performance across all 17 UN Sustainable Development Goals for 2027.
-                    </p>
+                  <div className="pb-4 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                      <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0f2a44] flex items-center gap-3">
+                        <Award className="w-7 h-7 text-[#990000]" />
+                        <span>Times Higher Education (THE) Impact Rankings 2027</span>
+                      </h2>
+                      <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                        Explore MITS sustainability performance across all 17 UN Sustainable Development Goals for 2027.
+                      </p>
+                    </div>
+                    <a
+                      href="https://mits.ac.in/assets/pdf/sdg/SDG%20wise%20Publications%20MITS.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#990000] text-white text-xs sm:text-sm font-semibold hover:bg-[#800000] transition-all shrink-0 shadow-xs hover:shadow-sm self-start sm:self-auto group"
+                    >
+                      <FileText className="w-4 h-4" />
+                      <span>Publications</span>
+                      <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </a>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
