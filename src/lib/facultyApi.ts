@@ -251,12 +251,96 @@ export function getFacultyPhotoUrl(photoPath?: string): string | undefined {
   return `${base}${cleanPath}`;
 }
 
+/**
+ * Cleans institution / university strings from database artifacts (tabs, trailing punctuation, placeholders)
+ */
+export function cleanInstitutionName(raw?: string | null): string {
+  if (!raw) return "";
+  let clean = raw.replace(/[\t\r\n]+/g, " ").replace(/\s+/g, " ").trim();
+  clean = clean.replace(/^[-,.\s]+|[-,.\s]+$/g, "");
+  const lower = clean.toLowerCase();
+  if (
+    !clean ||
+    lower === "-" ||
+    lower === "na" ||
+    lower === "n/a" ||
+    lower === "none" ||
+    lower === "nil" ||
+    lower === "not applicable" ||
+    lower === "."
+  ) {
+    return "";
+  }
+  return clean;
+}
+
+/**
+ * Resolves faculty qualification strictly according to database fields:
+ * - Shows "Ph.D." ONLY if phd.status is explicitly "Awarded".
+ * - For "Pursuing" or "Not Applicable" faculty: shows Post Graduation (PG) degree, or falls back to UG degree.
+ * - Appends College / University name after the degree if available: e.g. "Ph.D. (University of Kota)"
+ *   or "M.Tech (SASTRA University)".
+ */
+export function resolveFacultyQualification(
+  f: {
+    phd?: APIPhd;
+    pg?: APIEducationDegree;
+    ug?: APIEducationDegree;
+    fullName?: string;
+    name?: string;
+    qualification?: string;
+  },
+  fallbackQualification?: string
+): string {
+  const phdStatus = (f.phd?.status || "").trim().toLowerCase();
+  const isPhdAwarded = phdStatus === "awarded";
+
+  if (isPhdAwarded) {
+    const uni = cleanInstitutionName(f.phd?.university);
+    return uni ? `Ph.D. (${uni})` : "Ph.D.";
+  }
+
+  // Check Post Graduation (PG) for Pursuing, Not Applicable, or other
+  const pgDegree = (f.pg?.degree || "").trim();
+  const pgUni = cleanInstitutionName(f.pg?.university || f.pg?.school || f.pg?.board);
+
+  if (pgDegree) {
+    if (pgDegree.includes("(") && pgDegree.includes(")")) {
+      return pgDegree;
+    }
+    return pgUni ? `${pgDegree} (${pgUni})` : pgDegree;
+  }
+
+  // Check Under Graduation (UG)
+  const ugDegree = (f.ug?.degree || "").trim();
+  const ugUni = cleanInstitutionName(f.ug?.university || f.ug?.school || f.ug?.board);
+
+  if (ugDegree) {
+    if (ugDegree.includes("(") && ugDegree.includes(")")) {
+      return ugDegree;
+    }
+    return ugUni ? `${ugDegree} (${ugUni})` : ugDegree;
+  }
+
+  // Fallback if provided (e.g. for official leaders whose degrees aren't yet filled in DB)
+  if (fallbackQualification && fallbackQualification !== "M.Tech / M.Sc") {
+    if (/ph\.?d/i.test(fallbackQualification) && phdStatus === "pursuing") {
+      return "Post Graduate";
+    }
+    return fallbackQualification;
+  }
+
+  return "";
+}
+
 export function apiFacultyToFacultyMember(f: APIFacultyMember, staticImageFallback?: string): FacultyMember {
   const deptKey = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
   const subDept = deptKey === "bsh" ? getBshSubDepartment(f.department?.code, f.department?.name) : undefined;
-  const isPhd = hasPhdDegree(f.fullName, undefined, f.phd) || f.phd?.status === "Awarded" || !!f.phd?.topic;
-  const qualification = isPhd ? "Ph.D." : (f.pg?.degree || f.ug?.degree || "M.Tech / M.Sc");
+  const qualification = resolveFacultyQualification(f);
   const name = cleanFacultyName(f.fullName);
+
+  const isPhdAwarded = (f.phd?.status || "").trim().toLowerCase() === "awarded";
+  const isPhdPursuing = (f.phd?.status || "").trim().toLowerCase() === "pursuing";
 
   return {
     name,
@@ -282,18 +366,25 @@ export function apiFacultyToFacultyMember(f: APIFacultyMember, staticImageFallba
         index: p.journalOrConferenceName || "Journal",
       })),
       education: [
-        ...(f.phd?.topic
+        ...(isPhdAwarded
           ? [{
               degree: "Ph.D.",
-              specializatio: f.phd.topic,
-              university: f.phd.university || "",
-              year: String(f.phd.yearOfAward || ""),
+              specializatio: f.phd?.topic || "",
+              university: f.phd?.university || "",
+              year: String(f.phd?.yearOfAward || ""),
             }]
-          : []),
+          : (isPhdPursuing && (f.phd?.topic || f.phd?.university)
+            ? [{
+                degree: "Ph.D. (Pursuing)",
+                specializatio: f.phd?.topic || "",
+                university: f.phd?.university || "",
+                year: "Pursuing",
+              }]
+            : [])),
         ...(f.pg?.degree
           ? [{
               degree: f.pg.degree,
-              specializatio: "",
+              specializatio: (f.pg as any).specialization || "",
               university: f.pg.university || "",
               year: String(f.pg.yearOfPassing || ""),
             }]
@@ -301,7 +392,7 @@ export function apiFacultyToFacultyMember(f: APIFacultyMember, staticImageFallba
         ...(f.ug?.degree
           ? [{
               degree: f.ug.degree,
-              specializatio: "",
+              specializatio: (f.ug as any).specialization || "",
               university: f.ug.university || "",
               year: String(f.ug.yearOfPassing || ""),
             }]
@@ -319,29 +410,39 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
 
   // 1. Educational Qualifications Section
   const eduRows: Record<string, string>[] = [];
-  const hasPhd = hasPhdDegree(f.fullName, undefined, f.phd) || f.phd?.status === "Awarded" || !!f.phd?.topic;
-  if (f.phd?.topic || f.phd?.university || hasPhd) {
+  const isPhdAwarded = (f.phd?.status || "").trim().toLowerCase() === "awarded";
+  const isPhdPursuing = (f.phd?.status || "").trim().toLowerCase() === "pursuing";
+
+  if (isPhdAwarded) {
     const isDrPadma = f.fullName.toLowerCase().includes("padma");
     eduRows.push({
       "Degree / Program": "Ph.D.",
-      "Topic / Specialization": f.phd?.topic || (isDrPadma ? "Computer Science and Engineering" : "Research Work"),
+      "Topic / Specialization": f.phd?.topic || (isDrPadma ? "Computer Science and Engineering" : "-"),
       "University / Institution": f.phd?.university || (isDrPadma ? "Bharathiar University" : "-"),
-      "Year / Status": f.phd?.yearOfAward ? String(f.phd.yearOfAward) : (f.phd?.status || "Awarded"),
+      "Year / Status": f.phd?.yearOfAward ? String(f.phd.yearOfAward) : "Awarded",
+    });
+  } else if (isPhdPursuing && (f.phd?.topic || f.phd?.university)) {
+    eduRows.push({
+      "Degree / Program": "Ph.D. (Pursuing)",
+      "Topic / Specialization": f.phd?.topic || "-",
+      "University / Institution": f.phd?.university || "-",
+      "Year / Status": "Pursuing",
     });
   }
+
   if (f.pg?.degree) {
     eduRows.push({
       "Degree / Program": f.pg.degree,
-      "Topic / Specialization": "-",
-      "University / Institution": f.pg.university || "-",
+      "Topic / Specialization": (f.pg as any).specialization || "-",
+      "University / Institution": f.pg.university || f.pg.school || "-",
       "Year / Status": f.pg.yearOfPassing ? String(f.pg.yearOfPassing) : (f.pg.percentage ? `${f.pg.percentage}%` : "-"),
     });
   }
   if (f.ug?.degree) {
     eduRows.push({
       "Degree / Program": f.ug.degree,
-      "Topic / Specialization": "-",
-      "University / Institution": f.ug.university || "-",
+      "Topic / Specialization": (f.ug as any).specialization || "-",
+      "University / Institution": f.ug.university || f.ug.school || "-",
       "Year / Status": f.ug.yearOfPassing ? String(f.ug.yearOfPassing) : (f.ug.percentage ? `${f.ug.percentage}%` : "-"),
     });
   }
@@ -460,8 +561,7 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
   }
 
   const name = cleanFacultyName(f.fullName);
-  const isPhd = hasPhdDegree(f.fullName, undefined, f.phd) || f.phd?.status === "Awarded" || !!f.phd?.topic;
-  const qualification = isPhd ? "Ph.D." : (f.pg?.degree || f.ug?.degree || "M.Tech / M.Sc");
+  const qualification = resolveFacultyQualification(f);
   return {
     name,
     designation: f.designation,

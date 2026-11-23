@@ -5,6 +5,8 @@ import {
   getFacultyPhotoUrl,
   apiFacultyToFacultyMember,
   apiFacultyToFacultyProfile,
+  resolveFacultyQualification,
+  cleanInstitutionName,
   type APIFacultyMember,
 } from "@/lib/facultyApi";
 import { slugifyFaculty } from "@/lib/facultySlug";
@@ -83,7 +85,7 @@ describe("Faculty API & Department Segregation", () => {
     const transformed = apiFacultyToFacultyMember(raw);
     expect(transformed.name).toBe("Dr. Test Faculty");
     expect(transformed.designation).toBe("Professor");
-    expect(transformed.qualification).toBe("Ph.D.");
+    expect(transformed.qualification).toBe("Ph.D. (IIT Madras)");
     expect(transformed.image).toContain("/uploads/profile/test.jpg");
     expect(transformed.profileUrl).toBe("/department/ece/faculty/test-faculty");
   });
@@ -167,5 +169,114 @@ describe("Faculty API & Department Segregation", () => {
     expect(departmentMap.cseds).toBeGreaterThanOrEqual(15);
     expect(departmentMap.csecs).toBeGreaterThanOrEqual(15);
     expect(departmentMap.ce).toBeGreaterThanOrEqual(8);
+  });
+
+  it("should accurately resolve qualification based strictly on Ph.D. status and college name", () => {
+    // 1. Awarded Ph.D. with university
+    const awardedWithUni: APIFacultyMember = {
+      _id: "aw1",
+      fullName: "Dr. Alice Smith",
+      phd: {
+        status: "Awarded",
+        university: "University of Kota",
+        topic: "Machine Learning",
+      },
+      pg: {
+        degree: "M.Tech",
+        university: "JNTUA",
+      },
+    };
+    expect(resolveFacultyQualification(awardedWithUni)).toBe("Ph.D. (University of Kota)");
+
+    // 2. Awarded Ph.D. without university
+    const awardedNoUni: APIFacultyMember = {
+      _id: "aw2",
+      fullName: "Dr. Bob Jones",
+      phd: {
+        status: "Awarded",
+      },
+    };
+    expect(resolveFacultyQualification(awardedNoUni)).toBe("Ph.D.");
+
+    // 3. Pursuing Ph.D. -> MUST NOT display Ph.D., should display PG degree and college
+    const pursuingFaculty: APIFacultyMember = {
+      _id: "pur1",
+      fullName: "Mr. Charlie Brown",
+      phd: {
+        status: "Pursuing",
+        university: "VTU Belagavi",
+        topic: "Cloud Computing",
+      },
+      pg: {
+        degree: "M.Tech",
+        university: "NIT Warangal",
+      },
+      ug: {
+        degree: "B.Tech",
+        university: "JNTUH",
+      },
+    };
+    expect(resolveFacultyQualification(pursuingFaculty)).toBe("M.Tech (NIT Warangal)");
+
+    // 4. Pursuing Ph.D. with PG degree but no PG university
+    const pursuingNoPgUni: APIFacultyMember = {
+      _id: "pur2",
+      fullName: "Ms. Daisy Miller",
+      phd: {
+        status: "Pursuing",
+        topic: "Cybersecurity",
+      },
+      pg: {
+        degree: "M.Sc Mathematics",
+      },
+    };
+    expect(resolveFacultyQualification(pursuingNoPgUni)).toBe("M.Sc Mathematics");
+
+    // 5. Pursuing Ph.D. with only UG degree and university
+    const pursuingOnlyUg: APIFacultyMember = {
+      _id: "pur3",
+      fullName: "Mr. Edward Norton",
+      phd: {
+        status: "Pursuing",
+      },
+      ug: {
+        degree: "B.Tech",
+        university: "SV University",
+      },
+    };
+    expect(resolveFacultyQualification(pursuingOnlyUg)).toBe("B.Tech (SV University)");
+
+    // 6. Not Applicable -> should display PG degree and college
+    const notApplicableFaculty: APIFacultyMember = {
+      _id: "na1",
+      fullName: "Mrs. Fiona Gallagher",
+      phd: {
+        status: "Not Applicable",
+      },
+      pg: {
+        degree: "MBA",
+        university: "Indian Institute of Science",
+      },
+    };
+    expect(resolveFacultyQualification(notApplicableFaculty)).toBe("MBA (Indian Institute of Science)");
+
+    // 7. Not Applicable with fallback qualification
+    const fallbackOnlyFaculty: APIFacultyMember = {
+      _id: "na2",
+      fullName: "Mr. George Clark",
+      phd: {
+        status: "Not Applicable",
+      },
+    };
+    expect(resolveFacultyQualification(fallbackOnlyFaculty, "M.Tech")).toBe("M.Tech");
+  });
+
+  it("should clean institution names properly removing placeholders and whitespace", () => {
+    expect(cleanInstitutionName("  IIT   Madras  \t")).toBe("IIT Madras");
+    expect(cleanInstitutionName("-")).toBe("");
+    expect(cleanInstitutionName("N/A")).toBe("");
+    expect(cleanInstitutionName("None")).toBe("");
+    expect(cleanInstitutionName("Not Applicable")).toBe("");
+    expect(cleanInstitutionName(undefined)).toBe("");
   });
 });

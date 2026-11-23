@@ -8,9 +8,11 @@ import {
   getInitialFacultyData,
   getFacultyPhotoUrl,
   compareFacultyByApiOrder,
+  resolveFacultyQualification,
   type APIFacultyMember,
 } from "@/lib/facultyApi";
-import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
+import { slugifyFaculty, cleanFacultyName, hasPhdDegree } from "@/lib/facultySlug";
+export { hasPhdDegree } from "@/lib/facultySlug";
 import { departmentsData, getDepartmentByKey, type FacultyMember } from "@/data/departmentData";
 import { departmentHeads } from "@/data/aboutData";
 import officialFacultyList from "@/data/officialFacultyList.json";
@@ -130,35 +132,6 @@ export const DEPT_KNOWN_HODS: Record<string, string> = {
   "basic-sciences-humanities": "Dr. Sudhakar Beedam",
   humanities: "Dr. Sudhakar Beedam",
 };
-
-/**
- * Detects whether a faculty member possesses a Ph.D. degree
- * Evaluates:
- * 1. "Dr." prefix in name
- * 2. Qualification explicitly containing Ph.D / PhD / Doctorate
- * 3. Ph.D. status 'Awarded' or valid award year/university
- */
-export function hasPhdDegree(
-  name?: string,
-  qualification?: string,
-  phdObj?: { status?: string; yearOfAward?: number | string; university?: string; topic?: string }
-): boolean {
-  const n = (name || "").trim();
-  const q = (qualification || "").toLowerCase();
-
-  if (/^dr\.?\s+/i.test(n) || /\bdr\.?\s+[a-z]/i.test(n)) {
-    return true;
-  }
-  if (q.includes("ph.d") || q.includes("phd") || q.includes("doctorate") || q.includes("d.phil")) {
-    return true;
-  }
-  if (phdObj) {
-    if (phdObj.status === "Awarded") return true;
-    if (phdObj.yearOfAward && Number(phdObj.yearOfAward) > 1900) return true;
-    if (phdObj.university && phdObj.status !== "Not Applicable" && phdObj.status !== "Pursuing") return true;
-  }
-  return false;
-}
 
 /**
  * Calculates faculty seniority ranking priority:
@@ -483,11 +456,9 @@ export function useFacultyData() {
           }
         }
 
-        // Guarantee Ph.D. status is preserved for all doctoral faculty
-        if (prof.name.toLowerCase().startsWith("dr.") || found.phd?.status === "Awarded" || found.phd?.topic) {
-          if (!prof.qualification || prof.qualification === "M.Tech / M.Sc" || prof.qualification.toLowerCase() === "m.tech") {
-            prof.qualification = "Ph.D.";
-          }
+        // Ensure qualification is properly resolved if missing or default generic string
+        if (!prof.qualification || prof.qualification === "M.Tech / M.Sc" || prof.qualification.toLowerCase() === "m.tech") {
+          prof.qualification = resolveFacultyQualification(found, prof.qualification);
         }
 
         return prof;

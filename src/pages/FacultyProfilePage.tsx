@@ -8,7 +8,7 @@ import { getDepartmentByKey, departmentsData, type FacultyMember } from "@/data/
 import { facultyProfiles, getFacultyProfile, type FacultyProfile, type FacultySection } from "@/data/facultyProfiles";
 import { departmentHeads, deansList } from "@/data/aboutData";
 import { slugifyFaculty, cleanFacultyName, hasPhdDegree } from "@/lib/facultySlug";
-import { getBshSubDepartment, mapApiDeptToDeptKey, getFacultyPhotoUrl } from "@/lib/facultyApi";
+import { getBshSubDepartment, mapApiDeptToDeptKey, getFacultyPhotoUrl, resolveFacultyQualification } from "@/lib/facultyApi";
 import { useFacultyData } from "@/hooks/useFacultyData";
 import {
   ArrowLeft, ArrowRight, Mail, GraduationCap, BookOpen,
@@ -325,8 +325,10 @@ const FacultyProfilePage = () => {
       (f?.qualification || "").includes("Ph.D") ||
       (rich?.qualification || "").includes("Ph.D");
 
-    let finalQual = rich?.qualification || f?.qualification;
-    if (isDoc && (!finalQual || finalQual === "M.Tech / M.Sc" || finalQual.toLowerCase() === "m.tech")) {
+    let finalQual = rawCandidate
+      ? resolveFacultyQualification(rawCandidate, rich?.qualification || f?.qualification)
+      : rich?.qualification || f?.qualification;
+    if (!rawCandidate && isDoc && (!finalQual || finalQual === "M.Tech / M.Sc" || finalQual.toLowerCase() === "m.tech")) {
       finalQual = "Ph.D.";
     }
 

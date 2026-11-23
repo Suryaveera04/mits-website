@@ -23,6 +23,7 @@ import {
   mapApiDeptToDeptKey,
   getBshSubDepartment,
   compareFacultyByApiOrder,
+  resolveFacultyQualification,
 } from "@/lib/facultyApi";
 import { Button } from "@/components/ui/button";
 
@@ -235,8 +236,7 @@ const FacultyInformation = () => {
       const slug = slugifyFaculty(cleanName);
       const deptKey = mapApiDeptToDeptKey(f.department?.code, f.department?.name);
       const subDept = deptKey === "bsh" ? getBshSubDepartment(f.department?.code, f.department?.name) : undefined;
-      const isPhd = hasPhdDegree(f.fullName, undefined, f.phd) || f.phd?.status === "Awarded" || !!f.phd?.topic;
-      const qualification = isPhd ? "Ph.D." : (f.pg?.degree || f.ug?.degree || "M.Tech / M.Sc");
+      const qualification = resolveFacultyQualification(f);
       const photoUrl = getFacultyPhotoUrl(f.profilePhoto);
 
       return {

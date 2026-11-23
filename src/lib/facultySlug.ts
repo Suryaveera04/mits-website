@@ -22,26 +22,29 @@ export function cleanFacultyName(name: string): string {
 }
 
 /**
- * Detects whether a faculty member possesses a Ph.D. degree
+ * Detects whether a faculty member possesses an awarded Ph.D. degree.
+ * Strictly respects database status:
+ * - If status is provided: ONLY "Awarded" is true. "Pursuing" and "Not Applicable" are strictly false.
  */
 export function hasPhdDegree(
   name?: string,
   qualification?: string,
   phdObj?: { status?: string; yearOfAward?: number | string; university?: string; topic?: string }
 ): boolean {
-  const n = (name || "").trim();
-  const q = (qualification || "").toLowerCase();
-
-  if (/^dr\.?\s+/i.test(n) || /\bdr\.?\s+[a-z]/i.test(n)) {
+  if (phdObj && phdObj.status) {
+    const s = phdObj.status.trim().toLowerCase();
+    if (s === "awarded") return true;
+    if (s === "pursuing" || s === "not applicable") return false;
+  }
+  if (phdObj && phdObj.yearOfAward && Number(phdObj.yearOfAward) > 1900 && phdObj.status !== "Pursuing") {
     return true;
   }
+  const q = (qualification || "").toLowerCase();
   if (q.includes("ph.d") || q.includes("phd") || q.includes("doctorate") || q.includes("d.phil")) {
     return true;
   }
-  if (phdObj) {
-    if (phdObj.status === "Awarded") return true;
-    if (phdObj.yearOfAward && Number(phdObj.yearOfAward) > 1900) return true;
-    if (phdObj.university && phdObj.status !== "Not Applicable" && phdObj.status !== "Pursuing") return true;
+  if (!phdObj?.status && (/^dr\.?\s+/i.test((name || "").trim()) || /\bdr\.?\s+[a-z]/i.test((name || "").trim()))) {
+    return true;
   }
   return false;
 }

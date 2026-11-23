@@ -5,7 +5,7 @@ import PageShell from "@/components/about/PageShell";
 import { deansList } from "@/data/aboutData";
 import { slugifyFaculty, cleanFacultyName } from "@/lib/facultySlug";
 import { useFacultyData } from "@/hooks/useFacultyData";
-import { getFacultyPhotoUrl } from "@/lib/facultyApi";
+import { getFacultyPhotoUrl, resolveFacultyQualification } from "@/lib/facultyApi";
 
 const Deans = () => {
   const { findFacultyByName } = useFacultyData();
@@ -21,7 +21,7 @@ const Deans = () => {
           const targetName = cleanFacultyName(rawTargetName);
           const apiMatch = findFacultyByName(targetName);
           const dynamicPhoto = (apiMatch?.profilePhoto && getFacultyPhotoUrl(apiMatch.profilePhoto)) || d.image;
-          const dynamicQualification = apiMatch?.phd?.topic || apiMatch?.phd?.status === "Awarded" ? "Ph.D." : d.qualification;
+          const dynamicQualification = apiMatch ? resolveFacultyQualification(apiMatch, d.qualification) : d.qualification;
           const targetDeptKey = d.deptKey || (apiMatch?.department?.code ? apiMatch.department.code.toLowerCase() : "cse");
           const displayName = cleanFacultyName(d.name);
 
