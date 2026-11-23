@@ -220,7 +220,7 @@ export default function NasscomView() {
       >
         <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
 
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm inline-flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-[#ffd15c]" />
             <span>Industry Collaboration &amp; Skilling • MITS</span>
@@ -254,7 +254,7 @@ export default function NasscomView() {
       </section>
 
       {/* MAIN CONTAINER - Full Page Coverage */}
-      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8">
+      <div className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
         {/* BACK BUTTON */}
         <div className="mb-6">
           <Link
@@ -268,8 +268,8 @@ export default function NasscomView() {
 
         {/* 2-COLUMN EXPANSIVE LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-10 items-start">
-          {/* LEFT CONTENT (8-9 COLS) */}
-          <div className="lg:col-span-8 xl:col-span-9 space-y-8">
+          {/* LEFT CONTENT (7-8 COLS) */}
+          <div className="lg:col-span-7 xl:col-span-8 space-y-8">
             {/* ABOUT NASSCOM CELL */}
             <ScrollReveal>
               <div className="bg-white rounded-xl shadow-sm border border-slate-200/80 p-6 sm:p-8">
@@ -393,8 +393,8 @@ export default function NasscomView() {
             </ScrollReveal>
           </div>
 
-          {/* RIGHT SIDEBAR (3-4 COLS) */}
-          <div className="lg:col-span-4 xl:col-span-3 space-y-6 lg:sticky lg:top-28">
+          {/* RIGHT SIDEBAR (4-5 COLS) */}
+          <div className="lg:col-span-5 xl:col-span-4 space-y-6 lg:sticky lg:top-28">
             {/* CONTACT CARD - Crisp High-Contrast Colors */}
             <div className="bg-white rounded-xl shadow-md border border-slate-200/80 overflow-hidden">
               <div className="bg-[#8B1D1D] px-6 py-4 flex items-center gap-3">

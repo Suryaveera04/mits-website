@@ -858,15 +858,15 @@ export default function EdcView() {
 
       {/* INNER BANNER - EXACT REPRESENTATION BLENDED WITH SITE HERO STYLE */}
       <section
-        className="relative pt-32 md:pt-40 pb-20 overflow-hidden"
+        className="relative pt-32 md:pt-44 pb-20 overflow-hidden"
         style={{
-          backgroundImage: `url("https://mits.ac.in/public/uploads/wec/1d27e3693e2f1bda0c067535420b9ce4.jpg")`,
+          backgroundImage: `url("${BASE}Hero-Section/image-5.jpg")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-[#0f2a44]/80 backdrop-blur-[2px] bg-gradient-to-b from-[#0f2a44]/90 via-[#0f2a44]/80 to-[#0f2a44]/95" />
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="absolute inset-0 bg-black/40 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffd15c] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm flex items-center justify-center gap-1.5">
             <Sparkles className="w-4 h-4 text-[#ffd15c]" />
             Cells &amp; Committees • Innovation, Research &amp; Entrepreneurship
@@ -898,7 +898,7 @@ export default function EdcView() {
       </section>
 
       {/* MAIN CONTAINER */}
-      <main className="container mx-auto px-4 py-10 md:py-14 max-w-7xl">
+      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
         <button
           onClick={() => navigate("/cells")}
           className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#b31317] transition-colors"
@@ -908,9 +908,9 @@ export default function EdcView() {
         </button>
 
         {/* TWO COLUMN SECTION: LEFT & DCE-RIGHT */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* LEFT COLUMN */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-7 xl:col-span-8 space-y-8">
             {/* MAIN HEADING & CONTENT BLOCK */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8">
@@ -1141,7 +1141,7 @@ export default function EdcView() {
           </div>
 
           {/* DCE-RIGHT (SIDEBAR) */}
-          <div className="space-y-6">
+          <div className="lg:col-span-5 xl:col-span-4 space-y-6">
             {/* CONTACT US (h2 class="bg-red") */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden">

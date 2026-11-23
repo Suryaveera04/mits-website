@@ -133,12 +133,15 @@ html, body, #root {
     letter-spacing: -0.01em;
   }
 
+  .text-white,
   .text-white h1,
   .text-white h2,
   .text-white h3,
   .text-white h4,
   .text-white h5,
   .text-white h6,
+  .text-white p,
+  .text-white span,
   [class*="bg-[#b31317]"] h1,
   [class*="bg-[#b31317]"] h2,
   [class*="bg-[#b31317]"] h3,
@@ -150,8 +153,32 @@ html, body, #root {
   .bg-\[\#b31317\] h3,
   .bg-\[\#b31317\] h4,
   .bg-\[\#b31317\] h5,
-  .bg-\[\#b31317\] h6 {
+  .bg-\[\#b31317\] h6,
+  [class*="bg-[#800000]"] h1,
+  [class*="bg-[#800000]"] h2,
+  [class*="bg-[#800000]"] h3,
+  [class*="bg-[#8b0000]"] h1,
+  [class*="bg-[#8b0000]"] h2,
+  [class*="bg-[#8b0000]"] h3,
+  [class*="bg-[#990000]"] h1,
+  [class*="bg-[#990000]"] h2,
+  [class*="bg-[#990000]"] h3,
+  [class*="bg-[#0f2a44]"] h1,
+  [class*="bg-[#0f2a44]"] h2,
+  [class*="bg-[#0f2a44]"] h3,
+  [class*="bg-[#0f2a44]"] h4,
+  [class*="from-[#0f2a44]"] h1,
+  [class*="from-[#0f2a44]"] h2,
+  [class*="from-[#0f2a44]"] h3,
+  [class*="from-[#0f2a44]"] h4 {
     color: #ffffff !important;
+  }
+
+  .text-white p,
+  [class*="from-[#0f2a44]"] p:not([class*="text-"]):not([class*="opacity-"]),
+  [class*="bg-[#0f2a44]"] p:not([class*="text-"]):not([class*="opacity-"]),
+  [class*="bg-[#b31317]"] p:not([class*="text-"]):not([class*="opacity-"]) {
+    color: #ffffff;
   }
 
   p {

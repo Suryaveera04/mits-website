@@ -57,7 +57,7 @@ export default function StartupView() {
         }}
       >
         <div className="absolute inset-0 bg-black/20 bg-gradient-to-b from-black/15 via-transparent to-black/30" />
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffd15c] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4 drop-shadow-sm">
             Cells &amp; Committees • Innovation &amp; Entrepreneurship
           </p>
@@ -79,7 +79,7 @@ export default function StartupView() {
         </nav>
       </section>
 
-      <main className="container mx-auto px-4 py-10 md:py-14 max-w-6xl">
+      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
         <button
           onClick={() => navigate("/cells")}
           className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#b31317] transition-colors"
@@ -88,9 +88,9 @@ export default function StartupView() {
           Back to Cells &amp; Committees
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* MAIN COLUMN */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-7 xl:col-span-8 space-y-8">
 
             {/* IMAGE SLIDER */}
             <ScrollReveal>
@@ -262,24 +262,26 @@ export default function StartupView() {
           </div>
 
           {/* SIDEBAR */}
-          <div className="space-y-6">
+          <div className="lg:col-span-5 xl:col-span-4 space-y-6">
             <ScrollReveal>
-              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6">
-                <h3 className="font-display text-lg font-bold text-[#0f2a44] mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
-                  <Phone className="w-4 h-4 text-[#8b0000]" />
-                  Contact
-                </h3>
-                <div className="space-y-4 text-sm text-slate-700">
+              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden">
+                <div className="bg-[#b31317] px-6 py-4">
+                  <h3 className="font-display text-lg font-bold !text-white text-white flex items-center gap-2">
+                    <Phone className="w-4 h-4 !text-white text-white" />
+                    Contact
+                  </h3>
+                </div>
+                <div className="p-6 space-y-4 text-sm text-slate-700">
                   <div>
-                    <p className="font-bold text-[#8b0000]">Mr. Praneel Kumar Peruru</p>
-                    <p className="text-xs text-slate-600">Coordinator</p>
+                    <p className="font-bold text-[#b31317] text-base">Mr. Praneel Kumar Peruru</p>
+                    <p className="text-xs text-slate-600 font-semibold mt-0.5">Coordinator</p>
                     <p className="text-xs text-slate-600">Assistant Professor</p>
                     <p className="text-xs text-slate-600">Department of CSE (Artificial Intelligence)</p>
                   </div>
                   <hr className="border-slate-100" />
                   <div className="flex items-start gap-2.5">
-                    <MapPin className="w-4 h-4 text-[#8b0000] shrink-0 mt-1" />
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <MapPin className="w-4 h-4 text-[#b31317] shrink-0 mt-1" />
+                    <p className="text-xs text-slate-600 leading-relaxed !text-left text-left">
                       Madanapalle Institute of Technology &amp; Science<br />
                       Deemed to be University<br />
                       Madanapalle-Kadiri Road<br />
@@ -288,7 +290,7 @@ export default function StartupView() {
                     </p>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Phone className="w-4 h-4 text-[#8b0000] shrink-0" />
+                    <Phone className="w-4 h-4 text-[#b31317] shrink-0" />
                     <p className="text-xs text-slate-600">+91-8571-280255, 280706</p>
                   </div>
                 </div>
@@ -300,7 +302,7 @@ export default function StartupView() {
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#ffd15c] mb-4">
                   <BookOpen className="w-6 h-6" />
                 </div>
-                <h4 className="font-display font-bold text-lg text-white mb-1">MITS Foundation</h4>
+                <h4 className="font-display font-bold text-lg !text-white text-white mb-1">MITS Foundation</h4>
                 <p className="text-xs text-white/85 mb-4 leading-relaxed">
                   Section-8 Company under the Companies Act, 2013.<br />
                   CIN: U85500AP2024NPL116231

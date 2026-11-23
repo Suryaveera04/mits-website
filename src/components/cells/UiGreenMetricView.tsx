@@ -96,12 +96,12 @@ export default function UiGreenMetricView() {
       >
         <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
 
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm inline-flex items-center gap-2">
             <Leaf className="w-4 h-4 text-[#ffd15c]" />
             <span>UI GreenMetric World University Rankings • Sustainability Criteria</span>
           </p>
-          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
+          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight !text-white text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
             UI GreenMetric Sustainable University Ranking
           </h1>
           <p className="text-white/90 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed drop-shadow-sm">
@@ -132,7 +132,7 @@ export default function UiGreenMetricView() {
       </section>
 
       {/* MAIN CONTAINER */}
-      <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
         {/* Top Back Link */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <Link

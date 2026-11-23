@@ -530,7 +530,7 @@ const IQAC = () => {
         }}
       >
         <div className="absolute inset-0 bg-black/55" />
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <h1 className="font-display text-3xl md:text-5xl font-bold text-white tracking-tight">
             Internal Quality Assurance Cell (IQAC)
           </h1>
@@ -551,7 +551,7 @@ const IQAC = () => {
       </section>
 
       {/* Main Layout */}
-      <div className="container mx-auto px-4 py-10 md:py-14">
+      <div className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
         <div className="lg:grid lg:grid-cols-[300px_1fr] lg:gap-8">
           {/* Sidebar Tabs — Flat Sequential Order, No Numbers */}
           <aside className="hidden lg:block">

@@ -129,7 +129,7 @@ export default function InnovationCenterView({
       >
         <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
 
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm inline-flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-[#ffd15c]" />
             <span>Cells &amp; Committees • Innovation, Research &amp; Entrepreneurship</span>
@@ -166,7 +166,7 @@ export default function InnovationCenterView({
 
       {/* Horizontal Tab Navigation Bar matching Screenshot 1 directly under hero banner */}
       <div className="bg-white border-b border-gray-200 shadow-xs sticky top-16 md:top-20 z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6">
           <div className="flex items-center justify-start lg:justify-center overflow-x-auto no-scrollbar py-3.5 gap-1 sm:gap-2 text-xs sm:text-sm font-semibold">
             {TABS.map((tab, idx) => {
               const isActive = activeTab === tab.id;
@@ -196,7 +196,7 @@ export default function InnovationCenterView({
       </div>
 
       {/* Main Container: 2-Column layout with sticky contact sidebar */}
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
+      <main className="flex-1 w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-6">
         {/* Back to Cells & Committees Button */}
         <div className="mb-6">
           <Link
@@ -209,7 +209,7 @@ export default function InnovationCenterView({
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main Left Content Column */}
-          <div className="lg:col-span-8 bg-white rounded-xl shadow-xs border border-gray-200 p-6 sm:p-8">
+          <div className="lg:col-span-7 xl:col-span-8 bg-white rounded-xl shadow-xs border border-gray-200 p-6 sm:p-8">
             {/* TAB 1: About Us */}
             {activeTab === "about" && (
               <ScrollReveal>
@@ -858,7 +858,7 @@ export default function InnovationCenterView({
           </div>
 
           {/* Right Sticky Sidebar Contact Card (exact match of official screenshots) */}
-          <aside className="lg:col-span-4 sticky top-28">
+          <aside className="lg:col-span-5 xl:col-span-4 sticky top-28">
             <div className="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
               <div className="bg-[#800000] px-5 py-3.5 text-white font-bold text-lg tracking-wide flex items-center gap-2">
                 <span>Contact</span>

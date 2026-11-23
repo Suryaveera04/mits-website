@@ -111,12 +111,12 @@ export default function Cells() {
         }}
       >
         <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-sm sm:text-sm mb-4 flex items-center justify-center gap-1.5">
             <Sparkles className="w-4 h-4 text-[#ffd15c] animate-pulse" />
             Governance &amp; Student Ecosystem
           </p>
-          <h1 className="font-display text-4xl md:text-6xl font-bold mb-5 tracking-tight text-white">
+          <h1 className="font-display text-4xl md:text-6xl font-bold mb-5 tracking-tight !text-white text-white">
             Cells &amp; <span className="text-[#ffd15c]">Committees</span>
           </h1>
           <p className="text-white/80 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed mt-4">
@@ -145,7 +145,7 @@ export default function Cells() {
       </section>
 
       {/* FILTER & SEARCH PANEL */}
-      <main className="container mx-auto px-4 py-12 md:py-16">
+      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 mb-10 pb-6 border-b border-[#0f2a44]/5">
           
           {/* Categories Tab Bar */}

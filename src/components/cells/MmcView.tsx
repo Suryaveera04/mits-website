@@ -81,12 +81,12 @@ export default function MmcView() {
         }}
       >
         <div className="absolute inset-0 bg-black/25 bg-gradient-to-b from-black/20 via-black/10 to-black/30" />
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffd15c] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4 drop-shadow-sm inline-flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-[#ffd15c]" />
             <span>Cells &amp; Committees • Student Support &amp; Welfare</span>
           </p>
-          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
+          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight !text-white text-white leading-tight max-w-5xl mx-auto drop-shadow-md">
             Mentor – Mentee Cell
           </h1>
           <p className="text-white/90 text-sm md:text-base max-w-2xl mx-auto drop-shadow-sm font-medium">
@@ -371,7 +371,7 @@ export default function MmcView() {
                   <Layers className="w-4 h-4 text-[#ffd15c]" />
                   <span>Digital Campus Initiative</span>
                 </div>
-                <h4 className="font-display font-bold text-lg text-white">AviScio :: MITS</h4>
+                <h4 className="font-display font-bold text-lg !text-white text-white">AviScio :: MITS</h4>
                 <p className="text-xs text-white/80 leading-relaxed !text-justify text-justify">
                   Integrated internal web platform operating at IP <strong>172.16.0.222</strong> for automated real-time academic synchronisation, attendance monitoring, and proactive mentoring guidance.
                 </p>

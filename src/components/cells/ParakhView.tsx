@@ -63,11 +63,11 @@ export default function ParakhView() {
         }}
       >
         <div className="absolute inset-0 bg-black/20 bg-gradient-to-b from-black/15 via-transparent to-black/30" />
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffd15c] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4 drop-shadow-sm">
             Cells &amp; Committees • Assessment Initiatives
           </p>
-          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight text-white leading-tight max-w-4xl mx-auto drop-shadow-md">
+          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight !text-white text-white leading-tight max-w-4xl mx-auto drop-shadow-md">
             AICTE Student Learning Assessment PARAKH
           </h1>
           <p className="text-white/95 text-sm md:text-base max-w-2xl mx-auto drop-shadow-sm font-medium">
@@ -85,7 +85,7 @@ export default function ParakhView() {
         </nav>
       </section>
 
-      <main className="container mx-auto px-4 py-10 md:py-14 max-w-6xl">
+      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
         <button
           onClick={() => navigate("/cells")}
           className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#b31317] transition-colors"
@@ -94,9 +94,9 @@ export default function ParakhView() {
           Back to Cells &amp; Committees
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* MAIN COLUMN */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-7 xl:col-span-8 space-y-8">
 
             {/* ABOUT */}
             <ScrollReveal>
@@ -218,7 +218,7 @@ export default function ParakhView() {
           </div>
 
           {/* SIDEBAR */}
-          <div className="space-y-6">
+          <div className="lg:col-span-5 xl:col-span-4 space-y-6">
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6">
                 <h3 className="font-display text-lg font-bold text-[#0f2a44] mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
@@ -242,7 +242,7 @@ export default function ParakhView() {
                   <hr className="border-slate-100" />
                   <div className="flex items-start gap-2.5">
                     <MapPin className="w-4 h-4 text-[#8b0000] shrink-0 mt-1" />
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed !text-left text-left">
                       Madanapalle Institute of Technology &amp; Science<br />
                       Deemed to be University<br />
                       Madanapalle-Kadiri Road<br />
@@ -265,19 +265,19 @@ export default function ParakhView() {
             </ScrollReveal>
 
             <ScrollReveal>
-              <section className="bg-gradient-to-br from-[#0f2a44] to-[#1c4066] text-white rounded-2xl shadow-sm p-6">
+              <section className="bg-gradient-to-br from-[#0f2a44] to-[#1c4066] !text-white text-white rounded-2xl shadow-sm p-6">
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#ffd15c] mb-4">
                   <BookOpen className="w-6 h-6" />
                 </div>
-                <h4 className="font-display font-bold text-lg text-white mb-1">AICTE PARAKH Portal</h4>
-                <p className="text-xs text-white/85 mb-4 leading-relaxed">
+                <h4 className="font-display font-bold text-lg !text-white text-white mb-1">AICTE PARAKH Portal</h4>
+                <p className="text-xs !text-white/85 text-white/85 mb-4 leading-relaxed">
                   Access the official AICTE PARAKH assessment portal for student evaluations and performance analytics.
                 </p>
                 <a
                   href="https://parakh.aicte-india.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-[#b31317] hover:bg-[#990000] text-white text-xs font-bold uppercase tracking-wider transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-[#b31317] hover:bg-[#990000] !text-white text-white text-xs font-bold uppercase tracking-wider transition-colors"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   Visit PARAKH Portal

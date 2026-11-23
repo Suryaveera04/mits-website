@@ -49,7 +49,7 @@ export default function DtsView() {
         }}
       >
         <div className="absolute inset-0 bg-black/20 bg-gradient-to-b from-black/15 via-transparent to-black/30" />
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffd15c] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4 drop-shadow-sm">
             Cells &amp; Committees • Innovation &amp; Entrepreneurship
           </p>
@@ -71,7 +71,7 @@ export default function DtsView() {
         </nav>
       </section>
 
-      <main className="container mx-auto px-4 py-10 md:py-14 max-w-6xl">
+      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
         <button
           onClick={() => navigate("/cells")}
           className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#b31317] transition-colors"
@@ -80,9 +80,9 @@ export default function DtsView() {
           Back to Cells &amp; Committees
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* MAIN COLUMN */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-7 xl:col-span-8 space-y-8">
 
             {/* ABOUT */}
             <ScrollReveal>
@@ -187,7 +187,7 @@ export default function DtsView() {
           </div>
 
           {/* SIDEBAR */}
-          <div className="space-y-6">
+          <div className="lg:col-span-5 xl:col-span-4 space-y-6">
 
             {/* CONTACT */}
             <ScrollReveal>
@@ -226,8 +226,8 @@ export default function DtsView() {
               >
                 <div>
                   <p className="text-xs text-[#caa74d] font-semibold uppercase tracking-wider mb-1">Official Portal</p>
-                  <p className="font-display font-bold text-base">UIF Fellows</p>
-                  <p className="text-white/60 text-xs mt-0.5">MITS University Innovation Fellows</p>
+                  <p className="font-display font-bold text-base !text-white text-white">UIF Fellows</p>
+                  <p className="text-white/80 text-xs mt-0.5">MITS University Innovation Fellows</p>
                 </div>
                 <ExternalLink className="w-5 h-5 text-[#caa74d] group-hover:scale-110 transition-transform shrink-0" />
               </a>

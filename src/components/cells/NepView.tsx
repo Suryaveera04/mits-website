@@ -172,12 +172,12 @@ export default function NepView() {
       >
         <div className="absolute inset-0 bg-black/40 bg-gradient-to-b from-black/45 via-black/30 to-black/60" />
 
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm flex items-center justify-center gap-2">
             <GraduationCap className="w-4 h-4 text-[#ffd15c]" />
             National Education Policy 2020 Implementation
           </p>
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight text-white leading-tight max-w-4xl mx-auto drop-shadow-md">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight !text-white text-white leading-tight max-w-4xl mx-auto drop-shadow-md">
             National Education Policy (NEP) Cell
           </h1>
           <p className="text-white/95 text-sm sm:text-base md:text-lg font-medium max-w-3xl mx-auto drop-shadow-sm">
@@ -209,7 +209,7 @@ export default function NepView() {
 
       {/* ALL 13 TABS NAVIGATION BAR - Sticky underneath hero */}
       <section className="bg-white border-b border-gray-200 sticky top-16 z-30 shadow-sm">
-        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6">
           <div className="flex items-center gap-1 overflow-x-auto py-2.5 no-scrollbar">
             {nepTabs.map((tab) => (
               <button
@@ -220,7 +220,7 @@ export default function NepView() {
                 }}
                 className={`px-3 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${
                   activeTab === tab.id
-                    ? "bg-[#0f2a44] text-white shadow-sm"
+                    ? "bg-[#0f2a44] !text-white text-white shadow-sm"
                     : "text-slate-600 hover:text-[#b31317] hover:bg-slate-100"
                 }`}
               >
@@ -231,8 +231,8 @@ export default function NepView() {
         </div>
       </section>
 
-      {/* MAIN CONTENT CONTAINER - FULL WIDTH max-w-[1400px] */}
-      <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex-1">
+      {/* MAIN CONTENT CONTAINER - FULL WIDTH max-w-[96%] */}
+      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12 flex-1">
         {/* Top Control Bar */}
         <div className="mb-6 flex items-center justify-between flex-wrap gap-3">
           <button

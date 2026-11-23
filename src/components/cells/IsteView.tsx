@@ -100,7 +100,7 @@ export default function IsteView() {
       >
         <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
 
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm">
             Professional Societies &amp; Chapters
           </p>
@@ -135,7 +135,7 @@ export default function IsteView() {
       </section>
 
       {/* MAIN CONTENT CONTAINER - Balanced Full-Width Layout */}
-      <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
         {/* Back Button */}
         <div className="mb-6">
           <button
@@ -149,8 +149,8 @@ export default function IsteView() {
 
         {/* 2-COLUMN BALANCED WIDE GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* PRIMARY CONTENT AREA (8 cols) */}
-          <div className="lg:col-span-8 space-y-8">
+          {/* PRIMARY CONTENT AREA (7-8 cols) */}
+          <div className="lg:col-span-7 xl:col-span-8 space-y-8">
             {/* 1. TOP AWARD IMAGE BANNER */}
             <ScrollReveal>
               <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
@@ -447,8 +447,8 @@ export default function IsteView() {
             </ScrollReveal>
           </div>
 
-          {/* SIDEBAR AREA (4 cols) - Matches Official Screenshot with High Contrast */}
-          <div className="lg:col-span-4 space-y-6">
+          {/* SIDEBAR AREA (4-5 cols) - Matches Official Screenshot with High Contrast */}
+          <div className="lg:col-span-5 xl:col-span-4 space-y-6">
             {/* COORDINATOR OF ISTE CARD */}
             <ScrollReveal>
               <div className="bg-white rounded-2xl border border-gray-200/90 shadow-sm overflow-hidden sticky top-24">

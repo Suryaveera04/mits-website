@@ -160,7 +160,7 @@ export default function RdCellView() {
       >
         <div className="absolute inset-0 bg-black/15 bg-gradient-to-b from-black/10 via-black/5 to-black/20" />
 
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 w-full max-w-[96%] mx-auto px-4 text-center">
           <p className="text-[#ffb300] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3 drop-shadow-sm inline-flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-[#ffd15c]" />
             <span>Academic &amp; Research Excellence • Established 11-06-2013</span>
@@ -196,7 +196,7 @@ export default function RdCellView() {
       </section>
 
       {/* MAIN CONTENT CONTAINER */}
-      <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
         {/* Navigation Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <Link
@@ -219,8 +219,8 @@ export default function RdCellView() {
 
         {/* 2-COLUMN BALANCED WIDE GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* PRIMARY CONTENT AREA (8 cols) */}
-          <div className="lg:col-span-8 space-y-8">
+          {/* PRIMARY CONTENT AREA (7-8 cols) */}
+          <div className="lg:col-span-7 xl:col-span-8 space-y-8">
             {/* ABOUT R&D CELL CARD */}
             <ScrollReveal>
               <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-6">
@@ -343,8 +343,8 @@ export default function RdCellView() {
             </ScrollReveal>
           </div>
 
-          {/* SIDEBAR / CONTACT DETAILS (4 cols) */}
-          <div className="lg:col-span-4 space-y-6">
+          {/* SIDEBAR / CONTACT DETAILS (4-5 cols) */}
+          <div className="lg:col-span-5 xl:col-span-4 space-y-6">
             {/* R&D LEADERSHIP & CONTACT CARD */}
             <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden sticky top-24">
               <div className="bg-[#990000] px-5 py-3.5 border-b border-[#800000]">
