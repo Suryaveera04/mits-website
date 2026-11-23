@@ -608,15 +608,6 @@ const IQAC = () => {
                   })}
                 </nav>
               </div>
-              <div className="bg-gradient-to-br from-[#0f2a44] to-[#152f4f] text-white rounded-xl p-5 shadow-sm">
-                <p className="font-body text-xs uppercase tracking-[0.2em] text-[#caa74d] mb-1 font-bold">IQAC Leadership</p>
-                <p className="font-display font-bold text-base text-white">Dr. A. V. Pavan Kumar</p>
-                <p className="text-xs text-white/70 mb-2">Chief Coordinator</p>
-                <div className="space-y-1.5 text-xs text-white/80">
-                  <p className="flex items-center gap-2"><Mail className="w-3.5 h-3.5 text-[#caa74d]" /> iqac@mits.ac.in</p>
-                  <p className="flex items-center gap-2"><Phone className="w-3.5 h-3.5 text-[#caa74d]" /> +91-8571-280255</p>
-                </div>
-              </div>
             </div>
           </aside>
 
@@ -1223,7 +1214,7 @@ const IQAC = () => {
                                       const [heading, ...bullets] = parts;
                                       return (
                                         <div className="flex flex-col gap-1.5 text-sm">
-                                          <span className="font-bold text-[#b31317]">
+                                          <span className="font-bold text-[#0f2a44]">
                                             {heading}
                                           </span>
                                           <ul className="space-y-1 pl-1">
