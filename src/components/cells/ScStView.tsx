@@ -19,6 +19,8 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import visionIcon from "@/assets/icons/vision-icon.png";
+import missionIcon from "@/assets/icons/mission-icon.png";
 
 const BASE = "https://mits.edu/";
 
@@ -228,9 +230,12 @@ export default function ScStView() {
                 <div className="bg-[#f58220] rounded-2xl p-7 md:p-8 text-white flex flex-col items-center text-center shadow-lg transition-transform hover:-translate-y-1">
                   <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-3">
                     <img
-                      src="/assets/icons/vision-icon.png"
+                      src={visionIcon}
                       alt="VISION"
                       className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-sm"
+                      onError={(e) => {
+                        e.currentTarget.src = "https://mits.ac.in/public/uploads/images/vision-icon.png";
+                      }}
                       loading="lazy"
                     />
                   </div>
@@ -246,9 +251,12 @@ export default function ScStView() {
                 <div className="bg-[#7e57c2] rounded-2xl p-7 md:p-8 text-white flex flex-col items-center text-center shadow-lg transition-transform hover:-translate-y-1">
                   <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-3">
                     <img
-                      src="/assets/icons/mission-icon.png"
+                      src={missionIcon}
                       alt="MISSION"
                       className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-sm"
+                      onError={(e) => {
+                        e.currentTarget.src = "https://mits.ac.in/public/uploads/images/mission-icon.png";
+                      }}
                       loading="lazy"
                     />
                   </div>
