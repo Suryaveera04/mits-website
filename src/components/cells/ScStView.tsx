@@ -226,26 +226,36 @@ export default function ScStView() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* VISION - ORANGE CARD */}
                 <div className="bg-[#f58220] rounded-2xl p-7 md:p-8 text-white flex flex-col items-center text-center shadow-lg transition-transform hover:-translate-y-1">
-                  <div className="w-16 h-16 rounded-full border-2 border-white/40 flex items-center justify-center mb-4 bg-white/10 shadow-inner">
-                    <Eye className="w-8 h-8 text-white stroke-[2]" />
+                  <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-3">
+                    <img
+                      src="https://mits.ac.in/public/uploads/images/vision-icon.png"
+                      alt="VISION"
+                      className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                      loading="lazy"
+                    />
                   </div>
                   <h3 className="font-display text-2xl font-bold tracking-wider uppercase mb-4 !text-white text-white drop-shadow-sm">
                     VISION
                   </h3>
-                  <p className="text-sm md:text-base leading-relaxed text-white/95 !text-left text-left font-normal">
+                  <p className="text-sm md:text-base leading-relaxed text-white/95 !text-justify text-justify font-normal">
                     To be an institution of excellence in higher education that continually responds to the changing social realities through the development and application of knowledge, towards creating a people-centred and ecologically sustainable society that promotes and protects the dignity, equality, social justice and human rights for all, with special emphasis on marginalised and vulnerable students.
                   </p>
                 </div>
 
                 {/* MISSION - PURPLE CARD */}
                 <div className="bg-[#7e57c2] rounded-2xl p-7 md:p-8 text-white flex flex-col items-center text-center shadow-lg transition-transform hover:-translate-y-1">
-                  <div className="w-16 h-16 rounded-full border-2 border-white/40 flex items-center justify-center mb-4 bg-white/10 shadow-inner">
-                    <Target className="w-8 h-8 text-white stroke-[2]" />
+                  <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-3">
+                    <img
+                      src="https://mits.ac.in/public/uploads/images/mission-icon.png"
+                      alt="MISSION"
+                      className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                      loading="lazy"
+                    />
                   </div>
                   <h3 className="font-display text-2xl font-bold tracking-wider uppercase mb-4 !text-white text-white drop-shadow-sm">
                     MISSION
                   </h3>
-                  <p className="text-sm md:text-base leading-relaxed text-white/95 !text-left text-left font-normal">
+                  <p className="text-sm md:text-base leading-relaxed text-white/95 !text-justify text-justify font-normal">
                     In pursuance of its vision, the Madanapalle Institute of Technology and Science, Madanapalle organizes awareness programs to the students, remedial classes for slow learning students.
                   </p>
                 </div>
