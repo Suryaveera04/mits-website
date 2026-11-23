@@ -41,6 +41,7 @@ import RdCellView from "@/components/cells/RdCellView";
 import InnovationCenterView from "@/components/cells/InnovationCenterView";
 import NasscomView from "@/components/cells/NasscomView";
 import IeeeView from "@/components/cells/IeeeView";
+import GrcView from "@/components/cells/GrcView";
 import SkillDevelopmentCentre from "@/pages/SkillDevelopmentCentre";
 
 type TabId = "home" | "vidya-laxmi" | "scholarships" | "documents" | "events" | "gallery" | "financial-aid" | "contact";
@@ -126,6 +127,10 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
   const cell = targetId ? cellsDetailData[targetId] : null;
   const tabs = CELL_TABS[cell?.id ?? ""] ?? DEFAULT_TABS;
   const [activeTab, setActiveTab] = useState<TabId>("home");
+
+  if (targetId === "grc" || targetId === "grievance-redressal-cell") {
+    return <GrcView />;
+  }
 
   if (targetId === "iei") {
     return <IeiView />;
