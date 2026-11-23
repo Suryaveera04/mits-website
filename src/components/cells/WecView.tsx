@@ -1,6 +1,18 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft, BookOpen, FileText, ExternalLink, MapPin, Phone, Mail, ChevronRight, Users } from "lucide-react";
+import {
+  ArrowLeft,
+  BookOpen,
+  FileText,
+  ExternalLink,
+  MapPin,
+  Phone,
+  Mail,
+  ChevronRight,
+  Users,
+  FileDown,
+  Calendar,
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -8,12 +20,30 @@ import ScrollReveal from "@/components/ScrollReveal";
 const BASE = "https://mits.edu/";
 
 const documents = [
-  { title: "Office Order - Women helpline 24X7 - 15.08.2025", href: "https://mits.ac.in/assets/pdf/assoc/Women Helpline-16-8-2025.pdf" },
-  { title: "Office Order - Women helpline 24X7 - 02.09.2024", href: "https://mits.ac.in/public/uploads/wec/Women helpline 24-7 -Office order- Sep 2024.pdf" },
-  { title: "Office Order - Women Empowerment Cell - 05.11.2025", href: "https://mits.ac.in/public/uploads/wec/Women Empowerment Cell-5-11-2025.pdf" },
-  { title: "Office Order - Women Empowerment Cell - 02.09.2024", href: "https://mits.ac.in/public/uploads/wec/Women Empowerment Committee-sep 2024.pdf" },
-  { title: "Office Order - Women Empowerment Cell - 22.07.2024", href: "https://mits.ac.in/public/uploads/wec/Office order - Women  Empowerment Cell- July 2024.pdf" },
-  { title: "Office Order - Women Empowerment Cell - 19.01.2024", href: "https://mits.ac.in/public/uploads/wec/WEC-Members office order.pdf" },
+  {
+    title: "Office Order - Women helpline 24X7 - 15.08.2025",
+    href: "https://mits.ac.in/assets/pdf/assoc/Women%20Helpline-16-8-2025.pdf",
+  },
+  {
+    title: "Office Order - Women helpline 24X7 - 02.09.2024",
+    href: "https://mits.ac.in/public/uploads/wec/Women%20helpline%2024-7%20-Office%20order-%20Sep%202024.pdf",
+  },
+  {
+    title: "Office Order - Women Empowerment Cell - 05.11.2025",
+    href: "https://mits.ac.in/public/uploads/wec/Women%20Empowerment%20Cell-5-11-2025.pdf",
+  },
+  {
+    title: "Office Order - Women Empowerment Cell - 02.09.2024",
+    href: "https://mits.ac.in/public/uploads/wec/Women%20Empowerment%20Committee-sep%202024.pdf",
+  },
+  {
+    title: "Office Order - Women Empowerment Cell - 22.07.2024",
+    href: "https://mits.ac.in/public/uploads/wec/Office%20order%20-%20Women%20%20Empowerment%20Cell-%20July%202024.pdf",
+  },
+  {
+    title: "Office Order - Women Empowerment Cell - 19.01.2024",
+    href: "https://mits.ac.in/public/uploads/wec/WEC-Members%20office%20order.pdf",
+  },
 ];
 
 const objectives = [
@@ -29,22 +59,70 @@ const objectives = [
 ];
 
 const events = [
-  { title: "An \"International Women's Day Celebration - 2026\" was organized by Women Empowerment Cell on 07th March 2026.", href: "https://mits.ac.in/assets/pdf/assoc/International Women's Day Celebration-2026.pdf" },
-  { title: "An awareness programme \"Women Health and Self-Hygiene\" was organized by Women Empowerment Cell on 04th December 2025.", href: "https://mits.ac.in/assets/pdf/assoc/Women Health and Self-Hygiene-2025.pdf" },
-  { title: "An Awareness Program on \"Building Gender Sensitivity: Towards an inclusive Campus\" was organized by WEC in Collaboration with GRC and ICC on 27th & 28th October 2025.", href: "https://mits.ac.in/assets/pdf/aids/Building Gender Sensitivity Towards an inclusive Campus.pdf" },
-  { title: "An event on \"Nurturing Minds, Empowering Futures\" was organized by Dept. of CSE-AI in association with WEC and IEEE-RAS Student Chapter on 06th August 2025.", href: "https://mits.ac.in/assets/pdf/aids/Nurturing Minds, Empowering Futures.pdf" },
-  { title: "An Awareness Program on \"Wired For Success: Empowering Girls in ICT\" was organized by WEC in association with Dept. of ECE on 24th April 2025.", href: "https://mits.ac.in/assets/pdf/assoc/Wired For Success Empowering Girls in ICT.pdf" },
-  { title: "An \"International Women's Day Celebration - 2025\" was organized by Women Empowerment Cell on 07th March 2025.", href: "https://mits.ac.in/assets/pdf/assoc/International Women's Day Celebration-2025.pdf" },
-  { title: "An Awareness program on \"Menstrual Hygiene Management\" was organised by Women Empowerment Cell on 12th December 2024.", href: "https://mits.ac.in/assets/pdf/aids/Menstrual Hygiene Management.pdf" },
-  { title: "An Awareness program on \"Health and Hygiene for Women\" was organised by Women Empowerment Cell on 22nd October 2024.", href: "https://mits.ac.in/assets/pdf/aids/Health and Hygiene for Women.pdf" },
-  { title: "An Expert talk on Fostering \"Fortify, Hygiene, Etiquette, and Safety Triad\" was organized by Dept. of CSE-AI in association with WEC on 20th August 2024.", href: "https://mits.ac.in/assets/pdf/aids/Fortify Hygiene Etiquette and Safety Triad.pdf" },
-  { title: "\"International Women's Day\" was organized by ICC of MITS on 7th March, 2024.", href: "https://mits.ac.in/assets/pdf/assoc/International Womens Day-2024.pdf" },
-  { title: "An Awareness Programme on \"She Leads: Empowering Women for a Better Tomorrow\" was organized by WEC of MITS on 16th November 2023.", href: "https://mits.ac.in/assets/pdf/assoc/SHE LEADS EMPOWERING WOMEN FOR A BETTER TOMORROW.pdf" },
-  { title: "\"International Women's Day\" was organized by ICC of MITS on 8th March, 2023.", href: "https://mits.ac.in/assets/pdf/assoc/International Womens Day 2023.pdf" },
-  { title: "An Awareness Programme on \"Step Forwarding and Championing – Women's Rights and Opportunities\" was organized by WEC of MITS on 24th February 2023.", href: "https://mits.ac.in/assets/pdf/assoc/STEP FORWARDING AND CHAMPIONING.pdf" },
-  { title: "An awareness session on \"DISHA App\" was organized by Women Empowerment Cell on 2-08-2021.", href: "https://mits.ac.in/assets/pdf/assoc/DISHA-App-02-08-2021.pdf" },
-  { title: "An awareness session on \"DISHA App\" was organized by Women Empowerment Cell on 12-07-2021.", href: "https://mits.ac.in/assets/pdf/assoc/DISHA App-min.pdf" },
-  { title: "National Girl Child Day was organized by ICC on 24th January 2020.", href: "https://mits.ac.in/assets/pdf/assoc/National Girl Child Day 20 by ICC _ WEC.pdf" },
+  {
+    title: 'An "International Women\'s Day Celebration - 2026" was organized by Women Empowerment Cell on 07th March 2026.',
+    href: "https://mits.ac.in/assets/pdf/assoc/International%20Women's%20Day%20Celebration-2026.pdf",
+  },
+  {
+    title: 'An awareness programme "Women Health and Self-Hygiene" was organized by Women Empowerment Cell on 04th December 2025.',
+    href: "https://mits.ac.in/assets/pdf/assoc/Women%20Health%20and%20Self-Hygiene-2025.pdf",
+  },
+  {
+    title: 'An Awareness Program on "Building Gender Sensitivity: Towards an inclusive Campus" was organized by WEC in Collaboration with GRC and ICC on 27th & 28th October 2025.',
+    href: "https://mits.ac.in/assets/pdf/aids/Building%20Gender%20Sensitivity%20Towards%20an%20inclusive%20Campus.pdf",
+  },
+  {
+    title: 'An event on "Nurturing Minds, Empowering Futures" was organized by Dept. of CSE-AI in association with WEC and IEEE-RAS Student Chapter on 06th August 2025.',
+    href: "https://mits.ac.in/assets/pdf/aids/Nurturing%20Minds,%20Empowering%20Futures.pdf",
+  },
+  {
+    title: 'An Awareness Program on "Wired For Success: Empowering Girls in ICT" was organized by WEC in association with Dept. of ECE on 24th April 2025.',
+    href: "https://mits.ac.in/assets/pdf/assoc/Wired%20For%20Success%20Empowering%20Girls%20in%20ICT.pdf",
+  },
+  {
+    title: 'An "International Women\'s Day Celebration - 2025" was organized by Women Empowerment Cell on 07th March 2025.',
+    href: "https://mits.ac.in/assets/pdf/assoc/International%20Women's%20Day%20Celebration-2025.pdf",
+  },
+  {
+    title: 'An Awareness program on "Menstrual Hygiene Management" was organised by Women Empowerment Cell on 12th December 2024.',
+    href: "https://mits.ac.in/assets/pdf/aids/Menstrual%20Hygiene%20Management.pdf",
+  },
+  {
+    title: 'An Awareness program on "Health and Hygiene for Women" was organised by Women Empowerment Cell on 22nd October 2024.',
+    href: "https://mits.ac.in/assets/pdf/aids/Health%20and%20Hygiene%20for%20Women.pdf",
+  },
+  {
+    title: 'An Expert talk on Fostering "Fortify, Hygiene, Etiquette, and Safety Triad" was organized by Dept. of CSE-AI in association with WEC on 20th August 2024.',
+    href: "https://mits.ac.in/assets/pdf/aids/Fortify%20Hygiene%20Etiquette%20and%20Safety%20Triad.pdf",
+  },
+  {
+    title: '"International Women\'s Day" was organized by ICC of MITS on 7th March, 2024.',
+    href: "https://mits.ac.in/assets/pdf/assoc/International%20Womens%20Day-2024.pdf",
+  },
+  {
+    title: 'An Awareness Programme on "She Leads: Empowering Women for a Better Tomorrow" was organized by WEC of MITS on 16th November 2023.',
+    href: "https://mits.ac.in/assets/pdf/assoc/SHE%20LEADS%20EMPOWERING%20WOMEN%20FOR%20A%20BETTER%20TOMORROW.pdf",
+  },
+  {
+    title: '"International Women\'s Day" was organized by ICC of MITS on 8th March, 2023.',
+    href: "https://mits.ac.in/assets/pdf/assoc/International%20Womens%20Day%202023.pdf",
+  },
+  {
+    title: 'An Awareness Programme on "Step Forwarding and Championing – Women\'s Rights and Opportunities" was organized by WEC of MITS on 24th February 2023.',
+    href: "https://mits.ac.in/assets/pdf/assoc/STEP%20FORWARDING%20AND%20CHAMPIONING.pdf",
+  },
+  {
+    title: 'An awareness session on "DISHA App" was organized by Women Empowerment Cell on 2-08-2021.',
+    href: "https://mits.ac.in/assets/pdf/assoc/DISHA-App-02-08-2021.pdf",
+  },
+  {
+    title: 'An awareness session on "DISHA App" was organized by Women Empowerment Cell on 12-07-2021.',
+    href: "https://mits.ac.in/assets/pdf/assoc/DISHA%20App-min.pdf",
+  },
+  {
+    title: "National Girl Child Day was organized by ICC on 24th January 2020.",
+    href: "https://mits.ac.in/assets/pdf/assoc/National%20Girl%20Child%20Day%2020%20by%20ICC%20_%20WEC.pdf",
+  },
 ];
 
 const committeeMembers = [
@@ -56,10 +134,10 @@ export default function WecView() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#fafaf7]">
+    <div className="min-h-screen bg-[#fafaf7] text-slate-800">
       <Header />
 
-      {/* HERO */}
+      {/* HERO SECTION */}
       <section
         className="relative pt-32 md:pt-44 pb-20 overflow-hidden"
         style={{
@@ -68,7 +146,7 @@ export default function WecView() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/20 bg-gradient-to-b from-black/15 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-black/25 bg-gradient-to-b from-black/20 via-black/10 to-black/30" />
         <div className="relative z-10 container mx-auto px-4 text-center">
           <p className="text-[#ffd15c] font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4 drop-shadow-sm">
             Cells &amp; Committees • Equity &amp; Inclusion
@@ -82,15 +160,24 @@ export default function WecView() {
         </div>
         <nav className="absolute bottom-4 left-6 z-10">
           <ol className="flex items-center gap-1.5 text-xs sm:text-sm text-white/80">
-            <li><Link to="/" className="text-white/70 hover:text-white transition-colors">Home</Link></li>
+            <li>
+              <Link to="/" className="text-white/70 hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
             <li className="text-white/50">›</li>
-            <li><Link to="/cells" className="text-white/70 hover:text-white transition-colors">Cells &amp; Committees</Link></li>
+            <li>
+              <Link to="/cells" className="text-white/70 hover:text-white transition-colors">
+                Cells &amp; Committees
+              </Link>
+            </li>
             <li className="text-white/50">›</li>
             <li className="text-[#ffd15c] font-semibold">Women Empowerment Cell</li>
           </ol>
         </nav>
       </section>
 
+      {/* MAIN CONTAINER */}
       <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
         <button
           onClick={() => navigate("/cells")}
@@ -101,59 +188,49 @@ export default function WecView() {
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-          {/* LEFT / MAIN CONTENT */}
+          {/* LEFT / MAIN CONTENT (7 cols on lg, 8 cols on xl) */}
           <div className="lg:col-span-7 xl:col-span-8 space-y-8">
-
-            {/* ABOUT */}
+            {/* ABOUT WEC */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8">
-                <h2 className="font-display text-2xl font-bold text-[#b31317] mb-4 flex items-center gap-2.5">
-                  <BookOpen className="w-6 h-6 text-[#b31317]" />
-                  Women Empowerment Cell
-                </h2>
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify mb-3">
-                  MITS - Deemed to be University has constituted Women Empowerment Cell (WEC) to empower and safeguard the rights of female students and staff members of the college.
-                </p>
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify mb-3">
-                  With a view to taking up women's issues and problems, the cell aims at creating awareness of their rights and duties. It also provides a platform for women to share their experiences and views regarding their status in the society and to suggest ways to improve and empower themselves.
-                </p>
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify mb-5">
-                  Aiming at intellectual and social upliftment of the female students, the cell stands for facilitating women's empowerment through guest lectures, seminars, awareness programmes and other welfare activities.
-                </p>
+                <div className="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#b31317]/10 flex items-center justify-center text-[#b31317] shrink-0">
+                    <BookOpen className="w-5 h-5 text-[#b31317]" />
+                  </div>
+                  <div>
+                    <h2 className="font-display text-xl md:text-2xl font-bold text-[#b31317]">
+                      About WEC
+                    </h2>
+                    <p className="text-xs text-[#0f2a44]/60">
+                      Women Empowerment Cell – MITS Deemed to be University
+                    </p>
+                  </div>
+                </div>
 
-                {/* Office Orders */}
-                <ul className="divide-y divide-slate-100">
-                  {documents.map((doc, i) => (
-                    <li key={i}>
-                      <a
-                        href={doc.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-between gap-3 py-3 group hover:bg-[#fff8e6]/40 -mx-2 px-2 rounded-lg transition-colors"
-                      >
-                        <span className="flex items-center gap-2.5 text-sm font-semibold text-[#0f2a44] group-hover:text-[#b31317] transition-colors leading-snug">
-                          <ChevronRight className="w-4 h-4 shrink-0 text-[#caa74d] group-hover:text-[#b31317] transition-colors" />
-                          {doc.title}
-                        </span>
-                        <ExternalLink className="w-4 h-4 shrink-0 text-slate-400 group-hover:text-[#b31317] transition-colors" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <div className="text-slate-700 text-sm sm:text-base leading-relaxed space-y-3.5 !text-justify text-justify">
+                  <p>
+                    MITS - Deemed to be University has constituted Women Empowerment Cell (WEC) to empower and safeguard the rights of female students and staff members of the college.
+                  </p>
+                  <p>
+                    With a view to taking up women&apos;s issues and problems, the cell aims at creating awareness of their rights and duties. It also provides a platform for women to share their experiences and views regarding their status in the society and to suggest ways to improve and empower themselves.
+                  </p>
+                  <p>
+                    Aiming at intellectual and social upliftment of the female students, the cell stands for facilitating women&apos;s empowerment through guest lectures, seminars, awareness programmes and other welfare activities.
+                  </p>
+                </div>
               </section>
             </ScrollReveal>
 
-            {/* VISION & MISSION */}
+            {/* VISION & MISSION - EXACT MATCHING TO THE IMAGE SPECIFICATION */}
             <ScrollReveal>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* VISION - ORANGE CARD */}
                 <div className="bg-[#f58220] rounded-2xl p-7 md:p-8 text-white flex flex-col items-center text-center shadow-lg transition-transform hover:-translate-y-1">
                   <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-3">
                     <img
-                      src="https://mits.ac.in/public/uploads/images/vision-icon.png"
+                      src="/assets/icons/vision-icon.png"
                       alt="VISION"
-                      className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                      className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-sm"
                       loading="lazy"
                     />
                   </div>
@@ -169,9 +246,9 @@ export default function WecView() {
                 <div className="bg-[#7e57c2] rounded-2xl p-7 md:p-8 text-white flex flex-col items-center text-center shadow-lg transition-transform hover:-translate-y-1">
                   <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-3">
                     <img
-                      src="https://mits.ac.in/public/uploads/images/mission-icon.png"
+                      src="/assets/icons/mission-icon.png"
                       alt="MISSION"
-                      className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                      className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-sm"
                       loading="lazy"
                     />
                   </div>
@@ -192,53 +269,112 @@ export default function WecView() {
                   <FileText className="w-5 h-5 text-[#b31317]" />
                   Objectives
                 </h2>
-                <ul className="space-y-2.5">
+                <ul className="space-y-3">
                   {objectives.map((obj, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <span className="w-5 h-5 rounded-full bg-[#b31317] text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
                         {i + 1}
                       </span>
-                      <p className="text-sm text-slate-700 leading-relaxed text-justify">{obj}</p>
+                      <p className="text-sm sm:text-base text-slate-700 leading-relaxed !text-justify text-justify">
+                        {obj}
+                      </p>
                     </li>
                   ))}
                 </ul>
               </section>
             </ScrollReveal>
 
-            {/* EVENTS */}
+            {/* OFFICIAL ORDERS & DOCUMENTS (SINGLE-LINE STYLE) */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8">
-                <h2 className="font-display text-xl font-bold text-[#0f2a44] mb-5 flex items-center gap-2.5">
-                  <BookOpen className="w-5 h-5 text-[#b31317]" />
-                  Events Organized
-                </h2>
-                <ul className="space-y-4">
-                  {events.map((ev, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#b31317] shrink-0 mt-1.5" />
-                      <div>
-                        <p className="text-sm text-slate-700 leading-relaxed text-justify">{ev.title}</p>
-                        <a
-                          href={ev.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[#b31317] hover:underline text-sm font-medium mt-0.5"
-                        >
-                          Click here for Report on Event
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      </div>
-                    </li>
+                <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-[#b31317]/10 flex items-center justify-center text-[#b31317] shrink-0">
+                      <FileDown className="w-5 h-5 text-[#b31317]" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg md:text-xl font-bold text-[#0f2a44]">
+                        Office Orders &amp; Documents
+                      </h3>
+                      <p className="text-xs text-[#0f2a44]/60">Official appointments, guidelines, and women helpline orders</p>
+                    </div>
+                  </div>
+                  <span className="text-xs font-semibold px-3 py-1 bg-slate-100 text-[#0f2a44] rounded-full">
+                    {documents.length} Documents
+                  </span>
+                </div>
+
+                <div className="divide-y divide-gray-100">
+                  {documents.map((doc, idx) => (
+                    <a
+                      key={idx}
+                      href={doc.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between py-3.5 px-3 sm:px-4 rounded-lg hover:bg-slate-50 transition-colors group"
+                    >
+                      <span className="text-sm sm:text-base text-[#0f2a44] font-medium group-hover:text-[#b31317] transition-colors pr-4">
+                        {doc.title}
+                      </span>
+                      <span className="shrink-0 text-slate-400 group-hover:text-[#b31317] transition-colors p-1">
+                        <FileDown className="w-5 h-5 text-slate-500 group-hover:text-[#b31317]" />
+                      </span>
+                    </a>
                   ))}
-                </ul>
+                </div>
               </section>
             </ScrollReveal>
 
+            {/* EVENTS ORGANIZED (SINGLE-LINE STYLE WITH PDF REPORT LINK) */}
+            <ScrollReveal>
+              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8">
+                <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-[#b31317]/10 flex items-center justify-center text-[#b31317] shrink-0">
+                      <Calendar className="w-5 h-5 text-[#b31317]" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg md:text-xl font-bold text-[#0f2a44]">
+                        Events Organized
+                      </h3>
+                      <p className="text-xs text-[#0f2a44]/60">Chronological awareness sessions, workshops, and celebrations</p>
+                    </div>
+                  </div>
+                  <span className="text-xs font-semibold px-3 py-1 bg-slate-100 text-[#0f2a44] rounded-full">
+                    {events.length} Events
+                  </span>
+                </div>
+
+                <div className="divide-y divide-gray-100">
+                  {events.map((ev, idx) => (
+                    <div
+                      key={idx}
+                      className="py-3.5 px-3 sm:px-4 rounded-lg hover:bg-slate-50 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 group"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#b31317] shrink-0 mt-1.5" />
+                        <p className="text-sm sm:text-base text-slate-700 leading-snug !text-justify text-justify group-hover:text-[#0f2a44] transition-colors">
+                          {ev.title}
+                        </p>
+                      </div>
+                      <a
+                        href={ev.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#b31317] hover:underline shrink-0 pl-5.5 sm:pl-0"
+                      >
+                        <span>Event Report</span>
+                        <FileDown className="w-4 h-4" />
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </ScrollReveal>
           </div>
 
           {/* RIGHT / SIDEBAR COLUMN (5 cols on lg, 4 cols on xl - Increased Width) */}
           <div className="lg:col-span-5 xl:col-span-4 space-y-6">
-
             {/* CONTACT CARD */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden text-left">
@@ -248,7 +384,9 @@ export default function WecView() {
                 <div className="p-6 space-y-5 text-sm text-slate-700">
                   <div className="text-left">
                     <p className="font-bold text-[#0f2a44] text-lg !text-left">Dr. S. Shanmuga Priya</p>
-                    <p className="text-sm text-[#b31317] font-semibold mt-0.5 !text-left">WEC Coordinator - Chairperson</p>
+                    <p className="text-sm text-[#b31317] font-semibold mt-0.5 !text-left">
+                      WEC Coordinator - Chairperson
+                    </p>
                   </div>
                   <hr className="border-gray-100" />
                   <div className="flex items-start gap-3">
@@ -275,7 +413,10 @@ export default function WecView() {
                     <Mail className="w-4 h-4 text-[#b31317] shrink-0 mt-1" />
                     <div className="text-left">
                       <p className="font-semibold text-[#0f2a44] !text-left">Email :</p>
-                      <a href="mailto:wec@mits.ac.in" className="text-[#b31317] hover:underline font-semibold whitespace-nowrap block">
+                      <a
+                        href="mailto:wec@mits.ac.in"
+                        className="text-[#b31317] hover:underline font-semibold whitespace-nowrap block"
+                      >
                         wec@mits.ac.in
                       </a>
                     </div>
@@ -287,8 +428,8 @@ export default function WecView() {
             {/* COMMITTEE MEMBERS */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm overflow-hidden">
-                <div className="bg-[#b31317] px-5 py-3">
-                  <h3 className="font-display text-base font-bold text-white tracking-wide flex items-center gap-2">
+                <div className="bg-[#b31317] px-6 py-3.5">
+                  <h3 className="font-display text-base font-bold !text-white text-white tracking-wide flex items-center gap-2">
                     <Users className="w-4 h-4" />
                     Committee Members
                   </h3>
@@ -305,18 +446,21 @@ export default function WecView() {
               </section>
             </ScrollReveal>
 
-            {/* COMPLIANCE PORTALS */}
+            {/* COMPLIANCE & SAFETY PORTALS */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-5">
                 <h3 className="font-display text-sm font-bold text-[#0f2a44] uppercase tracking-wider mb-3">
-                  Compliance Portals
+                  Safety &amp; Compliance Portals
                 </h3>
                 <div className="space-y-2">
                   {[
+                    { label: "Grievance Redressal Cell (GRC)", to: "/grc" },
+                    { label: "Anti-Ragging Cell", to: "/anti-ragging" },
+                    { label: "SC & ST Cell", to: "/sc-st-cell" },
+                    { label: "Minority Cell", to: "/minoritycell" },
+                    { label: "Psychological Counselling Cell (PCC)", to: "/pcc" },
+                    { label: "Internal Complaints Committee (ICC)", to: "/cells/icc" },
                     { label: "IQAC", to: "/cells/iqac" },
-                    { label: "NAAC", to: "/naac" },
-                    { label: "NIRF Rankings", to: "/nirf" },
-                    { label: "Public Disclosures", to: "/psd" },
                   ].map((p) => (
                     <Link
                       key={p.to}
@@ -330,7 +474,6 @@ export default function WecView() {
                 </div>
               </section>
             </ScrollReveal>
-
           </div>
         </div>
       </main>

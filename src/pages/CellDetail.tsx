@@ -146,7 +146,7 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
     return <SacView />;
   }
 
-  if (targetId === "mmc") {
+  if (targetId === "mmc" || targetId === "mentor-menteecell" || targetId === "mentor-mentee" || targetId === "mentor-mentee-cell") {
     return <MmcView />;
   }
 
@@ -162,7 +162,7 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
     return <IccView />;
   }
 
-  if (targetId === "wec") {
+  if (targetId === "wec" || targetId === "women-empowerment-cell") {
     return <WecView />;
   }
 
@@ -218,7 +218,7 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
     return <EdcView />;
   }
 
-  if (targetId === "pcc") {
+  if (targetId === "pcc" || targetId === "psychological-counselling-cell" || targetId === "counselling-cell") {
     return <PccView />;
   }
 
