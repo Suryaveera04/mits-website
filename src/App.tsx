@@ -352,6 +352,14 @@ const App = () => (
             <Route path="/ed-cell" element={<CellDetail overrideId="edc" />} />
             <Route path="/pcc" element={<CellDetail overrideId="pcc" />} />
             <Route path="/psychological-counselling-cell" element={<CellDetail overrideId="pcc" />} />
+            <Route path="/sedg" element={<CellDetail overrideId="sedg" />} />
+            <Route path="/sedg-cell" element={<CellDetail overrideId="sedg" />} />
+            <Route path="/university/sedg" element={<CellDetail overrideId="sedg" />} />
+            <Route path="/university/sedg-cell" element={<CellDetail overrideId="sedg" />} />
+            <Route path="/eof" element={<CellDetail overrideId="eof" />} />
+            <Route path="/eofc" element={<CellDetail overrideId="eof" />} />
+            <Route path="/university/eof" element={<CellDetail overrideId="eof" />} />
+            <Route path="/university/eofc" element={<CellDetail overrideId="eof" />} />
             <Route path="/career" element={<Careers />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/career/leadership-positions" element={<Careers initialTab="leadership" />} />

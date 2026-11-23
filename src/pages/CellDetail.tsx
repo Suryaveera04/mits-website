@@ -172,11 +172,11 @@ export default function CellDetail({ overrideId }: { overrideId?: string } = {})
     return <WecView />;
   }
 
-  if (targetId === "sedg") {
+  if (targetId === "sedg" || targetId === "sedg-cell" || targetId === "sedgcell") {
     return <SedgView />;
   }
 
-  if (targetId === "eof") {
+  if (targetId === "eof" || targetId === "eofc" || targetId === "eof-cell") {
     return <EofcView />;
   }
 
