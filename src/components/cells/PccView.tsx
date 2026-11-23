@@ -13,7 +13,6 @@ import {
   FileDown,
   Users,
   CheckCircle2,
-  Calendar,
   Sparkles,
   ChevronRight,
 } from "lucide-react";
@@ -209,20 +208,20 @@ export default function PccView() {
       </section>
 
       {/* MAIN CONTAINER */}
-      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12">
+      <main className="w-full max-w-[96%] mx-auto px-2 sm:px-4 md:px-6 py-8 md:py-12 space-y-8">
         {/* Back Link */}
         <button
           onClick={() => navigate("/cells")}
-          className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#b31317] transition-colors cursor-pointer"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f2a44] hover:text-[#b31317] transition-colors cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Cells &amp; Committees
         </button>
 
-        {/* 2-Column Responsive Layout */}
+        {/* TOP 2-COLUMN SECTION: Content on Left, Contact on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* MAIN CONTENT COLUMN (7 cols on lg, 8 cols on xl) */}
-          <div className="lg:col-span-7 xl:col-span-8 space-y-8">
+          {/* MAIN CONTENT COLUMN */}
+          <div className="lg:col-span-8 xl:col-span-8 space-y-8">
             {/* ABOUT PCC */}
             <ScrollReveal>
               <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8 space-y-5">
@@ -365,121 +364,10 @@ export default function PccView() {
                 </a>
               </section>
             </ScrollReveal>
-
-            {/* PCC COMMITTEE MEMBERS TABLE */}
-            <ScrollReveal>
-              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8 space-y-6">
-                <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0f2a44] mb-1 flex items-center gap-2">
-                    <Users className="w-6 h-6 text-[#b31317]" />
-                    PCC Committee Members
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-500">
-                    Official Psychological Counselling Committee members, faculty leaders, external experts, and student representatives.
-                  </p>
-                </div>
-
-                <div className="overflow-x-auto rounded-xl border border-slate-200">
-                  <table className="w-full text-left border-collapse text-xs sm:text-sm">
-                    <thead>
-                      <tr className="bg-[#b31317] text-white font-semibold">
-                        <th className="py-3 px-4 text-center w-12">S.No</th>
-                        <th className="py-3 px-4 w-[28%]">Name</th>
-                        <th className="py-3 px-4 w-[32%]">Designation</th>
-                        <th className="py-3 px-4 w-[16%]">Position</th>
-                        <th className="py-3 px-4 w-[24%]">Contact Email-ID</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100 bg-white">
-                      {committeeMembers.map((member, idx) => (
-                        <tr
-                          key={member.sno}
-                          className={`hover:bg-amber-50/40 transition-colors ${
-                            idx % 2 === 1 ? "bg-slate-50/50" : ""
-                          }`}
-                        >
-                          <td className="py-3.5 px-4 text-center font-bold text-slate-400">
-                            {member.sno}
-                          </td>
-                          <td className="py-3.5 px-4 font-semibold text-slate-900">
-                            {member.name}
-                          </td>
-                          <td className="py-3.5 px-4 text-slate-700">
-                            {member.designation}
-                          </td>
-                          <td className="py-3.5 px-4 font-medium text-slate-900">
-                            <span
-                              className={`inline-block px-2.5 py-0.5 rounded text-xs font-semibold ${
-                                member.position === "Chairman"
-                                  ? "bg-red-100 text-[#b31317]"
-                                  : member.position === "Member Secretary"
-                                  ? "bg-blue-100 text-[#0f2a44]"
-                                  : "bg-slate-100 text-slate-700"
-                              }`}
-                            >
-                              {member.position}
-                            </span>
-                          </td>
-                          <td className="py-3.5 px-4 text-slate-700">
-                            <a
-                              href={`mailto:${member.email}`}
-                              className="text-[#b31317] hover:underline font-mono text-xs break-all"
-                            >
-                              {member.email}
-                            </a>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </section>
-            </ScrollReveal>
-
-            {/* DOCUMENTS & OFFICE ORDERS (SINGLE-LINE STYLE) */}
-            <ScrollReveal>
-              <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8">
-                <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#b31317]/10 flex items-center justify-center text-[#b31317] shrink-0">
-                      <FileDown className="w-5 h-5 text-[#b31317]" />
-                    </div>
-                    <div>
-                      <h3 className="font-display text-lg md:text-xl font-bold text-[#0f2a44]">
-                        Office Orders &amp; Documents
-                      </h3>
-                      <p className="text-xs text-[#0f2a44]/60">Official constitution orders, minutes of meeting, and counselling action reports</p>
-                    </div>
-                  </div>
-                  <span className="text-xs font-semibold px-3 py-1 bg-slate-100 text-[#0f2a44] rounded-full">
-                    {officialDocuments.length} Documents
-                  </span>
-                </div>
-
-                <div className="divide-y divide-gray-100">
-                  {officialDocuments.map((doc, idx) => (
-                    <a
-                      key={idx}
-                      href={doc.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between py-3.5 px-3 sm:px-4 rounded-lg hover:bg-slate-50 transition-colors group"
-                    >
-                      <span className="text-sm sm:text-base text-[#0f2a44] font-medium group-hover:text-[#b31317] transition-colors pr-4">
-                        {doc.title}
-                      </span>
-                      <span className="shrink-0 text-slate-400 group-hover:text-[#b31317] transition-colors p-1">
-                        <FileDown className="w-5 h-5 text-slate-500 group-hover:text-[#b31317]" />
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </section>
-            </ScrollReveal>
           </div>
 
-          {/* SIDEBAR COLUMN (5 cols on lg, 4 cols on xl - Increased Width) */}
-          <aside className="lg:col-span-5 xl:col-span-4 space-y-6">
+          {/* SIDEBAR COLUMN */}
+          <aside className="lg:col-span-4 xl:col-span-4 space-y-6">
             {/* Quick Consultation Form Box */}
             <div className="bg-[#0f2a44] text-white p-6 rounded-2xl shadow-sm space-y-4">
               <div className="flex items-center gap-2 text-[#ffd15c] font-semibold text-xs tracking-wider uppercase">
@@ -583,6 +471,109 @@ export default function PccView() {
             </ScrollReveal>
           </aside>
         </div>
+
+        {/* FULL WIDTH SECTION: PCC COMMITTEE MEMBERS TABLE (Single-Line Layout matching Image 2) */}
+        <ScrollReveal>
+          <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8 space-y-6">
+            <div>
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0f2a44] mb-1 flex items-center gap-2">
+                <Users className="w-6 h-6 text-[#b31317]" />
+                PCC Committee Members
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-500">
+                Official Psychological Counselling Committee members, faculty leaders, external experts, and student representatives.
+              </p>
+            </div>
+
+            <div className="overflow-x-auto rounded-xl border border-slate-200">
+              <table className="w-full border-collapse text-xs sm:text-sm whitespace-nowrap min-w-[900px]">
+                <thead>
+                  <tr className="bg-[#b31317] text-white font-semibold">
+                    <th className="py-3 px-4 text-center w-16">S.No</th>
+                    <th className="py-3 px-4 text-left">Name</th>
+                    <th className="py-3 px-6 text-center">Designation</th>
+                    <th className="py-3 px-4 text-center">Position</th>
+                    <th className="py-3 px-6 text-center">Contact Email-ID</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 bg-white">
+                  {committeeMembers.map((member, idx) => (
+                    <tr
+                      key={member.sno}
+                      className={`hover:bg-amber-50/40 transition-colors ${
+                        idx % 2 === 1 ? "bg-slate-50/50" : ""
+                      }`}
+                    >
+                      <td className="py-3.5 px-4 text-center font-bold text-slate-500 whitespace-nowrap">
+                        {member.sno}
+                      </td>
+                      <td className="py-3.5 px-4 text-left font-semibold text-slate-900 whitespace-nowrap">
+                        {member.name}
+                      </td>
+                      <td className="py-3.5 px-6 text-center text-slate-700 whitespace-nowrap">
+                        {member.designation}
+                      </td>
+                      <td className="py-3.5 px-4 text-center font-medium text-slate-900 whitespace-nowrap">
+                        <span className="whitespace-nowrap">
+                          {member.position}
+                        </span>
+                      </td>
+                      <td className="py-3.5 px-6 text-center whitespace-nowrap">
+                        <a
+                          href={`mailto:${member.email}`}
+                          className="text-[#b31317] hover:underline font-mono text-xs whitespace-nowrap inline-block"
+                        >
+                          {member.email}
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </ScrollReveal>
+
+        {/* FULL WIDTH SECTION: DOCUMENTS & OFFICE ORDERS (SINGLE-LINE STYLE) */}
+        <ScrollReveal>
+          <section className="bg-white rounded-2xl border border-[#0f2a44]/10 shadow-sm p-6 md:p-8">
+            <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-[#b31317]/10 flex items-center justify-center text-[#b31317] shrink-0">
+                  <FileDown className="w-5 h-5 text-[#b31317]" />
+                </div>
+                <div>
+                  <h3 className="font-display text-lg md:text-xl font-bold text-[#0f2a44]">
+                    Office Orders &amp; Documents
+                  </h3>
+                  <p className="text-xs text-[#0f2a44]/60">Official constitution orders, minutes of meeting, and counselling action reports</p>
+                </div>
+              </div>
+              <span className="text-xs font-semibold px-3 py-1 bg-slate-100 text-[#0f2a44] rounded-full">
+                {officialDocuments.length} Documents
+              </span>
+            </div>
+
+            <div className="divide-y divide-gray-100">
+              {officialDocuments.map((doc, idx) => (
+                <a
+                  key={idx}
+                  href={doc.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between py-3.5 px-3 sm:px-4 rounded-lg hover:bg-slate-50 transition-colors group"
+                >
+                  <span className="text-sm sm:text-base text-[#0f2a44] font-medium group-hover:text-[#b31317] transition-colors pr-4">
+                    {doc.title}
+                  </span>
+                  <span className="shrink-0 text-slate-400 group-hover:text-[#b31317] transition-colors p-1">
+                    <FileDown className="w-5 h-5 text-slate-500 group-hover:text-[#b31317]" />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
+        </ScrollReveal>
       </main>
 
       <Footer />

@@ -260,14 +260,14 @@ export default function MmcView() {
                 </div>
 
                 <div className="overflow-x-auto rounded-xl border border-slate-200">
-                  <table className="w-full text-left border-collapse text-xs sm:text-sm">
+                  <table className="w-full border-collapse text-xs sm:text-sm whitespace-nowrap min-w-[900px]">
                     <thead>
                       <tr className="bg-[#b31317] text-white font-semibold">
-                        <th className="py-3 px-4 text-center w-12">S.No</th>
-                        <th className="py-3 px-4 w-[28%]">Name</th>
-                        <th className="py-3 px-4 w-[32%]">Designation</th>
-                        <th className="py-3 px-4 w-[16%]">Position</th>
-                        <th className="py-3 px-4 w-[24%]">Contact Email-ID</th>
+                        <th className="py-3 px-4 text-center w-16">S.No</th>
+                        <th className="py-3 px-4 text-left">Name</th>
+                        <th className="py-3 px-6 text-center">Designation</th>
+                        <th className="py-3 px-4 text-center">Position</th>
+                        <th className="py-3 px-6 text-center">Contact Email-ID</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 bg-white">
@@ -278,32 +278,24 @@ export default function MmcView() {
                             idx % 2 === 1 ? "bg-slate-50/50" : ""
                           }`}
                         >
-                          <td className="py-3.5 px-4 text-center font-bold text-slate-400">
+                          <td className="py-3.5 px-4 text-center font-bold text-slate-500 whitespace-nowrap">
                             {member.sno}
                           </td>
-                          <td className="py-3.5 px-4 font-semibold text-slate-900 whitespace-nowrap">
+                          <td className="py-3.5 px-4 text-left font-semibold text-slate-900 whitespace-nowrap">
                             {member.name}
                           </td>
-                          <td className="py-3.5 px-4 text-slate-700">
+                          <td className="py-3.5 px-6 text-center text-slate-700 whitespace-nowrap">
                             {member.designation}
                           </td>
-                          <td className="py-3.5 px-4 font-medium text-slate-900 whitespace-nowrap">
-                            <span
-                              className={`inline-block px-2.5 py-0.5 rounded text-xs font-semibold ${
-                                member.position === "Chairman"
-                                  ? "bg-red-100 text-[#b31317]"
-                                  : member.position === "Coordinator"
-                                  ? "bg-blue-100 text-[#0f2a44]"
-                                  : "bg-slate-100 text-slate-700"
-                              }`}
-                            >
+                          <td className="py-3.5 px-4 text-center font-medium text-slate-900 whitespace-nowrap">
+                            <span className="whitespace-nowrap">
                               {member.position}
                             </span>
                           </td>
-                          <td className="py-3.5 px-4 text-slate-700">
+                          <td className="py-3.5 px-6 text-center whitespace-nowrap">
                             <a
                               href={`mailto:${member.email}`}
-                              className="text-[#b31317] hover:underline font-mono text-xs break-all"
+                              className="text-[#b31317] hover:underline font-mono text-xs whitespace-nowrap inline-block"
                             >
                               {member.email}
                             </a>
