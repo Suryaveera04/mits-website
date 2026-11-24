@@ -24,6 +24,7 @@ import {
   getBshSubDepartment,
   compareFacultyByApiOrder,
   resolveFacultyQualification,
+  isTeachingFaculty,
 } from "@/lib/facultyApi";
 import { Button } from "@/components/ui/button";
 
@@ -226,10 +227,10 @@ const FacultyInformation = () => {
   const [selectedBshSubDept, setSelectedBshSubDept] = useState("all");
   const [selectedDesignation, setSelectedDesignation] = useState("all");
 
-  // Dynamically map all active faculty directly from the database API
+  // Dynamically map all active teaching faculty directly from the database API
   const enrichedFacultyList: EnrichedFacultyItem[] = useMemo(() => {
-    // Sort strictly by API order (teamDisplayOrder ascending where set, then alphabetical by name)
-    const sortedList = [...facultyList].sort(compareFacultyByApiOrder);
+    // Strictly filter only teaching faculty and sort by API order (teamDisplayOrder ascending where set, then alphabetical by name)
+    const sortedList = [...facultyList].filter(isTeachingFaculty).sort(compareFacultyByApiOrder);
 
     return sortedList.map((f, index) => {
       const cleanName = cleanFacultyName(f.fullName);

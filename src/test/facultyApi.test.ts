@@ -9,6 +9,9 @@ import {
   cleanInstitutionName,
   cleanDegreeName,
   formatDegreeWithInstitution,
+  isTeachingFaculty,
+  getInitialFacultyData,
+  sanitizeFacultyList,
   type APIFacultyMember,
 } from "@/lib/facultyApi";
 import { slugifyFaculty } from "@/lib/facultySlug";
@@ -333,5 +336,85 @@ describe("Faculty API & Department Segregation", () => {
     expect(cleanInstitutionName("None")).toBe("");
     expect(cleanInstitutionName("Not Applicable")).toBe("");
     expect(cleanInstitutionName(undefined)).toBe("");
+  });
+
+  describe("isTeachingFaculty Constraint (Teaching Faculty Only)", () => {
+    it("should return true for teaching designations and academic titles", () => {
+      expect(isTeachingFaculty({ designation: "Professor", department: { code: "CSE" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Assistant Professor", department: { code: "ECE" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Assistant Professors", department: { code: "ME" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Associate Professor", department: { code: "EEE" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Associate Professors", department: { code: "CE" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "HOD", department: { code: "CSE-AIML" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Dean", department: { code: "MBA" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Associate Dean", department: { code: "ME" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Assistant Dean", department: { code: "CHY" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Principal", department: { code: "ECE" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Vice Principal", department: { code: "EEE" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Vice Chancellor", department: { code: "ME" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Professor of Practice", department: { code: "CSE-AIML" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Assistant Professor of Practice", department: { code: "EEE" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Registrar", department: { code: "MBA" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Controller of Examination", department: { code: "ECE" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Associate Physical Director", department: { code: "HU" } })).toBe(true);
+      expect(isTeachingFaculty({ designation: "Assistant Director Physical Education & Sports", department: { code: "HU" } })).toBe(true);
+    });
+
+    it("should return false for non-teaching designations", () => {
+      expect(isTeachingFaculty({ designation: "Administration", department: { code: "ME" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Admin", department: { code: "ADMIN" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Chief Technology Officer (CTO)", department: { code: "CSE-AIML" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Assistant Technology Officer", department: { code: "CTO" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Software Developer", department: { code: "CTO" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Attender", department: { code: "ADMIN" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Peon", department: { code: "CE" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "HR", department: { code: "ADMIN" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Human Resources", department: { code: "ADMIN" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Clerk", department: { code: "CSE" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Accountant", department: { code: "ADMIN" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Lab Assistant", department: { code: "ECE" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Technician", department: { code: "EEE" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Office Assistant", department: { code: "ME" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Driver", department: { code: "ADMIN" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Security", department: { code: "ADMIN" } })).toBe(false);
+    });
+
+    it("should return false for non-academic administrative departments regardless of designation", () => {
+      expect(isTeachingFaculty({ designation: "Assistant Professors", department: { code: "ADMIN", name: "Central Administration / Other" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Associate Director", department: { code: "ADMIN", name: "Central Administration / Other" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Director", department: { code: "ADMIN", name: "Central Administration / Other" } })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Professor", department: { code: "CTO", name: "CTO OFFICE" } })).toBe(false);
+    });
+
+    it("should respect explicit live API type/cadre flags", () => {
+      expect(isTeachingFaculty({ designation: "Professor", department: { code: "CSE" }, facultyType: "Non-Teaching" })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Assistant Professor", department: { code: "ECE" }, staffType: "Non-Teaching" })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Assistant Professor", department: { code: "ECE" }, isTeaching: false })).toBe(false);
+      expect(isTeachingFaculty({ designation: "Assistant Professor", department: { code: "ECE" }, isTeachingStaff: false })).toBe(false);
+    });
+
+    it("getInitialFacultyData must strictly exclude all 13 non-teaching staff from the 311 fallback records", () => {
+      const initial = getInitialFacultyData();
+      expect(initial.length).toBe(298);
+
+      // Verify no non-teaching members exist in initial data
+      const nonTeachingFound = initial.filter((f) => !isTeachingFaculty(f));
+      expect(nonTeachingFound.length).toBe(0);
+
+      // Verify specific non-teaching individuals are excluded
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("rajesh pujari"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("sanath hegde"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("yuv sahu"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("arjun tale"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("khilendra"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("hemanth kumar"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("rukmangadha"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("dinesh motakatla"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("pradeep kumar y"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("drupad varma"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("riyaz ali"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("vijaya lakshmi u"))).toBe(false);
+      expect(initial.some((f) => f.fullName.toLowerCase().includes("keerthi a"))).toBe(false);
+    });
   });
 });

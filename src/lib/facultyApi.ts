@@ -678,8 +678,8 @@ export function apiFacultyToFacultyProfile(f: APIFacultyMember): FacultyProfile 
   };
 }
 
-const CACHE_KEY = "mits_faculty_api_cache_v7";
-const CACHE_TIME_KEY = "mits_faculty_api_cache_time_v7";
+const CACHE_KEY = "mits_faculty_api_cache_v8";
+const CACHE_TIME_KEY = "mits_faculty_api_cache_time_v8";
 const isLocalEnv = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
 const CACHE_TTL_MS = isLocalEnv ? 1000 * 5 : 1000 * 15; // 15s max cache TTL ensures live CMS updates reflect almost immediately without stale cache
 
@@ -711,84 +711,216 @@ export function compareFacultyByApiOrder(
 }
 
 /**
+ * Determines whether a faculty record represents teaching faculty (true) or non-teaching staff (false).
+ * Enforces the strict constraint that only teaching faculty are displayed on the website.
+ * Filters out administrative, technical support, clerical, attendant, and other non-teaching personnel.
+ */
+export function isTeachingFaculty(
+  f?: {
+    fullName?: string;
+    name?: string;
+    designation?: string;
+    department?: { code?: string; name?: string };
+    facultyType?: string;
+    staffType?: string;
+    type?: string;
+    category?: string;
+    cadre?: string;
+    isTeaching?: boolean;
+    isTeachingStaff?: boolean;
+  } | null
+): boolean {
+  if (!f) return false;
+
+  // 1. Explicit boolean or type flags from live API if present
+  const anyF = f as any;
+  if (anyF.isTeaching === false || anyF.isTeachingStaff === false) {
+    return false;
+  }
+
+  const explicitType = (
+    anyF.facultyType ||
+    anyF.staffType ||
+    anyF.type ||
+    anyF.category ||
+    anyF.cadre ||
+    ""
+  )
+    .toString()
+    .trim()
+    .toLowerCase();
+
+  if (
+    explicitType === "non-teaching" ||
+    explicitType === "non_teaching" ||
+    explicitType === "non teaching" ||
+    explicitType === "administrative" ||
+    explicitType === "admin" ||
+    explicitType === "support" ||
+    explicitType === "staff"
+  ) {
+    return false;
+  }
+
+  // 2. Department check: non-academic administrative departments
+  const deptCode = (f.department?.code || "").toUpperCase().trim();
+  const deptName = (f.department?.name || "").toLowerCase().trim();
+
+  if (
+    deptCode === "ADMIN" ||
+    deptCode === "CTO" ||
+    deptName.includes("central administration") ||
+    deptName.includes("cto office") ||
+    deptName.includes("administrative office")
+  ) {
+    return false;
+  }
+
+  // 3. Designation check: known non-teaching, administrative, and support designations
+  const desig = (f.designation || "").trim().toLowerCase();
+  if (!desig) return false;
+
+  const nonTeachingPatterns = [
+    /\battender\b/i,
+    /\bpeon\b/i,
+    /\bsoftware developer\b/i,
+    /\btechnology officer\b/i,
+    /\bcto\b/i,
+    /\badministration\b/i,
+    /\badmin\b/i,
+    /\bhr\b/i,
+    /\bhuman resources\b/i,
+    /\bclerk\b/i,
+    /\baccountant\b/i,
+    /\boffice assistant\b/i,
+    /\blab assistant\b/i,
+    /\btechnician\b/i,
+    /\bdriver\b/i,
+    /\bsecurity\b/i,
+  ];
+
+  for (const pattern of nonTeachingPatterns) {
+    if (pattern.test(desig)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/**
  * Sanitizes faculty names in a list to prevent trailing 'a' artifacts and normalize known discrepancies
  */
 export function sanitizeFacultyList(list: APIFacultyMember[]): APIFacultyMember[] {
-  return list.map((f) => {
-    let fullName = cleanFacultyName(f.fullName);
-    let designation = f.designation;
-    let phd = f.phd;
-    let department = f.department;
-    let profilePhoto = f.profilePhoto
-      ? f.profilePhoto
-          .replace(/^(?:https?:)?\/\/(?:127\.0\.0\.1|localhost):5005/i, "")
-          .replace(/^(?:127\.0\.0\.1|localhost):5005/i, "")
-          .replace(/(?:127\.0\.0\.1|localhost):5005/gi, "")
-      : undefined;
+  return list
+    .map((f) => {
+      let fullName = cleanFacultyName(f.fullName);
+      let designation = f.designation;
+      let phd = f.phd;
+      let department = f.department;
+      let profilePhoto = f.profilePhoto
+        ? f.profilePhoto
+            .replace(/^(?:https?:)?\/\/(?:127\.0\.0\.1|localhost):5005/i, "")
+            .replace(/^(?:127\.0\.0\.1|localhost):5005/i, "")
+            .replace(/(?:127\.0\.0\.1|localhost):5005/gi, "")
+        : undefined;
 
-    const lowerName = fullName.toLowerCase();
-    const email = (f.email || "").toLowerCase().trim();
+      const lowerName = fullName.toLowerCase();
+      const email = (f.email || "").toLowerCase().trim();
 
-    // 1. Mr. Sri Ramakrishna V.G - officially in Computer Science & Engineering (AI & ML) (AIML)
-    if (f._id === "6af7f981529beb441e315bb6" || email === "sriramakrishnavg@mits.ac.in" || lowerName.includes("sri ramakrishna")) {
-      fullName = "Mr. Sri Ramakrishna V.G";
-      designation = "Assistant Professor";
-      department = { _id: "60d5ecb8b392d700153ee205", code: "CSE-AIML", name: "COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)" };
-      profilePhoto = "/uploads/profile/file-Sriram_Photo-1794821926882-600567835.jpeg";
-    }
-
-    // 2. Dr. S. Padma - HOD of CSE (AI & ML), Ph.D. Awarded
-    if (f._id === "6a8cffde4a60b7dd6ea7a267" || email === "drpadmas@mits.ac.in" || lowerName === "dr. padma s" || lowerName === "dr padma s" || lowerName === "dr. s. padma") {
-      fullName = "Dr. S. Padma";
-      designation = "HOD";
-      phd = {
-        ...phd,
-        status: "Awarded",
-        university: phd?.university || "Bharathiar University",
-        topic: phd?.topic || "Computer Science and Engineering"
-      };
-      if (!profilePhoto) {
-        profilePhoto = "/uploads/profile/profilePhoto-Padma_New-1792666985204-227744666.jpeg";
+      // 1. Mr. Sri Ramakrishna V.G - officially in Computer Science & Engineering (AI & ML) (AIML)
+      if (f._id === "6af7f981529beb441e315bb6" || email === "sriramakrishnavg@mits.ac.in" || lowerName.includes("sri ramakrishna")) {
+        fullName = "Mr. Sri Ramakrishna V.G";
+        designation = "Assistant Professor";
+        department = { _id: "60d5ecb8b392d700153ee205", code: "CSE-AIML", name: "COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)" };
+        profilePhoto = "/uploads/profile/file-Sriram_Photo-1794821926882-600567835.jpeg";
       }
-    }
 
-    // 3. Dr. V. Chandra Sekhar - Professor of Practice & Head of Technical Training in CSE (AI & ML)
-    if (f._id === "6a8d01124a60b7dd6ea7a347" || email === "chandrasekharvo@mits.ac.in" || (lowerName === "chandra sekhar" && (f.department?.code === "CSE-AIML" || f.department?.code === "AIML"))) {
-      fullName = "Dr. V. Chandra Sekhar";
-      designation = "Professor of Practice & Technical Training - Head";
-      profilePhoto = "/uploads/profile/profilePhoto-Chandra_Sekhar-1794564920291-288016395.png";
-      phd = {
-        ...phd,
-        status: "Awarded",
-        university: phd?.university || "IIIT SriCity",
-        topic: phd?.topic || "Online Signature Verification Techniques"
+      // 2. Dr. S. Padma - HOD of CSE (AI & ML), Ph.D. Awarded
+      if (f._id === "6a8cffde4a60b7dd6ea7a267" || email === "drpadmas@mits.ac.in" || lowerName === "dr. padma s" || lowerName === "dr padma s" || lowerName === "dr. s. padma") {
+        fullName = "Dr. S. Padma";
+        designation = "HOD";
+        phd = {
+          ...phd,
+          status: "Awarded",
+          university: phd?.university || "Bharathiar University",
+          topic: phd?.topic || "Computer Science and Engineering"
+        };
+        if (!profilePhoto) {
+          profilePhoto = "/uploads/profile/profilePhoto-Padma_New-1792666985204-227744666.jpeg";
+        }
+      }
+
+      // 3. Dr. V. Chandra Sekhar - Professor of Practice & Head of Technical Training in CSE (AI & ML)
+      if (f._id === "6a8d01124a60b7dd6ea7a347" || email === "chandrasekharvo@mits.ac.in" || (lowerName === "chandra sekhar" && (f.department?.code === "CSE-AIML" || f.department?.code === "AIML"))) {
+        fullName = "Dr. V. Chandra Sekhar";
+        designation = "Professor of Practice & Technical Training - Head";
+        profilePhoto = "/uploads/profile/profilePhoto-Chandra_Sekhar-1794564920291-288016395.png";
+        phd = {
+          ...phd,
+          status: "Awarded",
+          university: phd?.university || "IIIT SriCity",
+          topic: phd?.topic || "Online Signature Verification Techniques"
+        };
+      }
+
+      // 4. Mr. K. Chandra Sekhar - Assistant Professor in CSE (AI)
+      if (f._id === "6a8d00914a60b7dd6ea7a2e7" || email === "kchandrasekhar@mits.ac.in" || (lowerName === "chandra sekhar k" || (lowerName === "chandra sekhar" && f.department?.code === "CSE-AI"))) {
+        fullName = "Mr. K. Chandra Sekhar";
+        designation = "Assistant Professor";
+        profilePhoto = "/uploads/profile/profilePhoto-Chandra_Sekhar-1793781204671-891013801.JPG";
+      }
+
+      // 5. Dr. E. Sandhya - Assistant Professor in CSE (AI & ML), latest faculty management system photo
+      if (f._id === "6a8d00964a60b7dd6ea7a2eb" || email === "drsandhyae@mits.ac.in" || lowerName === "dr e sandhya" || lowerName === "dr. e. sandhya" || lowerName === "dr. sandhya. e") {
+        fullName = "Dr. E. Sandhya";
+        designation = "Assistant Professor";
+        profilePhoto = "/uploads/profile/profilePhoto-Sandhya-1794564968468-745776374.JPG";
+        phd = { ...phd, status: "Awarded" };
+      }
+
+      // 6. Dr. Simadri Badatya - Assistant Professor in ECE
+      if (f._id === "6a8cfa21deb7302af99f2e12" || email === "drsimadrib@mits.ac.in" || lowerName.includes("simadri badatya")) {
+        fullName = "Dr. Simadri Badatya";
+        if (designation === "Designation-1" || !designation) {
+          designation = "Assistant Professor";
+        }
+      }
+
+      // 7. Dr. R. Saravana Kumar - Assistant Professor in EEE
+      if (f._id === "6a8cf9b4deb7302af99f2dc0" || email === "saravanakumarr@mits.ac.in" || lowerName.includes("saravanakumar")) {
+        fullName = "Dr. R. Saravana Kumar";
+        if (designation === "Academic" || !designation) {
+          designation = "Assistant Professor";
+        }
+      }
+
+      // 8. Dr. R. Sandeep Kumar - Assistant Professor in CSE-CS
+      if (f._id === "6a8d01374a60b7dd6ea7a361" || email === "drsandeepkumarr@mits.ac.in" || lowerName.includes("sandeep kumar r")) {
+        fullName = "Dr. R. Sandeep Kumar";
+        if (designation === "Assistant Director" || !designation) {
+          designation = "Assistant Professor";
+        }
+      }
+
+      // 9. Dr. V. Sai Kumar - Assistant Professor in ECE & Controller of Examination
+      if (f._id === "6ad9f19f24f8be8ef5032d3e" || email === "saikumarv@mits.ac.in" || lowerName.includes("sai kumar v")) {
+        fullName = "Dr. V. Sai Kumar";
+        if (designation === "Controller of Examination" || !designation) {
+          designation = "Assistant Professor & Controller of Examination";
+        }
+      }
+
+      return {
+        ...f,
+        fullName,
+        designation,
+        phd,
+        department,
+        profilePhoto,
       };
-    }
-
-    // 4. Mr. K. Chandra Sekhar - Assistant Professor in CSE (AI)
-    if (f._id === "6a8d00914a60b7dd6ea7a2e7" || email === "kchandrasekhar@mits.ac.in" || (lowerName === "chandra sekhar k" || (lowerName === "chandra sekhar" && f.department?.code === "CSE-AI"))) {
-      fullName = "Mr. K. Chandra Sekhar";
-      designation = "Assistant Professor";
-      profilePhoto = "/uploads/profile/profilePhoto-Chandra_Sekhar-1793781204671-891013801.JPG";
-    }
-
-    // 5. Dr. E. Sandhya - Assistant Professor in CSE (AI & ML), latest faculty management system photo
-    if (f._id === "6a8d00964a60b7dd6ea7a2eb" || email === "drsandhyae@mits.ac.in" || lowerName === "dr e sandhya" || lowerName === "dr. e. sandhya" || lowerName === "dr. sandhya. e") {
-      fullName = "Dr. E. Sandhya";
-      designation = "Assistant Professor";
-      profilePhoto = "/uploads/profile/profilePhoto-Sandhya-1794564968468-745776374.JPG";
-      phd = { ...phd, status: "Awarded" };
-    }
-
-    return {
-      ...f,
-      fullName,
-      designation,
-      phd,
-      department,
-      profilePhoto,
-    };
-  });
+    })
+    .filter(isTeachingFaculty);
 }
 
 /**

@@ -193,9 +193,9 @@ describe("Department Head of Department (HOD) Resolution", () => {
     const cseMembers = getFacultyByDept("cse");
     expect(cseMembers.length).toBe(43);
 
-    // AIML: 25 members in database
+    // AIML: 24 teaching members in database (non-teaching CTO excluded)
     const aimlMembers = getFacultyByDept("aiml");
-    expect(aimlMembers.length).toBe(25);
+    expect(aimlMembers.length).toBe(24);
 
     // ECE: 29 members in database
     const eceMembers = getFacultyByDept("ece");
