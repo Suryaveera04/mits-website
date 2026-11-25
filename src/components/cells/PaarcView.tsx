@@ -9,6 +9,7 @@ import {
   Maximize2,
   ChevronLeft,
   ChevronRight,
+  ExternalLink,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -41,6 +42,12 @@ const documents = [
 ];
 
 const officialNotices = [
+  {
+    id: 6,
+    title: "🏆 MITS in Business Today – MDRA Best B-School Ranking 2026!",
+    text: `🎓 Madanapalle Institute of Technology & Science (MITS), Deemed to be University, has secured 267th Rank at the National Level in the Business Today–MDRA Best B-School Ranking 2026.\n\n🌟 This recognition reflects MITS's commitment to quality management education, academic excellence, industry engagement and continuous institutional development.\n\n👏 Congratulations to the School of Management, faculty members, students and all stakeholders for this achievement!`,
+    link: "https://www.businesstoday.in/bt-schools",
+  },
   {
     id: 5,
     title: "Times Higher Education Interdisciplinary Science Rankings 2027",
@@ -284,6 +291,19 @@ export default function PaarcView() {
                     <p className="text-sm sm:text-base text-slate-700 leading-relaxed whitespace-pre-line text-justify">
                       {notice.text}
                     </p>
+                    {"link" in notice && notice.link && (
+                      <div className="mt-4 pt-3 border-t border-slate-100">
+                        <a
+                          href={notice.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#8B1D1D]/10 hover:bg-[#8B1D1D]/20 text-[#8B1D1D] text-xs sm:text-sm font-semibold transition-colors"
+                        >
+                          <span>🔗 Official Ranking Portal: {notice.link}</span>
+                          <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                        </a>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
