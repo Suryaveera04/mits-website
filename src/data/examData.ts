@@ -338,8 +338,62 @@ export const ugModelLabTimetables: ExamLink[] = [
   }
 ];
 
-// 3c. UG Practical\SEC End Semester (4 items)
+// 3c. UG Practical\SEC End Semester (13 items)
 export const ugPracticalSecTimetables: ExamLink[] = [
+  {
+    no: 13,
+    title: "Civil - B.Tech II Year I Semester (R25) Regular End Semester Practical Examinations November 2026",
+    href: "https://mits.ac.in/public/uploads/exam/Civil%20-%20B.Tech%20II%20Year%20I%20Semester%20(R25)%20Regular%20End%20Semester%20Practical%20Examinations%20-%20November%202026.pdf",
+    kind: "pdf",
+  },
+  {
+    no: 12,
+    title: "CSE (AI and ML) - B.Tech II Year I Semester (R25) Regular End Semester Practical Examinations - Nove",
+    href: "https://mits.ac.in/public/uploads/exam/CSE%20(%20AI%20ML%20)%20-%20B.Tech%20II%20Year%20I%20Semester%20(R25)%20Regular%20End%20Semester%20Practical%20Examinations%20-%20Nove.pdf",
+    kind: "pdf",
+  },
+  {
+    no: 11,
+    title: "CSE - B.Tech II Year I Semester (R25) Regular End Semester Practical Examinations November 2026",
+    href: "https://mits.ac.in/public/uploads/exam/CSE%20-%20B.Tech%20II%20Year%20I%20Semester%20(R25)%20Regular%20End%20Semester%20Practical%20Examinations%20-%20November%202026.pdf",
+    kind: "pdf",
+  },
+  {
+    no: 10,
+    title: "CSE (AI) - B.Tech II Year I Semester (R25) Regular End Semester Practical Examinations November 2026",
+    href: "https://mits.ac.in/public/uploads/exam/CSE%20(AI)%20-%20B.Tech%20II%20Year%20I%20Semester%20(R25)%20Regular%20End%20Semester%20Practical%20Examinations%20-%20November%202.pdf",
+    kind: "pdf",
+  },
+  {
+    no: 9,
+    title: "CSE (CS) - B.Tech II Year I Semester (R25) Regular End Semester Practical Examinations November 2026",
+    href: "https://mits.ac.in/public/uploads/exam/CSE%20(CS)%20-%20B.Tech%20II%20Year%20I%20Semester%20(R25)%20Regular%20End%20Semester%20Practical%20Examinations%20-%20November.pdf",
+    kind: "pdf",
+  },
+  {
+    no: 8,
+    title: "CSE (DS) - B.Tech II Year I Semester (R25) Regular End Semester Practical Examinations November 2026",
+    href: "https://mits.ac.in/public/uploads/exam/CSE%20(DS)%20-%20B.Tech%20II%20Year%20I%20Semester%20(R25)%20Regular%20End%20Semester%20Practical%20Examinations%20-%20November%202026.pdf",
+    kind: "pdf",
+  },
+  {
+    no: 7,
+    title: "ECE - B.Tech II Year I Semester (R25) Regular End Semester Practical Examinations November 2026",
+    href: "https://mits.ac.in/public/uploads/exam/ECE%20-%20B.Tech%20II%20Year%20I%20Semester%20(R25)%20Regular%20End%20Semester%20Practical%20Examinations%20-%20November%202026.pdf",
+    kind: "pdf",
+  },
+  {
+    no: 6,
+    title: "EEE- B.Tech II Year I Semester (R25) Regular End Semester Practical Examinations November 2026",
+    href: "https://mits.ac.in/public/uploads/exam/EEE-%20B.Tech%20II%20Year%20I%20Semester%20(R25)%20Regular%20End%20Semester%20Practical%20Examinations%20-%20November%202026.pdf",
+    kind: "pdf",
+  },
+  {
+    no: 5,
+    title: "MECH - B.Tech II Year I Semester (R25) Regular End Semester Practical Examinations November 2026",
+    href: "https://mits.ac.in/public/uploads/exam/MEC%20-%20B.Tech%20II%20Year%20I%20Semester%20(R25)%20Regular%20End%20Semester%20Practical%20Examinations%20-%20November%202026.pdf",
+    kind: "pdf",
+  },
   {
     no: 4,
     title: "B.Tech I Year I Semester (R25) Supplementary End Practical Exams June 2026",
