@@ -11,7 +11,7 @@ interface SyllabusItem {
   id: number;
   title: string;
   pdfUrl: string;
-  level: "UG" | "PG";
+  level: "UG" | "PG" | "PHD";
   regulation: "R25" | "R26";
 }
 
@@ -175,11 +175,26 @@ const pgSyllabus: SyllabusItem[] = [
   },
 ];
 
+const phdSyllabus: SyllabusItem[] = [
+  {
+    id: 1,
+    title: "Ph.D. Coursework Curriculum & Syllabus - R26 MITS DTBU",
+    pdfUrl: "https://mits.ac.in/public/uploads/ugc/Ph.D_Programmes%20-%20R26%20MITS%20DTBU.pdf",
+    level: "PHD",
+    regulation: "R26",
+  },
+];
+
 const CurriculumSyllabus = () => {
-  const [activeTab, setActiveTab] = useState<"UG" | "PG">("UG");
+  const [activeTab, setActiveTab] = useState<"UG" | "PG" | "PHD">("UG");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const currentList = activeTab === "UG" ? ugSyllabus : pgSyllabus;
+  const currentList =
+    activeTab === "UG"
+      ? ugSyllabus
+      : activeTab === "PG"
+      ? pgSyllabus
+      : phdSyllabus;
   const filteredList = currentList.filter((item) =>
     item.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -189,7 +204,7 @@ const CurriculumSyllabus = () => {
       <Header />
       <SEO
         title="Curriculum & Academic Syllabus – MITS Deemed to be University"
-        description="Official Course Structure & Syllabi (R25 & R26) for B.Tech, BBA, BCA, M.Tech, MBA, and MCA programs at Madanapalle Institute of Technology & Science."
+        description="Official Course Structure & Syllabi (R25 & R26) for B.Tech, BBA, BCA, M.Tech, MBA, MCA, and Ph.D. programs at Madanapalle Institute of Technology & Science."
         canonical="/curriculum-academic-syllabus"
       />
 
@@ -215,7 +230,7 @@ const CurriculumSyllabus = () => {
               Curriculum &amp; <span className="text-[#ffd15c]">Academic Syllabus</span>
             </h1>
             <p className="text-white/90 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-normal">
-              Official R25 &amp; R26 Course Structures, credit distribution, and comprehensive syllabi for all UG and PG programs.
+              Official R25 &amp; R26 Course Structures, credit distribution, and comprehensive syllabi for all UG, PG, and Ph.D. programs.
             </p>
           </div>
 
@@ -253,8 +268,8 @@ const CurriculumSyllabus = () => {
               <p className="text-slate-500 text-sm mt-1">Select degree level to download official course structure &amp; syllabus PDFs</p>
             </div>
 
-            {/* UG / PG Sub-Tabs Switcher */}
-            <div className="flex justify-center items-center gap-3 mb-8">
+            {/* UG / PG / Ph.D. Sub-Tabs Switcher */}
+            <div className="flex flex-wrap justify-center items-center gap-3 mb-8">
               <button
                 onClick={() => setActiveTab("UG")}
                 className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-xs cursor-pointer ${
@@ -275,6 +290,16 @@ const CurriculumSyllabus = () => {
               >
                 PG Curriculum &amp; Academic Syllabus
               </button>
+              <button
+                onClick={() => setActiveTab("PHD")}
+                className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-xs cursor-pointer ${
+                  activeTab === "PHD"
+                    ? "bg-[#8b0000] text-white shadow-md scale-105"
+                    : "bg-[#f5e6e6] text-[#8b0000] hover:bg-[#ebd0d0]"
+                }`}
+              >
+                Ph.D. Coursework Curriculum &amp; Syllabus
+              </button>
             </div>
 
             {/* Search Filter */}
@@ -282,7 +307,7 @@ const CurriculumSyllabus = () => {
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
                 type="text"
-                placeholder={`Search ${activeTab} course syllabus...`}
+                placeholder={`Search ${activeTab === "PHD" ? "Ph.D." : activeTab} course syllabus...`}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#8b0000]/20 focus:border-[#8b0000] transition-all shadow-xs"
