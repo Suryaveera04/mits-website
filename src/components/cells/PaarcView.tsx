@@ -39,7 +39,7 @@ const documents = [
   { label: "PAARC Organization Chart", href: "https://mits.ac.in/public/uploads/paars/PAARC-ORGANIZATION CHART.pdf" },
   { label: "PAARC Flow Chart", href: "https://mits.ac.in/public/uploads/paars/1PAARC-Flow Chart-esign.pdf" },
   { label: "AISHE", href: "https://mits.ac.in/public/uploads/paars/AISHE-esign.pdf" },
-  { label: "Events", href: "/paarc-events" },
+  { label: "Events", href: "https://mits.ac.in/assets/pdf/assoc/THE_Interdisciplinary_Science_Rankings_2027_MITS_Report.pdf" },
 ];
 
 const events = [
@@ -229,11 +229,10 @@ export default function PaarcView() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setActiveTab(idx)}
-              className={`px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold transition-colors border border-[#003366] ${
-                activeTab === idx
-                  ? "bg-[#003366] text-white"
-                  : "bg-white text-[#003366] hover:bg-[#003366] hover:text-white"
-              }`}
+              className={`px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold transition-colors border border-[#003366] ${activeTab === idx
+                ? "bg-[#003366] text-white"
+                : "bg-white text-[#003366] hover:bg-[#003366] hover:text-white"
+                }`}
             >
               {doc.label}
             </a>
@@ -274,9 +273,8 @@ export default function PaarcView() {
 
             {/* FULL 100% WIDTH NOTICE CAROUSEL (Hand Cursor) */}
             <div
-              className={`relative overflow-hidden ${
-                isDragging ? "cursor-grabbing" : "cursor-grab"
-              } select-none`}
+              className={`relative overflow-hidden ${isDragging ? "cursor-grabbing" : "cursor-grab"
+                } select-none`}
               onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUp}
@@ -331,11 +329,10 @@ export default function PaarcView() {
                   key={idx}
                   type="button"
                   onClick={() => setCurrentNoticeIndex(idx)}
-                  className={`h-2 rounded-full transition-all cursor-pointer ${
-                    currentNoticeIndex === idx
-                      ? "w-6 bg-[#8B1D1D]"
-                      : "w-2 bg-slate-300 hover:bg-slate-400"
-                  }`}
+                  className={`h-2 rounded-full transition-all cursor-pointer ${currentNoticeIndex === idx
+                    ? "w-6 bg-[#8B1D1D]"
+                    : "w-2 bg-slate-300 hover:bg-slate-400"
+                    }`}
                   title={`Notice ${idx + 1}`}
                 />
               ))}
