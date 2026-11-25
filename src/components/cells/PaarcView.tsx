@@ -39,6 +39,15 @@ const documents = [
   { label: "PAARC Organization Chart", href: "https://mits.ac.in/public/uploads/paars/PAARC-ORGANIZATION CHART.pdf" },
   { label: "PAARC Flow Chart", href: "https://mits.ac.in/public/uploads/paars/1PAARC-Flow Chart-esign.pdf" },
   { label: "AISHE", href: "https://mits.ac.in/public/uploads/paars/AISHE-esign.pdf" },
+  { label: "Events", href: "/paarc-events" },
+];
+
+const events = [
+  {
+    id: 1,
+    title: 'MITS International ranking "Times Higher Education (THE) Interdisciplinary Science Rankings 2027"',
+    link: 'https://mits.ac.in/assets/pdf/assoc/THE_Interdisciplinary_Science_Rankings_2027_MITS_Report.pdf',
+  },
 ];
 
 const officialNotices = [
@@ -259,7 +268,9 @@ export default function PaarcView() {
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
+
             </div>
+
 
             {/* FULL 100% WIDTH NOTICE CAROUSEL (Hand Cursor) */}
             <div
@@ -303,11 +314,15 @@ export default function PaarcView() {
                           <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                         </a>
                       </div>
+
                     )}
                   </div>
+
                 ))}
               </div>
+
             </div>
+
 
             {/* DOT INDICATORS */}
             <div className="flex items-center justify-center gap-2 pb-4 pt-1">
@@ -325,6 +340,7 @@ export default function PaarcView() {
                 />
               ))}
             </div>
+
           </div>
 
           {/* RIGHT SIDEBAR: CONTACT CARD (4 COLS) */}
@@ -336,6 +352,7 @@ export default function PaarcView() {
               </h2>
             </div>
 
+
             <div className="p-6 space-y-4">
               <div>
                 <h4 className="text-lg font-bold text-slate-900 !text-slate-900 leading-snug">
@@ -344,7 +361,9 @@ export default function PaarcView() {
                 <div className="text-xs font-semibold text-[#8B1D1D] mt-1">
                   Asst. Dean Accreditations &amp; Chief Coordinator - PAARC Cell
                 </div>
+
               </div>
+
 
               <div className="border-t border-slate-100 pt-3 space-y-3 text-sm">
                 <div>
@@ -360,6 +379,7 @@ export default function PaarcView() {
                   </p>
                 </div>
 
+
                 <div>
                   <strong className="block text-slate-900 font-bold mb-0.5 text-xs">
                     E Mail :
@@ -373,8 +393,11 @@ export default function PaarcView() {
                     </a>
                   </p>
                 </div>
+
               </div>
+
             </div>
+
           </div>
         </div>
 
@@ -402,6 +425,7 @@ export default function PaarcView() {
                     Programme-Wise NBA Accreditation Journey
                   </h3>
                 </div>
+
                 <a
                   href="https://mits.ac.in/assets/images/MITS-NBA Accreditation-Journey1.jpg"
                   target="_blank"
@@ -412,6 +436,7 @@ export default function PaarcView() {
                   <span>Full View</span>
                 </a>
               </div>
+
 
               <div className="p-2 sm:p-4 bg-slate-50/50 flex items-center justify-center">
                 <img
@@ -425,10 +450,13 @@ export default function PaarcView() {
                 />
               </div>
 
+
               <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 text-xs text-slate-600">
                 All eligible UG &amp; PG programmes are accredited by NBA across multiple cycles.
               </div>
+
             </div>
+
 
             {/* RIGHT POSTER: RANKINGS, RATINGS & GLOBAL RECOGNITION */}
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between">
@@ -439,6 +467,7 @@ export default function PaarcView() {
                     MITS at a Glance: Rankings, Ratings &amp; Global Recognition
                   </h3>
                 </div>
+
                 <a
                   href="https://mits.ac.in/assets/images/MITS at a Glance Rankings-Ratings-Global Recognition.png"
                   target="_blank"
@@ -449,6 +478,7 @@ export default function PaarcView() {
                   <span>Full View</span>
                 </a>
               </div>
+
 
               <div className="p-2 sm:p-4 bg-slate-50/50 flex items-center justify-center">
                 <img
@@ -462,10 +492,13 @@ export default function PaarcView() {
                 />
               </div>
 
+
               <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 text-xs text-slate-600">
                 National &amp; global rankings: NIRF (201–300), THE Impact, UI GreenMetric, and NAAC A+ Grade.
               </div>
+
             </div>
+
           </div>
         </ScrollReveal>
 
@@ -476,6 +509,7 @@ export default function PaarcView() {
               <div className="w-10 h-10 rounded-lg bg-red-50 text-[#8B1D1D] flex items-center justify-center font-bold shrink-0">
                 <Users className="w-5 h-5" />
               </div>
+
               <div>
                 <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
                   PAARC Members
@@ -484,7 +518,9 @@ export default function PaarcView() {
                   Institutional leadership and accreditation coordinators
                 </p>
               </div>
+
             </div>
+
 
             <div className="rounded-lg border border-slate-200 overflow-hidden shadow-2xs">
               <table className="w-full text-left text-sm border-collapse">
@@ -518,6 +554,7 @@ export default function PaarcView() {
                 </tbody>
               </table>
             </div>
+
           </div>
         </ScrollReveal>
       </div>
