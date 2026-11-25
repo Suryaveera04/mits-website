@@ -334,6 +334,10 @@ const AffiliationsAccreditations = () => {
                                 title: "Times Higher Education World University Ranking 2027",
                                 url: "https://www.timeshighereducation.com/world-university-rankings/madanapalle-institute-technology-and-science-deemed-be-university",
                               },
+                              {
+                                title: "Times Higher Education Interdisciplinary Science Rankings 2027",
+                                url: "https://mits.ac.in/assets/pdf/admin/601-800_MITS_Interdisciplinary%20Science%20Rankings%202027%20_%20Times%20Higher%20Education%20(THE).pdf",
+                              },
                             ].map((ranking) => (
                               <motion.a
                                 key={ranking.url}
