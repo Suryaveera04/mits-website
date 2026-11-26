@@ -40,8 +40,8 @@ export default function PaarcCellEvents() {
 
       {/* MAIN CONTENT */}
       <section className="container mx-auto px-4 py-12">
-        <ul className="list-disc pl-5 mb-4">
-          <li className="text-lg font-bold">
+        <ul className="list-disc pl-5 mb-4 space-y-4">
+          <li className="text-lg font-bold mb-4">
             <Link
               to="https://mits.ac.in/assets/pdf/assoc/THE_Interdisciplinary_Science_Rankings_2027_MITS_Report.pdf"
               target="_blank"
@@ -51,7 +51,7 @@ export default function PaarcCellEvents() {
               MITS International ranking “Times Higher Education (THE) Interdisciplinary Science Rankings 2027”
             </Link>
           </li>
-          <li className="text-lg">
+          <li className="text-lg font-bold mb-4">
             <Link
               to="https://mits.ac.in/assets/pdf/assoc/MITS-Business%20Today%E2%80%93MDRA%20Best%20B-School%20Ranking%202026.pdf"
               target="_blank"
