@@ -653,6 +653,12 @@ export const pgCirculars: ExamLink[] = [
 // 3. PG Mid Term Tests (37 items)
 export const pgMidTermTimetables: ExamLink[] = [
   {
+    no: 38,
+    title: "MCA II Year I Semester (R25) SEC III Mid Term Test II Schedule December 2026",
+    href: "https://mits.ac.in/public/uploads/files/MCA%20II%20Year%20I%20Semester%20(R25)%20SEC%20III%20Mid%20Term%20Test%20II%20Schedule%20December%202026%20.pdf",
+    kind: "pdf",
+  },
+  {
     no: 37,
     title: "M.Tech I Year I Semester (CSE-AI &ML) SEC I Mid Term Test I Schedule December 2026",
     href: "https://mits.ac.in/public/uploads/files/M.Tech I Year I Semester (CSE-AI &ML) SEC I Mid Term Test I Schedule December 2026 .pdf",
