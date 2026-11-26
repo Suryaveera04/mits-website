@@ -43,6 +43,16 @@ export default function PaarcCellEvents() {
         <ul className="list-disc pl-5 mb-4 space-y-4">
           <li className="text-lg font-bold mb-4">
             <Link
+              to="https://mits.ac.in/assets/pdf/assoc/MITS_UI_GreenMetric_Ranking_Report_2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              MITS International Ranking: "UI GreenMetric Ranking 2026"
+            </Link>
+          </li>
+          <li className="text-lg font-bold mb-4">
+            <Link
               to="https://mits.ac.in/assets/pdf/assoc/THE_Interdisciplinary_Science_Rankings_2027_MITS_Report.pdf"
               target="_blank"
               rel="noopener noreferrer"
