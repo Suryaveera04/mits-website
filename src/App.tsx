@@ -18,6 +18,7 @@ const Placements = lazy(() => import("./pages/Placements"));
 const CampusLife = lazy(() => import("./pages/CampusLife"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Infrastructure = lazy(() => import("./pages/Infrastructure"));
+const PaarcCellEvents = lazy(() => import("./pages/PaarcCellEvents"));
 const Departments = lazy(() => import("./pages/Departments"));
 const Library = lazy(() => import("./pages/Library"));
 const Examinations = lazy(() => import("./pages/Examinations"));
@@ -294,6 +295,8 @@ const App = () => (
             <Route path="/paarc-cell" element={<CellDetail overrideId="paarcc" />} />
             <Route path="/paarc" element={<CellDetail overrideId="paarcc" />} />
             <Route path="/paarcc" element={<CellDetail overrideId="paarcc" />} />
+          <Route path="/paarc-cell-events" element={<PaarcCellEvents />} />
+          <Route path="/university/paarc-cell-events" element={<PaarcCellEvents />} />
 
             {/* Student Activity Center (SAC) */}
             <Route path="/student-activity-center-sac" element={<CellDetail overrideId="sac" />} />

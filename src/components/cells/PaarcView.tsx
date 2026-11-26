@@ -39,7 +39,7 @@ const documents = [
   { label: "PAARC Organization Chart", href: "https://mits.ac.in/public/uploads/paars/PAARC-ORGANIZATION CHART.pdf" },
   { label: "PAARC Flow Chart", href: "https://mits.ac.in/public/uploads/paars/1PAARC-Flow Chart-esign.pdf" },
   { label: "AISHE", href: "https://mits.ac.in/public/uploads/paars/AISHE-esign.pdf" },
-  { label: "Events", href: "https://mits.ac.in/assets/pdf/assoc/THE_Interdisciplinary_Science_Rankings_2027_MITS_Report.pdf" },
+  { label: "Events", href: "/university/paarc-cell-events" },
 ];
 
 const events = [
@@ -89,7 +89,7 @@ export default function PaarcView() {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartX, setDragStartX] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
-  const [activeTab, setActiveTab] = useState<number>(3); // AISHE active by default as shown in screenshot
+  const [activeTab, setActiveTab] = useState<number>(-1); // No tab highlighted by default
 
   const prevNotice = () => {
     setCurrentNoticeIndex((prev) => (prev === 0 ? officialNotices.length - 1 : prev - 1));
