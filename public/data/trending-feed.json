@@ -1,5 +1,27 @@
 [
   {
+    "id": "ig-396885484",
+    "url": "https://www.instagram.com/p/DgMY0g3x-wk/",
+    "rawImage": "https://curator-assets.b-cdn.net/1a6d1223-3ae3-46ea-8c39-adea5ff5e1d8/396885484.jpg?width=850",
+    "caption": "🏆✨ A PROUD MOMENT FOR MITS! MITS Deemed to be University, Madanapalle, has achieved an impressive 267th National Rank in the Business Today",
+    "date": "2026-11-26",
+    "isReel": false,
+    "pinned": false,
+    "order": 1,
+    "image": "/gallery/instagram/highlight-1.webp"
+  },
+  {
+    "id": "ig-396883095",
+    "url": "https://www.instagram.com/p/DgMJI_HhSsY/",
+    "rawImage": "https://curator-assets.b-cdn.net/1a6d1223-3ae3-46ea-8c39-adea5ff5e1d8/396883095.jpg?width=850",
+    "caption": "Celebrating Constitution Day of India! On 26 November, MITS Deemed to be University commemorates the adoption of the Indian Constitution, th",
+    "date": "2026-11-26",
+    "isReel": false,
+    "pinned": false,
+    "order": 2,
+    "image": "/gallery/instagram/highlight-2.webp"
+  },
+  {
     "id": "ig-396865455",
     "url": "https://www.instagram.com/reel/DgK6fxKtyae/",
     "rawImage": "https://curator-assets.b-cdn.net/1a6d1223-3ae3-46ea-8c39-adea5ff5e1d8/396865455.jpg?width=850",
@@ -7,8 +29,8 @@
     "date": "2026-11-25",
     "isReel": true,
     "pinned": false,
-    "order": 1,
-    "image": "/gallery/instagram/highlight-1.webp"
+    "order": 3,
+    "image": "/gallery/instagram/highlight-3.webp"
   },
   {
     "id": "ig-396854141",
@@ -18,8 +40,8 @@
     "date": "2026-11-25",
     "isReel": false,
     "pinned": false,
-    "order": 2,
-    "image": "/gallery/instagram/highlight-2.webp"
+    "order": 4,
+    "image": "/gallery/instagram/highlight-4.webp"
   },
   {
     "id": "ig-396851794",
@@ -29,8 +51,8 @@
     "date": "2026-11-25",
     "isReel": false,
     "pinned": false,
-    "order": 3,
-    "image": "/gallery/instagram/highlight-3.webp"
+    "order": 5,
+    "image": "/gallery/instagram/highlight-5.webp"
   },
   {
     "id": "ig-396848473",
@@ -40,8 +62,8 @@
     "date": "2026-11-25",
     "isReel": false,
     "pinned": false,
-    "order": 4,
-    "image": "/gallery/instagram/highlight-4.webp"
+    "order": 6,
+    "image": "/gallery/instagram/highlight-6.webp"
   },
   {
     "id": "ig-396835913",
@@ -51,8 +73,8 @@
     "date": "2026-11-24",
     "isReel": false,
     "pinned": false,
-    "order": 5,
-    "image": "/gallery/instagram/highlight-5.webp"
+    "order": 7,
+    "image": "/gallery/instagram/highlight-7.webp"
   },
   {
     "id": "ig-396821238",
@@ -62,8 +84,8 @@
     "date": "2026-11-24",
     "isReel": false,
     "pinned": false,
-    "order": 6,
-    "image": "/gallery/instagram/highlight-6.webp"
+    "order": 8,
+    "image": "/gallery/instagram/highlight-8.webp"
   },
   {
     "id": "ig-396818492",
@@ -73,8 +95,8 @@
     "date": "2026-11-24",
     "isReel": false,
     "pinned": false,
-    "order": 7,
-    "image": "/gallery/instagram/highlight-7.webp"
+    "order": 9,
+    "image": "/gallery/instagram/highlight-9.webp"
   },
   {
     "id": "ig-396812908",
@@ -82,28 +104,6 @@
     "rawImage": "https://curator-assets.b-cdn.net/1a6d1223-3ae3-46ea-8c39-adea5ff5e1d8/396812908.jpg?width=850",
     "caption": "Guru Nanak Jayanti – A Message of Humanity! On the occasion of Guru Nanak Jayanti, MITS Deemed to be University reflects on the timeless tea",
     "date": "2026-11-24",
-    "isReel": false,
-    "pinned": false,
-    "order": 8,
-    "image": "/gallery/instagram/highlight-8.webp"
-  },
-  {
-    "id": "ig-396719465",
-    "url": "https://www.instagram.com/p/Df_UmYjwaNU/",
-    "rawImage": "https://curator-assets.b-cdn.net/1a6d1223-3ae3-46ea-8c39-adea5ff5e1d8/396719465.jpg?width=850",
-    "caption": "AI Technology Workshop at MITS! The Department of Computer Science and Engineering, in association with MITS IIC and ISTE, organised a one-d",
-    "date": "2026-11-21",
-    "isReel": false,
-    "pinned": false,
-    "order": 9,
-    "image": "/gallery/instagram/highlight-9.webp"
-  },
-  {
-    "id": "ig-396693733",
-    "url": "https://www.instagram.com/p/Df9hUsMhhd3/",
-    "rawImage": "https://curator-assets.b-cdn.net/1a6d1223-3ae3-46ea-8c39-adea5ff5e1d8/396693733.jpg?width=850",
-    "caption": "Guest Lecture at MITS on Bridging Technology & Business for Effective Solutions! The Department of Computer Science and Engineering (Artific",
-    "date": "2026-11-20",
     "isReel": false,
     "pinned": false,
     "order": 10,
