@@ -51,6 +51,16 @@ export default function PaarcCellEvents() {
               MITS International ranking “Times Higher Education (THE) Interdisciplinary Science Rankings 2027”
             </Link>
           </li>
+          <li className="text-lg">
+            <Link
+              to="https://mits.ac.in/assets/pdf/assoc/MITS-Business%20Today%E2%80%93MDRA%20Best%20B-School%20Ranking%202026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              Business Today–MDRA Best B-School Ranking 2026
+            </Link>
+          </li>
         </ul>
 
       </section>
