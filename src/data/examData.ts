@@ -343,7 +343,7 @@ export const ugPracticalSecTimetables: ExamLink[] = [
   {
     no: 19,
     title: "Civil - B.Tech II Year I Semester (R25) Regular End Semester Practical Examinations November 2026",
-    href: "https://mits.ac.in/public/uploads/exam/Civil%20-%20B.Tech%20II%20Year%20I%20Semester%20(R25)%20Regular%20%20End%20Semester%20Practical%20Examinations%20-%20November%202026.pdf",
+    href: "https://mits.ac.in/public/uploads/exam/Civil%20-%20B.Tech%20II%20Year%20I%20Semester%20(R25)%20Regular%20End%20Semester%20Practical%20Examinations%20-%20November%202026.pdf",
     kind: "pdf",
   },
   {
