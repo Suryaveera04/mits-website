@@ -117,7 +117,7 @@ const LeadershipProfilePage = () => {
           {profile.highlights && profile.highlights.length > 0 && (
             <div>
               <h2 className="text-2xl font-bold text-secondary mb-4 font-display pb-2 border-b border-border">
-                Recognitions & Highlights
+                {profile.highlightsTitle || "Recognitions & Highlights"}
               </h2>
               <ul className="grid sm:grid-cols-2 gap-3">
                 {profile.highlights.map((h, i) => (
