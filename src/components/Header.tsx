@@ -159,7 +159,7 @@ const Header = () => {
             </Link>
             {/* Blue Box Autonomous Institution Link */}
             <a
-              href="https://mits.ac.in/ugc-autonomous"
+              href="https://mitscloud.in/autonomous"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#005bb5] hover:bg-[#004994] text-white text-xs sm:text-xs font-bold px-2.5 sm:px-3 py-1 rounded-md shadow-xs hover:shadow transition-all flex items-center gap-1.5 shrink-0 border border-blue-300/30 tracking-wide"
