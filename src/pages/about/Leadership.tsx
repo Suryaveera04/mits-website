@@ -25,11 +25,11 @@ const Leadership = () => {
               to={`/about/leadership/${p.slug}`}
               className="group block bg-card border border-border rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative">
+              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl">
                 <img
                   src={p.image}
                   alt={p.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =
                       "https://mits.ac.in/images/inner-banner.jpg";
