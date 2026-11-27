@@ -29,11 +29,11 @@ const AcademicLeadership = () => {
               to={`/about/leadership/${vc.slug}`}
               className="group block bg-white border border-border rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col"
             >
-              <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative">
+              <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative flex items-center justify-center">
                 <img
                   src={vc.image}
                   alt={vc.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-[50%] h-[50%] object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =
                       "https://mits.ac.in/images/inner-banner.jpg";
@@ -78,11 +78,11 @@ const AcademicLeadership = () => {
               to={`/about/leadership/${registrar.slug}`}
               className="group block bg-white border border-border rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col"
             >
-              <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative">
+              <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative flex items-center justify-center">
                 <img
                   src={registrar.image}
                   alt={registrar.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-[50%] h-[50%] object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =
                       "https://mits.ac.in/images/inner-banner.jpg";
@@ -123,11 +123,11 @@ const AcademicLeadership = () => {
           transition={{ duration: 0.45, delay: 0.12 }}
         >
           <div className="block bg-white border border-border rounded-2xl overflow-hidden h-full flex flex-col select-none">
-            <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative">
+            <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative flex items-center justify-center">
               <img
                 src="https://mits.ac.in/images/prathiba.jpeg"
                 alt="Additional Registrar"
-                className="w-full h-full object-cover object-top"
+                className="w-[50%] h-[50%] object-cover object-center"
               />
               <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent" />
               <div className="absolute bottom-3 left-4 right-4 text-white">
@@ -161,11 +161,11 @@ const AcademicLeadership = () => {
               to={`/about/leadership/${principal.slug}`}
               className="group block bg-white border border-border rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col"
             >
-              <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative">
+              <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative flex items-center justify-center">
                 <img
                   src={principal.image}
                   alt={principal.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-[50%] h-[50%] object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =
                       "https://mits.ac.in/images/inner-banner.jpg";
@@ -210,11 +210,11 @@ const AcademicLeadership = () => {
               to={`/about/leadership/${coe.slug}`}
               className="group block bg-white border border-border rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col"
             >
-              <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative">
+              <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative flex items-center justify-center">
                 <img
                   src={coe.image}
                   alt={coe.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-[50%] h-[50%] object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =
                       "https://mits.ac.in/images/inner-banner.jpg";
@@ -259,11 +259,11 @@ const AcademicLeadership = () => {
               to={`/about/leadership/${ombudsperson.slug}`}
               className="group block bg-white border border-border rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col"
             >
-              <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative">
+              <div className="aspect-[4/5] bg-secondary/5 overflow-hidden relative flex items-center justify-center">
                 <img
                   src={ombudsperson.image}
                   alt="OMBUDSPERSON"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-[50%] h-[50%] object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =
                       "https://mits.ac.in/images/inner-banner.jpg";
