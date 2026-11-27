@@ -92,7 +92,7 @@ const LeadershipProfilePage = () => {
             <div className="relative bg-gradient-to-br from-primary/5 via-white to-amber-500/5 border-l-4 border-primary p-6 md:p-8 rounded-r-2xl shadow-xs space-y-3">
               <div className="flex items-center gap-2 text-primary font-bold text-lg font-display">
                 <Quote className="w-5 h-5" />
-                <h3>{profile.designation.includes("Chancellor") ? "Chancellor's Message:" : "Leadership Message:"}</h3>
+                <h3>{profile.slug === "vice-chancellor" ? "Building world-class research ecosystems and advancing transnational education" : profile.designation.includes("Chancellor") ? "Chancellor's Message:" : "Leadership Message:"}</h3>
               </div>
               <p className="text-base md:text-lg italic text-secondary/90 leading-relaxed pt-1">
                 "{profile.message}"
