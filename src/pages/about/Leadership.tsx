@@ -12,7 +12,7 @@ const Leadership = () => {
       eyebrow="About"
       title="Institutional Leadership"
     >
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {profiles.map((p, i) => (
           <motion.div
             key={p.slug}
@@ -37,7 +37,7 @@ const Leadership = () => {
                 />
                 <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
-              <div className="p-6">
+              <div className="p-4">
                 <h3
                   className="text-lg font-bold text-[#0f2a44] group-hover:text-[#caa74d] transition-colors"
                   style={{ fontFamily: "var(--font-display)" }}
@@ -47,8 +47,8 @@ const Leadership = () => {
                 {p.qualification && (
                   <p className="text-sm text-secondary/70 mt-1">{p.qualification}</p>
                 )}
-                <p className="mt-3 text-sm uppercase tracking-wide text-muted-foreground">{p.designation}</p>
-                <div className="mt-4">
+                <p className="mt-2 text-sm uppercase tracking-wide text-muted-foreground">{p.designation}</p>
+                <div className="mt-3">
                   <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
                     View profile <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                   </span>

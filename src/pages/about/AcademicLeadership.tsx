@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import PageShell from "@/components/about/PageShell";
@@ -16,7 +16,7 @@ const AcademicLeadership = () => {
       eyebrow="About"
       title="Academic Leadership"
     >
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {/* 1. Vice-Chancellor */}
         {vc && (
           <motion.div
@@ -46,7 +46,7 @@ const AcademicLeadership = () => {
                   </p>
                 </div>
               </div>
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
                   <h3
                     className="text-lg font-bold text-[#0f2a44] group-hover:text-[#caa74d] transition-colors"
@@ -58,7 +58,7 @@ const AcademicLeadership = () => {
                     <p className="text-sm text-secondary/60 mt-1">{vc.qualification}</p>
                   )}
                 </div>
-                <span className="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-primary">
+                <span className="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-primary">
                   View profile <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
@@ -95,7 +95,7 @@ const AcademicLeadership = () => {
                   </p>
                 </div>
               </div>
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
                   <h3
                     className="text-lg font-bold text-[#0f2a44] group-hover:text-[#caa74d] transition-colors"
@@ -107,7 +107,7 @@ const AcademicLeadership = () => {
                     <p className="text-sm text-secondary/60 mt-1">{registrar.qualification}</p>
                   )}
                 </div>
-                <span className="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-primary">
+                <span className="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-primary">
                   View profile <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
@@ -136,7 +136,7 @@ const AcademicLeadership = () => {
                 </p>
               </div>
             </div>
-            <div className="p-5 flex-1 flex flex-col justify-between">
+            <div className="p-4 flex-1 flex flex-col justify-between">
               <div>
                 <h3
                   className="text-lg font-bold text-[#0f2a44]"
@@ -178,7 +178,7 @@ const AcademicLeadership = () => {
                   </p>
                 </div>
               </div>
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
                   <h3
                     className="text-lg font-bold text-[#0f2a44] group-hover:text-[#caa74d] transition-colors"
@@ -190,7 +190,7 @@ const AcademicLeadership = () => {
                     <p className="text-sm text-secondary/60 mt-1">{principal.qualification}</p>
                   )}
                 </div>
-                <span className="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-primary">
+                <span className="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-primary">
                   View profile <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
@@ -227,7 +227,7 @@ const AcademicLeadership = () => {
                   </p>
                 </div>
               </div>
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
                   <h3
                     className="text-lg font-bold text-[#0f2a44] group-hover:text-[#caa74d] transition-colors"
@@ -239,7 +239,7 @@ const AcademicLeadership = () => {
                     <p className="text-sm text-secondary/60 mt-1">{coe.qualification}</p>
                   )}
                 </div>
-                <span className="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-primary">
+                <span className="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-primary">
                   View profile <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
@@ -276,7 +276,7 @@ const AcademicLeadership = () => {
                   </p>
                 </div>
               </div>
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
                   <h3
                     className="text-lg font-bold text-[#0f2a44] group-hover:text-[#caa74d] transition-colors"
@@ -285,7 +285,7 @@ const AcademicLeadership = () => {
                     OMBUDSPERSON
                   </h3>
                 </div>
-                <span className="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-primary">
+                <span className="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-primary">
                   View profile <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
