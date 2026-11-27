@@ -50,7 +50,7 @@ export const psdSections: PsdSection[] = [
     rows: [
       { subject: "Chancellor", details: "Dr. N. Vijaya Bhaskar Choudary", category: "Leadership", actions: [{ label: "View Profile", href: "/about/leadership/chancellor", internal: true }] },
       { subject: "Pro Chancellor", details: "Sri. N. Dwarakanath Naidu", category: "Leadership", actions: [{ label: "View Profile", href: "/about/leadership/pro-chancellor", internal: true }] },
-      { subject: "Vice-Chancellor", details: "Dr. C. Yuvaraj", category: "Leadership", actions: [{ label: "View Profile", href: "/about/leadership/vice-chancellor", internal: true }] },
+      { subject: "Vice-Chancellor", details: "Prof. Saraju P. Mohanty", category: "Leadership", actions: [{ label: "View Profile", href: "/about/leadership/vice-chancellor", internal: true }] },
       { subject: "Registrar", details: "Dr. D. Pradeep Kumar", category: "Leadership", actions: [{ label: "View Profile", href: "/about/leadership/registrar", internal: true }] },
       { subject: "Principal (MITS Autonomous)", details: "Dr. P. Ramanathan", category: "Leadership", actions: [{ label: "View Profile", href: "/about/leadership/principal", internal: true }] },
       { subject: "Finance Officer", details: "Mr. Anil Kumar P", category: "Leadership", actions: [int("/about/leadership")] },
