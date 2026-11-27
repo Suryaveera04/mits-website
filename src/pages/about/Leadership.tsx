@@ -25,7 +25,7 @@ const Leadership = () => {
               to={`/about/leadership/${p.slug}`}
               className="group block bg-card border border-border rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl">
+              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl p-2">
                 <img
                   src={p.image}
                   alt={p.name}

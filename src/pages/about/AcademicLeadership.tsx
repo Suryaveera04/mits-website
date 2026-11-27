@@ -29,7 +29,7 @@ const AcademicLeadership = () => {
               to={`/about/leadership/${vc.slug}`}
               className="group block bg-white border border-border rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col"
             >
-              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl">
+              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl p-2">
                 <img
                   src={vc.image}
                   alt={vc.name}
@@ -78,7 +78,7 @@ const AcademicLeadership = () => {
               to={`/about/leadership/${registrar.slug}`}
               className="group block bg-white border border-border rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col"
             >
-              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl">
+              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl p-2">
                 <img
                   src={registrar.image}
                   alt={registrar.name}
@@ -123,7 +123,7 @@ const AcademicLeadership = () => {
           transition={{ duration: 0.45, delay: 0.12 }}
         >
           <div className="block bg-white border border-border rounded-2xl overflow-hidden h-full flex flex-col select-none">
-            <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl">
+            <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl p-2">
               <img
                 src="https://mits.ac.in/images/prathiba.jpeg"
                 alt="Additional Registrar"
@@ -161,7 +161,7 @@ const AcademicLeadership = () => {
               to={`/about/leadership/${principal.slug}`}
               className="group block bg-white border border-border rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col"
             >
-              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl">
+              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl p-2">
                 <img
                   src={principal.image}
                   alt={principal.name}
@@ -210,7 +210,7 @@ const AcademicLeadership = () => {
               to={`/about/leadership/${coe.slug}`}
               className="group block bg-white border border-border rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col"
             >
-              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl">
+              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl p-2">
                 <img
                   src={coe.image}
                   alt={coe.name}
@@ -259,7 +259,7 @@ const AcademicLeadership = () => {
               to={`/about/leadership/${ombudsperson.slug}`}
               className="group block bg-white border border-border rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col"
             >
-              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl">
+              <div className="w-48 h-60 mx-auto bg-secondary/5 overflow-hidden relative rounded-2xl p-2">
                 <img
                   src={ombudsperson.image}
                   alt="OMBUDSPERSON"
