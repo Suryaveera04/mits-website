@@ -90,10 +90,12 @@ const LeadershipProfilePage = () => {
           {/* Message Box (e.g. Chancellor's Message) */}
           {profile.message && (
             <div className="relative bg-gradient-to-br from-primary/5 via-white to-amber-500/5 border-l-4 border-primary p-6 md:p-8 rounded-r-2xl shadow-xs space-y-3">
-              <div className="flex items-center gap-2 text-primary font-bold text-lg font-display">
-                <Quote className="w-5 h-5" />
-                <h3>{profile.slug === "vice-chancellor" ? "Building world-class research ecosystems and advancing transnational education" : profile.designation.includes("Chancellor") ? "Chancellor's Message:" : "Leadership Message:"}</h3>
-              </div>
+              {profile.slug !== "vice-chancellor" && (
+                <div className="flex items-center gap-2 text-primary font-bold text-lg font-display">
+                  <Quote className="w-5 h-5" />
+                  <h3>{profile.designation.includes("Chancellor") ? "Chancellor's Message:" : "Leadership Message:"}</h3>
+                </div>
+              )}
               <p className="text-base md:text-lg italic text-secondary/90 leading-relaxed pt-1">
                 "{profile.message}"
               </p>
@@ -137,13 +139,37 @@ const LeadershipProfilePage = () => {
           {profile.sections && profile.sections.length > 0 && (
             <div className="space-y-8 pt-4">
               {profile.sections.map((section, idx) => (
-                <div key={idx} className="bg-white border border-border rounded-2xl p-6 shadow-xs space-y-4">
-                  <h3 className="text-xl font-bold text-secondary font-display flex items-center gap-2 border-b border-border pb-3">
-                    <GraduationCap className="w-5 h-5 text-primary" />
-                    <span>{section.title}</span>
-                  </h3>
+                <div key={idx} className={`${section.title ? "bg-white border border-border rounded-2xl p-6 shadow-xs" : "pt-2"} space-y-4`}>
+                  {section.title && (
+                    <h3 className="text-xl font-bold text-secondary font-display flex items-center gap-2 border-b border-border pb-3">
+                      <GraduationCap className="w-5 h-5 text-primary" />
+                      <span>{section.title}</span>
+                    </h3>
+                  )}
 
-                  {Array.isArray(section.content) && section.content.length > 0 && typeof section.content[0] === "object" ? (
+                  {/* Paragraph + Signature block (e.g. VC closing section) */}
+                  {!Array.isArray(section.content) && typeof section.content === "object" && section.content.paragraphs ? (
+                    <div className="space-y-4">
+                      <div className="space-y-4 text-secondary/85 text-base leading-[1.8] text-justify">
+                        {section.content.paragraphs.map((p: string, pIdx: number) => (
+                          <p key={pIdx}>{p}</p>
+                        ))}
+                      </div>
+                      {section.content.signature && (
+                        <div className="flex justify-end pt-6">
+                          <div className="text-right space-y-0.5">
+                            <p className="text-primary font-bold text-base">{section.content.signature.name}</p>
+                            <p className="text-primary font-bold text-sm">{section.content.signature.designation}</p>
+                            {section.content.signature.email && (
+                              <a href={`mailto:${section.content.signature.email}`} className="text-primary text-sm font-medium hover:underline block">
+                                {section.content.signature.email}
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : Array.isArray(section.content) && section.content.length > 0 && typeof section.content[0] === "object" ? (
                     <div className="overflow-x-auto">
                       <table className="w-full text-left text-sm border-collapse">
                         <thead>

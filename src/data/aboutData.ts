@@ -98,7 +98,6 @@ export const leadershipProfiles: Record<string, LeadershipProfile> = {
     bio: [
       "Dr. Mohanty has made foundational contributions to Smart Cities, IoT Security, Energy-Efficient Systems, and AI-integrated electronics. He has published over 600 peer-reviewed research papers, authored five books, and holds four U.S. patents. His research has attracted over 19,000 citations with an h-index of 68, reflecting his sustained scholarly impact. A committed global leader, Prof. Mohanty has directed 34 funded research projects worth over US$4 million, collaborating with U.S. federal agencies, industry partners, and international institutions. He is the Founding Director of the Smart Electronic Systems Lab (SESL) at UNT, where he has mentored dozens of graduate students and postdoctoral researchers. Prof. Mohanty served as Editor-in-Chief of the prestigious IEEE Consumer Electronics Magazine (2016–2021), during which he led its transformation—raising its impact factor, readership, and financial sustainability. Under his leadership, the magazine achieved a surplus of $150K and an impact factor over 4, establishing it as a flagship publication in its domain. He is the Founding Chair of several international conferences and technical committees, including the IEEE International Symposium on Smart Electronic Systems (iSES) and the IEEE-CS Technical Committee on VLSI (TCVLSI). He has chaired major IEEE conferences globally, including the IEEE ICCE and IFIP-IoT series, fostering academic-industry collaborations and research dissemination.",
       "Prof. Mohanty’s research on Smart Cities—particularly his widely cited article “Everything You Wanted to Know About Smart Cities: The Internet of Things is the Backbone”—has been globally referenced, including in Wikipedia. He has delivered keynotes across five continents, including at CES 2019, and participated in expert panels on cybersecurity, digital infrastructure, and AI for societal development.",
-      "He has also been instrumental in capacity building in India, nurturing conferences like OCIT, and supporting the development of premier institutions in Bhubaneswar such as IIT and IIIT. A strategic thinker with a passion for institution building, Prof. Mohanty combines academic rigor with administrative excellence. He is actively involved in global advisory boards, editorial boards, and international education reform aligned with India’s National Education Policy (NEP 2020). His mission is to empower the next generation of researchers and transform universities into globally ranked, innovation-driven institutions.",
     ],
     highlightsTitle: "Notable Awards and Honours",
     highlights: [
@@ -119,6 +118,20 @@ export const leadershipProfiles: Record<string, LeadershipProfile> = {
           "M.Eng. in Systems Science and Automation from the Indian Institute of Science (IISc), Bangalore",
           "B.Tech. (Hons.) in Electrical Engineering from Orissa University of Agriculture and Technology (OUAT), India",
         ],
+      },
+      {
+        title: "",
+        content: {
+          paragraphs: [
+            "He has also been instrumental in capacity building in India, nurturing conferences like OCIT, and supporting the development of premier institutions in Bhubaneswar such as IIT and IIIT.",
+            "A strategic thinker with a passion for institution building, Prof. Mohanty combines academic rigor with administrative excellence. He is actively involved in global advisory boards, editorial boards, and international education reform aligned with India's National Education Policy (NEP 2020). His mission is to empower the next generation of researchers and transform universities into globally ranked, innovation-driven institutions.",
+          ],
+          signature: {
+            name: "Prof. Saraju P. Mohanty",
+            designation: "Vice-Chancellor",
+            email: "vicechancellor@mits.ac.in",
+          },
+        },
       },
     ],
     email: "vicechancellor@mits.ac.in",
