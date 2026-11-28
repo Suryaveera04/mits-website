@@ -438,10 +438,9 @@ export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
                 {/* Embedded High-Resolution PDF Iframe */}
                 <iframe
                   key={activeSupervisorDept.pdfUrl}
-                  src={activeSupervisorDept.pdfUrl}
+                  src={encodeURI(activeSupervisorDept.pdfUrl)}
                   title={`${activeSupervisorDept.heading} - ${activeSupervisorDept.name}`}
                   className="research-pdf-iframe"
-                  loading="lazy"
                 />
 
                 {/* Mobile & Tablet Fallback helper */}
@@ -462,67 +461,6 @@ export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
                 </div>
               </div>
             ) : activeSession !== "research-areas" ? (
-              <ul className="courses-tab-list">
-                {PHD_SYLLABUS_DEPARTMENTS.map((dept) => {
-                  const isSelected = activeSyllabusId === dept.id;
-                  return (
-                    <li key={dept.id} className="courses-tab-item">
-                      <button
-                        type="button"
-                        onClick={() => setActiveSyllabusId(dept.id)}
-                        className={`courses-tab-btn ${isSelected ? "active" : ""}`}
-                        aria-selected={isSelected}
-                      >
-                        <div className="tab-left-content">
-                          <div className="tab-icon-wrap">
-                            {getDeptIcon(dept.iconName, 18)}
-                          </div>
-                          <div className="tab-text-wrap">
-                            <span className="tab-dept-name">{dept.name}</span>
-                            {dept.subname && (
-                              <span className="tab-dept-subname">{dept.subname}</span>
-                            )}
-                          </div>
-                        </div>
-                        <ChevronRight size={16} className="tab-chevron" />
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              /* If in Research Areas mode */
-              <ul className="courses-tab-list">
-                {RESEARCH_AREAS_DEPARTMENTS.map((dept) => {
-                  const isSelected = activeResearchDeptId === dept.id;
-                  return (
-                    <li key={dept.id} className="courses-tab-item">
-                      <button
-                        type="button"
-                        onClick={() => setActiveResearchDeptId(dept.id)}
-                        className={`courses-tab-btn ${isSelected ? "active" : ""}`}
-                        aria-selected={isSelected}
-                      >
-                        <div className="tab-left-content">
-                          <div className="tab-icon-wrap">
-                            {getDeptIcon(dept.iconName, 18)}
-                          </div>
-                          <div className="tab-text-wrap">
-                            <span className="tab-dept-name">{dept.name}</span>
-                          </div>
-                        </div>
-                        <ChevronRight size={16} className="tab-chevron" />
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-          </div>
-
-          {/* ════ RIGHT COLUMN: CONTENT PANE ════ */}
-          <div className="rearch-right">
-            {activeSession !== "research-areas" ? (
               /* ── SYLLABUS PDF EMBED PANE ── */
               <div className="research-box">
                 <div className="research-box-header">
@@ -558,10 +496,9 @@ export default function PhdAdmissions({ initialView }: PhdAdmissionsProps) {
                 {/* Embedded High-Resolution PDF Iframe */}
                 <iframe
                   key={activeSyllabus.pdfUrl}
-                  src={activeSyllabus.pdfUrl}
+                  src={encodeURI(activeSyllabus.pdfUrl)}
                   title={activeSyllabus.heading}
                   className="research-pdf-iframe"
-                  loading="lazy"
                 />
 
                 {/* Mobile & Tablet Fallback helper */}
